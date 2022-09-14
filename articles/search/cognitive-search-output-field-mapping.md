@@ -26,9 +26,9 @@ This article explains how to set up *output field mappings* that determine a dat
 ],
 ```
 
-In contrast with a ["fieldMappings" definition](search-indexer-field-mappings.md) that maps a path between two physical data structures, an "outputFieldMappings" definition maps in-memory data to fields in a search index.
+In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definition that maps a path between two physical data structures, an `outputFieldMappings` definition maps in-memory data to fields in a search index.
 
-Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as translated strings or key phrases. During indexer execution, AI-generated information exists in memory. To persist this information in a search index, you'll need to tell the indexer where to send the data.
+Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
 Output field mappings can also be used to flatten nested data structures during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
 
@@ -38,7 +38,7 @@ Output field mappings apply to:
 
 + Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-Output field mappings always occur after [skillset execution](cognitive-search-working-with-skillsets.md), although it is possible for this stage to run even if no skillset is defined.
+Output field mappings always occur after [skillset execution](cognitive-search-working-with-skillsets.md), although it's possible for this stage to run even if no skillset is defined.
 
 <!-- 
 The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). 
@@ -51,9 +51,9 @@ Examples of output field mapping scenarios:
 
 * **Content extraction.** You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You'd like to get to a node on that complex type and map it into a field in your index. -->
 
-## Set up an `outputFieldMappings` array
+## Define an output field mapping
 
-Output field mappings are added to the "outputFieldMappings" array in an indexer definition, typically placed after the "filedMappings" array. An output field mapping consists of three parts.
+Output field mappings are added to the `outputFieldMappings` array in an indexer definition, typically placed after the `fieldMappings` array. An output field mapping consists of three parts.
 
 ```json
 "fieldMappings": []
@@ -68,8 +68,8 @@ Output field mappings are added to the "outputFieldMappings" array in an indexer
 
 | Property | Description |
 |----------|-------------|
-| "sourceFieldName" | Required. Specifies a path to enriched content |
-|  "targetFieldName" | Optional. Specifies the search field that receives the enriched content|
+| "sourceFieldName" | Required. Specifies a path to enriched content. See [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax. |
+|  "targetFieldName" | Optional. Specifies the search field that receives the enriched content. This is always a single top-level field or a collection. |
 | "mappingFunction" | Optional. Adds extra processing provided by [search-indexer-field-mappings.md#predefined functions](#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
 
 You can use the REST API or an Azure SDK to define output field mappings.
@@ -157,7 +157,7 @@ More concretely, for the ```/document/content/organizations/*/description``` exa
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-This is an important principle, so we will provide another example. Imagine that you have an array of complex types as part of the enrichment tree. Let's say there is a member called customEntities that has an array of complex types like the one described below.
+This is an important principle, so we'll provide another example. Imagine that you have an array of complex types as part of the enrichment tree. Let's say there's a member called customEntities that has an array of complex types like the one described below.
 
 ```json
 {

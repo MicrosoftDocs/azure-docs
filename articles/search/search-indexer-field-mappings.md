@@ -22,23 +22,23 @@ If inputs and outputs don't match, you can define explicit *field mappings* to s
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (that is, between a [supported data source](search-indexer-overview.md#supported-data-sources) and a search index). If you're importing enriched content created by skills, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
++ Physical data structures on both sides of the data stream (that is, between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing enriched content created by skills, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
 
-+ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
++ Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-+ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. If you need to establish a data path to subfields in a complex type (such as mapping to `address/city`), see [this workaround using outputFieldMappings](cognitive-search-output-field-mapping.md).
++ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. If you're working with complex data (nested or hierarchical structures), see [outputFieldMappings](cognitive-search-output-field-mapping.md) for workarounds.
 
 ## Supported scenarios
 
 | Use-case | Description |
 |----------|-------------|
-| Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>If your indexing requirements includes retrieving content from multiple data sources, where field names vary among the sources,you could use a field mapping to clarify the path.|
+| Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>If your indexing requirements include retrieving content from multiple data sources, where field names vary among the sources, you could use a field mapping to clarify the path.|
 | Type discrepancy | Supposed you want a source integer field to be of type `Edm.String` so that it's searchable in the search index. Because the types are different, you'll need to define a field mapping in order for the data path to succeed. Note that Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.|
 | One-to-many data paths | You can populate multiple fields in the index with content from the same source field. For example, you might want to apply different analyzers to each field to support different use cases in your client app.|
 | Encoding and decoding | You can apply [mapping functions](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
 | Split strings or recast arrays into collections | You can apply [mapping functions](#mappingFunctions) to split a string that includes a delimiter, or to send a JSON array to a search field of type `Collection(Edm.String)`.
 
-## Set up a `fieldMappings` array
+## Define a field mapping
 
 Field mappings are added to the "fieldMappings" array of an indexer definition. A field mapping consists of three parts.
 
@@ -163,7 +163,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 
 #### Example: Make a base-encoded field "searchable"
 
-There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an un-encoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
+There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an unencoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
 
 ```http
 PUT /indexers/blob-indexer?api-version=2020-06-30
@@ -226,7 +226,7 @@ Your source data might contain Base64-encoded strings, such as blob metadata str
 
 If you don't include a parameters property, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
+Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more information, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64details"></a>
 
@@ -239,11 +239,11 @@ If the `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDeco
 > [!WARNING]
 > If `base64Encode` is used to produce key values, `useHttpServerUtilityUrlTokenEncode` must be set to true. Only URL-safe base64 encoding can be used for key values. See [Naming rules](/rest/api/searchservice/naming-rules) for the full set of restrictions on characters in key values.
 
-The .NET libraries in Azure Cognitive Search assume the full .NET Framework, which provides built-in encoding. The `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` options leverage this built-in functionality. If you're using .NET Core or another framework, we recommend setting those options to `false` and calling your framework's encoding and decoding functions directly.
+The .NET libraries in Azure Cognitive Search assume the full .NET Framework, which provides built-in encoding. The `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` options apply this built-in functionality. If you're using .NET Core or another framework, we recommend setting those options to `false` and calling your framework's encoding and decoding functions directly.
 
 The following table compares different base64 encodings of the string `00>00?00`. To determine the required processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
 
-| Encoding | Base64 encode output | Additional processing after library encoding | Additional processing before library decoding |
+| Encoding | Base64 encode output | Extra processing after library encoding | Extra processing before library decoding |
 | --- | --- | --- | --- |
 | Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding | Use standard base64 characters and add padding |
 | Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters | Use standard base64 characters |
