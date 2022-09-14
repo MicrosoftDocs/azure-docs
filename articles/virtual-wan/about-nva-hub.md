@@ -2,11 +2,10 @@
 title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
-services: virtual-wan
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 09/14/2022
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -32,7 +31,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 > [!IMPORTANT]
 > To ensure you get the best support for this integrated solution, make sure you have similar levels of support entitlement with both Microsoft and your Network Virtual Appliance provider.
 
-## <a name ="partner"></a> Partners
+## Partners
 
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
@@ -87,11 +86,11 @@ NVA Partners may create different resources depending on their appliance deploym
 
 ### Managed resource group permissions
 
-By default, all managed resource groups have an deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+By default, all managed resource groups have a deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
 
 However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
 
-Permissions on resources in existing managed resource groups are not dynamically updated as new permitted actions are added by partners and require a manual refresh.
+Permissions on resources in existing managed resource groups aren't dynamically updated as new permitted actions are added by partners and require a manual refresh.
 
 To refresh permissions on the managed resource groups, customers can leverage the [Refresh Permissions REST API ](/rest/api/managedapplications/applications/refresh-permissions).
 
