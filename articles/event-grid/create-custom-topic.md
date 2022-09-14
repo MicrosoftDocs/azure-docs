@@ -10,7 +10,7 @@ ms.custom: mode-ui
 This article shows how to create a custom topic or a domain in Azure Event Grid. 
 
 ## Prerequisites
-If you new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
+If you're new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
