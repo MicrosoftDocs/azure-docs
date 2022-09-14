@@ -12,7 +12,9 @@ ms.custom: template-how-to
 
 # Manage network slices - Azure portal
 
-*Network slices* allow you to multiplex independent logical networks on the same Azure Private 5G Core deployment.
+*Network slices* allow you to multiplex independent logical networks on the same Azure Private 5G Core deployment. Slices are associated with SIM policies and static IP addresses. You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
+
+In this how-to guide, you'll learn how to view, create, modify, and delete network slices using the Azure portal.
 
 ## Prerequisites
 
@@ -41,8 +43,8 @@ Collect the values in the following table for the slice you want to provision.
    |Value  |Field name in Azure portal  |
    |---------|---------|
    | The name for the slice. | **Slice name** |
-   | | **Slice Service Type (SST)** |
-   | | **Slice Differentiator (SD)** |
+   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. </br></br>You can choose to use any of the following standard values, as specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT.</br>4 - V2X. This is a slice suitable for the handling of V2X services.</br>5 - HMTC. This is a slice suitable for the handling of high-performance machine-type communications. </br></br>You can also choose to use a non-standard value. | **Slice Service Type (SST)** |
+   | The slice differentiator value. This setting is optional and can be used to differentiate between multiple network slices that have the same slice/service type value. | **Slice Differentiator (SD)** |
 
 ## Create a network slice
 
@@ -66,11 +68,20 @@ You must [collect the required information for your slice](#collect-the-required
 
 ## Modify a network slice
 
-Collect the required information for your slice before modifying it.
+Refer to [Collect the required information for your slice](#collect-the-required-information-for-your-slice) for the slice features you can modify.
+
+1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
+1. Select the checkbox next to the slice you're interested in and select **Modify the selected slice**.
+    <!-- TODO: add screenshot -->
+1. Make the required changes and select **Modify**.
+    <!-- TODO: add screenshot -->
+1. Confirm ...
 
 ## Delete a network slice
 
-You can delete network slices through the Azure portal. Slices can't be deleted if they're associated with a SIM policy or a static IP address.
+You can delete network slices through the Azure portal. A slice can't be deleted if it's associated with a SIM policy or a static IP address. If you have a 4G site deployed in your mobile network, you can't delete the slice configured with SST value of 1 and empty SD.
+
+To delete a network slice:
 
 1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
 1. Select the checkbox next to each slice you want to delete.
