@@ -30,10 +30,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 - 4 GB of RAM
 - **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
-
-  >[!NOTE]
-  > Hybrid Runbook Worker currently doesn't support Virtual Machine Scale Sets (VMSS).
-
+ 
 ### Supported operating systems
 
 | Windows | Linux (x64)|
@@ -60,6 +57,9 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 | Optional package | Description | Minimum version |
 | --------------------- | --------------------- | ------------------- |
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
+
+> [!NOTE]
+> Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
 
 ## Network requirements
 
