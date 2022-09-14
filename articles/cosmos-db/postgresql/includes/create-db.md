@@ -23,7 +23,7 @@ Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServ
 # [Via portal search](#tab/portal-search)
 
 1. Visit the [Azure portal](https://portal.azure.com/) and search for
-   **citus**. Select **Azure Database for PostgreSQL Hyperscale (Citus)**.
+   **citus**. Select **Azure Cosmos DB for PostgreSQL**.
 ![search for citus](media/quickstart-create-portal/portal-search.png)
    ![search for citus](media/quickstart-create-portal/portal-search.png)
 2. Select **+ Create**.

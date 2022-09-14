@@ -1,6 +1,6 @@
 ---
 title: Multi-tenant database - Azure Cosmos DB for PostgreSQL
-description: Learn how to design a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
+description: Learn how to design a scalable multi-tenant application with Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
