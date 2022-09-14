@@ -32,8 +32,6 @@ In this tutorial you'll learn how to:
 
 `az login`
 
-:::image type="content" source="media/tutorial-set-data-encryption-CLI-mysql-flexible-server/az-login.png" alt-text="Screenshot of az login.":::
-
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the az account set command.
 
 `az account set --subscription \<subscription id\>`
@@ -70,11 +68,7 @@ Set or change key and identity for data encryption
 
 `az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity`
 
-Set or change key, identity, backup key and backup identity for data encryption with geo redundant backup
-
-`az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity \\  --backup-key \<key identifier of newBackupKey\> --backup-identity newBackupIdentity`
-
-Disable data encryption for flexible server
+**Disable data encryption for flexible server**
 
 `az mysql flexible-server update --resource-group testGroup --name testserver --disable-data-encryption`
 
