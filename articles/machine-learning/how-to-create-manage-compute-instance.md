@@ -137,7 +137,7 @@ Where the file *create-instance.yml* is:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).inel
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
     * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [configure auto-stop](#configure-auto-stop-preview) for more details.
@@ -173,8 +173,8 @@ Note that activity on custom applications installed on the compute instance is n
 This setting can be configured during CI creation or for existing CIs via the following interfaces:
 * AzureML Studio
     
-    :::image type="content" source="media/how-to-create-attach-studio/idle_shutdown_advanced_settings.jpg" alt-text="Create compute instance with idle shutdown":::
-    :::image type="content" source="media/how-to-create-attach-studio/idle_shutdown_update.jpg" alt-text="Update existing compute instance with idle shutdown":::
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-advanced-settings.jpg" alt-text="Screenshot of the Advanced Settings page for creating a compute instance":::
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-update.jpg" alt-text="Screenshot of the compute instance details page showing how to update an existing compute instance with idle shutdown":::
 
 * REST API
 
