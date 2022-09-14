@@ -1022,6 +1022,46 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ## Web Activity  
 
+### Error Code: 2001
+
+- **Message**: `The length of execution output is over limit (around 4MB currently).`
+
+- **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
+
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](https://docs.microsoft.com/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+
+### Error Code: 2002
+
+- **Message**: `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+- **Cause**: The payload you are attempting to send is too large.
+
+- **Recommendation**: Refer to [Payload is too large](data-factory-troubleshoot-guide.md#payload-is-too-large).
+
+### Error Code: 2003
+
+- **Message**: `There are substantial concurrent external activity executions which is causing failures due to throttling under subscription <subscription id>, region <region code> and limitation <current limit>. Please reduce the concurrent executions. For limits, refer https://aka.ms/adflimits.`
+
+- **Cause**: Too many activities are running concurrently. This can happen when too many pipelines are triggered at once.
+
+- **Recommendation**: Reduce pipeline concurrency. You might have to distribute the trigger time of your pipelines.  
+
+### Error Code: 2010
+
+- **Message**: `The Self-hosted Integration Runtime ‘<SHIR name>’ is offline`
+
+- **Cause**: The self-hosted integration runtime is offline or the Azure integration runtime is expired or not registered.
+
+- **Recommendation**: Make sure your self-hosted integration runtime is up and running. Refer to [Troubleshoot self-hosted integration runtime](self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
+
+### Error Code: 2105
+
+- **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
+
+- **Cause**: Data generated in the dynamic content expression doesn't match with the key and causes JSON parsing failure.
+
+- **Recommendation**: Look at the key field and fix the dynamic content definition.
+
 ### Error code: 2108
 
 - **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
@@ -1065,46 +1105,6 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 1. Go to: **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
-
-### Error Code: 2001
-
-- **Message**: `The length of execution output is over limit (around 4MB currently).`
-
-- **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
-
-- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](https://docs.microsoft.com/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
-
-### Error Code: 2002
-
-- **Message**: `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
-
-- **Cause**: The payload you are attempting to send is too large.
-
-- **Recommendation**: Refer to [Payload is too large](data-factory-troubleshoot-guide.md#payload-is-too-large).
-
-### Error Code: 2003
-
-- **Message**: `There are substantial concurrent external activity executions which is causing failures due to throttling under subscription <subscription id>, region <region code> and limitation <current limit>. Please reduce the concurrent executions. For limits, refer https://aka.ms/adflimits.`
-
-- **Cause**: Too many activities are running concurrently. This can happen when too many pipelines are triggered at once.
-
-- **Recommendation**: Reduce pipeline concurrency. You might have to distribute the trigger time of your pipelines.  
-
-### Error Code: 2010
-
-- **Message**: `The Self-hosted Integration Runtime ‘<SHIR name>’ is offline`
-
-- **Cause**: The self-hosted integration runtime is offline or the Azure integration runtime is expired or not registered.
-
-- **Recommendation**: Make sure your self-hosted integration runtime is up and running. Refer to [Troubleshoot self-hosted integration runtime](self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
-
-### Error Code: 2105
-
-- **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
-
-- **Cause**: Data generated in the dynamic content expression doesn't match with the key and causes JSON parsing failure.
-
-- **Recommendation**: Look at the key field and fix the dynamic content definition.
 
 ### Error code: 2108
 
