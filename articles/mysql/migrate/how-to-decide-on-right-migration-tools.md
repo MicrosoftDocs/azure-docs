@@ -28,7 +28,7 @@ If your application can afford some downtime, offline migrations are always the 
 
 ## Decision table
 
-To help you select the right tools for migrating to Azure Database for MySQL - Flexible Server, consider the detail in the following table for offline migrations.
+There are both offline and online migration scenarios to help you select the right tools for migrating to Azure Database for MySQL - Flexible Server.
 
 ### Offline
 
