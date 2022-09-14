@@ -48,7 +48,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
    This is the name that you'll see when you deploy virtual machines. Name it for the datacenter or the physical location of your datacenter. For example: *contoso-nyc-dc.*
 
     >[!Note]
-    >If you are using an existing resource bridge created for a different provider (HCI/VMware), ensure that you create separate custom location for each provider.  
+    >If you are using an existing resource bridge created for a different provider (HCI/VMware), ensure that you create a separate custom location for each provider.  
 
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
