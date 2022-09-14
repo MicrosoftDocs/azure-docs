@@ -1,9 +1,5 @@
-- name: Azure Cosmos DB for PostgreSQL documentation
-  href: index.yml
 - name: Overview
-  items:
-    - name: Overview
-      href: overview.md
+  href: overview.md
 - name: Quickstart
   items:
     - name: Create cluster
