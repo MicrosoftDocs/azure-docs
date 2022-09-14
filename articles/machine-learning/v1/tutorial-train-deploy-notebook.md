@@ -52,6 +52,8 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. Select the **Open terminal** tool to open a terminal window.
 
+    :::image type="content" source="media/tutorial-train-deploy-notebook/open-terminal.png" alt-text="Screenshot: Open terminal from Notebooks section.":::
+
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use if it's not already selected.  Start the compute instance if it is stopped.
 
 1. In the terminal window, clone the MachineLearningNotebooks repository:
@@ -64,9 +66,9 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 ## Open the cloned notebook
 
-1. Open the **MachineLearningNotebooks/tutorials** folder that was cloned into your **Files** section.
+1. Open the **MachineLearningNotebooks** folder that was cloned into your **Files** section.
 
-1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
+1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **MachineLearningNotebooks/tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
 
     :::image type="content" source="media/tutorial-train-deploy-notebook/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
