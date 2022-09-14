@@ -361,6 +361,11 @@ To enable the certificate-based authentication and configure username bindings u
                 "x509CertificateField": "RFC822Name",
                 "userProperty": "userPrincipalName",
                 "priority": 2
+            }, 
+            {
+                "x509CertificateField": "PrincipalName",
+                "userProperty": "certificateUserIds",
+                "priority": 3
             }
         ],
         "authenticationModeConfiguration": {
