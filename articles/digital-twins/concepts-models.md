@@ -241,13 +241,26 @@ Each feature extension is identified by its *context specifier*, which is a uniq
 
 Here's an example of what that `@context` field might look like with feature extensions. The following excerpt is from a model that uses both the [quantitative types extension](#quantitative-types-extension) and the [annotation extension](#annotation-extension).
 
-:::code language="json" source="~/digital-twins-docs-code/models/feature-extension-annotation-quantitative.json" range="25-29":::
+```json
+  "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1",
+      "dtmi:dtdl:extension:annotation;1"
+  ]
+```
 
 After you've added a feature extension to a model, you'll have access to that extension's *adjunct types* within the model. You can add adjunct types to the `@type` field of a DTDL element, to give the element additional capabilities. The adjunct type may add additional properties to the element.
 
 For example, here's an excerpt from a model that's using the [annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a Telemetry element. Adding this adjunct type to the Telemetry element allows the element to have an additional `annotates` field, which is used to indicate another Property or Telemetry that is annotated by this element. 
 
-:::code language="json" source="~/digital-twins-docs-code/models/feature-extension-annotation-quantitative.json" range="11-16" highlight="14":::
+```json
+{
+  "@type": [ "Telemetry", "ValueAnnotation" ],
+  "name": "currentTempAccuracy",
+  "annotates": "currentTemp",
+  "schema": "double"
+  },
+```
 
 The rest of this section explains the annotation extension and other DTDL V3 feature extensions in more detail.
 
@@ -259,7 +272,38 @@ This extension includes the `ValueAnnotation` adjunct type, which can be added t
 
 Here's an example of a model that uses the annotation extension. In this example, there's a `currentTemp` Telemetry that provides a stream of temperature readings from a sensor. The `currentTempAccuracy` Telemetry and the `currentTempNote` Property are both co-typed with `ValueAnnotation`, and are used to add annotations to that `currentTemp` element.
 
-:::code language="json" source="~/digital-twins-docs-code/models/feature-extension-annotation-quantitative.json" highlight="11-23, 28":::
+```json
+{
+  "@id": "dtmi:com:example:Sensor;1",
+  "@type": "Interface",
+  "contents": [
+      {
+          "@type": [ "Telemetry", "Temperature" ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+      },
+      {
+          "@type": [ "Telemetry", "ValueAnnotation" ],
+          "name": "currentTempAccuracy",
+          "annotates": "currentTemp",
+          "schema": "double"
+      },
+      {
+          "@type": [ "Property", "ValueAnnotation" ],
+          "name": "currentTempNote",
+          "annotates": "currentTemp",
+          "schema": "string",
+          "writable": true
+      }
+  ],
+  "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1",
+      "dtmi:dtdl:extension:annotation;1"
+  ]
+}
+```
 
 You can view this extension's full spec details in the [DTDL V3 annotation extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.annotation.v1.md).
 
@@ -271,7 +315,34 @@ This extension includes the `Override` adjunct type, which can be added to a DTD
 
 Here's an example of a model that uses the overriding extension, along with the annotation extension. In this example, the `currentTempUnit` Property is being used to annotate the `currentTemp` Telemetry. The `currentTempUnit` Property is also co-typed with `Override`, which indicates that this Property should override one of the fields on the annotated element (`currentTemp`). The `overrides` field on the `currentTempUnit` property indicates that the `currentTemp` field that should be be overridden is `unit`.
 
-:::code language="json" source="~/digital-twins-docs-code/models/feature-extension-overriding.json" highlight="11-18, 24":::
+```json
+{
+    "@id": "dtmi:com:example:Sensor;1",
+    "@type": "Interface",
+    "contents": [
+        {
+            "@type": [ "Telemetry", "Temperature" ],
+            "name": "currentTemp",
+            "schema": "double",
+            "unit": "degreeFahrenheit"
+        },
+        {
+            "@type": [ "Property", "ValueAnnotation", "Override" ],
+            "name": "currentTempUnit",
+            "annotates": "currentTemp",
+            "overrides": "unit",
+            "schema": "TemperatureUnit",
+            "writable": true
+        }
+    ],
+    "@context": [
+        "dtmi:dtdl:context;3",
+        "dtmi:dtdl:extension:quantitativeTypes;1",
+        "dtmi:dtdl:extension:annotation;1",
+        "dtmi:dtdl:extension:overriding;1"
+    ]
+}
+```
 
 You can view this extension's full spec details in the [DTDL V3 overriding extension reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.overriding.v1.md).
 
@@ -283,7 +354,38 @@ This extension enables the use of many semantic types as adjunct types, which ca
 
 Here's an example of a model that uses the quantitative types extension. The `currentTemp` Telemetry field is co-typed with the `Temperature` semantic type. This adds a `unit` field to the element, and the chosen unit is `degreeFahrenheit`.
 
-:::code language="json" source="~/digital-twins-docs-code/models/feature-extension-annotation-quantitative.json" highlight="5-10, 27":::
+```json
+{
+  "@id": "dtmi:com:example:Sensor;1",
+  "@type": "Interface",
+  "contents": [
+      {
+          "@type": [ "Telemetry", "Temperature" ],
+          "name": "currentTemp",
+          "schema": "double",
+          "unit": "degreeFahrenheit"
+      },
+      {
+          "@type": [ "Telemetry", "ValueAnnotation" ],
+          "name": "currentTempAccuracy",
+          "annotates": "currentTemp",
+          "schema": "double"
+      },
+      {
+          "@type": [ "Property", "ValueAnnotation" ],
+          "name": "currentTempNote",
+          "annotates": "currentTemp",
+          "schema": "string",
+          "writable": true
+      }
+  ],
+  "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1",
+      "dtmi:dtdl:extension:annotation;1"
+  ]
+}
+```
 
 ## Service-specific DTDL notes
 
