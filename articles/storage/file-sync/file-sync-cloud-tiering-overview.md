@@ -114,6 +114,9 @@ Low Disk Space mode always respects the volume free space policy. The threshold 
 ### How to get out of low disk space mode?
 Low Disk Space mode is designed to revert to normal behavior when disk space reached above the calculated threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
 
+### How to check if a server is in Low Disk Space mode?
+Event ID 19000 is logged once every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode). 
+
 ## Next steps
 
 - [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)
