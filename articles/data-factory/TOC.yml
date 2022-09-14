@@ -1099,15 +1099,15 @@ items:
         href: pricing-examples-s3-to-blob.md
       - name: Copy data and transform with Azure Databricks
         href: pricing-examples-copy-transform-azure-databricks.md
-      - name: Copy data and transform with dynamic parameters
+      - name: Copy/transform data with dynamic parameters
         href: pricing-examples-copy-transform-dynamic-parameters.md
       - name: Run SSIS packages on Azure-SSIS integration runtime
         href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
-      - name: Using mapping data flow debug for a normal workday
+      - name: Using mapping data flow debug for a workday
         href: pricing-examples-mapping-data-flow-debug-workday.md
-      - name: Transform data in blob store with mapping data flows
+      - name: Transform blob data with mapping data flows
         href: pricing-examples-transform-mapping-data-flows.md
-      - name: Data integration in Azure Data Factory Managed VNET
+      - name: Data integration with Managed VNET
         href: pricing-examples-data-integration-managed-vnet.md
   - name: Troubleshooting guides
     items:
