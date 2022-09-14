@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: srranga
 author: sr-msft
 
-ms.date: 06/29/2022
+ms.date: 09/14/2022
 
 ms.custom: fasttrack-edit
 ---
@@ -48,16 +48,25 @@ Azure Database for PostgreSQL automatically performs minor version upgrades to t
 
 The table below provides the retirement details for PostgreSQL major versions. The dates follow the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
 
-| Version | What's New | Azure support start date | Retirement date|
+| Version | What's New | Azure support start date | Retirement date (Azure)|
 | ----- | ----- | ------ | ----- |
 | [PostgreSQL 9.5 (retired)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [Features](https://www.postgresql.org/docs/9.5/release-9-5.html)  | April 18, 2018	| February 11, 2021
 | [PostgreSQL 9.6 (retired)](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Features](https://wiki.postgresql.org/wiki/NewIn96) | April 18, 2018	| November 11, 2021
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Features](https://wiki.postgresql.org/wiki/New_in_postgres_10) | June 4, 2018	| November 10, 2022
-| [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2023
+| [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2024 [Single Server, Flexible Server] <br> Nov 9, 2023 [Hyperscale Citus]
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | October 1, 2021 (Hyperscale Citus) <br> June 29, 2022 (Flexible Server)| November 12, 2026
 
+## PostgreSQL 11 support in Single Server and Flexible Server
+
+We are extending support for PostgreSQL 11 in Single Server and Flexible Server by one more year till **November 9, 2024**.
+
+- You will be able to create and use your PostgreSQL 11 servers until November 9, 2024 without any restrictions. This extension of support is provided to help you with additional time to plan and [migrate](../migrate/concepts-single-to-flexible.md) to Flexible server for higher PostgreSQL version.
+- Till November 9, 2023, Azure will continue to update your server with PostgreSQL community provided minor versions.
+- Between November'23 to November'24, you can continue to use your PostgreSQL 11 servers or create new PostgreSQL servers without any restrictions. All [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) of retired PostgreSQL engine versions apply **except** for creation of new PostgreSQL 11 servers - which you can continue to do.
+- Beyond Nov 9 2024, all retired PostgreSQL engine [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) apply as described below.
+  
 ## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 
 You may continue to run the retired version in Azure Database for PostgreSQL. However, please note the following restrictions after the retirement date for each PostgreSQL database version:
@@ -68,6 +77,7 @@ You may continue to run the retired version in Azure Database for PostgreSQL. Ho
 - Uptime SLAs will apply solely to Azure Database for PostgreSQL service-related issues and not to any downtime caused by database engine-related bugs.  
 - In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop your database server to secure the service. In such case, you will be notified to upgrade the server before bringing the server online.
 
+  
 ## PostgreSQL version syntax
 
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ release upgrade. Version 10 to 11 is a _major_ version upgrade.
