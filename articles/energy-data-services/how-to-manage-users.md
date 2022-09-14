@@ -97,7 +97,7 @@ You'll need to input `object-id` (OID) of the users as parameters in the calls t
 
 ### 1. Get the list of all available groups 
 
-Run the following curl command to get all the groups that are available for your Microsoft Energy Data Services instance and its data partitions.
+Run the below curl command to get all the groups that are available for your Microsoft Energy Data Services instance and its data partitions.
 
 ```bash
     curl --location --request GET "<url>/api/entitlements/v2/groups/" \
