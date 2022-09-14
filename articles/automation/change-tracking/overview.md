@@ -70,7 +70,7 @@ To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation
 Change Tracking and Inventory now supports Python 2 and Python 3. If your machine is using a distro that doesn't include Python 2 or Python 3 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
 > [!NOTE]
-> To upgrade to the latest version, you must first uninstall Python 2, before installing Python 3.
+> To install and upgrade to Python 3, you must first uninstall Python 2; otherwise, the previous version will function as a default application.
 
 #### [Python 2](#tab/python-2)                                                                                                                                                      
 - Red Hat, CentOS, Oracle: `yum install -y python2`
