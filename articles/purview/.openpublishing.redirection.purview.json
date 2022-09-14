@@ -157,7 +157,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/use-purview-studio.md",
-        "redirect_url": "/azure/purview/use-microsoft-purview-governance-portal",
+        "redirect_url": "/azure/purview/use-azure-purview-studio",
         "redirect_document_id": true
       },
       {
