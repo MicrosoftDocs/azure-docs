@@ -41,7 +41,7 @@ As you monitor your application logs for security incidents, review the followin
 
 * Application permissions
 
-  * Service principal assigned to an Azure AD or Azure RBAC role.
+  * Service principal assigned to an Azure AD or an Azure role-based access control (RBAC) role.
 
   * Applications that are granted highly privileged permissions.
 
@@ -57,7 +57,7 @@ As you monitor your application logs for security incidents, review the followin
 
   * Changes to application owners.
 
-  * Logout URLs modified.
+  * Log-out URLs modified.
 
 ## Where to look
 
@@ -75,23 +75,23 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
-Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user.
+Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies, including device state. This workbook enables you to view a summary, and identify the effects over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user.
 
- The remainder of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools.
+The remainder of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools.
 
 ## Application credentials
 
-Many applications use credentials to authenticate in Azure AD. Any additional credentials added outside of expected processes could be a malicious actor using those credentials. We strongly recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note, application and service principal updates are logged as two entries in the audit log.
+Many applications use credentials to authenticate in Azure AD. Any other credentials added outside of expected processes could be a malicious actor using those credentials. We recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note, application and service principal updates are logged as two entries in the audit log.
 
 * Monitor applications to identify those with long credential expiration times.
 
@@ -124,7 +124,7 @@ Like an administrator account, applications can be assigned privileged roles. Ap
 
 ### Application granted highly privileged permissions
 
-Applications should also follow the principal of least privilege. Investigate application permissions to ensure they're truly needed. You can create an [app consent grant report](https://aka.ms/getazureadpermissions) to help identify existing applications and highlight privileged permissions.
+Applications should also follow the principle of least privilege. Investigate application permissions to ensure they're truly needed. You can create an [app consent grant report](https://aka.ms/getazureadpermissions) to help identify existing applications and highlight privileged permissions.
 
 | What to monitor|Risk Level|Where| Filter/sub-filter| Notes|
 |-|-|-|-|-|
@@ -144,7 +144,7 @@ Azure Key Vault can be used to store your tenant’s secrets. We recommend you p
 |-|-|-|-|-|
 | How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)| Resource type: Key Vaults| Look for: any access to Key Vault outside regular processes and hours, any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-After setting up Azure Key Vault, be sure to [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli), which shows [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone call, text message, or [event grid](../../key-vault/general/event-grid-overview.md) notification if health is impacted. Additionally, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights will give you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
+After you set up Azure Key Vault, [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli). This shows [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone call, text message, or [event grid](../../key-vault/general/event-grid-overview.md) notification if health is affected. In addition, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights gives you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
 
 ### End-user consent
 
