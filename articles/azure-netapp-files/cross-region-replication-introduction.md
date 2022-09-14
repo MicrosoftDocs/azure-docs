@@ -68,7 +68,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | US Government | US Gov Arizona | US Gov Virginia |
 
 >[!NOTE]
->There may be a discrepancy in the size of snapshots between source and destination. This discrepancy is expected. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](azure-netapp-files/snapshots-introduction.md).
+>There may be a discrepancy in the size of snapshots between source and destination. This discrepancy is expected. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 ## Service-level objectives
 
