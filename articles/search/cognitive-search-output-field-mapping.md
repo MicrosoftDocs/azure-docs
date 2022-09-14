@@ -7,20 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/14/2022
 ---
 
-# Map enrichment output to fields in a search index
+# Map enriched output to fields in a search index in Azure Cognitive Search
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
+This article explains how to set up *output field mappings* that determine a data path between in-memory data structures created during skill processing, and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
 
++ "sourceFieldName" specifies a path to enriched content
++ "targetFieldName" specifies the search field that receives the enriched content
++ "mappingFunction" adds extra processing for encoding and decoding actions.
 
-In this article, you'll learn how to map enriched fields (created by a skillset) to output fields in a searchable index. 
+Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as translated strings or key phrases. During indexer execution, AI-generated information exists in memory. If you want to persist this information in a search index, you'll need to tell the indexer where to send the data.
 
-This step is required if you're working with a [skillset](cognitive-search-defining-skillset.md). Having an output field mapping tells the indexer which enriched fields to send to specific fields in your search index.
+Output field mappings are also used to flatten nested data structures during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
 
-In addition to routing fields, an output field mapping can be used to perform data shape transformations by flattening a nested structure.
+ 
 
 The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). 
 
@@ -101,32 +105,32 @@ More concretely, for the ```/document/content/organizations/*/description``` exa
 This is an important principle, so we will provide another example. Imagine that you have an array of complex types as part of the enrichment tree. Let's say there is a member called customEntities that has an array of complex types like the one described below.
 
 ```json
-"document/customEntities": 
-[
-    {
-        "name": "heart failure",
-        "matches": [
+{
+   "document/customEntities":[
+      {
+         "name":"heart failure",
+         "matches":[
             {
-                "text": "heart failure",
-                "offset": 10,
-                "length": 12,
-                "matchDistance": 0.0
+               "text":"heart failure",
+               "offset":10,
+               "length":12,
+               "matchDistance":0.0
             }
-        ]
-    },
-    {
-        "name": "morquio",
-        "matches": [
+         ]
+      },
+      {
+         "name":"morquio",
+         "matches":[
             {
-                "text": "morquio",
-                "offset": 25,
-                "length": 7,
-                "matchDistance": 0.0
+               "text":"morquio",
+               "offset":25,
+               "length":7,
+               "matchDistance":0.0
             }
-        ]
-    }
-    //...
-]
+         ]
+      }
+   ]
+}
 ```
 
 Let's assume that your index has a field called 'diseases' of type Collection(Edm.String), where you would like to store each of the names of the entities. 
