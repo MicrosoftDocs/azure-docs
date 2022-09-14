@@ -3,28 +3,36 @@ title: Map skill output fields
 titleSuffix: Azure Cognitive Search
 description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
 
-author: LiamCavanagh
-ms.author: liamca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 09/13/2022
 ---
 
 # Map enrichment output to fields in a search index
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you've [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index.
 
-Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information. Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
 
-Examples of output field mappings:
+In this article, you'll learn how to map enriched fields (created by a skillset) to output fields in a searchable index. 
 
-* As part of your skillset, you extracted the names of organizations mentioned in each of the pages of your document. Now you want to map each of those organization names into a field in your index of type Edm.Collection(Edm.String).
+This step is required if you're working with a [skillset](cognitive-search-defining-skillset.md). Having an output field mapping tells the indexer which enriched fields to send to specific fields in your search index.
 
-* As part of your skillset, you produced a new node called “document/translated_text”. You would like to map the information on this node to a specific field in your index.
+In addition to routing fields, an output field mapping can be used to perform data shape transformations by flattening a nested structure.
 
-* You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
+The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). 
+
+Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
+
+Examples of output field mapping scenarios:
+
+* **Content consolidation.** Your skillset extracts the names of organizations mentioned in within each page of a document. Now you want to map each of those organization names into a field in your index of type Edm.Collection(Edm.String).
+
+* **Content creation.** As part of your skillset, you produced a new node called "document/translated_text". You would like to map this new information to a specific field in your index.
+
+* **Content extraction.** You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You'd like to get to a node on that complex type and map it into a field in your index.
 
 > [!NOTE]
 > Output field mappings apply to search indexes only. For indexers that create [knowledge stores](knowledge-store-concept-intro.md), output field mappings are ignored.
