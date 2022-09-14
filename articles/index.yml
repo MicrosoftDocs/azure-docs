@@ -802,7 +802,7 @@ productDirectory:
       url: /azure/devops/boards/
     # Card
     - title: Azure Deployment Environments
-      summary: Enable developer teams to quickly spin up app infrastructure with project-based templates, minimizing set-up time while maximizing security, compliance, and cost efficiency. 
+      summary: Quickly spin up app infrastructure environments with project-based templates 
       imageSrc: https://static.docs.com/ui/media/product/azure/deployment-environments.svg
       azureCategories:
         - devops
