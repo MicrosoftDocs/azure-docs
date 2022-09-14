@@ -614,7 +614,7 @@ Run the following command to generate a base-64 encode version of the certificat
 node convert.js mytestrootcert_cert.pem
 ```
 
-Make a note of the base-64 encoded version of the certifcate. You need it later.
+Make a note of the base-64 encoded version of the certificate. You need it later.
 
 ### Add an X.509 enrollment group
 
@@ -733,7 +733,7 @@ Run the following command to generate a base-64 encoded version of the certifica
 node convert.js verification_cert.pem
 ```
 
-Make a note of the base-64 encoded version of the certifcate. You need it later.
+Make a note of the base-64 encoded version of the certificate. You need it later.
 
 ### Verify X.509 certificate of an enrollment group
 
