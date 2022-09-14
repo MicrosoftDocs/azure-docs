@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 09/14/2022
 ms.author: makromer
 ---
 
@@ -123,6 +123,34 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
+
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
