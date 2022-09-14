@@ -39,6 +39,85 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
    - For Windows: the logs are located at `C:\HybridWorkerExtensionLogs`. The tool is at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1`. The extension log is `HybridWorkerExtensionHandler.log`. The worker log is `SME.log`.
    - For Linux: the logs are located at `/home/nxautomation/run`. The tool is at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/logcollector.py`. The worker log is `worker.log`. The extension registration log is `register_log`. The extension startup log is `startup_log`. The extension log is `extension_out`.
 
+### Scenario: Runbook execution fails
+
+#### Issue
+
+Runbook execution fails, and you receive the following error message:
+
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
+
+Your runbook is suspended shortly after it attempts to execute three times. There are conditions that can interrupt the runbook from completing. The related error message might not include any additional information.
+
+#### Cause
+
+The following are possible causes:
+
+* The runbooks can't authenticate with local resources.
+* The hybrid worker is behind a proxy or firewall.
+* The computer configured to run the Hybrid Runbook Worker doesn't meet the minimum hardware requirements.
+
+#### Resolution
+
+Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
+
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be overused and cause runbook job delays or timeouts.
+
+Confirm the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate an increase is necessary.
+
+Check the **Microsoft-SMA** event log for a corresponding event with the description `Win32 Process Exited with code [4294967295]`. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you've correctly configured authentication for your runbooks.
+
+
+### Scenario: No certificate was found in the certificate store on the Hybrid Runbook Worker
+
+#### Issue
+
+A runbook running on a Hybrid Runbook Worker fails with the following error message:
+
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
+#### Cause
+
+This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+
+#### Resolution
+
+If your Hybrid Runbook Worker is an Azure VM, you can use [runbook authentication with managed identities](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+
+### Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
+
+#### Issue
+
+Runbook fails when it tries to execute `Set-AzStorageBlobContent`, and you receive the following error message:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### Cause
+
+ This error is caused by the long file name behavior of calls to `[System.IO.Path]::GetFullPath()`, which adds UNC paths.
+
+#### Resolution
+
+As a workaround, you can create a configuration file named `OrchestratorSandbox.exe.config` with the following content:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Place this file in the same folder as the executable file `OrchestratorSandbox.exe`. For example,
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
