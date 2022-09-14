@@ -3,7 +3,7 @@ title: Authorize access to queues using Azure role assignment conditions | Micro
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
 services: storage
-author: jammart
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
@@ -53,15 +53,12 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 Azure RBAC currently supports 2,000 role assignments in a subscription. If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Azure AD custom security attributes]() for principals.
 
-
 ## Next steps
 
 - [Prerequisites for Azure role assignment conditions](../../role-based-access-control/conditions-prerequisites.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](..\blobs\storage-auth-abac-portal.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage](..\blobs\storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage](queues-auth-abac-attributes.md)
 - [Example Azure role assignment conditions](..\blobs\storage-auth-abac-examples.md)
 - [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)
-
 
 ## See also
 
@@ -70,4 +67,3 @@ Azure RBAC currently supports 2,000 role assignments in a subscription. If you n
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
 - [Scale the management of Azure role assignments by using conditions and custom security attributes (preview)](../../role-based-access-control/conditions-custom-security-attributes-example.md)
 - [Security considerations for Azure role assignment conditions in Azure Storage](..\blobs\storage-auth-abac-security.md)
-- [Authorize access to blobs and Data Lake Storage Gen2 using Azure role assignment conditions](..\blobs\storage-auth-abac.md)
