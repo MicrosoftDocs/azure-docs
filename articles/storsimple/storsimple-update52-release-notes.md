@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/14/2022
 ms.author: alkohli
 ---
 
@@ -27,12 +27,6 @@ Update 5.2 corresponds to software version 6.3.9600.17886.
 > * Update 5.1 is a minimally supported version. Any device on version 5.0 or lower won’t see any available updates. If you're not notified about Update 5.2 via a banner in the Azure portal UI, you can't update via the Azure portal. In this case, you must [apply Update 5.1 via hotfix](storsimple-8000-install-update-51.md). Once you are on Update 5.1, you'll see the banner in the Azure portal to apply Update 5.2.
 
 ## What's new in Update 5.2
-
-* **TLS 1.2 is a mandatory update for all StorSimple 8000 series devices.** This StorSimple update will enforce TLS 1.2 on all clients.
-
-    If you see the following warning, you must update the software on your device before applying Update 5.2:
-
-    "One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service."
 
 * **Automatic remediation for failed backups caused by a device controller left active for long periods.** When a device controller is continuously active for a long period (more than a year), scheduled and manually triggered backups may fail. No alert or other notification is raised in the Azure portal. The only way to recover is to initiate a controller failover. Update 5.2 detects this condition and remediates it by initiating a controller failover. An alert informs the customer.
 
