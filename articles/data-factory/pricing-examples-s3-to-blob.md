@@ -32,7 +32,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | --- | --- |
 | Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
 | Copy Data Assumption: execution hours **per run** | .5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Total execution hours: 8 executions per day for 30 days | 240 runs * 2 DIU/run = 480 DIUs |
+| Total execution hours: 8 runs per day for 30 days | 240 runs * 2 DIU/run = 480 DIUs |
 
 ## Pricing calculator example
 
