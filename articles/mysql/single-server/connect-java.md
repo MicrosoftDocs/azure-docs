@@ -294,6 +294,11 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
 
     <dependencies>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+        <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
             <version>1.0.0-beta.1</version>
@@ -344,7 +349,7 @@ Run the following script in the project root directory to create a *src/main/res
 mkdir -p src/main/resources && touch src/main/resources/application.properties
 
 cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 EOF
 ```
@@ -386,63 +391,6 @@ EOF
 Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
 
 Create a *src/main/java/DemoApplication.java* file and add the following contents:
-
-#### [Passwordless connection (Recommended)](#tab/passwordless)
-
-```java
-package com.example.demo;
-
-import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
-
-import java.sql.*;
-import java.util.*;
-import java.util.logging.Logger;
-
-public class DemoApplication {
-
-    private static final Logger log;
-
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DemoApplication.class.getName());
-    }
-
-    public static void main(String[] args) throws Exception {
-        log.info("Loading application properties");
-        Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-
-        log.info("Connecting to the database");
-        properties.put("defaultAuthenticationPlugin", AzureIdentityMysqlAuthenticationPlugin.class.getName());
-        properties.put("authenticationPlugins", AzureIdentityMysqlAuthenticationPlugin.class.getName());
-        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
-        log.info("Database connection test: " + connection.getCatalog());
-
-        log.info("Create database schema");
-        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
-        Statement statement = connection.createStatement();
-        while (scanner.hasNextLine()) {
-            statement.execute(scanner.nextLine());
-        }
-
-        /* Prepare to store and retrieve data from the MySQL server.
-        Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
-        insertData(todo, connection);
-        todo = readData(connection);
-        todo.setDetails("congratulations, you have updated data!");
-        updateData(todo, connection);
-        deleteData(todo, connection);
-        */
-
-        log.info("Closing database connection");
-        connection.close();
-        AbandonedConnectionCleanupThread.uncheckedShutdown();
-    }
-
-}
-```
-
-#### [Password](#tab/password)
 
 ```java
 package com.example.demo;
