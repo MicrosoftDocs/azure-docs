@@ -1,0 +1,63 @@
+---
+author: Harper Cheng
+ms.author: harperche
+ms.date: 08/10/2022
+---
+### Executive Summary
+
+Azure Batch offers Low priority and Spot virtual machines (VMs). The virtual machines are computing instances allocated from spare capacity, offered at a highly discounted rate compared to "on-demand" VMs.
+
+Low priority VMs enable the customer to take advantage of unutilized capacity. The amount of available unutilized capacity can vary based on size, region, time of day, and more. At any point in time when Azure needs the capacity back, we will evict low-priority VMs. Therefore, the low-priority offering is excellent for flexible workloads, like large processing jobs, dev/test environments, demos, and proofs of concept. In addition, low-priority VMs can easily be deployed through our VM scale set offering.
+
+However, Low priority VMs is a deprecated feature, and it will never become Generally Available (GA), while Spot VMs is the official preemptible offering from the Compute platform, and it is GA. Therefore, we will retire Low Priority VMs on **30 September 2025**. After that, we will stop supporting Low priority VMs. The existing Low priority pools may no longer work or be provisioned. They may be forced to be scaled down after the target date.
+
+### Retirement alternative
+
+As of May 2020, Azure offers Spot VMs in addition to Low Priority VMs. Like Low Priority, the Spot option allows the customer to purchase spare capacity at a deeply discounted price in exchange for the possibility that the VM may be evicted. Unlike Low Priority, you can use the Azure Spot option for single VMs and scale sets. VM scale sets scale up to meet demand, and when used with Spot VMs, will only allocate when capacity is available. 
+
+The Spot VMs can be evicted when Azure needs the capacity or when the price goes above your maximum price. In addition, the customer can choose to get a 30-second eviction notice and attempt to redeploy. 
+
+The other key difference is that Azure Spot pricing is variable and based on the capacity for size or SKU in an Azure region. Prices change slowly to provide stabilization. The price will never go above pay-as-you-go rates.
+
+When it comes to eviction, you have two policy options to choose between:
+
+* Stop/Deallocate (default) – when evicted, the VM is deallocated, but you keep (and pay for) underlying disks. This is ideal for cases where the state is stored on disks.
+* Delete – when evicted, the VM and underlying disks are deleted.
+
+While similar in idea, there are a few key differences between these two purchasing options:
+
+
+
+| | **Low Priority VMs** | **Spot VMs** |
+|---|---|---|
+| **Availability** | **Azure Batch** | **Single VMs, VM scale sets** |
+| **Pricing** | **Fixed pricing** | **Variable pricing with ability to set maximum price** |
+| **Eviction/Preemption** | **Preempted when Azure needs the capacity. Tasks on preempted node VMs are re-queued and run again.** | **Evicted when Azure needs the capacity or if the price exceeds your maximum. If evicted for price and afterward the price goes below your maximum, the VM will not be automatically restarted.** |
+
+### Migration Steps
+
+Customers in User Subscription mode, now have the option to include spot VMs by following the steps below:
+
+1. In the Azure portal, select Batch account and view the existing pool or create a new pool.
+2. Under **Scale**, users can choose 'Target dedicated nodes' and 'Target Spot nodes.'
+
+![Scale-TargetNodes](../media/certificates/LowPriorityVMs-scale-targetnodes.png)
+
+3. Navigate to the existing Pool and choose 'Scale' to update the number of Spot nodes required based on the job scheduled. Hit save.
+
+Customers in Batch Managed mode must recreate the Batch account, pool, and jobs under User Subscription mode to take advantage of spot VMs.
+
+### FAQ
+
+1. How to create a new Batch account /job/pool?
+
+    Refer to the quick start [link](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) on creating a new Batch account/pool/task.
+
+2. Are Spot VMs available in Batch Managed mode?
+
+    No, Spot VMs are available in User Subscription mode - Batch accounts only.
+
+3. What is the pricing and eviction policy of Spot VMs? Can I view pricing history and eviction rates?
+
+    Refer to [Spot VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/spot-vms) for more information on using Spot VMs. Yes, you can see historical pricing and eviction rates per size in a region in the portal.
+
