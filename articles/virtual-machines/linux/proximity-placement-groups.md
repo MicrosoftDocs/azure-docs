@@ -43,7 +43,7 @@ az ppg list -o table
 ```
 ## Show proximity placement group
 
-You can see the procimity placement group details and resources using [az ppg show](/cli/azure/ppg#az-ppg-show)
+You can see the proximity placement group details and resources using [az ppg show](/cli/azure/ppg#az-ppg-show)
 
 ```azurecli-interactive
 az ppg show --name myPPG --resource-group myPPGGroup
