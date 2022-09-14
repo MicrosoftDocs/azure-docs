@@ -134,7 +134,7 @@ To configuring monitoring for Application Proxy, see [Troubleshoot Application P
 | - | - | - | - | - |
 | Kerberos errors| Medium | Various tools| Medium | Kerberos authentication error guidance under Kerberos errors on [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). |
 | DC security issues| High| DC Security Audit logs| Event ID 4742(S): A computer account was changed<br>-and-<br>Flag – Trusted for Delegation<br>-or-<br>Flag – Trusted to Authenticate for Delegation| Investigate any flag change. |
-| Pass-the-ticket like attacks| High| | | Follow guidance in:<li>[Security principal reconnaissance (LDAP) (external ID 2038)](/defender-for-identity/reconnaissance-alerts)<li>[Tutorial: Compromised credential alerts](/defender-for-identity/compromised-credentials-alerts)<li> [Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path)<li> [Understanding entity profiles](/defender-for-identity/entity-profiles) |
+| Pass-the-ticket like attacks| High| | | Follow guidance in:<br>[Security principal reconnaissance (LDAP) (external ID 2038)](/defender-for-identity/reconnaissance-alerts)<br>[Tutorial: Compromised credential alerts](/defender-for-identity/compromised-credentials-alerts)<br>[Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path)<br>[Understanding entity profiles](/defender-for-identity/entity-profiles) |
 
 ### Legacy authentication settings
 
