@@ -78,20 +78,20 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
     The **Select directories + domains** pane opens.
 
-1. In the search box, enter a domain name to search for the Azure AD directory or domain. You can also add domains that are not in Azure AD. Be sure to enter the entire domain name.
+1. In the search box, enter a domain name to search for the Azure AD directory or domain. Be sure to enter the entire domain name.
 
-1. Confirm that the organization name(s) and authentication type(s) are correct. User sign in, prior to being able to access the MyAccess portal, depends on the authentication type for their organization.  If the authentication type for a connected organization is Azure AD, all users with an account in any verified domain of that Azure AD directory will sign into their directory, and then can request access to access packages that allow that connected organization. If the authentication type is One-time passcode, this allows users with email addresses from just that domain to visit the MyAccess portal. After they authenticate with the passcode, the user can make a request.
+1. Confirm that the organization name and authentication type are correct. User sign in, prior to being able to access the MyAccess portal, depends on the authentication type for their organization.  If the authentication type for a connected organization is Azure AD, all users with an account in any verified domain of that Azure AD directory will sign into their directory, and then can request access to access packages that allow that connected organization. If the authentication type is One-time passcode, this allows users with email addresses from just that domain to visit the MyAccess portal. After they authenticate with the passcode, the user can make a request.
 
     ![The "Select directories + domains" pane](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
     > [!NOTE]
     > Access from some domains could be blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
-1. Select **Add** to add the Azure AD directory or domain. **You can add multiple Azure AD directories and domains**.
+1. Select **Add** to add the Azure AD directory or domain. Currently, you can add only one Azure AD directory or domain per connected organization.
 
-1. After you've added the Azure AD directories or domains, select **Select**.
+1. After you've added the Azure AD directory or domain, select **Select**.
 
-    The organization(s) appears in the list.
+    The organization appears in the list.
 
     ![The "Directory + domain" pane](./media/entitlement-management-organization/organization-directory-domain.png)
 
