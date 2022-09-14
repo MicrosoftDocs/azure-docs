@@ -60,7 +60,7 @@ az aks nodepool add \
     --name mignode \
     --resourcegroup myresourcegroup \
     --cluster-name migcluster \
-    --node-size Standard_ND96asr_v4 \
+    --node-vm-size Standard_ND96asr_v4 \
     --gpu-instance-profile MIG1g
 ```
 
