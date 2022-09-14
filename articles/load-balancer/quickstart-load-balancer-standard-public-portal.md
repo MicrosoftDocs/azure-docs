@@ -239,7 +239,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(US) East US)** |
+    | Region | Select **((US) East US)** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **Zone 1** |
     | Security type | Select **Standard**. |
