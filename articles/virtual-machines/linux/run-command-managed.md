@@ -75,7 +75,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "echo Hello World!"
+Set-AzVMRunCommand -ResourceGroupName <ResourceGroupName> -VMName <VMName> -RunCommandName <RunCommandName> -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>"  -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
 ```
 
 ### List all deployed RunCommand resources on a VM 
