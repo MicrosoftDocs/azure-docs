@@ -104,9 +104,19 @@ If a disk has two server endpoints, one with tiering-enabled and one without tie
 
 ### How is the threshold for Low Disk Space calculated?
 The threshold is calculated by Azure File Sync by taking the minimum of the following three numbers:
-- 10% of disk space in GB
+- 10% of volume free space in GB 
 -	Volume Free Space Policy in GB
--	20 GB
+-	20 GB of volume free space
+
+The following table includes some examples of how the threshold is calculated and when the disk will be in Low Disk Space mode.
+
+| Volume Size                               | Volume Free Space Policy | Current Volume Free Space | Threshold \= Min (10%, Volume Free Space Policy, 20GB)                 | Is Low Disk Space Mode? | Reason                         |
+| ----------------------------------------- | ------------------------ | ------------------------- | ----------------------------- | ----------------------- | ------------------------------ |
+| 100GB                                     | 7% (7GB)                 | 9% (9GB)                  | 7GB = Min (10GB, 7GB, 20GB)   | No                      | Current Volume Free Space > Threshold |
+| 100GB                                     | 7% (7GB)                 | 5% (5GB)                  | 7GB = Min (10GB, 7GB, 20GB)   | Yes                     | Current Volume Free Space < Threshold |
+| 300GB                                     | 8% (24GB)                | 7% (21GB)                 | 20GB = Min (30GB, 24GB, 20GB) | No                      | Current Volume Free Space > Threshold |
+| 300GB                                     | 8% (24GB)                | 6% (18GB)                 | 20GB = Min (30GB, 24GB, 20GB) | Yes                     | Current Volume Free Space < Threshold |
+
 
 ### How does low disk space mode work with volume free space policy?
 Low Disk Space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected. Note that Low Disk Space does not kick in if no volume free space policy is configured on the server endpoint.
