@@ -99,7 +99,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
-1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft endpoints:
+1. Make sure that your physical appliance or VM can access the cloud using HTTPS on port 443 to the following Microsoft endpoints:
 
     - **EventHub**: `*.servicebus.windows.net`
     - **Storage**: `*.blob.core.windows.net`

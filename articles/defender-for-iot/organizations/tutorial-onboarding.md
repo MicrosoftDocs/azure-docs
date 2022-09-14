@@ -230,7 +230,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of the **Add outbound allow rules** box.":::
 
-    To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTP traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription
+    To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).

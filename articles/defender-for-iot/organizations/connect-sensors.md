@@ -338,7 +338,7 @@ This procedure describes how to install and configure a connection between your 
 1. Connect your proxy to Defender for IoT:
 
     1. Download the list of required endpoints from the **Sites and sensors** page: Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
-    1. Enable outbound HTTP traffic on port 443 from the sensor to each of the required endpoints for Defender for IoT.
+    1. Enable outbound HTTPS traffic on port 443 from the sensor to each of the required endpoints for Defender for IoT.
 
 
 > [!IMPORTANT]
@@ -353,7 +353,7 @@ This section describes what you need to configure a direct sensor connection to 
 
 1. Download the list of required endpoints from the **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
 
-1. Ensure that your sensor can access the cloud using HTTP on port 443 to each of the listed endpoints in the downloaded list.
+1. Ensure that your sensor can access the cloud using HTTPS on port 443 to each of the listed endpoints in the downloaded list.
 
 1. Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**. See the [latest IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
