@@ -21,7 +21,7 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Act
 
 To successfully complete this tutorial, make sure you have the required prerequisites:
 
-- Microsoft Graph PowerShell SDK is installed. For more information, see the article [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0).
+- Microsoft Graph PowerShell SDK is installed. For more information, see the article [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true).
 - Identity Protection is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
 
    ```powershell
@@ -35,7 +35,7 @@ To successfully complete this tutorial, make sure you have the required prerequi
    Connect-MgGraph -Scopes "IdentityRiskEvent.Read.All","IdentityRiskyUser.ReadWrite.All"
    ```
 
-If you use app-only authentication, see the article [Use app-only authentication with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/app-only?view=graph-powershell-1.0&tabs=azure-portal). To register an application with the required application permissions, prepare a certificate and run:
+If you use app-only authentication, see the article [Use app-only authentication with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/app-only?view=graph-powershell-1.0&tabs=azure-portal&preserve-view=true). To register an application with the required application permissions, prepare a certificate and run:
 
 ```powershell
 Connect-MgGraph -ClientID YOUR_APP_ID -TenantId YOUR_TENANT_ID -CertificateName YOUR_CERT_SUBJECT ## Or -CertificateThumbprint instead of -CertificateName
