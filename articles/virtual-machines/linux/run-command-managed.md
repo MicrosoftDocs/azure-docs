@@ -149,10 +149,11 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 ### Notes
  
-- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source
-- Only one type of source input is supported for one command execution 
-- Run Command supports output to Storage blobs, which can be used to store large script outputs
-- Run Command supports error output to Storage blobs 
+- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source.
+- Only one type of source input is supported for one command execution. 
+- Script URI is either storage blob SAS URI with read access or public URI.  
+- Run Command supports output to Storage blobs, which can be used to store large script outputs. Use SAS URI of a storage append blob with read, add, create, write access. The blob should be of type *AppendBlob*. Writing the script output to output blob would fail otherwise. The blob will be overwritten if it already exists. It will be created if it does not exists.
+
 
 ### List running instances of Run Command on a VM 
 
