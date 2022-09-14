@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2022
+ms.date: 09/14/2022
 ms.author: abell
 
 ---
@@ -35,7 +35,7 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
  
 ## SKU
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see **(New Article link)**.
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [DDoS Protection SKU comparison](ddos-protection-sku-comparison.md).
 
 The following table shows features and corresponding SKUs.
 
@@ -52,7 +52,6 @@ The following table shows features and corresponding SKUs.
 | Mitigation policy customizations | Yes| Yes |
 | DDoS rapid response support | Not available | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
-
 
 ### Native platform integration
  Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
@@ -87,7 +86,7 @@ Azure DDoS Protection is designed for [services that are deployed in a virtual n
 For DDoS Network Protection, under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
 For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS on any public IP resource.
 
-To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). **(change link name)**
+To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 
 ## DDoS Protection FAQ
 
@@ -95,5 +94,5 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 
 ## Next steps
 
-* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md) **(need to add a new quickstart to enable DDoS proteciton on a public IP)**
+* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md) 
 * [Learn module: Introduction to Azure DDoS Protection](/learn/modules/introduction-azure-ddos-protection/)
