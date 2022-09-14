@@ -56,7 +56,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|Lenovo ThinkAgile MX3520 |AKS on Azure Stack HCI 21H2|1.0.0_2021-07-30 |15.0.2148.140|Not validated|
+|Lenovo ThinkAgile MX3520 |AKS on Azure Stack HCI 21H2|v1.10.0_2022-08-09 |16.0.312.4243|Not validated|
 
 ### Nutanix
 
