@@ -38,7 +38,7 @@ Azure Database for PostgreSQL supports the following database versions.
 
 ## Major version support
 
-Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
+Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, with the exception of PsotgreSQL 11. Refer to [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
 
 ## Minor version support
 
@@ -62,15 +62,15 @@ The table below provides the retirement details for PostgreSQL major versions. T
 
 We are extending support for PostgreSQL 11 in Single Server and Flexible Server by one more year till **November 9, 2024**.
 
-- You will be able to create and use your PostgreSQL 11 servers until November 9, 2024 without any restrictions. This extension of support is provided to help you with additional time to plan and [migrate](../migrate/concepts-single-to-flexible.md) to Flexible server for higher PostgreSQL version.
+- You will be able to create and use your PostgreSQL 11 servers until November 9, 2024 without any restrictions. This extended support is provided to help you with more time to plan and [migrate](../migrate/concepts-single-to-flexible.md) to Flexible server for higher PostgreSQL version.
 - Till November 9, 2023, Azure will continue to update your server with PostgreSQL community provided minor versions.
 - Between November'23 to November'24, you can continue to use your PostgreSQL 11 servers or create new PostgreSQL servers without any restrictions. All [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) of retired PostgreSQL engine versions apply **except** for creation of new PostgreSQL 11 servers - which you can continue to do.
 - Beyond Nov 9 2024, all retired PostgreSQL engine [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) apply as described below.
   
 ## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 
-You may continue to run the retired version in Azure Database for PostgreSQL. However, please note the following restrictions after the retirement date for each PostgreSQL database version:
-- As the community will not be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. You may experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
+You may continue to run the retired version in Azure Database for PostgreSQL. However, note the following restrictions after the retirement date for each PostgreSQL database version:
+- As the community will not be releasing any further bug fixes or security fixes, Azure Database for PostgreSQL will not patch the retired database engine for any bugs or security issues, or otherwise take security measures with regard to the retired database engine. You may experience security vulnerabilities or other issues as a result. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 - If any support issue you may experience relates to the PostgreSQL engine itself, as the community no longer provides the patches, we may not be able to provide you with support. In such cases, you will have to upgrade your database to one of the supported versions.
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for PostgreSQL may only be available to supported database server versions.
