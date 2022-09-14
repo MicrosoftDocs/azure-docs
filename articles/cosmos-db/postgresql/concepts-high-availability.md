@@ -25,7 +25,7 @@ another zone. The Azure portal
 [displays](concepts-cluster.md#node-availability-zone) the availability
 zone of each node in a cluster.
 
-Even without HA enabled, each Hyperscale (Citus) node has its own locally
+Even without HA enabled, each node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
 Storage service.  If there's a single replica failure, it’s detected by Azure
 Storage service and is transparently re-created. For LRS storage durability,

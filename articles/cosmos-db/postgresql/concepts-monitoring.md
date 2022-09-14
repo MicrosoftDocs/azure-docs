@@ -49,7 +49,7 @@ name.
 
 ### List of metrics
 
-These metrics are available for Hyperscale (Citus) nodes:
+These metrics are available for nodes:
 
 |Metric|Metric Display Name|Unit|Description|
 |---|---|---|---|

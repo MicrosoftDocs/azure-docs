@@ -20,7 +20,7 @@ Azure Cosmos DB for PostgreSQL supports three networking options:
   * Optionally, access to all worker nodes can be enabled. In this case, public IP addresses are assigned to the worker nodes and are secured by the same firewall.
 * Private access
   * Only private IP addresses are assigned to the cluster’s nodes.
-  * Each node requires a private endpoint to allow hosts in the selected virtual network to access the Hyperscale (Citus) nodes.
+  * Each node requires a private endpoint to allow hosts in the selected virtual network to access the nodes.
   * Security features of Azure virtual networks such as network security groups can be used for access control.
 
 When you create a cluster, you may enable public or private access, or opt for the default of no access. Once the cluster is created, you can choose to switch between public or private access, or activate them both at once.

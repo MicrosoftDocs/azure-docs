@@ -50,7 +50,7 @@ endpoints for worker nodes too.
 
 **Private DNS zone**. An Azure private DNS zone resolves hostnames within a
 linked virtual network, and within any peered virtual network. Domain records
-for Hyperscale (Citus) nodes are created in a private DNS zone selected for
+for nodes are created in a private DNS zone selected for
 their cluster.  Be sure to use fully qualified domain names (FQDN) for
 nodes' PostgreSQL connection strings.
 
@@ -63,10 +63,10 @@ Link](../../private-link/private-link-overview.md).
 
 The cluster's private endpoint uses an IP address from the virtual
 network's address space. Traffic between hosts on the virtual network and
-Hyperscale (Citus) nodes goes over a private link on the Microsoft backbone
+nodes goes over a private link on the Microsoft backbone
 network, eliminating exposure to the public Internet.
 
-Applications in the virtual network can connect to the Hyperscale (Citus) nodes
+Applications in the virtual network can connect to the nodes
 over the private endpoint seamlessly, using the same connection strings and
 authorization mechanisms that they would use otherwise.
 
@@ -83,7 +83,7 @@ overview](../../dns/private-dns-overview.md).
 Hyperscale (Citus) service creates DNS records such as
 `c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
 DNS zone for each node with a private endpoint. When you connect to a
-Hyperscale (Citus) node from an Azure VM via private endpoint, Azure DNS
+node from an Azure VM via private endpoint, Azure DNS
 resolves the node’s FQDN into a private IP address.
 
 Private DNS zone settings and virtual network peering are independent of each
@@ -102,7 +102,7 @@ network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 > access](concepts-firewall-rules.md) to the cluster.
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve
-the FQDN of Hyperscale (Citus) nodes. The forwarder IP address should be
+the FQDN of nodes. The forwarder IP address should be
 168.63.129.16. The custom DNS server should be inside the virtual network or
 reachable via the virtual network's DNS server setting. To learn more, see
 [Name resolution that uses your own DNS

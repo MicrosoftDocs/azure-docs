@@ -35,7 +35,7 @@ To enable it, select **Apply splitting**:
 
 :::image type="content" source="media/howto-monitoring/splitting.png" alt-text="Apply splitting button":::
 
-Select the value by which to split. For Hyperscale (Citus) nodes, choose **Server name**.
+Select the value by which to split. For nodes, choose **Server name**.
 
 :::image type="content" source="media/howto-monitoring/split-value.png" alt-text="Select splitting value":::
 

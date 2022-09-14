@@ -21,7 +21,7 @@ The cluster's nodes collectively hold more data and use more CPU
 cores than would be possible on a single server. The architecture also allows
 the database to scale by adding more nodes to the cluster.
 
-To learn more about the types of Hyperscale (Citus) nodes, see [nodes and
+To learn more about the types of nodes, see [nodes and
 tables](concepts-nodes.md).
 
 ### Node status

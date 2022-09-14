@@ -32,7 +32,7 @@ the Postgres server logs.
 | Storage type          | General purpose (SSD)          | General purpose (SSD)    |
 | IOPS                  | Up to 3 IOPS/GiB               | Up to 3 IOPS/GiB         |
 
-The total amount of RAM in a single Hyperscale (Citus) node is based on the
+The total amount of RAM in a single node is based on the
 selected number of vCores.
 
 | vCores | One worker node, GiB RAM | Coordinator node, GiB RAM |
@@ -94,7 +94,7 @@ storage resources.
 | Storage type          | General purpose (SSD) |
 | IOPS                  | Up to 3 IOPS/GiB      |
 
-The total amount of RAM in a single Hyperscale (Citus) node is based on the
+The total amount of RAM in a single node is based on the
 selected number of vCores.
 
 | vCores | GiB RAM |
