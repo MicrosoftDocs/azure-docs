@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # About NVAs in a Virtual WAN hub
 
-Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partner) section of this article.
+Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partners) section of this article.
 
 ## Key benefits
 
@@ -55,7 +55,7 @@ Customers can deploy an Azure Firewall along side their connectivity-based NVAs.
 
 Customers can also deploy NVAs into a Virtual WAN hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the NVA in the hub and also use the same appliance to inspect all North-South, East-West, and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 
-Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partner).
+Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partners).
 
 :::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA." lightbox="./media/about-nva-hub/global-transit-ngfw.png":::
 
