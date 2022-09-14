@@ -35,7 +35,7 @@ These types of environments are represented by two sub-types, BYOC (bring your o
 
 You use system-managed environments when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
-Please note that environment isolation implies that Python dependencies installed in the base image will not be available in the derived image.
+Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
 
 ## Create and manage environments
 
