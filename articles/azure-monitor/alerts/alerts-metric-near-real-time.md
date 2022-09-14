@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 5/18/2022
+ms.date: 9/14/2022
 ms.reviwer: harelbr
 ---
 
@@ -39,7 +39,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.BotService/botServices | Yes | No | [Azure Bot Service](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Yes | Yes | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.Cache/redisEnterprise | Yes | No | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
-|microsoft.Cdn/profiles | Yes | No | [Azure Content Delivery Network profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
+|microsoft.Cdn/profiles | Yes | No | [CDN Profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Azure Cloud Services (classic)](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Azure Virtual Machines (classic)](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Yes | No | [Azure Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -63,7 +63,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DataShare/accounts | Yes | No | [Azure Data Share](../essentials/metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [Azure Database for MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Azure Database for MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [Azure Database for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Yes | Yes | [Azure Database for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | Azure Database for PostgreSQL (hyperscale) |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Azure Database for PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [Azure Database for PostgreSQL V2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
@@ -71,7 +71,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Devices/provisioningServices| Yes | No | [Device Provisioning Service](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | [Azure Digital Twins](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Yes | No | [Azure Cosmos DB](../essentials/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
-|Microsoft.EventGrid/domains | Yes | No | [Azure Event Grid domains](../essentials/metrics-supported.md#microsofteventgriddomains) |
+|Microsoft.EventGrid/domains | Yes | No | [Azure Event Grid Domains](../essentials/metrics-supported.md#microsofteventgriddomains) |
 |Microsoft.EventGrid/systemTopics | Yes | No | [Azure Event Grid system topics](../essentials/metrics-supported.md#microsofteventgridsystemtopics) |
 |Microsoft.EventGrid/topics |Yes | No | [Azure Event Grid topics](../essentials/metrics-supported.md#microsofteventgridtopics) |
 |Microsoft.EventHub/clusters |Yes| No | [Azure Event Hubs clusters](../essentials/metrics-supported.md#microsofteventhubclusters) |
