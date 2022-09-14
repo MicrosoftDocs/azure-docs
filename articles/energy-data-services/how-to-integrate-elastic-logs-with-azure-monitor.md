@@ -18,7 +18,7 @@ This article describes how you can start collecting Elasticsearch logs for your 
 
 ## Prerequisites
 
-- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log Analytics workspace in Azure portal](/articles/azure-monitor/logs/quick-create-workspace.md)
+- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md)
 
 
 - You need to have a storage account. It will be used to store JSON dumps of Elasticsearch & Elasticsearch Operator logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. 
@@ -33,7 +33,7 @@ Each diagnostic setting has three basic parts:
 
 | Name      |      Categories | Destinations  |
 |-----------|-----------------|---------------|
-|Ensure a unique name is set for each log.|Categories of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](/articles/azure-monitor/essentials/resource-logs-categories.md) | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an event hub namespace or an event hub.|
+|Ensure a unique name is set for each log.|Categories of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an event hub namespace or an event hub.|
 
 We support two destinations for your Elasticsearch logs from Microsoft Energy Data Services instance:
 
