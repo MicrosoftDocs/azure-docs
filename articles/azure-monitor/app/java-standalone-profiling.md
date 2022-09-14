@@ -92,12 +92,16 @@ configuring resource limits that will trigger a profile if breached.
 
 
 1. Configure the resource thresholds that will cause a profile to be collected:
+    <br>
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
        :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiling/performance-blade.png":::
        :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiling/profiler-button.png":::
+       <br>
     2. Select "Triggers"
+    <br>
     3. Configure the required CPU and Memory thresholds and select Apply.
        :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
+       <br>
 1. Inside the `applicationinsights.json` configuration of your process, enable profiler with the `preview.profiler.enabled` setting:
    ```json
       {
@@ -110,8 +114,8 @@ configuring resource limits that will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
+   <br>
 1. Restart your process with the updated configuration.
-
 
 > [!WARNING]
 > The Java profiler does not support the "Sampling" trigger. Configuring this will have no effect.
@@ -124,7 +128,6 @@ profile can be downloaded, once download the JFR recording file can be opened an
 tool of your choosing, for example JDK Mission Control (JMC).
 
 :::image type="content" source="./media/java-standalone-profiling/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiling/configure-blade.png":::
-
 
 ### Configuration
 
