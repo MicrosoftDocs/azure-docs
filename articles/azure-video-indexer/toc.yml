@@ -46,7 +46,7 @@
     href: manage-multiple-tenants.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Considerations when using at scale 
+  - name: Using at scale 
     href: considerations-when-use-at-scale.md
   - name: Customizing content models
     items:
