@@ -233,7 +233,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
    * Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
-### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
+### ExtensionStuckInDeletionState - Extension state is not supportive to the backup operation
 
 Error code: ExtensionStuckInDeletionState <br/>
 Error message: Extension state is not supportive to the backup operation
