@@ -6,10 +6,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/10/2022
+ms.date: 09/13/2022
 ms.author: alkohli
 ---
-# Azure Stack Edge hardware additional terms
+# Azure Stack Edge Hardware Additional Terms
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
