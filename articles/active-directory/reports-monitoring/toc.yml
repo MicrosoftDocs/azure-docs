@@ -76,7 +76,7 @@
     - name: Use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
     - name: View applied conditional access policies
-      href: howto-view-applied-conditional-access-policies.md
+      href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
     items:
