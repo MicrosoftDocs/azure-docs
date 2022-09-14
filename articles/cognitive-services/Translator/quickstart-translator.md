@@ -17,6 +17,7 @@ ms.devlang: csharp, golang, java, javascript, python
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD049 -->
 
 # Quickstart: Azure Cognitive Services Translator
 
@@ -251,8 +252,6 @@ import (
 
 func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -515,22 +514,18 @@ After a successful call, you should see the following response:
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
-                "to": "fr"
-            },
-            {
-                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
-                "to": "zu"
-            }
-        ]
-    }
+  {
+    "translations": [
+      {
+        "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+        "to": "fr"
+      },
+      {
+        "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+        "to": "zu"
+      }
+    ]
+  }
 ]
 
 ```
@@ -653,10 +648,6 @@ After a successful call, you should see the following response:
 ```json
 [
     {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
         "translations": [
             {
                 "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
@@ -764,22 +755,18 @@ After a successful call, you should see the following response:
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
-                "to": "fr"
-            },
-            {
-                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
-                "to": "zu"
-            }
-        ]
-    }
+  {
+    "translations": [
+      {
+        "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+        "to": "fr"
+      },
+      {
+        "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+        "to": "zu"
+      }
+    ]
+  }
 ]
 
 ```
