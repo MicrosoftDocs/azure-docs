@@ -134,7 +134,7 @@ The following table summarizes support for backup during VM management tasks, su
 
 **Restore** | **Supported**
 --- | ---
-Restore across subscription | [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
+<a name="backup-azure-cross-subscription-restore">Restore across subscription</a> | [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
 [Restore across region](backup-azure-arm-restore-vms.md#cross-region-restore) | Supported.
 Restore across zone | Unsupported.
 Restore to an existing VM | Use replace disk option.
