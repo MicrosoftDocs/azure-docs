@@ -36,9 +36,6 @@ To upload your own datasets in Speech Studio, follow these steps:
 
 After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -58,9 +55,6 @@ Here's an example Speech CLI command that creates a dataset and connects it to a
 ```azurecli-interactive
 spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -124,9 +118,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/datasets"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Upload-training-and-testing-datasets&Section=Upload-datasets" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
