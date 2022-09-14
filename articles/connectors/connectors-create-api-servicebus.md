@@ -40,7 +40,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * A Service Bus namespace and messaging entity, such as a queue. For more information, review the following documentation:
 
-  * [create a Service Bus namespace](../service-bus-messaging/service-bus-create-namespace-portal.md)
+  * [Create a Service Bus namespace](../service-bus-messaging/service-bus-create-namespace-portal.md)
 
   * [Create a Service Bus namespace and queue](../service-bus-messaging/service-bus-quickstart-portal.md)
 
@@ -123,9 +123,9 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   > throttled state at next polling interval.
   >
   > However, if you [turn on a Service Bus trigger's concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency), 
-  > the default value for the `maximumWaitingRuns`​ property is 10​. Based on the Service Bus entity's lock duration setting 
+  > the default value for the `maximumWaitingRuns` property is 10. Based on the Service Bus entity's lock duration setting 
   > and the run duration for your workflow, this default value might be too large and might cause a "lock lost" exception. 
-  > To find the optimal value for your scenario, start testing with a value of 1​ or 2​ for the `maximumWaitingRuns`​ property. 
+  > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
   > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 <a name="permissions-connection-string"></a>
@@ -478,11 +478,11 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
    Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**.
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **azure service bus**.
 
 1. From the actions list, select the action that you want.
 
-   This example continues with the **Send message** action.
+   This example continues with the action named **Send message**.
 
    ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
 
