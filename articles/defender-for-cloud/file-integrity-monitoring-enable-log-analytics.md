@@ -30,7 +30,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
 1. From the **Workload protections** dashboard's **Advanced protection** area, select **File integrity monitoring**.
 
-   :::image type="content" source="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png" alt-text="Screenshot of opening the File Integrity Monitoring dashboard." lightbox="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png":::
+   :::image type="content" source="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png" alt-text="Screenshot of screenshot of opening the File Integrity Monitoring dashboard." lightbox="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png":::
 
     The following information is provided for each workspace:
 
@@ -47,14 +47,14 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 
-        :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace.":::
+        :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-list-fim.png" alt-text="Screenshot of enabling FIM for a specific workspace.":::
 
     > [!TIP]
     > If there's no enable or upgrade button, and the space is blank, it means that FIM is already enabled on the workspace.
 
 1. Select **ENABLE**. The details of the workspace including the number of Windows and Linux machines under the workspace is shown.
 
-    :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-fim-status.png" alt-text="FIM workspace details page.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-fim-status.png" alt-text="Screenshot of FIM workspace details page.":::
 
    The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
@@ -73,7 +73,7 @@ To disable FIM:
 
 1. From the **File Integrity Monitoring dashboard** for a workspace, select **Disable**.
 
-    :::image type="content" source="./media/file-integrity-monitoring-overview/disable-file-integrity-monitoring.png" alt-text="Disable file integrity monitoring from the settings page.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/disable-file-integrity-monitoring.png" alt-text="Screenshot of disabling file integrity monitoring from the settings page.":::
 
 1. Select **Remove**.
 
@@ -83,7 +83,7 @@ To disable FIM:
 
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **file integrity monitoring** window that already has FIM enabled.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/fim-dashboard.png" alt-text="The FIM dashboard and its various informational panels.":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/fim-dashboard.png" alt-text="Screenshot of the FIM dashboard and its various informational panels.":::
 
 The FIM dashboard for a workspace displays the following details:
 
@@ -94,7 +94,7 @@ The FIM dashboard for a workspace displays the following details:
 
 Select **Filter** at the top of the dashboard to change the time period for which changes are shown.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/dashboard-filter.png" alt-text="Time period filter for the FIM dashboard.":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/dashboard-filter.png" alt-text="Screenshot of time period filter for the FIM dashboard.":::
 
 The **Servers** tab lists the machines reporting to this workspace. For each machine, the dashboard lists:
 
@@ -103,7 +103,7 @@ The **Servers** tab lists the machines reporting to this workspace. For each mac
 
 When you select a machine, the query appears along with the results that identify the changes made during the selected time period for the machine. You can expand a change for more information.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="Log Analytics query showing the changes identified by Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="Screenshot of log Analytics query showing the changes identified by Microsoft Defender for Cloud's file integrity monitoring." lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
 
 The **Changes** tab (shown below) lists all changes for the workspace during the selected time period. For each entity that was changed, the dashboard lists the:
 
@@ -112,17 +112,17 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 - Category of change (modified, added, removed)
 - Date and time of change
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/changes-tab.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring changes tab" lightbox="./media/file-integrity-monitoring-overview/changes-tab.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/changes-tab.png" alt-text="Screenshot of Microsoft Defender for Cloud's file integrity monitoring changes tab." lightbox="./media/file-integrity-monitoring-overview/changes-tab.png":::
 
 **Change details** opens when you enter a change in the search field or select an entity listed under the **Changes** tab.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/change-details.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring showing the details pane for a change" lightbox="./media/file-integrity-monitoring-overview/change-details.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/change-details.png" alt-text="Screenshot of Microsoft Defender for Cloud's file integrity monitoring showing the details pane for a change." lightbox="./media/file-integrity-monitoring-overview/change-details.png":::
 
 ### Edit monitored entities
 
 1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
 
-    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png" alt-text="Accessing the file integrity monitoring settings for a workspace." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png" alt-text="Screenshot of accessing the file integrity monitoring settings for a workspace." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png":::
 
    **Workspace Configuration** opens with tabs for each type of element that can be monitored:
 
@@ -134,7 +134,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
       Each tab lists the entities that you can edit in that category. For each entity listed, Defender for Cloud identifies whether FIM is enabled (true) or not enabled (false). Edit the entity to enable or disable FIM.
 
-    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Microsoft Defender for Cloud.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Screenshot of workspace configuration for file integrity monitoring in Microsoft Defender for Cloud.":::
 
 1. Select an entry from one of the tabs and edit any of the available fields in the **Edit for Change Tracking** pane. Options include:
 
@@ -158,7 +158,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
         In this example, we selected **Linux Files**.
 
-        :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png" alt-text="Adding an element to monitor in Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png":::
+        :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png" alt-text="Screenshot of adding an element to monitor in Microsoft Defender for Cloud's file integrity monitoring." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png":::
 
 1. Select **Add**. **Add for Change Tracking** opens.
 
@@ -213,7 +213,7 @@ To configure FIM to monitor registry baselines:
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     ```
 
-    :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-registry.png" alt-text="Enable FIM on a registry.":::
+    :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-registry.png" alt-text="Screenshot of enable FIM on a registry.":::
 
 ### Track changes to Windows files
 
@@ -222,7 +222,7 @@ In the example in the following figure,
 **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
-    :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-file.png" alt-text="Enable FIM on a file.":::
+    :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-file.png" alt-text="Screenshot of enable FIM on a file.":::
 
 ### Retrieve change data
 

@@ -712,7 +712,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
-            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics#compare-baselines-using-file-integrity-monitoring",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
             "redirect_document_id": true
         },
         {

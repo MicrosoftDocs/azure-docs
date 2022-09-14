@@ -59,11 +59,11 @@ To enable File Integrity Monitoring (FIM):
 
 1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
-    :::image type="content" source="media/file-integrity-monitoring-enable-ama/fim-ama-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
+    :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
 
 1. The machines with File Integrity Monitoring enabled are shown.
 
-    :::image type="content" source="media/file-integrity-monitoring-enable-ama/fim-ama-results.png" alt-text="Screenshot of File integrity monitoring results for machines with Azure Monitor Agent." lightbox="media/file-integrity-monitoring-enable-ama/fim-ama-results.png":::
+    :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-results.png" alt-text="Screenshot of File integrity monitoring results for machines with Azure Monitor Agent." lightbox="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-results.png":::
 
     You can see the number of changes that were made to the tracked files, and you can select **View changes** to see the changes made to the tracked files on that machine.
 
@@ -97,7 +97,7 @@ To exclude a machine from File Integrity Monitoring:
 
 - In the list of monitored machines in the FIM results, select the menu (**...**) for the machine and select **Detach data collection rule**.
 
-:::image type="content" source="media/file-integrity-monitoring-enable-ama/fim-ama-detach-rule.png" alt-text="Screenshot of the option to detach a machine from a data collection rule and exclude the machines from File Integrity Monitoring." lightbox="media/file-integrity-monitoring-enable-ama/fim-ama-detach-rule.png":::
+:::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png" alt-text="Screenshot of the option to detach a machine from a data collection rule and exclude the machines from File Integrity Monitoring." lightbox="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png":::
 
 The machine moves to the list of unmonitored machines, and file changes aren't tracked for that machine anymore.
 
