@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: ryanmajidi
 ms.author: rymajidi
 ms.reviewer: wiassaf, sngun
-ms.date: 09/09/2022
+ms.date: 09/14/2022
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -257,4 +257,3 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 - [Azure Synapse Analytics terminology](overview-terminology.md)
 - [Azure Synapse Analytics migration guides](migration-guides/index.yml)
 - [Azure Synapse Analytics frequently asked questions](overview-faq.yml)
-
