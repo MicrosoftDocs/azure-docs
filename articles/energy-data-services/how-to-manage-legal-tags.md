@@ -10,11 +10,14 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to manage legal tags?
-A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services Preview instance. Legal tag is a collection of properties that governs how the data can be ingested and consumed. A user may have access to manage the data within a data partition however, they may not be able to do so, until certain legal requirements are fulfilled. Data won't be able to be passed into or out of Microsoft Energy Data Services Preview unless the partition has an associated legal tag.
+A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services Preview instance. Legal tag is a collection of properties that governs how data can be ingested and consumed. A legal tag is necessarily required for data to be [ingested](concepts-csv-parser-ingestion.md) into your Microsoft Energy Data Services Preview instance. It's also required for the [consumption](concepts-index-and-search.md) of the data from your Microsoft Energy Data Services Preview instance. Legal tags are defined at a data partition level individually.
+
+While in Microsoft Energy Data Services Preview instance, [entitlement service](concepts-entitlements.md) defines access to data for a given user(s), legal tag defines the overall access to the data across users. A user may have access to manage the data within a data partition however, they may not be able to do so, until certain legal requirements are fulfilled.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Create a legal tag
+Run the below curl command to create a legal tag for a given data partition of your Microsoft Energy Data Services Preview instance.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/legal/v1/legaltags' \
@@ -43,7 +46,7 @@ A Legal tag is the entity that represents the legal status of data in the Micros
 ```bash
     curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmV...' \
+    --header 'Authorization: Bearer  <access_token>' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "<instance>-<data-partition-name>-legal-tag",
@@ -91,7 +94,7 @@ The country of origin should follow [ISO Alpha2 format](https://www.nationsonlin
 ```bash
     curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmV...' \
+    --header 'Authorization: Bearer  <access_token>' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "legal-tag",
@@ -132,7 +135,8 @@ The sample response will have data-partition-id appended to the legal tag name a
 ```
 
 ## Get a legal tag
-
+Run the below curl command to get the legal tag associated with a data partition of your Microsoft Energy Data Services Preview instance.
+    
 ```bash
     curl --location --request GET 'https://<URI>/api/legal/v1/legaltags/<legal-tag-name>' \
     --header 'data-partition-id: <data-partition-id' \
