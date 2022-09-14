@@ -8,7 +8,7 @@ ms.devlang: java
 author: jdubois
 ms.author: judubois
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
-ms.date: 09/07/2022
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL

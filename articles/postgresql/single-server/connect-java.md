@@ -283,6 +283,11 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
 
     <dependencies>
       <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.3.6</version>
+      </dependency>
+      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
         <version>1.0.0-beta.1</version>
@@ -334,7 +339,7 @@ Create a *src/main/resources/application.properties* file, and add:
 
 ```bash
 cat << EOF > src/main/resources/application.properties
-url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require
+url=jdbc:postgresql://${AZ_DATABASE_NAME}.postgres.database.azure.com:5432/demo?sslmode=require&authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin
 user=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 EOF
 ```
@@ -374,59 +379,6 @@ Next, add the Java code that will use JDBC to store and retrieve data from your 
 
 Create a *src/main/java/DemoApplication.java* file, that contains:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
-
-```java
-package com.example.demo;
-
-import java.sql.*;
-import java.util.*;
-import java.util.logging.Logger;
-import com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin;
-
-public class DemoApplication {
-
-    private static final Logger log;
-
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DemoApplication.class.getName());
-    }
-
-    public static void main(String[] args) throws Exception {
-        log.info("Loading application properties");
-        Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-
-        log.info("Connecting to the database");
-        properties.put("authenticationPluginClassName", AzureIdentityPostgresqlAuthenticationPlugin.class.getName());
-        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
-        log.info("Database connection test: " + connection.getCatalog());
-
-        log.info("Create database schema");
-        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
-        Statement statement = connection.createStatement();
-        while (scanner.hasNextLine()) {
-            statement.execute(scanner.nextLine());
-        }
-
-		/* Prepare for data processing in the PostgreSQL server.
-		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
-        insertData(todo, connection);
-        todo = readData(connection);
-        todo.setDetails("congratulations, you have updated data!");
-        updateData(todo, connection);
-        deleteData(todo, connection);
-		*/
-
-        log.info("Closing database connection");
-        connection.close();
-    }
-}
-```
-
-#### [Password](#tab/password)
-
 ```java
 package com.example.demo;
 
@@ -473,8 +425,6 @@ public class DemoApplication {
     }
 }
 ```
-
----
 
 This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the PostgreSQL server and create a schema that will store our data.
 
