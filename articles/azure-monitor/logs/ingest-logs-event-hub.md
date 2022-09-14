@@ -64,36 +64,36 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON, and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_name>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path`:
 
-```PowerShell
-$tableParams = @'
-{
-    "properties": {
-        "schema": {
-            "name": "<table_name>_CL",
-            "columns": [
-                {
-                    "name": "TimeGenerated",
-                    "type": "datetime",
-                    "description": "The time at which the data was generated"
-                },
-                {
-                    "name": "RawData",
-                    "type": "string",
-                    "description": "Body of the event"
-                },
-                {
-                    "name": "Properties",
-                    "type": "dynamic",
-                    "description": "Additional message properties"
-                }
-            ]
+    ```PowerShell
+    $tableParams = @'
+    {
+        "properties": {
+            "schema": {
+                "name": "<table_name>_CL",
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime",
+                        "description": "The time at which the data was generated"
+                    },
+                    {
+                        "name": "RawData",
+                        "type": "string",
+                        "description": "Body of the event"
+                    },
+                    {
+                        "name": "Properties",
+                        "type": "dynamic",
+                        "description": "Additional message properties"
+                    }
+                ]
+            }
         }
     }
-}
-'@
-
-Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/tables/<table_name>_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
-```
+    '@
+    
+    Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/tables/<table_name>_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+    ```
 
 ## Create a data collection endpoint
 
