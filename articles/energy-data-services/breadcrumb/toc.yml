@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Microsoft Energy Data Services
-    tocHref: /azure/energy-data-services/
-    topicHref: /azure/energy-data-services/index
