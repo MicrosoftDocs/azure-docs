@@ -1,7 +1,7 @@
 ---
 title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the REST API to convert text into synthesized speech. 
+description: Learn how to use the REST API to convert text into synthesized speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -19,7 +19,7 @@ The Speech service allows you to [convert text into synthesized speech](#convert
 
 The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A subscription key for the endpoint or region that you plan to use is required. Here are links to more information:
 
-- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
+- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
 - For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
@@ -69,7 +69,7 @@ You can use the `voices/list` endpoint to get a full list of voices for a specif
 | West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
-> [Voices in preview](language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [Voices in preview](language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
@@ -151,9 +151,9 @@ This response has been truncated to illustrate the structure of a response.
       ],
     "Status": "Preview"
     },
-    
+
   ...
-    
+
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
@@ -232,7 +232,7 @@ This table lists required and optional headers for text-to-speech requests:
 
 ### Request body
 
-If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 
 ### Sample request
 
@@ -274,33 +274,35 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-|Streaming                         |Non-Streaming            |
-|----------------------------------|-------------------------|
-|audio-16khz-16bit-32kbps-mono-opus|riff-8khz-8bit-mono-alaw |
-|audio-16khz-32kbitrate-mono-mp3   |riff-8khz-8bit-mono-mulaw|
-|audio-16khz-64kbitrate-mono-mp3   |riff-8khz-16bit-mono-pcm |
-|audio-16khz-128kbitrate-mono-mp3  |riff-24khz-16bit-mono-pcm|
-|audio-24khz-16bit-24kbps-mono-opus|riff-48khz-16bit-mono-pcm|
-|audio-24khz-16bit-48kbps-mono-opus|                         |
-|audio-24khz-48kbitrate-mono-mp3   |                         |
-|audio-24khz-96kbitrate-mono-mp3   |                         |
-|audio-24khz-160kbitrate-mono-mp3  |                         |
-|audio-48khz-96kbitrate-mono-mp3   |                         |
-|audio-48khz-192kbitrate-mono-mp3  |                         |
-|ogg-16khz-16bit-mono-opus         |                         |
-|ogg-24khz-16bit-mono-opus         |                         |
-|ogg-48khz-16bit-mono-opus         |                         |
-|raw-8khz-8bit-mono-alaw           |                         |
-|raw-8khz-8bit-mono-mulaw          |                         |
-|raw-8khz-16bit-mono-pcm           |                         |
-|raw-16khz-16bit-mono-pcm          |                         |
-|raw-16khz-16bit-mono-truesilk     |                         |
-|raw-24khz-16bit-mono-pcm          |                         |
-|raw-24khz-16bit-mono-truesilk     |                         |
-|raw-48khz-16bit-mono-pcm          |                         |
-|webm-16khz-16bit-mono-opus        |                         |
-|webm-24khz-16bit-24kbps-mono-opus |                         |
-|webm-24khz-16bit-mono-opus        |                         |
+| Streaming                          | Non-Streaming               |
+| ---------------------------------- | --------------------------- |
+| audio-16khz-16bit-32kbps-mono-opus | riff-8khz-8bit-mono-alaw    |
+| audio-16khz-32kbitrate-mono-mp3    | riff-8khz-8bit-mono-mulaw   |
+| audio-16khz-64kbitrate-mono-mp3    | riff-8khz-16bit-mono-pcm    |
+| audio-16khz-128kbitrate-mono-mp3   | riff-22050hz-16bit-mono-pcm |
+| audio-24khz-16bit-24kbps-mono-opus | riff-24khz-16bit-mono-pcm   |
+| audio-24khz-16bit-48kbps-mono-opus | riff-44100hz-16bit-mono-pcm |
+| audio-24khz-48kbitrate-mono-mp3    | riff-48khz-16bit-mono-pcm   |
+| audio-24khz-96kbitrate-mono-mp3    |                             |
+| audio-24khz-160kbitrate-mono-mp3   |                             |
+| audio-48khz-96kbitrate-mono-mp3    |                             |
+| audio-48khz-192kbitrate-mono-mp3   |                             |
+| ogg-16khz-16bit-mono-opus          |                             |
+| ogg-24khz-16bit-mono-opus          |                             |
+| ogg-48khz-16bit-mono-opus          |                             |
+| raw-8khz-8bit-mono-alaw            |                             |
+| raw-8khz-8bit-mono-mulaw           |                             |
+| raw-8khz-16bit-mono-pcm            |                             |
+| raw-16khz-16bit-mono-pcm           |                             |
+| raw-16khz-16bit-mono-truesilk      |                             |
+| raw-22050hz-16bit-mono-pcm         |                             |
+| raw-24khz-16bit-mono-pcm           |                             |
+| raw-24khz-16bit-mono-truesilk      |                             |
+| raw-44100hz-16bit-mono-pcm         |                             |
+| raw-48khz-16bit-mono-pcm           |                             |
+| webm-16khz-16bit-mono-opus         |                             |
+| webm-24khz-16bit-24kbps-mono-opus  |                             |
+| webm-24khz-16bit-mono-opus         |                             |
 
 > [!NOTE]
 > en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.

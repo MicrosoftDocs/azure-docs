@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 08/24/2022
 ms.author: aahi
 ---
 
@@ -91,6 +91,16 @@ As you use these features in your application, use the following documentation a
 | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
 | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
+## Version support
+
+The namespaces mentioned here have the following framework/language version support:
+
+|Framework/Language  | Minimum supported version  |
+|---------|---------|
+|.NET     | .NET Framework 4.6.1 or newer, or .NET (formerly .NET Core) 2.0 or newer.       |
+|Java     | v8 or later        |
+|JavaScript     | v14 LTS or later        |
+|Python| v3.7 or later        |
 
 # [REST API](#tab/rest-api)
 
@@ -157,6 +167,7 @@ As you use this API in your application, see the following reference documentati
 * [Prebuilt API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) - Use the prebuilt runtime API to answer specified question using text provided by users.
 * [Custom authoring API](/rest/api/cognitiveservices/questionanswering/question-answering-projects) - Create a knowledge base to answer questions.
 * [Custom runtime API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) - Query and knowledge base to generate an answer.
+
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Conditional Access - Require MFA for all users - Azure Active Directory
-description: Create a custom Conditional Access policy to require all users do multi-factor authentication
+description: Create a custom Conditional Access policy to require all users do multifactor authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ Organizations may have many cloud applications in use. Not all of those applicat
 
 ### Subscription activation
 
-Organizations that use the [Subscription Activation](/windows/deployment/windows-10-subscription-activation) feature to enable users to “step-up” from one version of Windows to another, may want to exclude the Universal Store Service APIs and Web Application, AppID 45a330b1-b1ec-4cc1-9161-9f03992aa49f from their all users all cloud apps MFA policy.
+Organizations that use [Subscription Activation](/windows/deployment/windows-10-subscription-activation) to enable users to “step-up” from one version of Windows to another, may want to exclude the Universal Store Service APIs and Web Application, AppID 45a330b1-b1ec-4cc1-9161-9f03992aa49f from their all users all cloud apps MFA policy.
 
 ## Template deployment
 
@@ -46,19 +46,18 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require all users do multi-factor authentication.
+The following steps will help create a Conditional Access policy to require all users do multifactor authentication.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-   1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-   1. Under **Exclude**, select any applications that don't require multi-factor authentication.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+   1. Under **Exclude**, select any applications that don't require multifactor authentication.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
@@ -67,7 +66,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Azure Active Directory Conditional Access?](location-condition.md)
 
-In the example policy above, an organization may choose to not require multi-factor authentication if accessing a cloud app from their corporate network. In this case they could add the following configuration to the policy:
+In the example policy above, an organization may choose to not require multifactor authentication if accessing a cloud app from their corporate network. In this case they could add the following configuration to the policy:
 
 1. Under **Assignments**, select **Conditions** > **Locations**.
    1. Configure **Yes**.

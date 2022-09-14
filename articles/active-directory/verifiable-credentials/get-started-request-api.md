@@ -3,7 +3,7 @@ title: How to call the Request Service REST API
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -310,7 +310,7 @@ Authorization: Bearer  <token>
         "clientName": "Verifiable Credential Expert Sample"
     },
     "type": "VerifiedCredentialExpert",
-    "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
+    "manifestUrl": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert1",
     "pin": {
         "value": "3539",
         "length": 4

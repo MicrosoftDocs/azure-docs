@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 06/22/2022
-author: t-khelan
-ms.author: t-khelanmodi
+author: seesharprun
+ms.author: sidandrews
 ---
 
 # Change log for Azure Cosmos DB API for MongoDB
