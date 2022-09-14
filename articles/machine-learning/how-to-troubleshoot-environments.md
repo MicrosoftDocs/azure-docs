@@ -55,7 +55,8 @@ Over time vulnerabilities are discovered and Docker images that correspond to Az
 Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
 It is the user’s responsibility to evaluate the threat and address vulnerabilities in environments.
 Not all the vulnerabilities are exploitable, so users need to use their own good judgement when choosing between reproducibility and resolving vulnerabilities.
-It is not guaranteed that the same set of python dependencies would be materialized with the image rebuild or for the new environment with the same set of Python dependencies. 
+> [!IMPORTANT]
+> There's no guarantee that the same set of python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
 
 ## Table of Contents
 **[Environment Definition Problems](#environment-definition-problems)**<br>
