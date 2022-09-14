@@ -72,7 +72,7 @@ az iot hub device-identity create -n {iothub_name} -d {device_id} --ee
 
 The result is a JSON printout which includes your keys and other information.
 
-Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/device-identity?view=azure-cli-latest#az-iot-hub-device-identity-create-examples&preserve-view=true) on the **az iot hub device-identity** reference page.
+Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create-examples) on the **az iot hub device-identity** reference page.
 
 ## Remove an IoT Hub
 
