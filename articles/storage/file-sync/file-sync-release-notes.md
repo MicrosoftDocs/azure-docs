@@ -51,7 +51,7 @@ The following release notes are for version 15.1.0.0 of the Azure File Sync agen
 
 ### Improvements and issues that are fixed 
 - Low disk space mode to prevent running out of disk space when using cloud tiering.
-	- Low disk space mode is designed to handle disks with low free space more effectively. On a server endpoint with cloud tiering enabled, if the free space on the disk reaches below a threshold, Azure File Sync considers the disk to be in Low disk space mode.  
+	- Low disk space mode is designed to handle volumes with low free space more effectively. On a server endpoint with cloud tiering enabled, if the free space on the disk reaches below a threshold, Azure File Sync considers the disk to be in Low disk space mode.  
 		 
 		In this mode, Azure File Sync does two things to free up space on the disk: 
 	
