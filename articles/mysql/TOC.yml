@@ -252,8 +252,10 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: Security
       items:
+      - name: Set data encryption with Azure portal
+        href: flexible-server/tutorial-data-encryption-mysql-flexible-server-portal.md
       - name: Set data encryption with Azure CLI
-        href: flexible-server/tutorial-set-data-encryption-cli-mysql-flexible-server.md    
+        href: flexible-server/tutorial-data-encryption-mysql-flexible-server-cli.md        
   - name: Samples
     items:
     - name: Azure CLI samples
