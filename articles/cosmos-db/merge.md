@@ -48,7 +48,7 @@ For containers using autoscale, this will show the max RU/s currently provisione
 
 In the below example, we have an autoscale container provisioned with 5000 RU/s (scales between 500 - 5000 RU/s). It has 5 physical partitions and each physical partition has 1000 RU/s.
 
-:::image type="content" source="media/merge/RU-per-physical-partition-metric.png" alt-text="Azure Monitor metric Physical Partition Throughput":::
+:::image type="content" source="media/merge/RU-per-physical-partition-metric.png" alt-text="Screenshot of Azure Monitor metric Physical Partition Throughput in Azure portal.":::
 
 #### Criteria 2
 
@@ -56,7 +56,7 @@ To determine the current average storage per physical partition, first find the 
 
 Navigate to **Insights** > **Storage** > **Data & Index Usage**. The total storage is the sum of the data and index usage. In the below example, the container has a total of 74 GB of storage.
 
-:::image type="content" source="media/merge/storage-per-container.png" alt-text="Azure Monitor storage (data + index) metric for container":::
+:::image type="content" source="media/merge/storage-per-container.png" alt-text="Screenshot of Azure Monitor storage (data + index) metric for container in Azure portal.":::
 
 Next, find the total number of physical partitions. This is the distinct number of **PhysicalPartitionIds** in the **PhysicalPartitionThroughput** chart we saw in Criteria 1. In our example, we have 5 physical partitions.
 
