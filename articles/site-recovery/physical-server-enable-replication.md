@@ -48,8 +48,8 @@ You can add details of the physical servers, which you plan to protect, when you
 3. Select **Add**.
 
 4. Select **Add server** to add physical server details. Provide the machine’s IP address, select the machine's credentials and then select **Add**.
-
-   ![Screenshot of Add Physical server details.](./media/physical-server-enable-replication/add-physical-server-details.png)
+    
+   :::image type="Add Physical server details." source="./media/physical-server-enable-replication/add-physical-server-details.png" alt-text="Screenshot of Add Physical server details."::: 
 
 This will add your physical server details to the appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
 

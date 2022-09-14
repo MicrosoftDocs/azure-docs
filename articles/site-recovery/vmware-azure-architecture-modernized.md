@@ -99,7 +99,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 days
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 day
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot | Disabled
 
 ### Managing replication policies
