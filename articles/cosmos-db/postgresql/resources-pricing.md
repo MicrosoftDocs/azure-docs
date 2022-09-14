@@ -16,7 +16,7 @@ ms.date: 02/23/2022
 ## General pricing
 
 For the most up-to-date pricing information, see the service
-[pricing page](https://azure.microsoft.com/pricing/details/postgresql/).
+[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 To see the cost for the configuration you want, the
 [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
 shows the monthly cost on the **Configure** tab based on the options you
@@ -33,7 +33,7 @@ Azure Cosmos DB for PostgreSQL now helps you save money by prepaying for compute
 
 You don't need to assign the reservation to specific clusters. An already running cluster or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Hyperscale (Citus) compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 
-A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
+A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 You can buy Hyperscale (Citus) reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 

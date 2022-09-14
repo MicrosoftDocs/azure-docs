@@ -37,8 +37,7 @@ in Azure Database for PostgreSQL.
 ### Backup storage cost
 
 For current backup storage pricing, see the Azure Cosmos DB for PostgreSQL
-[pricing
-page](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
+[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## Restore
 
