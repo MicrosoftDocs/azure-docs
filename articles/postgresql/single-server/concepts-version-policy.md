@@ -60,12 +60,12 @@ The table below provides the retirement details for PostgreSQL major versions. T
 
 ## PostgreSQL 11 support in Single Server and Flexible Server
 
-We are extending support for PostgreSQL 11 in Single Server and Flexible Server by one more year till **November 9, 2024**.
+Azure is extending support for PostgreSQL 11 in Single Server and Flexible Server by one more year until **November 9, 2024**.
 
-- You will be able to create and use your PostgreSQL 11 servers until November 9, 2024 without any restrictions. This extended support is provided to help you with more time to plan and [migrate](../migrate/concepts-single-to-flexible.md) to Flexible server for higher PostgreSQL version.
-- Till November 9, 2023, Azure will continue to update your server with PostgreSQL community provided minor versions.
-- Between November'23 to November'24, you can continue to use your PostgreSQL 11 servers or create new PostgreSQL servers without any restrictions. All [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) of retired PostgreSQL engine versions apply **except** for creation of new PostgreSQL 11 servers - which you can continue to do.
-- Beyond Nov 9 2024, all retired PostgreSQL engine [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) apply as described below.
+- You will be able to create and use your PostgreSQL 11 servers until November 9, 2024 without any restrictions. This extended support is provided to help you with more time to plan and [migrate](../migrate/concepts-single-to-flexible.md) to Flexible server for higher PostgreSQL versions.
+- Till November 9, 2023, Azure will continue to update your PostgreSQL 11 server with PostgreSQL community provided minor versions.
+- Between November'23 and November'24, you can continue to use your PostgreSQL 11 servers or create new PostgreSQL servers. However, retired PostgreSQL engine [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) apply except for new server creates. No restrictions to using your existing PostgreSQL 11 servers or create new servers.
+- Beyond Nov 9 2024, all retired PostgreSQL engine [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) apply.
   
 ## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 
