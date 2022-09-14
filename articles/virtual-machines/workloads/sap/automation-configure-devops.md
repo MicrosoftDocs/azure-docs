@@ -99,13 +99,13 @@ Replace MGMT with your environment as necessary.
 ```powershell
 Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
 
-$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access ./manifest.json --query "appId").Replace('"',"")
+$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access .\manifest.json --query "appId").Replace('"',"")
 
 echo $TF_VAR_app_registration_app_id
 
 az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
 
-rm ./manifest.json
+del manifest.json
 ```
 ---
 
@@ -214,6 +214,18 @@ Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipel
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal' by choosing 'Rename/Move' from the three-dot menu on the right.
 
+## Deployment removal pipeline
+
+Create the control plane deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                           |
+| ------- | ----------------------------------------------- |
+| Branch  | main                                            |
+| Path    | `deploy/pipelines/12-remove-control-plane.yaml` |
+| Name    | Control plane removal                           |
+
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane removal' by choosing 'Rename/Move' from the three-dot menu on the right.
+
 ## Deployment removal pipeline using Azure Resource Manager
 
 Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
@@ -284,7 +296,7 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | Branch                             | main                                    |                                                                                             |
 | S-Username                         | `<SAP Support user account name>`       |                                                                                             |
 | S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.                                   |
-| `tf_version`                       | 1.2.6                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
+| `tf_version`                       | 1.2.8                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
 
@@ -296,7 +308,7 @@ s-password="<SAP Support user password>"
 
 az devops login
 
-az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password --output yaml
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.2.8 --output yaml
 
 ```
 
@@ -318,9 +330,9 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | ARM_TENANT_ID                   | Enter the Tenant ID for the service principal.                     |                                                          |
 | AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
 | sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
-| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
-| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
-| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
+| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments using a service principal for fencing agent.               |
 | `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
 | `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
 | APP_REGISTRATION_APP_ID         | App registration application ID                                    | Required if deploying the web app                        |
@@ -420,9 +432,9 @@ The agent will now be configured and started.
 
 Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the application's software to that infrastructure. 
 
-Wait for the deployment to finish. Once the deployment is complete, navigate to the Extensions tab and follow the instructions to finalize the configuration and update the reply-url values for the app registration. 
+Wait for the deployment to finish. Once the deployment is complete, navigate to the Extensions tab and follow the instructions to finalize the configuration and update the 'reply-url' values for the app registration.
 
-As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+As a result of running the control plane pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. You can at any time update the URLs of the registered application web app using the following command.
 
 # [Linux](#tab/linux)
 
@@ -437,10 +449,6 @@ $webapp_url_base="<WEBAPP_URL_BASE>"
 az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
 ```
 ---
-After updating the reply-urls, run the pipeline.
-
-By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../../app-service/app-service-ip-restrictions.md).
-
 You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
 
 You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
