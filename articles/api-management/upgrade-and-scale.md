@@ -19,7 +19,7 @@ Customers can scale an Azure API Management instance in a dedicated service tier
 > [!NOTE]
 > API Management instances in the **Consumption** tier scale automatically based on the traffic. Currently, you cannot upgrade from or downgrade to the Consumption tier from a dedicated service tier.
 
-The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. You can choose between four dedicated tiers: **Developer**, **Basic**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance doesn't allow adding more units, you need to upgrade to a higher-level tier.
+The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance doesn't allow adding more units, you need to upgrade to a higher-level tier.
 
 >[!NOTE]
 >See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) for features, scale limits, and estimated throughput in each tier. To get more accurate throughput numbers, you need to look at a realistic scenario for your APIs. See [Capacity of an Azure API Management instance](api-management-capacity.md).
@@ -28,7 +28,7 @@ The throughput and price of each unit depend on the [service tier](api-managemen
 
 To follow the steps from this article, you must:
 
-+ Have an API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Have an API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md). 
 
 + Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 
