@@ -65,15 +65,13 @@ To update mobility agent of a protected item, follow these steps:
 
 ### Update mobility agent when private endpoint is enabled 
 
-Automatic updates will not be available when private endpoints have been enabled. To update mobility agent of a protected item, follow these steps:  
+When you enable private endpoints, automatic updates will not be available. To update mobility agent of a protected item, follow these steps:  
 
-1. Navigate to **Recovery services vault** > **Replicated items**, select a VM. 
+1. Navigate to **Recovery services vault** > **Replicated items**, and select a VM. 
 
-2. In VM's Overview blade, against Agent version, view the current version of the mobility agent. If a new update is available, the status is updated as New update available. 
+2. In VM's **Overview** blade, under **Agent version**, you can view the current version of the mobility agent. If a new update is available, the status is updated as **New update available**. 
 
-3. Once confirmed that a new version is available, download the latest agent version’s package from here, on the source machine.  
-
-4. Once done, update the agent version. 
+3. Confirm the availability of new version, download the latest agent version’s package on the source machine and update the agent version. 
 
 ## Mobility agent on latest version
 
@@ -147,11 +145,10 @@ To delete the registry key:
 
 ### Update appliance components when private endpoint is enabled
 
-Automatic updates will not be available when private endpoints have been enabled. To update all the components of ASR replication appliance, follow these steps: 
+When you enable private endpoints, automatic updates will not be available. To update all the components of ASR replication appliance, follow these steps: 
 
 1.	Navigate to this page and check if a new version for any of the components has been released for a particular version.  
-2.	Download packages of all the versions for which an update is available, on the appliance. 
-3.	Once done, update all the components. 
+2.	Download packages of all the versions for which an update is available, on the appliance and update all the components. 
 
 ### Resolve issues with component upgrade
 
