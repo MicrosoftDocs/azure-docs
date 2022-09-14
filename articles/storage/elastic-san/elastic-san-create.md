@@ -130,6 +130,8 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
 
 # [PowerShell](#tab/azure-powershell)
 
+In this article, we provide you the command to create a single volume. To create a batch of volumes, see [](elastic-san-batch-create-sample.md).
+
 ```azurepowershell
 ## Create the volume, this command only creates one.
 New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 2000
