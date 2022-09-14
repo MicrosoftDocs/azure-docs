@@ -19,12 +19,6 @@ ms.date: 08/11/2022
 
 ## The superpower of distributed tables
 
-<!-- markdownlint-disable MD034 -->
-
-> [!VIDEO https://www.youtube.com/embed/Q30KQ5wRGxU]
-
-<!-- markdownlint-enable MD034 -->
-
 Azure Cosmos DB for PostgreSQL is PostgreSQL extended with the superpower of "distributed
 tables." This superpower enables you to build highly scalable relational apps.
 You can start building apps on a single node cluster, the same way you
