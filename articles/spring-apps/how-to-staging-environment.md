@@ -127,7 +127,7 @@ Use the following steps to view deployed apps.
 
    :::image type="content" source="media/how-to-staging-environment/app-dashboard.png" lightbox="media/how-to-staging-environment/app-dashboard.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
 
-1. Select an app and view details.
+1. Select an app to view details.
 
    :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of details for an app.":::
 
