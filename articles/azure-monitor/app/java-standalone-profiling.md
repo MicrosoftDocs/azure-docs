@@ -49,8 +49,6 @@ The flags that have been disabled are:
 - JVM with Java Flight Recorder (JFR) capability
     - Java 8 update 262+
     - Java 11+
-- Application Insights Agent with profiling capability
-    - Application Insights Java Agent version 3.3.1+
 
 > [!WARNING]
 > OpenJ9 JVM is not supported
