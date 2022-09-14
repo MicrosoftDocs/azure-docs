@@ -32,6 +32,8 @@ In this article, you learn how to update a web service that was deployed with Az
                    workspace_name="myworkspace")
     ```
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Update web service
 
 To update a web service, use the `update` method. You can update the web service to use a new model, a new entry script, or new dependencies that can be specified in an inference configuration. For more information, see the documentation for [Webservice.update](/python/api/azureml-core/azureml.core.webservice.webservice.webservice#update--args-).
