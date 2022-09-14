@@ -16,6 +16,8 @@ ms.custom: mvc
 ## Update (August 2022)
 
 - SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
+
 
 ## Update (June 2022)
 
