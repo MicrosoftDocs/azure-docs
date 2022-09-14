@@ -41,7 +41,7 @@ Customers in User Subscription mode, now have the option to include spot VMs by 
 1. In the Azure portal, select Batch account and view the existing pool or create a new pool.
 2. Under **Scale**, users can choose 'Target dedicated nodes' and 'Target Spot nodes.'
 
-![Scale-TargetNodes](../media/certificates/LowPriorityVMs-scale-targetnodes.png)
+![Scale-TargetNodes](media/certificates/LowPriorityVMs-scale-targetnodes.png)
 
 3. Navigate to the existing Pool and choose 'Scale' to update the number of Spot nodes required based on the job scheduled. Hit save.
 
