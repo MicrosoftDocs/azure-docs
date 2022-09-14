@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/08/2022
 ms.author: rarco
 ms.reviewer: cynthn
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # Resiliency in Azure
