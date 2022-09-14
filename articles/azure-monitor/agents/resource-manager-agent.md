@@ -464,11 +464,11 @@ param vmName string
 param location string
 
 resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview'= {
-  name: '${vmName}/AzureMonitorWindowsAgent'
+  name: '${vmName}/AzureMonitorLinuxAgent'
   location: location
   properties: {
     publisher: 'Microsoft.Azure.Monitor'
-    type: 'AzureMonitorWindowsAgent'
+    type: 'AzureMonitorLinuxAgent'
     autoUpgradeMinorVersion: true
   }
 }
@@ -492,11 +492,11 @@ resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-prev
     {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "apiVersion": "2021-12-10-preview",
-      "name": "[format('{0}/AzureMonitorWindowsAgent', parameters('vmName'))]",
+      "name": "[format('{0}/AzureMonitorLinuxAgent', parameters('vmName'))]",
       "location": "[parameters('location')]",
       "properties": {
         "publisher": "Microsoft.Azure.Monitor",
-        "type": "AzureMonitorWindowsAgent",
+        "type": "AzureMonitorLinuxAgent",
         "autoUpgradeMinorVersion": true
       }
     }
