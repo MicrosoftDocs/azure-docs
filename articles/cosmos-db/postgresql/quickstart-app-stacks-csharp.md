@@ -1,6 +1,6 @@
 ---
-title: C# app to connect and query Hyperscale (Citus)
-description: Learn to query Hyperscale (Citus) using C#
+title: C# app to connect and query Azure Cosmos DB for PostgreSQL
+description: Learn to query Azure Cosmos DB for PostgreSQL using C#
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 08/24/2022
 ---
 
-# C# app to connect and query Hyperscale (Citus)
+# C# app to connect and query Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

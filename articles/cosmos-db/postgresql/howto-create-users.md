@@ -98,7 +98,7 @@ The `citus` role is privileged and can't be deleted.
 ## Next steps
 
 Open the firewall for the IP addresses of the new users' machines to enable
-them to connect: [Create and manage Hyperscale (Citus) firewall rules using
+them to connect: [Create and manage firewall rules using
 the Azure portal](howto-manage-firewall-using-portal.md).
 
 For more information about database user management, see PostgreSQL

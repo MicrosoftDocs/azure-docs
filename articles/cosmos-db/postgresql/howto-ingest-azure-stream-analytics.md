@@ -1,5 +1,5 @@
 ---
-title: Real-time data ingestion with Azure Stream Analytics - Hyperscale (Citus) - Azure DB for PostgreSQL
+title: Real-time data ingestion with Azure Stream Analytics - Azure Cosmos DB for PostgreSQL
 description: How to transform and ingest streaming data
 ms.author: sasriram
 author: saimicrosoft
@@ -27,7 +27,7 @@ Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
 alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
 Blob Storage into Hyperscale (Citus).
 
-## Steps to set up ASA with Hyperscale (Citus)
+## Steps to set up ASA
 
 > [!NOTE]
 >

@@ -55,7 +55,7 @@ the following steps:
 * Distribute large fact tables on a common column. In our case, users and
   events are distributed on `user_id`.
 * Mark the small/dimension tables (`device_types`, `countries`, and
-  `event_types) as Hyperscale (Citus) reference tables.
+  `event_types) as reference tables.
 * Be sure to include the distribution column in primary, unique, and foreign
   key constraints on distributed tables. Including the column may require making the keys
   composite. There's need to update keys for reference tables.

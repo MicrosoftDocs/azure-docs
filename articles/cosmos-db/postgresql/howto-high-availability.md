@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ---
 
-# Configure Hyperscale (Citus) high availability
+# Configure high availability
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

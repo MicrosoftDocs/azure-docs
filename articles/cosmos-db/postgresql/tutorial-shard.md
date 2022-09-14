@@ -34,7 +34,7 @@ to this one.
 ## Hash-distributed data
 
 Distributing table rows across multiple PostgreSQL servers is a key technique
-for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
+for scalable queries in Azure Cosmos DB for PostgreSQL. Together, multiple nodes can hold
 more data than a traditional database, and in many cases can use worker CPUs in
 parallel to execute queries.
 

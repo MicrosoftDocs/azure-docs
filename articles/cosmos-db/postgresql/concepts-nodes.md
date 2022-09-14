@@ -15,7 +15,7 @@ ms.date: 07/28/2019
 
 ## Nodes
 
-The Hyperscale (Citus) hosting type allows Azure Database for PostgreSQL
+Azure Cosmos DB for PostgreSQL allows PostgreSQL
 servers (called nodes) to coordinate with one another in a "shared nothing"
 architecture. The nodes in a cluster collectively hold more data and use
 more CPU cores than would be possible on a single server. The architecture also

@@ -10,7 +10,7 @@ ms.date: 05/23/2022
 ms.custom: kr2b-contr-experiment
 ---
 
-# Compress data with columnar tables in Hyperscale (Citus)
+# Compress data with columnar tables
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -194,8 +194,8 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-This feature still has significant limitations. See [Hyperscale
-(Citus) limits and limitations](reference-limits.md#columnar-storage).
+This feature still has significant limitations. See [limits and
+limitations](reference-limits.md#columnar-storage).
 
 ## Next steps
 

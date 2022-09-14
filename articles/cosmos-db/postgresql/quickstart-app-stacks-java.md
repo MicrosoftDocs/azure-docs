@@ -120,7 +120,7 @@ Replace the  \<host\> using the Connection string that you gathered previously. 
 >
 > We append `?ssl=true&sslmode=require` to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It's mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
 
-## Create tables in Hyperscale (Citus)
+## Create tables
 
 ### Create an SQL file to generate the database schema
 
@@ -433,7 +433,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Updating data in Hyperscale (Citus)
+## Updating data
 
 Let's update the data we previously inserted.
 
@@ -479,7 +479,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Deleting data in Hyperscale (Citus)
+## Deleting data
 
 Finally, let's delete the data we previously inserted.
 

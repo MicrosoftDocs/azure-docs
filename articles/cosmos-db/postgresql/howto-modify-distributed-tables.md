@@ -1,6 +1,6 @@
 ---
 title: Modify distributed tables - Azure Cosmos DB for PostgreSQL
-description: SQL commands to create and modify distributed tables - Hyperscale (Citus) using the Azure portal
+description: SQL commands to create and modify distributed tables
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -104,9 +104,10 @@ Now queries such as one calculating tax for a shopping cart can join on the
 code for better validation.
 
 In addition to distributing a table as a single replicated shard, the
-`create_reference_table` UDF marks it as a reference table in the Hyperscale
-(Citus) metadata tables. Hyperscale (Citus) automatically performs two-phase
-commits ([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
+`create_reference_table` UDF marks it as a reference table in the Azure Cosmos
+DB for PostgreSQL metadata tables. Hyperscale (Citus) automatically performs
+two-phase commits
+([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
 modifications to tables marked this way, which provides strong consistency
 guarantees.
 
@@ -152,7 +153,7 @@ If it's not possible to distribute in the correct order, then drop the foreign
 keys, distribute the tables, and recreate the foreign keys.
 
 When migrating data from an external database, such as from Amazon RDS to
-Hyperscale (Citus) Cloud, first create the Hyperscale (Citus) distributed
+Azure Cosmos DB for PostgreSQL, first create the Hyperscale (Citus) distributed
 tables via `create_distributed_table`, then copy the data into the table.
 Copying into distributed tables avoids running out of space on the coordinator
 node.
@@ -259,8 +260,8 @@ ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
 Significant changes to an existing column like renaming it or changing its data
 type are fine too. However the data type of the [distribution
 column](concepts-nodes.md#distribution-column) cannot be altered.
-This column determines how table data distributes through the Hyperscale
-(Citus) cluster, and modifying its data type would require moving the data.
+This column determines how table data distributes through the cluster,
+and modifying its data type would require moving the data.
 
 Attempting to do so causes an error:
 

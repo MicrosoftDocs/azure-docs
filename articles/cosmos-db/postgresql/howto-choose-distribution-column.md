@@ -172,8 +172,8 @@ for an example of how to build this kind of application.
 In a time-series workload, applications query recent information while they 
 archive old information.
 
-The most common mistake in modeling time-series information in Hyperscale
-(Citus) is to use the timestamp itself as a distribution column. A hash
+The most common mistake in modeling time-series information in Azure Cosmos DB
+for PostgreSQL is to use the timestamp itself as a distribution column. A hash
 distribution based on time distributes times seemingly at random into different
 shards rather than keeping ranges of time together in shards. Queries that
 involve time generally reference ranges of time, for example, the most recent
@@ -187,7 +187,7 @@ data. This type of hash distribution leads to network overhead.
 -   **Use PostgreSQL table partitioning for time instead.** Use table
     partitioning to break a large table of time-ordered data into
     multiple inherited tables with each table containing different time
-    ranges. Distributing a Postgres-partitioned table in Hyperscale (Citus) 
+    ranges. Distributing a Postgres-partitioned table
     creates shards for the inherited tables.
 
 ## Next steps

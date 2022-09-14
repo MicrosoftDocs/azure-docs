@@ -60,9 +60,9 @@ CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
 Notice the GIN index on `payload` in `github_events`. The index allows fast
-querying in the JSONB column. Since Citus is a PostgreSQL extension, Hyperscale
-(Citus) supports advanced PostgreSQL features like the JSONB datatype for
-storing semi-structured data.
+querying in the JSONB column. Since Citus is a PostgreSQL extension, Azure
+Cosmos DB for PostgreSQL supports advanced PostgreSQL features like the JSONB
+datatype for storing semi-structured data.
 
 ## Distribute tables
 
@@ -73,8 +73,8 @@ increased storage and compute performance.
 
 The cluster in this quickstart uses the Basic Tier, so the shards will be
 stored on just one node. However, if you later decide to graduate to the
-Standard Tier, then the shards can be spread across more nodes. With Hyperscale
-(Citus), you can start small and scale seamlessly.
+Standard Tier, then the shards can be spread across more nodes. With Azure
+Cosmos DB for PostgreSQL, you can start small and scale seamlessly.
 
 Let's distribute the tables:
 

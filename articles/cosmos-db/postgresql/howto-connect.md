@@ -14,7 +14,7 @@ ms.date: 08/11/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Choose your database client below to learn how to configure it to connect to
-Hyperscale (Citus).
+the cluster.
 
 # [pgAdmin](#tab/pgadmin)
 

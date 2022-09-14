@@ -139,7 +139,7 @@ configuration options for:
 
 ## System tables
 
-The Hyperscale (Citus) coordinator node contains metadata tables and views to
+The coordinator node contains metadata tables and views to
 help you see data properties and query activity across the cluster.
 
 | Name | Description |

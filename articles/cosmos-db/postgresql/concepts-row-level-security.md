@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/30/2022
 ---
 
-# Row-level security in Hyperscale (Citus)
+# Row-level security
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -18,8 +18,8 @@ drastically under-reports the size of distributed tables on Hyperscale (Citus).
 All this function does on a cluster is to reveal the size
 of tables on the coordinator node.  In reality, the data in distributed tables
 lives on the worker nodes (in shards), not on the coordinator. A true measure
-of distributed table size is obtained as a sum of shard sizes. Hyperscale
-(Citus) provides helper functions to query this information.
+of distributed table size is obtained as a sum of shard sizes. Azure Cosmos DB for PostgreSQL
+provides helper functions to query this information.
 
 <table>
 <colgroup>

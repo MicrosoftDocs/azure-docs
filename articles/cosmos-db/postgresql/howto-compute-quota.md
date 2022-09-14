@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Change compute quotas in Azure Cosmos DB for PostgreSQL from the Azure portal
+# Change compute quotas from the Azure portal
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -38,4 +38,4 @@ worker nodes.
 
 ## Next steps
 
-* Learn about other Hyperscale (Citus) [quotas and limits](reference-limits.md).
+* Learn about other [quotas and limits](reference-limits.md).

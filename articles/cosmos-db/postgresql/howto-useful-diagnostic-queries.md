@@ -46,7 +46,7 @@ The output contains the host and port of the worker database.
 
 ## Finding the distribution column for a table
 
-Each distributed table in Hyperscale (Citus) has a "distribution column." (For
+Each distributed table has a "distribution column." (For
 more information, see [Distributed Data
 Modeling](howto-choose-distribution-column.md).) It can be
 important to know which column it is. For instance, when joining or filtering

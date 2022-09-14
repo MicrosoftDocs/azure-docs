@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Cosmos DB for PostgreSQL
-description: A guide to running Hyperscale (Citus) on Azure
+description: A guide to running Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.custom: mvc

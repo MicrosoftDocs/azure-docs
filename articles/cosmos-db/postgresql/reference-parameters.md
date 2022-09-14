@@ -13,8 +13,8 @@ ms.date: 08/02/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-There are various server parameters that affect the behavior of Hyperscale
-(Citus), both from standard PostgreSQL, and specific to Hyperscale (Citus).
+There are various server parameters that affect the behavior of Azure Cosmos DB for PostgreSQL,
+both from standard PostgreSQL, and specific to Hyperscale (Citus).
 These parameters can be set in the Azure portal for a cluster.
 Under the **Settings** category, choose **Worker node parameters** or
 **Coordinator node parameters**. These pages allow you to set parameters for

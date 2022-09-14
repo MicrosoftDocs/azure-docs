@@ -14,8 +14,8 @@ ms.date: 01/14/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 [Private access](concepts-private-access.md) allows resources in an Azure
-virtual network to connect securely and privately to nodes in a Hyperscale
-(Citus) cluster. This how-to assumes you've already created a virtual
+virtual network to connect securely and privately to nodes in a
+cluster. This how-to assumes you've already created a virtual
 network and subnet. For an example of setting up prerequisites, see the
 [private access tutorial](tutorial-private-access.md).
 
@@ -26,8 +26,7 @@ network and subnet. For an example of setting up prerequisites, see the
 2. Select **Databases** from the **New** page, and select **Azure Database for
    PostgreSQL** from the **Databases** page.
 
-3. For the deployment option, select the **Create** button under **Hyperscale
-   (Citus) cluster**.
+3. For the deployment option, select the **Create** button under **Azure Cosmos DB for PostgreSQL cluster**.
 
 4. Fill out the new server details form with your resource group, desired
    cluster name, location, and database user password.

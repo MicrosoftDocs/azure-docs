@@ -18,10 +18,10 @@ cluster to a read-only cluster. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
 run to up to five replicas from the primary server.
 
-Replicas are new clusters that you manage similar to regular Hyperscale
-(Citus) clusters. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GiB/month. Compute and storage costs for
-replica clusters are the same as for regular clusters.
+Replicas are new clusters that you manage similar to regular clusters. For each
+read replica, you're billed for the provisioned compute in vCores and storage
+in GiB/month. Compute and storage costs for replica clusters are the same as
+for regular clusters.
 
 Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 

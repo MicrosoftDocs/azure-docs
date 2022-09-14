@@ -17,9 +17,9 @@ Running efficient queries on a cluster requires that
 tables be properly distributed across servers. The recommended distribution
 varies by the type of application and its query patterns.
 
-There are broadly two kinds of applications that work well on Hyperscale
-(Citus). The first step in data modeling is to identify which of them more
-closely resembles your application.
+There are broadly two kinds of applications that work well on Azure Cosmos DB
+for PostgreSQL. The first step in data modeling is to identify which of them
+more closely resembles your application.
 
 ## At a Glance
 

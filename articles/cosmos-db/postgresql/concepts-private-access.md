@@ -76,11 +76,11 @@ and you can switch from public access to private access at any point.
 ### Using a private DNS zone
 
 A new private DNS zone is automatically provisioned for each private endpoint,
-unless you select one of the private DNS zones previously created by Hyperscale
-(Citus). For more information, see the [private DNS zones
+unless you select one of the private DNS zones previously created by Azure
+Cosmos DB for PostgreSQL. For more information, see the [private DNS zones
 overview](../../dns/private-dns-overview.md).
 
-Hyperscale (Citus) service creates DNS records such as
+The Hyperscale (Citus) service creates DNS records such as
 `c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
 DNS zone for each node with a private endpoint. When you connect to a
 node from an Azure VM via private endpoint, Azure DNS

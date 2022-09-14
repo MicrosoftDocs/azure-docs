@@ -18,7 +18,7 @@ PostgreSQL can't run on a machine without some free disk space. To maintain
 access to PostgreSQL servers, it's necessary to prevent the disk space from
 running out.
 
-In Hyperscale (Citus), nodes are set to a read-only (RO) state when the disk is
+In Azure Cosmos DB for PostgreSQL, nodes are set to a read-only (RO) state when the disk is
 almost full. Preventing writes stops the disk from continuing to fill, and
 keeps the node available for reads. During the read-only state, you can take
 measures to free more disk space.

@@ -11,6 +11,6 @@
 ---
 
 > [!IMPORTANT]
-> Distributing tables is necessary to take advantage of Hyperscale performance
+> Distributing tables is necessary to take advantage of Azure Cosmos DB for PostgreSQL performance
 > features. If you don't distribute tables then worker nodes can't help run
 > queries involving those tables.

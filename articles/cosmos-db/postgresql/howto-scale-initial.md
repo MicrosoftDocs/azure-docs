@@ -41,7 +41,7 @@ Total vCores: when working data fits in RAM, you can expect a linear
 performance improvement on Hyperscale (Citus) proportional to the number of
 worker cores. To determine the right number of vCores for your needs, consider
 the current latency for queries in your single-node database and the required
-latency in Hyperscale (Citus). Divide current latency by desired latency, and
+latency in Azure Cosmos DB for PostgreSQL. Divide current latency by desired latency, and
 round the result.
 
 Worker RAM: the best case would be providing enough memory that most the

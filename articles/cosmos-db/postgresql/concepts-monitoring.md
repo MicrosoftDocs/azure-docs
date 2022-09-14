@@ -33,7 +33,7 @@ Overview](../../azure-monitor/data-platform.md).
 
 ### Per node vs aggregate
 
-By default, the Azure portal aggregates Hyperscale (Citus) metrics across nodes
+By default, the Azure portal aggregates metrics across nodes
 in a cluster. However, some metrics, such as disk usage percentage, are
 more informative on a per-node basis. To see metrics for nodes displayed
 individually, use Azure Monitor [metric

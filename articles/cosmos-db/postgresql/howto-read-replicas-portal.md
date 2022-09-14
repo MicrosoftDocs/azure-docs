@@ -9,14 +9,13 @@ ms.topic: how-to
 ms.date: 06/17/2022
 ---
 
-# Create and manage read replicas in Azure Cosmos DB for PostgreSQL from the Azure portal
+# Create and manage read replicas
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this article, you learn how to create and manage read replicas in Hyperscale
-(Citus) from the Azure portal. To learn more about read replicas, see the
-[overview](concepts-read-replicas.md).
-
+In this article, you learn how to create and manage read replicas in Azure
+Cosmos DB for PostgreSQL from the Azure portal. To learn more about read
+replicas, see the [overview](concepts-read-replicas.md).
 
 ## Prerequisites
 
@@ -91,5 +90,4 @@ following these steps:
 
 ## Next steps
 
-* Learn more about [read replicas in Azure Database for
-  PostgreSQL - Hyperscale (Citus)](concepts-read-replicas.md).
+* Learn more about [read replicas](concepts-read-replicas.md).

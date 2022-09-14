@@ -1045,8 +1045,8 @@ SELECT * from citus_remote_connection_stats();
 ### isolate\_tenant\_to\_new\_shard
 
 This function creates a new shard to hold rows with a specific single value in
-the distribution column. It's especially handy for the multi-tenant Hyperscale
-(Citus) use case, where a large tenant can be placed alone on its own shard and
+the distribution column. It's especially handy for the multi-tenant
+use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
 
 #### Arguments

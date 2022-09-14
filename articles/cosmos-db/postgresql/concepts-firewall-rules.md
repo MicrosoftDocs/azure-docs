@@ -53,7 +53,7 @@ For example, using a JDBC client, the following error may appear.
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
 
-* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Hyperscale (Citus) coordinator node, and then add the IP address range as a firewall rule.
+* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the coordinator node, and then add the IP address range as a firewall rule.
 
 * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
 

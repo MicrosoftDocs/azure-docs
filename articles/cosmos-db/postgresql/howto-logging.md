@@ -13,8 +13,8 @@ ms.date: 9/13/2021
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-PostgreSQL database server logs are available for every node of a Hyperscale
-(Citus) cluster. You can ship logs to a storage server, or to an analytics
+PostgreSQL database server logs are available for every node of a
+cluster. You can ship logs to a storage server, or to an analytics
 service. The logs can be used to identify, troubleshoot, and repair
 configuration errors and suboptimal performance.
 

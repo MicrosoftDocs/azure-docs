@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/30/2022
 ---
 
-# Hyperscale (Citus) performance tuning
+# Performance tuning
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -341,7 +341,7 @@ Tips:
 - If your data is naturally ordered, such as in a time series, use PostgreSQL
    table partitioning. See [this
    guide](https://docs.citusdata.com/en/stable/use_cases/timeseries.html) to learn
-   how to partition distributed tables in Hyperscale (Citus).
+   how to partition distributed tables.
 
 - Remove unused indices. Index maintenance causes I/O amplification during
    ingestion.  To find which indices are unused, use [this

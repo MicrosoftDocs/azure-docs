@@ -9,7 +9,7 @@ ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 06/29/2022
-#Customer intent: As a developer, I want to provision a hyperscale cluster so that I can run queries quickly on large datasets.
+#Customer intent: As a developer, I want to provision a Azure Cosmos DB for PostgreSQL cluster so that I can run queries quickly on large datasets.
 ---
 
 # Create a cluster in the Azure portal

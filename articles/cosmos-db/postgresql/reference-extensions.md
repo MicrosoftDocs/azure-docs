@@ -152,12 +152,9 @@ You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
 another, or to another database in the same server.  The receiving server needs
 to allow connections from the sending server through its firewall.  To use
 these extensions to connect between Azure Database for PostgreSQL servers or
-clusters, set **Allow Azure services and resources to
-access this cluster (or server)** to ON.  You also need to turn this
-setting ON if you want to use the extensions to loop back to the same server.
-The **Allow Azure services and resources to access this cluster** setting
-can be found in the Azure portal page for the cluster
-under **Networking**.  Currently, outbound connections from Azure Database for
-PostgreSQL Single server and Hyperscale (Citus) aren't supported, except for
-connections to other Azure Database for PostgreSQL servers and Hyperscale
-(Citus) clusters.
+clusters, set **Allow Azure services and resources to access this cluster (or
+server)** to ON.  You also need to turn this setting ON if you want to use the
+extensions to loop back to the same server.  The **Allow Azure services and
+resources to access this cluster** setting can be found in the Azure portal
+page for the cluster under **Networking**.  Currently, outbound connections
+from Azure Cosmos DB for PostgreSQL aren't supported.

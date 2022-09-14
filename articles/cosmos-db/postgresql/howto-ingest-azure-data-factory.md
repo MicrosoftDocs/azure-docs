@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory
-description: Step-by-step guide for using Azure Data Factory for ingestion on Hyperscale Citus
+description: Step-by-step guide for using Azure Data Factory for ingestion on Azure Cosmos DB for PostgreSQL
 ms.author: suvishod
 author: suvishodcitus
 ms.service: cosmos-db
@@ -28,7 +28,7 @@ for storage, processing, and reporting.
 
 ![Dataflow diagram for Azure Data Factory.](media/howto-ingestion/azure-data-factory-architecture.png)
 
-## ADF for real-time ingestion to Hyperscale (Citus)
+## ADF for real-time ingestion
 
 Here are key reasons to choose Azure Data Factory for ingesting data into
 Hyperscale (Citus):
@@ -38,17 +38,17 @@ Hyperscale (Citus):
 * **Built-in Connectors** - Integrates all your data sources, with more than 90 built-in connectors.
 * **Cost Effective** - Supports a pay-as-you-go, fully managed serverless cloud service that scales on demand.
 
-## Steps to use ADF with Hyperscale (Citus)
+## Steps to use ADF
 
 In this article, we'll create a data pipeline by using the Azure Data Factory
 user interface (UI). The pipeline in this data factory copies data from Azure
-Blob storage to a database in Hyperscale (Citus). For a list of data stores
+Blob storage to a database. For a list of data stores
 supported as sources and sinks, see the [supported data
 stores](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)
 table.
 
 In Azure Data Factory, you can use the **Copy** activity to copy data among
-data stores located on-premises and in the cloud to Hyperscale Citus. If you're
+data stores located on-premises and in the cloud to Azure Cosmos DB for PostgreSQL. If you're
 new to Azure Data Factory, here's a quick guide on how to get started:
 
 1. Once ADF is provisioned, go to your data factory. You'll see the Data

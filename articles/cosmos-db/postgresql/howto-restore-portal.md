@@ -96,5 +96,4 @@ back up and running:
 * Learn more about [backup and restore](concepts-backup.md) in
   Hyperscale (Citus).
 * Set [suggested
-  alerts](./howto-alert-on-metric.md#suggested-alerts) on Hyperscale
-  (Citus) clusters.
+  alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.
