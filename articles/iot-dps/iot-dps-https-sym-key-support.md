@@ -340,7 +340,11 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 ## Send a telemetry message
 
-Before you can send a telemetry message, you need to generate a SAS token for the IoT hub that the device was assigned to. You sign this token using the same primary key or derived device key that you used to sign the SAS token for your DPS instance. To generate the SAS token, you can run the same code you did to generate the token for your DPS instance with the following changes:
+Before you can send a telemetry message, you need to create a SAS token for the IoT hub that the device was assigned to. You sign this token using the same primary key or derived device key that you used to sign the SAS token for your DPS instance.
+
+### Create a SAS token for your IoT hub
+
+To create the SAS token, you can run the same code you did to create the token for your DPS instance with the following changes:
 
 ```python
 uri = '[resource_uri]'
@@ -365,7 +369,7 @@ Where:
 
 * `[expiry_in_seconds]` is the validity period of this SAS token in seconds.
 
-* `policy` for a device sending telemetry messages, no policy is required, so set this parameter to `None`.
+* `policy=None` No policy is required for a device sending telemetry to an IoT hub, so this parameter is set to `None`.
 
 An example set of inputs for a device called `my-symkey-device` sending to an IoT Hub named `MyExampleHub` with a token validity period of one hour might look like this:
 
@@ -391,6 +395,8 @@ To learn more about creating SAS tokens for IoT Hub, including example code in o
 > ```azurecli
 > az iot hub generate-sas-token -d {device_id} -n {iothub_name}
 > ```
+
+### Send data to your IoT hub
 
 You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
 
