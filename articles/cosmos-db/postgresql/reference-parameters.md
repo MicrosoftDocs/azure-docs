@@ -15,8 +15,8 @@ ms.date: 08/02/2022
 
 There are various server parameters that affect the behavior of Hyperscale
 (Citus), both from standard PostgreSQL, and specific to Hyperscale (Citus).
-These parameters can be set in the Azure portal for a Hyperscale (Citus) server
-group. Under the **Settings** category, choose **Worker node parameters** or
+These parameters can be set in the Azure portal for a cluster.
+Under the **Settings** category, choose **Worker node parameters** or
 **Coordinator node parameters**. These pages allow you to set parameters for
 all worker nodes, or just for the coordinator node.
 

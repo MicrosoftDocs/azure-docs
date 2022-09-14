@@ -62,7 +62,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
 If the application persistently fails to connect to Hyperscale (Citus), the
 most common causes are firewall misconfiguration or user error.
 
-* Coordinator node firewall configuration: Make sure that the Hyperscale (Citus) server
+* Coordinator node firewall configuration: Make sure that the server
   firewall is configured to allow connections from your client, including proxy
   servers and gateways.
 * Client firewall configuration: The firewall on your client must allow

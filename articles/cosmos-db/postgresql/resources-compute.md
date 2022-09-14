@@ -14,8 +14,8 @@ ms.date: 07/08/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
  
 You can select the compute and storage settings independently for
-worker nodes and the coordinator node in a Hyperscale (Citus) server
-group.  Compute resources are provided as vCores, which represent
+worker nodes and the coordinator node in a cluster.
+Compute resources are provided as vCores, which represent
 the logical CPU of the underlying hardware. The storage size for
 provisioning refers to the capacity available to the coordinator
 and worker nodes in your cluster. The storage
@@ -81,8 +81,8 @@ following values:
 
 ## Basic tier
 
-The Hyperscale (Citus) [basic tier](concepts-cluster.md) is a server
-group with just one node.  Because there isn't a distinction between
+The Hyperscale (Citus) [basic tier](concepts-cluster.md) is a cluster
+with just one node.  Because there isn't a distinction between
 coordinator and worker nodes, it's less complicated to choose compute and
 storage resources.
 

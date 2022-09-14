@@ -23,7 +23,7 @@ almost full. Preventing writes stops the disk from continuing to fill, and
 keeps the node available for reads. During the read-only state, you can take
 measures to free more disk space.
 
-Specifically, a Hyperscale (Citus) node becomes read-only when it has less than
+Specifically, a node becomes read-only when it has less than
 5 GiB of free storage left. When the server becomes read-only, all existing
 sessions are disconnected, and uncommitted transactions are rolled back. Any
 write operations and transaction commits will fail, while read queries will

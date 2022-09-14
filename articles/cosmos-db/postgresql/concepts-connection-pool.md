@@ -31,8 +31,8 @@ When clients connect through PgBouncer, the number of connections that can
 actively run in the database doesn't change. Instead, PgBouncer queues excess
 connections and runs them when the database is ready.
 
-Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
-groups. It supports up to 2,000 simultaneous client connections. Additionally,
+Hyperscale (Citus) is now offering a managed instance of PgBouncer for clusters.
+It supports up to 2,000 simultaneous client connections. Additionally,
 if a cluster has [high availability](concepts-high-availability.md) (HA)
 enabled, then so does its managed PgBouncer.
 

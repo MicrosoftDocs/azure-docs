@@ -14,7 +14,7 @@ ms.date: 07/09/2021
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This article provides step-by-step procedures to perform [point-in-time
-recoveries](concepts-backup.md#restore) for a Hyperscale (Citus)
+recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
@@ -66,8 +66,8 @@ and time of your choosing.
 
 4.  Choose **Custom restore point**.
 
-5.  Select date and time for **Restore point (UTC)**, and provide a new server
-	group name in the **Restore to new server** field. The other fields
+5.  Select date and time for **Restore point (UTC)**, and provide a new cluster
+	name in the **Restore to new server** field. The other fields
 	(subscription, resource group, and location) are displayed but not editable.
  
 6.  Click **OK**.

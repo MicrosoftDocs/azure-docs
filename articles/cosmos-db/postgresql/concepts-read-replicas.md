@@ -13,7 +13,7 @@ ms.date: 06/17/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The read replica feature allows you to replicate data from a Hyperscale (Citus)
+The read replica feature allows you to replicate data from a
 cluster to a read-only cluster. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
 run to up to five replicas from the primary server.
@@ -50,8 +50,8 @@ delay.
 
 ## Create a replica
 
-When you start the create replica workflow, a blank Hyperscale (Citus) server
-group is created. The new group is filled with the data that was on the primary
+When you start the create replica workflow, a blank cluster
+is created. The new cluster is filled with the data that was on the primary
 cluster. The creation time depends on the amount of data on the primary
 and the time since the last weekly full backup. The time can range from a few
 minutes to several hours.

@@ -113,5 +113,5 @@ ERROR:  new row violates row-level security policy for table "events_102055"
 
 ## Next steps
 
-Learn how to [create roles](howto-create-users.md) in a Hyperscale (Citus)
+Learn how to [create roles](howto-create-users.md) in a
 cluster.

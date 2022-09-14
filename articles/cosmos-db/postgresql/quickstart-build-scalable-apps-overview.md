@@ -14,12 +14,11 @@ ms.date: 08/11/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Early in the quickstart, we [created a server
-group](quickstart-create-portal.md) using the [basic
-tier](concepts-cluster.md#tiers). The basic tier is good for apps that a
-single node database node (64vcore, 256-GB RAM and 512-GB storage) can handle
-for the near future (~6 months). Later, you can add more nodes, rebalance your,
-data and scale out seamlessly.
+Early in the quickstart, we [created a cluster](quickstart-create-portal.md)
+using the [basic tier](concepts-cluster.md#tiers). The basic tier is good for
+apps that a single node database node (64vcore, 256-GB RAM and 512-GB storage)
+can handle for the near future (~6 months). Later, you can add more nodes,
+rebalance your, data and scale out seamlessly.
 
 If your app needs requires multiple database nodes in the short term, start
 with the Hyperscale (Citus) **Standard Tier**.

@@ -16,8 +16,8 @@ ms.date: 07/15/2022
 ## Nodes
 
 The Azure Cosmos DB for PostgreSQL deployment option allows
-PostgreSQL servers (called nodes) to coordinate with one another in a "server
-group." The cluster's nodes collectively hold more data and use more CPU
+PostgreSQL servers (called nodes) to coordinate with one another in a "cluster."
+The cluster's nodes collectively hold more data and use more CPU
 cores than would be possible on a single server. The architecture also allows
 the database to scale by adding more nodes to the cluster.
 
@@ -30,8 +30,8 @@ Hyperscale (Citus) displays the status of nodes in a cluster on the
 Overview page in the Azure portal. Each node can have one of these status
 values:
 
-* **Provisioning**: Initial node provisioning, either as a part of its server
-  group provisioning, or when a worker node is added.
+* **Provisioning**: Initial node provisioning, either as a part of its cluster
+  provisioning, or when a worker node is added.
 * **Available**: Node is in a healthy state.
 * **Need attention**: An issue is detected on the node. The node is attempting
   to self-heal. If self-healing fails, an issue gets put in the queue for our

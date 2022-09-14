@@ -21,8 +21,7 @@ notification settings for upcoming and finished maintenance events.
 
 To complete this how-to guide, you need:
 
-- An [Azure Cosmos DB for PostgreSQL server
-  group](quickstart-create-portal.md)
+- An [Azure Cosmos DB for PostgreSQL cluster](quickstart-create-portal.md)
 
 ## Specify maintenance schedule options
 

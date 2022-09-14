@@ -20,7 +20,7 @@ configuration errors and suboptimal performance.
 
 ## Capturing logs
 
-To access PostgreSQL logs for a Hyperscale (Citus) coordinator or worker node,
+To access PostgreSQL logs for a coordinator or worker node,
 you have to enable the PostgreSQLLogs diagnostic setting. In the Azure
 portal, open **Diagnostic settings**, and select **+ Add diagnostic setting**.
 

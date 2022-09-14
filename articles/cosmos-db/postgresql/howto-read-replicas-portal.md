@@ -69,8 +69,7 @@ steps:
 
 ## Delete a replica
 
-You can delete a read replica similarly to how you delete a primary server
-group.
+You can delete a read replica similarly to how you delete a primary cluster.
 
 - In the Azure portal, open the **Overview** page for the read replica. Select
   **Delete**.

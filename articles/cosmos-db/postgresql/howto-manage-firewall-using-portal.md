@@ -13,7 +13,7 @@ ms.date: 11/16/2021
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Server-level firewall rules can be used to manage [public
-access](concepts-firewall-rules.md) to a Hyperscale (Citus)
+access](concepts-firewall-rules.md) to a
 coordinator node from a specified IP address (or range of IP addresses) in the
 public internet.
 

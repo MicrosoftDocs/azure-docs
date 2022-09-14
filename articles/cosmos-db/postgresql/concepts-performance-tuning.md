@@ -27,8 +27,7 @@ application releases the connection back to the pool rather than closing it.
 
 Adding a client-side connection pool is an easy way to boost application
 performance with minimal code changes. In our measurements, running single-row
-insert statements goes about **24x faster** on a Hyperscale (Citus) server
-group with pooling enabled.
+insert statements goes about **24x faster** on a cluster with pooling enabled.
 
 For language-specific examples of adding pooling in application code, see the
 [app stacks guide](quickstart-app-stacks-overview.md).

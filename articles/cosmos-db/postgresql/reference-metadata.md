@@ -366,7 +366,7 @@ can use to determine where to move shards.
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
-A Hyperscale (Citus) installation ships with these strategies in the table:
+By default Cosmos DB for PostgreSQL ships with these strategies in the table:
 
 ```postgresql
 SELECT * FROM pg_dist_rebalance_strategy;

@@ -13,8 +13,7 @@ ms.date: 10/05/2021
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Resource metrics are available for every node of a Hyperscale (Citus) server
-group, and in aggregate across the nodes.
+Resource metrics are available for every node of a cluster, and in aggregate across the nodes.
 
 ## View metrics
 

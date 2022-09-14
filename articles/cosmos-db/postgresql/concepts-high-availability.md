@@ -71,5 +71,4 @@ for clusters in the Azure portal.
 ## Next steps
 
 - Learn how to [enable high
-  availability](howto-high-availability.md) in a Hyperscale (Citus) server
-  group.
+  availability](howto-high-availability.md) in a cluster

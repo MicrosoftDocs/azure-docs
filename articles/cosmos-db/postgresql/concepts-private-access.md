@@ -34,7 +34,7 @@ Each subnetwork gets a portion of the address space, improving address
 allocation efficiency.  You can secure resources within subnets using Network
 Security Groups. For more information, see Network security groups.
 
-When you select a subnet for a Hyperscale (Citus)’s private endpoint, make sure
+When you select a subnet for a cluster’s private endpoint, make sure
 enough private IP addresses are available in that subnet for your current and
 future needs.
 
@@ -113,10 +113,10 @@ server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-
 When you enable private access for your cluster,
 consider:
 
-* **Subnet size**: When selecting subnet size for Hyperscale (Citus) server
-  group, consider current needs such as IP addresses for coordinator or all
-  nodes in that cluster, and future needs such as growth of that server
-  group. Make sure you have enough private IP addresses for the current and
+* **Subnet size**: When selecting subnet size for a cluster,
+  consider current needs such as IP addresses for coordinator or all
+  nodes in that cluster, and future needs such as growth of that cluster.
+  Make sure you have enough private IP addresses for the current and
   future needs. Keep in mind, Azure reserves five IP addresses in each subnet.
   See more details [in this
   FAQ](../../virtual-network/virtual-networks-faq.md#configuration).

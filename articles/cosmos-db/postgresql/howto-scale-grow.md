@@ -22,8 +22,8 @@ queries.
 
 ## Add worker nodes
 
-To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) server
-group.  Dragging the slider for **Worker node count** changes the value.
+To add nodes, go to the **Compute + storage** tab in your cluster.
+Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
 >

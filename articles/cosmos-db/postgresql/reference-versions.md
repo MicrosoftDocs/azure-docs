@@ -60,5 +60,4 @@ Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 * See which [extensions](reference-extensions.md) are installed in
   which versions.
-* Learn to [create a Hyperscale (Citus) server
-  group](quickstart-create-portal.md).
+* Learn to [create a cluster](quickstart-create-portal.md).

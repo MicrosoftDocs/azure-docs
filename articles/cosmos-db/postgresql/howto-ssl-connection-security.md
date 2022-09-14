@@ -19,7 +19,7 @@ Applications use a "connection string" to identify the destination database and 
 The TLS parameters `ssl` and `sslmode` vary based on the capabilities of the connector, for example `ssl=true` or `sslmode=require` or `sslmode=required`.
 
 ## Ensure your application or framework supports TLS connections
-Some application frameworks don't enable TLS by default for PostgreSQL connections. However, without a secure connection an application can't connect to a Hyperscale (Citus) coordinator node. Consult your application's documentation to learn how to enable TLS connections.
+Some application frameworks don't enable TLS by default for PostgreSQL connections. However, without a secure connection, an application can't connect to the coordinator node. Consult your application's documentation to learn how to enable TLS connections.
 
 ## Applications that require certificate verification for TLS connectivity
 In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Cosmos DB for PostgreSQL is located at https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Download the certificate file and save it to your preferred location.
@@ -37,7 +37,7 @@ In some cases, applications require a local certificate file generated from a tr
 > ```
 
 ### Connect using psql
-The following example shows how to connect to your Hyperscale (Citus) coordinator node using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
+The following example shows how to connect to your coordinator node using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
 
 Below is an example of the psql connection string:
 ```
