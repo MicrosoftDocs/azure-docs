@@ -29,7 +29,7 @@ Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/
 One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operationalization schedule.
 
 > [!NOTE]
-> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+> The prices used in this example below is hypothetical and is not intended to imply actual pricing.
 
 For example, let’s say you need to move 1 TB of data daily from AWS S3 to Azure Data Lake Gen2.  You can perform POC of moving 100 GB of data to measure the data ingestion throughput and understand the corresponding billing consumption.
 
