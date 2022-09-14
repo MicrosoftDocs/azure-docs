@@ -25,6 +25,7 @@ Complete the following sections to set up the quickstart project.
 
 In Xcode, create a new project:
 
+1. In the **File** menu, select **New** > **Project**.
 
 1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
