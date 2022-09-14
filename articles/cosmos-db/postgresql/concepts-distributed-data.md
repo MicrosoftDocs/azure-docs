@@ -1,6 +1,6 @@
 ---
 title: Distributed data – Azure Cosmos DB for PostgreSQL
-description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
+description: Learn about distributed tables, reference tables, local tables, and shards.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db

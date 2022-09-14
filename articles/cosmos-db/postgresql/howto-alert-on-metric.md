@@ -13,7 +13,7 @@ ms.date: 3/16/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
+This article shows you how to set up Azure Cosmos DB for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
 
 We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
@@ -28,7 +28,7 @@ You can configure and get information about alert rules using:
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
-1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for PostgreSQL server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com/), select the Azure Cosmos DB for PostgreSQL server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 

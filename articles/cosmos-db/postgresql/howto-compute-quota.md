@@ -25,7 +25,7 @@ worker nodes.
    example "Quota increase in West Europe region."
 3. These fields should be autoselected, but verify:
    * **Issue Type** should be "Technical + your subscription"
-   * **Service type** should be "Azure Database for PostgreSQL"
+   * **Service type** should be "Azure Cosmos DB for PostgreSQL"
 4. Select "Create, Update, and Drop Resources" for **Problem type**.
 5. Select "Node compute or storage scaling" for **Problem subtype**.
 6. Select **Next: Solutions >>** then **Next: Details >>**

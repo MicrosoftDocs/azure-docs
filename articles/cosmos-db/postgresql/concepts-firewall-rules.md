@@ -20,7 +20,7 @@ This page describes the public access option. For private access, see
 
 ## Firewall overview
 
-Azure Database for PostgreSQL server firewall prevents all access to your coordinator node until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
+Azure Cosmos DB for PostgreSQL server firewall prevents all access to your coordinator node until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
 To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
 
 **Firewall rules:** These rules enable clients to access your coordinator node, that is, all the databases within the same logical server. Server-level firewall rules can be configured by using the Azure portal. To create server-level firewall rules, you must be the subscription owner or a subscription contributor.
@@ -59,4 +59,4 @@ For example, using a JDBC client, the following error may appear.
 
 ## Next steps
 For articles on creating server-level and database-level firewall rules, see:
-* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
+* [Create and manage Azure Cosmos DB for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)

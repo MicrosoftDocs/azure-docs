@@ -26,11 +26,11 @@ PostgreSQL extensions must be installed in your database before you can use them
 > SELECT create_extension('postgis');
 > ```
 
-Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
+Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Cosmos DB for PostgreSQL.
 
-## Extensions supported by Azure Database for PostgreSQL
+## Extensions supported by Azure Cosmos DB for PostgreSQL
 
-The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
+The following tables list the standard PostgreSQL extensions that are currently supported by Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
 The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
@@ -140,7 +140,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 
 
 ## pg_stat_statements
-The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you with a means of tracking execution statistics of SQL statements.
+The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Cosmos DB for PostgreSQL server to provide you with a means of tracking execution statistics of SQL statements.
 
 The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`.
 
@@ -151,7 +151,7 @@ There's a tradeoff between the query execution information pg_stat_statements pr
 You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
 another, or to another database in the same server.  The receiving server needs
 to allow connections from the sending server through its firewall.  To use
-these extensions to connect between Azure Database for PostgreSQL servers or
+these extensions to connect between Azure Cosmos DB for PostgreSQL servers or
 clusters, set **Allow Azure services and resources to access this cluster (or
 server)** to ON.  You also need to turn this setting ON if you want to use the
 extensions to loop back to the same server.  The **Allow Azure services and

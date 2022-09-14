@@ -23,8 +23,8 @@ network and subnet. For an example of setting up prerequisites, see the
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **Azure Database for
-   PostgreSQL** from the **Databases** page.
+2. Select **Databases** from the **New** page, and select **Azure Cosmos DB for PostgreSQL**
+   from the **Databases** page.
 
 3. For the deployment option, select the **Create** button under **Azure Cosmos DB for PostgreSQL cluster**.
 

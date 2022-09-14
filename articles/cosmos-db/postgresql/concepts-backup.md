@@ -21,7 +21,7 @@ because they protect your data from accidental corruption or deletion.
 
 ## Backups
 
-At least once a day, Azure Database for PostgreSQL takes snapshot backups of
+At least once a day, Azure Cosmos DB for PostgreSQL takes snapshot backups of
 data files and the database transaction log. The backups allow you to restore a
 server to any point in time within the retention period. (The retention period
 is currently 35 days for all clusters.) All backups are encrypted using
@@ -32,7 +32,7 @@ in three availability zones. As long as at least one availability zone is
 online, the cluster is restorable.
 
 Backup files can't be exported. They may only be used for restore operations
-in Azure Database for PostgreSQL.
+in Azure Cosmos DB for PostgreSQL.
 
 ### Backup storage cost
 

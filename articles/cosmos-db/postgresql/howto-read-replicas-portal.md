@@ -26,7 +26,7 @@ be the primary.
 
 To create a read replica, follow these steps:
 
-1. Select an existing Azure Database for PostgreSQL cluster to use as the
+1. Select an existing Azure Cosmos DB for PostgreSQL cluster to use as the
    primary. 
 
 2. On the cluster sidebar, under **Cluster management**, select
@@ -57,7 +57,7 @@ To delete a primary cluster, you use the same steps as to delete a
 standalone cluster. From the Azure portal, follow these
 steps:
 
-1. In the Azure portal, select your primary Azure Database for PostgreSQL
+1. In the Azure portal, select your primary Azure Cosmos DB for PostgreSQL
    cluster.
 
 2. Open the **Overview** page for the cluster. Select **Delete**.
