@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Monitor resources that send events to Azure Event Hubs with Azure Monitor Logs   
 
-Azure Event Hubs is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. You can monitor resources that send data to an event hub by ingesting these resource logs from Azure Event Hubs into Azure Monitor. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
+[Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. You can monitor resources that send data to an event hub by ingesting these resource logs from Azure Event Hubs into Azure Monitor. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
 
 In this tutorial, you learn how to:
@@ -38,25 +38,38 @@ In this tutorial, you learn how to:
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
-Create the table to which you'll ingest events from Event Hubs in the Azure portal: 
+You can ingest event hub data to any custom table that you create and to the following built-in tables in your Log Analytics workspace:
 
-1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, Log Analytics workspace resource ID, and resource group name.
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
+- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
+- [Syslog](/azure/azure-monitor/reference/tables/syslog)
+- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
+
+Table and column naming guidelines:
+ 
+* Custom tables must have the `_CL` suffix.
+* Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter.  
+* Columns added to built-in tables must have the suffix `_CF`. Columns in a custom table do not need this suffix. 
+
+To create a custom table into which to ingest events, in the Azure portal:  
+
+1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
-1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+1. Select the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell":::
 
 
-1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON, and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_id>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path`:
+1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON, and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_name>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path`:
 
 ```PowerShell
 $tableParams = @'
 {
     "properties": {
         "schema": {
-            "name": "<table_name>",
+            "name": "<table_name>_CL",
             "columns": [
                 {
                     "name": "TimeGenerated",
@@ -79,11 +92,8 @@ $tableParams = @'
 }
 '@
 
-Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_id>/tables<table_name>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/tables/<table_name>_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
-
-> [!IMPORTANT]
-> Azure Monitor automatically adds the `_CL` (custom logs) suffix to all tables not created by an Azure resource. Be sure to set `<table_name>_CL` as the `outputStream` in the `dataFlows` definition when you create your data collection rule.
 
 ## Create a data collection endpoint
 
