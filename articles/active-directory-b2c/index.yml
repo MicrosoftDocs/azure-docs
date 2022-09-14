@@ -3,8 +3,7 @@
 ## FRONT MATTER START
 title: Azure Active Directory B2C documentation # < 60 chars
 summary: >
-  Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in users, 
-  and manage their profiles when using your iOS, Android, .NET, single-page (SPA) and other applications. Also, use Azure AD B2C to secure your web APIs. Learn how to use Azure AD B2C with our guides, tutorials, and code samples.
+  Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in users into your apps. Also, use Azure AD B2C to secure your web APIs. Learn how to use Azure AD B2C with our guide, tutorials, and code samples.
 brand: azure
 
 metadata:
@@ -118,7 +117,6 @@ conceptualContent:
     - title: Learn the basics
       links:
           - text: Authentication and authorization
-
             url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
             itemType: concept
           - text: Tokens
@@ -127,12 +125,12 @@ conceptualContent:
           - text: Protocols
             url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
             itemType: concept
-          - text: Authentication library
-            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: concept
-          - text: Identity providers
-            url: add-identity-provider.md
-            itemType: concept
+          # - text: Authentication library
+            # url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            # itemType: concept
+          # - text: Identity providers
+            # url: add-identity-provider.md
+            # itemType: concept
           - text: Authenticate users in a Node.js web app(Quick course)
             url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
             itemType: learn
@@ -145,49 +143,22 @@ conceptualContent:
           - text: Create user flows
             url: index-create-user-flow.yml
             itemType: how-to-guide
-          - text: Sign-in options
-            url: sign-in-options.md
-            itemType: how-to-guide
-          - text: Enable self-service sign-in
-            url: add-password-reset-policy.md
-            itemType: how-to-guide
+          # - text: Sign-in options
+            # url: sign-in-options.md
+            # itemType: how-to-guide
+          # - text: Enable self-service sign-in
+            # url: add-password-reset-policy.md
+            # itemType: how-to-guide
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: add-identity-provider.md
             itemType: how-to-guide
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
             itemType: how-to-guide
-          - text: 'Quickstart: Single-page app'
-            url: configure-authentication-sample-spa-app.md
-            itemType: quickstart
+          # - text: 'Quickstart: Single-page app'
+            # url: configure-authentication-sample-spa-app.md
+            # itemType: quickstart
       ## CARD 4 ######################
-    - title: Manage users
-      links:
-          - text: User accounts
-            url: user-overview.md
-            itemType: concept
-          - text: User profile attributes 
-            url: user-profile-attributes.md
-            itemType: concept
-          - text: Manage consumer users
-            url: manage-users-portal.md
-            itemType: how-to-guide
-          - text: Manage admin users
-            url: tenant-management.md#add-an-administrator-work-account
-            itemType: how-to-guide
-          - text: User and app migration approaches
-            url: user-migration.md
-            itemType: how-to-guide
-          - text: Force password reset
-            url: force-password-reset.md
-            itemType: how-to-guide
-          - text: Roles and access control
-            url: roles-resource-access-control.md
-            itemType: concept
-          - text: Manage users using Microsoft Graph API
-            url: microsoft-graph-operations.md#user-management
-            itemType: reference
-    ## CARD 5 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:
           - text: Request an access token
@@ -202,15 +173,43 @@ conceptualContent:
           - text: Integrate with API gateway
             url: secure-api-management.md?tabs=app-reg-ga
             itemType: how-to-guide
+    ## CARD 5 ######################
+    - title: Manage users
+      links:
+          - text: User accounts
+            url: user-overview.md
+            itemType: concept
+          # - text: User profile attributes 
+            # url: user-profile-attributes.md
+            # itemType: concept
+          - text: Manage consumer users
+            url: manage-users-portal.md
+            itemType: how-to-guide
+          # - text: Manage admin users
+            # url: tenant-management.md#add-an-administrator-work-account
+            # itemType: how-to-guide
+          - text: User and app migration approaches
+            url: user-migration.md
+            itemType: how-to-guide
+          - text: Force password reset
+            url: force-password-reset.md
+            itemType: how-to-guide
+          # - text: Roles and access control
+            # url: roles-resource-access-control.md
+            # itemType: concept
+          # - text: Manage users using Microsoft Graph API
+            # url: microsoft-graph-operations.md#user-management
+            # itemType: reference
+
     ## CARD 6 ######################
     - title: Customize
       links:
-          - text: Create a custom policy
+          - text: Customize user experiences using custom policies
             url: index-create-custom-policy.yml
             itemType: how-to-guide
-          - text: Define custom user attributes
-            url: user-flow-custom-attributes.md
-            itemType: how-to-guide
+          # - text: Define custom user attributes
+            # url: user-flow-custom-attributes.md
+            # itemType: how-to-guide
           - text: Customize the UI/UX 
             url: customize-ui.md
             itemType: how-to-guide
@@ -220,24 +219,21 @@ conceptualContent:
           - text: Use custom domains 
             url: custom-domain.md
             itemType: how-to-guide   
-          - text: Use API connectors 
-            url: add-api-connector.md?pivots=b2c-user-flow
-            itemType: how-to-guide                     
-          - text: Customize email verification 
-            url: custom-email-sendgrid.md
-            itemType: how-to-guide  
-          - text: Customize user experiences using custom policies
-            url: custom-policy-overview.md
-            itemType: concept
-          - text: Integrate with our technology partners
-            url: partner-gallery.md
-            itemType: how-to-guide   
+          # - text: Use API connectors 
+            # url: add-api-connector.md?pivots=b2c-user-flow
+            # itemType: how-to-guide                     
+          # - text: Customize email verification 
+            # url: custom-email-sendgrid.md
+            # itemType: how-to-guide  
+          # - text: Integrate with our technology partners
+            # url: partner-gallery.md
+            # itemType: how-to-guide   
    ## CARD 7 ######################
     - title: Security, privacy and compliance
       links:
-          - text: Enable multi-factor authentication (MFA)
-            url: multi-factor-authentication.md
-            itemType: how-to-guide
+          # - text: Enable multi-factor authentication (MFA)
+            # url: multi-factor-authentication.md
+            # itemType: how-to-guide
           - text: Manage credential attacks
             url: threat-management.md
             itemType: how-to-guide
@@ -250,12 +246,12 @@ conceptualContent:
           - text: Regulations
             url: https://docs.microsoft.com/azure/compliance/
             itemType: concept 
-          - text: 'Manage user access: Minors and parental consent'
-            url: manage-user-access.md
-            itemType: how-to-guide 
-          - text: 'Manage user data: delete or export'
-            url: manage-user-data.md
-            itemType: how-to-guide
+          #- text: 'Manage user access: Minors and parental consent'
+           #  url: manage-user-access.md
+            # itemType: how-to-guide 
+          # - text: 'Manage user data: delete or export'
+           # url: manage-user-data.md
+            # itemType: how-to-guide
           - text: Security Information and Event Management (SIEM)
             url: https://github.com/azure-ad-b2c/siem
             itemType: reference            
@@ -292,9 +288,9 @@ conceptualContent:
           - text: Troubleshoot and error handling 
             url: troubleshoot.md
             itemType: how-to-guide  
-          - text: Azure AD B2C error-codes
-            url: error-codes.md
-            itemType: reference
+          # - text: Azure AD B2C error-codes
+           # url: error-codes.md
+            # itemType: reference
 
     ## CARD 10 ######################
     - title: More resources
@@ -308,27 +304,27 @@ conceptualContent:
           - text: YouTube
             url: https://www.youtube.com/results?search_query=azure+ad+b2c
             itemType: how-to-guide
-          - text: Training
-            url: solution-articles.md
-            itemType: how-to-guide
-          - text: Service updates
-            url: https://azure.microsoft.com/updates/?product=active-directory-b2c
-            itemType: how-to-guide
-          - text: Frequently asked questions
-            url: faq.yml
-            itemType: how-to-guide
+          # - text: Training
+            # url: solution-articles.md
+            # itemType: how-to-guide
+          # - text: Service updates
+            # url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+            # itemType: how-to-guide
+          # - text: Frequently asked questions
+            # url: faq.yml
+            # itemType: how-to-guide
           - text: Microsoft support
             url: find-help-open-support-ticket.md
             itemType: how-to-guide
-          - text: Videos
-            url: azure-ad-external-identities-videos.md
-            itemType: how-to-guide
-          - text: Custom policy references
-            url: trustframeworkpolicy.md
-            itemType: how-to-guide
-          - text: Azure AD B2C Custom policy starter packs
-            url: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
-            itemType: how-to-guide
+          # - text: Videos
+            # url: azure-ad-external-identities-videos.md
+            #itemType: how-to-guide
+          # - text: Custom policy references
+            #url: trustframeworkpolicy.md
+            # itemType: how-to-guide
+         # - text: Azure AD B2C Custom policy starter packs
+          #  url: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+           #  itemType: how-to-guide
 ## BAND 3 - CONCEPTUAL CONTENT END ##########################################################################################################################
 
 

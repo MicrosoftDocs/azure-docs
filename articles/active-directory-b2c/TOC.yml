@@ -117,6 +117,8 @@
     items: 
     - name: Register apps
       items:
+      - name: Register apps documentation 
+        href: index-register-apps.yml
       - name: Register a single-page application (SPA)
         href: tutorial-register-spa.md
       - name: Register a web application
@@ -160,6 +162,8 @@
       items:
         - name: Single-page app (SPA)
           items:
+            - name: SPA authentication documentation
+              href: index-spa.yml
             - name: JavaScript 
               items:
               - name: Configure a sample SPA app
@@ -186,6 +190,8 @@
                 href: enable-authentication-angular-spa-app-options.md
         - name: Web app
           items:
+          - name: Web app authentication documentation
+            href: index-web-app.yml
           - name: ASP.NET Core
             items:
             - name: Configure a sample web app
@@ -224,6 +230,8 @@
               href: enable-authentication-azure-static-app-options.md
         - name: Web API
           items:
+          - name: Web API authentication documentation
+            href: index-web-api.yml 
           - name: ASP.NET Core web app that calls a web API
             items:
             - name: Configure a sample web app that calls a web API
@@ -249,6 +257,8 @@
             displayName: api, api management, migrate, b2clogin.com 
         - name: Mobile app
           items:
+          - name: Mobile app authentication documentation
+            href: index-mobile.yml
           - name: Android (Java and Kotlin)
             items:
             - name: Configure a sample Android app
@@ -267,6 +277,8 @@
               href: enable-authentication-ios-app-options.md   
         - name: WPF desktop app
           items:
+          - name: Desktop app authentication documentation
+            href: index-desktop.yml
           - name: Configure a sample desktop app
             href: configure-authentication-sample-wpf-desktop-app.md
           - name: Authentication options
