@@ -27912,6 +27912,11 @@
             "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
             "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-cross-tenant-cmk.md",
+            "redirect_url": "/azure/virtual-machines/disks-cross-tenant-customer-managed-keys",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md",
