@@ -130,7 +130,7 @@ additionalContent:
       items:
         - title: Microsoft Learn
           summary: If you're new to security, build your skills with Microsoft Learn                         
-          url: /learn/browse/?products=azure&roles=security-engineer%2csecurity-operations-analyst
+          url: /learn/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
         - title: Microsoft Cloud Adoption Framework for Azure
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
           url: /azure/cloud-adoption-framework/secure/
