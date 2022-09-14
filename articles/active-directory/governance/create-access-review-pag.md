@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/02/2022
+ms.date: 09/14/2022
 ms.author: amsliu
 ms.reviewer: jgangadhar
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
  
 # Create an access review of Privileged Access Groups in Azure AD (preview)
 
-This article describes how to create one or more access reviews for Privileged Access Groups. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
+This article describes how to create one or more access reviews for Privileged Access Groups, which will include the active members of the group as well as the eligible members. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
 
 ## Prerequisites
 
@@ -26,8 +26,6 @@ This article describes how to create one or more access reviews for Privileged A
 - Only Global administrators and Privileged Role administrators can create reviews on Privileged Access Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
-
-If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create a Privileged Access Group access review
 
