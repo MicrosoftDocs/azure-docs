@@ -86,7 +86,7 @@ Terminology:
 
 - The name of your custom environment uses terms reserved only for curated environments
 - Do not start your environment name with *Microsoft* or *AzureML*--these prefixes are reserved for curated environments
-- To customize a curated environment you must clone and rename the environment
+- To customize a curated environment, you must clone and rename the environment
 - For more information about proper curated environment usage, see [create and manage reusable environments](https://aka.ms/azureml/environment/create-and-manage-reusable-environments)
 
 #### **"Environment name is too long"**
