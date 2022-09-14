@@ -9,7 +9,7 @@ ms.date: 04/12/2022
 ---
 # Array functions for Bicep
 
-This article describes the Bicep functions for working with arrays. Additional lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
+This article describes the Bicep functions for working with arrays. The lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
 
 ## array
 
@@ -255,7 +255,7 @@ Array
 
 ### Example
 
-The following example shows how to use the flatten function. 
+The following example shows how to use the flatten function.
 
 ```bicep
 param arrayToTest array = [
