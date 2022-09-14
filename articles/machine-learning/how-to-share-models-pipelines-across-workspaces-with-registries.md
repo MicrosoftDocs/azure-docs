@@ -33,7 +33,12 @@ There are two scenarios where you'd want to use the same set of models, componen
 
 - You need a registry to create models, components and environments. [Learn how to create a registry](todo)
 
-- You need a workspace to run jobs and deploy models. Learn how to create a workspace using [CLI (v2)](todo - did not find a v2 doc for workspace create using cli v2) or [Python SDK (v2)](todo - did not find a v2 doc for workspace create using sdk v2). Make sure that the Azure location of the workspace is in the list of supported regions of the registry. You can find the location of the workspace and the list of locations supported by registry in the AzureML Studio UI or you can use the `az ml workspace show` and `az ml registry show` commands respectively.
+- You need an Azure ML workspace to run jobs and deploy models. To create a new workspace, use one of the following options:
+    - [Quickstart: Create workspace resources using the Azure portal](quickstart-create-resources.md).
+    - [Create and manage a workspace using Azure CLI](how-to-manage-workspace-cli.md)
+
+    > [!IMPORTANT]
+    > Make sure that the Azure region (location) where you create the workspace is in the list of supported regions for Azure ML registry.
 
 If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, use the following commands. Replace the following parameters with values for your specific configuration:
 
