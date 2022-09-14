@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 09/14/2022
 
 ms.author: justinha
 author: justinha
@@ -97,9 +97,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 **crlDistributionPoint**
 
-You can validate the crlDistributionPoint value you provide in the above PowerShell example are valid for the certification authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
+You can validate the crlDistributionPoint value you provide in the preceding PowerShell example are valid for the certification authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
 
-The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
+The following table and graphic show how to map information from the CA Certificate to the attributes of the downloaded CRL.
 
 | CA Certificate Info |= |Downloaded CRL Info|
 |----|:-:|----|
@@ -109,17 +109,17 @@ The below table and graphic indicate how to map information from the CA Certific
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/certificate-crl-compare.png" alt-text="Compare CA Certificate with CRL Information.":::
 
 >[!TIP]
->The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
+>The value for crlDistributionPoint in the preceding example is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
 >
 >- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
 >
->If Issuing CA is Windows Server
+>If Issuing CA is Windows Server:
 >
 >- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
  of the CA in the certification authority Microsoft Management Console (MMC)
 >- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
 
-For additional details see: [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
+For additional details, see [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
 
 ### Remove
 
@@ -178,9 +178,20 @@ To enable the certificate-based authentication and configure user bindings in th
 
 ## Step 3: Configure username binding policy
 
-The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to onPremisesUserPrincipalName in the user object to determine the user.
+The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to UserPrincipalName in the user object to determine the user. An admin can override the default and create a custom mapping. 
 
-An admin can override the default and create a custom mapping. Currently, we support two certificate fields, SAN (Subject Alternate Name) Principal Name and SAN RFC822Name, to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
+Supported certificate fields in username binding:
+ 
+- SAN (Subject Alternate Name) Principal Name
+- SAN RFC822Name
+- Subject Key Identifier (SKI)
+- SHA1PU (SHA 1public key)  
+ 
+Supported User Object attribute fields:
+
+- userPrincipalName
+- onPremisesUserPrincipalName
+- CertificateUserIds
 
 >[!IMPORTANT]
 >If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with administrative access to the Azure AD Connect server can change the sync attribute mapping, and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. 
