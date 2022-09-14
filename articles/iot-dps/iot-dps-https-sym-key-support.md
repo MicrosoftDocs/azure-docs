@@ -14,9 +14,9 @@ manager: lizross
 
 In this how-to article, you'll provision a device using symmetric keys over HTTPS without using an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
-For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to create a SAS token and register (provision) your device with DPS.
-
 You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt.
+
+There are different paths through this article depending on the type of enrollment entry you choose to use. After installing the prerequisites, be sure to read the [Overview](#overview) before proceeding.
 
 ## Prerequisites
 
@@ -33,6 +33,16 @@ You can follow the steps in this article on either a Linux or a Windows machine.
     * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 * If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
+
+## Overview
+
+For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS.
+
+* For an individual enrollment, complete [Use individual enrollment](#use-an-individual-enrollment).
+
+* For an enrollment group, complete [Use an enrollment group](#use-an-enrollment-group).
+
+After you've created the the individual enrollment or enrollment group entry, continue on to [create a SAS token](#create-a-sas-token) and [register your device](#register-your-device) with DPS.
 
 ## Use an individual enrollment
 
@@ -326,6 +336,103 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
       "etag":"IjY5MDAzNTUyLTAwMDAtMDMwMC0wMDAwLTYzMGZkYThhMDAwMCI="
    }
 }
+```
+
+## Send a telemetry message
+
+Before you can send a telemetry message, you need to generate a SAS token for the IoT hub that the device was assigned to. You sign this token using the same primary key or derived device key that you used to sign the SAS token for your DPS instance. To generate the SAS token, you can run the same code you did to generate the token for your DPS instance with the following changes:
+
+```python
+uri = '[resource_uri]'
+key = '[device_key]'
+expiry = [expiry_in_seconds]
+policy= None
+```
+
+Where:
+
+* `[resource_uri]` is the URI of the resource you're trying to access with this token. For a device sending messages to an IoT hub, it's of the form `[iot-hub-host-name]/devices/[device-id]`.
+
+  * For `[iot-hub-host-name]`, use the IoT Hub hostname returned in the `assignedHub` property in the previous section.
+
+  * For `[device-id]`, use the device ID returned in the `deviceId` property in the previous section.
+
+* `[device_key]` is the device key associated with your device. This key is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment. (It's the same key you used previously to create a token for DPS.)
+
+  * If you're using an individual enrollment, use the primary key you saved in [Use an individual enrollment](#use-an-individual-enrollment).
+
+  * If you're using an enrollment group, use the derived device key you generated in [Use an enrollment group](#use-an-enrollment-group).
+
+* `[expiry_in_seconds]` is the validity period of this SAS token in seconds.
+
+* `policy` for a device sending telemetry messages, no policy is required, so set this parameter to `None`.
+
+An example set of inputs for a device called `my-symkey-device` sending to an IoT Hub named `MyExampleHub` with a token validity period of one hour might look like this:
+
+```python
+uri = 'MyExampleHub.azure-devices.net/devices/my-symkey-device'
+key = '18RQk/hOPJR9EbsJlk2j8WA6vWaj/yi+oaYg7zmxfQNdOyMSu+SJ8O7TSlZhDJCYmn4rzEiVKIzNiVAWjLxrGA=='
+expiry = 3600
+policy= None
+```
+
+The following output shows a sample SAS token for these inputs:
+
+```output
+SharedAccessSignature sr=MyExampleHub.azure-devices.net%2Fdevices%2Fmy-symkey-device&sig=f%2BwW8XOKeJOtiPc9Iwjc4OpExvPM7NlhM9qxN2a1aAM%3D&se=1663119026
+```
+
+To learn more about creating SAS tokens for IoT Hub, including example code in other programming languages, see [Control access to IoT Hub using Shared Access Signatures](../iot-hub/iot-hub-dev-guide-sas.md?tabs=python).
+
+> [!NOTE]
+>
+> As a convenience, you can use the Azure CLI [az iot hub generate-sas-token](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-generate-sas-token) command to get a SAS token for a device registered with an IoT hub. For example, the following command generates a SAS token with a duration of one hour. For the `{iothub_name}`, you only need the first part of the host hame, for example, `MyExampleHub`.
+>
+> ```azurecli
+> az iot hub generate-sas-token -d {device_id} -n {iothub_name}
+> ```
+
+You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+
+Use the following curl command:
+
+```bash
+curl -L -i -X POST -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: [sas_token]' -d '{"temperature": 30}' https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13
+```
+
+Where:
+
+* `-X POST` tells curl that this is an HTTP POST command. Required for this API call.
+
+* `-H 'Content-Type: application/json'` tells IoT Hub we're posting JSON content and must be 'application/json'.
+
+* `-H 'Content-Encoding:  utf-8'` tells IoT Hub the encoding we're using for our message body. Set to the proper value for your OS/client; however, it's generally `utf-8`.  
+
+* `-H 'Authorization: [sas_token]'` tells IoT Hub to authenticate using your SAS token. Replace `[sas_token]` with the token you generated for the assigned IoT hub.
+
+* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we're posting. For this article, we're posting a single temperature data point. The content type was specified as application/json, so, for this request, the body is JSON. Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+
+* The last parameter is the URL to post to. For the Send Device Event API, the URL is: `https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13`.  
+
+* Replace the [assigned_iot_hub_name] with the name of the IoT hub that your device was assigned to.
+
+* Replace [device_id] with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID will be the registration ID. For individual enrollments, you can, optionally, specify a device ID that is different than the registration ID in the enrollment entry.
+
+For example, for a device with a device ID of `my-symkey-device` sending a telemetry data point to an IoT hub named `MyExampleHub`:
+
+```bash
+curl -L -i -X POST -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=MyExampleHub.azure-devices.net%2Fdevices%2Fmy-symkey-device&sig=f%2BwW8XOKeJOtiPc9Iwjc4OpExvPM7NlhM9qxN2a1aAM%3D&se=1663119026' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-symkey-device/messages/events?api-version=2020-03-13
+```
+
+A successful call will have a response similar to the following:
+
+```output
+HTTP/1.1 204 No Content
+Content-Length: 0
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+x-ms-request-id: 9e278582-3561-417b-b807-76426195920f
+Date: Wed, 14 Sep 2022 00:32:53 GMT
 ```
 
 ## Next Steps
