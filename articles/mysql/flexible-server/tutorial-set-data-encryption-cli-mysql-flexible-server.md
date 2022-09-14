@@ -10,9 +10,9 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Tutorial: Set data encryption for Azure Database for MySQL Flexible Server with Azure CLI
+# Tutorial: Set data encryption for Azure Database for MySQL Flexible Server with Azure CLI Preview
 
-This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL flexible server using Azure CLI.
+This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI preview.
 
 In this tutorial you'll learn how to:
 
@@ -24,14 +24,13 @@ In this tutorial you'll learn how to:
 
 - An Azure account with an active subscription.
 
-- If you don't have an Azure subscription, create an[Azure free account](https://azure.microsoft.com/free)before you begin. With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/how-to-deploy-on-azure-free-account).
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free)before you begin. With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account).
 
-- Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
-- Login to Azure account using [az login](https://docs.microsoft.com/en-us/cli/azure/reference-index#az-login)command. Note the id property, which refers to Subscription ID for your Azure account.
-az login
+- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the id property, which refers to Subscription ID for your Azure account.
 
-_(For reference: Need to include the copy option and try it button as below:)_
+`az login`
 
 :::image type="content" source="media/tutorial-set-data-encryption-CLI-mysql-flexible-server/az-login.png" alt-text="Screenshot of az login.":::
 
@@ -41,7 +40,7 @@ _(For reference: Need to include the copy option and try it button as below:)_
 
 - In Azure Key Vault, create a key vault and a key. The key vault must have the following properties to use as a customer-managed key:
 
-Soft delete
+[Soft delete](../../key-vault/general/soft-delete-overview.md)
 
 `az resource update --id $(az keyvault show --name \ \<key\_vault\_name\> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true`
 
@@ -223,3 +222,7 @@ Disable data encryption for flexible server
     ]
 }
 ```
+
+## Next steps
+
+- [Data encryption with customer managed keys – Azure Database for MySQL – Flexible Server Preview](concepts-customer-managed-key-mysql-flexible-server.md)
