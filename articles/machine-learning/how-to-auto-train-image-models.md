@@ -202,9 +202,9 @@ Automated ML doesn't impose any constraints on training or validation data size 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Training data is a required parameter and is passed in using the `training_data` key of the data section. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
+Training data is a required parameter and is passed in using the `training_data` key. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
-Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key in the data section. For example,
+Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key. For example,
 
 ```yaml
 target_column_name: label
