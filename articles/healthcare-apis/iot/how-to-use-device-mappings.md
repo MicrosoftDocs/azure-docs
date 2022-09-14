@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 07/07/2022
 ms.author: jasteppe
 ---
 
@@ -16,7 +16,7 @@ ms.author: jasteppe
 
 This article describes how to configure the MedTech service using Device mappings.
 
-MedTech service requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
+MedTech service requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hubs end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
 The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
@@ -47,11 +47,11 @@ The normalized data model has a few required properties that must be found and e
 
 Below are conceptual examples of what happens during normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
-:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="IoT data normalization flow example2" lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
+:::image type="content" source="media/concepts-iot-mapping-templates/normalization-example.png" alt-text="Diagram of IoT data normalization flow example zoomed in." lightbox="media/concepts-iot-mapping-templates/normalization-example.png":::
 
-The content payload itself is an Azure Event Hub message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hub framework with entries automatically populated by it.
+The content payload itself is an Azure Event Hubs message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
 
 ```json
 {
@@ -74,7 +74,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 
 The five device content-mapping types supported today rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All five template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-You can define one or more templates within the Device mapping template. Each Event Hub device message received is evaluated against all device mapping templates. 
+You can define one or more templates within the Device mapping template. Each Event Hubs device message received is evaluated against all device mapping templates. 
 
 A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. 
 
@@ -98,4 +98,4 @@ In this article, you learned how to use Device mappings. To learn how to use FHI
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View integration information about an authorization system 
 
-> [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Integrations** dashboard in Permissions Management allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
 
 ## Display integration information about an authorization system 

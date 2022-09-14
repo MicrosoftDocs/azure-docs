@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/06/2022
+ms.date: 07/06/2022
 ms.author: jasteppe
 ---
 
@@ -53,7 +53,7 @@ Use Events to send FHIR resource change messages to services like [Azure Event H
  
 ## Secure
 
-Built on a platform that supports protected health information (PHI) and personal identifiable information (PII) data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
+Built on a platform that supports protected health information and customer content data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
 
 Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
 
@@ -62,7 +62,7 @@ Use [Azure Managed identities](../../active-directory/managed-identities-azure-r
 For more information about deploying Events, see
 
 >[!div class="nextstepaction"]
->[Deploying Events in the Azure portal](./events-deploy-portal.md)
+>[Deploying Events using the Azure portal](./events-deploy-portal.md)
 
 For frequently asks questions (FAQs) about Events, see
 
@@ -74,4 +74,4 @@ For Events troubleshooting resources, see
 >[!div class="nextstepaction"]
 >[Events troubleshooting guide](./events-troubleshooting-guide.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

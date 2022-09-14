@@ -4,10 +4,10 @@ description: Learn how to assign roles and permissions to users in the commercia
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.custom: contperf-fy21q2
-ms.date: 04/07/2021
+ms.date: 9/12/2022
 ---
 
 # Assign user roles and permissions

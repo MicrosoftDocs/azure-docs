@@ -158,7 +158,7 @@ landingContent:
           - text: Entities reference
             url: entities-reference.md
           - text: UEBA enrichments
-            url: ueba-enrichments.md
+            url: ueba-reference.md
 
  # Card (optional)
   - title: Threat hunting

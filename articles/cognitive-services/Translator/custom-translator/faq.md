@@ -9,7 +9,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: reference
-ms.custom: applied-ai-non-critical-form
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
 
@@ -69,6 +69,4 @@ files.
 
 ## I tried uploading my TMX, but it says "document processing failed"
 
-
-Ensure that the TMX conforms to the TMX 1.4b Specification at
-<https://www.gala-global.org/tmx-14b>.
+Ensure that the TMX conforms to the [TMX 1.4b Specification](https://www.gala-global.org/tmx-14b).

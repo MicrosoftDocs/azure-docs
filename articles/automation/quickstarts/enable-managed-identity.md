@@ -17,7 +17,7 @@ This Quickstart shows you how to enable managed identities for an Azure Automati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure Automation account. For instructions, see [Create an Automation account](create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal).
 
 - A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). The user-assigned managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
