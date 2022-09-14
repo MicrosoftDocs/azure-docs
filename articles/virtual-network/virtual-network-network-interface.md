@@ -82,7 +82,24 @@ The portal doesn't provide the option to assign the network interface to applica
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
-Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzNetworkInterfaceIpConfig](/powershell/module/az.network/new-aznetworkinterfaceipconfig) to create the network interface for the virtual machine.
+In this example, you'll create a Azure Public IP address and associate it with the network interface. 
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a primary public IP address.
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzNetworkInterfaceIpConfig](/powershell/module/az.network/new-aznetworkinterfaceipconfig) to create the network interface for the virtual machine. To create a network interface without the public IP address, omit the **`-PublicIpAddress`** parameter for **`New-AzNetworkInterfaceIPConfig`**.
 
 ```azurepowershell-interactive
 ## Place the virtual network into a variable. ##
@@ -92,11 +109,19 @@ $net = @{
 }
 $vnet = Get-AzVirtualNetwork @net
 
+## Place the primary public IP address into a variable. ##
+$pub = @{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+}
+$pubIP = Get-AzPublicIPAddress @pub
+
 ## Create primary configuration for NIC. ##
 $IP1 = @{
     Name = 'ipconfig1'
     Subnet = $vnet.Subnets[0]
     PrivateIpAddressVersion = 'IPv4'
+    PublicIPAddress = $pubIP
 }
 $IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
 
@@ -112,7 +137,20 @@ New-AzNetworkInterface @nic
 
 # [**CLI**](#tab/network-interface-CLI)
 
-Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine.
+In this example, you'll create a Azure Public IP address and associate it with the network interface. 
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)to create a primary public IP address.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroup \
+    --name myPublicIP \
+    --sku Standard \
+    --version IPv4 \
+    --zone 1 2 3
+```
+
+Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface. To create a network interface without the public IP address, omit the **`--public-ip-address`** parameter for **`az network nic create`**.
 
 ```azurecli-interactive
   az network nic create \
@@ -120,7 +158,8 @@ Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to cre
     --name myNIC \
     --private-ip-address-version IPv4 \
     --vnet-name myVNet \
-    --subnet myBackEndSubnet
+    --subnet myBackEndSubnet \
+    --public-ip-address myPublicIP
 ```
 
 ---
