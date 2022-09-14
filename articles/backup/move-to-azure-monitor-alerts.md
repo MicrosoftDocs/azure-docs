@@ -49,7 +49,7 @@ The following table lists the differences between classic backup alerts and buil
 | **Notification suppression for database backup scenarios** | When there are multiple failures for the same database due to the same error code, a single alert is generated (with the occurrence count updated for each failure type) and a new alert is only generated when the original alert is inactivated. | The behavior is currently different. Here, a separate alert is generated for every backup failure. If there's a window of time when backups will fail for a certain known item (for example, during a maintenance window), you can create a suppression rule to suppress email noise for that backup item during the given period. |
 | **Pricing** | There are no additional charges for this solution. | Alerts for critical operations/failures generate by default (that you can view in the Azure portal or via non-portal interfaces) at no additional charge. However, to route these alerts to a notification channel (such as email), it incurs a minor charge for notifications beyond the *free tier* (of 1000 emails per month). Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). |
 
-Azure Backup now provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with just a few selects.
+Azure Backup now provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with just a few selects. To perform this action, you need to have access to the *Backup Contributor* and *Monitoring Contributor* Azure role-based access control (Azure RBAC) roles to the subscription.
 
 Follow these steps:
 
