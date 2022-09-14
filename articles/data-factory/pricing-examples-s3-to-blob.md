@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 # Pricing example: Copy data from AWS S3 to Azure Blob storage hourly
 
-In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule.
+In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule for 30 days.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 2. An output dataset for the data on Azure Storage.
 
-3. A schedule trigger to execute the pipeline every hour.
+3. A schedule trigger to execute the pipeline every hour for 8 hours every day.
 
    :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.":::
 
@@ -31,7 +31,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
-| Copy Data Assumption: execution time per run = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Copy Data Assumption: execution hours per run = 10 min | 10 \ 60 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
 ## Pricing calculator example
 

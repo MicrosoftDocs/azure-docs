@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 # Pricing example: Copy data and transform with Azure Databricks hourly
 
-In this scenario, you want to copy data from AWS S3 to Azure Blob storage and transform the data with Azure Databricks on an hourly schedule.
+In this scenario, you want to copy data from AWS S3 to Azure Blob storage and transform the data with Azure Databricks on an hourly schedule for 30 days.
 
 ## Configuration
 
