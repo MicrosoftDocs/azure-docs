@@ -35,7 +35,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 <!--		• A Defender for IoT plan on your Azure subscription. For more information, see Quickstart: Get started with Defender for IoT.
 		• An OT network sensor onboarded, with data streaming into Defender for IoT. For more information, see <OT tutorial>.
-		• A site owner defined for your sensor's site. (unless we have a separate procedure for this)
+		• A site owner defined for your sensor's site. Once a site owner is defined in Defender for IoT, you can see the device owner in Microsoft Sentinel. 
 -->
 
 
@@ -237,11 +237,11 @@ In the **Instructions** tab of the data connector page, scroll down to the **Cre
 
 ## Investigate IoT/OT incidents
 
- Investigate incidents involving IoT/OT devices directly in Sentinel, for quicker incident management and response.  with IoT Device entity pages.
+Investigate incidents that involve IoT/OT devices directly in Microsoft Sentinel with the **IoT device entity page**, which provides deeper visibility into the associated IoT/OT devices, and supports quicker threat detection and response.
 
-Entity pages provide comprehensive device details, as well as context and insights into the behavior of the entities involved in an incident.
+Entity pages provide comprehensive details, context and insights into the behavior of the entities involved in an incident.
 
-The **IoT device entity page** contains the IoT/OT device information received from Defender for IoT (such as site, zone, sensor, type, vendor, model and more), a graphical timeline of events related to the device, and behavioral insights for the device.
+The **IoT device entity page** contains IoT/OT device details received from Defender for IoT (such as site, zone, sensor, device owner, importance, type, vendor, model and more) and a graphical timeline of events related to the device.
 
 The IoT/OT entity pages can be accessed from **Incidents**, or from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
 
