@@ -28,7 +28,7 @@ There are two scenarios where you'd want to use the same set of models, componen
 - To use the CLI (v2), you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up CLI (v2)](how-to-configure-cli.md).
 
-> [!TIP]
+    > [!TIP]
 > For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 - You need a registry to create models, components and environments. [Learn how to create a registry](todo)
