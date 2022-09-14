@@ -114,6 +114,9 @@ sections:
           For detailed description on how to switch to the correct domain, see [Switch between tenants](switch-tenants-portal.md).
   - name: Privacy Questions
     questions:
+      - question: Where does Azure Video Indexer store customer data?
+        answer: Azure Video Indexer stores/process (customer) data. By default, (customer) data is replicated to the paired region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
+        
       - question: Are video and audio files indexed by Azure Video Indexer stored?
         answer: Yes, unless you delete the file from Azure Video Indexer, either using the Azure Video Indexer website or API, your video and audio files are stored. For the trial, the video and audio files that you index are stored in the Azure region East US. Otherwise, your video and audio files are stored in the storage account of your Azure subscription.
 
