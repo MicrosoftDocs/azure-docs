@@ -22,7 +22,7 @@ This article walks you through enabling group writeback.
  
 ## Deployment steps 
 
-Group writeback requires enabling both the original and new versions of the feature. If the original version was previously enabled in your environment, you need to follow only the first set of steps, because the second set of steps has already been completed. 
+Group writeback requires enabling both the original and new versions of the feature. If the original version was previously enabled in your environment, you need to use only the first set of the following steps, because the second set of steps has already been completed. 
  
 > [!NOTE] 
 > We recommend that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan if a major rollback is necessary. 
@@ -30,7 +30,7 @@ Group writeback requires enabling both the original and new versions of the feat
 ### Enable group writeback by using PowerShell 
 
 1. On your Azure AD Connect server, open a PowerShell prompt as an administrator. 
-2. Disable the sync scheduler after verifying that no synchronization operations are running: 
+2. Disable the sync scheduler after you verify that no synchronization operations are running: 
 
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $false  
@@ -64,7 +64,7 @@ If the original version of group writeback was not previously enabled, continue 
 8. On the **Ready to configure** page, select **Configure**. 
 9. On the **Configuration complete** page, select **Exit**. 
 
-After you finish this procedure, group writeback is configured automatically. If you experience permission issues while exporting the object to Active Directory, open Windows PowerShell as an administrator on the Azure Active Directory Connect server. Then run the following commands. This step is optional. 
+After you finish this procedure, group writeback is configured automatically. If you experience permission issues while exporting the object to Active Directory, open Windows PowerShell as an administrator on the Azure AD Connect server. Then run the following commands. This step is optional. 
  
 ``` PowerShell 
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN> 

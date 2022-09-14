@@ -110,7 +110,7 @@ To keep the default behavior, continue to the [Enable Azure AD Connect group wri
 You can modify the default behavior as follows: 
 
 - Only groups that are configured for writeback will be written back, including newly created Microsoft 365 groups. 
-- Groups that are written to on-premises will be deleted in Active Directory when they're either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
+- Groups that are written to on-premises will be deleted in Active Directory when they're disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
 - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
 If you plan to make changes to the default behavior, we recommend that you do so before you enable group writeback. However, you can still modify the default behavior if group writeback is already enabled. For more information, see [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 

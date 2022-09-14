@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 ---
 
 # Disable group writeback 
-This article walks you thorough disabling group writeback in Azure Active Directory (Azure AD) Connect. 
+This article walks you through disabling group writeback in Azure Active Directory (Azure AD) Connect. 
 
 ## Disable group writeback by using the wizard
 
-1. Open the Azure Active Directory Connect wizard and go to the **Additional Tasks** page. Select the **Customize synchronization options task**, and then select **Next**. 
+1. Open the Azure AD Connect wizard and go to the **Additional Tasks** page. Select the **Customize synchronization options task**, and then select **Next**. 
 2. On the **Optional Features** page, clear the checkbox for group writeback. In the warning that groups will be deleted, select **Yes**. 
  
    > [!IMPORTANT] 
