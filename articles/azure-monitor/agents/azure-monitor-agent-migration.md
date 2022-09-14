@@ -44,13 +44,12 @@ Your migration plan to the Azure Monitor Agent should take into account:
 
     Azure Monitor Agent can run alongside the legacy Log Analytics agents on the same machine so that you can continue to use existing functionality during evaluation or migration. While this allows you to begin the transition, ensure you understand the limitations:
     - Be careful in collecting duplicate data from the same machine, which could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. 
-    
     If you install Azure Monitor Agent and create a data collection rule for these events and performance data, you'll collect duplicate data. If you're using both agents to collect the same type of data, make sure the agents are **collecting data from different machines** or **sending the data to different destinations**. Collecting duplicate data also generates more charges for data ingestion and retention.
     
     - Running two telemetry agents on the same machine consumes double the resources, including, but not limited to CPU, memory, storage space, and network bandwidth.
 
 ## Prerequisites
-Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use Azure Monitor Agent. For on premise servers or other cloud managed servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Arc for this purpose comes at no added cost, and does not mandate usage of Arc for management purposes (i.e. you can continue using existing on premises management solutions). Once Arc is installed, you can follow the same guidance below across Azure and on-premise for migration.
+Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use Azure Monitor Agent. For on premise servers or other cloud managed servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Arc for this purpose comes at no added cost, and it's not mandatory to use Arc for server management overall (i.e. you can continue using your existing on premises management solutions). Once Arc agent is installed, you can follow the same guidance below across Azure and on-premise for migration.
 
 ## Migration testing
 To ensure safe deployment during migration, begin testing with few resources running Azure Monitor Agent in your nonproduction environment. After you validate the data collected on these test resources, roll out to production by following the same steps.
