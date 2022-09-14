@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
-ms.date: 09/07/2022
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: github-actions-azure
 ---
@@ -16,38 +16,41 @@ ms.custom: github-actions-azure
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
-This article will teach you how to create an GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). You'll train a scikit-learn linear regression model on the NYC Taxi dataset. 
-
-This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/installv2), which is in public preview, and [Azure CLI ML extension v2](/cli/azure/ml). 
-
-GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
-
+> [!NOTE]
+> GitHub Actions for Azure Machine Learning are provided as-is, and are not fully supported by Microsoft. If you encounter problems with a specific action, open an issue in the repository for the action. For example, if you encounter a problem with the aml-deploy action, report the problem in the [https://github.com/Azure/aml-deploy](https://github.com/Azure/aml-deploy) repo.
 
 ## Prerequisites 
 
-- Complete the [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources) to:
-    - Create a workspace
-    - Create a cloud-based compute instance to use for your development environment
-    - Create a cloud-based compute cluster to use for training your model. The cluster should have the name `cpu-cluster`
-- Have a GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-## Step 1: Get the code
+## Workflow file overview
 
-Fork the following repo at GitHub:
+A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
-```
-https://github.com/azure/azureml-examples
-```
+The file has four sections:
 
-## Step 2: Authenticate with Azure
+|Section  |Tasks  |
+|---------|---------|
+|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Connect** | 1. Connect to the machine learning workspace. <br /> 2. Connect to a compute target. |
+|**Job** | 1. Submit a training job. |
+|**Deploy** | 1. Register model in Azure Machine Learning registry. 1. Deploy the model. |
 
-To authenticate, you'll define how to authenticate with Azure. You can use a service principal or OpenID Connect. 
+## Create repository
 
-### Generate deployment credentials
+Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Learning template](https://github.com/machine-learning-apps/ml-template-azure). 
 
-# [Service principal](#tab/userlevel)
+1. Open the [template](https://github.com/machine-learning-apps/ml-template-azure) on GitHub. 
+2. Select **Use this template**. 
 
-Create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+    :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Select use this template":::
+3. Create a new repository from the template. Set the repository name to `ml-learning` or a name of your choice. 
+
+
+## Generate deployment credentials
+
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -67,91 +70,12 @@ In the example above, replace the placeholders with your subscription ID, resour
   }
 ```
 
-# [OpenID Connect](#tab/openid)
-
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
-
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
-
-    ```azurecli-interactive
-    az ad app create --display-name myApp
-    ```
-
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
-
-    You will use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
-
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
-
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
-
-    ```azurecli-interactive
-     az ad sp create --id $appId
-    ```
-
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
-
-    ```azurecli-interactive
-    az role assignment create --role contributor --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
-    ```
-
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
-
-    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
-    * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
-    ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
-    ```
-    
-To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-
----
-
-### Create secrets
-
-# [Service principal](#tab/userlevel)
+## Configure the GitHub secret
 
 1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
 2. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
- # [OpenID Connect](#tab/openid)
-
----
-
-The file has four sections:
-
-|Section  |Tasks  |
-|---------|---------|
-|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
-|**Connect** | 1. Connect to the machine learning workspace. <br /> 2. Connect to a compute target. |
-|**Run** | 1. Submit a training run. |
-|**Deploy** | 1. Register model in Azure Machine Learning registry. 1. Deploy the model. |
-
-## Create repository
-
- <!-- TODO: Replace with Clone https://github.com/Azure/azureml-examples/ -->
-
-Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Learning template](https://github.com/machine-learning-apps/ml-template-azure). 
-
-1. Open the [template](https://github.com/machine-learning-apps/ml-template-azure) on GitHub. 
-2. Select **Use this template**. 
-
-    :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Select use this template":::
-3. Create a new repository from the template. Set the repository name to `ml-learning` or a name of your choice. 
-
-
-
-
-<!--TODO: Update setup.sh file in CLI, all 3 attributes -->
-<!--TODO: Update compute-cluster in pipeline.yml OR give computer cluster name cpu-cluster -->
 ## Connect to the workspace
 
 Use the **Azure Machine Learning Workspace action** to connect to your Azure Machine Learning workspace. 
@@ -188,7 +112,7 @@ Use the [Azure Machine Learning Compute action](https://github.com/Azure/aml-com
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 ```
-## Submit training run
+## Submit training job
 
 Use the [Azure Machine Learning Training action](https://github.com/Azure/aml-run) to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
 
@@ -299,4 +223,5 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
+> [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
+> [Create and run machine learning pipelines with Azure Machine Learning SDK v1](v1/how-to-create-machine-learning-pipelines.md)
