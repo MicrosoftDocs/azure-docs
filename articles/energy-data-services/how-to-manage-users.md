@@ -10,7 +10,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to manage users?
-This article describes how to manage users in Microsoft Energy Data Services Preview. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. 
+This article describes how to manage users in Microsoft Energy Data Services Preview. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. For more information about Microsoft Energy Data Services Preview entitlements, see [entitlement services](concepts-entitlements.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
