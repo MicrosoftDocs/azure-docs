@@ -1,5 +1,5 @@
 ---
-title: 'About Azure DDoS Protection SKU Comparisons'
+title: 'Azure DDoS Protection SKU Comparisons'
 description: Learn about the available configuration settings for Azure DDoS Protection Standard.
 author: AbdullahBell
 ms.author: Abell
@@ -46,7 +46,7 @@ The following table shows features and corresponding SKUs.
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
 | WAF discount | Not available | Yes |
-| Protection of resources across subscriptions in a tenant   | Not available | Yes |
+| Protection of resources across subscriptions in a tenant   | Yes | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >!Note
