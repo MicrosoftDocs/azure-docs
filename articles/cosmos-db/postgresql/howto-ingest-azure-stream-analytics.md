@@ -103,7 +103,7 @@ Blob Storage into Hyperscale (Citus).
 
 1. Define transformation query.
 
-   :::image type="content" source="media/howto-stream-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
    1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
