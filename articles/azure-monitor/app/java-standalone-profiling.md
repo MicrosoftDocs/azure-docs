@@ -12,8 +12,8 @@ ms.custom: devx-track-java
 The Application Insights Java Profiler provides a system for:
 
 > [!div class="checklist"]
-> - Generating on demand JDK Flight Recorder (JFR) profiles from the running JVM.
-> - Generating JFR profiles automatically when certain trigger conditions are met from the running JVM, such as CPU or memory breaching a configured threshold.
+> - Generating JDK Flight Recorder (JFR) profiles on demand from the running JVM.
+> - Generating JFR profiles automatically when certain trigger conditions are met from the running Java Virtual Machine (JVM), such as CPU or memory breaching a configured threshold.
 
 ## Overview
 
@@ -84,7 +84,6 @@ In this scenario, a profile will occur in the following circumstances:
 - A full garbage collection is executed.
 - After the collection is finished, the Tenured regions occupancy is above 691 mb.
 
-
 ### Installation
 
 The following steps will guide you through enabling the profiling component on the agent and
@@ -92,16 +91,16 @@ configuring resource limits that will trigger a profile if breached.
 
 
 1. Configure the resource thresholds that will cause a profile to be collected:
-    <br>
+    
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
        :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiling/performance-blade.png":::
        :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiling/profiler-button.png":::
-       <br>
+       
     2. Select "Triggers"
-    <br>
+    
     3. Configure the required CPU and Memory thresholds and select Apply.
        :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
-       <br>
+       
 1. Inside the `applicationinsights.json` configuration of your process, enable profiler with the `preview.profiler.enabled` setting:
    ```json
       {
@@ -114,7 +113,7 @@ configuring resource limits that will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
-   <br>
+   
 1. Restart your process with the updated configuration.
 
 > [!WARNING]
@@ -146,8 +145,8 @@ Profiles can be generated/edited in the JDK Mission Control (JMC) user interface
 
 ### Environment variables
 
-- `APPLICATIONINSIGHTS_PROFILER_ENABLED`: boolean (default false)
-    - Enables/disables the profiling feature.
+- `APPLICATIONINSIGHTS_PROFILER_ENABLED`: boolean (default: `false`)
+    Enables/disables the profiling feature.
 
 ### Configuration file
 
