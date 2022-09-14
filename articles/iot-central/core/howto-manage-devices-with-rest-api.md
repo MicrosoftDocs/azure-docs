@@ -671,7 +671,7 @@ Use the following request to set the primary X.509 certificate of the myx509eg e
 PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
 
-* entry - Entry of certificate, either `primary` or `secondary`
+entry - Entry of certificate, either `primary` or `secondary`
 
 Use this request to add either a primary or secondary X.509 certificate to the enrollment group.
 
@@ -756,7 +756,7 @@ The following example shows a request body that verifies an X.509 certificate:
 Use the following request to retrieve details of X.509 certificate of an enrollment group from your application:
 
 ```http
-GET https://{your app subdomain}/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -821,7 +821,7 @@ The response to this request looks like the following example:
 }
 ```
 
-IoT Central generates the primary and secondary syymetric keys when you make this api call.
+IoT Central generates the primary and secondary symmetric keys when you make this API call.
 
 ---
 
@@ -830,7 +830,7 @@ IoT Central generates the primary and secondary syymetric keys when you make thi
 Use the following request to retrieve details of an enrollment group with `mysymmetric` as the ID:
 
 ```http
-GET https://{your app subdomain}/api/enrollmentGroups/mysymmetric?api-version=2022-07-31
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mysymmetric?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -900,7 +900,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx
 Use the following request to retrive a list of enrollment groups from your application:
 
 ```http
-GET https://{your app subdomain}/api/enrollmentGroups?api-version=2022-07-31
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:

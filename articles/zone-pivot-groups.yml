@@ -254,7 +254,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-embedded-c
-    title: Embedded C   
+    title: Embedded C
 - id: programming-languages-set-twenty-eight
 # Owner: aahi
   title: Programming languages
