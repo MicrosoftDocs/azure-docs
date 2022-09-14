@@ -33,7 +33,7 @@ Before you can continue with the steps below you need to meet the following requ
 
 ## Scenario description
 
-When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access.
+When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access. Learn more about [account onboarding](https://docs.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
 
 
 
@@ -56,7 +56,8 @@ As a developer you can share these steps with your tenant administrator to obtai
 1. Go to QuickStart > Verification Request > [Start](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/QuickStartVerifierBlade)
 1. Choose **Select Issuer**.
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
-    :::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="Screenshot of the portal section used to choose issuers.":::
+
+   [ ![Screenshot of the portal section used to choose issuers.](./media/verified-id-partner-au10tix/select-issuers.png)](./media/verified-id-partner-au10tix/select-issuers.png#lightbox)
 1. Check the **Government Issued ID – Global** or other credential type.
 1. Select **Add** and then select **Review**.
 1. Download the request body and Copy/paste POST API request URL.

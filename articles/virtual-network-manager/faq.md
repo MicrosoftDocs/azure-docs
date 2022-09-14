@@ -175,7 +175,8 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 
 * Azure Virtual Network Manager doesn't have cross-tenant support in the public preview.
 
-* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes.
+* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes. Management groups cannot be applied over the 15k subscription limit.
+   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15K subscriptions.
 
 * Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
 

@@ -37,40 +37,26 @@ If you are using the Azure portal to create a workflow, you can customize existi
 
 1. On the workflows screen, select the workflow template that you want to use. 
  :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="Screenshot of a list of lifecycle workflows templates.":::
-1. Enter a display name and description for the workflow. The display name must be unique and not match the name of any other workflow you've created. 
+1. Enter a unique display name and description for the workflow and select **Next**.
  :::image type="content" source="media/create-lifecycle-workflow/template-basics.png" alt-text="Screenshot of workflow template basic information.":::
 
-1. Select the **Trigger type** to be used for this workflow.
+1. On the **configure scope** page select the **Trigger type** and execution conditions to be used for this workflow. For more information on what can be configured, see: [Configure scope](understanding-lifecycle-workflows.md#configure-scope).
 
-1. On **Days from event**, you enter a value of days when you want the workflow to go into effect. The valid values are 0 to 60.
-
-1. **Event timing** allows you to choose if the days from event are either before or after.
-
-1. **Event user attribute** is the event being used to trigger the workflow. For example, with the pre hire workflow template, an event user attribute is the employee hire date.   
-
-
-1. Select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department.
+1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department.
 
     :::image type="content" source="media/create-lifecycle-workflow/template-scope.png" alt-text="Screenshot of Lifecycle Workflows template scope configuration options.":::
 
-1. To view your rule syntax, select the **View rule syntax** button.
+1. To view your rule syntax, select the **View rule syntax** button. You can copy and paste multiple user property rules on this screen. For more detailed information on which properties that can be included see: [User Properties](/graph/aad-advanced-queries?tabs=http#user-properties). When you are finished adding rules, select **Next**.
     :::image type="content" source="media/create-lifecycle-workflow/template-syntax.png" alt-text="Screenshot of workflow rule syntax.":::
 
-1. You can copy and paste multiple user property rules on this screen. For more detailed information on which properties that can be included see: [User Properties](/graph/aad-advanced-queries?tabs=http#user-properties) 
-
-1. To Add a task to the template, select **Add task**.
+1. On the **Review tasks** page you can add a task to the template by selecting **Add task**. To enable an existing task on the list, select **enable**. You're also able to disable a task by selecting **disable**. To remove a task from the template, select **Remove** on the selected task. When you are finished with tasks for your workflow, select **Next**.
 
     :::image type="content" source="media/create-lifecycle-workflow/template-tasks.png" alt-text="Screenshot of adding tasks to templates.":::
 
-1. To enable an existing task on the list, select **enable**. You're also able to disable a task by selecting **disable**.
-
-1. To remove a task from the template, select **Remove** on the selected task.
-
-1. Review the workflow's settings.
+1. On the **Review+create** page you are able to review the workflow's settings. You can also choose whether or not to enable the schedule for the workflow. Select **Create** to create the workflow.
 
     :::image type="content" source="media/create-lifecycle-workflow/template-review.png" alt-text="Screenshot of reviewing and creating a template.":::
 
-1. Select **Create** to create the workflow.
 
 
 > [!IMPORTANT]
@@ -306,5 +292,6 @@ For further details on task definitions and their parameters, see [Lifecycle Wor
 
 ## Next steps
 
+- [Create workflow (lifecycle workflow)](/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-beta)
 - [Manage a workflow's properties](manage-workflow-properties.md)
 - [Manage Workflow Versions](manage-workflow-tasks.md)

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure metric alerts
+title: Frequently asked questions about Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
@@ -7,9 +7,9 @@ ms.topic: troubleshooting
 ms.date: 8/31/2022
 ms:reviwer: harelbr
 ---
-# Troubleshooting problems in Azure Monitor metric alerts 
+# Frequently asked questions about Azure Monitor metric alerts 
 
-This article discusses common problems in Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
+This article discusses common questions about Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
@@ -139,6 +139,22 @@ To avoid having the deployment fail when trying to validate the custom metric’
 ```
 > [!NOTE] 
 > Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
+
+## Process data for a metric alert rule in a specific region
+
+You can make sure that an alert rule is processed in a specified region if your metric alert rule is defined with a scope of that region and if it monitors a custom metric.
+
+These are the currently support regions for regional processing of metric alert rules:
+- North Europe
+- West Europe
+- Sweden Central
+- Germany West Central 
+
+To enable regional data processing in one of these regions, select the specified region in the **Details** section of the [create a new alert rule wizard](./alerts-create-new-alert-rule.md).   
+  
+> [!NOTE]
+> We are continually adding more regions for regional data processing.
+
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
