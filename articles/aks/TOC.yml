@@ -561,8 +561,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-container-instances&azure-container-registry
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing
