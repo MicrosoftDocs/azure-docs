@@ -21,8 +21,6 @@ provisioning refers to the capacity available to the coordinator
 and worker nodes in your cluster. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
-
-## Standard tier
  
 | Resource              | Worker node                    | Coordinator node         |
 |-----------------------|--------------------------------|--------------------------|
@@ -79,43 +77,7 @@ following values:
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
-## Basic tier
-
-The Azure Cosmos DB for PostgreSQL [basic tier](concepts-cluster.md) is a cluster
-with just one node.  Because there isn't a distinction between
-coordinator and worker nodes, it's less complicated to choose compute and
-storage resources.
-
-| Resource              | Available options     |
-|-----------------------|-----------------------|
-| Compute, vCores       | 2, 4, 8, 16, 32, 64   |
-| Memory per vCore, GiB | 4                     |
-| Storage size, GiB     | 128, 256, 512         |
-| Storage type          | General purpose (SSD) |
-| IOPS                  | Up to 3 IOPS/GiB      |
-
-The total amount of RAM in a single node is based on the
-selected number of vCores.
-
-| vCores | GiB RAM |
-|--------|---------|
-| 2      | 8       |
-| 4      | 16      |
-| 8      | 32      |
-| 16     | 64      |
-| 32     | 128     |
-| 64     | 256     |
-
-The total amount of storage you provision also defines the I/O capacity
-available to the basic tier node.
-
-| Storage size, GiB | Maximum IOPS |
-|-------------------|--------------|
-| 128               | 384          |
-| 256               | 768          |
-| 512               | 1,536        |
-
-## Next steps
+**Next steps**
 
 * Learn how to [create a cluster in the portal](quickstart-create-portal.md)
 * Change [compute quotas](howto-compute-quota.md) for a subscription and region

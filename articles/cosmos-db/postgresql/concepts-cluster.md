@@ -57,56 +57,6 @@ zone differs from the other nodes. In this case, the nodes will be moved back
 into the same availability zone together during the next [maintenance
 window](concepts-maintenance.md).
 
-## Tiers
-
-The basic tier in Azure Cosmos DB for PostgreSQL is a
-simple way to create a small cluster that you can scale later. While
-clusters in the standard tier have a coordinator node and at least two
-worker nodes, the basic tier runs everything in a single database node.
-
-Other than using fewer nodes, the basic tier has all the features of the
-standard tier. Like the standard tier, it supports high availability, read
-replicas, and columnar table storage, among other features.
-
-### Choosing basic vs standard tier
-
-The basic tier can be an economical and convenient deployment option for
-initial development, testing, and continuous integration. It uses a single
-database node and presents the same SQL API as the standard tier. You can test
-applications with the basic tier and later [graduate to the standard
-tier](howto-scale-grow.md#add-worker-nodes) with confidence that the
-interface remains the same.
-
-The basic tier is also appropriate for smaller workloads in production. There’s
-room to scale vertically *within* the basic tier by increasing the number of
-server vCores.
-
-When greater scale is required right away, use the standard tier. Its smallest
-allowed cluster has one coordinator node and two workers. You can choose
-to use more nodes based on your use-case, as described in our [initial
-sizing](howto-scale-initial.md) how-to.
-
-#### Tier summary
-
-**Basic tier**
-
-* 2 to 8 vCores, 8 to 32 gigabytes of memory.
-* Consists of a single database node, which can be scaled vertically.
-* Supports sharding on a single node and can be easily upgraded to a standard tier.
-* Economical deployment option for initial development, testing.
-
-**Standard tier**
-
-* 8 to 1000+ vCores, up to 8+ TiB memory
-* Distributed Postgres cluster, which consists of a dedicated coordinator
-  node and at least two worker nodes.
-* Supports Sharding on multiple worker nodes. The cluster can be scaled
-  horizontally by adding new worker nodes, and scaled vertically by
-  increasing the node vCores.
-* Best for performance and scale.
-
 ## Next steps
 
 * Learn to [provision a cluster](quickstart-create-portal.md)
-* When you're ready, see [how to graduate](howto-scale-grow.md#add-worker-nodes) from the basic tier to the standard tier
-* The [columnar storage](concepts-columnar.md) option is available in both the basic and standard tier

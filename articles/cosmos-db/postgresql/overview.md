@@ -90,12 +90,10 @@ It's the speed you need, on the database you love.
 
 ## Start simply, scale seamlessly
 
-The Basic Tier allows you to deploy Azure Cosmos DB for PostgreSQL as a single node, while
+A database cluster can begin as a single node, while
 having the superpower of distributing tables. At a few dollars a day, it's the
 most cost-effective way to experience Azure Cosmos DB for PostgreSQL. Later, if your
 application requires greater scale, you can add nodes and rebalance your data.
-
-![graduating to standard tier](media/overview/graduate.png)
 
 ## Next steps
 

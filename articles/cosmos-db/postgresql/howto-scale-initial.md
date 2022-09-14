@@ -50,21 +50,6 @@ memory requirements. You can run EXPLAIN ANALYZE on a query to determine how
 much memory it requires. Remember that vCores and RAM are scaled together as
 described in the [compute and storage](resources-compute.md) article.
 
-## Choosing a Azure Cosmos DB for PostgreSQL tier
-
-The sections above give an idea how many vCores and how much RAM are needed for
-each use case. You can meet these demands through a choice between two
-Azure Cosmos DB for PostgreSQL tiers: the basic tier and the standard tier.
-
-The basic tier uses a single database node to perform processing, while the
-standard tier allows more nodes. The tiers are otherwise identical, offering
-the same features. In some cases, a single node's vCores and disk space can be
-scaled to suffice, and in other cases it requires the cooperation of multiple
-nodes.
-
-For a comparison of the tiers, see the [basic
-tier](concepts-cluster.md) concepts page.
-
 ## Next steps
 
 - [Scale a cluster](howto-scale-grow.md)

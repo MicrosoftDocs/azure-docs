@@ -138,7 +138,7 @@ Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Azure Cosmos DB for PostgreSQL, which is a single-node cluster.
+> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
 
 Append the below command to the `schema.sql` file in the previous section if you wanted to distribute your table.
 

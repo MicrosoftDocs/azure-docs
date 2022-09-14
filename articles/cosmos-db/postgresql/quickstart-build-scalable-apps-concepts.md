@@ -40,8 +40,7 @@ worker nodes. In the diagram, shards are represented as blue boxes.
 
 > [!NOTE]
 >
-> On the basic tier, shards of distributed tables are on the coordinator node,
-> not worker nodes.
+> On a cluster with no worker nodes, shards of distributed tables are on the coordinator node.
 
 Shards are plain (but specially named) PostgreSQL tables that hold slices of
 your data. In our example, because we distributed `campaigns` by `company_id`,

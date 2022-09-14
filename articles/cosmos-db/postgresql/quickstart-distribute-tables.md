@@ -71,11 +71,6 @@ provides to distribute tables and use resources across multiple machines.  The
 function decomposes tables into shards, which can be spread across nodes for
 increased storage and compute performance.
 
-The cluster in this quickstart uses the Basic Tier, so the shards will be
-stored on just one node. However, if you later decide to graduate to the
-Standard Tier, then the shards can be spread across more nodes. With Azure
-Cosmos DB for PostgreSQL, you can start small and scale seamlessly.
-
 Let's distribute the tables:
 
 ```sql

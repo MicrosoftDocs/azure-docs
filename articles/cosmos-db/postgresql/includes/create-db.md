@@ -48,10 +48,6 @@ Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServ
 
    ![compute and storage](media/quickstart-create-portal/compute.png)
 
-   For this quickstart, you can accept the default value of **Basic** for
-   **Tiers**. The Basic Tier allows you to experiment with a single-node
-   cluster for a few dollars a day.
-
 3. Select **Save**.
 
 4. Select **Next : Networking >** at the bottom of the screen.

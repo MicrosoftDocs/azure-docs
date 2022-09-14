@@ -25,14 +25,6 @@ queries.
 To add nodes, go to the **Compute + storage** tab in your cluster.
 Dragging the slider for **Worker node count** changes the value.
 
-> [!NOTE]
->
-> A cluster created with the [basic
-> tier](concepts-cluster.md) has no workers. Increasing the worker
-> count automatically graduates the cluster to the standard tier.  After
-> graduating a cluster to the standard tier, you can't downgrade it back
-> to the basic tier.
-
 :::image type="content" source="media/howto-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.
