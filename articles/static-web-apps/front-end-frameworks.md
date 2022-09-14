@@ -45,7 +45,7 @@ The intent of the table columns is explained by the following items:
 | [Marko](https://markojs.com/) | `public` | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
-| [Next.js](https://nextjs.org/) (Static-Site Generator) | `.next` | n/a |
+| [Next.js](https://nextjs.org/) (Static-Site Generator) | `out` | n/a |
 | [Next.js](https://nextjs.org/) (Server-Side Rendering) | n/a | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |

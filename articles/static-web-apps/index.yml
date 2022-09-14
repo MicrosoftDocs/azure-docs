@@ -59,6 +59,8 @@ landingContent:
             url: publish-jekyll.md
           - text: Hugo
             url: publish-hugo.md
+          - text: Next.js Static HTML Export
+             url: deploy-nextjs-ssg.md
           - text: Hybrid Next.js (preview)
             url: deploy-nextjs-hybrid.md
           - text: Nuxt.js

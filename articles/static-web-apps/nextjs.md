@@ -50,7 +50,8 @@ Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutor
 
 ## Hybrid Next.js applications (preview)
 
-Static Web Apps supports deploying hybrid Next.js websites where you can choose between static generation and server-side rendering (SSR) on a per page basis. Static Generation is often used over SSR for performance reasons.
+Static Web Apps supports deploying hybrid Next.js websites where you can choose between static generation and server-side rendering (SSR) on a **per page basis**. Static Generation is often used over SSR for performance reasons.
+
 
 
 Key features that are available in the preview are:
@@ -70,7 +71,8 @@ Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutoria
 During the preview, the following features of Static Web Apps are unsupported for Next.js with server-side rendering:
 
 - APIs using Azure Functions, Azure AppService, Azure Container Apps or Azure API Management.
-- Deployment via the CLI.
+- Deployment via the SWA CLI.
+
 - Static Web Apps provided Authentication and Authorizationl.
   - Instead, you can use the Next.js [Authentication](https://nextjs.org/docs/authentication) feature.
 - The `staticwebapps.config.json` file.
