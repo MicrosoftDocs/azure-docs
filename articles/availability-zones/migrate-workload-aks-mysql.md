@@ -33,7 +33,7 @@ The AKS and MySQL workload architecture consists of the following component depe
 
 ### Azure Kubernetes Service (AKS)
 
-- *Zonal* : The system node pool and user node pools are zonal when you pre-select the zones in which the node pools are deployed during creation time. In the case of a single datacenter outage, we recommended that you pre-select all three zones for better resiliency. Additional user node pools that support availability zones can be added to an existing AKS cluster and by supplying a value for the `zones` parameter. 
+- *Zonal* : The system node pool and user node pools are zonal when you pre-select the zones in which the node pools are deployed during creation time. We recommend that you pre-select all three zones for better resiliency. Additional user node pools that support availability zones can be added to an existing AKS cluster and by supplying a value for the `zones` parameter. 
 
 - *Zone-redundant*: Kubernetes control plane components such as *etcd*, *API server*, *Scheduler*, and *Controller Manager*  are automatically replicated or distributed across zones.  
 
@@ -94,7 +94,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 *Regional*: Azure Key Vault is deployed in a region. To maintain high durability of your keys and secrets, the contents of your key vault are replicated within the region, as well as to a secondary region within the same geography.
 
-*Zone-redundant*: For Azure regions that don't have a secondary paired region, such as Qatar Central, and future Azure regions such as New Zealand, Belgium, Taiwan, Indonesia, Malaysia, Key Vault uses zone-redundant storage (ZRS) to replicate the contents of your key vault three times within the single location/region. 
+*Zone-redundant*: For Azure regions with availability zones and no region pair, Key Vault uses zone-redundant storage (ZRS) to replicate the contents of your key vault three times within the single location/region. 
 
 ## Workload considerations
 
@@ -110,7 +110,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 - To take advantage of availability zones, node pools contain underlying VMs that are zonal resources. To support applications that have different compute or storage demands, you can create user node pools with specific VM sizes when you create the user node pool.  
 
-    For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. When you select the VM size in the Azure Portal, depending on the region you are deploying this, you may see that this VM size is not supported in zone 1, 2, 3. Zone 1 and 2 are supported. You accept this resiliency configuration that your user node pool will be deployed only in zone 1 and 2.  
+    For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. When you select the VM size in the Azure Portal, depending on the region you are deploying this, you may see that this VM size is supported only in zone 1 and 2. You accept this resiliency configuration as a trade-off for high performance.  
 
 - You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/use-multiple-node-pools.md#limitations). 
 
