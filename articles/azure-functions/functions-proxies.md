@@ -2,7 +2,7 @@
 title: Create serverless APIs using Azure Functions 
 description: Describes how to use Azure Functions as the basis of a cohesive set of serverless APIs. 
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 09/14/2022
 
 ---
 # Serverless REST APIs using Azure Functions
@@ -11,10 +11,19 @@ Azure Functions is an essential compute service that you use to build serverless
 
 In some scenarios, you may need your API to support a more complex set of REST behaviors. For example, you may need to combine multiple HTTP function endpoints into a single API. You might also want to pass requests through to one or more backend REST-based services. Finally, your APIs might require a higher-degree of security that let you monetize its use.
 
-## API Management
-
 Today, the recommended approach to build more complex and robust APIs based on your functions is to leverage the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
-API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. 
+API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. Previous versions of the Functions runtime used the legacy Functions Proxies feature.
+
+> [!IMPORTANT] 
+> Azure Functions proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
+
+## <a name="migration"></a>Moving from Functions Proxies to API Management
+
+When moving from Functions Proxies to using API Mananagement, you must integrate your function app with an API Managment instane and then recreate your existing set of routings and other behaviors. The following section provides links to the relevant articles that help you succeed using API Management with Azure Functions. 
+
+If you have challenges moving from Proxies or if Azure API Management doesn't address your specific scenarios, please create an issue in the [Azure Functions github repository](https://github.com/Azure/Azure-Functions), where the issue is tagged with the label `proxy-deprecation`. 
+
+## API Management integration
 
 API Management lets you import an existing function app. After import, each HTTP triggered function endpoint becomes an API that you can modify and manage. After import, you can also use API Management to generated an OpenAPI definition file for your APIs. During import, any endpoints with an `admin` [authorization level](functions-bindings-http-webhook-trigger.md#http-auth) are ignored. For more information about using API Management with Functions, see the following articles:
 
@@ -34,14 +43,14 @@ After you have your function app endpoints exposed by using API Management, the 
 | [API Management policy reference](../api-management/api-management-policies.md) | Reference that details all supported API Management policies. |
 | [API Management policy samples](/azure/api-management/policies/) | Helpful collection of samples using API Management policies in key scenarios. |
 
-## Functions Proxies
+## Legacy Functions Proxies
 
 The legacy [Functions Proxies feature](legacy-proxies.md) also provides a set of basic API functionality for version 3.x and older version of the Functions runtime. 
 
 > [!IMPORTANT] 
 > Azure Functions proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
 
-Some basic hints for how to perform equivalent tasks using API Management have been added to the [Functions Proxies article](legacy-proxies.md). We don't currently have documentation or tools to help you migrate an existing Functions Proxies implementation to API Management.
+Some basic hints for how to perform equivalent tasks using API Management have been added to the [Functions Proxies article](legacy-proxies.md). We don't currently have documentation or tools to help you migrate an existing Functions Proxies implementation to API Management. 
 
 ## Next steps
 

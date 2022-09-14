@@ -1,14 +1,14 @@
 ---
-title: Work with legacy proxies in Azure Functions 
+title: Work with legacy Azure Functions Proxies  
 description: Overview of how to use the legacy Proxies feature in Azure Functions
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 09/08/2022 
 
 ---
-# Work with legacy Proxies Azure Functions
+# Work with legacy proxies
 
 > [!IMPORTANT] 
-> Azure Functions proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
+> Azure Functions Proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
 > 
 > To help make it easier to migrate from existing proxy implemetations, this article links to equivalent API Management content, when available.
 
