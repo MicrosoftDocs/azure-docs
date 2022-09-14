@@ -87,11 +87,11 @@ The following built in roles grant permission to view sign-in logs:
 
 If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the **appliedConditionalAccessPolicy** resource from Graph. As a best practice, assign **Policy.Read.ConditionalAccess** because it's the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
 
-Policy.Read.ConditionalAccess 
+- Policy.Read.ConditionalAccess 
 
-Policy.ReadWrite.ConditionalAccess 
+- Policy.ReadWrite.ConditionalAccess 
 
-Policy.Read.All 
+- Policy.Read.All 
 
  
 
