@@ -1,5 +1,5 @@
 ---
-title: Authorize access to queues using Azure role assignment conditions
+title: Authorize access to queues using Azure role assignment conditions | Microsoft Docs
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
 services: storage
@@ -23,7 +23,7 @@ Attribute-based access control (ABAC) is an authorization strategy that defines 
 
 ## Overview of conditions in Azure Storage
 
-You can [use of Azure Active Directory](../common/authorize-data-access.md) (Azure AD) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers.
+You can [use of Azure Active Directory](../common/authorize-data-access.md) (Azure AD) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers or queues.
 
 Azure ABAC builds on Azure RBAC by adding [role assignment conditions](../../role-based-access-control/conditions-overview.md) in the context of specific actions. A *role assignment condition* is an additional check that is evaluated when the action on the storage resource is being authorized. This condition is expressed as a predicate using attributes associated with any of the following:
 - Security principal that is requesting authorization
