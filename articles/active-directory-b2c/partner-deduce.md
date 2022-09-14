@@ -129,7 +129,7 @@ In order to collect the user_agent from client-side, create your own `**ContentD
 To customize the user interface, you specify a URL in the `ContentDefinition` element with customized HTML content. In the self-asserted technical profile or orchestration step, you point to that ContentDefinition identifier.
 
 
-1. Open the `TrustFrameworksExtension.xml` and define a new **ContentDefinition** to customize the [self-asserted technical profile](https://docs.microsoft.com/azure/active-directory-b2c/self-asserted-technical-profile).
+1. Open the `TrustFrameworksExtension.xml` and define a new **ContentDefinition** to customize the [self-asserted technical profile](/azure/active-directory-b2c/self-asserted-technical-profile).
 
 1. Find the `BuildingBlocks` element and add the `**api.selfassertedDeduce**` ContentDefinition:
 
@@ -434,11 +434,11 @@ The **ClaimsSchema** element defines the claim types that can be referenced as p
 
 ### Step 6: Add Deduce ClaimsProvider
 
-A **claims provider** is an interface to communicate with different types of parties via its [technical profiles](https://docs.microsoft.com/azure/active-directory-b2c/technicalprofiles).
+A **claims provider** is an interface to communicate with different types of parties via its [technical profiles](/azure/active-directory-b2c/technicalprofiles).
 
 - `SelfAsserted-UserAgent` self-asserted technical profile is used to collect user_agent from client-side.
 
-- `deduce_insight_api` technical profile sends data to the Deduce RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [integrate REST API claims exchanges in your Azure AD B2C custom policy](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy)
+- `deduce_insight_api` technical profile sends data to the Deduce RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [integrate REST API claims exchanges in your Azure AD B2C custom policy](/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy)
 
 You can define Deduce as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy.
 

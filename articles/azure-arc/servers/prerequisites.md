@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 07/05/2022
+ms.date: 09/09/2022
 ms.topic: conceptual 
 ---
 
@@ -13,7 +13,7 @@ This topic describes the basic requirements for installing the Connected Machine
 
 Azure Arc-enabled servers support the installation of the Connected Machine agent on physical servers and virtual machines hosted outside of Azure. This includes support for virtual machines running on platforms like:
 
-* VMware
+* VMware (including Azure VMware Solution)
 * Azure Stack HCI
 * Other cloud environments
 
@@ -28,7 +28,7 @@ The following versions of the Windows and Linux operating system are officially 
   * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
 * Windows IoT Enterprise
 * Azure Stack HCI
-* Ubuntu 16.04, 18.04, and 20.04 LTS
+* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Debian 10
 * CentOS Linux 7 and 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
@@ -88,7 +88,7 @@ If these resource providers are not already registered, you can register them us
 Azure PowerShell:
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
