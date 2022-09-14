@@ -130,24 +130,24 @@ Azure SQL Managed Instance has some network requirements. If your security admin
 | 443, 12000 | TCP	| **VirtualNetwork** | AzureCloud | Allow |
 | Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
 
-## Can an Azure Virtual WAN hub be part of a network group?
+### Can an Azure Virtual WAN hub be part of a network group?
 
 No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 
-## Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration?
+### Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration?
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
 
-## My Virtual Network isn't getting the configurations I'm expecting. How do I troubleshoot?
+### My Virtual Network isn't getting the configurations I'm expecting. How do I troubleshoot?
 
-### Have you deployed your configuration to the VNet's region?
+#### Have you deployed your configuration to the VNet's region?
 
 Configurations in Azure Virtual Network Manager don't take effect until they're deployed. Make a deployment to the virtual networks region with the appropriate configurations.
-### Is your virtual network in scope?
+#### Is your virtual network in scope?
 A network manager is only delegated enough access to apply configurations to virtual networks within your scope. Even if a resource is in your network group but out of scope, it will not receive any configurations.
 
-### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
+#### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
 Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, the application of Admin rules will be skipped on VNets containing any of these Intent Policies. Since allow rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
