@@ -268,7 +268,7 @@ image_object_detection_job = automl.image_object_detection(
 
 ## Configure experiments
 
-For computer vision tasks, you can launch either individual runs, manual sweeps or automatic sweeps. We recommend starting with an automatic sweep to get a first baseline model. Then, you can try out individual runs with certain models and hyperparameter configurations. Finally, with manual sweeps you can explore multiple hyperparameter values near the more promising models and hyperparameter configurations. This three step workflow (automatic sweep, individual runs, manual sweeps) avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
+For computer vision tasks, you can launch either [individual runs](#Individual-runs), [manual sweeps](#Manually-sweeping-model-hyperparameters) or [automatic sweeps](#automatically-sweeping-model-hyperparameters). We recommend starting with an automatic sweep to get a first baseline model. Then, you can try out individual runs with certain models and hyperparameter configurations. Finally, with manual sweeps you can explore multiple hyperparameter values near the more promising models and hyperparameter configurations. This three step workflow (automatic sweep, individual runs, manual sweeps) avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
 
 Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
