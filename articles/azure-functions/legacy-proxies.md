@@ -19,13 +19,13 @@ Standard Functions billing applies to proxy executions. For more information, se
 > [!IMPORTANT] 
 > For equivalent content using API Management, see [Expose serverless APIs from HTTP endpoints using Azure API Management](functions-openapi-definition.md). 
 
-Proxies are defined in the _proxies.json_ file in the root of your function app. The steps in this section shows you how to use the Azure portal to create this file in your function app. Not all languages and operating system combinations support in-portal editing. If can't modify your function app files in the portal, instead create and deploy the equivalent `proxies.json` file from the root of your local project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
+Proxies are defined in the _proxies.json_ file in the root of your function app. The steps in this section show you how to use the Azure portal to create this file in your function app. Not all languages and operating system combinations support in-portal editing. If you can't modify your function app files in the portal, you can instead create and deploy the equivalent `proxies.json` file from the root of your local project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
 
 1. Open the [Azure portal], and then go to your function app.
 1. In the left pane, select **Proxies** and then select **+Add**.
 1. Provide a name for your proxy.
 1. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
-1. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].
+1. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value doesn't need to be static, and it can reference [application settings] and [parameters from the original client request].
 1. Select **Create**.
 
 Your proxy now exists as a new endpoint on your function app. From a client perspective, it's the same as an HttpTrigger in Functions. You can try out your new proxy by copying the **Proxy URL** and testing it with your favorite HTTP client.
@@ -51,7 +51,7 @@ Back-end responses can be modified in the portal by expanding the *response over
 
 ## <a name="using-variables"></a>Use variables
 
-The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
+The configuration for a proxy doesn't need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
 
 ### <a name="reference-localhost"></a>Reference local functions
 You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
@@ -74,8 +74,8 @@ For example, if a proxy has a route template, such as `/pets/{petId}`, the back-
 In addition to the route template parameters, the following values can be used in config values:
 
 * **{request.method}**: The HTTP method that's used on the original request.
-* **{request.headers.\<HeaderName\>}**: A header that can be read from the original request. Replace *\<HeaderName\>* with the name of the header that you want to read. If the header is not included on the request, the value will be the empty string.
-* **{request.querystring.\<ParameterName\>}**: A query string parameter that can be read from the original request. Replace *\<ParameterName\>* with the name of the parameter that you want to read. If the parameter is not included on the request, the value will be the empty string.
+* **{request.headers.\<HeaderName\>}**: A header that can be read from the original request. Replace *\<HeaderName\>* with the name of the header that you want to read. If the header isn't included on the request, the value will be the empty string.
+* **{request.querystring.\<ParameterName\>}**: A query string parameter that can be read from the original request. Replace *\<ParameterName\>* with the name of the parameter that you want to read. If the parameter isn't included on the request, the value will be the empty string.
 
 ### <a name="response-parameters"></a>Reference back-end response parameters
 
@@ -83,7 +83,7 @@ Response parameters can be used as part of modifying the response to the client.
 
 * **{backend.response.statusCode}**: The HTTP status code that's returned on the back-end response.
 * **{backend.response.statusReason}**: The HTTP reason phrase that's returned on the back-end response.
-* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the response, the value will be the empty string.
+* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header isn't included on the response, the value will be the empty string.
 
 ### <a name="use-appsettings"></a>Reference application settings
 
@@ -96,13 +96,13 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 
 ## <a name="debugProxies"></a>Troubleshoot Proxies
 
-By adding the flag `"debug":true` to any proxy in your `proxies.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
+By adding the flag `"debug":true` to any proxy in your `proxies.json`, you'll enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
 
 You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
 
 ### Block proxy traces
 
-For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
+For security reasons you may not want to allow anyone calling your service to generate a trace. They won't be able to access the trace contents without your sign-in credentials, but generating the trace consumes resources and exposes that you're using Function Proxies.
 
 Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxies.json`.
 
@@ -133,9 +133,9 @@ The proxies that you configure are stored in a *proxies.json* file, which is loc
 Each proxy has a friendly name, such as *proxy1* in the preceding example. The corresponding proxy definition object is defined by the following properties:
 
 * **matchCondition**: Required--an object defining the requests that trigger the execution of this proxy. It contains two properties that are shared with [HTTP triggers]:
-    * _methods_: An array of the HTTP methods that the proxy responds to. If it is not specified, the proxy responds to all HTTP methods on the route.
-    * _route_: Required--defines the route template, controlling which request URLs your proxy responds to. Unlike in HTTP triggers, there is no default value.
-* **backendUri**: The URL of the back-end resource to which the request should be proxied. This value can reference application settings and parameters from the original client request. If this property is not included, Azure Functions responds with an HTTP 200 OK.
+    * _methods_: An array of the HTTP methods that the proxy responds to. If it isn't specified, the proxy responds to all HTTP methods on the route.
+    * _route_: Required--defines the route template, controlling which request URLs your proxy responds to. Unlike in HTTP triggers, there's no default value.
+* **backendUri**: The URL of the back-end resource to which the request should be proxied. This value can reference application settings and parameters from the original client request. If this property isn't included, Azure Functions responds with an HTTP 200 OK.
 * **requestOverrides**: An object that defines transformations to the back-end request. See [Define a requestOverrides object].
 * **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
 
@@ -162,7 +162,7 @@ You can disable individual proxies by adding `"disabled": true` to the proxy in 
 
 ### <a name="applicationSettings"></a> Application Settings
 
-The proxy behavior can be controlled by several app settings. They are all outlined in the [Functions App Settings reference](./functions-app-settings.md)
+The proxy behavior can be controlled by several app settings. They're all outlined in the [Functions App Settings reference](./functions-app-settings.md)
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
@@ -182,8 +182,8 @@ Proxies read all strings out of a JSON file, using \ as an escape symbol. Proxie
 The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
 * **backend.request.method**: The HTTP method that's used to call the back-end.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. Note that if an empty string is provided, the parameter is still included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. Note that if an empty string is provided, the parameter is still included on the back-end request.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If an empty string is provided, the parameter is still included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If an empty string is provided, the parameter is still included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 
@@ -215,7 +215,7 @@ The requestOverrides object defines changes that are made to the response that's
 * **response.statusCode**: The HTTP status code to be returned to the client.
 * **response.statusReason**: The HTTP reason phrase to be returned to the client.
 * **response.body**: The string representation of the body to be returned to the client.
-* **response.headers.\<HeaderName\>**: A header that can be set for the response to the client. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the response.
+* **response.headers.\<HeaderName\>**: A header that can be set for the response to the client. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header isn't included on the response.
 
 Values can reference application settings, parameters from the original client request, and parameters from the back-end response.
 

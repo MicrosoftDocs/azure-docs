@@ -7,31 +7,31 @@ ms.date: 09/14/2022
 ---
 # Serverless REST APIs using Azure Functions
 
-Azure Functions is an essential compute service that you use to build serverless REST-based APIs. HTTP triggers expose REST endpoints that can be called by your clients, like browsers, mobile apps, and other backend services. With [native support for routes](functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint), a single HTTP triggered function can expose a highly-functional REST API. Functions also provides its own basic key-based authorization scheme to help limit access only to specific clients. For more information, see [Azure Functions HTTP trigger](functions-bindings-http-webhook-trigger.md)
+Azure Functions is an essential compute service that you use to build serverless REST-based APIs. HTTP triggers expose REST endpoints that can be called by your clients, like browsers, mobile apps, and other backend services. With [native support for routes](functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint), a single HTTP triggered function can expose a highly functional REST API. Functions also provides its own basic key-based authorization scheme to help limit access only to specific clients. For more information, see [Azure Functions HTTP trigger](functions-bindings-http-webhook-trigger.md)
 
-In some scenarios, you may need your API to support a more complex set of REST behaviors. For example, you may need to combine multiple HTTP function endpoints into a single API. You might also want to pass requests through to one or more backend REST-based services. Finally, your APIs might require a higher-degree of security that let you monetize its use.
+In some scenarios, you may need your API to support a more complex set of REST behaviors. For example, you may need to combine multiple HTTP function endpoints into a single API. You might also want to pass requests through to one or more backend REST-based services. Finally, your APIs might require a higher-degree of security that lets you monetize its use.
 
-Today, the recommended approach to build more complex and robust APIs based on your functions is to leverage the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
+Today, the recommended approach to build more complex and robust APIs based on your functions is to use the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
 API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. Previous versions of the Functions runtime used the legacy Functions Proxies feature.
 
 [!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
 ## <a name="migration"></a>Moving from Functions Proxies to API Management
 
-When moving from Functions Proxies to using API Mananagement, you must integrate your function app with an API Managment instane and then recreate your existing set of routings and other behaviors. The following section provides links to the relevant articles that help you succeed using API Management with Azure Functions. 
+When moving from Functions Proxies to using API Management, you must integrate your function app with an API Management instance, and then configure the API Management instance to behave like the previous proxy. The following section provides links to the relevant articles that help you succeed in using API Management with Azure Functions. 
 
-If you have challenges moving from Proxies or if Azure API Management doesn't address your specific scenarios, please create an issue in the [Azure Functions github repository](https://github.com/Azure/Azure-Functions), where the issue is tagged with the label `proxy-deprecation`. 
+If you have challenges moving from Proxies or if Azure API Management doesn't address your specific scenarios, create an issue in the [Azure Functions repository](https://github.com/Azure/Azure-Functions). Make sure to tag the issue with the label `proxy-deprecation`. 
 
 ## API Management integration
 
-API Management lets you import an existing function app. After import, each HTTP triggered function endpoint becomes an API that you can modify and manage. After import, you can also use API Management to generated an OpenAPI definition file for your APIs. During import, any endpoints with an `admin` [authorization level](functions-bindings-http-webhook-trigger.md#http-auth) are ignored. For more information about using API Management with Functions, see the following articles:
+API Management lets you import an existing function app. After import, each HTTP triggered function endpoint becomes an API that you can modify and manage. After import, you can also use API Management to generate an OpenAPI definition file for your APIs. During import, any endpoints with an `admin` [authorization level](functions-bindings-http-webhook-trigger.md#http-auth) are ignored. For more information about using API Management with Functions, see the following articles:
 
 | Article | Description |
 | --- | --- |
-| [Expose serverless APIs from HTTP endpoints using Azure API Management](functions-openapi-definition.md) | Shows how to create a new API Management instance from an exsiting function app in the Azure portal. Supports all languages. |
-| [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](openapi-apim-integrate-visual-studio.md) | Shows how to use Visual Studio to create a C# project that leverages the [OpenAPI extension](https://github.com/Azure/azure-functions-openapi-extension). The OpenAPI extension lets you define your .NET APIs by applying attributes directly to your C# code. |
-| [Quickstart: Create a new Azure API Management service instance by using the Azure portal](../api-management/get-started-create-service-instance.md) | Create a new API Management instance in the portal. After you create an API Management instance, you can connect it to your function app. Other non-portal creatation methods are supported. |
-| [Import an Azure function app as an API in Azure API Management](../api-management/import-function-app-as-api.md) | Shows how to import an existing function app to expose existsing HTTP trigger endpoints as a managed API. This article supports both creating a new API and adding the endpoints to an existing managed API. |
+| [Expose serverless APIs from HTTP endpoints using Azure API Management](functions-openapi-definition.md) | Shows how to create a new API Management instance from an existing function app in the Azure portal. Supports all languages. |
+| [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](openapi-apim-integrate-visual-studio.md) | Shows how to use Visual Studio to create a C# project that uses the [OpenAPI extension](https://github.com/Azure/azure-functions-openapi-extension). The OpenAPI extension lets you define your .NET APIs by applying attributes directly to your C# code. |
+| [Quickstart: Create a new Azure API Management service instance by using the Azure portal](../api-management/get-started-create-service-instance.md) | Create a new API Management instance in the portal. After you create an API Management instance, you can connect it to your function app. Other non-portal creation methods are supported. |
+| [Import an Azure function app as an API in Azure API Management](../api-management/import-function-app-as-api.md) | Shows how to import an existing function app to expose existing HTTP trigger endpoints as a managed API. This article supports both creating a new API and adding the endpoints to an existing managed API. |
 
 After you have your function app endpoints exposed by using API Management, the following articles provide general information about how to manage your Functions-based APIs in the API Management instance.
 
