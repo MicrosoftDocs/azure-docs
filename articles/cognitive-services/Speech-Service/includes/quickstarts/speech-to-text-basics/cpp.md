@@ -15,7 +15,11 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
 ## Recognize speech from a microphone
 
@@ -30,25 +34,37 @@ Follow these steps to create a new console application and install the Speech SD
     
     ```cpp
     #include <iostream> 
+    #include <stdlib.h>
     #include <speechapi_cxx.h>
-
+    
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
-
-    auto YourSubscriptionKey = "YourSubscriptionKey";
-    auto YourServiceRegion = "YourServiceRegion";
-
+    
+    auto getEnv(const char* varName) {
+        char* pValue;
+        size_t len;
+        _dupenv_s(&pValue, &len, varName);
+        return pValue;
+    }
+    
     int main()
     {
-        auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+        auto speechKey = getEnv("SPEECH_KEY");
+        auto speechRegion = getEnv("SPEECH_REGION");
+    
+        auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
+    
+        free(speechKey);
+        free(speechRegion);
+    
         speechConfig->SetSpeechRecognitionLanguage("en-US");
-
+    
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
-
+    
         std::cout << "Speak into your microphone.\n";
         auto result = recognizer->RecognizeOnceAsync().get();
-
+    
         if (result->Reason == ResultReason::RecognizedSpeech)
         {
             std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
@@ -61,7 +77,7 @@ Follow these steps to create a new console application and install the Speech SD
         {
             auto cancellation = CancellationDetails::FromResult(result);
             std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
-
+    
             if (cancellation->Reason == CancellationReason::Error)
             {
                 std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
@@ -71,11 +87,6 @@ Follow these steps to create a new console application and install the Speech SD
         }
     }
     ```
-
-1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
