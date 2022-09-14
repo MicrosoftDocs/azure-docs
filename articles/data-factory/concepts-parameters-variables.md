@@ -43,7 +43,7 @@ Pipeline variables can be set at the start of a pipeline, read and modified duri
 To define a pipeline variable click on your pipeline to view the pipeline configuration tabs. Select the "Variables" tab and click on "+ New" to define a new variable.
 Parameters can be of type String, Bool or Array. In this tab, you can also assign a default value to your variable that it will be used as initial value at the start of a pipeline run.
 
-![Screenshot of parameter definition.](./media/pipeline-parameter-variable-definition/variable-definition.png)
+![Screenshot of variable definition.](./media/pipeline-parameter-variable-definition/variable-definition.png)
 
 ### Access a variable value
 
