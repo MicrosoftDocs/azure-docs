@@ -200,7 +200,7 @@ Azure AD sign-in for Windows allows your organization to sign in to your Azure W
 | - |- |- |- |- |
 | Non-Azure AD account signing in, especially over RDP| High| Windows Server event logs| Interactive Login to Windows VM| Event 528, logon type 10 (RemoteInteractive).<br>Shows when a user signs in over Terminal Services or Remote Desktop. |
 
-## Next Steps
+## Next steps
 
 See these additional security operations guide articles:
 
