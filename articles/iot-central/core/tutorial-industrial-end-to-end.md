@@ -3,7 +3,7 @@ title: Tutorial - Explore an Azure IoT Central industrial scenario | Microsoft D
 description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/05/2022
+ms.date: 09/15/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -89,11 +89,12 @@ To create an Active Directory app registration in your Azure subscription:
 
 To install the **IoT Central Solution Builder** tool:
 
-<!-- TODO: Provide install instructions -->
+- If you're using Windows, download and run the latest setup file from the [releases](https://github.com/Azure-Samples/iotc-solution-builder/releases) page.
+- For other platforms, clone the [iotc-solution-builder](https://github.com/Azure-Samples/iotc-solution-builder) GitHub repository and follow the instructions in the readme file to [build the tool](https://github.com/Azure-Samples/iotc-solution-builder#build-the-tool).
 
 To configure the **IoT Central Solution Builder** tool:
 
-- Start the **IoT Central Solution Builder** tool. <!-- TODO: What's the recommended way to launch the tool? -->
+- Run the **IoT Central Solution Builder** tool.
 - Select **Action > Edit Azure config**:
 
   :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-azure-config.png" alt-text="Screenshot that shows the edit Azure config menu option in the I O T solution builder tool.":::
@@ -108,10 +109,12 @@ The **IoT Central Solution Builder** tool is now ready to use to deploy your ind
 
 Use the **IoT Central Solution Builder** tool to deploy the Azure resources for the solution. The tool deploys and configures the resources to create a running solution.
 
+Download the [adxconfig-opcpub.json](https://raw.githubusercontent.com/Azure-Samples/iotc-solution-builder/main/iotedgeDeploy/configs/adxconfig-opcpub.json) configuration file. This configuration file deploys the required resources.
+
 To load the configuration file for the solution to deploy:
 
 - In the tool, select **Open Configuration**.
-- Select the `adxconfig-opcpub.json` file. <!-- TODO: Where is this file loaded from? -->
+- Select the `adxconfig-opcpub.json` file you download.
 - The tool displays the deployment steps:
 
   :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-steps.png" alt-text="Screenshot that shows the deployment steps defined in the configuration file loaded into the tool.":::
@@ -124,17 +127,17 @@ Each step uses either an ARM template or REST API call to deploy or configure re
 To deploy the solution:
 
 - Select **Start Provisioning**.
-- Optionally, change the suffix and Azure location to use. The suffix is appended to the name of all the resources the tool creates to help you identify them in the Azure portal.
+- Optionally, change the suffix and Azure location to use. The suffix is appended to the name of all the resources the tool creates to help you identify them in the Azure p.
 - Select **Configure**.
 - The tool shows its progress as it deploys the solution.
 
   > [!TIP]
   > The tool takes about 15 minutes to deploy and configure all the resources.
 
-- Navigate to the Azure portal and sign in with the same credentials you used to sign in to the tool.
-- Find the resource group the tool created. The name of the resource group is **iotc-rg-{suffix from tool}**. In the following screenshot, the suffix used by the tool was  **iotcsb29472**:
+- Navigate to the Azure p and sign in with the same credentials you used to sign in to the tool.
+- Find the resource group the tool created. The name of the resource group is **iotc-rg-{suffix from tool}**. In the following screenshot, the suffix used by the tool is  **iotcsb29472**:
 
-  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-portal-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure portal.":::
+  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-p-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure p.":::
 
 To customize the deployed solution, you can edit the `adxconfig-opcpub.json` configuration file and then run the tool.
 
@@ -145,7 +148,7 @@ The configuration file run by the tool defines the Azure resources to deploy and
 The following sections describe the resources you deployed and what they do:
 
 > [!NOTE]
-> The order here follows the data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer.
+> The order here follows the device data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer.
 
 ### IoT Edge
 
@@ -160,7 +163,7 @@ The IoT Edge deployment manifest defines four custom modules:
 - [azuremetricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
 - [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) - generates simulated OPC-UA data.
 - [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
-- [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway that sends OPC-UA data to your IoT Central app, and handles commands sent from your IoT Central app.
+- [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway to send OPC-UA data to your IoT Central app and handle commands sent from your IoT Central app.
 
 You can see the deployment manifest in the tool configuration file. The manifest is part of the device template that the tool adds to your IoT Central application.
 
@@ -184,25 +187,24 @@ There are two devices registered in your IoT Central application:
 - **opc-anomaly-device**. This device isn't assigned to a device template. The device represents the OPC-UA server implemented in the **opcplc** IoT Edge module. This OPC-UA server generates simulated OPC-UA data. Because the device isn't associated with a device template, IoT Central marks the telemetry as **Unmodeled**.
 - **industrial-connect-gw**. This device is assigned to the **Manufacturing In A Box Gateway** device template. Use this device to monitor the health of the gateway and manage the downstream OPC-UA servers. The configuration file run by the tool calls the **Provision OPC Device** command to provision the downstream OPC-UA server.
 
+To check the **opc-anomaly-device** is sending data, navigate to the **Raw data** view for the device in the IoT Central application. If the device is sending telemetry, you see telemetry messages in the **Raw data** view. If there are no telemetry messages, restart the Azure virtual machine in the Azure portal.
+
+> [!TIP]
+> You can find the Azure virtual machine with IoT Edge runtime in the resource group created by the configuration tool.
+
 ### Data export configuration
 
 The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
 
 ```jq
 {
-    schema: "default@v1",
-    applicationId: .applicationId,
-    deviceId: .device.id,
-    deviceName: .device.name,
-    templateId: .device.templateId,
-    messageSource: .messageSource,
-    enqueuedTime: .enqueuedTime,
-    telemetry: .telemetry | map({ key: .name, value: .value }) | from_entries,
-    messageProperties: .messageProperties,
-    enrichments: .enrichments,
-    component: .component,
-    module: .module
-}
+  applicationId: .applicationId,
+  deviceId: .device.id,
+  deviceName: .device.name,
+  templateName: .device.templateName,
+  enqueuedTime: .enqueuedTime,
+  telemetry: .telemetry | map({ key: .name, value: .value }) | from_entries,
+ }
 ```
 
 ### Azure Data Explorer
