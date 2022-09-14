@@ -29,7 +29,7 @@ Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-d
 
 Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
 
-In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using both the CLI (command line) and Azure Machine Learning studio.
+In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio.
 
 > [!NOTE]
 > * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
@@ -37,9 +37,24 @@ In this article, you will learn how to deploy Triton and a model to a managed on
 
 ## Prerequisites
 
+# [Azure CLI](#tab/azure-cli)
+
 [!INCLUDE [basic prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* A working Python 3.8 (or higher) environment.
+* A working Python 3.8 (or higher) environment. 
+
+* You must have additional Python packages installed for scoring and may install them with the code below. They include:
+    * Numpy - An array and numerical computing library 
+    * [Triton Inference Server Client](https://github.com/triton-inference-server/client) - Facilitates requests to the Triton Inference Server
+    * Pillow - A library for image operations
+    * Gevent - A networking library used when connecting to the Triton Server
+
+```azurecli
+pip install numpy
+pip install tritonclient[http]
+pip install pillow
+pip install gevent
+```
 
 * Access to NCv3-series VMs for your Azure subscription.
 
@@ -52,11 +67,57 @@ NVIDIA Triton Inference Server requires a specific model repository structure, w
 
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
-## Deploy using CLI (v2)
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!INCLUDE [basic prereqs](../../includes/machine-learning-cli-prereqs.md)]
+
+* A working Python 3.8 (or higher) environment.
+
+* You must have additional Python packages installed for scoring and may install them with the code below. They include:
+    * Numpy - An array and numerical computing library 
+    * [Triton Inference Server Client](https://github.com/triton-inference-server/client) - Facilitates requests to the Triton Inference Server
+    * Pillow - A library for image operations
+    * Gevent - A networking library used when connecting to the Triton Server
+
+```azurecli
+pip install numpy
+pip install tritonclient[http]
+pip install pillow
+pip install gevent
+```
+
+* Access to NCv3-series VMs for your Azure subscription.
+
+    > [!IMPORTANT]
+    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
+
+[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+
+The information in this article is based on the [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to the `sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb` directory in the repo:
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples
+cd cli
+```
+
+# [Studio](#tab/azure-studio)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal) to create one.
+
+
+## Define the deployment configuration
+
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
+This section shows how you can deploy to a managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
 > [!IMPORTANT]
 > For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
@@ -71,26 +132,13 @@ This section shows how you can deploy Triton to managed online endpoint using th
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
 
-1. Install Python requirements using the following commands:
-
-    ```azurecli
-    pip install numpy
-    pip install tritonclient[http]
-    pip install pillow
-    pip install gevent
-    ```
-
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-endpoint.yml` in the azureml-examples repo you cloned earlier:
 
     __create-managed-endpoint.yaml__
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
 
-1. To create a new endpoint using the YAML configuration, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
-
-1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
+1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint defined in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
 
     > [!IMPORTANT]
     > For Triton no-code-deployment (NCD) to work, setting **`type`** to **`triton_model​`** is required, `type: triton_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
@@ -99,11 +147,89 @@ This section shows how you can deploy Triton to managed online endpoint using th
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+This section shows how you can define a Triton deployment to deploy to a managed online endpoint using the Azure Machine Learning Python SDK (v2).
+
+> [!IMPORTANT]
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+
+
+1. To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. 
+
+```python 
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+workspace_name = "<AML_WORKSPACE_NAME>"
+```
+
+1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
+
+```python
+import random
+
+endpoint_name = f"endpoint-{random.randint(0, 10000)}"
+```
+
+1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the default [default azure authentication](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial. Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+
+```python 
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+ml_client = MLClient(
+    DefaultAzureCredential(),
+    subscription_id,
+    resource_group,
+    workspace_name,
+)
+```
+
+1. Create a `ManagedOnlineEndpoint` object to configure the endpoint. The following example configures the name and authentication mode of the endpoint. 
+
+```python 
+from azure.ai.ml.entities import ManagedOnlineEndpoint
+
+endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
+```
+
+1. Create a `ManagedOnlineDeployment` object to configure the deployment. The following example configures a deployment named __blue__ to the endpoint defined in the previous step and defines a local model inline.
+
+```python
+from azure.ai.ml.entities import ManagedOnlineDeployment, Model
+
+deployment = ManagedOnlineDeployment(
+    name="blue",
+    endpoint_name=endpoint_name,
+    model=Model(path="./models", type="triton_model"),
+    instance_type="Standard_NC6s_v3",
+    instance_count=1,
+)
+``` 
+
+# [Studio](#tab/azure-studio)
+
+This section shows how you can define a Triton deployment on a managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
+
+
+
+
+
+
+## Deploy to Azure
+
+1. To create a new endpoint using the YAML configuration, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+
+
 1. To create the deployment using the YAML configuration, use the following command:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
 
-### Invoke your endpoint
+### Test your endpoint
 
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
