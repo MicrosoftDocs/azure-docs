@@ -17,7 +17,7 @@ In Azure Synapse SQL, each table is distributed using the strategy chosen by the
 The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by the customer or pulled from historic queries available in DMV. 
 
 > [!NOTE]
-> Distribution Advisor is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important.
+> Distribution Advisor is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important.  Distribution Advisor does not support Multi-Column distributed tables.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ EXEC dbo.read_dist_recommendation;
 go
 ```
 
-To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql).
 
 ### 2b. Run the advisor on selected queries
 
@@ -82,6 +82,9 @@ The `dbo.read_dist_recommendation` system stored procedure will return recommend
 - Run the CTAS command provided by Distribution Advisor to create new tables with the recommended distribution strategy.
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
+
+> [!NOTE]
+> To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
 
 ## Troubleshooting
 
@@ -122,7 +125,7 @@ But not the second resultset containing the table change T-SQL commands:
 
  - Check the output of `CommandToInvokeAdvisorString` above. 
 
- - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+ - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql).
 
 ### 3. Error during post-processing of recommendation output
     
@@ -137,12 +140,14 @@ Invalid length parameter passed to the LEFT or SUBSTRING function.
 ##### 3b. Mitigation:
 Ensure that you have the most up to date version of the stored procedure from GitHub:
 
- - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
+ - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql)
 
  - [CreateDistributionAdvisor_PublicPreview.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/CreateDistributionAdvisor_PublicPreview.sql)
 
 
 ## Azure Synapse product group feedback
+
+To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
 
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 

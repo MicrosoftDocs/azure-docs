@@ -13,7 +13,8 @@
 
 DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices. 
 
-Current TLS protocol versions supported by DPS are: 
+Current TLS protocol versions supported by DPS are:
+
 * TLS 1.2
 
 ## Restrict connections to TLS 1.2
@@ -57,7 +58,6 @@ The DPS resource created using this configuration will refuse devices that attem
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your DPS resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
 
-
 > [!NOTE]
 > Upon failovers, the `minTlsVersion` property of your DPS will remain effective in the geo-paired region post-failover.
 
@@ -70,8 +70,7 @@ DPS instances that are configured to accept only TLS 1.2 will also enforce the u
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
-
-### Legacy cipher suites 
+### Legacy cipher suites
 
 These cipher suites are currently still supported by DPS but will be depreciated. Use the recommended cipher suites above if possible.
 
@@ -83,6 +82,13 @@ These cipher suites are currently still supported by DPS but will be depreciated
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
+## Mutual TLS support
+
+When DPS enrollments are configured for X.509 authentication, mutual TLS (mTLS) is supported by DPS.
+
+## Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with DPS endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
 ## Use TLS 1.2 in the IoT SDKs
 

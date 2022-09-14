@@ -107,7 +107,7 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<lINKED SERVICE NAME>")
 spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
 spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
@@ -141,7 +141,7 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
 spark.conf.set(f"fs.azure.account.oauth.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
 

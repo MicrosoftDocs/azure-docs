@@ -1,14 +1,14 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: ericd-mst-github
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
+author: nikhilpatel909
 ms.author: erd
-ms.reviewer: amjads
+ms.reviewer: erd
 ms.custom: 
 
 ---
@@ -65,6 +65,7 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
 
 ## Cost
@@ -95,7 +96,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - Remove string to show how to properly remove the app
 - Package file name to use when it's downloaded to the VM
 - Configuration file name to be used to configure the app on the VM
-- A link to the configuration file for the VM application
+- A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
 - End-of-life date. End-of-life dates are informational; you'll still be able to deploy VM application versions past the end-of-life date.
 - Exclude from latest. You can keep a version from being used as the latest version of the application. 
@@ -126,12 +127,12 @@ The default command interpreters are:
 - Linux: `/bin/sh` 
 - Windows: `cmd.exe`
 
-It's possible to use a different interpreter, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
+It's possible to use a different interpreter like Chocolatey or PowerShell, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
   
 
 ## How updates are handled
 
-When you update an application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
+When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 
@@ -234,12 +235,12 @@ start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /lo
 
 ### Zipped files 
 
-For .zip or other zipped files, just unzip the contents of the application package to the desired destination. 
+For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination. 
 
 Example install command:
 
 ```
-mkdir C:\\myapp && powershell.exe -Command \"Expand-Archive -Path myapp -DestinationPath C:\\myapp\" 
+rename myapp myapp.zip && mkdir C:\myapp && powershell.exe -Command "Expand-Archive -path myapp.zip -destinationpath C:\myapp"
 ```
 
 Example remove command:

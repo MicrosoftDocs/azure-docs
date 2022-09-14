@@ -3,9 +3,9 @@ title: Tutorial – Deploy Active Directory connector in system-managed keytab m
 description: Tutorial to deploy a system-managed keytab Active Directory connector
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/05/2022
 ms.topic: how-to

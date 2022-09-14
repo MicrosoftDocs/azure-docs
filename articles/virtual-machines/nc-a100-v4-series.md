@@ -21,7 +21,7 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 - GPU-accelerated analytics and databases
 - Batch inferencing with heavy pre- and post-processing
-- Autonomous driving reinforcement learning
+- Autonomy model training
 - Oil and gas reservoir simulation
 - Machine learning (ML) development
 - Video processing

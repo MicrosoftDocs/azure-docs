@@ -3,7 +3,7 @@ title: 'Azure AD Connect cloud provisioning agent: Version release history | Mic
 description: This article lists all releases of Azure AD Connect cloud provisioning agent and describes new features and fixed issues
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity

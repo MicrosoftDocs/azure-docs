@@ -3,7 +3,7 @@ title: 'What is the Azure AD Connect Admin Agent - Azure AD Connect | Microsoft 
 description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

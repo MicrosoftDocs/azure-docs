@@ -41,6 +41,10 @@ sections:
         answer: |
           To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).          
       - question: |
+          When I import a certificate via the Azure portal, I get a "The size of the X.509 certificate is too long" error. What should I do?
+        answer: |
+          The error indicates that your certificate might be too long, it might be including many certificates in a single file. This is a hard-limit that can't be increased. The solution is to shorten your certificate file's content so that it aligns to our size's limit.
+      - question: |
           How can I resolve this error? "Error type: Access denied or user is unauthorized to import certificate"
         answer: |
           The import operation requires that you grant the user permissions to import the certificate under the access policies. To do so, go to your key vault, select **Access policies** > **Add Access Policy** > **Select Certificate Permissions** > **Principal**, search for the user, and then add the user's email address. 
