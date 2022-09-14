@@ -145,7 +145,7 @@ To delete the registry key:
 
 ### Update appliance components when private endpoint is enabled
 
-When you enable private endpoints, automatic updates will not be available. To update all the components of ASR replication appliance, follow these steps: 
+When you enable private endpoints, automatic updates will not be available. To update all the components of Azure Site Recovery replication appliance, follow these steps: 
 
 1.	Navigate to this page and check if a new version for the components has been released for a particular version.  
 2.	Download packages of all the versions for which an update is available on the appliance and update all the components. 
