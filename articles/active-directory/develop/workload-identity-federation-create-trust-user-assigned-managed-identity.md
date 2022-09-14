@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/13/2022
+ms.date: 09/14/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
@@ -31,6 +31,7 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Prerequisites
 
+- To manage federated identity credentials in the Azure portal, first [set up the preview feature in your subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).  Register the *Federatedidentitycredentials* feature with the *Microsoft.ManagedIdentity* provider.
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
@@ -40,11 +41,117 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
+In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials (preview)** and then **Add Credential**.
+
+In the **Federated credential scenario** dropdown box, select your scenario.
+
+### GitHub Actions deploying Azure resources
+
+For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
+
+Add a **Name** for the federated credential.
+
+The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+
+Click **Add** to configure the federated credential.
+
+#### Entity type examples
+
+##### Branch example
+
+For a workflow triggered by a push or pull request event on the main branch:
+
+```yml
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+```
+
+Specify an **Entity type** of **Branch** and a **GitHub branch name** of "main".
+
+##### Environment example
+
+For Jobs tied to an environment named "production":
+
+```yml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy
+        # ...deployment-specific steps
+```
+
+Specify an **Entity type** of **Environment** and a **GitHub environment name** of "production".
+
+##### Tag example
+
+For example, for a workflow triggered by a push to the tag named "v2":
+
+```yml
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+    # Sequence of patterns matched against refs/tags
+    tags:        
+      - v2
+      - v1.*
+```
+
+Specify an **Entity type** of **Tag** and a **GitHub tag name** of "v2".
+
+##### Pull request example
+
+For a workflow triggered by a pull request event, specify an **Entity type** of **Pull request**
+
+### Kubernetes accessing Azure resources
+
+Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
+
+- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
+- **Namespace** is the service account namespace.
+- **Name** is the name of the federated credential, which can't be changed later.
+
+Click **Add** to configure the federated credential.
+
+### Other
+
+Select the **Other issuer** scenario from the dropdown menu.
+
+Specify the following fields (using a software workload running in Google Cloud as an example):
+
+- **Name** is the name of the federated credential, which can't be changed later.
+- **Subject identifier**: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
+- **Issuer**: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. For Google Cloud, the *issuer* is "https://accounts.google.com".
+
+Click **Add** to configure the federated credential.
+
 ## List federated identity credentials on a user-assigned managed identity
 
-## Get a federated identity credential on a user-assigned managed identity
+In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+
+The list of federated identity credentials configured on that user-assigned managed identity are listed.
 
 ## Delete a federated identity credential from a user-assigned managed identity
+
+In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+
+The list of federated identity credentials configured on that user-assigned managed identity are listed.
+
+To delete a specific federated identity credential, select the **Delete** icon for that credential.
 
 ::: zone-end
 
