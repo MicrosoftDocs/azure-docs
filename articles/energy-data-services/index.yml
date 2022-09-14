@@ -18,15 +18,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Microsoft Energy Data Services Preview
+  - title: About Microsoft Energy Data Services (Preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Energy Data Services Preview?
+          - text: What is Microsoft Energy Data Services (Preview)?
             url: overview-microsoft-energy-data-services.md
       - linkListType: quickstart
         links:
-          - text: Create a Microsoft Energy Data Services instance
+          - text: Create a Microsoft Energy Data Services (Preview) instance
             url: quickstart-create-microsoft-energy-data-services-instance.md
       - linkListType: tutorial
         links:
