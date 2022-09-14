@@ -55,7 +55,7 @@ Please follow the guidance to deploy the sample application from its [GitHub rep
 
 In order to provide globally unique names to some resources, a 5 character suffix has been assigned. Please make note of this suffix for use later on in this article.
 
-![The deployed Azure resource listing displays with the 5 character suffix highlighted.](./media/tutorial-asp-net-core/naming-suffix.png "Record the 5 character suffix")
+:::image type="content" source="media/tutorial-asp-net-core/naming-suffix.png" alt-text="Screenshot of the deployed Azure resource listing with the 5-character suffix highlighted." lightbox="media/tutorial-asp-net-core/naming-suffix.png":::
 
 ## Create an Application Insights resource
 
@@ -63,15 +63,15 @@ In order to provide globally unique names to some resources, a 5 character suffi
 
 2. From the top toolbar menu, select **+ Create**.
 
-    ![The resource group application-insights-azure-cafe displays with the + Create button highlighted on the toolbar menu.](./media/tutorial-asp-net-core/create-resource-menu.png "Create new resource")
+    :::image type="content" source="media/tutorial-asp-net-core/create-resource-menu.png" alt-text="Screenshot of the application-insights-azure-cafe resource group with the + Create button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/create-resource-menu.png":::
 
 3. On the **Create a resource** screen, search for and select `Application Insights` in the marketplace search textbox.
 
-    ![The Create a resource screen displays with Application Insights entered into the search box and Application Insights highlighted from the search results.](./media/tutorial-asp-net-core/search-application-insights.png "Search for Application Insights")
+   :::image type="content" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen with a search for Application Insights highlighted and Application Insights displaying in the results." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
 
 4. On the Application Insights resource overview screen, select **Create**.
 
-    ![The Application Insights overview screen displays with the Create button highlighted.](./media/tutorial-asp-net-core/create-application-insights-overview.png "Create Application Insights resource")
+:::image type="content" source="media/tutorial-asp-net-core/create-application-insights-overview.png" alt-text="Screenshot of the Application Insights overview screen with the Create button highlighted." lightbox="media/tutorial-asp-net-core/create-application-insights-overview.png":::
 
 5. On the Application Insights screen **Basics** tab. Complete the form as follows, then select the **Review + create** button. Fields not specified in the table below may retain their default values.
 
@@ -81,29 +81,29 @@ In order to provide globally unique names to some resources, a 5 character suffi
     | Region | Select the same region chosen when deploying the article resources. |
     | Log Analytics Workspace | Select `azure-cafe-log-analytics-workspace`, alternatively a new log analytics workspace can be created here. |
 
-   ![The Application Insights Basics tab displays with a form populated with the preceding values.](./media/tutorial-asp-net-core/application-insights-basics-tab.png "Application Insights Basics tab")
+   :::image type="content" source="media/tutorial-asp-net-core/application-insights-basics-tab.png" alt-text="Screenshot of the Basics tab of the Application Insights screen with a form populated with the preceding values." lightbox="media/tutorial-asp-net-core/application-insights-basics-tab.png":::
 
 6. Once validation has passed, select **Create** to deploy the resource.
 
-    ![The Application Insights validation screen displays indicating Validation passed and the Create button is highlighted.](./media/tutorial-asp-net-core/application-insights-validation-passed.png "Validation passed")
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-validation-passed.png" alt-text="Screenshot of the Application Insights screen with an indication that validation has passed and the Create button, which are both highlighted." lightbox="media/tutorial-asp-net-core/application-insights-validation-passed.png":::
 
 7. Once deployment has completed, return to the `application-insights-azure-cafe` resource group, and select the deployed Application Insights resource.
 
-    ![The Azure Cafe resource group displays with the Application Insights resource highlighted.](./media/tutorial-asp-net-core/application-insights-resource-group.png "Application Insights")
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the Azure Cafe resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
 
 8. On the Overview screen of the Application Insights resource, copy the **Connection String** value for use in the next section of this article.
 
-    ![The Application Insights Overview screen displays with the Connection String value highlighted and the Copy button selected.](./media/tutorial-asp-net-core/application-insights-connection-string-overview.png "Copy Connection String value")
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen with the Connection String value highlighted and the Copy to clipboard button selected." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
 
 ## Configure the Application Insights connection string application setting in the web App Service
 
 1. Return to the `application-insights-azure-cafe` resource group, locate and open the **azure-cafe-web-{SUFFIX}** App Service resource.
 
-    ![The Azure Cafe resource group displays with the azure-cafe-web-{SUFFIX} resource highlighted.](./media/tutorial-asp-net-core/web-app-service-resource-group.png "Web App Service")
+    :::image type="content" source="media/tutorial-asp-net-core/web-app-service-resource-group.png" alt-text="Screenshot of the Azure Cafe resource group with the azure-cafe-web-{SUFFIX} resource highlighted." lightbox="media/tutorial-asp-net-core/web-app-service-resource-group.png":::
 
 2. From the left menu, beneath the Settings header, select **Configuration**. Then, on the **Application settings** tab, select **+ New application setting** beneath the Application settings header.
 
-    ![The App Service resource screen displays with the Configuration item selected from the left menu and the + New application setting toolbar button highlighted.](./media/tutorial-asp-net-core/app-service-app-setting-button.png "Create New application setting")
+    :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen with the Configuration item selected from the left menu and the + New application setting toolbar button highlighted." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
 
 3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
 
@@ -112,11 +112,11 @@ In order to provide globally unique names to some resources, a 5 character suffi
     | Name  | APPLICATIONINSIGHTS_CONNECTION_STRING |
     | Value | Paste the Application Insights connection string obtained in the preceding section. |
 
-    ![The Add/Edit application setting blade displays populated with the preceding values.](./media/tutorial-asp-net-core/add-edit-app-setting.png "Add/Edit application setting")
+    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
 
 4. On the App Service Configuration screen, select the **Save** button from the toolbar menu. When prompted to save the changes, select **Continue**.
 
-    ![The App Service Configuration screen displays with the Save button highlighted on the toolbar menu.](./media/tutorial-asp-net-core/save-app-service-configuration.png "Save the App Service Configuration")
+    :::image type="content" source="media/tutorial-asp-net-core/save-app-service-configuration.png" alt-text="Screenshot of the App Service Configuration screen with the Save button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/save-app-service-configuration.png":::
 
 ## Install the Application Insights NuGet Package
 
@@ -126,7 +126,7 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
 
 2. In the Solution Explorer panel, right-click the AzureCafe project file, and select **Manage NuGet Packages**.
 
-    ![The Solution Explorer displays with Manage NuGet Packages selected from the context menu.](./media/tutorial-asp-net-core/manage-nuget-packages-menu.png "Manage NuGet Packages")
+    :::image type="content" source="media/tutorial-asp-net-core/manage-nuget-packages-menu.png" alt-text="Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Manage NuGet Packages context menu item highlighted." lightbox="media/tutorial-asp-net-core/manage-nuget-packages-menu.png":::
 
 3. Select the **Browse** tab, then search for and select **Microsoft.ApplicationInsights.AspNetCore**. Select **Install**, and accept the license terms. It is recommended to use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
@@ -140,7 +140,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
 1. From the Visual Studio Solution Explorer, locate and open the **Program.cs** file.
 
-    ![The Visual Studio Solution Explorer displays with the Program.cs highlighted.](./media/tutorial-asp-net-core/solution-explorer-programcs.png "Program.cs")
+    :::image type="content" source="media/tutorial-asp-net-core/solution-explorer-programcs.png" alt-text="Screenshot of the Visual Studio Solution Explorer with the Program.cs file highlighted." lightbox="media/tutorial-asp-net-core/solution-explorer-programcs.png":::
 
 2. Insert the following code prior to the `builder.Services.AddControllersWithViews()` statement. This code automatically reads the Application Insights connection string value from configuration. The `AddApplicationInsightsTelemetry` method registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container, that will then be used to fulfill [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) and [ILogger\<TCategoryName\>](/dotnet/api/microsoft.extensions.logging.iloggerprovider) implementation requests.
 
@@ -148,7 +148,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
     builder.Services.AddApplicationInsightsTelemetry();
     ```
 
-    ![A code window displays with the preceding code snippet highlighted.](./media/tutorial-asp-net-core/enable-server-side-telemetry.png "Enable server-side telemetry")
+    :::image type="content" source="media/tutorial-asp-net-core/enable-server-side-telemetry.png" alt-text="Screenshot of a code window with the preceding code snippet highlighted." lightbox="media/tutorial-asp-net-core/enable-server-side-telemetry.png":::
 
     > [!TIP]
     > Learn more about [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration).
@@ -163,7 +163,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
     @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
-    ![The _ViewImports.cshtml file displays with the preceding line of code highlighted.](./media/tutorial-asp-net-core/view-imports-injection.png "JavaScriptSnippet injection")
+    :::image type="content" source="media/tutorial-asp-net-core/view-imports-injection.png" alt-text="Screenshot of the _ViewImports.cshtml file with the preceding line of code highlighted." lightbox="media/tutorial-asp-net-core/view-imports-injection.png":::
 
 2. To properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. In Visual Studio Solution Explorer, locate and open  `\Views\Shared\_Layout.cshtml`, insert the following code immediately preceding the closing `<\head>` tag.
 
@@ -171,7 +171,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
     @Html.Raw(JavaScriptSnippet.FullScript)
     ```
 
-    ![The _Layout.cshtml file displays with the preceding line of code highlighted within the head section of the page.](./media/tutorial-asp-net-core/layout-head-code.png "The head section of _Layout.cshtml")
+    :::image type="content" source="media/tutorial-asp-net-core/layout-head-code.png" alt-text="Screenshot of the _Layout.cshtml file with the preceding line of code highlighted within the head section of the file." lightbox="media/tutorial-asp-net-core/layout-head-code.png":::
 
     > [!TIP]
     > As an alternative to using the `FullScript`, the `ScriptBody` is available. Use `ScriptBody` if you need to control the `<script>` tag to set a Content Security Policy:
