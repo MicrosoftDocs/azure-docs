@@ -137,7 +137,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
 
 1. Update the _Build and Deploy_ job to have an environment variable of `IS_STATIC_EXPORT` set to `true`:
 
-    ### GitHub Actions (#tab/github-acounts)
+    ### [GitHub Actions](#tab/github-acounts)
 
     ```yaml
         - name: Build And Deploy
@@ -154,7 +154,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
               is_static_export: true
     ```
 
-    ### Azure Pipelines (#tab/azure-pipelines)
+    ### [Azure Pipelines](#tab/azure-pipelines)
 
     ```yaml
         - task: AzureStaticWebAppLatest@0
