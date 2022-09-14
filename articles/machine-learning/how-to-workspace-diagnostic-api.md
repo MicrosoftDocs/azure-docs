@@ -15,7 +15,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # How to use workspace diagnostics
 
-[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 > * [v1](v1/how-to-workspace-diagnostic-api.md)
 > * [v2 (current version)](how-to-workspace-diagnostic-api.md)

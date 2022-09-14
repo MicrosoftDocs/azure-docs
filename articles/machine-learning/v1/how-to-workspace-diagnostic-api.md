@@ -78,4 +78,4 @@ For more information, see the [Workspace.diagnose_workspace()](/python/api/azure
 ## Next steps
 
 * [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#diagnose-workspace-diagnose-parameters-)
-* [How to manage workspaces in portal or SDK](how-to-manage-workspace.md)
+* [How to manage workspaces in portal or SDK](../how-to-manage-workspace.md)
