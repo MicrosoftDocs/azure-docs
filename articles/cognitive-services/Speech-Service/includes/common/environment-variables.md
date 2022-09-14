@@ -32,6 +32,8 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 
 #### [macOS](#tab/macos)
 
+##### Bash
+
 Edit your .bash_profile, and add the environment variable:
 
 ```bash
@@ -40,6 +42,8 @@ export SPEECH_KEY=your-key
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
 
+##### Xcode
+
 For iOS and macOS development, you set the environment variables in Xcode. For example, follow these steps to set the environment variable in Xcode 13.4.1.
 
 1. Select **Product** > **Scheme** > **Edit scheme**
@@ -47,6 +51,7 @@ For iOS and macOS development, you set the environment variables in Xcode. For e
 1. Under **Environment Variables** select the plus (+) sign to add a new environment variable. 
 1. Enter `SPEECH_KEY` for the **Name** and enter your Speech resource key for the **Value**.
 
+For more configuration options, see the [Xcode documentation](https://help.apple.com/xcode/#/dev745c5c974).
 ***
 
 To set the environment variable for your Speech resource region, follow the same steps. Set `SPEECH_REGION` to the region of your resource. For example, `westus`.

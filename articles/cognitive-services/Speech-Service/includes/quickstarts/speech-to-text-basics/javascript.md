@@ -14,6 +14,9 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Set up the environment
 
 Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
@@ -21,6 +24,9 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a file 
 
@@ -82,6 +88,9 @@ The speech from the audio file should be output as text:
 ```console
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-file" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

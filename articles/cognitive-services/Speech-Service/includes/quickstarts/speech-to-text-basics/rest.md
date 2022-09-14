@@ -18,6 +18,9 @@ ms.author: eur
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Recognize speech from a file
 
 At a command prompt, run the following cURL command. Replace `YourAudioFile.wav` with the path and name of your audio file.  
@@ -42,6 +45,9 @@ You should receive a response similar to what is shown here. The `DisplayText` s
     "Duration": 32100000
 }
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-file" target="_target">I ran into an issue</a>
 
 For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text-short.md).
 
