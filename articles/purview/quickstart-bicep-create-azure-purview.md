@@ -58,7 +58,7 @@ The Bicep file performs the following tasks:
 
 You'll be prompted to enter the following values:
 
-* **Purview name**: enter a name for the Azure Purview account.
+* **Purview name**: enter a name for the Microsoft Purview account.
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
