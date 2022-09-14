@@ -96,6 +96,14 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
 
     > [!TIP]
     > When you are updating multiple key-values in App Configuration, you normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and update it only when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+    >
+    > You may also do following to minimize the risk of inconsistencies:
+    >
+    > * Design your application to be tolerable for transient configuration inconsistency
+    > * Warm-up your application before bringing it online (serving requests)
+    > * Carry default configuration in your application and use it when configuration validation fails
+    > * Choose a configuration update strategy that minimizes the impact to your application, for example, a low traffic timing.
+
 
 ### [In-process](#tab/in-process)
 

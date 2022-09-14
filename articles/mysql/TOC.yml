@@ -123,6 +123,10 @@
         displayName: replication, read replica
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
+    - name: Security
+      items:
+      - name: Data encryption with a customer managed key
+        href: flexible-server/concepts-customer-managed-key-mysql-flexible-server.md
     - name: Backup & Restore
       items:
       - name: Backup & Restore concepts
@@ -505,6 +509,11 @@
       - name: Connect with redirection
         href: single-server/how-to-redirection.md
         displayName: development, redirection , php
+      - name: Database Deployment
+        items:
+        - name: Azure Pipelines
+          href: single-server/azure-pipelines-mysql-deploy.md
+
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
