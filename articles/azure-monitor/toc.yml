@@ -848,6 +848,7 @@ items:
         href: app/windows-desktop.md
     - name: Tutorials
       items:
+<<<<<<< HEAD
       - name: Application Insights SDK for ASP.NET Core applications
         href: app/tutorial-asp-net-core.md
       - name: Custom metrics with .NET and .NET Core
@@ -864,6 +865,54 @@ items:
         href: app/tutorial-app-dashboards.md
       - name: Monitor mobile or UWP application
         href: app/mobile-center-quickstart.md
+=======
+      - name: Overview
+        href: vm/vminsights-enable-overview.md
+      - name: Azure portal
+        href: vm/vminsights-enable-portal.md
+      - name: Azure PowerShell
+        href: vm/vminsights-enable-powershell.md
+      - name: ARM templates
+        href: vm/vminsights-enable-resource-manager.md
+      - name: Azure Policy
+        href: vm/vminsights-enable-policy.md
+      - name: Hybrid VMs
+        href: vm/vminsights-enable-hybrid.md
+      - name: Dependency Agent
+        href: vm/vminsights-dependency-agent-maintenance.md
+    - name: Map dependencies
+      href: vm/vminsights-maps.md
+    - name: Migrate from service map
+      href: vm/vminsights-migrate-from-service-map.md
+    - name: Monitor performance
+      href: vm/vminsights-performance.md
+    - name: Monitor guest health (preview)
+      items:
+      - name: Overview
+        href: vm/vminsights-health-overview.md
+      - name: Migrate
+        href: vm/vminsights-health-migrate.md
+      - name: Enable
+        href: vm/vminsights-health-enable.md
+      - name: Alerts
+        href: vm/vminsights-health-alerts.md
+      - name: Configure monitors in portal
+        href: vm/vminsights-health-configure.md
+      - name: Configure monitors at scale
+        href: vm/vminsights-health-configure-dcr.md
+      - name: Troubleshoot
+        href: vm/vminsights-health-troubleshoot.md
+    - name: Analyze data with log queries
+      href: vm/vminsights-log-query.md
+    - name: Monitor changes
+      href: vm/vminsights-change-analysis.md
+    - name: Visualize data with workbooks
+      href: vm/vminsights-workbooks.md
+    - name: Disable monitoring
+      href: vm/vminsights-optout.md
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
+>>>>>>> 29693aadcd127dd856c522e979c0f9af4f5fcdf1
   - name: Container insights
     items:
     - name: Overview
