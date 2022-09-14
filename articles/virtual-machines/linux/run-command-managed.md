@@ -121,8 +121,8 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 "location": "<location>", 
 "properties": { 
     "source": { 
-        "script": "echo Hello World", 
-        "scriptUri": "<URI>",  
+        "script": "Write-Host Hello World!", 
+        "scriptUri": "<SAS URI of a storage blob with read access or public URI>",  
         "commandId": "<Id>"  
         }, 
     "parameters": [ 
@@ -148,8 +148,8 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
     "runAsUser": "userName",
     "runAsPassword": "userPassword", 
     "timeoutInSeconds": 3600, 
-    "outputBlobUri": "<URI>", 
-    "errorBlobUri": "<URI>"  
+    "outputBlobUri": "< SAS URI of a storage append blob with read, add, create, write access>", 
+    "errorBlobUri": "< SAS URI of a storage append blob with read, add, create, write access >"  
     }
 }
 ```
