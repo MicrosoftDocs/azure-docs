@@ -82,8 +82,7 @@ az vm run-command invoke \
 2. Select **Databases** from the **New** page, and select **Azure Cosmos DB for PostgreSQL**
    from the **Databases** page.
 
-3. For the deployment option, select the **Create** button under **Hyperscale
-   (Citus) cluster**.
+3. For the deployment option, select the **Create** button under **Azure Cosmos DB for PostgreSQL cluster**.
 
 4. Fill out the new server details form with the following information:
 

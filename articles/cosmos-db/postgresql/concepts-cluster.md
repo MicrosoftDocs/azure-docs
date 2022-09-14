@@ -15,7 +15,7 @@ ms.date: 07/15/2022
 
 ## Nodes
 
-The Azure Cosmos DB for PostgreSQL deployment option allows
+Azure Cosmos DB for PostgreSQL allows
 PostgreSQL servers (called nodes) to coordinate with one another in a "cluster."
 The cluster's nodes collectively hold more data and use more CPU
 cores than would be possible on a single server. The architecture also allows

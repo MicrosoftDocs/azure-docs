@@ -9,7 +9,7 @@ ms.custom: mvc, kr2b-contr-experiment
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/29/2022
-#Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
+#Customer intent: As an developer, I want to design a Azure Cosmos DB for PostgreSQL database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
 # Design a multi-tenant database using Azure Cosmos DB for PostgreSQL
@@ -127,7 +127,7 @@ which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
-A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks which tenant owns which rows.
+A Azure Cosmos DB for PostgreSQL deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks which tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
 identifier. In psql, run these functions:

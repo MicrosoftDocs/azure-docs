@@ -100,8 +100,8 @@ and their representation is below.
 
 ### Shard information view
 
-In addition to the low-level shard metadata table described above, Hyperscale
-(Citus) provides a `citus_shards` view to easily check:
+In addition to the low-level shard metadata table described above, Azure Cosmos
+DB for PostgreSQL provides a `citus_shards` view to easily check:
 
 * Where each shard is (node, and port),
 * What kind of table it belongs to, and
@@ -270,10 +270,10 @@ colocationid                |
 
 ### Distributed tables view
 
-The `citus_tables` view shows a summary of all tables managed by Hyperscale
-(Citus) (distributed and reference tables). The view combines information from
-Azure Cosmos DB for PostgreSQL metadata tables for an easy, human-readable overview of
-these table properties:
+The `citus_tables` view shows a summary of all tables managed by Azure Cosmos
+DB for PostgreSQL (distributed and reference tables). The view combines
+information from Azure Cosmos DB for PostgreSQL metadata tables for an easy,
+human-readable overview of these table properties:
 
 * Table type
 * Distribution column

@@ -82,7 +82,7 @@ You can see the newly created tables in the list of tables now with this psql co
 
 ## Shard tables across nodes
 
-A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks how data is sharded across nodes.
+A Azure Cosmos DB for PostgreSQL deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks how data is sharded across nodes.
 
 Let's set the distribution column to be site\_id, the shard
 key. In psql, run these functions:
@@ -133,7 +133,7 @@ The query inserts approximately eight rows every second. The rows are stored on 
 
 ## Query
 
-The hyperscale hosting option allows multiple nodes to process queries in
+Azure Cosmos DB for PostgreSQL allows multiple nodes to process queries in
 parallel for speed. For instance, the database calculates aggregates like SUM
 and COUNT on worker nodes, and combines the results into a final answer.
 

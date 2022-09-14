@@ -47,7 +47,7 @@ Now we want to answer queries that might be issued by a customer-facing
 dashboard. An example query is "Return the number of visits in the past week for
 all pages starting with '/blog' in tenant six."
 
-If our data was in the Single-Server deployment option, we could easily express
+If our data was in a single PostgreSQL server, we could easily express
 our query by using the rich set of relational operations offered by SQL:
 
 ```sql
