@@ -30,26 +30,15 @@ In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definitio
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
-Output field mappings can also be used to flatten nested data structures during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
+Output field mappings can also be used to [flatten nested data structures]() during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
 
 Output field mappings apply to:
 
-+ Content that's created by skills or extracted by an indexer.
++ Content that's created by skills or extracted by an indexer. The source field is a node in an enriched document residing in memory.
 
 + Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-Output field mappings always occur after [skillset execution](cognitive-search-working-with-skillsets.md), although it's possible for this stage to run even if no skillset is defined.
-
-<!-- 
-The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). 
-
-Examples of output field mapping scenarios:
-
-* **Content consolidation.** Your skillset extracts the names of organizations mentioned in within each page of a document. Now you want to map each of those organization names into a field in your index of type Edm.Collection(Edm.String).
-
-* **Content creation.** As part of your skillset, you produced a new node called "document/translated_text". You would like to map this new information to a specific field in your index.
-
-* **Content extraction.** You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You'd like to get to a node on that complex type and map it into a field in your index. -->
+Output field mappings always occur after [skillset execution](cognitive-search-working-with-skillsets.md), although it's possible to processing an output field mapping if no skillset is defined. See 
 
 ## Define an output field mapping
 
@@ -69,8 +58,8 @@ Output field mappings are added to the `outputFieldMappings` array in an indexer
 | Property | Description |
 |----------|-------------|
 | "sourceFieldName" | Required. Specifies a path to enriched content. See [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax. |
-|  "targetFieldName" | Optional. Specifies the search field that receives the enriched content. This is always a single top-level field or a collection. |
-| "mappingFunction" | Optional. Adds extra processing provided by [search-indexer-field-mappings.md#predefined functions](#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
+|  "targetFieldName" | Optional. Specifies the search field that receives the enriched content. This is always a single top-level field or a collection. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. Although a target field can't resolve to subfield, you can [flatten a nested source structure into a string collection](#flatten-information-from-complex-types) in memory, and then send it to a string collection in your index. |
+| "mappingFunction" | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
 
 You can use the REST API or an Azure SDK to define output field mappings.
 
@@ -145,66 +134,189 @@ await indexerClient.CreateIndexerAsync(indexer);
 
 <a name="flatten-information-from-complex-types"></a>
 
-## Flatten complex structures for data import
+## Flatten complex structures into a string collection
 
-The path in a sourceFieldName can represent one element or multiple elements. In the example above, ```/document/content/sentiment``` represents a single numeric value, while ```/document/content/organizations/*/description``` represents several organization descriptions. 
+If your source data is composed of nested or hierarchical JSON, you can't use field mappings to set up the data paths. Instead, your search index must mirror the source data structure for at each level for a full import. 
 
-In cases where there are several elements, they are "flattened" into an array that contains each of the elements. 
-
-More concretely, for the ```/document/content/organizations/*/description``` example, the data in the *descriptions* field would look like a flat array of descriptions before it gets indexed:
-
-```
- ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
-```
-
-This is an important principle, so we'll provide another example. Imagine that you have an array of complex types as part of the enrichment tree. Let's say there's a member called customEntities that has an array of complex types like the one described below.
+Sample source JSON document in Cosmos DB with nested JSON:
 
 ```json
 {
-   "document/customEntities":[
+   "palette":"primary colors",
+   "colors":[
       {
-         "name":"heart failure",
-         "matches":[
-            {
-               "text":"heart failure",
-               "offset":10,
-               "length":12,
-               "matchDistance":0.0
-            }
+         "name":"blue",
+         "medium":[
+            "acrylic",
+            "oil",
+            "pastel"
          ]
       },
       {
-         "name":"morquio",
-         "matches":[
-            {
-               "text":"morquio",
-               "offset":25,
-               "length":7,
-               "matchDistance":0.0
-            }
+         "name":"red",
+         "medium":[
+            "acrylic",
+            "pastel",
+            "watercolor"
+         ]
+      },
+      {
+         "name":"yellow",
+         "medium":[
+            "acrylic",
+            "watercolor"
          ]
       }
    ]
 }
 ```
 
-Let's assume that your index has a field called 'diseases' of type Collection(Edm.String), where you would like to store each of the names of the entities. 
-
-This can be done easily by using the "\*" symbol, as follows:
+Sample index definition in Cognitive Search, where names, levels, and types are reflected as a complex type:
 
 ```json
-    "outputFieldMappings": [
+{
+  "name": "my-test-index",
+  "defaultScoringProfile": "",
+  "fields": [
+    { "name": "id", "type": "Edm.String", "searchable": false, "retrievable": true, "key": true},
+    { "name": "palette", "type": "Edm.String", "searchable": true, "retrievable": true },
+    { "name": "colors", "type": "Collection(Edm.ComplexType)",
+      "fields": [
         {
-            "sourceFieldName": "/document/customEntities/*/name",
-            "targetFieldName": "diseases"
+          "name": "name",
+          "type": "Edm.String",
+          "searchable": true,
+          "retrievable": true
+        },
+        {
+          "name": "medium",
+          "type": "Collection(Edm.String)",
+          "searchable": true,
+          "retrievable": true,
         }
-    ]
+      ]
+    }
+  ]
+}
 ```
 
-This operation will simply “flatten” each of the names of the customEntities elements into a single array of strings like this:
+Sample indexer definition that runs the import (notice there are no field mappings and no skillset):
 
 ```json
-  "diseases" : ["heart failure","morquio"]
+{
+  "name": "my-test-indexer",
+  "dataSourceName": "my-test-ds",
+  "skillsetName": null,
+  "targetIndexName": "my-test-index",
+
+  "fieldMappings": [],
+  "outputFieldMappings": []
+}
+```
+
+Sample search document, post-import, is similar to the original in Cosmos DB:
+
+```json
+{
+  "value": [
+    {
+      "@search.score": 1,
+      "id": "240a98f5-90c9-406b-a8c8-f50ff86f116c",
+      "palette": "primary colors",
+      "colors": [
+        {
+          "name": "blue",
+          "medium": [
+            "acrylic",
+            "oil",
+            "pastel"
+          ]
+        },
+        {
+          "name": "red",
+          "medium": [
+            "acrylic",
+            "pastel",
+            "watercolor"
+          ]
+        },
+        {
+          "name": "yellow",
+          "medium": [
+            "acrylic",
+            "watercolor"
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+An alternative rendering in a search index is to flatten the source's nested structure to a string collection in a search index.
+
+To accomplish this task, you'll need an `outputFieldMapping` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after "document cracking" where the indexer opens a source document and reads it into memory.
+
+Below is a sample index definition in Cognitive Search, using string collections to receive flattened output:
+
+```json
+{
+  "name": "my-new-flattened-index",
+  "defaultScoringProfile": "",
+  "fields": [
+    { "name": "id", "type": "Edm.String", "searchable": false, "retrievable": true, "key": true },
+    { "name": "palette", "type": "Edm.String", "searchable": true, "retrievable": true },
+    { "name": "color_names", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true },
+    { "name": "color_mediums", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true}
+  ]
+}
+```
+
+Here's the sample indexer definition, using `outputFieldMappings` to associate the nested JSON with the string collection fields. Notice that the source field uses the path syntax for enrichment nodes, even though there's no skillset. Enriched documents are created in the system during document cracking, which means you can access nodes in each document tree as long as those nodes exist when the document is cracked.
+
+```json
+{
+  "name": "my-test-indexer",
+  "dataSourceName": "my-test-ds",
+  "skillsetName": null,
+  "targetIndexName": "my-new-flattened-index",
+  "parameters": {  },
+  "fieldMappings": [   ],
+  "outputFieldMappings": [
+    {
+       "sourceFieldName": "/document/colors/*/name",
+       "targetFieldName": "color_names"
+    },
+    {
+       "sourceFieldName": "/document/colors/*/medium",
+       "targetFieldName": "color_mediums"
+    }
+  ]
+}
+```
+
+Results from the above definition are as follows. Simplifying the structure loses context in this case. There's no longer any associations between a given color and the mediums it's available in. However, depending on your scenario, a result similar to the one shown below might be exactly what you need.
+
+```json
+{
+  "value": [
+    {
+      "@search.score": 1,
+      "id": "240a98f5-90c9-406b-a8c8-f50ff86f116c",
+      "palette": "primary colors",
+      "color_names": [
+        "blue",
+        "red",
+        "yellow"
+      ],
+      "color_mediums": [
+        "[\"acrylic\",\"oil\",\"pastel\"]",
+        "[\"acrylic\",\"pastel\",\"watercolor\"]",
+        "[\"acrylic\",\"watercolor\"]"
+      ]
+    }
+  ]
+}
 ```
 
 ## See also

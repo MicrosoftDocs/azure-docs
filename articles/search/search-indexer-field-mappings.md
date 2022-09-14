@@ -26,7 +26,9 @@ Field mappings apply to:
 
 + Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-+ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. If you're working with complex data (nested or hierarchical structures), see [outputFieldMappings](cognitive-search-output-field-mapping.md) for workarounds.
++ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. A target field can't be a complex type.
+
+  If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md) for this workaround).
 
 ## Supported scenarios
 
@@ -55,7 +57,7 @@ Field mappings are added to the "fieldMappings" array of an indexer definition. 
 | Property | Description |
 |----------|-------------|
 | "sourceFieldName" | Required. Represents a field in your data source. |
-|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you need this functionality, use an [outputFieldMapping](cognitive-search-output-field-mapping.md) instead.|
+|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. |
 | "mappingFunction" | Optional. Consists of [predefined functions](#mappingFunctions) that transform data. You can apply functions to both source and target field mappings. |
 
 Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
