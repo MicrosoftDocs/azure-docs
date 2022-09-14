@@ -1,6 +1,6 @@
 ---
 title: Enable VM insights overview
-description: Learn how to deploy and configure VM insights. Find out the system requirements.
+description: Learn how to deploy and configure VM insights and find out about the system requirements.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -33,7 +33,7 @@ The following table shows the installation methods available for enabling VM ins
 
 ## Supported Azure Arc machines
 
-VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
+VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Azure Arc agent.
 
 ## Supported operating systems
 
@@ -84,22 +84,22 @@ VM insights requires a Log Analytics workspace. For requirements of this workspa
 When you enable VM insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
 
 > [!IMPORTANT]
-> VM insights support for Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
+> VM insights support for the Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) **or** [Log Analytics agent](../agents/log-analytics-agent.md)**:** Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace.
+- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace.
 - **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
-## Changes for Azure Monitor agent
+## Changes for the Azure Monitor agent
 
 There are several changes in the process for enabling VM insights when you use the Azure Monitor agent:
 
 - **Workspace configuration:** You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) because the Azure Monitor agent doesn't use the *VMInsights* management pack.
-- **Data collection rule (DCR):** Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a DCR that's automatically deployed if you enable your machine by using the Azure portal. If you use other methods to onboard your machines, you might need to install the DCR first.
-- **Agent deployment:** There are minor changes to the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a DCR for Azure Monitor agent. For more information, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md).
+- **Data collection rule (DCR):** The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a DCR that's automatically deployed if you enable your machine by using the Azure portal. If you use other methods to onboard your machines, you might need to install the DCR first.
+- **Agent deployment:** There are minor changes to the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a DCR for the Azure Monitor agent. For more information, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md).
 
 ## Data collection rule (Azure Monitor agent)
 
-When you enable VM insights on a machine with the Azure Monitor agent, you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. For more information on how to create and edit the VM insights DCR, see [Enable VM insights for Azure Monitor agent
+When you enable VM insights on a machine with the Azure Monitor agent, you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. For more information on how to create and edit the VM insights DCR, see [Enable VM insights for the Azure Monitor agent
 ](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
 
 > [!IMPORTANT]
