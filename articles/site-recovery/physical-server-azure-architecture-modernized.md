@@ -19,7 +19,7 @@ For information about configuration server requirements in Classic releases, s
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
-[![Screenshot of Physical server to Azure architecture modernized.](/media/physical-server-azure-architecture-modernized/architecture-modernized.png)](/media/physical-servers-azure-architecture-modernized/architecture-modernized.png#lightbox)
+:::image type="Modernized architecture." source="./media/physical-server-azure-architecture-modernized/architecture-modernized.png" alt-text="Screenshot of Modernized architecture.":::
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---
