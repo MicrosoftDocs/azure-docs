@@ -253,7 +253,11 @@
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md       
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Security
+      items:
+      - name: Set data encryption with Azure CLI
+        href: flexible-server/tutorial-set-data-encryption-cli-mysql-flexible-server.md    
   - name: Samples
     items:
     - name: Azure CLI samples
