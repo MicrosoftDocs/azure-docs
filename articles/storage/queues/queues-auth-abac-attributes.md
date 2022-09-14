@@ -40,17 +40,6 @@ Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blob
 > [!NOTE]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
 
-In this preview, storage accounts support the following suboperations:
-
-> [!div class="mx-tableFixed"]
-> | Display name | DataAction | Suboperation |
-> | :--- | :--- | :--- |
-> | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
-> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | **NOT** `Blob.List` |
-> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
-> | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
-> | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
-
 ## Azure Queue storage actions
 
 This section lists the supported Azure Queue storage actions you can target for conditions.
@@ -132,7 +121,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | String |
-> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](../blobs\storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
 
 ### Queue name
 
@@ -147,6 +136,6 @@ This section lists the Azure Queue storage attributes you can use in your condit
 
 ## See also
 
-- [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions (preview)](../blobs\storage-auth-abac-examples.md)
 - [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
 - [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)
