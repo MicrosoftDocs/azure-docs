@@ -209,7 +209,7 @@ Profiling data collected by the JFR includes: method and execution profiling dat
 Check out Microsoft documentation on "[How to configure the Azure Monitor Application Insights for Java Profiler](https://azure-docs/blob/add-java-profiler-doc/articles/azure-monitor/app/java-standalone-profiling.md#installation)." JFR recording can be viewed and analyzed with your preferred tool, for example [Java Mission Control (JMC)](https://jdk.java.net/jmc/8/).
 
 ### Are performance diagnosis and fix recommendations provided with App Insights Java Profiling? 
-'Performance diagnostics and recommendations' is a new feature that will be available as Application Insights Java Diagnostics. You may sign up to private preview this feature at https://aka.ms/JavaO11y. JFR recording can be viewed with Java Mission Control (JMC).
+'Performance diagnostics and recommendations' is a new feature that will be available as Application Insights Java Diagnostics. You may sign up to preview this feature at https://aka.ms/JavaO11y. JFR recording can be viewed with Java Mission Control (JMC).
 
 ### What's the difference between on-demand and automatic Java Profiling in App Insights? 
 
