@@ -129,7 +129,7 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [China Government Cloud](#tab/china-government-cloud)
+### [Azure China Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn
