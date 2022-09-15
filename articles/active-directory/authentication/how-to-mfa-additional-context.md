@@ -11,13 +11,13 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in Microsoft Authenticator notifications - Authentication Methods Policy
+# How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
 
 This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator passwordless and push notifications.  
 
 ## Prerequisites
 
-- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure Portal or Microsoft Graph API. 
+- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
 
 >[!NOTE]
 >The [policy schema changes](#policy-schema-changes) have been improved. The policy schema for preview is deprecated. Make sure you use the new schema to help prevent errors.
@@ -57,7 +57,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 
 | Property | Type | Description |
 |---------|------|-------------|
-| id | String | The authentication method policy identifier. |
+| id | String | The Authentication method policy identifier. |
 | state | authenticationMethodState | Possible values are: **enabled**<br>**disabled** |
  
 **RELATIONSHIPS**
@@ -87,7 +87,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 | displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application name in Microsoft Authenticator notification. |
 | displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
 
-#### Authentication Method Feature Configuration properties
+#### Authentication method feature configuration properties
 
 **PROPERTIES**
 
@@ -97,7 +97,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
-#### Feature Target properties
+#### Feature target properties
 
 **PROPERTIES**
 
@@ -110,7 +110,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 
 In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled**. 
 
-The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you do not want to allow passwordless, use **push**.
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you don't want to allow passwordless, use **push**.
 
 You might need to PATCH the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example shows how to update **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -276,7 +276,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** to from **default** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-In addition, for each of the features, you will change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
+In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -434,7 +434,7 @@ To enable application name or geographic location in the Azure AD portal, comple
 
 ## Known issues
 
-Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
