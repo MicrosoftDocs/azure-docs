@@ -10,7 +10,7 @@ You must authenticate all the operations that you perform on resources using the
 
 Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
 
-The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session. An Azure Active Directory application is necessary to authenticate any REST calls coming to your account.
+The following steps show how to set up authentication for your app to register with Azure Active Directory. You can run these commands in a standard PowerShell session. Registering with Azure Active Directory is necessary to authenticate any future REST calls. For more information, see [How and why applications are added to Azure AD](/azure/active-directory/develop/active-directory-how-applications-are-added).
 
 1. Sign in to your Azure subscription using the following command:
 
@@ -29,7 +29,7 @@ The following steps show how to set up password authentication for an AD applica
    Select the subscription you want to use. You can use either the subscription name or ID from the output of the previous command.
 
    ```powershell
-   Select-AzSubscription -SubscriptionName "{your subscription name}"
+   Select-AzSubscription -SubscriptionName "{your-subscription-name}"
    ```
 
 1. Save your **Id** and **TenantId** for later.
@@ -37,7 +37,7 @@ The following steps show how to set up password authentication for an AD applica
 1. Create a new Azure Active Directory application using the following command, replacing these placeholders with your own values:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (your ID can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
+   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (your ID can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
 
    :::image type="content" source="/includes/media/iot-hub-prepare-resource-manager/find-domain.png" alt-text="Screenshot showing location of your Primary domain in the Azure portal.":::
      
@@ -49,7 +49,7 @@ The following steps show how to set up password authentication for an AD applica
 
 1. Save the **AppId** of the application you created for later.
 
-1. Set up a role assignment using the following command, replacing **{MyAppId}** with your **AppId**.
+1. Set up a role assignment authorization using the following command, replacing **{MyAppId}** with your **AppId**.
    
     ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Owner" -ApplicationId {MyAppId}

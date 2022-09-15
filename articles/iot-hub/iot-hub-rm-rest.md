@@ -29,15 +29,13 @@ You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubreso
 
 ## Prepare your Visual Studio project
 
-1. In Visual Studio, create a Visual C# Windows Classic Desktop project using the **Console App (.NET Framework)** project template. Name the project **CreateIoTHubREST**.
+1. In Visual Studio, create a new Windows console app using the C# **Console App (.NET Framework)** project template. Name the project **CreateIoTHubREST**.
 
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 
-3. In NuGet Package Manager, check **Include prerelease**, and on the **Browse** page search for **Microsoft.Azure.Management.ResourceManager**. Select the package, click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. In NuGet Package Manager, check **Include prerelease**, and on the **Browse** page search for **Microsoft.Azure.Management.ResourceManager**. Select the package, choose **Install**, in **Review Changes** choose **OK**, then choose**I Accept** to accept the licenses.
 
-4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
-    > [!IMPORTANT]
-    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been retired. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information see the [migration guide](../active-directory/develop/msal-migration.md).
+4. In NuGet Package Manager, search for **Microsoft.Identity.Client**.  Choose **Install**, in **Review Changes** choose**OK**, then choose **I Accept** to accept the license.
 
 5. In Program.cs, replace the existing **using** statements with the following code:
 
@@ -48,23 +46,23 @@ You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubreso
     using System.Text;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Newtonsoft.Json;
     using Microsoft.Rest;
     using System.Linq;
     using System.Threading;
     ```
 
-6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Resource group name** is the name of the resource group you use when you create the IoT hub. You can use a pre-existing or a new resource group. **IoT Hub name** is the name of the IoT Hub you create, such as **MyIoTHub**. The name of your IoT hub must be globally unique. **Deployment name** is a name for the deployment, such as **Deployment_01**.
+6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Resource group name** is the name of the resource group you used when you created your IoT hub. You can use a pre-existing or new resource group. **IoT Hub name** is the name of the IoT Hub you created, such as **MyIoTHub**. The name of your IoT hub must be globally unique. **Deployment name** is a name for the deployment, such as **Deployment_01**.
 
     ```csharp
-    static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId}";
-    static string tenantId = "{Your TenantId}";
-    static string password = "{Your application Password}";
+    static string applicationId = "{ApplicationId}";
+    static string subscriptionId = "{SubscriptionId}";
+    static string tenantId = "{TenantId}";
+    //static string password = "{Your application Password}";
 
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name including your initials}";
+    static string iotHubName = "{IoT hub name}";
     ```
 
     [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
