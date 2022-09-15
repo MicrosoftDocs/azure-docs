@@ -76,14 +76,14 @@ For tutorials, how-to or get started guides, and information on deployment and c
 
 This section outlines variations and considerations when using Azure Bot Service, Azure Machine Learning, and Cognitive Services in the Azure Government environment.
 
-| Product | US-Virginia |  US-Arizona |
-|---------|--------|------------|
-| [Azure Bot Service](../azure-government/compare-azure-government-global-azure.md#azure-bot-service) | Limited | Limited |
-| [Azure Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government)|  Limited |  Limited |
-| [Cognitive Services: Content Moderator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-content-moderator)|  Limited |  Limited |
-| [Cognitive Services: Language Understanding (LUIS)](../azure-government/compare-azure-government-global-azure.md#cognitive-services-language-understanding-luis)|  Limited |  Limited |
-| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-government-united-states)|  Limited |  Limited |
-| [Cognitive Services: Translator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-translator)|  Limited |  Limited |
+| Product | Unsupported features |
+|---------|------------|
+| [Azure Bot Service](../azure-government/compare-azure-government-global-azure.md#azure-bot-service) |<ul><li>Bot Framework Composer integration<li> Channels (due to availability of dependent services):<ul><li> Teams Channel<li> Direct Line Speech Channel<li> Telephony Channel (Preview)<li> Microsoft Search Channel (Preview)<li> Kik Channel (deprecated)</ul></ul>|
+| [Azure Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government)| See     |
+| [Cognitive Services: Content Moderator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-content-moderator)| <li>Review UI and Review APIs |
+| [Cognitive Services: Language Understanding (LUIS)](../azure-government/compare-azure-government-global-azure.md#cognitive-services-language-understanding-luis)|  <li>Speech Requests<li>Prebuilt Domains |
+| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-government-united-states)|  Limited  |
+| [Cognitive Services: Translator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-translator)|  Limited |
 
 ### Analytics
 
