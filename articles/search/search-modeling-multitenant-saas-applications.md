@@ -84,7 +84,7 @@ In the case of a multitenant scenario, the application developer consumes one or
 
 ## Model 1: One index per tenant
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="A portrayal of the index-per-tenant model" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="A portrayal of the index-per-tenant model" border="false"::: 
 
 In an index-per-tenant model, multiple tenants occupy a single Azure Cognitive Search service where each tenant has their own index.
 

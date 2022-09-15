@@ -9,7 +9,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/15/2022
 ---
 
 # Index data from SharePoint document libraries
@@ -28,8 +28,10 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 
 + Index content and metadata from one or more document libraries.
 + Incremental indexing, where the indexer identifies which files have changed and indexes only the updated content. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
-+ Deletion detection is built in. If a document is deleted from a document library, the indexer will detect the delete on the next indexer run and remove the document from the index.
 + Text and normalized images will be extracted by default from the documents that are indexed. Optionally a [skillset](cognitive-search-working-with-skillsets.md) can be added to the pipeline for [AI enrichment](cognitive-search-concept-intro.md). 
+
+> [!NOTE]
+> Deletion detection is planned for this indexer, but it's not implemented currently. Specifically, if a document is deleted from a document library, the indexer might fail instead of detecting and deleting the corresponding search document from the index. If the indexer stops due to dropped documents, you can set `maxFailedItems` and `maxFailedItemsPerBatch` to `-1` if you don't want any errors to stop the indexing process.
 
 ## Prerequisites
 
