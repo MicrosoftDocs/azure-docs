@@ -1,5 +1,5 @@
 ---
-title: Geographic availability support for the Azure Spring Apps Enterprise
+title: Geographic availability of the Marketplace Offer
 description: Geographic availability support for Azure Spring Apps Enterprise Tier offering from Azure Marketplace.
 author: yuwzho
 ms.author: yuwzho
