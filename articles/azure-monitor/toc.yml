@@ -1458,7 +1458,7 @@ items:
         href: autoscale/autoscale-resource-log-schema.md  
 - name: Integrate
   items:
-  - name: Service limits
+  - name: Service limits -bogus entry for now
     href: service-limits.md
 - name: Reference
   items:
