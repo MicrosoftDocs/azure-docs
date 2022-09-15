@@ -1,8 +1,8 @@
 ---
 title: Create a synthetic partition key in Azure Cosmos DB
-description: Learn how to use synthetic partition keys in your Azure Cosmos containers to distribute the data and workload evenly across the partition keys
+description: Learn how to use synthetic partition keys in your Azure Cosmos DB containers to distribute the data and workload evenly across the partition keys
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/26/2021
 author: seesharprun
@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 # Create a synthetic partition key
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-It's the best practice to have a partition key with many distinct values, such as hundreds or thousands. The goal is to distribute your data and workload evenly across the items associated with these partition key values. If such a property doesn’t exist in your data, you can construct a *synthetic partition key*. This document describes several basic techniques for generating a synthetic partition key for your Cosmos container.
+It's the best practice to have a partition key with many distinct values, such as hundreds or thousands. The goal is to distribute your data and workload evenly across the items associated with these partition key values. If such a property doesn’t exist in your data, you can construct a *synthetic partition key*. This document describes several basic techniques for generating a synthetic partition key for your Azure Cosmos DB container.
 
 ## Concatenate multiple properties of an item
 
@@ -37,7 +37,7 @@ For the previous document, one option is to set /deviceId or /date as the partit
 }
 ```
 
-In real-time scenarios, you can have thousands of items in a database. Instead of adding the synthetic key manually, define client-side logic to concatenate values and insert the synthetic key into the items in your Cosmos containers.
+In real-time scenarios, you can have thousands of items in a database. Instead of adding the synthetic key manually, define client-side logic to concatenate values and insert the synthetic key into the items in your Azure Cosmos DB containers.
 
 ## Use a partition key with a random suffix
 
@@ -58,9 +58,9 @@ With this strategy, the writes are evenly spread across the partition key values
 You can learn more about the partitioning concept in the following articles:
 
 * Learn more about [logical partitions](../partitioning-overview.md).
-* Learn more about how to [provision throughput on Azure Cosmos containers and databases](../set-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* Learn more about how to [provision throughput on Azure Cosmos DB containers and databases](../set-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

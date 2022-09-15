@@ -3,7 +3,7 @@ title: StringToBoolean in Azure Cosmos DB query language
 description: Learn about SQL system function StringToBoolean in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins

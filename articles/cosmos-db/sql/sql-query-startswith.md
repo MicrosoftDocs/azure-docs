@@ -3,7 +3,7 @@ title: StartsWith in Azure Cosmos DB query language
 description: Learn about SQL system function STARTSWITH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: girobins

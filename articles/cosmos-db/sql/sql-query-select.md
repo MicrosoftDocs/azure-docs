@@ -3,7 +3,7 @@ title: SELECT clause in Azure Cosmos DB
 description: Learn about SQL SELECT clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: sidandrews
