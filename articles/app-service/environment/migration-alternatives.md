@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 8/19/2022
+ms.date: 9/15/2022
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -41,7 +41,7 @@ The [back up and restore](../manage-backup.md) feature allows you to keep your a
 
 The step-by-step instructions in the current documentation for [backup and restore](../manage-backup.md) should be sufficient to allow you to use this feature. You can select a backup and use that to restore the app to an App Service in your App Service Environment v3.
 
-:::image type="content" source="./media/migration/back-up-restore-sample.png" alt-text="Use backup to restore App Service in App Service Environment v3.":::
+:::image type="content" source="./media/migration/back-up-restore-sample.png" alt-text="Example showing how to use backup to restore App Service in App Service Environment v3.":::
 
 |Benefits     |Limitations    |
 |---------|---------|
@@ -71,7 +71,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 1. You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new App Service Environment v3, if any, will be listed in the dropdown.
 1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 SKU details](overview.md#pricing).
 
-:::image type="content" source="./media/migration/portal-clone-sample.png" alt-text="Clone an app to App Service Environment v3 using the portal.":::
+:::image type="content" source="./media/migration/portal-clone-sample.png" alt-text="Example that shows how to clone an app to App Service Environment v3 using the portal.":::
 
 |Benefits     |Limitations     |
 |---------|---------|
@@ -85,11 +85,11 @@ If the above features don't support your apps or you're looking to take a more m
 
 You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just your app, navigate to your App Service and go to **Export template** under **Automation**.
 
-:::image type="content" source="./media/migration/export-toc.png" alt-text="Export App Service from TOC.":::
+:::image type="content" source="./media/migration/export-toc.png" alt-text="Demonstration of how to export App Service template from TOC.":::
 
 You can also export templates for multiple resources directly from your resource group by going to your resource group, selecting the resources you want a template for, and then selecting **Export template**.
 
-:::image type="content" source="./media/migration/export-template-sample.png" alt-text="Export template for resources from resource group.":::
+:::image type="content" source="./media/migration/export-template-sample.png" alt-text="Demonstration of how to export template for resources from a resource group.":::
 
 The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 
