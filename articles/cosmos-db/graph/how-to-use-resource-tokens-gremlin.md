@@ -4,7 +4,7 @@ description: Learn how to create resource tokens and use them to access the Grap
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.devlang: csharp
@@ -93,7 +93,7 @@ builder.authProperties(authenticationProperties);
 
 ## Limit
 
-With a single Gremlin account, you can issue an unlimited number of tokens. However, you can use only up to 100 tokens concurrently within 1 hour. If an application exceeds the token limit per hour, an authentication request is denied, and you receive the following error message: "Exceeded allowed resource token limit of 100 that can be used concurrently." It doesn't work to close active connections that use specific tokens to free up slots for new tokens. The Azure Cosmos DB Gremlin database engine keeps track of unique tokens during the hour immediately prior to the authentication request.
+With a single Gremlin account, you can issue an unlimited number of tokens. However, you can use only up to 100 tokens concurrently within 1 hour. If an application exceeds the token limit per hour, an authentication request is denied, and you receive the following error message: "Exceeded allowed resource token limit of 100 that can be used concurrently." It doesn't work to close active connections that use specific tokens to free up slots for new tokens. The Azure Cosmos DB for Gremlin database engine keeps track of unique tokens during the hour immediately prior to the authentication request.
 
 ## Permission
 

@@ -1,18 +1,18 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about the Gremlin API in Azure Cosmos DB
-  description: Get answers to frequently asked questions about the Gremlin API in Azure Cosmos DB
+  title: Frequently asked questions about the API for Gremlin in Azure Cosmos DB
+  description: Get answers to frequently asked questions about the API for Gremlin in Azure Cosmos DB
   ms.service: cosmos-db
-  ms.subservice: cosmosdb-graph
+  ms.subservice: apache-gremlin
   ms.topic: faq
   ms.date: 04/28/2020
   author: manishmsfte
   ms.author: mansha
-title: Frequently asked questions about the Gremlin API in Azure Cosmos DB
+title: Frequently asked questions about the API for Gremlin in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
   
-  This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
+  This article explains answers to some frequently asked questions about API for Gremlin in Azure Cosmos DB.
 
 sections:
   - name: Gremlin queries
@@ -100,14 +100,14 @@ sections:
           The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse more than one other object on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
           
       - question: |
-          What's the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
+          What's the maximum scale that a graph database can have in Azure Cosmos DB for Gremlin?
         answer: |
-          Azure Cosmos DB makes use of [horizontal partitioning](../partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](../partitioning-overview.md) article.
+          Azure Cosmos DB makes use of [horizontal partitioning](../partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a API for Gremlin container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](../partitioning-overview.md) article.
           
       - question: |
           For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
         answer: |
-          Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
+          Azure Cosmos DB for Gremlin leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
           
       - question: |
           How can I protect against injection attacks using Gremlin drivers?
@@ -117,7 +117,7 @@ sections:
       - question: |
           Why am I getting the "Gremlin Query Compilation Error: Unable to find any method" error?
         answer: |
-          Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](gremlin-support.md) article.
+          Azure Cosmos DB for Gremlin implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](gremlin-support.md) article.
           
           The best workaround is to rewrite the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
           
@@ -147,16 +147,16 @@ sections:
       - question: |
           Why do my Gremlin driver connections get dropped eventually?
         answer: |
-          A Gremlin connection is made through a WebSocket connection. Although WebSocket connections don't have a specific time to live, Azure Cosmos DB Gremlin API will terminate idle connections after 30 minutes of inactivity.
+          A Gremlin connection is made through a WebSocket connection. Although WebSocket connections don't have a specific time to live, Azure Cosmos DB for Gremlin will terminate idle connections after 30 minutes of inactivity.
 
       - question: |
           Why can't I use fluent API calls in the native Gremlin drivers?
         answer: |
-          Fluent API calls aren't yet supported by the Azure Cosmos DB Gremlin API. Fluent API calls require an internal formatting feature known as bytecode support that currently isn't supported by Azure Cosmos DB Gremlin API. Due to the same reason, the latest Gremlin-JavaScript driver is also currently not supported.
+          Fluent API calls aren't yet supported by the Azure Cosmos DB for Gremlin. Fluent API calls require an internal formatting feature known as bytecode support that currently isn't supported by Azure Cosmos DB for Gremlin. Due to the same reason, the latest Gremlin-JavaScript driver is also currently not supported.
 
 additionalContent: |
 
   ## Next steps
   
-  * [Azure Cosmos DB Gremlin wire protocol support](../gremlin-support.md)
+  * [Azure Cosmos DB for Gremlin wire protocol support](../gremlin-support.md)
   * Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](create-graph-console.md)

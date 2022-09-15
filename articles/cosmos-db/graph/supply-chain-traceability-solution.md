@@ -1,19 +1,19 @@
 ---
-title: Infosys supply chain traceability solution using Azure Cosmos DB Gremlin API
-description: The Infosys solution for traceability in global supply chains uses the Azure Cosmos DB Gremlin API and other Azure services. It provides track-and-trace capability in graph form for finished goods.
+title: Infosys supply chain traceability solution using Azure Cosmos DB for Gremlin
+description: The Infosys solution for traceability in global supply chains uses the Azure Cosmos DB for Gremlin and other Azure services. It provides track-and-trace capability in graph form for finished goods.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 10/07/2021
 author: manishmsfte
 ms.author: mansha
 ---
 
-# Solution for supply chain traceability using the Azure Cosmos DB Gremlin API
+# Solution for supply chain traceability using the Azure Cosmos DB for Gremlin
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This article provides an overview of the [traceability graph solution implemented by Infosys](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview). This solution uses the Azure Cosmos DB Gremlin API and other Azure capabilities to provide a track-and-trace capability for finished goods in global supply chains.
+This article provides an overview of the [traceability graph solution implemented by Infosys](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview). This solution uses the Azure Cosmos DB for Gremlin and other Azure capabilities to provide a track-and-trace capability for finished goods in global supply chains.
 
 In this article, you'll learn:
 
@@ -48,10 +48,10 @@ The Infosys traceability solution supports cloud-native, API-first, and data-dri
 
 The architecture uses the following Azure services to help with specialized tasks:
 
-* Azure Cosmos DB enables you to scale performance up or down elastically. By using the Gremlin API, you can create and query complex relationships between raw materials, finished goods, and warehouses.
+* Azure Cosmos DB enables you to scale performance up or down elastically. By using the API for Gremlin, you can create and query complex relationships between raw materials, finished goods, and warehouses.
 * Azure API Management provides APIs for stock movement events to third-party logistics (3PL) providers and warehouse management systems (WMSs).  
 * Azure Event Hubs provides the ability to gather large numbers of concurrent events from 3PL providers and WMSs for further processing.
-* Azure Functions (through function apps) processes events and ingests data for Azure Cosmos DB by using the Gremlin API.
+* Azure Functions (through function apps) processes events and ingests data for Azure Cosmos DB by using the API for Gremlin.
 * Azure Search enables complex searches and the filtering of pallet information.
 * Azure Databricks reads the change feed and creates models in Azure Synapse Analytics for self-service reporting for users in Power BI.
 * Azure App Service and its Web Apps feature enable the deployment of a user portal.
@@ -88,5 +88,5 @@ The preceding diagram is a simplified view of a complex process. However, gettin
 ## Next steps
 
 * Learn about [Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-integrate-for-azure).
-* To visualize graph data, see the [Gremlin API visualization solutions](graph-visualization-partners.md).
-* To model your graph data, see the [Gremlin API modeling solutions](graph-modeling-tools.md).
+* To visualize graph data, see the [API for Gremlin visualization solutions](graph-visualization-partners.md).
+* To model your graph data, see the [API for Gremlin modeling solutions](graph-modeling-tools.md).

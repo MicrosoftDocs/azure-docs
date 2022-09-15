@@ -4,7 +4,7 @@ description: Learn how to connect a MongoDB app to Azure Cosmos DB by getting th
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
@@ -17,7 +17,7 @@ adobe-target-content: ./connect-mongodb-account-experimental
 # Connect a MongoDB application to Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app.
+Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos DB database as the data store for your MongoDB app.
 
 This tutorial provides two ways to retrieve connection string information:
 
@@ -27,7 +27,7 @@ This tutorial provides two ways to retrieve connection string information:
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now.
-- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md).
+- An Azure Cosmos DB account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md).
 
 ## Get the MongoDB connection string by using the quick start
 
@@ -59,9 +59,9 @@ Azure Cosmos DB supports the standard MongoDB connection string URI format, with
 
 The values of this string are available in the **Connection String** blade shown earlier:
 
-* Username (required): Cosmos account name.
-* Password (required): Cosmos account password.
-* Host (required): FQDN of the Cosmos account.
+* Username (required): Azure Cosmos DB account name.
+* Password (required): Azure Cosmos DB account password.
+* Host (required): FQDN of the Azure Cosmos DB account.
 * Port (required): 10255.
 * Database (optional): The database that the connection uses. If no database is provided, the default database is "test."
 * ssl=true (required)
@@ -72,7 +72,7 @@ For example, consider the account shown in the **Connection String** blade. A va
 
 ## Driver Requirements
 
-All drivers that support wire protocol version 3.4 or greater will support Azure Cosmos DB API for MongoDB.
+All drivers that support wire protocol version 3.4 or greater will support Azure Cosmos DB for MongoDB.
 
 Specifically, client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
 
