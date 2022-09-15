@@ -31,13 +31,15 @@ Every Microsoft Energy Data Services instance comes inbuilt with a managed Elast
 
 Each diagnostic setting has three basic parts:
 
-| Name      |      Categories | Destinations  |
-|-----------|-----------------|---------------|
-|Ensure a unique name is set for each log.|Categories of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an event hub namespace or an event hub.|
+| Title | Description |
+|-|-|
+| Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
+| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
+| Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hub namespace or an Event Hub. |
 
 We support two destinations for your Elasticsearch logs from Microsoft Energy Data Services instance:
 
-* storage account
+* Storage account
 * Log Analytics workspace
 
 
@@ -111,7 +113,7 @@ The editor in Log Analytics workspace support Kusto (KQL) queries through which 
 After collecting resource logs as explained in this article, there are more capabilities you can explore.
 
 * Create a log query alert to be proactively notified when interesting data is identified in your log data.
-    [Create a log query alert for an Azure resource](/articles/azure-monitor/alerts/tutorial-log-alert.md)
+    [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)
 
 * Start collecting logs from other sources such as Airflow in your Microsoft Energy Data Services instance. 
     [How to Integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md)
