@@ -84,10 +84,6 @@ Access security recommendations from one of the following locations:
 
 From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. Select device links to jump to the device details page.
 
-> [!NOTE]
-> Recommendations in the Azure portal are available for all currently supported OT monitoring software versions.
->
-
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements
