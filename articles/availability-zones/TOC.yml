@@ -45,7 +45,7 @@
     - name: Virtual Machines and virtual machine scale sets
       href: migrate-vm.md
     - name: Workload:Azure Kubernetes and MySQL
-      href: migrate-vm.md
+      href: migrate-workload-aks-mysql.md
   - name: Terminology
     href: glossary.md
 - name: High Availability
