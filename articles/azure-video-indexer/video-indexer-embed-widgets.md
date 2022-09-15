@@ -43,6 +43,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
+|`boundingBoxes`|Array of bounding boxes options: people (faces) and observed people. <br/>Values should be separated by a comma (",").|Controls the option to set bounding boxes on/off when embedding the player.<br/>All mentioned option will be turned on.<br/><br/>Example: `boundingBoxes= observedPeople, people`<br/>Default value is `boundingBoxes= observedPeople` (only observed people bounding box are turned on).|
 
 ### Editor widget
 
