@@ -11,7 +11,21 @@ ms.author: allensu
 
 # Create, change, or delete a network interface
 
-Learn how to create, change settings for, and delete a network interface. A network interface enables an Azure Virtual Machine to communicate with internet, Azure, and on-premises resources. When creating a virtual machine using the Azure portal, the portal creates one network interface with default settings for you. You may instead choose to create network interfaces with custom settings and add one or more network interfaces to a virtual machine when you create it. You may also want to change default network interface settings for an existing network interface. This article explains how to create a network interface with custom settings, change existing settings, such as network filter (network security group) assignment, subnet assignment, DNS server settings, and IP forwarding, and delete a network interface.
+Learn how to create, change settings for, and delete a network interface. A network interface enables an Azure Virtual Machine to communicate with internet, Azure, and on-premises resources. A virtual machine created with the Azure portal, has one network interface with default settings. You may instead choose to create network interfaces with custom settings and add one or more network interfaces to a virtual machine when you create it. You may also want to change default network interface settings for an existing network interface. 
+
+This article explains how to create a network interface with custom settings and change the following existing settings:
+
+* [DNS server settings](#change-dns-servers)
+
+* [IP Forwarding](#enable-or-disable-ip-forwarding)
+
+* [Subnet assignment](#change-subnet-assignment)
+
+* [Application security group](add-or-remove-from-application-security-groups)
+
+* [Network security group](associate-or-dissociate-a-network-security-group)
+
+* [Network interface deletion](delete-a-network-interface)
 
 If you need to add, change, or remove IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). If you need to add network interfaces to, or remove network interfaces from virtual machines, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
 
@@ -29,23 +43,23 @@ If you need to add, change, or remove IP addresses for a network interface, see 
     
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- This how-to requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-- Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
+- Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+Your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
 
 ## Create a network interface
 
-When creating a virtual machine using the Azure portal, the portal creates a network interface with default settings for you. If you'd rather specify all your network interface settings, you can create a network interface with custom settings and attach the network interface to a virtual machine when creating the virtual machine with PowerShell or the Azure CLI.. You can also create a network interface and add it to an existing virtual machine with PowerShell or the Azure CLI.
+A virtual machine created with the Azure portal is created with a network interface with default settings. To create a network interface with custom settings and attach to a virtual machine, use PowerShell or the Azure CLI. You can also create a network interface and add it to an existing virtual machine with PowerShell or the Azure CLI.
 
-To learn how to create a virtual machine with an existing network interface or to add to, or remove network interfaces from existing virtual machines, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
+For more information on how to create a virtual machine with an existing network interface or how to add or remove from an existing virtual machine, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
 
 # [**Portal**](#tab/network-interface-portal)
 
@@ -63,12 +77,12 @@ To learn how to create a virtual machine with an existing network interface or t
 | Subscription | Select your subscription. |  You can only assign a network interface to a virtual network that exists in the same subscription and location as the network interface. |
 | Resource group | Select your resource group or create a new one. The example used in this article is **myResourceGroup**. | A resource group is a logical container for grouping Azure resources. A network interface can exist in the same, or different resource group, than the virtual machine you attach it to, or the virtual network you connect it to.|
 | **Instance details** |    |    |
-| Name | Enter **myNIC**. | The name must be unique within the resource group you select. Over time, you'll likely have several network interfaces in your Azure subscription. For suggestions when creating a naming convention to make managing several network interfaces easier, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). The name cannot be changed after the network interface is created. |
+| Name | Enter **myNIC**. | The name must be unique within the resource group you select. Over time, you'll likely have several network interfaces in your Azure subscription. For suggestions when creating a naming convention to make managing several network interfaces easier, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). The name can't be changed after the network interface is created. |
 | Region | Select your region. The example used in this article is **East US 2**. | The Azure region where the network interface is created. |
-| Virtual network | Select **myVNet** or your virtual network. | You can only assign a network interface to a virtual network that exists in the same subscription and location as the network interface. Once a network interface is created, you cannot change the virtual network it is assigned to. The virtual machine you add the network interface to must also exist in the same location and subscription as the network interface. |
+| Virtual network | Select **myVNet** or your virtual network. | You can only assign a network interface to a virtual network that exists in the same subscription and location as the network interface. Once a network interface is created, you can't change the virtual network it's assigned to. The virtual machine you add the network interface to must also exist in the same location and subscription as the network interface. |
 | Subnet | Select **myBackendSubnet**. | A subnet within the virtual network you selected. You can change the subnet the network interface is assigned to after it's created. |
 | IP Version | Select **IPv4** or **IPv4 and IPv6**. | You can choose to create the network interface with an IPv4 address or an IPv4 and IPv6 address. The network and subnet used for the virtual network must also have an IPv6 and IPv6 subnet for the IPv6 address to be assigned. An IPv6 configuration is assigned to a secondary IP configuration for the network interface. To learn more about IP configurations, see [View network interface settings](#view-network-interface-settings).|
-| Private IP address assignment | Select **Dynamic** or **Static**. | **Dynamic:** When selecting this option, Azure automatically assigns the next available address from the address space of the subnet you selected. **Static:** When selecting this option, you must manually assign an available IP address from within the address space of the subnet you selected. Static and dynamic addresses do not change until you change them or the network interface is deleted. You can change the assignment method after the network interface is created. The Azure DHCP server assigns this address to the network interface within the operating system of the virtual machine. |
+| Private IP address assignment | Select **Dynamic** or **Static**. | **Dynamic:** If dynamic is selected, Azure automatically assigns the next available address from the address space of the subnet you selected. **Static:** When selecting this option, you must manually assign an available IP address from within the address space of the subnet you selected. Static and dynamic addresses don't change until you change them or the network interface is deleted. You can change the assignment method after the network interface is created. The Azure DHCP server assigns this address to the network interface within the operating system of the virtual machine. |
 
 :::image type="content" source="./media/virtual-network-network-interface/create-network-interface.png" alt-text="Screenshot of create network interface in Azure portal.":::
 
@@ -76,13 +90,13 @@ To learn how to create a virtual machine with an existing network interface or t
 
 6. Select **Create**.
 
-The portal doesn't provide the option to assign a public IP address to the network interface when you create it. The portal does create a public IP address and assign it to a network interface when you create a virtual machine in the portal. To learn how to add a public IP address to the network interface after creating it, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). If you want to create a network interface with a public IP address, you must use the Azure CLI or PowerShell to create the network interface.
+The portal doesn't provide the option to assign a public IP address to the network interface when you create it. The portal does create a public IP address and assign it to a network interface when you create a virtual machine in the portal. To learn how to add a public IP address to the network interface after creating it, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). If you want to create a network interface with a public IP address, you must use the Azure CLI, or PowerShell to create the network interface.
 
 The portal doesn't provide the option to assign the network interface to application security groups when creating a network interface, but the Azure CLI and PowerShell do. You can assign an existing network interface to an application security group using the portal however, as long as the network interface is attached to a virtual machine. To learn how to assign a network interface to an application security group, see [Add to or remove from application security groups](#add-to-or-remove-from-application-security-groups).
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
-In this example, you'll create a Azure Public IP address and associate it with the network interface. 
+In this example, you'll create an Azure Public IP address and associate it with the network interface. 
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a primary public IP address.
 
@@ -137,7 +151,7 @@ New-AzNetworkInterface @nic
 
 # [**CLI**](#tab/network-interface-CLI)
 
-In this example, you'll create a Azure Public IP address and associate it with the network interface. 
+In this example, you'll create an Azure Public IP address and associate it with the network interface. 
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)to create a primary public IP address.
 
@@ -177,27 +191,27 @@ You can view and change most settings for a network interface after it's created
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
 4. The following items are listed for the network interface you selected:
 
-    - **Overview:** The overview provides essential information about the network interface. IP addresses for IPv4 and IPv6 and network security group membership are displayed. The virtual network/subnet the network interface is assigned to, and the virtual machine the network interface is attached to is also shown. The accelerated networking feature for network interfaces can be set in the overview. For more information about accelerated networking, see [What is Accelerated Networking?](accelerated-networking-overview.md)
+    - **Overview:** The overview provides essential information about the network interface. IP addresses for IPv4 and IPv6 and network security group membership are displayed. The accelerated networking feature for network interfaces can be set in the overview. For more information about accelerated networking, see [What is Accelerated Networking?](accelerated-networking-overview.md)
     
     The following screenshot displays the overview settings for a network interface named **myNIC**:
 
     :::image type="content" source="./media/virtual-network-network-interface/nic-overview.png" alt-text="Screenshot of network interface overview.":::
 
-    - **IP configurations:** Public and private IPv4 and IPv6 addresses assigned to IP configurations are listed. To learn more about IP configurations and how to add and remove IP addresses, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, see [Enable or disable IP forwarding](#enable-or-disable-ip-forwarding) and [Change subnet assignment](#change-subnet-assignment).
+    - **IP configurations:** Public and private IPv4 and IPv6 address assigned to IP configurations are listed. To learn more about IP configurations and how to add and remove IP addresses, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, see [Enable or disable IP forwarding](#enable-or-disable-ip-forwarding) and [Change subnet assignment](#change-subnet-assignment).
 
-    - **DNS servers:** You can specify which DNS server a network interface is assigned by the Azure DHCP servers. The network interface can inherit the setting from the virtual network the network interface is assigned to, or have a custom setting that overrides the setting for the virtual network it's assigned to. To modify what's displayed, see [Change DNS servers](#change-dns-servers).
+    - **DNS servers:** You can specify which DNS server a network interface is assigned by the Azure DHCP servers. The network interface can inherit the setting from the virtual network or have a custom setting that overrides the setting for the virtual network it's assigned to. To modify what's displayed, see [Change DNS servers](#change-dns-servers).
    
     - **Network security group (NSG):** Displays which NSG is associated to the network interface. An NSG contains inbound and outbound rules to filter network traffic for the network interface. If an NSG is associated to the network interface, the name of the associated NSG is displayed. To modify what's displayed, see [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group).
    
     - **Properties:** Displays settings about the network interface, MAC address, and the subscription it exists in. The MAC address isblank if the network interface isn't attached to a virtual machine.
    
-    - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine, and an NSG is associated to the network interface, the subnet it's assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
+    - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine and associated with a network security group. The network security group can be assigned to the subnet the network interface is assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
    
     - **Effective routes:** Routes are listed if the network interface is attached to a running virtual machine. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the network interface is assigned to. To learn more about what's displayed, see [View effective routes](#view-effective-routes). To learn more about Azure default routes and user-defined routes, see [Routing overview](virtual-networks-udr-overview.md).
 
@@ -557,7 +571,7 @@ The DNS server is assigned by the Azure DHCP server to the network interface wit
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -592,7 +606,7 @@ $nic.DnsSettings.DnsServers.Add("192.168.1.101")
 $nic | Set-AzNetworkInterface
 ```
 
-To remove the DNS servers and change the setting to inherited, use the following command. Replace the DNS server IP addresses with your custom IP addresses.
+To remove the DNS servers and change the setting to inherit from the virtual network, use the following command. Replace the DNS server IP addresses with your custom IP addresses.
 
 ```azurepowershell
 ## Place the network interface configuration into a variable. ##
@@ -619,7 +633,7 @@ az network nic update \
     --dns-servers 192.168.1.100 192.168.1.101
 ```
 
-To remove the DNS servers and change the setting to inherited, use the following command.
+To remove the DNS servers and change the setting to virtual network setting inheritance, use the following command.
 
 ```azurecli
 az network nic update \
@@ -646,7 +660,7 @@ When a virtual machine is running network applications, the virtual machine is o
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -719,7 +733,7 @@ You can change the subnet, but not the virtual network, that a network interface
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -783,9 +797,9 @@ az network nic ip-config update \
 
 ---
 
-## Add to or remove from application security groups
+## Add or remove from application security groups
 
-You can only add a network interface to, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. 
+You can only add a network interface, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. 
 
 You can use PowerShell or the Azure CLI to add a network interface to, or remove a network interface from an application security group regardless of virtual machine configuration. Learn more about [Application security groups](./network-security-groups-overview.md#application-security-groups) and how to [create an application security group](manage-network-security-group.md).
 
@@ -793,7 +807,7 @@ You can use PowerShell or the Azure CLI to add a network interface to, or remove
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 3. Select the virtual machine you want to view or change settings for from the list.
 
@@ -862,7 +876,7 @@ Only network interfaces that exist in the same virtual network can be added to t
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -907,13 +921,13 @@ az network nic update \
 
 You can delete a network interface if it't not attached to a virtual machine. If a network interface is attached to a virtual machine, you must first place the virtual machine in the stopped (deallocated) state, then detach the network interface from the virtual machine. 
 
-To detach a network interface from a virtual machine, complete the steps in [Detach a network interface from a virtual machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). You cannot detach a network interface from a virtual machine if it's the only network interface attached to the virtual machine however. A virtual machine must always have at least one network interface attached to it. 
+To detach a network interface from a virtual machine, complete the steps in [Detach a network interface from a virtual machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). You can't detach a network interface from a virtual machine if it's the only network interface attached to the virtual machine however. A virtual machine must always have at least one network interface attached to it. 
 
 # [**Portal**](#tab/network-interface-portal)
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -938,7 +952,7 @@ az network nic delete --name myNIC --resource-group myResourceGroup
 
 ## Resolve connectivity issues
 
-If you are unable to communicate to or from a virtual machine, network security group security rules or routes effective for a network interface, may be causing the problem. You have the following options to help resolve the issue:
+If you're experiencing communication problems with a virtual machine, network security group rules or effective routes may be causing the problem. You have the following options to help resolve the issue:
 
 ### View effective security rules
 
@@ -948,7 +962,7 @@ The effective security rules for each network interface attached to a virtual ma
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 3. Select the virtual machine you want to view or change settings for from the list.
 
@@ -980,7 +994,12 @@ az network nic list-effective-nsg --name myNIC --resource-group myResourceGroup
 
 ### View effective routes
 
-The effective routes for the network interfaces attached to a virtual machine are a combination of default routes, any routes you've created, and any routes propagated from on-premises networks via BGP through an Azure virtual network gateway. 
+The effective routes for the network interface or interfaces attached to a virtual machine are a combination of:
+
+- Default routes
+- User created routes
+
+- Routes propagated from on-premises networks via BGP through an Azure virtual network gateway. 
 
 Understanding the effective routes for a network interface may help you determine why you're unable to communicate to or from a virtual machine. You can view the effective routes for any network interface that is attached to a running virtual machine.
 
@@ -988,7 +1007,7 @@ Understanding the effective routes for a network interface may help you determin
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+2. In the search box at the top of the portal, enter **Network interface**. Select **Network interfaces** in the search results.
 
 3. Select the network interface you want to view or change settings for from the list.
 
@@ -1026,7 +1045,7 @@ To perform tasks on network interfaces, your account must be assigned to the [ne
 | Microsoft.Network/networkInterfaces/write                                  | Create or update network interface                        |
 | Microsoft.Network/networkInterfaces/join/action                            | Attach a network interface to a virtual machine           |
 | Microsoft.Network/networkInterfaces/delete                                 | Delete network interface                                  |
-| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Join a resource to a network interface via a servi...     |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Join a resource to a network interface via private ip     |
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Get network interface effective route table               |
 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Get network interface effective security groups           |
 | Microsoft.Network/networkInterfaces/loadBalancers/read                     | Get network interface load balancers                      |
