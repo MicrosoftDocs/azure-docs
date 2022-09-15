@@ -49,7 +49,7 @@ Unlike Default mode, Serverless mode doesn't require a hub server to be running,
 
 Serverless mode works with Azure Functions to provide real time messaging capability. Clients work with [SignalR Service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md), called *function binding*, to send messages as an output binding.
 
-Because there's no server connection, if you try to use a client SDK to establish a server connection you'll get an error. SignalR Service will reject server connection attempts in Serverless mode.
+Because there's no server connection, if you try to use a server SDK to establish a server connection you'll get an error. SignalR Service will reject server connection attempts in Serverless mode.
 
 Serverless mode doesn't have connection stickiness, but you can still have a server-side application push messages to clients. There are two ways to push messages to clients in Serverless mode:
 
@@ -74,7 +74,7 @@ The following diagram shows how Serverless mode works.
 
 Classic is a mixed mode of Default and Serverless modes. In Classic mode, connection type is decided by whether there's a hub server connected when the client connection is established. If there's a hub server, the client connection will be routed to a hub server. If a hub server isn't available, the client connection will be made in a limited serverless mode where client-to-server messages can't be delivered to a hub server. Classic mode serverless connections don't support some features such as upstream endpoints.
 
-If all your hub servers are offline for any reason, connections will be made in Serverless mode. It's your responsibility to ensure that at least one hub server is always available.
+If all your hub servers are offline for any reason, connections will be made in Serverless mode. It's your responsibility to ensure that at least one hub server is always available. 
 
 ## Choose the right service mode
 
