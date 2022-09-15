@@ -131,7 +131,7 @@ Learn how to [add an entity to your threat intelligence](add-entity-to-threat-in
 
 ### Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
-[Microsoft 365 Defender](/microsoft-365/security/defender/) now includes the integration of [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents.
+[Microsoft 365 Defender](/microsoft-365/security/defender/) is gradually rolling out the integration of [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents.
 
 Microsoft Sentinel customers with the [Microsoft 365 Defender connector](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
 
