@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 09/14/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -24,7 +24,7 @@ To learn how to configure customer-managed keys for a new storage account, see [
 
 ## About the preview
 
-To use the preview, you must register for the Azure Active Directory federated client identity feature. Follow these instructions to register with PowerShell or Azure CLI:
+To use the preview, you must register for the Azure Active Directory federated client identity feature in the ISV's tenant. Follow these instructions to register with PowerShell or Azure CLI:
 
 ### [PowerShell](#tab/powershell-preview)
 
