@@ -714,30 +714,84 @@ az network nic update \
 
 You can change the subnet, but not the virtual network, that a network interface is assigned to.
 
+# [**Portal**](#tab/network-interface-portal)
 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
 
+3. Select the network interface you want to view or change settings for from the list.
 
+4. In **Settings**, select **IP configurations**.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
-2. Select the network interface that you want to change subnet assignment for.
-3. Select **IP configurations** under **SETTINGS**. If any private IP addresses for any IP configurations listed have **(Static)** next to them, you must change the IP address assignment method to dynamic by completing the steps that follow. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the network interface. If the addresses are assigned with the dynamic method, continue to step five. If any IPv4 addresses are assigned with the static assignment method, complete the following steps to change the assignment method to dynamic:
-   - Select the IP configuration you want to change the IPv4 address assignment method for from the list of IP configurations.
-   - Select **Dynamic** for the private IP address **Assignment** method. You cannot assign an IPv6 address with the static assignment method.
-   - Select **Save**.
-4. Select the subnet you want to move the network interface to from the **Subnet** drop-down list.
-5. Select **Save**. New dynamic addresses are assigned from the subnet address range for the new subnet. After assigning the network interface to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. To learn more about adding, changing, and removing IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md).
+5.  If any private IP addresses for any IP configurations listed have **(Static)** next to them, you must change the IP address assignment method to dynamic. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the network interface. Skip to step 6 if your private IPs are set to dynamic.
 
-**Commands**
+    Complete the following steps to change the assignment method to dynamic:
+   
+    - Select the IP configuration you want to change the IPv4 address assignment method for from the list of IP configurations.
+   
+    - Select **Dynamic** for the private IP address in **Assignment**.
+   
+    - Select **Save**.
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
+6. Select the subnet you want to move the network interface to from the **Subnet** drop-down list.
+
+5. Select **Save**. 
+
+New dynamic addresses are assigned from the subnet address range for the new subnet. After assigning the network interface to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. To learn more about adding, changing, and removing IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md).
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to change the subnet of the network interface.
+
+```azurepowershell
+## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Change the subnet in the IP configuration. Replace the subnet number with number of your subnet in your VNet. Your first listed subnet in your VNet is 0, next is 1, and so on. ##
+$IP = @{
+    Name = 'ipv4config'
+    Subnet = $vnet.Subnets[1]
+}
+$nic | Set-AzNetworkInterfaceIpConfig @IP
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+```
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic ip-config update](/cli/azure/network/nic#az-network-nic-ip-config-update) to change the subnet of the network interface.
+
+```azurecli
+az network nic ip-config update \
+    --name ipv4config \
+    --nic-name myNIC \
+    --resource-group myResourceGroup \
+    --subnet mySubnet \
+    --vnet-name myVNet
+```
+
+---
 
 ## Add to or remove from application security groups
 
-You can only add a network interface to, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. You can use PowerShell or the Azure CLI to add a network interface to, or remove a network interface from an application security group, whether the network interface is attached to a virtual machine or not. Learn more about [Application security groups](./network-security-groups-overview.md#application-security-groups) and how to [create an application security group](manage-network-security-group.md).
+You can only add a network interface to, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. You can use PowerShell or the Azure CLI to add a network interface to, or remove a network interface from an application security group regardless of virtual machine configuration. Learn more about [Application security groups](./network-security-groups-overview.md#application-security-groups) and how to [create an application security group](manage-network-security-group.md).
+
+
+
+
+
+
+
 
 1. In the *Search resources, services, and docs* box at the top of the portal, begin typing the name of a virtual machine that has a network interface that you want to add to, or remove from, an application security group. When the name of your VM appears in the search results, select it.
 2. Under **SETTINGS**, select **Networking**.  Select **Application Security Groups** then **Configure the application security groups**elect the application security groups that you want to add the network interface to, or unselect the application security groups that you want to remove the network interface from, and then select **Save**. Only network interfaces that exist in the same virtual network can be added to the same application security group. The application security group must exist in the same location as the network interface.
