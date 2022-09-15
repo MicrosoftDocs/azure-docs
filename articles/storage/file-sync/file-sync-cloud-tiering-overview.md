@@ -108,7 +108,7 @@ The threshold is calculated by taking the minimum of the following three numbers
 -	Volume Free Space Policy in GB
 -	20 GB of volume free space
 
-The following table includes some examples of how the threshold is calculated and when the disk will be in low disk space mode.
+The following table includes some examples of how the threshold is calculated and when the volume will be in low disk space mode.
 
 | Volume Size                               | Volume Free Space Policy | Current Volume Free Space | Threshold \= Min (10%, Volume Free Space Policy, 20GB)                 | Is Low Disk Space Mode? | Reason                         |
 | ----------------------------------------- | ------------------------ | ------------------------- | ----------------------------- | ----------------------- | ------------------------------ |
