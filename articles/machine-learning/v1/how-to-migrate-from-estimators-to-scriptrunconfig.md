@@ -8,18 +8,18 @@ ms.author: larryfr
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 12/14/2020
+ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Migrating from Estimators to ScriptRunConfig
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure ML.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 
-Estimators are deprecated with the 1.19.0 release of the Python SDK. You should also generally avoid explicitly instantiating a RunConfiguration object yourself, and instead configure your job using the ScriptRunConfig class.
+Estimators are deprecated with the 1.19. release of the Python SDK. You should also generally avoid explicitly instantiating a RunConfiguration object yourself, and instead configure your job using the ScriptRunConfig class.
 
 This article covers common considerations when migrating from Estimators to ScriptRunConfig.
 
@@ -30,7 +30,7 @@ This article covers common considerations when migrating from Estimators to Scri
 Azure Machine Learning documentation and samples have been updated to use [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) for job configuration and submission.
 
 For information on using ScriptRunConfig, refer to the following documentation:
-* [Configure and submit training jobs](v1/how-to-set-up-training-targets.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)
 * [Configuring PyTorch training jobs](how-to-train-pytorch.md)
 * [Configuring TensorFlow training jobs](how-to-train-tensorflow.md)
 * [Configuring scikit-learn training jobs](how-to-train-scikit-learn.md)
@@ -44,15 +44,15 @@ While the various framework estimators have preconfigured environments that are 
 
 When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, Azure ML will use one of the Azure ML base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
 
-* [Use a curated environment](how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
+* [Use a curated environment](../how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
 * [Define your own custom environment](how-to-use-environments.md)
 
-Here is an example of using the curated PyTorch 1.6 environment for training:
+Here is an example of using the curated environment for training:
 
 ```python
 from azureml.core import Workspace, ScriptRunConfig, Environment
 
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+curated_env_name = '<add Pytorch curated environment name here>'
 pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
 
 compute_target = ws.compute_targets['my-cluster']
@@ -62,6 +62,9 @@ src = ScriptRunConfig(source_directory='.',
                       environment=pytorch_env)
 ```
 
+> [!TIP]
+> For a list of curated environments, see [curated environments](../resource-curated-environments.md).  
+
 If you want to specify **environment variables** that will get set on the process where the training script is executed, use the Environment object:
 ```
 myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
@@ -69,8 +72,8 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 
 For information on configuring and managing Azure ML environments, see:
 * [How to use environments](how-to-use-environments.md)
-* [Curated environments](resource-curated-environments.md)
-* [Train with a custom Docker image](how-to-train-with-custom-image.md)
+* [Curated environments](../resource-curated-environments.md)
+* [Train with a custom Docker image](../how-to-train-with-custom-image.md)
 
 ## Using data for training
 ### Datasets
@@ -101,7 +104,7 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 For more information on using data for training, see:
-* [Train with datasets in Azure ML](v1/how-to-train-with-datasets.md)
+* [Train with datasets in Azure ML](how-to-train-with-datasets.md)
 
 ## Distributed training
 If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration), or [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) for distributed jobs of the respective types.
@@ -129,4 +132,4 @@ src.run_config
 
 ## Next steps
 
-* [Configure and submit training jobs](v1/how-to-set-up-training-targets.md)
+* [Configure and submit training jobs](how-to-set-up-training-targets.md)
