@@ -5,9 +5,9 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 09/16/2022
 ms.author: v-bcatherine
-zone_pivot_groups: azure-cli-or-portal
+zone_pivot_groups: container-apps-interface-types
 ---
 
 # Azure Container Apps image pull with managed identity
@@ -33,7 +33,7 @@ The following steps describe the process to configure your container app to use 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - A private Azure Container Registry containing an image you want to pull.
-- Create a user-assigned managed identity.For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+- Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 ### Create container 
 
@@ -60,7 +60,7 @@ Allow a few minutes for the container app deployment to finish.  When deployment
 
 ### Add the user-assigned managed identity
 
-1. Select Identity from the left menu.
+1. Select **Identity** from the left menu.
 1. Select the **User assigned** tab.
 1. Select the **Add user assigned managed identity** button.
 1. Select your subscription.
@@ -87,11 +87,13 @@ Create a container app revision with a private image and the system-assigned man
     |**Image Tag**|Enter the name and tag of the image you want to pull.|
 
      :::image type="content" source="media/managed-identity/screenshot-edit-a-container-user-assigned-identity.png" alt-text="Screen shot of the Edit a container dialog entering user assigned managed identity.":::
+     >[!NOTE]
+     > If the administrative credentials are not enabled on your ACR registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
  
 1. Select **Save**.
 1. Select **Create** from the **Create and deploy new revision** page.
 
-A new revision will be created and deployed.
+A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity.  If the role isn't added, you can add it manually.
 
 ### Clean up resources
 
@@ -162,11 +164,17 @@ Edit the container to use the image from your private Azure Container Registry, 
     |**Image**| Enter the image name. |
     |**Image tag**| Enter the tag. |
 
-:::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
+    :::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
+    >[!NOTE]
+    > If the administrative credentials are not enabled on your ACR registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
 
 1. Select **Save** at the bottom of the page.
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
 1. After a few minutes, select **Refresh**  on the **Revision management** page to see the new revision.
+
+### Clean up resources
+
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
 >[!WARNING]
 >Deleting the resource group will delete all the resources in the group.  If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
@@ -178,12 +186,11 @@ Edit the container to use the image from your private Azure Container Registry, 
     The process to delete the resource group may take a few minutes to complete. 
 
 ::: zone-end
-::: zone pivot="azure-cli"
+::: zone pivot="command-line"
 
-This article describes how to configure your container app to use managed identities to pull images from a private ACR repository using Azure CLI, Azure PowerShell and via a resource template.
+This article describes how to configure your container app to use managed identities to pull images from a private ACR repository using Azure CLI and Azure PowerShell.
 
 ## Prerequisites
-
 
 | Prerequisite | Description |
 |--------------|-------------|
@@ -196,7 +203,8 @@ This article describes how to configure your container app to use managed identi
 
 First, sign in to Azure from the CLI or PowerShell. Run the following command, and follow the prompts to complete the authentication process.
 
-# [Bash](#tab/bash)
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -212,7 +220,31 @@ Connect-AzAccount
 
 ---
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
+
+Install the Azure Container Apps extension for the CLI.
+
+```azurecli
+az extension add --name containerapp --upgrade
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+You must have the latest Az PowerShell module installed.  Ignore any warnings about modules currently in use.
+
+```azurepowershell
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+
+Now install the Az.App module.
+
+```azurepowershell
+Install-Module -Name Az.App
+```
+
+---
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider register --namespace Microsoft.App
@@ -228,10 +260,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 
 ---
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Next, set the following environment variables. Replace the *\<PLACEHOLDERS\>* with your own values.
-
 
 ```azurecli
 RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
@@ -246,7 +277,6 @@ IMAGE_NAME="<YOUR_IMAGE_NAME>"
 
 Next, set the following environment variables. Replace the *\<Placeholders\>* with your own values.
 
-
 ```azurepowershell
 $ResourceGroupName = '<YourResourceGroupName>'
 $Location = '<YourLocation>'
@@ -260,7 +290,7 @@ $ImageName = '<YourFullImageName>'
 
 If you already have a resource group, skip this step. Otherwise, create a resource group.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -280,7 +310,7 @@ New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 
 If the environment doesn't exist, run the following command:
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 To create the environment, run the following command:
 
@@ -337,8 +367,7 @@ Follow this procedure to configure user-assigned managed identity:
 
 ### Create a user-assigned managed identity
 
-
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Create a user-assigned managed identity. Replace the *\<PLACEHOLDERS\>* with the name of your managed identity.  
 
@@ -366,7 +395,7 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 ---
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Get identity's resource ID.
 
@@ -404,7 +433,7 @@ New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionNa
 
 Create your container app with your image from the private registry authenticated with the identity.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below.
 
@@ -460,7 +489,7 @@ New-AzContainerApp @AppArgs
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
@@ -486,7 +515,7 @@ To configure a system-assigned identity, you'll need to:
 
 Create a container with a public image.  
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az containerapp create \
@@ -529,7 +558,7 @@ New-AzContainerApp @AppArgs
 Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the ACR pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.
 
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Set the registry server and turn on system-assigned managed identity in the container app.
 
@@ -585,7 +614,7 @@ New-AzContainerApp @AppArgs
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
@@ -599,36 +628,6 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ---
 
-## Configure a managed identity with a template
-
-When assigning a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity. For more information about using managed identities, see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
-
-```json
-{
-    "identity": {
-        "type": "SystemAssigned,UserAssigned",
-        "userAssignedIdentities": {
-            "<IDENTITY1_RESOURCE_ID>": {}
-        }
-    }
-    "properties": {
-        "configuration": {
-            "registries": [
-            {
-                "server": "myacr1.azurecr.io",
-                "identity": "<IDENTITY1_RESOURCE_ID>"
-            },
-            {
-                "server": "myacr2.azurecr.io",
-                "identity": "system"
-            }]
-        }
-        ...
-    }
-}
-```
-
-For more information about configuring user-assigned identities, see [Add a user-assigned identity](managed-identity.md#add-a-user-assigned-identity).
 
 ::: zone-end
 
