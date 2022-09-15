@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 07/11/2022
+ms.date: 09/14/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -31,7 +31,7 @@ To protect your GCP-based resources, you can connect a GCP project with either:
 |Aspect|Details|
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
+|Pricing:|The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project| 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
