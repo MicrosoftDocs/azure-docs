@@ -50,7 +50,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 ### Create an Azure Cosmos DB account
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](../includes/quickstart-arm.md)]
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/quickstart-arm.md)]
 
 ### Create a new .NET app
 
@@ -88,11 +88,11 @@ Build succeeded.
 
 ### Configure environment variables
 
-[!INCLUDE [Create environment variables for key and endpoint](../includes/environment-variables.md)]
+[!INCLUDE [Create environment variables for key and endpoint](./includes/environment-variables.md)]
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](../includes/quickstart-object-model.md)]
+[!INCLUDE [Explain DOCUMENT DB object model](./includes/quickstart-object-model.md)]
 
 You'll use the following .NET classes to interact with these resources:
 
@@ -190,7 +190,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](../includes/quickstart-clean-up-resources.md)]
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/quickstart-clean-up-resources.md)]
 
 ## Next steps
 

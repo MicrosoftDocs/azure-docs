@@ -48,11 +48,11 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 ### Create an Azure Cosmos DB account
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](../includes/quickstart-arm.md)]
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/quickstart-arm.md)]
 
 ### Configure environment variables
 
-[!INCLUDE [Create environment variables for key and endpoint](../includes/environment-variables.md)]
+[!INCLUDE [Create environment variables for key and endpoint](./includes/environment-variables.md)]
 
 ### Create a new JavaScript project
 
@@ -85,7 +85,10 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 1. Create a `.env` file with the following variables:
 
-    :::code language="text" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/.env-sample":::
+    ```text
+    COSMOS_ENDPOINT=
+    COSMOS_KEY=
+    ```
 
 1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. 
 
@@ -122,7 +125,7 @@ In this example, we chose to add a timeStamp to the database and container in ca
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](../includes/quickstart-object-model.md)]
+[!INCLUDE [Explain DOCUMENT DB object model](./includes/quickstart-object-model.md)]
 
 
 You'll use the following JavaScript classes to interact with these resources:
