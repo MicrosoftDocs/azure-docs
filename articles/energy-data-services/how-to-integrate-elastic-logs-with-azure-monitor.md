@@ -35,7 +35,7 @@ Each diagnostic setting has three basic parts:
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
 | Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
-| Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hub namespace or an Event Hub. |
+| Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hubs namespace or an event hub. |
 
 We support two destinations for your Elasticsearch logs from Microsoft Energy Data Services instance:
 
