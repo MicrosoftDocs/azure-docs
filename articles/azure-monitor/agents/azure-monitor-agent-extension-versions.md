@@ -4,7 +4,7 @@ description: This article describes the version details for the Azure Monitor ag
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 8/22/2022
+ms.date: 9/15/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -19,6 +19,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 ## Version details
 | Release Date | Release notes | Windows | Linux |  
 |:---|:---|:---|:---| 
+| August 2022 | <ul><li>Windows: Internal improvements only</li><li>Linux <ul><li>Support for OpenSuse 15, Debian 11 ARM64</li><li>Sustained local persisted storage, wherein agent will collect data from last 75 mins/10GB local cache after a period of interruption</li><li>Support coexistence of Azure Monitor agent with legacy Azure Diagnostic extension for Linux (LAD)</li><li>Increased max-size of UDP payload for Telegraf output to prevent dimension truncation</li><li>Prevent unconfigured upload to Azure Monitor Metrics destination</li><li>Fix for disk/diskio metrics, wherein *instance name* dimension will use the disk mount path(s) instead of the device name(s), to provide parity with legacy agent</li><li>Fixed *disk free MB* metric to report megabytes instead of bytes</li></ul></ul> | 1.8.0.0 | 1.22.1 | 
 | July 2022 | Fix for mismatch event timestamps for Sentinel Windows Event Forwarding | 1.7.0.0 | None | 
 | June 2022 | Bugfixes with user assigned identity support, and reliability improvements | 1.6.0.0 | None | 
 | May 2022 | <ul><li>Fixed issue where agent stops functioning due to faulty XPath query. With this version, only query related Windows events will fail, other data types will continue to be collected</li><li>Collection of Windows network troubleshooting logs added to 'CollectAMAlogs.ps1' tool</li><li>Linux support for Debian 11 distro</li><li>Fixed issue to list mount paths instead of device names for Linux disk metrics</li></ul> | 1.5.0.0 | 1.21.0 |
