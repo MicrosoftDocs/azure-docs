@@ -125,7 +125,7 @@ Low disk space mode always respects the volume free space policy. The threshold 
 Low disk space mode is designed to revert to normal behavior when volume free space is above the threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
 
 ### How to check if a server is in Low Disk Space mode?
-Event ID 19000 is logged once every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode). 
+Event ID 19000 is logged to the Telemetry event log every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode = true). The Telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
 
 ## Next steps
 
