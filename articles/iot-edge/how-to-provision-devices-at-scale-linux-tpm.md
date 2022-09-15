@@ -141,6 +141,29 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
+<!-- 1.1 -->
+:::moniker range="<iotedge-1.4"
+In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
+
+1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
+
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information for your TPM.
+
+   ```bash
+   cd azure-iot-sdk-c/cmake
+   cmake -Duse_prov_client:BOOL=ON ..
+   cd provisioning_client/tools/tpm_device_provision
+   make
+   sudo ./tpm_device_provision
+   ```
+1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+
 In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID.
 
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
@@ -178,6 +201,9 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
    1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 ---
+
+:::moniker-end
+<!-- end iotedge-1.4 -->
 
 > [!TIP]
 > If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
