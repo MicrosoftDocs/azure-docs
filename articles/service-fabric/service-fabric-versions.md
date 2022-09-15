@@ -58,6 +58,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 
 | OS version | Service Fabric support end date | OS Lifecycle link |
 |---|---|---|
+|Windows Server 2022|10/14/2031|<a href="/lifecycle/products/windows-server-2022">Windows Server 2022 - Microsoft Lifecycle</a>|
 |Windows Server 2019|1/9/2029|<a href="/lifecycle/products/windows-server-2019">Windows Server 2019 - Microsoft Lifecycle</a>|
 |Windows Server 2016 |1/12/2027|<a href="/lifecycle/products/windows-server-2016">Windows Server 2016 - Microsoft Lifecycle</a>|
 |Windows Server 2012 R2 |10/10/2023|<a href="/lifecycle/products/windows-server-2012-r2">Windows Server 2012 R2 - Microsoft Lifecycle</a>|
