@@ -63,9 +63,9 @@ The following image shows the first flow:
     
     |Key | Value|
     |--|--|
-    |Connection name | *Name your connection*.  | 
+    |Connection name | <*Name your connection*>.  | 
     |Authentication type | Access Key|
-    |Azure Storage Account name| *Storage account name where media files are going to be stored*|
+    |Azure Storage Account name| <*Storage account name where media files are going to be stored*>.|
     |Azure Storage Account Access Key| To get access key of your storage account: in the Azure portal -> my-storage -> under **Security + networking** -> **Access keys** -> copy one of the keys.|
     
     Select **Create**.
@@ -89,7 +89,7 @@ The following image shows the first flow:
     
     |Key| Value|
     |--|--|
-    |Storage account name | *Storage account name where media files as stored*.|
+    |Storage account name | <*The storage account name where media files as stored*>.|
     | Blob path| Under **Dynamic content**, select **List of Files Path**|
     | Group Policy Identifier| Leave the default value.|
     | Permissions| **Read** |
@@ -152,7 +152,7 @@ The following image shows the first flow:
 
         |Key| Value|
         |----|----|
-        | Connection name| *Enter name for connection*, in this case `aviconnection`.|
+        | Connection name| <*Enter a name for the connection*>, in this case `aviconnection`.|
         | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile)|
     
         Select **Create**.
@@ -202,14 +202,14 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     
     |Key| Value|
     |----|----|
-    |Connection name| *Enter name for connection*. For example, `aviconnection`.|
+    |Connection name| <*A name for connection*>. For example, `aviconnection`.|
     | API key| This is your personal API key, which is available under **Profile** at the [developer portal](https://api-portal.videoindexer.ai/profile). For more information, see [Subscribe to the API](video-indexer-use-apis.md#subscribe-to-the-api).|
     1. Select **Create**.
     1. Fill out the required parameters according to the table: 
         
     |Key| Value|
     |----|----|
-    |Location| Enter the Location of the Azure Video Indexer account.|
+    |Location|  The Location of the Azure Video Indexer account.|
     | Account ID| The Video Indexer account ID can be copied from the resource/account **Overview** page in the Azure portal.|
     | Video ID\*| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
     | Access Token| From the dynamic content, under the **Parse JSON** section select the **accessToken** that is the output of the parse JSON action. |
@@ -227,9 +227,9 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
     |Key| Value|
     |----|----|
-    | Connection name| *Enter a connection name*.|
+    | Connection name| <*Enter a connection name*>.|
     | Authentication type |Access Key|
-    | Azure Storage Account name| *Storage account name where insights will be stored*. |
+    | Azure Storage Account name| <* The storage account name where insights will be stored*>. |
     | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
 
     ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
@@ -238,7 +238,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     
     |Key| Value|
     |----|----|
-    |Storage account name| Enter the storage account name that would contain the JSON output (in this tutorial is the same as the source video)|
+    |Storage account name| <*Enter the storage account name that would contain the JSON output (in this tutorial is the same as the source video).>*|
     | Folder path | From the dropdown, select the `/insights`|
     | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
     | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
