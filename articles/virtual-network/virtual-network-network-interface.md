@@ -632,28 +632,92 @@ az network nic update \
 
 ## Enable or disable IP forwarding
 
-IP forwarding enables the virtual machine a network interface is attached to:
+IP forwarding enables the virtual machine network interface to:
+
 - Receive network traffic not destined for one of the IP addresses assigned to any of the IP configurations assigned to the network interface.
+
 - Send network traffic with a different source IP address than the one assigned to one of a network interface's IP configurations.
 
-The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a virtual machine is running network applications, the virtual machine is often referred to as a network virtual appliance. You can view a list of ready to deploy network virtual appliances in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, see [User-defined routes](virtual-networks-udr-overview.md).
+The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. 
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
-2. Select the network interface that you want to enable or disable IP forwarding for.
-3. Select **IP configurations** in the **SETTINGS** section.
+When a virtual machine is running network applications, the virtual machine is often referred to as a network virtual appliance. You can view a list of ready to deploy network virtual appliances in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, see [User-defined routes](virtual-networks-udr-overview.md).
+
+# [**Portal**](#tab/network-interface-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+
+3. Select the network interface you want to view or change settings for from the list.
+
+4. In **Settings**, select **IP configurations**.
+
 4. Select **Enabled** or **Disabled** (default setting) to change the setting.
 5. Select **Save**.
 
-**Commands**
+# [**PowerShell**](#tab/network-interface-powershell)
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to enable or disable the IP forwarding setting.
+
+To enable IP forwarding, use the following command:
+
+```azurepowershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Set the IP forwarding setting to enabled. ##
+$nic.EnableIPForwarding = 1
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+```
+
+To disable IP forwarding, use the following command:
+
+```azurepowershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Set the IP forwarding setting to disabled. ##
+$nic.EnableIPForwarding = 0
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+```
+
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to enable or disable the IP forwarding setting.
+
+To enable IP forwarding, use the following command:
+
+```azurecli
+az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --ip-forwarding true
+```
+
+To disable IP forwarding, use the following command:
+
+az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --ip-forwarding false
+
+---
 
 ## Change subnet assignment
 
 You can change the subnet, but not the virtual network, that a network interface is assigned to.
+
+
+
+
+
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface that you want to change subnet assignment for.
