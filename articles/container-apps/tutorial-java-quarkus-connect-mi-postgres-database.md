@@ -145,63 +145,63 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Build the container image
 
-Run the following command to build the Quarkus app image. You must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *myContainerRegistry007.azurecr.io*. Replace the name with your own registry name.
+    Run the following command to build the Quarkus app image. You must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *myContainerRegistry007.azurecr.io*. Replace the name with your own registry name.
 
-```
-docker build -t myContainerRegistry007.azurecr.io/quarkus-postgres-passwordless-app:v1
-```
+    ```
+    docker build -t myContainerRegistry007.azurecr.io/quarkus-postgres-passwordless-app:v1
+    ```
 
 1. Log in to registry
 
-Before pushing container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry resource name when logging in with the Azure CLI. Don't use the fully qualified login server name. 
+    Before pushing container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry resource name when logging in with the Azure CLI. Don't use the fully qualified login server name. 
 
-```azurecli
-az acr login --name <registry-name>
-```
+    ```azurecli
+    az acr login --name <registry-name>
+    ```
 
-The command returns a `Login Succeeded` message once completed.
+    The command returns a `Login Succeeded` message once completed.
 
 1. Push image to registry
 
-Use [docker push][docker-push] to push the image to the registry instance. Replace `myContainerRegistry007` with the login server name of your registry instance. This example creates the **quarkus-postgres-passwordless-app** repository, containing the `quarkus-postgres-passwordless-app:v1` image.
+    Use [docker push][docker-push] to push the image to the registry instance. Replace `myContainerRegistry007` with the login server name of your registry instance. This example creates the **quarkus-postgres-passwordless-app** repository, containing the `quarkus-postgres-passwordless-app:v1` image.
 
-```
-docker push myContainerRegistry007/quarkus-postgres-passwordless-app:v1
-```
+    ```
+    docker push myContainerRegistry007/quarkus-postgres-passwordless-app:v1
+    ```
 
 ## 4. Create a Container App on Azure
 
 1. Create Container Apps by run the following command. Make sure you replace the environment variables value with the actual name and location you want to use.
 
-```azurecli
-RESOURCE_GROUP="myResourceGroup"
-LOCATION="eastus"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
+    ```azurecli
+    RESOURCE_GROUP="myResourceGroup"
+    LOCATION="eastus"
+    CONTAINERAPPS_ENVIRONMENT="my-environment"
 
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
+    az containerapp env create \
+    --name $CONTAINERAPPS_ENVIRONMENT \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION
 
-```
+    ```
 
 1. Create a container app with your app image by running the following command. Replace the <placeholders> with your values. To find Container Registry admin account details, please check [Authenticate with an Azure container registry](../container-registry/container-registry-authentication#admin-account)
 
-```azurecli
-CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1
-REGISTRY_SERVER=myContainerRegistry007
-REGISTRY_USERNAME=<REGISTRY_USERNAME>
-REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
+    ```azurecli
+    CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1
+    REGISTRY_SERVER=myContainerRegistry007
+    REGISTRY_USERNAME=<REGISTRY_USERNAME>
+    REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 
-az containerapp create \
-  --name my-container-app \
-  --resource-group $RESOURCE_GROUP \
-  --image $CONTAINER_IMAGE_NAME \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --registry-server $REGISTRY_SERVER \
-  --registry-username $REGISTRY_USERNAME \
-  --registry-password $REGISTRY_PASSWORD
-```
+    az containerapp create \
+    --name my-container-app \
+    --resource-group $RESOURCE_GROUP \
+    --image $CONTAINER_IMAGE_NAME \
+    --environment $CONTAINERAPPS_ENVIRONMENT \
+    --registry-server $REGISTRY_SERVER \
+    --registry-username $REGISTRY_USERNAME \
+    --registry-password $REGISTRY_PASSWORD
+    ```
 
 ## 5. Create and Connect Postgres Database with identity connectivity
 

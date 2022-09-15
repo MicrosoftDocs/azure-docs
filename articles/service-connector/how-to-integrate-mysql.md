@@ -29,8 +29,8 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | .NET (MySqlConnector)           |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)                     |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js (mysql)                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python (mysql-connector-python) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python-Django                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -44,8 +44,8 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | .NET (MySqlConnector)           |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)                     |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js (mysql)                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python (mysql-connector-python) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python-Django                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -57,8 +57,8 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)                     |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
 
 ---
 
@@ -77,6 +77,13 @@ Use the connection details below to connect compute services to Azure Database f
 | Default environment variable name | Description                  | Example value                                                                                                                                                              |
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
+
+### Java (JDBC) System-assigned managed identity
+
+| Default environment variable name | Description                  | Example value                                                                                                                                                              |
+|-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
+
 
 ### Java - Spring Boot (JDBC) secret / connection string
 
