@@ -1,4 +1,3 @@
-
 ---
 title: Bring Serverless Java Apps with Quarkus into Azure Functions
 description: Bring Serverless Java Apps with Quarkus into Azure Functions
