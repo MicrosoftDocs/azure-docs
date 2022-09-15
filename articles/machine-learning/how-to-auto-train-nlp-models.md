@@ -370,6 +370,7 @@ Note that the large models are significantly larger than their base counterparts
 ## Supported Hyperparameters 
 
 The following table describes the hyperparameters that AutoML NLP supports. 
+
 | Parameter name | Description |
 |-------|---------| 
 | gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer’s step function. | 
