@@ -1,7 +1,7 @@
 ---
 
 title: NAT gateway and availability zones
-titlesuffix: Azure Virtual Network NAT
+titleSuffix: Azure Virtual Network NAT
 description: Key concepts and design guidance on using NAT gateway with availability zones.
 services: virtual-network
 author: asudbring
