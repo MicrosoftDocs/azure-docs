@@ -5,7 +5,7 @@ author: Juliako
 manager: femila
 ms.topic: conceptual
 ms.author: juliako
-ms.date: 04/07/2022
+ms.date: 09/14/2022
 ---
 
 # Language support in Azure Video Indexer
@@ -100,9 +100,9 @@ This section describes language support in Azure Video Indexer.
 | Thai                             | `th-TH`      | ✔ |   |   | ✔ | ✔ |
 | Tongan                           | `to-TO`      |   |   |   | ✔ |  |
 | Turkish                          | `tr-TR`      | ✔ |   |   | ✔ | ✔ |
-| Ukrainian                        | `uk-UA`      |   |   |   | ✔ |  |
+| Ukrainian                        | `uk-UA`      | ✔  |   |   | ✔ |  |
 | Urdu                             | `ur-PK`      |   |   |   | ✔ |  |
-| Vietnamese                       | `vi-VN`      |   |   |   | ✔ |  |
+| Vietnamese                       | `vi-VN`      | ✔  |   |   | ✔ |  |
 
 ## Language support in frontend experiences
 
@@ -182,9 +182,9 @@ The following table describes language support in the Azure Video Indexer fronte
 | Thai                             | `th-TH`      |           |✔  | 
 | Tongan                           | `to-TO`      |           | ✔ |
 | Turkish                          | `tr-TR`      | ✔         | ✔ | 
-| Ukrainian                        | `uk-UA`      |           |✔  |  
+| Ukrainian                        | `uk-UA`      | ✔         |✔  |  
 | Urdu                             | `ur-PK`      |           | ✔ |  
-| Vietnamese                       | `vi-VN`      |           | ✔ |
+| Vietnamese                       | `vi-VN`      | ✔         | ✔ |
 
 
 ## Next steps
