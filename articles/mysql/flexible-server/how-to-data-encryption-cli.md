@@ -33,7 +33,7 @@ In this tutorial you'll learn how to:
 
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
-- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to Subscription ID for your Azure account:
+- Log in to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to Subscription ID for your Azure account:
 
 ```azurecli-interactive
 az login

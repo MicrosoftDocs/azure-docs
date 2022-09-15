@@ -26,7 +26,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Customer managed keys data encryption – Azure Database for MySQL – Flexible Server (Preview)**
 
-    With data encryption with customer-managed keys (CMKs)for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data.Data encryption with CMKs is set at the server level. For a given server, a CMK, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. [Learn More](concepts-customer-managed-key.md)
+    With data encryption with customer-managed keys (CMKs) for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. Data encryption with CMKs is set at the server level. For a given server, a CMK, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. [Learn More](concepts-customer-managed-key.md)
 
 ## August 2022
 
@@ -43,7 +43,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
     Business Critical tier for Azure Database for MySQL – Flexible Server now supports the Ev5 compute series in more regions.
 Learn more about [Boost Azure MySQL Business Critical flexible server performance by 30% with the Ev5 compute series!](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698)
 
-- **Server paramaters that are now configurable**
+- **Server parameters that are now configurable**
 
     List of dynamic server parameters that are now configurable
     - [lc_time_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lc_time_names)
@@ -57,9 +57,9 @@ Learn more about [Boost Azure MySQL Business Critical flexible server performanc
 
 - **Known Issues**
 
-  - When you try to connect to the server, you will receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
+  - When you try to connect to the server, you'll receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
 
-    Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. We are currently working on additional configurations required for AAD authentication to be fully functional, and the feature will be available in the upcoming deployments. Do not enable the aad_auth_only parameter until then.
+    Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. We're currently working on additional configurations required for Azure Active Directory (AAD) authentication to be fully functional, and the feature will be available in the upcoming deployments. Don't enable the aad_auth_only parameter until then.
 
 
 
@@ -260,7 +260,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **validate_password and caching_sha2_password plugin available in private preview**
 
-  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Email us at AskAzureDBforMySQL@service.microsoft.com
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in preview. Email us at AskAzureDBforMySQL@service.microsoft.com
 
 - **Availability in four additional Azure regions**
 
