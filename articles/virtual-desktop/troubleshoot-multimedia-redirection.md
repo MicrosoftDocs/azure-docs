@@ -28,7 +28,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](mutlimedia-redirection-intro.md#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
 - There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
 
