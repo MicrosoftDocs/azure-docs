@@ -38,7 +38,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## Versions 22.2.x
 
-Software versions 22.2.x support direct updates to the latest OT monitoring software versions available. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 |Version  |Release date  |Supported until  |Updates  |
 |---------|---------|---------|---------|
@@ -47,6 +46,12 @@ Software versions 22.2.x support direct updates to the latest OT monitoring soft
 |**22.2.4**     |     07/2022    |   04/2023      | - [Device inventory enhancements](whats-new.md#device-inventory-enhancements) <br>- [Enhancements for the ServiceNow integration API](whats-new.md#enhancements-for-the-servicenow-integration-api)<br>- [New alert columns with timestamp data](whats-new.md#new-alert-columns-with-timestamp-data)        |
 |**22.2.3**     |   07/2022      |  04/2023       |  - [OT appliance hardware profile updates](whats-new.md#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](whats-new.md#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](whats-new.md#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](whats-new.md#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](whats-new.md#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](whats-new.md#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](whats-new.md#sensor-names-shown-in-browser-tabs)       |
 
+To update to 22.2.x versions:
+
+- **From version 22.1.x**, update directly to the latest **22.2.x** version
+- **From version 10.x**, first update to the latest **22.1.x** version, and then update again to the latest **22.2.x** version.
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### 22.2.6
 
