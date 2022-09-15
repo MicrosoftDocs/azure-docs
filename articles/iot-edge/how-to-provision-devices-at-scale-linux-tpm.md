@@ -141,24 +141,57 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
-In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
+In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID.
 
-1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
+1. Sign in to your device, and install the `tpm2-tools` package.
 
-1. Run the following commands to build the SDK tool that retrieves your device provisioning information for your TPM.
+
+# [Ubuntu](#tab/ubuntu)
+
 
    ```bash
-   cd azure-iot-sdk-c/cmake
-   cmake -Duse_prov_client:BOOL=ON ..
-   cd provisioning_client/tools/tpm_device_provision
-   make
-   sudo ./tpm_device_provision
+   sudo apt-get install tpm2-tools
+
+   ```
+
+# [Debian](#tab/debian)
+
+
+   ```bash
+   sudo apt-get install tpm2-tools
+
+   ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
+
+   ```bash
+   sudo apt-get install tpm2-tools
+
+   ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+
+   ```bash
+   sudo yum install tpm2-tools
+
+   ```
+
+---
+
+1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
+
+   ```bash
+   tpm2_readpublic -Q -c 0x81010001 -o ek.pub
+   printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1) $(base64 -w0 ek.pub)
    ```
 
 1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 > [!TIP]
-> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
+> If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
+
 
 After you have your registration ID and endorsement key, you're ready to continue.
 
