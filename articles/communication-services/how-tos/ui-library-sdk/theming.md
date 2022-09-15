@@ -38,5 +38,5 @@ ACS UI Library uses components and icons from both [Fluent UI](https://developer
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
 - [Learn more about UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)
