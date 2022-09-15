@@ -1,1 +1,1 @@
-APPLIES TO: :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::SQL API :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::Cassandra API
+APPLIES TO: :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::API for NoSQL :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::API for Cassandra

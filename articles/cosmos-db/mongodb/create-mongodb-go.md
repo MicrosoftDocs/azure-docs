@@ -4,7 +4,7 @@ description: This quickstart demonstrates how to connect an existing Go applicat
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 04/26/2022
@@ -259,9 +259,9 @@ az group create --name myResourceGroup --location "West Europe"
 
 ### Create an Azure Cosmos DB account
 
-Create a Cosmos account with the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
-In the following command, please substitute your own unique Cosmos account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Cosmos accounts in Azure. 
+In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -308,7 +308,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ### Retrieve the database key
 
-In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the primary key.
+In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -330,7 +330,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because of Cosmos DB requirements. For more information, see [Connection string requirements](connect-mongodb-account.md#connection-string-requirements).
+> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-mongodb-account.md#connection-string-requirements).
 >
 
 For the `MONGODB_CONNECTION_STRING` environment variable, replace the placeholders for `<COSMOSDB_ACCOUNT_NAME>` and `<COSMOSDB_PASSWORD>`
@@ -413,7 +413,7 @@ Data stored in Azure Cosmos DB is available to view and query in the Azure porta
 
 To view, query, and work with the user data created in the previous step, login to the [Azure portal](https://portal.azure.com) in your web browser.
 
-In the top Search box, enter **Azure Cosmos DB**. When your Cosmos account blade opens, select your Cosmos account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
+In the top Search box, enter **Azure Cosmos DB**. When your Azure Cosmos DB account blade opens, select your Azure Cosmos DB account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
 :::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Data Explorer showing the newly created document":::
 
@@ -447,7 +447,7 @@ The `todo` you just deleted should not be present
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account using the Azure Cloud Shell, and create and run a Go command-line app to manage `todo`s. You can now import additional data to your Azure Cosmos DB account.
+In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account using the Azure Cloud Shell, and create and run a Go command-line app to manage `todo`s. You can now import additional data to your Azure Cosmos DB account.
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

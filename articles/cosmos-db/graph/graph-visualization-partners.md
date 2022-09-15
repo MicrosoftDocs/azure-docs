@@ -1,18 +1,18 @@
 ---
-title: Visualize Azure Cosmos DB Gremlin API data using partner solutions
+title: Visualize Azure Cosmos DB for Gremlin data using partner solutions
 description: Learn how to integrate Azure Cosmos DB graph data with different third-party visualization solutions.
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 07/22/2021
 ---
 
-# Visualize graph data stored in Azure Cosmos DB Gremlin API with data visualization solutions
+# Visualize graph data stored in Azure Cosmos DB for Gremlin with data visualization solutions
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-You can visualize data stored in Azure Cosmos DB Gremlin API by using various data visualization solutions.
+You can visualize data stored in Azure Cosmos DB for Gremlin by using various data visualization solutions.
 
 > [!IMPORTANT] 
 > Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then select most suitable to you.
@@ -21,7 +21,7 @@ You can visualize data stored in Azure Cosmos DB Gremlin API by using various da
 
 [Linkurious Enterprise](https://linkurio.us/product/) uses graph technology and data visualization to turn complex datasets into interactive visual networks. The platform connects to your data sources and enables investigators to seamlessly navigate across billions of entities and relationships. The result is a new ability to detect suspicious relationships without juggling with queries or tables.
 
-The interactive interface of Linkurious Enterprise offers an easy way to investigate complex data. You can search for specific entities, expand connections to uncover hidden relationships, and apply layouts of your choice to untangle complex networks. Linkurious Enterprise is now compatible with Azure Cosmos DB Gremlin API. It's suitable for end-to-end graph visualization scenarios and supports read and write capabilities from the user interface. You can request a [demo of Linkurious with Azure Cosmos DB](https://linkurio.us/contact/)
+The interactive interface of Linkurious Enterprise offers an easy way to investigate complex data. You can search for specific entities, expand connections to uncover hidden relationships, and apply layouts of your choice to untangle complex networks. Linkurious Enterprise is now compatible with Azure Cosmos DB for Gremlin. It's suitable for end-to-end graph visualization scenarios and supports read and write capabilities from the user interface. You can request a [demo of Linkurious with Azure Cosmos DB](https://linkurio.us/contact/)
 
 :::image type="content" source="./media/graph-visualization-partners/linkurious-demo.gif" alt-text="Linkurious Demo" border="false":::
 
@@ -61,13 +61,13 @@ These toolkits let you design high-performance graph visualization and analysis 
 
 [Tom Sawyer Perspectives](https://www.tomsawyer.com/perspectives/) is a robust platform for building enterprise grade graph data visualization and analysis applications. It is a low-code graph & data visualization development platform, which includes integrated design, preview interface, and extensive API libraries. The platform integrates enterprise data sources with powerful graph visualization, layout, and analysis technology to solve big data problems.
 
-Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules, the "Designer" and the "Previewer" are used to build applications to visualize and analyze the specific data that drives each project. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. To visualize Azure Cosmos DB Gremlin API data using this platform, request a [free 60-day evaluation](https://www.tomsawyer.com/get-started) of this tool. 
+Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules, the "Designer" and the "Previewer" are used to build applications to visualize and analyze the specific data that drives each project. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. To visualize Azure Cosmos DB for Gremlin data using this platform, request a [free 60-day evaluation](https://www.tomsawyer.com/get-started) of this tool. 
 
 :::image type="content" source="./media/graph-visualization-partners/tom-sawyer/tom-sawyer-perspective.gif" alt-text="Tom Sawyer Perspectives demo" border="false":::
 
 <b>Figure:</b> Tom Sawyer Perspectives in action
 
-[Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can execute queries using Gremlin, Cypher, or SPARQL to gain other insights. When you define the schema then you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
+[Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB for Gremlin. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can execute queries using Gremlin, Cypher, or SPARQL to gain other insights. When you define the schema then you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
 
 Users of all skill levels can take advantage of five unique graph layouts to display the graph in a way that provides the most meaning. And there are built-in centrality, clustering, and path-finding analyses to reveal previously unseen patterns. Using these techniques, organizations can identify critical patterns in areas like fraud detection, customer intelligence, and cybersecurity. Pattern recognition is very important for network analysts in areas such as general IT and network management, logistics, legacy system migration, and business transformation. Try a live demo of Tom Sawyer Graph Database Browser. 
 
@@ -171,4 +171,4 @@ Typical use-cases and data models include:
 
 ### Next Steps
 
-* [Cosmos DB - Gremlin API Pricing](../how-pricing-works.md)
+* [Azure Cosmos DB - API for Gremlin Pricing](../how-pricing-works.md)

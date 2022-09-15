@@ -4,7 +4,7 @@ description: Learn how to connect to nearest Graph database endpoint for your ap
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.devlang: csharp
@@ -20,34 +20,34 @@ Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.
 2. **Lower latency** - you can reduce network latency overhead of each traversal by routing read and write traffic to the nearest Azure region.
 
-**Data residency** requirement is achieved by setting Azure Resource Manager policy on Cosmos DB account. Customer can limit regions into which Cosmos DB replicates data.
+**Data residency** requirement is achieved by setting Azure Resource Manager policy on Azure Cosmos DB account. Customer can limit regions into which Azure Cosmos DB replicates data.
 
 ## Traffic routing
 
-Cosmos DB Graph database engine is running in multiple regions, each of which contains multiple clusters. Each cluster has hundreds of machines. Cosmos DB Graph account DNS CNAME *accountname.gremlin.cosmos.azure.com* resolves to DNS A record of a cluster. A single IP address of a load-balancer hides internal cluster topology.
+Azure Cosmos DB Graph database engine is running in multiple regions, each of which contains multiple clusters. Each cluster has hundreds of machines. Azure Cosmos DB Graph account DNS CNAME *accountname.gremlin.cosmos.azure.com* resolves to DNS A record of a cluster. A single IP address of a load-balancer hides internal cluster topology.
 
-A regional DNS CNAME record is created for every region of Cosmos DB Graph account. Format of regional endpoint is *accountname-region.gremlin.cosmos.azure.com*. Region segment of regional endpoint is obtained by removing all spaces from [Azure region](https://azure.microsoft.com/global-infrastructure/regions) name. For example, `"East US 2"` region for `"contoso"` global database account would have a DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
+A regional DNS CNAME record is created for every region of Azure Cosmos DB Graph account. Format of regional endpoint is *accountname-region.gremlin.cosmos.azure.com*. Region segment of regional endpoint is obtained by removing all spaces from [Azure region](https://azure.microsoft.com/global-infrastructure/regions) name. For example, `"East US 2"` region for `"contoso"` global database account would have a DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
 
 TinkerPop Gremlin client is designed to work with a single server. Application can use global writable DNS CNAME for read and write traffic. Region-aware applications should use regional endpoint for read traffic. Use regional endpoint for write traffic only if specific region is configured to accept writes. 
 
 > [!NOTE]
-> Cosmos DB Graph engine can accept write operation in read region by proxying traffic to write region. It is not recommended to send writes into read-only region as it increases traversal latency and is subject to restrictions in the future.
+> Azure Cosmos DB Graph engine can accept write operation in read region by proxying traffic to write region. It is not recommended to send writes into read-only region as it increases traversal latency and is subject to restrictions in the future.
 
-Global database account CNAME always points to a valid write region. During server-side failover of write region, Cosmos DB updates global database account CNAME to point to new region. If application can't handle traffic rerouting after failover, it should use global database account DNS CNAME.
+Global database account CNAME always points to a valid write region. During server-side failover of write region, Azure Cosmos DB updates global database account CNAME to point to new region. If application can't handle traffic rerouting after failover, it should use global database account DNS CNAME.
 
 > [!NOTE]
-> Cosmos DB does not route traffic based on geographic proximity of the caller. It is up to each application to select the right region according to unique application needs.
+> Azure Cosmos DB does not route traffic based on geographic proximity of the caller. It is up to each application to select the right region according to unique application needs.
 
 ## Portal endpoint discovery
 
 The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. It will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
-:::image type="content" source="./media/use-regional-endpoints/get-end-point-portal.png" alt-text="Retrieve regions of Cosmos DB Graph account from the portal.":::
+:::image type="content" source="./media/use-regional-endpoints/get-end-point-portal.png" alt-text="Retrieve regions of Azure Cosmos DB Graph account from the portal.":::
 
 Example below demonstrates general principles of accessing regional Gremlin endpoint. Application should consider number of regions to send the traffic to and number of corresponding Gremlin clients to instantiate.
 
 ```csharp
-// Example value: Central US, West US and UK West. This can be found in the overview blade of you Azure Cosmos DB Gremlin Account. 
+// Example value: Central US, West US and UK West. This can be found in the overview blade of you Azure Cosmos DB for Gremlin Account. 
 // Look for Write Locations in the overview blade. You can click to copy and paste.
 string[] gremlinAccountRegions = new string[] {"Central US", "West US" ,"UK West"};
 string gremlinAccountName = "PUT-COSMOSDB-ACCOUNT-NAME-HERE";
@@ -79,7 +79,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or service-managed failover.
 
-TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
+TinkerPop Gremlin SDK doesn't have an API to discover Azure Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
 
 ```csharp
 // Depending on the version and the language of the SDK (.NET vs Java vs Python)
