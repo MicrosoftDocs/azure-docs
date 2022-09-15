@@ -8,7 +8,6 @@ author: sandnair
 ms.author: sandnair
 ms.topic: tutorial
 ms.date: 09/15/2022
-ms.custom: vc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a web reference ASP.NET Core MVC application using Cosmos DB SQL API on AKS cluster using Bicep
@@ -17,15 +16,14 @@ ms.custom: vc, devx-track-azurecli
 
 In this quickstart, you deploy a web reference ASP.NET Core MVC application on Azure Kubernetes Service (AKS) cluster.
 
- **[Azure Cosmos DB](overview.md)**  is a fully managed NoSQL database for modern app development. **[AKS](https://docs.microsoft.com/azure/aks/intro-kubernetes)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+ **[Azure Cosmos DB](../introduction.md)**  is a fully managed NoSQL database for modern app development. **[AKS](..//..//aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
 
 - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
 > If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
 
+## Pre-requisites
 The  following are required to compile the ASP.NET Core MVC application and create its container image.
 * [Docker Desktop](https://docs.docker.com/desktop/)
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -37,30 +35,30 @@ The  following are required to compile the ASP.NET Core MVC application and crea
 
 ## Overview
 
-This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/en-us/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](https://docs.microsoft.com/azure/templates/#bicep)**, which is a new language that offers the same capabilities as [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) but with a syntax that is more concise and easier to use. 
+This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](https://docs.microsoft.com/azure/templates/#bicep)**, which is a new language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
 
 The Bicep modules will deploy the following Azure resources under subscription scope.
 
-1. A [Resource Group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#resource-groups)
-2. A [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-3. An [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) (ACR) for storing container images
-4. An [AKS](https://docs.microsoft.com/azure/aks/intro-kubernetes) Cluster
-5. A [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) required for configuring the AKS
-6. A [Cosmos DB SQL API Account](../introduction.md)) along with a Database, Container, and SQL Role to manage RBAC
-7. A [Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to store secure keys
-8. A [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) (optional)
+1. A [Resource Group](..//..//azure-resource-manager/management/overview.md#resource-groups)
+2. A [Managed Identity](..//../active-directory/managed-identities-azure-resources/overview.md)
+3. An [Azure Container Registry](..//..//container-registry/container-registry-intro.md) (ACR) for storing container images
+4. An [AKS](..//..//aks/intro-kubernetes.md) Cluster
+5. A [VNet](..//..//virtual-network/network-overview.md) required for configuring the AKS
+6. A [Cosmos DB SQL API Account](../introduction.md)) along with a Database, Container, and [SQL Role](https://docs.microsoft.com/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
+7. A [Key Vault](..//../key-vault/general/overview.md) to store secure keys
+8. A [Log Analytics Workspace](..//../azure-monitor/logs/log-analytics-overview.md/) (optional)
 
 This quickstart uses the following best practices to enhance security
 
-1. Implements access control using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) and [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to eliminate the need for developers to manage secrets, credentials, certificates, and keys used to secure communication between services.
-2. Limits Cosmos DB access to the AKS subnet by [configuring a virtual network service endpoint](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint).
-3. Set disableLocalAuth = true in the databaseAccount resource to [enforce RBAC as the only authentication method](https://docs.microsoft.com//azure/cosmos-db/how-to-setup-rbac#disable-local-auth). 
+1. Implements access control using [RBAC](..//../role-based-access-control/overview.md) and [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to eliminate the need for developers to manage secrets, credentials, certificates, and keys used to secure communication between services.
+2. Limits Cosmos DB access to the AKS subnet by [configuring a virtual network service endpoint](../how-to-configure-vnet-service-endpoint.md).
+3. Set disableLocalAuth = true in the databaseAccount resource to [enforce RBAC as the only authentication method](../how-to-setup-rbac.md#disable-local-auth). 
 
 > [!NOTE]
-> This quickstart assumes a basic understanding of Kubernetes concepts,and Azure Cosmos DB. We will be using the Azure Cosmos DB **[SQL API](../introduction.md)** in the steps below. However, the same concepts can also be applied to **[API for MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb/mongodb-introduction)**.
+> This tutorial uses the Azure Cosmos DB **[SQL API](./sql-api-get-started.md)**. However, the same concepts can also be applied to **[API for MongoDB](..//./mongodb/mongodb-introduction.md)**.
 
 ## Download the Bicep Modules
-Download or clone the Bicep modules from the [GitHub](https://github.com/Azure-Samples/cosmos-aks-samples/tree/main/Bicep) repository.
+Download or [clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) the Bicep modules from the [GitHub repository](https://github.com/Azure-Samples/cosmos-aks-samples/tree/main/Bicep) .
 
 
 ## Connect to your Azure Account
@@ -76,7 +74,7 @@ az account set -s <Subscription ID>
 Create a param.json file by using the following JSON, replace the {Resource Group Name}, {Cosmos DB Account Name}, and {ACR Instance Name} placeholders with your own values for Resource Group Name, Cosmos DB Account Name, and Azure Container Registry instance Name. 
 
 > [!!IMPORTANT]
->All resource names used in the steps below should be compliant with **[Naming rules and restrictions for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules)**, also ensure that the placeholders values are replaced consistently and match with values supplied in param.json.
+>All resource names used in the steps below should be compliant with **[Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md)**, also ensure that the placeholders values are replaced consistently and match with values supplied in param.json.
 
 
 ```json
@@ -99,7 +97,7 @@ Create a param.json file by using the following JSON, replace the {Resource Grou
 
 ## Create a Bicep Deployment
 
-Set the environment variables by replacing the {Deployment Name}, and {Location} placeholders with your own values. Run the following script to create the deployment.
+Set the environment variables by replacing the {Deployment Name}, and {Location} placeholders with your own values. Run the below commands to create the deployment.
 
 ```azurecli-interactive
 deploymentName='{Deployment Name}'  # Name of the Deployment
@@ -119,11 +117,11 @@ You can also see the deployment status in the Resource Group
 :::image type="content" source="./media/tutorial-aks-bicep-sql-todo/rg_postdeployment.png" alt-text="Deployment Status inside RG":::
 
 > [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Link the Azure Container Registry with AKS
 
-Set the environment variables by replacing the {ACR Instance Name}, {Resource Group Name}, and {AKS Cluster Name} placeholders with your own values. 
+Replace the {ACR Instance Name}, {Resource Group Name}, and {AKS Cluster Name} placeholders with your own values. Run the below command to integrate the ACR with the AKS cluster 
 
 ```azurecli-interactive
 
@@ -158,7 +156,7 @@ Use the command below to find the values of the Tenant ID (homeTenantId)
 az account show
 ```
 
-creates a secretproviderclass.yml file. Make sure to update your own values for {Tenant Id} and {Resource Group Name} placeholders. Ensure that the below values for {Resource Group Name} placeholder matches with values supplied in param.json.
+Using the following YAML template create a secretproviderclass.yml file. Make sure to update your own values for {Tenant Id} and {Resource Group Name} placeholders. Ensure that the below values for {Resource Group Name} placeholder matches with values supplied in param.json.
 
 ```yml
 # This is a SecretProviderClass example using aad-pod-identity to access the key vault
@@ -291,9 +289,9 @@ az deployment sub delete -n $deploymentName
 ```
 
 ## Next steps
-- Learn how to [Develop an ASP.NET Core MVC web application with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/sql-api-dotnet-application)
-- Learn how to [Query Azure Cosmos DB by using the SQL API](https://docs.microsoft.com/azure/cosmos-db/sql/tutorial-query-sql-api).
-- Learn how to [access the Kubernetes web dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard) for your AKS cluster
-- Learn how to [scale your cluster](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
-- Learn how to [enable continuous deployment](https://docs.microsoft.com/azure/aks/deployment-center-launcher)
+- Learn how to [Develop an ASP.NET Core MVC web application with Azure Cosmos DB](./sql-api-dotnet-application.md)
+- Learn how to [Query Azure Cosmos DB by using the SQL API](./tutorial-query-sql-api.md).
+- Learn how to [upgrade your cluster](../../aks/tutorial-kubernetes-upgrade-cluster.md)
+- Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
+- Learn how to [enable continuous deployment](../../aks/deployment-center-launcher.md)
 
