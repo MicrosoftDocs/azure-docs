@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Spring Boot application with Azure Cosmos DB SQL API and Azure Kubernetes Service
-description: This tutorial demonstrates how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB SQL API account.
+title: Tutorial - Spring Boot application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service
+description: This tutorial demonstrates how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB for NoSQL account.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/01/2021
@@ -12,10 +12,10 @@ ms.reviewer: mjbrown
 ms.custom: mode-api, devx-track-azurecli
 ---
 
-# Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service
+# Tutorial - Spring Boot Application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (SQL API account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
+In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (API for NoSQL account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
 
 ## Pre-requisites
 
@@ -57,9 +57,9 @@ In this section, you will create Azure services required for this tutorial.
     > [!NOTE]
     > Replace `cosmosdb-springboot-aks-rg` with a unique name for your resource group.
     
-### Create an Azure Cosmos DB SQL API database account
+### Create an Azure Cosmos DB for NoSQL database account
 
-Use this command to create an [Azure Cosmos DB SQL API database account](manage-with-cli.md#create-an-azure-cosmos-db-account) using the Azure CLI.
+Use this command to create an [Azure Cosmos DB for NoSQL database account](manage-with-cli.md#create-an-azure-cosmos-db-account) using the Azure CLI.
 
 ```azurecli
 az cosmosdb create --name <enter account name> --resource-group <enter resource group name>
@@ -128,9 +128,9 @@ If you intend to run the application on Azure Kubernetes Service, skip this sect
 1. Before you run the application, update the `application.properties` file with the details of your Azure Cosmos DB account.
 
    ```properties
-   azure.cosmos.uri=https://<enter cosmos db account name>.azure.com:443/
-   azure.cosmos.key=<enter cosmos db primary key>
-   azure.cosmos.database=<enter cosmos db database name>
+   azure.cosmos.uri=https://<enter Azure Cosmos DB db account name>.azure.com:443/
+   azure.cosmos.key=<enter Azure Cosmos DB db primary key>
+   azure.cosmos.database=<enter Azure Cosmos DB db database name>
    azure.cosmos.populateQueryMetrics=false
    ```
 
@@ -183,9 +183,9 @@ If you intend to run the application on Azure Kubernetes Service, skip this sect
     type: Opaque
     stringData:
       application.properties: |
-        azure.cosmos.uri=https://<enter cosmos db account name>.azure.com:443/
-        azure.cosmos.key=<enter cosmos db primary key>
-        azure.cosmos.database=<enter cosmos db database name>
+        azure.cosmos.uri=https://<enter Azure Cosmos DB db account name>.azure.com:443/
+        azure.cosmos.key=<enter Azure Cosmos DB db primary key>
+        azure.cosmos.database=<enter Azure Cosmos DB db database name>
         azure.cosmos.populateQueryMetrics=false
     ...
     ```
@@ -359,7 +359,7 @@ Here are some of the key points related to the Kubernetes resources for this app
 
 ## Next steps
 
-In this tutorial, you've learned how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB SQL API account.
+In this tutorial, you've learned how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB for NoSQL account.
 
 > [!div class="nextstepaction"]
-> [Spring Data Azure Cosmos DB v3 for SQL API](sql-api-sdk-java-spring-v3.md)
+> [Spring Datan Azure Cosmos DB v3 for API for NoSQL](sql-api-sdk-java-spring-v3.md)

@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with the 
 description: Learn how to diagnose and fix Java SDK request timeout exceptions with the Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
@@ -63,8 +63,8 @@ Creating multiple client instances might lead to connection contention and timeo
 Follow the [performance tips](performance-tips-java-sdk-v4-sql.md#sdk-usage), and use a single CosmosClient instance across an entire application.
 
 #### Solution 2:
-If singleton CosmosClient is not possible to have in an application, we recommend using connection sharing across multiple Cosmos Clients through this API `connectionSharingAcrossClientsEnabled(true)` in CosmosClient. 
-When you have multiple instances of Cosmos Client in the same JVM interacting to multiple Cosmos accounts, enabling this allows connection sharing in Direct mode if possible between instances of Cosmos Client. Please note, when setting this option, the connection configuration (e.g., socket timeout config, idle timeout config) of the first instantiated client will be used for all other client instances.
+If singleton CosmosClient is not possible to have in an application, we recommend using connection sharing across multiple Azure Cosmos DB Clients through this API `connectionSharingAcrossClientsEnabled(true)` in CosmosClient. 
+When you have multiple instances of Azure Cosmos DB Client in the same JVM interacting to multiple Azure Cosmos DB accounts, enabling this allows connection sharing in Direct mode if possible between instances of Azure Cosmos DB Client. Please note, when setting this option, the connection configuration (e.g., socket timeout config, idle timeout config) of the first instantiated client will be used for all other client instances.
 
 ### Hot partition key
 Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](../monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 

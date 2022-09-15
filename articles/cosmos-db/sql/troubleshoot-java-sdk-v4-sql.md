@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.date: 04/01/2022
 ms.author: thvankra
 ms.devlang: java
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
 ---
 
-# Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with SQL API accounts
+# Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with API for NoSQL accounts
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -24,8 +24,8 @@ ms.custom: devx-track-java
 > This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
-This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB SQL API accounts.
-Azure Cosmos DB Java SDK v4 provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
+This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB for NoSQL accounts.
+Azure Cosmos DB Java SDK v4 provides client-side logical representation to access the Azure Cosmos DB for NoSQL. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 
@@ -103,7 +103,7 @@ filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
 });
 ``` 
 
-#### Cosmos Exceptions
+#### Azure Cosmos DB Exceptions
 
 ```Java
 try {
@@ -180,7 +180,7 @@ filteredFamilies.byPage().map(familyFeedResponse -> {
 }).subscribe();
 ``` 
 
-#### Cosmos Exceptions
+#### Azure Cosmos DB Exceptions
 
 ```Java
 Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
@@ -198,7 +198,7 @@ itemResponseMono.onErrorResume(throwable -> {
 ---
 
 ## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
-See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
+See our guide to [designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
@@ -245,7 +245,7 @@ Also follow the [Connection limit on a host machine](#connection-limit-on-host).
 
 #### UnknownHostException
 
-UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
+UnknownHostException means that the Java framework cannot resolve the DNS entry for the Azure Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
 
 #### HTTP proxy
 
@@ -287,7 +287,7 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 ### Error handling from Java SDK Reactive Chain
 
-Error handling from Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
+Error handling from Azure Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
 
 > [!IMPORTANT]
 > We do not recommend using [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) operator, as it is not supported in all scenarios.

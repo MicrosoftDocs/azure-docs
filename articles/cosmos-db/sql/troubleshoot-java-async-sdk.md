@@ -7,12 +7,12 @@ ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: java
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
 ---
 
-# Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with SQL API accounts
+# Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with API for NoSQL accounts
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -36,8 +36,8 @@ ms.custom: devx-track-java
 > Azure Cosmos DB Java SDK v4.
 >
 
-This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
-The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
+This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB for NoSQL accounts.
+The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB for NoSQL. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 

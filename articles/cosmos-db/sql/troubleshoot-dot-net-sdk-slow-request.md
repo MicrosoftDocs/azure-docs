@@ -3,7 +3,7 @@ title: Troubleshoot slow requests in Azure Cosmos DB .NET SDK
 description: Learn how to diagnose and fix slow requests when you use Azure Cosmos DB .NET SDK.
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 08/30/2022
 ms.author: maquaran
 ms.topic: troubleshooting
@@ -196,9 +196,9 @@ Information about the particular connection (new or old) the request get's assig
 
 ### Request and response sizes
 
-* `requestSizeInBytes`: The total size of the request sent to Cosmos DB
-* `responseMetadataSizeInBytes`: The size of headers returned from Cosmos DB 
-* `responseBodySizeInBytes`: The size of content returned from Cosmos DB 
+* `requestSizeInBytes`: The total size of the request sent to Azure Cosmos DB
+* `responseMetadataSizeInBytes`: The size of headers returned from Azure Cosmos DB 
+* `responseBodySizeInBytes`: The size of content returned from Azure Cosmos DB 
 
 ```json
 "StoreResult": {

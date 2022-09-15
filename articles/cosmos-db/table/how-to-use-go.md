@@ -2,12 +2,12 @@
 title: Use the Azure Table client library for Go
 description: Store structured data in the cloud using the Azure Table client library for Go.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: golang 
 ms.topic: sample
 ms.date: 03/24/2022
-author: Duffney
-ms.author: jduffney 
+author: seesharprun
+ms.author: sidandrews 
 ---
 
 # How to use the Azure SDK for Go with Azure Table
@@ -411,4 +411,4 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table-import.md)
+> [Import table data to the API for Table](table-import.md)

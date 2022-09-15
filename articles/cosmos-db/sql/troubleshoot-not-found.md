@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB not found exceptions
 description: Learn how to diagnose and fix not found exceptions.
 author: rothja
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 05/26/2021
 ms.author: jroth
 ms.topic: troubleshooting
@@ -108,10 +108,10 @@ The database or container that the item exists in was deleted.
 1. Create a new resource to replace the deleted resource.
 
 ### 7. Container/Collection names are case-sensitive
-Container/Collection names are case-sensitive in Cosmos DB.
+Container/Collection names are case-sensitive in Azure Cosmos DB.
 
 #### Solution:
-Make sure to use the exact name while connecting to Cosmos DB.
+Make sure to use the exact name while connecting to Azure Cosmos DB.
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.

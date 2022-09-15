@@ -1,17 +1,17 @@
 ---
-title: Use the Table API and Java to build an app - Azure Cosmos DB
-description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
+title: Use the API for Table and Java to build an app - Azure Cosmos DB
+description: This quickstart shows how to use the Azure Cosmos DB for Table to create an application with the Azure portal and Java
 author: rothja
 ms.author: jroth
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Build a Table API app with Java SDK and Azure Cosmos DB
+# Quickstart: Build a API for Table app with Java SDK and Azure Cosmos DB
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
@@ -22,9 +22,9 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Python](how-to-use-python.md)
 > 
 
-This quickstart shows how to access the Azure Cosmos DB [Tables API](introduction.md) from a Java application. The Cosmos DB Tables API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
+This quickstart shows how to access the Azure Cosmos DB [Tables API](introduction.md) from a Java application. The Azure Cosmos DB Tables API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
-Java applications can access the Cosmos DB Tables API using the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) client library.
+Java applications can access the Azure Cosmos DB Tables API using the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) client library.
 
 ## Prerequisites
 
@@ -40,34 +40,34 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-java
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the Tables API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Tables API.
+The sample application uses weather data as an example to demonstrate the capabilities of the Tables API. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with additional properties to demonstrate the schemaless capabilities of the Tables API.
 
-:::image type="content" source="./media/create-table-java/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in a Cosmos D B table using the Table A P I." lightbox="./media/create-table-java/table-api-app-finished-application.png":::
+:::image type="content" source="./media/create-table-java/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in an Azure Cosmos DB table using the Table API." lightbox="./media/create-table-java/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create a Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create an Azure Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create a Cosmos DB account.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Azure Cosmos DB account.
 
 | Instructions                                                                                          |                                                                                                                                                                                                                                                                                                                               Screenshot |
 |:------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-java/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Cosmos D B accounts in Azure." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-1.png"::: |
-| [!INCLUDE [Create cosmos db account step 2](./includes/create-table-java/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Cosmos D B accounts page in Azure." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-2.png"::: |
-| [!INCLUDE [Create cosmos db account step 3](./includes/create-table-java/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-3.png"::: |
-| [!INCLUDE [Create cosmos db account step 4](./includes/create-table-java/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Cosmos D B Account creation page." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-4.png"::: |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-java/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure Cosmos DB accounts in Azure." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-1.png"::: |
+| [!INCLUDE [Create Azure Cosmos DB db account step 2](./includes/create-table-java/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Azure Cosmos DB accounts page in Azure." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-2.png"::: |
+| [!INCLUDE [Create Azure Cosmos DB db account step 3](./includes/create-table-java/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-3.png"::: |
+| [!INCLUDE [Create Azure Cosmos DB db account step 4](./includes/create-table-java/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Azure Cosmos DB Account creation page." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-account-table-api-4.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Cosmos DB accounts are created using the [az Cosmos DB create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the  Cosmos DB account.
+Azure Cosmos DB accounts are created using the [az Azure Cosmos DB create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Azure Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the  Azure Cosmos DB account.
 
-Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Cosmos DB account names must also be unique across Azure.
+Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-It typically takes several minutes for the Cosmos DB account creation process to complete.
+It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
 ```azurecli
 LOCATION='eastus'
@@ -87,13 +87,13 @@ az cosmosdb create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
+Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Azure Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
 Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 
-It typically takes several minutes for the Cosmos DB account creation process to complete.
+It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
 ```azurepowershell
 $location = 'eastus'
@@ -117,21 +117,21 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Cosmos DB account for your application to use.  Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
+Next, you need to create a table within your Azure Cosmos DB account for your application to use.  Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Cosmos DB account.
+In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Azure Cosmos DB account.
 
 | Instructions                                                                                      | Screenshot |
 |:--------------------------------------------------------------------------------------------------|-----------:|
-| [!INCLUDE [Create cosmos db table step 1](./includes/create-table-java/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Cosmos D B account." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db table step 2](./includes/create-table-java/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db table step 3](./includes/create-table-java/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for a Cosmos D B table." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 1](./includes/create-table-java/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 2](./includes/create-table-java/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 3](./includes/create-table-java/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-java/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/create-table-java/azure-portal-create-cosmos-db-table-api-3.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Tables in Cosmos DB are created using the [az Cosmos DB table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
+Tables in Azure Cosmos DB are created using the [az Azure Cosmos DB table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
 
 ```azurecli
 COSMOS_TABLE_NAME='WeatherData'
@@ -145,7 +145,7 @@ az cosmosdb table create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Tables in Cosmos DB are created using the [New-AzCosmosDBTable](/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
+Tables in Azure Cosmos DB are created using the [New-AzCosmosDBTable](/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
 
 ```azurepowershell
 $cosmosTableName = 'WeatherData'
@@ -159,20 +159,20 @@ New-AzCosmosDBTable `
 
 ---
 
-## 3 - Get Cosmos DB connection string
+## 3 - Get Azure Cosmos DB connection string
 
-To access your table(s) in Cosmos DB, your app will need the table connection string for the CosmosDB Storage account. The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
+To access your table(s) in Azure Cosmos DB, your app will need the table connection string for the CosmosDB Storage account. The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions                                                                                                              | Screenshot |
 |:--------------------------------------------------------------------------------------------------------------------------|-----------:|
-| [!INCLUDE [Get cosmos db table connection string step 1](./includes/create-table-java/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Cosmos D B page." lightbox="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-1.png":::           |
-| [!INCLUDE [Get cosmos db table connection string step 2](./includes/create-table-java/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing the which connection string to select and use in your application." lightbox="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-2.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 1](./includes/create-table-java/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Azure Cosmos DB page." lightbox="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 2](./includes/create-table-java/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing the which connection string to select and use in your application." lightbox="./media/create-table-java/azure-portal-cosmos-db-table-connection-string-2.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary table storage connection string using Azure CLI, use the [az Cosmos DB keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](/cli/azure/query-azure-cli) to display only the primary table connection string.
+To get the primary table storage connection string using Azure CLI, use the [az Azure Cosmos DB keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](/cli/azure/query-azure-cli) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary Table connection string
@@ -198,7 +198,7 @@ $(Get-AzCosmosDBAccountKey `
 
 ---
 
-The connection string for your Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the POM to store the connection string during development and make it available to the application.
+The connection string for your Azure Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the POM to store the connection string during development and make it available to the application.
 
 ```xml
 <profiles>
@@ -219,7 +219,7 @@ The connection string for your Cosmos DB account is considered an app secret and
 
 ## 4 - Include the azure-data-tables package
 
-To access the Cosmos DB Tables API from a Java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
+To access the Azure Cosmos DB Tables API from a Java application, include the [azure-data-tables](https://search.maven.org/artifact/com.azure/azure-data-tables) package.
 
 ```xml
 <dependency>
@@ -233,7 +233,7 @@ To access the Cosmos DB Tables API from a Java application, include the [azure-d
 
 ## 5 - Configure the Table client in TableServiceConfig.java
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The [TableClient](/java/api/com.azure.data.tables.tableclient) object is the object used to communicate with the Cosmos DB Tables API.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The [TableClient](/java/api/com.azure.data.tables.tableclient) object is the object used to communicate with the Azure Cosmos DB Tables API.
 
 An application will typically create a single [TableClient](/java/api/com.azure.data.tables.tableclient) object per table to be used throughout the application.  It's recommended to indicate that a method produces a [TableClient](/java/api/com.azure.data.tables.tableclient) object bean to be managed by the Spring container and  as a singleton to accomplish this.
 
@@ -275,9 +275,9 @@ import com.azure.data.tables.TableClient;
 import com.azure.data.tables.TableClientBuilder;
 ```
 
-## 6 - Implement Cosmos DB table operations
+## 6 - Implement Azure Cosmos DB table operations
 
-All Cosmos DB table operations for the sample app are implemented in the `TablesServiceImpl` class located in the *Services* directory.  You'll need to import the `com.azure.data.tables` SDK package.
+All Azure Cosmos DB table operations for the sample app are implemented in the `TablesServiceImpl` class located in the *Services* directory.  You'll need to import the `com.azure.data.tables` SDK package.
 
 ```java
 import com.azure.data.tables.TableClient;
@@ -572,7 +572,7 @@ public void upsertEntity(WeatherInputModel model) {
 
 ### Insert or upsert data with variable properties
 
-One of the advantages of using the Cosmos DB Tables API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB.  There's no need to run DDL statements like `ALTER TABLE` to add columns as in a traditional database.
+One of the advantages of using the Azure Cosmos DB Tables API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB.  There's no need to run DDL statements like `ALTER TABLE` to add columns as in a traditional database.
 
 This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
 
@@ -638,7 +638,7 @@ public class ExpandableWeatherObject {
 }
 ```
 
-To insert or upsert such an object using the Table API, map the properties of the expandable object into a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object and use the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) or [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) methods on the [TableClient](/java/api/com.azure.data.tables.tableclient) object as appropriate.
+To insert or upsert such an object using the API for Table, map the properties of the expandable object into a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object and use the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) or [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) methods on the [TableClient](/java/api/com.azure.data.tables.tableclient) object as appropriate.
 
 ```java
 public void insertExpandableEntity(ExpandableWeatherObject model) {
@@ -723,23 +723,23 @@ public void deleteEntity(WeatherInputModel model) {
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Cosmos DB Tables API.  The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
+Run the sample application to interact with the Azure Cosmos DB Tables API.  The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
 
-:::image type="content" source="./media/create-table-java/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos D B using the Table A P I." lightbox="./media/create-table-java/table-api-app-data-insert-buttons.png":::
+:::image type="content" source="./media/create-table-java/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Azure Cosmos DB using the Table API." lightbox="./media/create-table-java/table-api-app-data-insert-buttons.png":::
 
 Selecting the **Insert using Table Entity** button opens a dialog allowing you to insert or upsert a new row using a `TableEntity` object.
 
 :::image type="content" source="./media/create-table-java/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/create-table-java/table-api-app-insert-table-entity.png":::
 
-Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Tables API automatically adds properties (columns) to the table when needed. Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
+Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Azure Cosmos DB Tables API automatically adds properties (columns) to the table when needed. Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
 :::image type="content" source="./media/create-table-java/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/create-table-java/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Cosmos DB table.
+Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB table.
 
 :::image type="content" source="./media/create-table-java/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/create-table-java/table-api-app-sample-data-insert.png":::
 
-Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Tables API.
+Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Azure Cosmos DB Tables API.
 
 :::image type="content" source="./media/create-table-java/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/create-table-java/table-api-app-filter-data.png":::
 

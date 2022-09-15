@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/04/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](../cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](../mongodb/troubleshoot-query-performance.md)
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB for NoSQL. You can also use [diagnostics logs](../cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](../mongodb/troubleshoot-query-performance.md)
 
 Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
@@ -527,7 +527,7 @@ Queries that are run from a different region than the Azure Cosmos DB account wi
 
 ### Increase provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RUs). Imagine you have a query that consumes 5 RUs of throughput. For example, if you provision 1,000 RUs, you would be able to run that query 200 times per second. If you tried to run the query when there wasn't enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API SDKs will automatically retry this query after waiting for a short time. Throttled requests take longer, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](../use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) on the **Metrics** blade of the Azure portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RUs). Imagine you have a query that consumes 5 RUs of throughput. For example, if you provision 1,000 RUs, you would be able to run that query 200 times per second. If you tried to run the query when there wasn't enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current API for NoSQL SDKs will automatically retry this query after waiting for a short time. Throttled requests take longer, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](../use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) on the **Metrics** blade of the Azure portal.
 
 ### Increase MaxConcurrency
 

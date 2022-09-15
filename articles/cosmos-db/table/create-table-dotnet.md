@@ -1,26 +1,26 @@
 ---
-title: Quickstart - Azure Cosmos DB Table API for .NET
-description: Learn how to build a .NET app to manage Azure Cosmos DB Table API resources in this quickstart.
+title: Quickstart - Azure Cosmos DB for Table for .NET
+description: Learn how to build a .NET app to manage Azure Cosmos DB for Table resources in this quickstart.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/22/2022
 ms.custom: devx-track-dotnet
 ---
 
-# Quickstart: Azure Cosmos DB Table API for .NET
+# Quickstart: Azure Cosmos DB for Table for .NET
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This quickstart shows how to get started with the Azure Cosmos DB Table API from a .NET application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. You'll learn how to create tables, rows, and perform basic tasks within your Cosmos DB resource using the [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/).
+This quickstart shows how to get started with the Azure Cosmos DB for Table from a .NET application. The Azure Cosmos DB for Table is a schemaless data store allowing applications to store structured NoSQL data in the cloud. You'll learn how to create tables, rows, and perform basic tasks within your Azure Cosmos DB resource using the [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/).
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[Table API reference documentation](../../storage/tables/index.yml) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
+[API for Table reference documentation](../../storage/tables/index.yml) | [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ This quickstart shows how to get started with the Azure Cosmos DB Table API from
 
 ## Setting up
 
-This section walks you through how to create an Azure Cosmos account and set up a project that uses the Table API NuGet packages.
+This section walks you through how to create an Azure Cosmos DB account and set up a project that uses the API for Table NuGet packages.
 
 ### Create an Azure Cosmos DB account
 
-This quickstart will create a single Azure Cosmos DB account using the Table API.
+This quickstart will create a single Azure Cosmos DB account using the API for Table.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -55,7 +55,7 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 
 ---
 
-### Get Table API connection string
+### Get API for Table connection string
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -101,9 +101,9 @@ dotnet add package Azure.Data.Tables
 
 The sample code described in this article creates a table named ``adventureworks``. Each table row contains the details of a product such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-You'll use the following Table API classes to interact with these resources:
+You'll use the following API for Table classes to interact with these resources:
 
-* [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) - This class provides methods to perform service level operations with Azure Cosmos DB Table API.
+* [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) - This class provides methods to perform service level operations with Azure Cosmos DB for Table.
 * [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class allows you to interact with tables hosted in the Azure Cosmos DB table API.
 * [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
@@ -150,7 +150,7 @@ After you insert an item, you can also run a query to get all items that match a
 
 ## Run the code
 
-This app creates an Azure Cosmos Table API table. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos DB Table API table. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
@@ -170,7 +170,7 @@ Sand Surfboard
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB Table API account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB for Table account, you can delete the corresponding resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -209,7 +209,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB Table API account, create a table, and manage entries using the .NET SDK. You can now dive deeper into the SDK to learn how to perform more advanced data queries and management tasks in your Azure Cosmos DB Table API resources.
+In this quickstart, you learned how to create an Azure Cosmos DB for Table account, create a table, and manage entries using the .NET SDK. You can now dive deeper into the SDK to learn how to perform more advanced data queries and management tasks in your Azure Cosmos DB for Table resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB Table API and .NET](./how-to-dotnet-get-started.md)
+> [Get started with Azure Cosmos DB for Table and .NET](./how-to-dotnet-get-started.md)
