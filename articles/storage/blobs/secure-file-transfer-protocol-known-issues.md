@@ -38,16 +38,19 @@ The unsupported client list above is not exhaustive and may change over time.
 
 ## Client settings
 
-To transfer files to or from Azure storage via client applications, see the following recommanded client settings.
+To transfer files to or from Azure storage via client applications, see the following recommended client settings.
 
 - WinSCP (version 5.19.5 or later) 
-  - Under the **Preferences** dialog, under **Transfer** - **Background**, recommand setting the **Max number of transfers at the same time:** to be 9 or less.
+
   - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename for** option.
   
   > [!CAUTION]
-  > Leaving this option enabled, with **All files** or **Files above:** selected has been known to cause failures or degraded performance during large file uploads.
+  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
   
-  - Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level:** is checked, recommand selecting **Reduced** or **Normal**. Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
+  - Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level:** is checked, select **Reduced** or **Normal**.
+
+  > [!CAUTION]
+  > Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
 
 ## Unsupported operations
 
