@@ -944,42 +944,77 @@ If you are unable to communicate to or from a virtual machine, network security 
 
 The effective security rules for each network interface attached to a virtual machine are a combination of the rules you've created in a network security group and [default security rules](./network-security-groups-overview.md#default-security-rules). Understanding the effective security rules for a network interface may help you determine why you're unable to communicate to or from a virtual machine. You can view the effective rules for any network interface that is attached to a running virtual machine.
 
+# [**Portal**](#tab/network-interface-portal)
 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
+2. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
 
+3. Select the virtual machine you want to view or change settings for from the list.
 
+4. In **Settings**, select **Networking**.
 
+5. Select the name of the network interface.
 
+6. Select **Effective security rules**.
 
-1. In the search box at the top of the portal, enter the name of a virtual machine you want to view effective security rules for. If you don't know the name of a virtual machine, enter *virtual machines* in the search box. When **Virtual machines** appear in the search results, select it, and then select a virtual machine from the list.
-2. Select **Networking** under **SETTINGS**.
-3. Select the name of a network interface.
-4. Select **Effective security rules** under **SUPPORT + TROUBLESHOOTING**.
-5. Review the list of effective security rules to determine if the correct rules exist for your required inbound and outbound communication. Learn more about what you see in the list in [Network security group overview](./network-security-groups-overview.md).
+7. Review the list of effective security rules to determine if the correct rules exist for your required inbound and outbound communication. For more information about security rules, see [Network security group overview](./network-security-groups-overview.md).
 
-The IP flow verify feature of Azure Network Watcher can also help you determine if security rules are preventing communication between a virtual machine and an endpoint. To learn more, see [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+# [**PowerShell**](#tab/network-interface-powershell)
 
-**Commands**
+Use [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup) to view the list of effective security rules.
 
-- Azure CLI: [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
-- PowerShell: [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
+```azurepowershell
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName myNIC -ResourceGroupName myResourceGroup
+```
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) to view the list of effective security rules.
+
+```azurecli
+az network nic list-effective-nsg --name myNIC --resource-group myResourceGroup
+```
+
+---
 
 ### View effective routes
 
-The effective routes for the network interfaces attached to a virtual machine are a combination of default routes, any routes you've created, and any routes propagated from on-premises networks via BGP through an Azure virtual network gateway. Understanding the effective routes for a network interface may help you determine why you're unable to communicate to or from a virtual machine. You can view the effective routes for any network interface that is attached to a running virtual machine.
+The effective routes for the network interfaces attached to a virtual machine are a combination of default routes, any routes you've created, and any routes propagated from on-premises networks via BGP through an Azure virtual network gateway. 
 
-1. In the search box at the top of the portal, enter the name of a virtual machine you want to view effective security rules for. If you don't know the name of a virtual machine, enter *virtual machines* in the search box. When **Virtual machines** appear in the search results, select it, and then select a virtual machine from the list.
-2. Select **Networking** under **SETTINGS**.
-3. Select the name of a network interface.
-4. Select **Effective routes** under **SUPPORT + TROUBLESHOOTING**.
-5. Review the list of effective routes to determine if the correct routes exist for your required inbound and outbound communication. Learn more about what you see in the list in [Routing overview](virtual-networks-udr-overview.md).
+Understanding the effective routes for a network interface may help you determine why you're unable to communicate to or from a virtual machine. You can view the effective routes for any network interface that is attached to a running virtual machine.
+
+# [**Portal**](#tab/network-interface-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+
+3. Select the network interface you want to view or change settings for from the list.
+
+4. In **Help**, select **Effective routes**.
+
+5. Review the list of effective routes to determine if the correct routes exist for your required inbound and outbound communication. For more information about routing, see [Routing overview](virtual-networks-udr-overview.md).
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+Use [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) to view a list of the effective routes.
+
+```azurepowershell
+Get-AzEffectiveRouteTable -NetworkInterfaceName myNIC -ResourceGroupName myResourceGroup
+```
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) to view a list of the effective routes.
+
+```azurecli
+az network nic show-effective-route-table --name myNIC --resource-group myResourceGroup
+```
+
+---
 
 The next hop feature of Azure Network Watcher can also help you determine if routes are preventing communication between a virtual machine and an endpoint. To learn more, see [Next hop](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-**Commands**
-
-- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
-- PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## Permissions
 
@@ -1006,5 +1041,4 @@ To perform tasks on network interfaces, your account must be assigned to the [ne
 - Create a VM with multiple NICs using the [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Create a single NIC VM with multiple IPv4 addresses using the [Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md) or [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
 - Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) using the [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), or [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- Create a network interface using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager template](template-samples.md)
-- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks
+
