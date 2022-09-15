@@ -150,14 +150,14 @@ GROUP BY CAST([tpepPickupDateTime] AS DATE)
 ),
 public_holidays AS (
 SELECT
-    holidayname as holiday,
+    holidayName as holiday,
     date
 FROM
     OPENROWSET(
         BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
         FORMAT='PARQUET'
     ) AS [holidays]
-WHERE countryorregion = 'United States' AND YEAR(date) = 2016
+WHERE countryRegionCode = 'US' AND YEAR(date) = 2016
 ),
 joined_data AS (
 SELECT
@@ -187,27 +187,27 @@ From the plot chart, you can see that during public holidays the number of taxi 
 
 ```sql
 SELECT
-    AVG(windspeed) AS avg_windspeed,
-    MIN(windspeed) AS min_windspeed,
-    MAX(windspeed) AS max_windspeed,
+    AVG(windSpeed) AS avg_windspeed,
+    MIN(windSpeed) AS min_windspeed,
+    MAX(windSpeed) AS max_windspeed,
     AVG(temperature) AS avg_temperature,
     MIN(temperature) AS min_temperature,
     MAX(temperature) AS max_temperature,
-    AVG(sealvlpressure) AS avg_sealvlpressure,
-    MIN(sealvlpressure) AS min_sealvlpressure,
-    MAX(sealvlpressure) AS max_sealvlpressure,
-    AVG(precipdepth) AS avg_precipdepth,
-    MIN(precipdepth) AS min_precipdepth,
-    MAX(precipdepth) AS max_precipdepth,
-    AVG(snowdepth) AS avg_snowdepth,
-    MIN(snowdepth) AS min_snowdepth,
-    MAX(snowdepth) AS max_snowdepth
+    AVG(seaLvlPressure) AS avg_sealvlpressure,
+    MIN(seaLvlPressure) AS min_sealvlpressure,
+    MAX(seaLvlPressure) AS max_sealvlpressure,
+    AVG(precipDepth) AS avg_precipdepth,
+    MIN(precipDepth) AS min_precipdepth,
+    MAX(precipDepth) AS max_precipdepth,
+    AVG(snowDepth) AS avg_snowdepth,
+    MIN(snowDepth) AS min_snowdepth,
+    MAX(snowDepth) AS max_snowdepth
 FROM
     OPENROWSET(
         BULK 'https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [weather]
-WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
+WHERE countryOrRegion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationName = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
 ![Screenshot shows a Weather Data dataset result visualization.](./media/tutorial-data-analyst/weather-data-set-visualization.png)
