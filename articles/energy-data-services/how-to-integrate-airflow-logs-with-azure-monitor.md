@@ -80,9 +80,8 @@ You can integrate Airflow logs with Log Analytics Workspace by using **Diagnosti
 
 ## Working with the integrated Airflow Logs in Log Analytics Workspace
 
-Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started. Visit: [Sample Kusto Queries](../data-explorer/kusto/query/samples?pivots=azuredataexplorer.md)
+Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started.
 
-Browse through the available queries. Identify one to run and select Run. The query is added to the query window and the results returned.
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)
 
