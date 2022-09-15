@@ -329,5 +329,8 @@
   items: 
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
+  - name: Hyperparameters for AutoML computer vision tasks (v1)
+    displayName: automl, yolo-5, image, image model
+    href: reference-automl-images-hyperparameters-v1.md
   - name: Image data schemas for AutoML (v1)
     href: reference-automl-images-schema-v1.md
