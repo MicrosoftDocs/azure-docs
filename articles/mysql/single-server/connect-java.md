@@ -442,8 +442,6 @@ public class DemoApplication {
 }
 ```
 
----
-
 This Java code will use the *application.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data. You'll implement those methods in the rest of this article, and you'll be able to uncomment them one after each other.
