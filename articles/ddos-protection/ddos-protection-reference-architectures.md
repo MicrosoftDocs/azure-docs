@@ -75,9 +75,6 @@ For more information on this reference architecture, see the [Extend Azure HDIns
 documentation.
 
 
-> [!NOTE]
-> Azure App Service Environment for Power Apps or API management in a virtual network with a public IP are both not natively supported.
-
 ## Hub-and-spoke network topology with Azure Firewall and Azure Bastion
 
 This reference architecture details a hub-and-spoke topology with Azure Firewall inside the hub as a DMZ for scenarios that require central control over security aspects. Azure Firewall is a managed firewall as a service and is placed in its own subnet. Azure Bastion is deployed and placed in its own subnet.
@@ -91,7 +88,7 @@ Azure DDoS Protection Standard is enabled on the hub virtual network. Therefore,
 DDoS Protection Standard is designed for services that are deployed in a virtual network. For more information, see [Deploy dedicated Azure service into virtual networks](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 > [!NOTE]
-> DDoS Protection Standard protects the Public IPs of Azure resource. DDoS Protection Basic, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
+> DDoS Protection Standard protects the Public IPs of Azure resource. DDoS infrastructure protection, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
 For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
 
 ## Next steps
