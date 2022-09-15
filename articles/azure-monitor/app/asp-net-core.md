@@ -570,6 +570,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationInsightsTelemetry();
 
+// any custom configuration can be done here:
+builder.Services.Configure<TelemetryConfiguration>(x => x.DisableTelemetry = true);
 var app = builder.Build();
 
 // Not sure how to translate the second part with Configure(IApplicationBuilder app...) to .NET Core 6.0, or if that part will stay the same!
