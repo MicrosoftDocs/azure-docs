@@ -590,8 +590,6 @@ items:
             items:
             - name: Create a container
               href: storage-blob-container-create.md
-            - name: Get container URL
-              href: storage-blob-get-url-javascript.md              
             - name: Delete and restore containers
               href: storage-blob-container-delete.md
             - name: List containers
@@ -602,8 +600,6 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload.md
-            - name: Get blob URL
-              href: storage-blob-get-url-javascript.md
             - name: Append to blobs
               href: storage-blob-append.md              
             - name: Download blobs
@@ -634,6 +630,8 @@ items:
             items:
             - name: Create a container
               href: storage-blob-container-create-javascript.md
+            - name: Get container URL
+              href: storage-blob-get-url-javascript.md
             - name: Delete and restore containers
               href: storage-blob-container-delete-javascript.md
             - name: List containers
@@ -644,6 +642,8 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload-javascript.md
+            - name: Get blob URL
+              href: storage-blob-get-url-javascript.md
             - name: Download blobs
               href: storage-blob-download-javascript.md
             - name: Copy blobs

@@ -47,7 +47,7 @@ Learn more about [alert suppression rules](alerts-suppression-rules.md).
 
 File integrity monitoring (FIM) examines operating system files and registries for changes that might indicate an attack.
 
-FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can deploy through Defender for Cloud.
+FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can [deploy through Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
 
 Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
 
@@ -68,7 +68,7 @@ When vulnerabilities are detected, Defender for Cloud generates the following se
 
 Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
 
-## Azure Monitor Agent integration now in preview
+### Azure Monitor Agent integration now in preview
  
 Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
  
