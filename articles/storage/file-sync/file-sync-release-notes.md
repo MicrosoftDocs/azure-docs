@@ -56,7 +56,7 @@ The following release notes are for version 15.1.0.0 of the Azure File Sync agen
 		In this mode, Azure File Sync does two things to free up space on the volume: 
 	
 		- Files are tiered to the Azure file share more proactively.
-		- Tiered files accessed by the user will not be persisted to the volume. 
+		- Tiered files accessed by the user will not be persisted to the disk. 
 		
 		To learn more, see the [low disk space mode](file-sync-cloud-tiering-overview.md#low-disk-space-mode) section in the Cloud tiering overview documentation.
 
