@@ -1,20 +1,20 @@
 ---
-title: Create a Core (SQL) API database and container for Azure Cosmos DB
-description: Create a Core (SQL) API database and container for Azure Cosmos DB
+title: Create a API for NoSQL database and container for Azure Cosmos DB
+description: Create a API for NoSQL database and container for Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Create an Azure Cosmos Core (SQL) API account, database and container using Azure CLI
+# Create an Azure Cosmos DB for NoSQL account, database and container using Azure CLI
 
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
-The script in this article demonstrates creating a SQL API database and container.
+The script in this article demonstrates creating a API for NoSQL database and container.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,8 +46,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos SQL (Core) database. |
-| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos SQL (Core) container. |
+| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos DB for NoSQL database. |
+| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos DB for NoSQL container. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

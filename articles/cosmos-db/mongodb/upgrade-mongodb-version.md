@@ -2,7 +2,7 @@
 title: Upgrade the Mongo version of your Azure Cosmos DB's API for MongoDB account
 description: How to upgrade the MongoDB wire-protocol version for your existing Azure Cosmos DB's API for MongoDB accounts seamlessly
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 02/23/2022
 author: gahl-levy
@@ -10,12 +10,12 @@ ms.author: gahllevy
 
 ---
 
-# Upgrade the API version of your Azure Cosmos DB API for MongoDB account
+# Upgrade the API version of your Azure Cosmos DB for MongoDB account
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 This article describes how to upgrade the API version of your Azure Cosmos DB's API for MongoDB account. After you upgrade, you can use the latest functionality in Azure Cosmos DB's API for MongoDB. The upgrade process doesn't interrupt the availability of your account and it doesn't consume RU/s or decrease the capacity of the database at any point. No existing data or indexes will be affected by this process. 
 
-When upgrading to a new API version, start with development/test workloads before upgrading production workloads. It's important to upgrade your clients to a version compatible with the API version you are upgrading to before upgrading your Azure Cosmos DB API for MongoDB account.
+When upgrading to a new API version, start with development/test workloads before upgrading production workloads. It's important to upgrade your clients to a version compatible with the API version you are upgrading to before upgrading your Azure Cosmos DB for MongoDB account.
 
 >[!Note]
 > At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 and higher. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -72,7 +72,7 @@ When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.m
 
 1. Sign into the [Azure portal.](https://portal.azure.com/)
 
-1. Navigate to your Azure Cosmos DB API for MongoDB account. Open the **Overview** pane and verify that your current **Server version** is either 3.2 or 3.6.
+1. Navigate to your Azure Cosmos DB for MongoDB account. Open the **Overview** pane and verify that your current **Server version** is either 3.2 or 3.6.
 
     :::image type="content" source="./media/upgrade-mongodb-version/check-current-version.png" alt-text="Check the current version of your MongoDB account from the Azure portal." border="true":::
 
