@@ -127,6 +127,10 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
+    - name: Security
+      items:
+      - name: Data encryption
+        href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
     - name: Power BI
@@ -253,9 +257,9 @@
     - name: Security
       items:
       - name: Data encryption with Azure portal
-        href: flexible-server/tutorial-data-encryption-mysql-flexible-server-portal.md
+        href: flexible-server/how-to-data-encryption-portal.md
       - name: Data encryption with Azure CLI
-        href: flexible-server/tutorial-data-encryption-mysql-flexible-server-cli.md        
+        href: flexible-server/how-to-data-encryption-cli.md        
   - name: Samples
     items:
     - name: Azure CLI samples
