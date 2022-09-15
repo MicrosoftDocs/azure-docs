@@ -836,6 +836,7 @@ $IP = @{
 }
 $nic | Set-AzNetworkInterfaceIpConfig @IP
 
+## Save the configuration to the network interface. ##
 $nic | Set-AzNetworkInterface
 ```
 
@@ -865,32 +866,42 @@ Only network interfaces that exist in the same virtual network can be added to t
 
 3. Select the network interface you want to view or change settings for from the list.
 
-4. In **Settings**, select **IP configurations**.
+4. In **Settings**, select **Network security group**.
 
+5. Select the network security group in the pull-down box.
 
-
-
+6. Select **Save**.
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
+Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to set the network security group for the network interface.
+
+```azurepowershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Place the network security group configuration into a variable. ##
+$nsg = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
+
+## Add the NSG to the NIC configuration. ##
+$nic.NetworkSecurityGroup = $nsg
+
+## Save the configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+```
+
 # [**CLI**](#tab/network-interface-cli)
 
+Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to set the network security group for the network interface.
+
+```azurecli
+az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --network-security-group myNSG
+```
+
 ---
-
-
-
-
-1. In the search box at the top of the portal, enter *network interfaces* in the search box. When **network interfaces** appear in the search results, select it.
-2. Select the network interface in the list that you want to associate a network security group to, or dissociate a network security group from.
-3. Select **Network security group** under **SETTINGS**.
-4. Select **Edit**.
-5. Select **Network security group** and then select the network security group you want to associate to the network interface, or select **None**, to dissociate a network security group.
-6. Select **Save**.
-
-**Commands**
-
-- Azure CLI: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
-- PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## Delete a network interface
 
