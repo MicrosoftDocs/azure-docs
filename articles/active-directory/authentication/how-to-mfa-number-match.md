@@ -66,6 +66,9 @@ The AD FS adapter supports number matching after installing an update. Earlier v
 | Windows Server 2019 | [October 19, 2021—KB5006744 (OS Build 17763.2268) Preview](https://support.microsoft.com/topic/october-19-2021-kb5006744-os-build-17763-2268-preview-e043a8a3-901b-4190-bb6b-f5a4137411c0) |
 | Windows Server 2016 | [October 12, 2021—KB5006669 (OS Build 14393.4704)](https://support.microsoft.com/topic/october-12-2021-kb5006669-os-build-14393-4704-bcc95546-0768-49ae-bec9-240cc59df384) |
 
+### Authenticator App Version
+
+The minimum version to support Number matching, for IOS 6.5.82+ and for Android 6.2108.5654+.
 
 ### NPS extension
 
