@@ -35,7 +35,7 @@ Establishing cross-tenant support begins with creating a cross tenant connection
 
 Once both cross-tenant connections exist and the scopes are exactly the same, a true connection is established admins. Administrators can use their network manager to add cross-tenant resources to their NGs and to manage virtual networks included in the connection scope. Existing connectivity and/or security admin rules will be applied to the resources based on existing configurations.
 
-A cross-tenant connection can only be established and maintained when both objects from each party exist. When one of the connections is removed, the cross-tenant connection is broken. If you need to delete a cross tenant connection, you'll perform the following:
+A cross-tenant connection can only be established and maintained when both objects from each party exist. When one of the connections is removed, the cross-tenant connection is broken. If you need to delete a cross-tenant connection, you'll perform the following:
 
 - Remove cross-tenant connections from management tenant
 - Remove connection from managed tenant 
@@ -52,9 +52,6 @@ Need help with setting up permissions? Check out how to [add guest users in the 
 ## Known limitations 
 
 Currently, cross-tenant virtual networks can only be [added to network groups manually](concept-network-groups.md#group-membership). Adding cross-tenant virtual networks to network groups dynamically through Azure Policy is a future capability. 
-
- 
-Deleting a cross-tenant connections has the follow impact:
 
 ## Next Steps 
 
