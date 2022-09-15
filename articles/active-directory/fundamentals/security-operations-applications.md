@@ -16,15 +16,15 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory security operations guide for Applications
 
-Applications provide an attack surface for security breaches and must be monitored. While not targeted as often as user accounts, breaches can occur. Since applications often run without human intervention, the attacks may be harder to detect.
+Applications have an attack surface for security breaches and must be monitored. While not targeted as often as user accounts, breaches can occur. Because applications often run without human intervention, the attacks may be harder to detect.
 
-This article provides guidance to monitor and alert on application events. It's regularly updated to help ensure that you:
+This article provides guidance to monitor and alert on application events. It's regularly updated to help ensure you:
 
-* Prevent malicious applications from getting unwarranted access to data.
+* Prevent malicious applications from getting unwarranted access to data
 
-* Prevent existing applications from being compromised by bad actors.
+* Prevent applications from being compromised by bad actors
 
-* Gather insights that enable you to build and configure new applications more securely.
+* Gather insights that enable you to build and configure new applications more securely
 
 If you're unfamiliar with how applications work in Azure Active Directory (Azure AD), see [Apps and service principals in Azure AD](../develop/app-objects-and-service-principals.md).
 
@@ -33,31 +33,31 @@ If you're unfamiliar with how applications work in Azure Active Directory (Azure
 
 ## What to look for
 
-As you monitor your application logs for security incidents, review the following to help differentiate normal activity from malicious activity. The following events may indicate security concerns and each are covered in the rest of the article.
+As you monitor your application logs for security incidents, review the following list to help differentiate normal activity from malicious activity. The following events might indicate security concerns. Each are covered in the article.
 
-* Any changes occurring outside of normal business processes and schedules.
+* Any changes occurring outside normal business processes and schedules
 
 * Application credentials changes
 
 * Application permissions
 
-  * Service principal assigned to an Azure AD or an Azure role-based access control (RBAC) role.
+  * Service principal assigned to an Azure AD or an Azure role-based access control (RBAC) role
 
-  * Applications that are granted highly privileged permissions.
+  * Applications granted highly privileged permissions
 
-  * Azure Key Vault changes.
+  * Azure Key Vault changes
 
-  * End user granting applications consent.
+  * End user granting applications consent
 
-  * Stopped end user consent based on level of risk.
+  * Stopped end-user consent based on level of risk
 
 * Application configuration changes
 
-  * Universal resource identifier (URI) changed or non-standard.
+  * Universal resource identifier (URI) changed or non-standard
 
-  * Changes to application owners.
+  * Changes to application owners
 
-  * Log-out URLs modified.
+  * Log-out URLs modified
 
 ## Where to look
 
@@ -71,38 +71,38 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md)
 
-From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools, which allow more automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level with security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where there are Sigma templates for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](../../azure-monitor/overview.md)** – automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
-* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
-* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - detects risk on workload identities across sign-in behavior and offline indicators of compromise.
 
-Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies, including device state. This workbook enables you to view a summary, and identify the effects over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user.
+Much of what you monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies, including device state. Use the workbook to view a summary, and identify the effects over a time period. You can use the workbook to investigate the sign-ins of a specific user.
 
-The remainder of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools.
+The remainder of this article is what we recommend you monitor and alert on. It's organized by the type of threat. Where there are pre-built solutions, we link to them or provide samples after the table. Otherwise, you can build alerts using the preceding tools.
 
 ## Application credentials
 
-Many applications use credentials to authenticate in Azure AD. Any other credentials added outside expected processes could be a malicious actor using those credentials. We recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note, application and service principal updates are logged as two entries in the audit log.
+Many applications use credentials to authenticate in Azure AD. Any other credentials added outside expected processes could be a malicious actor using those credentials. We recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note that application and service principal updates are logged as two entries in the audit log.
 
 * Monitor applications to identify long credential expiration times.
 
-* Replace long-lived credentials with credentials that have a short life span. Take steps to ensure that credentials don't get committed in code repositories and are stored securely.
+* Replace long-lived credentials with credentials with a short life span. Ensure credentials don't get committed in code repositories, and are stored securely.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | -|-|-|-|-|
 | Added credentials to existing applications| High| Azure AD Audit logs| Service-Core Directory, Category-ApplicationManagement <br>Activity: Update Application-Certificates and secrets management<br>-and-<br>Activity: Update Service principal/Update Application| Alert when credentials are: added outside of normal business hours or workflows, of types not used in your environment, or added to a non-SAML flow supporting service principal.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Credentials with a lifetime longer than your policies allow.| Medium| Microsoft Graph| State and end date of Application Key credentials<br>-and-<br>Application password credentials| You can use MS Graph API to find the start and end date of credentials, and evaluate longer-than-allowed lifetimes. See PowerShell script following this table. |
 
- The following pre-built monitoring and alerts are available.
+ The following pre-built monitoring and alerts are available:
 
 * Microsoft Sentinel – [Alert when new app or service principle credentials added](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml)
 
@@ -114,7 +114,7 @@ Many applications use credentials to authenticate in Azure AD. Any other credent
 
 ## Application permissions
 
-Like an administrator account, applications can be assigned privileged roles. Apps can be assigned Azure AD roles, such as global administrator, or Azure RBAC roles such as subscription owner. Because they can run without a user present and as a background service, closely monitor anytime an application is granted a highly privileged role or permission.
+Like an administrator account, applications can be assigned privileged roles. Apps can be assigned Azure AD roles, such as Global Administrator, or Azure RBAC roles such as Subscription Owner. Because they can run without a user, and as a background service, closely monitor when an application is granted a highly privileged role or permission.
 
 ### Service principal assigned to a role
 
@@ -124,7 +124,7 @@ Like an administrator account, applications can be assigned privileged roles. Ap
 
 ### Application granted highly privileged permissions
 
-Applications should also follow the principle of least privilege. Investigate application permissions to ensure they're truly needed. You can create an [app consent grant report](https://aka.ms/getazureadpermissions) to help identify existing applications and highlight privileged permissions.
+Applications should follow the principle of least privilege. Investigate application permissions to ensure they're needed. You can create an [app consent grant report](https://aka.ms/getazureadpermissions) to help identify applications and highlight privileged permissions.
 
 | What to monitor|Risk Level|Where| Filter/sub-filter| Notes|
 |-|-|-|-|-|
@@ -138,7 +138,7 @@ For more information on monitoring app permissions, see this tutorial: [Investig
 
 ### Azure Key Vault
 
-Azure Key Vault can be used to store your tenant’s secrets. We recommend you pay particular attention to any changes to Key Vault configuration and activities.
+Use Azure Key Vault to store your tenant’s secrets. We recommend you pay attention to any changes to Key Vault configuration and activities.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
@@ -170,11 +170,11 @@ For more information on consent operations, see the following resources:
 
 ## Application authentication flows
 
-There are several flows defined in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application that is being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, resource owner password credentials (ROPC) should be avoided because this requires the user to expose their current password credentials to the application directly. The application then uses these credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
+There are several flows in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, avoid resource owner password credentials (ROPC) because this requires the user to expose their current password credentials to the application. The application then uses these credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
 
-The only scenario where ROPC is suggested is for automated testing of applications. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
+The only scenario where ROPC is suggested is for automated application testing. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
 
-Device code flow is another OAuth 2.0 protocol flow specifically for input constrained devices and isn't used in all environments. When this type of flow is seen in the environment and is not being used in an input constrained device scenario, further investigation is warranted. This can be a misconfigured application or potentially something malicious.
+Device code flow is another OAuth 2.0 protocol flow for input-constrained devices and isn't used in all environments. When this type of flow is seen in the environment, and is not used in an input constrained device scenario, further investigation is warranted. This can be a misconfigured application or potentially something malicious.
 
 Monitor application authentication using the following formation:
 
@@ -185,7 +185,7 @@ Monitor application authentication using the following formation:
 
 ## Application configuration changes
 
-Monitor changes to any application’s configuration. Specifically, configuration changes to the uniform resource identifier (URI), ownership, and log-out URL.
+Monitor changes to application configuration. Specifically, configuration changes to the uniform resource identifier (URI), ownership, and log-out URL.
 
 ### Dangling URI and Redirect URI changes
 
@@ -194,7 +194,7 @@ Monitor changes to any application’s configuration. Specifically, configuratio
 | Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-Alert anytime these changes are detected.
+Alert whken these changes are detected.
 
 ### AppID URI added, modified, or removed
 
@@ -218,8 +218,6 @@ Alert when these changes are detected outside approved change management procedu
 
 ## Resources
 
-The following are links to useful resources:
-
 * GitHub Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
 * Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
@@ -228,7 +226,7 @@ The following are links to useful resources:
 
 * OAuth attack detection guidance - [Unusual addition of credentials to an OAuth app](/cloud-app-security/investigate-anomaly-alerts)
 
-Azure AD monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](../..//azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
+* Azure AD monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](../..//azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 
 ## Next steps
 
