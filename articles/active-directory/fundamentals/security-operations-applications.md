@@ -170,7 +170,7 @@ For more information on consent operations, see the following resources:
 
 ## Application authentication flows
 
-There are several flows in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, avoid resource owner password credentials (ROPC) because these requires the user to expose their current password credentials to the application. The application then uses the credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
+There are several flows in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, avoid resource owner password credentials (ROPC) because these require the user to expose their current password credentials to the application. The application then uses the credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
 
 The only scenario where ROPC is suggested is for automated application testing. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
 
