@@ -59,7 +59,7 @@ locations:
  - westus
 ```
 
-> [TIP]
+> [!TIP]
 > You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
 
 Run the registry create command.
