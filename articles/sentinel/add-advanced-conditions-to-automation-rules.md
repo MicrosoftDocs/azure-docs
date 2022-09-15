@@ -71,7 +71,12 @@ Let's say we want to have this rule run if one of THREE (or more) conditions is 
 
 ### Example 2: complex conditions
 
-blah blah blah 
+Now we decide we're going to be a little more picky. We want to add more conditions to each side of our original OR condition. That is, we want the rule to run if A *and* X are true, *OR* if B *and* Y are true. 
+
+:::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-a-compound-condition.png" alt-text="Screenshot of adding a compound condition to an automation rule.":::
+
+:::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-compound-conditions.png" alt-text="Screenshot of adding multiple compound conditions to an automation rule.":::
+
 
 ## Final result of automation rule (temp)
 
