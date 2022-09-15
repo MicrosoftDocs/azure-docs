@@ -445,6 +445,8 @@ items:
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
+    - name: Google Sheets
+      href: connector-google-sheets.md   
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
