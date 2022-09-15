@@ -273,7 +273,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 #### Example of how to exclude a group from application name and geographic location 
  
-In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** to from **default** to **enabled.** 
+In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
 In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
