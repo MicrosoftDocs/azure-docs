@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API
-description: This quickstart presents a code sample for the Azure Cosmos DB Spark 3 OLTP Connector for SQL API that you can use to connect to and query data in your Azure Cosmos DB account
+title: Quickstart - Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL
+description: This quickstart presents a code sample for the Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL that you can use to connect to and query data in your Azure Cosmos DB account
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/01/2022
@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API
+# Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](create-sql-api-go.md)
 >
 
-This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
+This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
 
-Throughout this quick tutorial, we rely on [Azure Databricks Runtime 10.4 with Spark 3.2.1](/azure/databricks/release-notes/runtime/10.4) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 10.4 with Spark 3.2.1](/azure/databricks/release-notes/runtime/10.4) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
 
 You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
@@ -42,13 +42,13 @@ You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you s
 
 SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
-Install Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-2-download).
+Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-2-download).
 
 The getting started guide is based on PySpark/Scala and you can run the following code snippet in an Azure Databricks PySpark/Scala notebook.
 
 ## Create databases and containers
 
-First, set Cosmos DB account credentials, and the Cosmos DB Database name and container name.
+First, set Azure Cosmos DB account credentials, and the Azure Cosmos DB Database name and container name.
 
 #### [Python](#tab/python)
 
@@ -82,7 +82,7 @@ val cfg = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
 ```
 ---
 
-Next, you can use the new Catalog API to create a Cosmos DB Database and Container through Spark.
+Next, you can use the new Catalog API to create an Azure Cosmos DB Database and Container through Spark.
 
 #### [Python](#tab/python)
 
@@ -92,10 +92,10 @@ spark.conf.set("spark.sql.catalog.cosmosCatalog", "com.azure.cosmos.spark.Cosmos
 spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.accountEndpoint", cosmosEndpoint)
 spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.accountKey", cosmosMasterKey)
 
-# create a cosmos database using catalog api
+# create an Azure Cosmos DB database using catalog api
 spark.sql("CREATE DATABASE IF NOT EXISTS cosmosCatalog.{};".format(cosmosDatabaseName))
 
-# create a cosmos container using catalog api
+# create an Azure Cosmos DB container using catalog api
 spark.sql("CREATE TABLE IF NOT EXISTS cosmosCatalog.{}.{} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/id', manualThroughput = '1100')".format(cosmosDatabaseName, cosmosContainerName))
 ```
 
@@ -107,10 +107,10 @@ spark.conf.set(s"spark.sql.catalog.cosmosCatalog", "com.azure.cosmos.spark.Cosmo
 spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.accountEndpoint", cosmosEndpoint)
 spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.accountKey", cosmosMasterKey)
 
-// create a cosmos database using catalog api
+// create an Azure Cosmos DB database using catalog api
 spark.sql(s"CREATE DATABASE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName};")
 
-// create a cosmos container using catalog api
+// create an Azure Cosmos DB container using catalog api
 spark.sql(s"CREATE TABLE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName}.${cosmosContainerName} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/id', manualThroughput = '1100')")
 ```
 ---
@@ -121,7 +121,7 @@ For more information, see the full [Catalog API](https://github.com/Azure/azure-
 
 ## Ingest data
 
-The name of the data source is `cosmos.oltp`, and the following example shows how you can write a memory dataframe consisting of two items to Cosmos DB:
+The name of the data source is `cosmos.oltp`, and the following example shows how you can write a memory dataframe consisting of two items to Azure Cosmos DB:
 
 #### [Python](#tab/python)
 
@@ -148,7 +148,7 @@ spark.createDataFrame(Seq(("cat-alive", "Schrodinger cat", 2, true), ("cat-dead"
 ```
 ---
 
-Note that `id` is a mandatory field for Cosmos DB.
+Note that `id` is a mandatory field for Azure Cosmos DB.
 
 For more information related to ingesting data, see the full [write configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/configuration-reference.md#write-config) documentation.
 
@@ -186,7 +186,7 @@ For more information related to querying data, see the full [query configuration
 
 ## Partial document update using Patch
 
-Using the same `cosmos.oltp` data source, we can do partial update in Cosmos DB using Patch API:
+Using the same `cosmos.oltp` data source, we can do partial update in Azure Cosmos DB using Patch API:
 
 #### [Python](#tab/python)
 
@@ -313,7 +313,7 @@ For more information related to schema inference, see the full [schema inference
 
 ## Configuration reference
 
-The Azure Cosmos DB Spark 3 OLTP Connector for SQL API has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
+The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
 ## Migrate to Spark 3 Connector
 
@@ -321,7 +321,7 @@ If you are using our older Spark 2.4 Connector, you can find out how to migrate 
 
 ## Next steps
 
-* Azure Cosmos DB Apache Spark 3 OLTP Connector for Core (SQL) API: [Release notes and resources](sql-api-sdk-java-spark-v3.md)
+* Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: [Release notes and resources](sql-api-sdk-java-spark-v3.md)
 * Learn more about [Apache Spark](https://spark.apache.org/).
 * Learn how to configure [throughput control](throughput-control-spark.md).
 * Check out more [samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).

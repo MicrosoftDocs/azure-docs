@@ -3,7 +3,7 @@ title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: sidandrews
@@ -24,7 +24,7 @@ Use the following steps to enable time to live on a container with no expiration
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos account or select an existing account.
+2. Create a new Azure Cosmos DB account or select an existing account.
 
 3. Open the **Data Explorer** pane.
 
@@ -203,7 +203,7 @@ Use the following steps to enable time to live on an item:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos account or select an existing account.
+2. Create a new Azure Cosmos DB account or select an existing account.
 
 3. Open the **Data Explorer** pane.
 

@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Build a Python app using Azure Cosmos DB SQL API account'
-description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Quickstart: Build a Python app using Azure Cosmos DB for NoSQL account'
+description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
 author: Rodrigossz
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/25/2022
@@ -11,7 +11,7 @@ ms.author: rosouz
 ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api
 ---
 
-# Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
+# Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,11 +25,11 @@ ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-
 > * [Go](create-sql-api-go.md)
 >
 
-In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
-- A Cosmos DB Account. You options are:
+- An Azure Cosmos DB Account. You options are:
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
@@ -41,7 +41,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
-- [Azure Cosmos DB SQL API SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+- [Azure Cosmos DB for NoSQL SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## Important update on Python 2.x Support
 
@@ -65,7 +65,7 @@ New releases of this SDK won't support Python 2.x starting January 1st, 2022. Pl
 
 ## Clone the sample application
 
-Now let's clone a SQL API app from GitHub, set the connection string, and run it. This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azure-cosmos/#history).
+Now let's clone a API for NoSQL app from GitHub, set the connection string, and run it. This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azure-cosmos/#history).
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -220,4 +220,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the SQL API](../import-data.md)
+> [Import data into Azure Cosmos DB for the API for NoSQL](../import-data.md)

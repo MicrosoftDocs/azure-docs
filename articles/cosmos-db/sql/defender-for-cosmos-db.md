@@ -2,7 +2,7 @@
 title: 'Microsoft Defender for Azure Cosmos DB'
 description: Learn how Microsoft Defender provides advanced threat protection on Azure Cosmos DB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/21/2022
 ms.author: sidandrews
@@ -18,7 +18,7 @@ Security alerts are triggered when anomalies in activity occur. These security a
 
 > [!NOTE]
 >
-> * Microsoft Defender for Azure Cosmos DB is currently available only for the Core (SQL) API.
+> * Microsoft Defender for Azure Cosmos DB is currently available only for the API for NoSQL.
 > * Microsoft Defender for Azure Cosmos DB is not currently available in Azure government and sovereign cloud regions.
 
 For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](../monitor-cosmos-db.md), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.

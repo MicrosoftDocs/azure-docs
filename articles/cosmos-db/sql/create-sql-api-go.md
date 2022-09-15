@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Build a Go app using Azure Cosmos DB SQL API account'
-description: Gives a Go code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Quickstart: Build a Go app using Azure Cosmos DB for NoSQL account'
+description: Gives a Go code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
 author: Duffney
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 3/4/2021
 ms.author: jduffney
 ---
 
-# Quickstart: Build a Go application using an Azure Cosmos DB SQL API account
+# Quickstart: Build a Go application using an Azure Cosmos DB for NoSQL account
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.author: jduffney
 >
 
 
-In this quickstart, you'll build a sample Go application that uses the Azure SDK for Go to manage a Cosmos DB SQL API account. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+In this quickstart, you'll build a sample Go application that uses the Azure SDK for Go to manage an Azure Cosmos DB for NoSQL account. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
@@ -33,7 +33,7 @@ To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](../introduction.md)
 
 ## Prerequisites
 
-- A Cosmos DB Account. Your options are:
+- An Azure Cosmos DB Account. Your options are:
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
@@ -47,7 +47,7 @@ To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](../introduction.md)
 
 ## Getting started
 
-For this quickstart, you'll need to create an Azure resource group and a Cosmos DB account.
+For this quickstart, you'll need to create an Azure resource group and an Azure Cosmos DB account.
 
 Run the following commands to create an Azure resource group:
 
@@ -55,7 +55,7 @@ Run the following commands to create an Azure resource group:
 az group create --name myResourceGroup --location eastus
 ```
 
-Next create a Cosmos DB account by running the following command:
+Next create an Azure Cosmos DB account by running the following command:
 
 ```
 az cosmosdb create --name my-cosmosdb-account --resource-group myResourceGroup
@@ -73,7 +73,7 @@ go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
 
 * A `Client` is a connection to an Azure Cosmos DB account.
 * Azure Cosmos DB accounts can have multiple `databases`. A `DatabaseClient` allows you to create, read, and delete databases.
-* Database within an Azure Cosmos Account can have multiple `containers`. A `ContainerClient` allows you to create, read, update, and delete containers, and to modify throughput provision.
+* Database within an Azure Cosmos DB Account can have multiple `containers`. A `ContainerClient` allows you to create, read, update, and delete containers, and to modify throughput provision.
 * Information is stored as items inside containers. And the client allows you to create, read, update, and delete items in containers.
 
 ## Code examples
@@ -92,7 +92,7 @@ if err != nil {
 // Create a CosmosDB client
 client, err := azcosmos.NewClientWithKey(endpoint, cred, nil)
 if err != nil {
-    log.Fatal("Failed to create cosmos client: ", err)
+    log.Fatal("Failed to create Azure Cosmos DB client: ", err)
 }
 
 // Create database client
@@ -108,7 +108,7 @@ if err != nil {
 }
 ```
 
-**Create a Cosmos DB database**
+**Create an Azure Cosmos DB database**
 
 ```go
 import (
@@ -339,13 +339,13 @@ func deleteItem(client *azcosmos.Client, databaseName, containerName, partitionK
 
 ## Run the code
 
-To authenticate, you need to pass the Azure Cosmos account credentials to the application.
+To authenticate, you need to pass the Azure Cosmos DB account credentials to the application.
 
-Get your Azure Cosmos account credentials by following these steps:
+Get your Azure Cosmos DB account credentials by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos account.
+1. Navigate to your Azure Cosmos DB account.
 
 1. Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account. You'll add the URI and keys values to an environment variable in the next step.
 
@@ -433,7 +433,7 @@ func main() {
 	// Create a CosmosDB client
 	client, err := azcosmos.NewClientWithKey(endpoint, cred, nil)
 	if err != nil {
-		log.Fatal("Failed to create cosmos db client: ", err)
+		log.Fatal("Failed to create Azure Cosmos DB db client: ", err)
 	}
 	
 	err = createDatabase(client, databaseName)
@@ -692,4 +692,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the SQL API](../import-data.md)
+> [Import data into Azure Cosmos DB for the API for NoSQL](../import-data.md)

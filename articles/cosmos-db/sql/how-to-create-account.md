@@ -1,19 +1,19 @@
 ---
-title: Create an Azure Cosmos DB SQL API account
-description: Learn how to create a new Azure Cosmos DB SQL API account to store databases, containers, and items.
+title: Create an Azure Cosmos DB for NoSQL account
+description: Learn how to create a new Azure Cosmos DB for NoSQL account to store databases, containers, and items.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/08/2022
 ---
 
-# Create an Azure Cosmos DB SQL API account
+# Create an Azure Cosmos DB for NoSQL account
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-An Azure Cosmos DB SQL API account contains all of your Azure Cosmos DB resources: databases, containers, and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../account-databases-containers-items.md).
+An Azure Cosmos DB for NoSQL account contains all of your Azure Cosmos DB resources: databases, containers, and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../account-databases-containers-items.md).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ An Azure Cosmos DB SQL API account contains all of your Azure Cosmos DB resource
 
 ## Create an account
 
-Create a single Azure Cosmos DB account using the SQL API.
+Create a single Azure Cosmos DB account using the API for NoSQL.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -49,7 +49,7 @@ Create a single Azure Cosmos DB account using the SQL API.
         --location $location
     ```
 
-1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB SQL API account with default settings.
+1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB for NoSQL account with default settings.
 
     ```azurecli-interactive
     az cosmosdb create \
@@ -86,7 +86,7 @@ Create a single Azure Cosmos DB account using the SQL API.
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB SQL API account with default settings. 
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB for NoSQL account with default settings. 
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -108,17 +108,17 @@ Create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
+1. On the **Select API option** page, select the **Create** option within the **NoSQL - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the API for NoSQL](../index.yml).
 
-   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
+   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
    | Setting | Value | Description |
    | --- | --- | --- |
-   | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos account. |
+   | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB account. |
    | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   | Account Name | A unique name | Enter a name to identify your Azure Cosmos account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
+   | Account Name | A unique name | Enter a name to identify your Azure Cosmos DB account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data. |
    | Capacity mode |Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode. |
    | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** |With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
@@ -126,7 +126,7 @@ Create a single Azure Cosmos DB account using the SQL API.
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="media/create-account-portal/new-cosmos-account-page.png" lightbox="media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
+   :::image type="content" source="media/create-account-portal/new-cosmos-account-page.png" lightbox="media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB DB SQL API.":::
 
 1. Select **Review + create**.
 
@@ -134,13 +134,13 @@ Create a single Azure Cosmos DB account using the SQL API.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
+   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB DB SQL API resource.":::
 
 ---
 
 ## Next steps
 
-In this guide, you learned how to create an Azure Cosmos DB SQL API account. You can now import additional data to your Azure Cosmos DB account.
+In this guide, you learned how to create an Azure Cosmos DB for NoSQL account. You can now import additional data to your Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB SQL API](../import-data.md)
+> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)

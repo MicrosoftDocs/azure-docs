@@ -1,17 +1,17 @@
 ---
-title: Create a container in Azure Cosmos DB SQL API using .NET
-description: Learn how to create a container in your Azure Cosmos DB SQL API database using the .NET SDK.
+title: Create a container in Azure Cosmos DB for NoSQL using .NET
+description: Learn how to create a container in your Azure Cosmos DB for NoSQL database using the .NET SDK.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
-# Create a container in Azure Cosmos DB SQL API using .NET
+# Create a container in Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 

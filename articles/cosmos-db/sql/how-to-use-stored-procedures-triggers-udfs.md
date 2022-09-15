@@ -3,7 +3,7 @@ title: Register and use stored procedures, triggers, and user-defined functions 
 description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 11/03/2021
 ms.author: sidandrews
@@ -15,20 +15,20 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 # How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The SQL API in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. Once you've defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
+The API for NoSQL in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. Once you've defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
-You can use the SQL API SDK across multiple platforms including [.NET v2 (legacy)](sql-api-sdk-dotnet.md), [.NET v3](sql-api-sdk-dotnet-standard.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), or [Python](sql-api-sdk-python.md) SDKs to perform these tasks. If you haven't worked with one of these SDKs before, see the *"Quickstart"* article for the appropriate SDK:
+You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (legacy)](sql-api-sdk-dotnet.md), [.NET v3](sql-api-sdk-dotnet-standard.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), or [Python](sql-api-sdk-python.md) SDKs to perform these tasks. If you haven't worked with one of these SDKs before, see the *"Quickstart"* article for the appropriate SDK:
 
 | SDK | Getting started |
 | :--- | :--- |
-| .NET v3 | [Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources](create-sql-api-dotnet.md) |
-| Java | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](create-sql-api-java.md)
-| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account](create-sql-api-nodejs.md) |
-| Python | [Quickstart: Build a Python application using an Azure Cosmos DB SQL API account](create-sql-api-python.md) |
+| .NET v3 | [Quickstart: Build a .NET console app to manage Azure Cosmos DB for NoSQL resources](create-sql-api-dotnet.md) |
+| Java | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](create-sql-api-java.md)
+| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account](create-sql-api-nodejs.md) |
+| Python | [Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account](create-sql-api-python.md) |
 
 ## How to run stored procedures
 
-Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos container. For more information on how to write stored procedures in Azure Cosmos DB, see [How to write stored procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) article.
+Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos DB container. For more information on how to write stored procedures in Azure Cosmos DB, see [How to write stored procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) article.
 
 The following examples show how to register and call a stored procedure by using the Azure Cosmos DB SDKs. Refer to [Create a Document](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) as the source for this stored procedure is saved as `spCreateToDoItem.js`.
 

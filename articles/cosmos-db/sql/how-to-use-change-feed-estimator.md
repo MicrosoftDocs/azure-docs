@@ -3,7 +3,7 @@ title: Use the change feed estimator - Azure Cosmos DB
 description: Learn how to use the change feed estimator to analyze the progress of your change feed processor
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: maquaran
@@ -22,7 +22,7 @@ The change feed processor acts as a pointer that moves forward across your [chan
 
 Your change feed processor deployment can process changes at a particular rate based on its available resources like CPU, memory, network, and so on.
 
-If this rate is slower than the rate at which your changes happen in your Azure Cosmos container, your processor will start to lag behind.
+If this rate is slower than the rate at which your changes happen in your Azure Cosmos DB container, your processor will start to lag behind.
 
 Identifying this scenario helps understand if we need to scale our change feed processor deployment.
 

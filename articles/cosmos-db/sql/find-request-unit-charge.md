@@ -3,7 +3,7 @@ title: Find request unit charge for a SQL query in Azure Cosmos DB
 description: Find the request unit charge for SQL queries against containers created with Azure Cosmos DB, using the Azure portal, .NET, Java, Python, or Node.js. 
 author: jcocchi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/02/2022
 ms.author: jucocchi
@@ -13,22 +13,22 @@ ms.custom:
 - kr2b-contr-experiment
 ---
 
-# Find the request unit charge for operations in Azure Cosmos DB SQL API
+# Find the request unit charge for operations in Azure Cosmos DB for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by *request units* (RU). *Request charge* is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your container, costs are always measured in RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see [Request Units in Azure Cosmos DB](../request-units.md).
 
-This article presents the different ways that you can find the request unit consumption for any operation run against a container in Azure Cosmos DB SQL API. If you're using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [Cassandra API](../cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](../graph/find-request-unit-charge-gremlin.md), and [Table API](../table/find-request-unit-charge.md).
+This article presents the different ways that you can find the request unit consumption for any operation run against a container in Azure Cosmos DB for NoSQL. If you're using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [API for Cassandra](../cassandra/find-request-unit-charge-cassandra.md), [API for Gremlin](../graph/find-request-unit-charge-gremlin.md), and [API for Table](../table/find-request-unit-charge.md).
 
-Currently, you can measure consumption only by using the Azure portal or by inspecting the response sent from Azure Cosmos DB through one of the SDKs. If you're using the SQL API, you have multiple options for finding the request charge for an operation.
+Currently, you can measure consumption only by using the Azure portal or by inspecting the response sent from Azure Cosmos DB through one of the SDKs. If you're using the API for NoSQL, you have multiple options for finding the request charge for an operation.
 
 ## Use the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos account that already contains data.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
@@ -83,7 +83,7 @@ Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
-For more information, see [Quickstart: Build a .NET web app by using a SQL API account in Azure Cosmos DB](create-sql-api-dotnet.md).
+For more information, see [Quickstart: Build a .NET web app by using a API for NoSQL account in Azure Cosmos DB](create-sql-api-dotnet.md).
 
 ---
 
@@ -115,7 +115,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-For more information, see [Quickstart: Build a Java application by using an Azure Cosmos DB SQL API account](create-sql-api-java.md).
+For more information, see [Quickstart: Build a Java application by using an Azure Cosmos DB for NoSQL account](create-sql-api-java.md).
 
 ## Use the Node.js SDK
 
@@ -150,7 +150,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-For more information, see [Quickstart: Build a Node.js app by using an Azure Cosmos DB SQL API account](create-sql-api-nodejs.md). 
+For more information, see [Quickstart: Build a Node.js app by using an Azure Cosmos DB for NoSQL account](create-sql-api-nodejs.md). 
 
 ## Use the Python SDK
 
@@ -166,7 +166,7 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB SQL API account](create-sql-api-python.md). 
+For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB for NoSQL account](create-sql-api-python.md). 
 
 ## Next steps
 

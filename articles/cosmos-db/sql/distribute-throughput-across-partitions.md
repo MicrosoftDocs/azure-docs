@@ -99,7 +99,7 @@ Follow the guidance in the article [Best practices for scaling provisioned throu
 You can also use the PowerShell `Get-AzCosmosDBSqlContainerPerPartitionThroughput` and `Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput` commands to read the current RU/s on each physical partition. 
 
 ```powershell
-// SQL API
+// API for NoSQL
 $somePartitions = Get-AzCosmosDBSqlContainerPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
@@ -175,7 +175,7 @@ $SourcePhysicalPartitionObjects += New-AzCosmosDBPhysicalPartitionThroughputObje
 $TargetPhysicalPartitionObjects =  @()
 $TargetPhysicalPartitionObjects += New-AzCosmosDBPhysicalPartitionThroughputObject -Id "1" -Throughput 4000
 
-// SQL API
+// API for NoSQL
 Update-AzCosmosDBSqlContainerPerPartitionThroughput `
     -ResourceGroupName "<resource-group-name>" `
     -AccountName "<cosmos-account-name>" `
@@ -199,7 +199,7 @@ After you've completed the redistribution, you can verify the change by viewing 
 If necessary, you can also reset the RU/s per physical partition so that the RU/s of your container are evenly distributed across all physical partitions.
 
 ```powershell
-// SQL API
+// API for NoSQL
 $resetPartitions = Update-AzCosmosDBSqlContainerPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
@@ -227,12 +227,12 @@ After the changes, assuming your overall workload hasn't changed, you'll likely 
 ## Limitations
 
 ### Preview eligibility criteria
-To enroll in the preview, your Cosmos account must meet all the following criteria:
-  - Your Cosmos account is using SQL API or API for MongoDB.
+To enroll in the preview, your Azure Cosmos DB account must meet all the following criteria:
+  - Your Azure Cosmos DB account is using API for NoSQL or API for MongoDB.
       - If you're using API for MongoDB, the version must be >= 3.6.
-  - Your Cosmos account is using provisioned throughput (manual or autoscale). Distribution of throughput across partitions doesn't apply to serverless accounts.
-  - If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When the ability to redistribute throughput across partitions is enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
-  - Your Cosmos account isn't using any unsupported connectors:
+  - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Distribution of throughput across partitions doesn't apply to serverless accounts.
+  - If you're using API for NoSQL, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When the ability to redistribute throughput across partitions is enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
+  - Your Azure Cosmos DB account isn't using any unsupported connectors:
     - Azure Data Factory
     - Azure Stream Analytics
     - Logic Apps
@@ -242,7 +242,7 @@ To enroll in the preview, your Cosmos account must meet all the following criter
     - Azure Cosmos DB data migration tool
     - Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
     
-### SDK requirements (SQL API only)
+### SDK requirements (API for NoSQL only)
 
 Throughput redistribution across partitions is supported only with the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use this feature for API for MongoDB accounts.
 

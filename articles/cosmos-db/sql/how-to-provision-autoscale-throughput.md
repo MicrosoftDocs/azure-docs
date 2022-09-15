@@ -1,21 +1,21 @@
 ---
-title: Provision autoscale throughput in Azure Cosmos DB SQL API
-description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell, and various other SDKs. 
+title: Provision autoscale throughput in Azure Cosmos DB for NoSQL
+description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell, and various other SDKs. 
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/01/2022
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
-# Provision autoscale throughput on database or container in Azure Cosmos DB - SQL API
+# Provision autoscale throughput on database or container in Azure Cosmos DB - API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB SQL API. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB for NoSQL. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
 
-If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](../cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [API for Cassandra](../cassandra/how-to-provision-throughput-cassandra.md), [API for Gremlin](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -50,7 +50,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
 
 ## Azure Cosmos DB .NET V3 SDK
 
-Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
+Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for API for NoSQL to manage autoscale resources. 
 
 > [!IMPORTANT]
 > You can use the .NET SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the [Azure portal](#enable-autoscale-on-existing-database-or-container), [CLI](#azure-cli), and [PowerShell](#azure-powershell).
@@ -107,7 +107,7 @@ await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThrou
 
 ## Azure Cosmos DB Java V4 SDK
 
-You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources.
+You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for API for NoSQL to manage autoscale resources.
 
 > [!IMPORTANT]
 > You can use the Java SDK to create new autoscale resources. The SDK does not support migrating between autoscale and standard (manual) throughput. The migration scenario is currently supported in only the [Azure portal](#enable-autoscale-on-existing-database-or-container), [CLI](#azure-cli), and [PowerShell](#azure-powershell).

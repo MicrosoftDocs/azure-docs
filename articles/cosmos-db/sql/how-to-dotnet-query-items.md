@@ -1,25 +1,25 @@
 ---
-title: Query items in Azure Cosmos DB SQL API using .NET
-description: Learn how to query items in your Azure Cosmos DB SQL API container using the .NET SDK.
+title: Query items in Azure Cosmos DB for NoSQL using .NET
+description: Learn how to query items in your Azure Cosmos DB for NoSQL container using the .NET SDK.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/15/2022
 ms.custom: devx-track-csharp
 ---
 
-# Query items in Azure Cosmos DB SQL API using .NET
+# Query items in Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Items in Azure Cosmos DB represent entities stored within a container. In the SQL API, an item consists of JSON-formatted data with a unique identifier. When you issue queries using the SQL API, results are returned as a JSON array of JSON documents.
+Items in Azure Cosmos DB represent entities stored within a container. In the API for NoSQL, an item consists of JSON-formatted data with a unique identifier. When you issue queries using the API for NoSQL, results are returned as a JSON array of JSON documents.
 
 ## Query items using SQL
 
-The Azure Cosmos DB SQL API supports the use of Structured Query Language (SQL) to perform queries on items in containers. A simple SQL query like ``SELECT * FROM products`` will return all items and properties from a container. Queries can be even more complex and include specific field projections, filters, and other common SQL clauses:
+The Azure Cosmos DB for NoSQL supports the use of Structured Query Language (SQL) to perform queries on items in containers. A simple SQL query like ``SELECT * FROM products`` will return all items and properties from a container. Queries can be even more complex and include specific field projections, filters, and other common SQL clauses:
 
 ```sql
 SELECT 
@@ -31,7 +31,7 @@ WHERE
     p.price > 500
 ```
 
-To learn more about the SQL syntax for Azure Cosmos DB SQL API, see [Getting started with SQL queries](sql-query-getting-started.md).
+To learn more about the SQL syntax for Azure Cosmos DB for NoSQL, see [Getting started with SQL queries](sql-query-getting-started.md).
 
 ## Query an item
 
@@ -74,7 +74,7 @@ The [Container.GetItemLinqQueryable<>](/dotnet/api/microsoft.azure.cosmos.contai
 
 ## Next steps
 
-Now that you've queried multiple items, try one of our end-to-end tutorials with the SQL API.
+Now that you've queried multiple items, try one of our end-to-end tutorials with the API for NoSQL.
 
 > [!div class="nextstepaction"]
-> [Build an app that queries and adds data to Azure Cosmos DB SQL API](/learn/modules/build-dotnet-app-cosmos-db-sql-api/)
+> [Build an app that queries and adds data to Azure Cosmos DB for NoSQL](/learn/modules/build-dotnet-app-cosmos-db-sql-api/)

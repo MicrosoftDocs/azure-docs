@@ -1,9 +1,9 @@
 ---
-title: Create multiple independent Azure Functions triggers for Cosmos DB
-description: Learn how to configure multiple independent Azure Functions triggers for Cosmos DB to create event-driven architectures.
+title: Create multiple independent Azure Functions triggers for Azure Cosmos DB
+description: Learn how to configure multiple independent Azure Functions triggers for Azure Cosmos DB to create event-driven architectures.
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
@@ -11,22 +11,22 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Create multiple Azure Functions triggers for Cosmos DB
+# Create multiple Azure Functions triggers for Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article describes how you can configure multiple Azure Functions triggers for Cosmos DB to work in parallel and independently react to changes.
+This article describes how you can configure multiple Azure Functions triggers for Azure Cosmos DB to work in parallel and independently react to changes.
 
-:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Serverless event-based Functions working with the Azure Functions trigger for Cosmos DB and sharing a leases container" border="false":::
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Serverless event-based Functions working with the Azure Functions trigger for Azure Cosmos DB and sharing a leases container" border="false":::
 
 ## Event-based architecture requirements
 
 When building serverless architectures with [Azure Functions](../../azure-functions/functions-overview.md), it's [recommended](../../azure-functions/performance-reliability.md#avoid-long-running-functions) to create small function sets that work together instead of large long running functions.
 
-As you build event-based serverless flows using the [Azure Functions trigger for Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos container](../account-databases-containers-items.md#azure-cosmos-db-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos container.
+As you build event-based serverless flows using the [Azure Functions trigger for Azure Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos DB container](../account-databases-containers-items.md#azure-cosmos-db-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Azure Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos DB container.
 
 ## Optimizing containers for multiple Triggers
 
-Given the *requirements* of the Azure Functions trigger for Cosmos DB, we need a second container to store state, also called, the *leases container*. Does this mean that you need a separate leases container for each Azure Function?
+Given the *requirements* of the Azure Functions trigger for Azure Cosmos DB, we need a second container to store state, also called, the *leases container*. Does this mean that you need a separate leases container for each Azure Function?
 
 Here, you have two options:
 
@@ -107,6 +107,6 @@ And for JavaScript, you can apply the configuration on the `function.json` file,
 
 ## Next steps
 
-* See the full configuration for the [Azure Functions trigger for Cosmos DB](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
+* See the full configuration for the [Azure Functions trigger for Azure Cosmos DB](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
 * Check the extended [list of samples](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) for all the languages.
 * Visit the Serverless recipes with Azure Cosmos DB and Azure Functions [GitHub repository](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) for more samples.

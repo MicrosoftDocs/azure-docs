@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Use Java to create a document database using Azure Cosmos DB
-description: This quickstart presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
+description: This quickstart presents a Java code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
+# Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 >
 
 
-In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Java app cloned from GitHub. First, you create an Azure Cosmos DB SQL API account using the Azure portal, or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and by using a Java app cloned from GitHub. First, you create an Azure Cosmos DB for NoSQL account using the Azure portal, or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Java app using the SQL Java SDK, and then add resources to your Azure Cosmos DB account by using the Java application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 > [!IMPORTANT]  
 > This quickstart is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
@@ -42,19 +42,19 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 
 ## Introductory notes
 
-*The structure of a Cosmos DB account.* Irrespective of API or programming language, a Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and a *container* contains zero or more items, as shown in the diagram below:
+*The structure of an Azure Cosmos DB account.* Irrespective of API or programming language, an Azure Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and a *container* contains zero or more items, as shown in the diagram below:
 
-:::image type="content" source="../media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
+:::image type="content" source="../media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos DB account entities" border="false":::
 
 You may read more about databases, containers and items [here.](../account-databases-containers-items.md) A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*. 
 
 The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. You may read more about throughput provisioning [here.](../set-throughput.md)
 
-As items are inserted into a Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you are advised to choose a partition key which is relatively random or evenly-distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
+As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you are advised to choose a partition key which is relatively random or evenly-distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL API account with Azure Cosmos DB.
+Before you can create a document database, you need to create a API for NoSQL account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -73,7 +73,7 @@ Before you can create a document database, you need to create a SQL API account 
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
@@ -91,7 +91,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 ### Managing database resources using the synchronous (sync) API
 
-* `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
+* `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
@@ -121,7 +121,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 * Async API calls return immediately, without waiting for a response from the server. In light of this, the following code snippets show proper design patterns for accomplishing all of the preceding management tasks using async API.
 
-* `CosmosAsyncClient` initialization. The `CosmosAsyncClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute asynchronous requests against the service.
+* `CosmosAsyncClient` initialization. The `CosmosAsyncClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute asynchronous requests against the service.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
 
@@ -189,7 +189,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB SQL API account, create a document database and container using the Data Explorer, and run a Java app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB for NoSQL account, create a document database and container using the Data Explorer, and run a Java app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

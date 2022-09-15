@@ -3,7 +3,7 @@ title: Manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB by creating the last-writer-wins or a custom conflict resolution policy
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: sidandrews
@@ -22,7 +22,7 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For SQL API, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For API for NoSQL, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -130,7 +130,7 @@ udp_collection = self.try_create_document_collection(
 
 ## Create a custom conflict resolution policy using a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example. This policy is supported on Core (SQL) Api only.
+These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example. This policy is supported on NoSQL Api only.
 
 ### Sample custom conflict resolution stored procedure
 

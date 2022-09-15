@@ -1,9 +1,9 @@
 ---
 title: Create an end-to-end Azure Cosmos DB Java SDK v4 application sample by using Change Feed
-description: This guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
+description: This guide walks you through a simple Java API for NoSQL application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
@@ -12,10 +12,10 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 
-# How to create a Java application that uses Azure Cosmos DB SQL API and change feed processor
+# How to create a Java application that uses Azure Cosmos DB for NoSQL and change feed processor
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB SQL API to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed and Change Feed Processor. The Java application communicates with the Azure Cosmos DB SQL API using Azure Cosmos DB Java SDK v4.
+This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB for NoSQL to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed and Change Feed Processor. The Java application communicates with the Azure Cosmos DB for NoSQL using Azure Cosmos DB Java SDK v4.
 
 > [!IMPORTANT]  
 > This tutorial is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
@@ -107,11 +107,11 @@ mvn clean package
 
 1. Now, in Data Explorer navigate to **InventoryContainer-pktype > items**. This is the materialized view - the items in this container mirror **InventoryContainer** because they were inserted programmatically by change feed. Note the partition key (```type```). So this materialized view is optimized for queries filtering over ```type```, which would be inefficient on **InventoryContainer** because it is partitioned on ```id```.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos D B account with Items selected.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos DB DB account with Items selected.":::
 
 1. We're going to delete a document from both **InventoryContainer** and **InventoryContainer-pktype** using just a single ```upsertItem()``` call. First, take a look at Azure portal Data Explorer. We'll delete the document for which ```/type == "plums"```; it is encircled in red below
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos D B account with a particular item I D selected.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos DB DB account with a particular item I D selected.":::
 
     Hit enter again to call the function ```deleteDocument()``` in the example code. This function, shown below, upserts a new version of the document with ```/ttl == 5```, which sets document Time-To-Live (TTL) to 5sec. 
     

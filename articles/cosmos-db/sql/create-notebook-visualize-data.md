@@ -4,7 +4,7 @@ description: 'Tutorial: Learn how to use built-in Jupyter notebooks to import da
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: mjbrown
@@ -17,13 +17,13 @@ This article describes how to use built-in Jupyter notebooks to import sample re
 
 ## Prerequisites
 
-* [Enable notebooks on an Azure Cosmos account](enable-notebooks.md)
+* [Enable notebooks on an Azure Cosmos DB account](enable-notebooks.md)
 
 ## Create the resources and import data
  
-In this section, you will create the Azure Cosmos database, container, and import the retail data to the container.
+In this section, you will create the Azure Cosmos DB database, container, and import the retail data to the container.
 
-1. Navigate to your Azure Cosmos account and open the **Data Explorer.**
+1. Navigate to your Azure Cosmos DB account and open the **Data Explorer.**
 
 1. Go to the **Notebooks** tab, select `…` next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
 
@@ -48,7 +48,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Run the active cell":::
 
-   The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
+   The database and container are created in your current Azure Cosmos DB account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
 
    ```console
     Database RetailDemo created
@@ -59,13 +59,13 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Refresh the data tab to see the new container":::
 
-1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
+1. Next you will import the sample retail data into Azure Cosmos DB container. Here is the format of an item from the retail data:
 
    ```json
     {
        "CartID":5399,
        "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
+       "Item":"Azure Cosmos DB T-shirt",
        "Price":350,
        "UserName":"Demo.User10",
        "Country":"Iceland",
@@ -77,7 +77,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
     }
    ```
 
-   For the tutorial purpose, the sample retail data is stored in the Azure blob storage. You can import it to the Azure Cosmos container by pasting the following code into a new cell. You can confirm that the data is successfully imported by running a query to select the number of items.
+   For the tutorial purpose, the sample retail data is stored in the Azure blob storage. You can import it to the Azure Cosmos DB container by pasting the following code into a new cell. You can confirm that the data is successfully imported by running a query to select the number of items.
 
    ```python
     # Read data from storage
@@ -160,7 +160,7 @@ In this section, you will run some queries on the data retrieved.
 
 ## Visualize your data  
 
-1. Now that we have our data on revenue from the Azure Cosmos container, you can visualize your data with a visualization library of your choice. In this tutorial, we will use Bokeh library. Open a new notebook cell and run the following code to install the Bokeh library. After all the requirements are satisfied, the library will be installed.
+1. Now that we have our data on revenue from the Azure Cosmos DB container, you can visualize your data with a visualization library of your choice. In this tutorial, we will use Bokeh library. Open a new notebook cell and run the following code to install the Bokeh library. After all the requirements are satisfied, the library will be installed.
 
    ```python
    import sys
