@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Troubleshoot Dapr extension installation errors
 
-When installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
+This article details some common error messages you may encounter while installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes.
 
 ## Installation failure without an error message
 
