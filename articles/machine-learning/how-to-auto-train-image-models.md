@@ -110,7 +110,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` is only supported using the SDK and CLI to create from data in JSONL format for this capability. Creating the `MLTable` via UI is not supported at this time.
+> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.  
 
 
 ### JSONL schema samples
@@ -127,7 +127,7 @@ The following is a sample JSONL file for image classification:
 
 ```python
 {
-      "image_url": "AmlDatastore://image_data/Image_01.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
       {
           "format": "png",
@@ -137,7 +137,7 @@ The following is a sample JSONL file for image classification:
       "label": "cat"
   }
   {
-      "image_url": "AmlDatastore://image_data/Image_02.jpeg",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_02.jpeg",
       "image_details":
       {
           "format": "jpeg",
@@ -152,7 +152,7 @@ The following is a sample JSONL file for image classification:
 
   ```python
   {
-      "image_url": "AmlDatastore://image_data/Image_01.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
       {
           "format": "png",
@@ -170,7 +170,7 @@ The following is a sample JSONL file for image classification:
       }
   }
   {
-      "image_url": "AmlDatastore://image_data/Image_02.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_02.png",
       "image_details":
       {
           "format": "jpeg",
