@@ -119,7 +119,7 @@ The following table includes some examples of how the threshold is calculated an
 
 
 ### How does low disk space mode work with volume free space policy?
-Low disk space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected. Note that low disk space does not kick in if no volume free space policy is configured on the server endpoint.
+Low disk space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected.
 
 ### How to get out of low disk space mode?
 Low disk space mode is designed to revert to normal behavior when volume free space is above the threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
