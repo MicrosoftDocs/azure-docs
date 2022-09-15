@@ -15,7 +15,7 @@ Low priority VMs enable the customer to take advantage of unutilized capacity. T
 
 However, Low priority VMs is a deprecated feature, and it will never become Generally Available (GA), while Spot VMs is the official preemptible offering from the Compute platform, and it is GA. Therefore, we will retire Low Priority VMs on **30 September 2025**. After that, we will stop supporting Low priority VMs. The existing Low priority pools may no longer work or be provisioned. They may be forced to be scaled down after the target date.
 
-# Retirement alternative
+## Retirement alternative
 
 As of May 2020, Azure offers Spot VMs in addition to Low Priority VMs. Like Low Priority, the Spot option allows the customer to purchase spare capacity at a deeply discounted price in exchange for the possibility that the VM may be evicted. Unlike Low Priority, you can use the Azure Spot option for single VMs and scale sets. VM scale sets scale up to meet demand, and when used with Spot VMs, will only allocate when capacity is available. 
 
@@ -62,10 +62,10 @@ Customers in Batch Managed mode must recreate the Batch account, pool, and jobs 
 
 3. What is the pricing and eviction policy of Spot VMs? Can I view pricing history and eviction rates?
 
-    Refer to [Spot VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/spot-vms) for more information on using Spot VMs. Yes, you can see historical pricing and eviction rates per size in a region in the portal.
+    Refer to [Spot VMs](../virtual-machines/spot-vms.md) for more information on using Spot VMs. Yes, you can see historical pricing and eviction rates per size in a region in the portal.
 
 ## Next steps
 
-Use the [CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/spot-cli), [portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/spot-portal), [ARM template](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/spot-template), or [PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/spot-powershell) to deploy Azure Spot Virtual Machines.
+Use the [CLI](../virtual-machines/linux/spot-cli.md), [portal](../virtual-machines/linux/spot-portal.md), [ARM template](../virtual-machines/linux/spot-template.md), or [PowerShell](../virtual-machines/windows/spot-powershell.md) to deploy Azure Spot Virtual Machines.
 
-You can also deploy a [scale set with Azure Spot Virtual Machine instances](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/use-spot).
+You can also deploy a [scale set with Azure Spot Virtual Machine instances](../virtual-machine-scale-sets/use-spot.md).
