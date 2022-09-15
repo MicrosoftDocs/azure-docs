@@ -67,7 +67,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
     - &lt;admin-user-name>: specify an administrator username.
     - &lt;admin-password>: specify an administrator password.
-    - $lt;dns-label-prefix>: specify a DNS prefix.
+    - &lt;dns-label-prefix>: specify a DNS prefix.
 
     The Bicep file requires an existing virtual machine. Before deploying the Bicep file, the script deploys an ARM template located at *https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json* for creating a virtual machine. The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template.
 
