@@ -24,7 +24,7 @@ Building resilient systems on Azure is a **shared responsibility**. Microsoft is
 
 ## Building resiliency
 
-You should define your application’s availability requirements at the beginning of planning. If you known which applications don't need 100% high availability during certain periods of time, you can optimize costs during those non-critical periods. Identify the type of failures an application can experience, and the potential effect of each failure. A recovery plan should cover all critical services by finalizing recovery strategy at the individual component and the overall application level. Design your recovery strategy to protect against zonal, regional, and application-level failure. And perform testing of the end-to-end application environment to measure application resiliency and recovery against unexpected failure.  
+You should define your application’s availability requirements at the beginning of planning. If you know which applications don't need 100% high availability during certain periods of time, you can optimize costs during those non-critical periods. Identify the type of failures an application can experience, and the potential effect of each failure. A recovery plan should cover all critical services by finalizing recovery strategy at the individual component and the overall application level. Design your recovery strategy to protect against zonal, regional, and application-level failure. And perform testing of the end-to-end application environment to measure application resiliency and recovery against unexpected failure.  
 
 The following checklist covers the scope of resiliency planning. 
 
