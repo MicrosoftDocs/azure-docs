@@ -84,8 +84,8 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
    Yes, it is mandatory to create Key Vault while creating the Batch account in user subscription mode.
 
    3. Are there best practices to use Azure Key Vault?   
-   Best practices are covered [here](https://docs.microsoft.com/en-us/azure/key-vault/general/best-practices).
+   Best practices are covered [here](../key-vault/general/best-practices.md).
 
 ## Next steps
 
-For more information, refer to [Certificate Access Control](https://docs.microsoft.com/en-us/azure/key-vault/certificates/certificate-access-control).
+For more information, refer to [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
