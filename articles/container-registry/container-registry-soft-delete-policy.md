@@ -132,8 +132,8 @@ Force restore will overwrite the existing tag with the same name in the reposito
 You can also enable a registry's soft delete policy in the [Azure portal](https://portal.azure.com). 
 
 1. Navigate to your Azure Container Registry. 
-1. In the **Overview tab**, verify the status of the **Soft Delete** (Preview).
-1. If the **Status** is **Disabled**, Select **Update**.
+2. In the **Overview tab**, verify the status of the **Soft Delete** (Preview).
+3. If the **Status** is **Disabled**, Select **Update**.
 
 
 
@@ -141,9 +141,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1. Select the checkbox to **Enable Soft Delete**.
-1. Select the number of days between `0` and `90` days to retain the soft deleted artifacts.
-1.  Select **Save** to save your changes.
+4. Select the checkbox to **Enable Soft Delete**.
+5. Select the number of days between `0` and `90` days to retain the soft deleted artifacts.
+6.  Select **Save** to save your changes.
 
 
 
@@ -154,9 +154,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 ### Restore the soft deleted artifacts - Portal
 
 1. Navigate to your Azure Container Registry.
-1. In the **Menu** section, Select **Services**, and Select **Repositories**.
-1. In the **Repositories**, Select your preferred **Repository**.
-1. Click on the **Manage deleted artifacts** to see all the soft deleted artifacts.
+2. In the **Menu** section, Select **Services**, and Select **Repositories**.
+3. In the **Repositories**, Select your preferred **Repository**.
+4. Click on the **Manage deleted artifacts** to see all the soft deleted artifacts.
 
 > [!NOTE]
 > Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
@@ -167,9 +167,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1.  Filter the deleted artifact you have to restore
-1.  Select the artifact, and Click on the **Restore** in the right column.
-1.  A **Restore Artifact** window pops up.
+5.  Filter the deleted artifact you have to restore
+6.  Select the artifact, and Click on the **Restore** in the right column.
+7.  A **Restore Artifact** window pops up.
 
 
 
@@ -177,8 +177,8 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
-1. Click on **Restore**. 
+8. Select the tag to restore, here you have an option to choose, and recover any additional tags.
+9. Click on **Restore**. 
 
 
 
@@ -189,9 +189,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 ### Restore from soft deleted repositories - Portal
 
 1. Navigate to your Azure Container Registry.
-1. In the **Menu** section, Select **Services**,
-1. In the **Services** tab, Select **Repositories**.
-1. In the **Repositories** tab, Click on **Manage Deleted Repositories**.
+2. In the **Menu** section, Select **Services**,
+3. In the **Services** tab, Select **Repositories**.
+4. In the **Repositories** tab, Click on **Manage Deleted Repositories**.
 
 
 
@@ -199,7 +199,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
+5. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
 
 
 
@@ -207,9 +207,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
-1. Select the artifact, and Click on the **Restore** in the right column.
-1.  A **Restore Artifact** window pops up.
+6. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
+7. Select the artifact, and Click on the **Restore** in the right column.
+8.  A **Restore Artifact** window pops up.
 
 
 
@@ -217,8 +217,8 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
-1. Click on **Restore**. 
+9. Select the tag to restore, here you have an option to choose, and recover any additional tags.
+10. Click on **Restore**. 
 
 
 
