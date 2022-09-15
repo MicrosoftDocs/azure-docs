@@ -1,5 +1,5 @@
 ---
-title: Parse data transformation in mapping data flow
+title: Parse data transformations in mapping data flow
 description: Parse embedded column documents
 author: kromerm
 ms.author: makromer
@@ -54,17 +54,17 @@ Use the expression builder to set the source for your parsing. This can be as si
 
 ### Output column type
 
-Here is where you'll configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to click the 'Detect Type' button on the top right of the expression builder. ADF will attempt to autodetect the schema from the string field which you are parsing and set it for you in the output expression.
+Here's where you'll configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to select the 'Detect Type' button on the top right of the expression builder. ADF will attempt to autodetect the schema from the string field, which you're parsing and set it for you in the output expression.
 
 :::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
 
-In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
+In this example, we have defined parsing of the incoming field "jsonString", which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
 
 `(trade as boolean, customers as string[])`
 
 Refer to the inspect tab and data preview to verify your output is mapped properly.
 
-Use the Derived Column activity to extract hierarchical data (i.e. your_complex_column_name.car.model in the expression field)
+Use the Derived Column activity to extract hierarchical data (that is, your_complex_column_name.car.model in the expression field)
 
 ## Examples
 
