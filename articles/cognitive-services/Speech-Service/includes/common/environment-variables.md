@@ -10,17 +10,17 @@ ms.author: eur
 Your application must be authenticated to access Cognitive Services resources. For production, use a secure way of storing and accessing your credentials. For example, after you have a key for your Speech resource, write it to a new environment variable on the local machine running the application.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](../../../security-features.md) article for more authentication options like [Azure Key Vault](../../../../key-vault/general/overview.md). 
+> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
 
 To set the environment variable for your Speech resource key, open a console window, and follow the instructions for your operating system and development environment. To set the `SPEECH_KEY` environment variable, replace `your-key` with one of the keys for your resource.
 
 #### [Windows](#tab/windows)
 
 ```console
-setx SPEECH_KEY "your-key"
+set SPEECH_KEY your-key
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [Linux](#tab/linux)
 

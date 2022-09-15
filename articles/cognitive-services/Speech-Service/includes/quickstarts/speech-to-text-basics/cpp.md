@@ -46,22 +46,19 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     
-    auto getEnv(const char* varName) {
-        char* pValue;
-        size_t len;
-        _dupenv_s(&pValue, &len, varName);
-        return pValue;
-    }
+    std::string getEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechKey = getEnv("SPEECH_KEY");
-        auto speechRegion = getEnv("SPEECH_REGION");
+        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        
+        if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
+            std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
+            return -1;
+        }
     
         auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
-    
-        free(speechKey);
-        free(speechRegion);
     
         speechConfig->SetSpeechRecognitionLanguage("en-US");
     
@@ -91,6 +88,24 @@ Follow these steps to create a new console application and install the Speech SD
                 std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
             }
         }
+    }
+    
+    std::string getEnvironmentVariable(const char* name)
+    {
+    #if defined(_MSC_VER)
+        size_t requiredSize = 0;
+        (void)getenv_s(&requiredSize, nullptr, 0, name);
+        if (requiredSize == 0)
+        {
+            return "";
+        }
+        auto buffer = std::make_unique<char[]>(requiredSize);
+        (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+        return buffer.get();
+    #else
+        auto value = getenv(name);
+        return value ? value : "";
+    #endif
     }
     ```
 

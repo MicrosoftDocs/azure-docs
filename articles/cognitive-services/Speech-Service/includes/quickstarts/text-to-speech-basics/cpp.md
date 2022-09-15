@@ -46,23 +46,20 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     
-    auto getEnv(const char* varName) {
-        char* pValue;
-        size_t len;
-        _dupenv_s(&pValue, &len, varName);
-        return pValue;
-    }
+    std::string getEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechKey = getEnv("SPEECH_KEY");
-        auto speechRegion = getEnv("SPEECH_REGION");
+        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        
+        if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
+            std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
+            return -1;
+        }
     
         auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
-    
-        free(speechKey);
-        free(speechRegion);
-    
+        
         // The language of the voice that speaks.
         speechConfig->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
     
@@ -95,7 +92,25 @@ Follow these steps to create a new console application and install the Speech SD
     
         cout << "Press enter to exit..." << std::endl;
         cin.get();
-    }           
+    }
+
+    std::string getEnvironmentVariable(const char* name)
+    {
+    #if defined(_MSC_VER)
+        size_t requiredSize = 0;
+        (void)getenv_s(&requiredSize, nullptr, 0, name);
+        if (requiredSize == 0)
+        {
+            return "";
+        }
+        auto buffer = std::make_unique<char[]>(requiredSize);
+        (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+        return buffer.get();
+    #else
+        auto value = getenv(name);
+        return value ? value : "";
+    #endif
+    }     
     ```
 
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
