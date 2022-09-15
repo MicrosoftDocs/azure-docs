@@ -56,9 +56,7 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
 
-
 ## View Defender for IoT alerts
-
 
 View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
@@ -218,7 +216,7 @@ In the **Instructions** tab of the data connector page, scroll down to the **Cre
 
 ## Investigate Defender for IoT alerts with Microsoft Sentinel
 
-To investigate Defender for IoT alerts with Microsoft Sentinel, you will need to have [configured an analytic rule to create incidents for Defender for IoT alerts](#detect-threats-out-of-the-box-with-defender-for-iot-data).
+To investigate Defender for IoT alerts with Microsoft Sentinel, you need to have [configured an analytic rule to create incidents for Defender for IoT alerts](#detect-threats-out-of-the-box-with-defender-for-iot-data).
 
 To investigate Microsoft Defender for IoT incidents:
 
@@ -226,14 +224,14 @@ To investigate Microsoft Defender for IoT incidents:
 
 1. Filter incidents by **Product name** and select **Microsoft Defender for IoT** to view incidents created from Defender for IoT alerts.
 
-1. Select a specific incident to begin your investigation. 
+1. Select a specific incident to begin your investigation.
 
     On the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, any mapped MITRE ATT&CK tactics or techniques, and more. 
 
-    - For a deeper investigation of the alert in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link.
+    - For a deeper investigation of the alert in Defender for IoT, select **Investigate in Microsoft Defender for IoT**.
     
     - To investigate the IoT devices involved in the incident, select an entity under **Entities** to open that device's **IoT device entity page**.
-    The **IoT device entity page** provides comprehensive device details to help prioritize remediation based on device importance and business impact (location - site, zone, sensor), locate the device owner (as defined in Defender for IoT), indicators on the device, and basic device details.
+    The **IoT device entity page** provides detailed and contextual device information, including basic device details and device owner contact information, and helps to prioritize remediation based on device importance and business impact (incident location - site, zone, sensor).
     
         For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
 
@@ -311,12 +309,12 @@ This playbook opens a ticket in ServiceNow each time a new Engineering Workstati
 
 **Role required**: Security Admin
 
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+
 This playbook updates alert statuses in Defender for IoT whenever a related alert in Microsoft Sentinel has a **Status** update.
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
-
-> [!NOTE]
-> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
 ### Automatic workflow for incident with active CVEs
 
@@ -326,12 +324,14 @@ This synchronization overrides any status defined in Defender for IoT, in the Az
 
 **Role required**: Reader
 
-This playbook adds active CVEs into the incident comments of affected devices on the IoT device entity page. An automated triage is performed if the CVE is critical, and the device owner (the site owner as defined in Defender for IoT) is automatically notified by email.
-
 > [!NOTE]
 > To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
-### Send email to IoT/OT device owner
+This playbook adds active CVEs into the incident comments of affected devices. An automated triage is performed if the CVE is critical, and the device owner ([as defined for the site in Defender for IoT](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)) is automatically notified by email.
+
+To add a device owner, [edit the site owner](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) on the **Sites and sensors** page in Defender for IoT.
+
+### Send email to the IoT/OT device owner
 
 **Playbook name**: AD4IoT-SendEmailtoIoTOwner
 
@@ -339,16 +339,18 @@ This playbook adds active CVEs into the incident comments of affected devices on
 
 **Role required**: Reader
 
-This playbook sends an email with the incident details to the IoT/OT device owner (the site owner as defined in Defender for IoT) to validate the incident and initiate incident response directly from the email. The incident is automatically updated based on the email response from the device owner.
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+
+This playbook sends an email with the incident details to the IoT/OT device owner ([as defined for the site in Defender for IoT](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)) to validate the incident and initiate incident response directly from the email. The incident is automatically updated based on the email response from the device owner.
 
 Email response options:
 
 Yes, this is expected - the incident will be closed automatically.
 
-No, this is not expected - the incident will remain active, severity level will increase, and a confirmation tag will be added.
+No, this is not expected - the incident will remain active, the severity level will increase, and a confirmation tag will be added.
 
-> [!NOTE]
-> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+To add a device owner, [edit the site owner](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) on the **Sites and sensors** page in Defender for IoT.
 
 ### Triage incidents involving high importance devices
 
@@ -358,16 +360,16 @@ No, this is not expected - the incident will remain active, severity level will 
 
 **Role required**: Reader
 
-This playbook updates the incident severity according to the importance of the devices involved, and is added to the comments on the IoT device entity page.
-
 > [!NOTE]
 > To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
+This playbook updates the incident severity according to the importance level of the devices involved. 
+
 #### Prerequisites for specific playbooks
 
-Some of the playbooks require completing the following steps in order to connect and use the playbook:
+Some of the playbooks require the following steps in order to connect and use the playbook:
 
- - Apply the required scope and role (as detailed in each playbook description)
+ - Apply the required **Scope** and **Role** (as detailed in each playbook description)
  - Ensure valid connections where required
  - Add an automation rule to connect incident triggers with the playbook.
 
@@ -383,7 +385,8 @@ Some of the playbooks require completing the following steps in order to connect
 
 1. In the **Add role assignment** pane:
 
-    - Define the **Scope** (as indicated in the playbook description)
+    - Define the **Scope** as indicated in the playbook description (**Subscription** or **Resource group**)
+    
     - From the dropdown, select the **Subscription** (and **Resource group** if relevant) where your playbook is installed.
     - From the **Role** dropdown, select the  required role (**Security Admin** or **Reader** role), and then select **Save**.
 
