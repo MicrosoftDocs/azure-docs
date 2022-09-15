@@ -20,7 +20,7 @@ In this tutorial, you'll use the sample repository of Playwrights tests. You'll 
 
 > [!div class="checklist"]
 > * Run the sample Playwright tests in the cloud.
-> * Explore test results in the Microsoft Playwright Testing portal.
+> * Explore test results in the Microsoft Playwright Testing dashboard.
 > * Diagnose test failures using test artifacts.
 > * Speed up tests by scaling across multiple workers.
 
@@ -118,7 +118,7 @@ To run your tests from the command-line with [Playwright Test](https://playwrigh
     Test report: https://17157345.playwright-int.io/workspaces/Default/987351621824417792
     ```
 
-## Explore test results in the portal
+## Explore test results in the dashboard
 
 After the tests finish, explore the test results in the Microsoft Playwright Testing dashboard. The dashboard shows the historical results of your test runs, and displays the detailed results for each browser-project combination.
 
@@ -137,7 +137,7 @@ You can find a direct link to the test run results in the output log of the test
     > [!TIP]
     > You can quickly filter tests based on their test description or the browser configuration. For example, to show only tests that ran on Firefox, enter *Firefox* in the search field.
 
-Notice that not all tests have completed successfully. You'll now use the detailed diagnostics information in the portal to diagnose the failed tests.
+Notice that not all tests have completed successfully. You'll now use the detailed diagnostics information in the dashboard to diagnose the failed tests.
 
 ## Diagnose failed tests
 
