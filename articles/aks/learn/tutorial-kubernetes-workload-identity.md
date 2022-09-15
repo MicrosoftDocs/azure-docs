@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Use a workload identity with an application on Azure Kubernetes Service (AKS)
-description: In this Azure Kubernetes Service (AKS) quickstart, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
+title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
+description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 09/09/2022
 ---
 
-# Quickstart: Use a workload identity with an application on Azure Kubernetes Service (AKS)
+# Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this quickstart, you will:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, you will:
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and workload identity.
 * Create an Azure Key Vault and secret.
@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Configure the Azure AD app for token federation
 * Deploy the workload and verify authentication with the workload identity
 
-This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

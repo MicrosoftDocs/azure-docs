@@ -102,8 +102,8 @@ The following table summarizes our migration or deployment recommendations for w
 
 |Scenario |Description |
 |---------|------------|
-| New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required.<br><br> Sample deployment resources:<br><br> <ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Quickstart: Use a workload identity with an application on AKS][quickstart-use-workload-identity] |
-| New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy, or update using new image version, or use the [migration sidecar][deploy-migration-sidecar]. |
+| New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required.<br><br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
+| New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy with newer version, or use the [migration sidecar][deploy-migration-sidecar]. |
 
 ## Upgrade cluster to use workload identity
 
@@ -122,5 +122,5 @@ The following table summarizes our migration or deployment recommendations for w
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
-[quickstart-use-workload-identity]: ./learn/quick-kubernetes-workload-identity.md
+[tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [deploy-migration-sidecar]: workload-identity-migration-sidecar.md

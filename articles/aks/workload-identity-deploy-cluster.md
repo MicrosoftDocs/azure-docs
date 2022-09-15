@@ -80,7 +80,7 @@ Before proceeding, you need the following information:
     az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
     ```
 
-2. Set an access policy for the Managed Identity to access the Key Vault secret by running the following commands:
+2. Set an access policy for the Managed Identity to access secrets in your Key Vault by running the following commands:
 
     ```bash
     export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "resourceGroupName" --name "userAssignedIdentityName" --query 'clientId' -otsv)"
@@ -92,7 +92,7 @@ Before proceeding, you need the following information:
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and update the value for `serviceAccountName` and `serviceAccountNamespace`.
 
 ```azurecli
 az aks get-credentials -n aks -g MyResourceGroup 
@@ -130,12 +130,12 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
-[kubernetes-concepts]: ../concepts-clusters-workloads.md
+[kubernetes-concepts]: concepts-clusters-workloads.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
-[aks-identity-concepts]: ../concepts-identity.md
+[aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-two-resource-groups]: ../faq.md#why-are-two-resource-groups-created-with-aks
+[aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
