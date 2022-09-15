@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.date: 05/05/2022
 ms.author: maquaran
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ---
 # Designing resilient applications with Azure Cosmos DB SDKs
@@ -62,7 +62,7 @@ The short answer is **yes**. But not all errors make sense to retry on, some of 
 | 412 | No | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an [optimistic concurrency](database-transactions-optimistic-concurrency.md#optimistic-concurrency-control) error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
 | 413 | No | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
 | 429 | Yes | Yes | It's safe to retry on a 429. Review the [guide to troubleshoot HTTP 429](troubleshoot-request-rate-too-large.md).|
-| 449 | Yes | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
+| 449 | Yes | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Azure Cosmos DB. |
 | 500 | No | No | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
 | 503 | Yes | Yes | [Service unavailable](troubleshoot-service-unavailable.md) |
 

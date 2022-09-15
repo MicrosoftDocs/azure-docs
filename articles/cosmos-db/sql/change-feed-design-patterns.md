@@ -5,7 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
@@ -50,7 +50,7 @@ Data written to Azure Cosmos DB will show up in the change feed and be retained 
 
 ### Querying ability
 
-In addition to reading from a Cosmos container's change feed, you can also run SQL queries on the data stored in Azure Cosmos DB. The change feed isn't a duplication of data already in the container but rather just a different mechanism of reading the data. Therefore, if you read data from the change feed, it will always be consistent with queries of the same Azure Cosmos DB container.
+In addition to reading from an Azure Cosmos DB container's change feed, you can also run SQL queries on the data stored in Azure Cosmos DB. The change feed isn't a duplication of data already in the container but rather just a different mechanism of reading the data. Therefore, if you read data from the change feed, it will always be consistent with queries of the same Azure Cosmos DB container.
 
 ### High availability
 
@@ -66,16 +66,16 @@ For example, the change feed helps you perform the following tasks efficiently:
 
 * Update a cache, search index, or data warehouse with data stored in Azure Cosmos DB.
 
-* Perform zero down-time migrations to another Azure Cosmos account or another Azure Cosmos container with a different logical partition key.
+* Perform zero down-time migrations to another Azure Cosmos DB account or another Azure Cosmos DB container with a different logical partition key.
 
 * Implement an application-level data tiering and archival. For example, you can store "hot data" in Azure Cosmos DB and age out "cold data" to other storage systems such as [Azure Blob Storage](../../storage/common/storage-introduction.md).
 
 When you have to [denormalize data across partitions and containers](how-to-model-partition-example.md#v2-introducing-denormalization-to-optimize-read-queries
-), you can read from your container's change feed as a source for this data replication. Real-time data replication with the change feed can only guarantee eventual consistency. You can [monitor how far the Change Feed Processor lags behind](how-to-use-change-feed-estimator.md) in processing changes in your Cosmos container.
+), you can read from your container's change feed as a source for this data replication. Real-time data replication with the change feed can only guarantee eventual consistency. You can [monitor how far the Change Feed Processor lags behind](how-to-use-change-feed-estimator.md) in processing changes in your Azure Cosmos DB container.
 
 ## Event sourcing
 
-The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there is no time limit for retention in the change feed, you can replay all past events by reading from the beginning of your Cosmos container's change feed.
+The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there is no time limit for retention in the change feed, you can replay all past events by reading from the beginning of your Azure Cosmos DB container's change feed.
 
 You can have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Aside from the [lease container's](change-feed-processor.md#components-of-the-change-feed-processor) provisioned throughput, there is no cost to utilize the change feed. The change feed is available in every container regardless of whether it is utilized.
 
@@ -83,7 +83,7 @@ Azure Cosmos DB is a great central append-only persistent data store in the even
 
 ## Current limitations
 
-The change feed has important limitations that you should understand. While items in a Cosmos container will always remain in the change feed, the change feed is not a full operation log. There are important areas to consider when designing an application that utilizes the change feed.
+The change feed has important limitations that you should understand. While items in an Azure Cosmos DB container will always remain in the change feed, the change feed is not a full operation log. There are important areas to consider when designing an application that utilizes the change feed.
 
 ### Intermediate updates
 

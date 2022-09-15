@@ -3,7 +3,7 @@ title: Certificate-based authentication with Azure Cosmos DB and Active Director
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: sidandrews
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps
 # Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos DB account
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory (Azure AD) with a client certificate. You can perform certificate-based authentication on a machine where you need an identity, such as an on-premises machine or virtual machine in Azure. Your application can then read Azure Cosmos DB keys without having the keys directly in the application. This article describes how to create a sample Azure AD application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to set up the identities and provides a C# sample app that authenticates and accesses keys from your Azure Cosmos account.  
+Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory (Azure AD) with a client certificate. You can perform certificate-based authentication on a machine where you need an identity, such as an on-premises machine or virtual machine in Azure. Your application can then read Azure Cosmos DB keys without having the keys directly in the application. This article describes how to create a sample Azure AD application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos DB account. This article uses Azure PowerShell to set up the identities and provides a C# sample app that authenticates and accesses keys from your Azure Cosmos DB account.  
 
 ## Prerequisites
 
@@ -101,11 +101,11 @@ The above command results in the output similar to the screenshot below:
 
 :::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Certificate-based credential creation output":::
 
-## Configure your Azure Cosmos account to use the new identity
+## Configure your Azure Cosmos DB account to use the new identity
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos account.
+1. Navigate to your Azure Cosmos DB account.
 
 1. Assign the Contributor role to the sample app you created in the previous section.
 
@@ -127,7 +127,7 @@ In the Azure app registration for the client application:
 
 ## Access the keys from PowerShell
 
-In this step, you will sign into Azure by using the application and the certificate you created and access your Azure Cosmos account's keys. 
+In this step, you will sign into Azure by using the application and the certificate you created and access your Azure Cosmos DB account's keys. 
 
 1. Initially clear the Azure account's credentials you have used to sign into your account. You can clear credentials by using the following command:
 
@@ -146,13 +146,13 @@ In this step, you will sign into Azure by using the application and the certific
       -Type "Keys"
    ```
 
-The previous command will display the primary and secondary primary keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the "sampleApp" application.
+The previous command will display the primary and secondary primary keys of your Azure Cosmos DB account. You can view the Activity log of your Azure Cosmos DB account to validate that the get keys request succeeded and the event is initiated by the "sampleApp" application.
 
 :::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Validate the get keys call in the Azure AD":::
 
 ## Access the keys from a C# application 
 
-You can also validate this scenario by accessing keys from a C# application. The following C# console application, that can access Azure Cosmos DB keys by using the app registered in Active Directory. Make sure to update the tenantId, clientID, certName, resource group name, subscription ID, Azure Cosmos account name details before you run the code. 
+You can also validate this scenario by accessing keys from a C# application. The following C# console application, that can access Azure Cosmos DB keys by using the app registered in Active Directory. Make sure to update the tenantId, clientID, certName, resource group name, subscription ID, Azure Cosmos DB account name details before you run the code. 
 
 ```csharp
 using System;
@@ -238,11 +238,11 @@ This script outputs the primary and secondary primary keys as shown in the follo
 
 :::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="csharp application output":::
 
-Similar to the previous section, you can view the Activity log of your Azure Cosmos account to validate that the get keys request event is initiated by the "sampleApp" application. 
+Similar to the previous section, you can view the Activity log of your Azure Cosmos DB account to validate that the get keys request event is initiated by the "sampleApp" application. 
 
 
 ## Next steps
 
-* [Secure Azure Cosmos keys using Azure Key Vault](../access-secrets-from-keyvault.md)
+* [Secure Azure Cosmos DB keys using Azure Key Vault](../access-secrets-from-keyvault.md)
 
 * [Security baseline for Azure Cosmos DB](../security-baseline.md)

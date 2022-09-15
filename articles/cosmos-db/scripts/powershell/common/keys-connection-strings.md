@@ -24,9 +24,9 @@ Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 ## Sample script
 
 > [!NOTE]
-> This sample demonstrates using a SQL API account. To use this sample for other APIs, copy the related properties and apply to your API-specific script
+> This sample demonstrates using a API for NoSQL account. To use this sample for other APIs, copy the related properties and apply to your API-specific script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos DB account")]
 
 ## Clean up deployment
 
@@ -43,8 +43,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Gets the connection string or key (read-write or read-only) for a Cosmos DB Account. |
-| [New-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regenerate the specified key for a Cosmos DB Account. |
+| [Get-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Gets the connection string or key (read-write or read-only) for an Azure Cosmos DB Account. |
+| [New-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regenerate the specified key for an Azure Cosmos DB Account. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

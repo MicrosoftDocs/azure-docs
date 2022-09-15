@@ -5,7 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/07/2022
@@ -223,7 +223,7 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.Incremental);
 ```
 
-As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.
+As long as the Azure Cosmos DB container still exists, a FeedIterator's continuation token never expires.
 
 ### [Java](#tab/java)
 

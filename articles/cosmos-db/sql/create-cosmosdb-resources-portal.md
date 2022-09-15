@@ -1,15 +1,15 @@
 ---
 title: Quickstart - Create Azure Cosmos DB resources from the Azure portal
-description: This quickstart shows how to create an Azure Cosmos database, container, and items by using the Azure portal.
+description: This quickstart shows how to create an Azure Cosmos DB database, container, and items by using the Azure portal.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: mode-ui
 ---
-# Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
+# Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.custom: mode-ui
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](../introduction.md) account, create a document database, and container, and add data to the container. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [API for NoSQL](../introduction.md) account, create a document database, and container, and add data to the container. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
 ## Prerequisites
 
@@ -94,9 +94,9 @@ Add data to your new database using Data Explorer.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
-If you wish to delete just the database and use the Azure Cosmos account in future, you can delete the database with the following steps:
+If you wish to delete just the database and use the Azure Cosmos DB account in future, you can delete the database with the following steps:
 
-* Go to your Azure Cosmos account.
+* Go to your Azure Cosmos DB account.
 * Open **Data Explorer**, right click on the database that you want to delete and select **Delete Database**.
 * Enter the Database ID/database name to confirm the delete operation. 
 

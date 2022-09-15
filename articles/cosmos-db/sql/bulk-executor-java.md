@@ -4,7 +4,7 @@ description: Bulk import and update Azure Cosmos DB documents using bulk executo
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 03/07/2022
@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you're using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
 
-Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md).
+Currently, the bulk executor library is supported only by Azure Cosmos DB for NoSQL and API for Gremlin accounts. To learn about using bulk executor .NET library with API for Gremlin, see [perform bulk operations in Azure Cosmos DB for Gremlin](../graph/bulk-executor-graph-dotnet.md).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB SQL AP
   
   - On Ubuntu, you can run `apt-get install maven` to install Maven.
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in the [create database account](create-sql-api-java.md#create-a-database-account) section of the Java quickstart article.
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create database account](create-sql-api-java.md#create-a-database-account) section of the Java quickstart article.
 
 ## Clone the sample application
 
@@ -139,7 +139,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Call the updateAll API that generates random documents to be then bulk imported into an Azure Cosmos container. You can configure the command-line configurations to be passed in CmdLineConfiguration.java file.
+2. Call the updateAll API that generates random documents to be then bulk imported into an Azure Cosmos DB container. You can configure the command-line configurations to be passed in CmdLineConfiguration.java file.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -186,13 +186,13 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 Consider the following points for better performance when using bulk executor library:
 
-* For best performance, run your application from an Azure VM in the same region as your Cosmos DB account write region.  
+* For best performance, run your application from an Azure VM in the same region as your Azure Cosmos DB account write region.  
 * For achieving higher throughput:  
 
    * Set the JVM's heap size to a large enough number to avoid any memory issue in handling large number of documents. Suggested heap size: max(3 GB, 3 * sizeof(all documents passed to bulk import API in one batch)).  
    * There's a preprocessing time, due to which you'll get higher throughput when performing bulk operations with a large number of documents. So, if you want to import 10,000,000 documents, running bulk import 10 times on 10 bulk of documents each of size 1,000,000 is preferable than running bulk import 100 times on 100 bulk of documents each of size 100,000 documents.  
 
-* It is recommended to instantiate a single CosmosAsyncClient object for the entire application within a single virtual machine that corresponds to a specific Azure Cosmos container.  
+* It is recommended to instantiate a single CosmosAsyncClient object for the entire application within a single virtual machine that corresponds to a specific Azure Cosmos DB container.  
 
 * Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API calls running on a single virtual machine is unable to consume your entire container's throughput (if your container's throughput > 1 million RU/s), it's preferable to create separate virtual machines to concurrently execute bulk operation API calls.
 
