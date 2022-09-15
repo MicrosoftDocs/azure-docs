@@ -73,18 +73,14 @@ To limit the risk of credentials being exposed in your application code, avoid t
 
 The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault. These projects are maintained by the Azure Container Compute Upstream team and are part of a [broader list of projects available for use](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
 
- * [Azure Active Directory Pod Identity][aad-pod-identity]
+ * [Azure Active Directory workload identity][aad-workload-identity] (preview)
  * [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
-#### Use pod managed identities
+#### Use an Azure AD workload identity (preview)
 
-A managed identity for Azure resources lets a pod authenticate itself against Azure services that support it, such as Storage or SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:
+A workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Simplified workflow for pod managed identity in Azure":::
-
-With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
-
-For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications][aad-pod-identity]
+For more information about workload identities, see [Configure an AKS cluster to use Azure AD workload identities with your applications][aad-workload-identity]
 
 #### Use Azure Key Vault with Secrets Store CSI Driver
 
@@ -101,18 +97,17 @@ With Key Vault, you store and regularly rotate secrets such as credentials, stor
 
 This article focused on how to secure your pods. To implement some of these areas, see the following articles:
 
-* [Use managed identities for Azure resources with AKS][aad-pod-identity]
+* [Use workload managed identities for Azure resources with AKS][aad-workload-identity] (preview)
 * [Integrate Azure Key Vault with AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
-[aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#selinuxoptions-v1-core
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
 
 <!-- INTERNAL LINKS -->
+[aad-workload-identity]: workload-identity-overview.md
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
-[aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities
 [apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources
