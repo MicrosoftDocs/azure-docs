@@ -50,11 +50,11 @@ Azure Storage Mover offers [migration projects](resource-hierarchy.md#migration-
 
 ## Phase 2: Assessment
 
-Azure offers various types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data. The number of files and folders, their directory structure, file fidelity and other aspects are important inputs into a complete cloud solution design. 
+Azure offers various types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data. The number of files and folders, their directory structure, file fidelity and other aspects are important inputs into a complete cloud solution design.
 
 In the assessment phase, you'll investigate your discovered and short-listed shares to ensure you have picked the right Azure target storage for your cloud solution design.
 
-The key in any migration is to capture all the required file fidelity when moving your files from their current storage location to Azure. The focus is on "required fidelity by your workload" and not so much on the available fidelity. Different file systems and storage devices record an array of fidelity and fully preserving or keeping it working natively in Azure is not always required by the workload that uses the files. How much fidelity the Azure storage option supports and how much your scenario requires also helps you pick the right Azure storage. General-purpose file data traditionally depends on at least some file metadata. App data might not.
+A key part of any migration is to capture the required file fidelity when moving your files from their current storage location to Azure. Different file systems and storage devices record an array of file fidelity information, and fully preserving or keeping that information in Azure is not always necessary. The file fidelity required by your scenario, as well as the degree of fidelity supported by the storage offering in Azure, also helps you to pick the right storage solution in Azure. General-purpose file data traditionally depends on at least some file metadata. App data might not.
 
 Here are the two basic components of a file:
 
@@ -84,7 +84,7 @@ The planning phase maps each source share to a concrete destination. For instanc
 In the Azure Storage Mover service, you can record each source/target pair as a [job definition](resource-hierarchy.md#job-definition). A job definition is nested in the migration project you've previously created. You'll need a new, distinct job definition for each source/target pair.
 
 > [!NOTE]
-> In this release of Azure Storage Mover, your target storage must exist, before you can create a job definition. For instance if your target is an Azure blob container, you'll need to deploy that first before making a new job definition. 
+> In this release of Azure Storage Mover, your target storage must exist, before you can create a job definition. For instance if your target is an Azure blob container, you'll need to deploy that first before making a new job definition.
 
 The outcome of the planning phase is a mapping of source shares to Azure target locations. If your targets don't already exist, you will have to complete the next phase "Deploy" before you can record your migration plan in the Azure Storage Mover service.
 

@@ -83,9 +83,9 @@ Supports merging content from the source to the target:
 
 To access copy logs on the agent:
 
-    1. Connect to the agent's administrative shell
-	[!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)] 
-    1. Select option `3) Service and job status`
-    1. Select option `2) Job summary`
-    1. A list of jobs that have run on the agent is shown. Copy the ID in the format *Job definition id:Job run id* that represents the job you want to retrieve the copy logs for. You can confirm you'cve selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
-    1. Retrieve the copy logs by selecting option `4) Job copylogs` and providing the same ID from the previous step.
+1. Connect to the agent's administrative shell
+[!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
+1. Select option `3) Service and job status`
+1. Select option `2) Job summary`
+1. A list of jobs that have run on the agent is shown. Copy the ID in the format *Job definition id:Job run id* that represents the job you want to retrieve the copy logs for. You can confirm you'cve selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
+1. Retrieve the copy logs by selecting option `4) Job copylogs` and providing the same ID from the previous step.

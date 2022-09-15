@@ -68,7 +68,7 @@ Different agent resource configurations are tested:
 
 8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
 
-|                          |Single file, 1 TiB |&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |
+|                          |Single file, 1 TiB |~3.3M files, ~200K folders, ~45 GiB |
 |--------------------------|-------------------|------------------------------------------------------|
 |Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                        |
 |Items* per Second         | -                 | 6298                                                 |
