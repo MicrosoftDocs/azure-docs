@@ -118,7 +118,7 @@ You can use Form Recognizer to analyze tables, lines, and words in documents, wi
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 > [!TIP]
-> You can also get content from a local file with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. 
+> You can also get content from a local file with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. 
 
 ### Output
 
@@ -145,7 +145,7 @@ To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. 
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. 
 
 ### Output
 
@@ -171,7 +171,7 @@ To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUR
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_bc)]
 
 > [!TIP]
- > You can also analyze local business card images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. 
+ > You can also analyze local business card images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. 
 
 ## Analyze invoices
 
@@ -182,7 +182,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_invoice)]
 
 > [!TIP]
-> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. 
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. 
 
 ## Analyze ID documents
 
@@ -293,7 +293,7 @@ You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> You can also analyze local files with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. 
+> You can also analyze local files with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. 
 
 ### Output
 
