@@ -533,6 +533,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-cdc.md      
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout

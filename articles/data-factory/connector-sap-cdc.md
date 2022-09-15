@@ -17,46 +17,34 @@ ms.date: 09/05/2022
 
 This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
 
+This article outlines how to use Copy Activity to copy data, and use Data Flow to transform data from an SAP ODP source using the SAP CDC connector. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md). For an introduction to copying and transforming data with Azure Data Factory and Azure Synapse analytics, read [Copy activity overview](copy-activity-overview.md) and [mapping data flow](concepts-data-flow-overview.md).
+
 >[!TIP]
 >To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
-This SAP table connector is supported for the following capabilities:
+This SAP CDC connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For a list of the data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this SAP table connector supports:
+This SAP CDC connector leverages the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 
-- Copying data from an SAP table in:
+The SAP ODP framework is contained in most SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT), except very old ones. For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#sap-system-requirements).  
 
-  - SAP ERP Central Component (SAP ECC) version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
-  - SAP Business Warehouse (SAP BW) version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
-  - SAP S/4HANA.
-  - Other products in SAP Business Suite version 7.01 or later (in a recent SAP Support Package Stack released after 2015).
-
-- Copying data from both an SAP transparent table, a pooled table, a clustered table, and a view.
-- Copying data by using basic authentication or Secure Network Communications (SNC), if SNC is configured.
-- Connecting to an SAP application server or SAP message server.
-- Retrieving data via default or custom RFC.
-
-The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
-
-1. Use SAP GUI to connect to the SAP System. 
-2. Go to **System** -> **Status**. 
-3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
-      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Check SAP_BASIS":::
+The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
 
 ## Prerequisites
 
-To use this SAP table connector, you need to:
+To use this SAP CDC connector, you need to:
 
 - Set up a self-hosted integration runtime (version 3.17 or later). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
 
@@ -64,336 +52,49 @@ To use this SAP table connector, you need to:
 
   :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Install SAP Connector for .NET":::
 
-- The SAP user who's being used in the SAP table connector must have the following permissions:
+- The SAP user who's being used in the SAP table connector must have the permissions described in [](sap-change-data-capture-prerequisites-configuration.md#sap-user-configurations):
 
-  - Authorization for using Remote Function Call (RFC) destinations.
-  - Permissions to the Execute activity of the S_SDSAUTH authorization object. You can refer to SAP Note 460089 on the majority authorization objects. Certain RFCs are required by the underlying NCo connector, for example RFC_FUNCTION_SEARCH. 
 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to an SAP table using UI
+## Create a linked service for the SAP CDC connector using UI
 
-Use the following steps to create a linked service to an SAP table in the Azure portal UI.
-
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
-
-    # [Azure Data Factory](#tab/data-factory)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
-
-    # [Azure Synapse](#tab/synapse-analytics)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
-
-2. Search for SAP and select the SAP table connector.
-
-    :::image type="content" source="media/connector-sap-table/sap-table-connector.png" alt-text="Screenshot of the SAP table connector.":::    
-
-1. Configure the service details, test the connection, and create the new linked service.
-
-    :::image type="content" source="media/connector-sap-table/configure-sap-table-linked-service.png" alt-text="Screenshot of configuration for an SAP table linked service.":::
-
-## Connector configuration details
-
-The following sections provide details about properties that are used to define the entities specific to the SAP table connector.
-
-## Linked service properties
-
-The following properties are supported for the SAP BW Open Hub linked service:
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| `type` | The `type` property must be set to `SapTable`. | Yes |
-| `server` | The name of the server on which the SAP instance is located.<br/>Use to connect to an SAP application server. | No |
-| `systemNumber` | The system number of the SAP system.<br/>Use to connect to an SAP application server.<br/>Allowed value: A two-digit decimal number represented as a string. | No |
-| `messageServer` | The host name of the SAP message server.<br/>Use to connect to an SAP message server. | No |
-| `messageServerService` | The service name or port number of the message server.<br/>Use to connect to an SAP message server. | No |
-| `systemId` | The ID of the SAP system where the table is located.<br/>Use to connect to an SAP message server. | No |
-| `logonGroup` | The logon group for the SAP system.<br/>Use to connect to an SAP message server. | No |
-| `clientId` | The ID of the client in the SAP system.<br/>Allowed value: A three-digit decimal number represented as a string. | Yes |
-| `language` | The language that the SAP system uses.<br/>Default value is `EN`.| No |
-| `userName` | The name of the user who has access to the SAP server. | Yes |
-| `password` | The password for the user. Mark this field with the `SecureString` type to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| `sncMode` | The SNC activation indicator to access the SAP server where the table is located.<br/>Use if you want to use SNC to connect to the SAP server.<br/>Allowed values are `0` (off, the default) or `1` (on). | No |
-| `sncMyName` | The initiator's SNC name to access the SAP server where the table is located.<br/>Applies when `sncMode` is on. | No |
-| `sncPartnerName` | The communication partner's SNC name to access the SAP server where the table is located.<br/>Applies when `sncMode` is on. | No |
-| `sncLibraryPath` | The external security product's library to access the SAP server where the table is located.<br/>Applies when `sncMode` is on. | No |
-| `sncQop` | The SNC Quality of Protection level to apply.<br/>Applies when `sncMode` is On. <br/>Allowed values are `1` (Authentication), `2` (Integrity), `3` (Privacy), `8` (Default), `9` (Maximum). | No |
-| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. A self-hosted integration runtime is required, as mentioned earlier in [Prerequisites](#prerequisites). |Yes |
-
-### Example 1: Connect to an SAP application server
-
-```json
-{
-    "name": "SapTableLinkedService",
-    "properties": {
-        "type": "SapTable",
-        "typeProperties": {
-            "server": "<server name>",
-            "systemNumber": "<system number>",
-            "clientId": "<client ID>",
-            "userName": "<SAP user>",
-            "password": {
-                "type": "SecureString",
-                "value": "<Password for SAP user>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### Example 2: Connect to an SAP message server
-
-```json
-{
-    "name": "SapTableLinkedService",
-    "properties": {
-        "type": "SapTable",
-        "typeProperties": {
-            "messageServer": "<message server name>",
-            "messageServerService": "<service name or port>",
-            "systemId": "<system ID>",
-            "logonGroup": "<logon group>",
-            "clientId": "<client ID>",
-            "userName": "<SAP user>",
-            "password": {
-                "type": "SecureString",
-                "value": "<Password for SAP user>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of integration runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### Example 3: Connect by using SNC
-
-```json
-{
-    "name": "SapTableLinkedService",
-    "properties": {
-        "type": "SapTable",
-        "typeProperties": {
-            "server": "<server name>",
-            "systemNumber": "<system number>",
-            "clientId": "<client ID>",
-            "userName": "<SAP user>",
-            "password": {
-                "type": "SecureString",
-                "value": "<Password for SAP user>"
-            },
-            "sncMode": 1,
-            "sncMyName": "<SNC myname>",
-            "sncPartnerName": "<SNC partner name>",
-            "sncLibraryPath": "<SNC library path>",
-            "sncQop": "8"
-        },
-        "connectVia": {
-            "referenceName": "<name of integration runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
+Follow the steps described in [Prepare the SAP ODP linked service](sap-change-data-capture-prepare-linked-service-source-dataset.md#prepare-the-sap-odp-linked-service) to create a linked service for the SAP CDC connector in the Azure portal UI.
 
 ## Dataset properties
 
-For a full list of the sections and properties for defining datasets, see [Datasets](concepts-datasets-linked-services.md). The following section provides a list of the properties supported by the SAP table dataset.
+To prepare an SAP CDC dataset, follow [Prepare the SAP ODP source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md#prepare-the-sap-odp-source-dataset)
 
-To copy data from and to the SAP BW Open Hub linked service, the following properties are supported:
+## Copy or transform data with the SAP CDC connector
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| `type` | The `type` property must be set to `SapTableResource`. | Yes |
-| `tableName` | The name of the SAP table to copy data from. | Yes |
+SAP CDC datasets can be used as source in Copy activity or Mapping data flow. While Copy activity will only allow you to land the raw change data feed coming from the ODP source, integration into Mapping data flow takes care of interpreting the change data feed correctly by evaluating technical attributes provided by the ODP framework (e.g., ODQ_CHANGEMODE) automatically. This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed.  
 
-### Example
+### Copy activity properties
 
-```json
-{
-    "name": "SAPTableDataset",
-    "properties": {
-        "type": "SapTableResource",
-        "typeProperties": {
-            "tableName": "<SAP table name>"
-        },
-        "schema": [],
-        "linkedServiceName": {
-            "referenceName": "<SAP table linked service name>",
-            "type": "LinkedServiceReference"
-        }
-    }
-}
-```
+To configure a copy activity for an SAP CDC source dataset, follow [Create a copy activity with an SAP CDC data source](sap-change-data-capture-copy-activity.md#create-a-copy-activity-with-an-sap-cdc-data-source).
 
-## Copy activity properties
+### Mapping data flow properties
 
-For a full list of the sections and properties for defining activities, see [Pipelines](concepts-pipelines-activities.md). The following section provides a list of the properties supported by the SAP table source.
+To create a mapping data flow using the SAP CDC connector as a source, complete the following steps:
 
-### SAP table as source
+1.	In ADF Studio, go to the **Data flows** section of the **Author** hub, select the **…** button to drop down the **Data flow actions** menu, and select the **New data flow** item. Turn on debug mode by using the **Data flow debug** button in the top bar of data flow canvas.
 
-To copy data from an SAP table, the following properties are supported:
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-data-flow-debug.png" alt-text="Screenshot of the data flow debug button in mapping data flow.":::
 
-| Property                         | Description                                                  | Required |
-| :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | The `type` property must be set to `SapTableSource`.         | Yes      |
-| `rowCount`                         | The number of rows to be retrieved.                              | No       |
-| `rfcTableFields`                 | The fields (columns) to copy from the SAP table. For example, `column0, column1`. | No       |
-| `rfcTableOptions`                | The options to filter the rows in an SAP table. For example, `COLUMN0 EQ 'SOMEVALUE'`. See also the SAP query operator table later in this article. | No       |
-| `customRfcReadTableFunctionModule` | A custom RFC function module that can be used to read data from an SAP table.<br>You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to the service. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by the service.| No       |
-| `partitionOption`                  | The partition mechanism to read from an SAP table. The supported options include: <ul><li>`None`</li><li>`PartitionOnInt` (normal integer or integer values with zero padding on the left, such as `0000012345`)</li><li>`PartitionOnCalendarYear` (4 digits in the format "YYYY")</li><li>`PartitionOnCalendarMonth` (6 digits in the format "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 digits in the format "YYYYMMDD")</li><li>`PartitionOntime` (6 digits in the format "HHMMSS", such as `235959`)</li></ul> | No       |
-| `partitionColumnName`              | The name of the column used to partition the data.                | No       |
-| `partitionUpperBound`              | The maximum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. | No       |
-| `partitionLowerBound`              | The minimum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. (Note: `partitionLowerBound` cannot be "0" when partition option is `PartitionOnInt`) | No       |
-| `maxPartitionsNumber`              | The maximum number of partitions to split the data into. The default value is 1.    | No       |
-| `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
+1. In the mapping data flow editor, select **Add Source**.
 
->[!TIP]
->If your SAP table has a large volume of data, such as several billion rows, use `partitionOption` and `partitionSetting` to split the data into smaller partitions. In this case, the data is read per partition, and each data partition is retrieved from your SAP server via a single RFC call.<br/>
-<br/>
->Taking `partitionOption` as `partitionOnInt` as an example, the number of rows in each partition is calculated with this formula: (total rows falling between `partitionUpperBound` and `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
-<br/>
->To load data partitions in parallel to speed up copy, the parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP table. We strongly recommend making `maxPartitionsNumber` a multiple of the value of the `parallelCopies` property. When copying data into file-based data store, it's also recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
 
+1. On the tab **Source settings** select a prepared SAP CDC dataset or select the **New** button to create a new one. Alternatively, you can also select **Inline** in the **Source type** property and continue without defining an explicit dataset.
 
->[!TIP]
-> The `BASXML` is enabled by default for this SAP Table connector within the service.
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
-In `rfcTableOptions`, you can use the following common SAP query operators to filter the rows:
+1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
 
-| Operator | Description |
-| :------- | :------- |
-| `EQ` | Equal to |
-| `NE` | Not equal to |
-| `LT` | Less than |
-| `LE` | Less than or equal to |
-| `GT` | Greater than |
-| `GE` | Greater than or equal to |
-| `IN` | As in `TABCLASS IN ('TRANSP', 'INTTAB')` |
-| `LIKE` | As in `LIKE 'Emma%'` |
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
 
-### Example
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
 
-```json
-"activities":[
-    {
-        "name": "CopyFromSAPTable",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<SAP table input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "SapTableSource",
-                "partitionOption": "PartitionOnInt",
-                "partitionSettings": {
-                     "partitionColumnName": "<partition column name>",
-                     "partitionUpperBound": "2000",
-                     "partitionLowerBound": "1",
-                     "maxPartitionsNumber": 500
-                 }
-            },
-            "sink": {
-                "type": "<sink type>"
-            },
-            "parallelCopies": 4
-        }
-    }
-]
-```
-
-## Join SAP tables
-
-Currently SAP Table connector only supports one single table with the default function module. To get the joined data of multiple tables, you can leverage the [customRfcReadTableFunctionModule](#copy-activity-properties) property in the SAP Table connector following steps below:
-
-- [Write a custom function module](#create-custom-function-module), which can take a query as OPTIONS and apply your own logic to retrieve the data.
-- For the "Custom function module", enter the name of your custom function module.
-- For the "RFC table options", specify the table join statement to feed into your function module as OPTIONS, such as "`<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0".
-
-Below is an example:
-
-:::image type="content" source="./media/connector-sap-table/sap-table-join.png" alt-text="Sap Table Join"::: 
-
->[!TIP]
->You can also consider having the joined data aggregated in the VIEW, which is supported by SAP Table connector.
->You can also try to extract related tables to get onboard onto Azure (e.g. Azure Storage, Azure SQL Database), then use Data Flow to proceed with further join or filter.
-
-## Create custom function module
-
-For SAP table, currently we support [customRfcReadTableFunctionModule](#copy-activity-properties) property in the copy source, which allows you to leverage your own logic and process data.
-
-As a quick guidance, here are some requirements to get started with the "Custom function module":
-
-- Definition:
-
-    :::image type="content" source="./media/connector-sap-table/custom-function-module-definition.png" alt-text="Definition"::: 
-
-- Export data into one of the tables below:
-
-    :::image type="content" source="./media/connector-sap-table/export-table-1.png" alt-text="Export table 1"::: 
-
-    :::image type="content" source="./media/connector-sap-table/export-table-2.png" alt-text="Export table 2":::
- 
-Below are illustrations of how SAP table connector works with custom function module:
-
-1. Build connection with SAP server via SAP NCO.
-
-1. Invoke "Custom function module" with the parameters set as below:
-
-    - QUERY_TABLE: the table name you set in the SAP Table dataset; 
-    - Delimiter: the delimiter you set in the SAP Table Source; 
-    - ROWCOUNT/Option/Fields: the Rowcount/Aggregated Option/Fields you set in the Table source.
-
-1. Get the result and parse the data in below ways:
-
-    1. Parse the value in the Fields table to get the schemas.
-
-        :::image type="content" source="./media/connector-sap-table/parse-values.png" alt-text="Parse values in Fields":::
-
-    1. Get the values of the output table to see which table contains these values.
-
-        :::image type="content" source="./media/connector-sap-table/get-values.png" alt-text="Get values in output table":::
-
-    1. Get the values in the OUT_TABLE, parse the data and then write it into the sink.
-
-## Data type mappings for an SAP table
-
-When you're copying data from an SAP table, the following mappings are used from the SAP table data types to interim data types used within the service. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
-
-| SAP ABAP Type | Service interim data type |
-|:--- |:--- |
-| `C` (String) | `String` |
-| `I` (Integer) | `Int32` |
-| `F` (Float) | `Double` |
-| `D` (Date) | `String` |
-| `T` (Time) | `String` |
-| `P` (BCD Packed, Currency, Decimal, Qty) | `Decimal` |
-| `N` (Numeric) | `String` |
-| `X` (Binary and Raw) | `String` |
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-
-## Next steps
-
-For a list of the data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+1. For details on the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).

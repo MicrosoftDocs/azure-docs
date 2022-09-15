@@ -30,11 +30,23 @@ This document provides a high-level architecture of our SAP CDC solution in ADF,
 
 ## Architecture
 
-The high-level architecture of our SAP CDC solution in ADF is divided into two sides, left-hand-side (LHS) and right-hand-side (RHS).  LHS includes SAP ODP connector that invokes ODP API over standard Remote Function Call (RFC) modules to extract raw SAP data (full + deltas).  RHS includes ADF copy activity that loads the raw SAP data into any destination, such as Azure Blob Storage/Azure Data Lake Store (ADLS) Gen2, in CSV/Parquet format, essentially archiving/preserving all historical changes.  RHS can also include ADF data flow activity that transforms the raw SAP data, merges all changes, and loads the result into any destination, such as Azure SQL Database/Azure Synapse Analytics, essentially replicating SAP data.  ADF data flow activity can also load the result into ADLS Gen2 in Delta format, enabling time-travel to produce snapshots of SAP data at any given periods in the past.  LHS and RHS can be combined as SAP CDC/replication template to auto-generate ADF pipeline that can be frequently run using ADF tumbling window trigger to replicate SAP data into Azure w/ low latency and w/o watermarking.
+The high-level architecture of our SAP CDC solution in ADF is divided into two sides, left-hand-side (LHS) and right-hand-side (RHS).  LHS includes SAP ODP connector that invokes ODP API over standard Remote Function Call (RFC) modules to extract raw SAP data (full + deltas).
+
+On the right-hand-side, there are two ways of consuming the change data:
+
+-   ADF copy activity can load the raw SAP data into any destination, such as Azure Blob Storage/Azure Data Lake Store (ADLS) Gen2, in CSV/Parquet format, essentially archiving/preserving all historical changes.
+
+-   ADF mapping data flow can use the SAP CDC connector as a source to transform the raw SAP data, merges all changes, and loads the result into any destination, such as Azure SQL Database/Azure Synapse Analytics, essentially replicating SAP data.  ADF data flow activity can also load the result into ADLS Gen2 in Delta format, enabling time-travel to produce snapshots of SAP data at any given periods in the past.
+
+The second option is significantly more powerful and comfortable. The mapping data flow will handle the raw change feed correctly, automatically interpret the operation (insert/update/delete) to be performed on a row, etc. With this, the user can concentrate on implementing the required transformation logic without having to deal with technicalities of the raw SAP ODP data, like the "change mode" (ODQ_CHANGEMODE), processing changes to the same key in the right order, etc. Mapping data flow takes care of all this.
+
+An ADF pipeline containing a copy activity or a mapping data flow can be frequently run using ADF tumbling window trigger to replicate SAP data into Azure w/ low latency and w/o watermarking.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-architecture-diagram.png" alt-text="Shows a diagram of the architecture of SAP CDC.":::
 
-ADF copy activity w/ SAP ODP connector runs on a self-hosted integration runtime (SHIR) that you install on your on-premises/virtual machine, so it has a line of sight to your SAP source systems/SLT replication server, while ADF data flow activity runs on a serverless Databricks/Spark cluster, Azure IR.  SAP ODP connector via ODP can extract various data source (“provider”) types, such as:
+The SAP ODP connector is based on a self-hosted integration runtime (SHIR) that you install on your on-premises/virtual machine, so it has a line of sight to your SAP source systems/SLT replication server. This is true both in case of the copy activity and the mapping data flow, which leverages SHIR to move the data from SAP and runs on a serverless Databricks/Spark cluster, Azure IR, for further processing of the transformation logic.
+
+SAP ODP connector via ODP can extract various data source (“provider”) types, such as:
 
 -	SAP extractors, originally built to extract data from SAP ECC and load it into SAP BW
 -	ABAP CDS views, the new data extraction standard for SAP S/4HANA
