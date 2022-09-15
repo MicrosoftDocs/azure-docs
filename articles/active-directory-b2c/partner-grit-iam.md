@@ -1,0 +1,119 @@
+---
+title: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with the Grit IAM B2B2C solution
+services: active-directory-b2c
+author: gargi-sinha
+manager: martinco
+ms.service: active-directory
+ms.workload: identity
+ms.topic: how-to
+ms.date: 9/15/2022
+ms.author: gasinh
+ms.reviewer: kengaderdus
+ms.subservice: B2C
+---
+
+# Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C
+
+In this tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with a Grit IAM B2B2C solution. You can use the solution to provide secure, reliable, self-serviceable, and user-friendly identity and access management to your customers. Shared profile data such as first name, last name, home address, and email used in web and mobile applications are stored in a centralized manner with consideration to compliance and regulatory needs.
+
+Use Grit's B2BB2C solution for:
+
+- Authentication, authorization, profile and role management, and delegated B2B SaaS application administration.
+- Role-based access control for B2C applications.
+
+## Prerequisites
+
+To get started, ensure the following prerequisites are met:
+
+- A Grit IAM account
+  - You can go to [Grit IAM B2B2C solution](https://www.gritiam.com/b2b2c) to get a demo.
+- An Azure AD subscription
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- An Azure AD B2C tenant linked to the Azure subscription
+  - Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+
+## Scenario description
+
+Contoso does business with end customers and large enterprises, like Fabrikam_big1 and Fabrikam_big2. There are small enterprise customers like Fabrikam_small1 and Fabrikam_small2 and direct business is done with end customers like Smith1 and Smith2.
+
+Contoso has web and mobile applications and develops new applications. The applications rely on user shared profile data such as, first name, last name, address, and email. They want to centralize the profile data, so applications aren't collecting and storing the data. They want to store the profile information in accordance with certain compliance and regulations.
+
+![Screenshot that shows the architecture diagram of how the components are connected to each other.](./media/partner-grit-iam/grit-b2b2c-architecture.png)
+
+This integration is composed of the following components:
+
+- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Azure AD database and the API layer, configured using XML.
+
+- **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Azure AD and Cosmos DB.
+
+- **Grit Onboarding portal**: Used by admins to onboard applications and organizations.
+
+- **Grit Admin portal**: Used by the Contoso admin and by admins of fabrikam_big1, and fabirkam_small1. Delegated admins can manage users and their access. Super admins of the organizations manage all users.
+
+- **Grit Visual IEF editor**: A low code/no code editor that customizes the user journey and is provided by Grit. It produces the XML used by IEF. Contoso developers use it to customize user journeys.
+
+- **Applications**: Developed by Contoso or third parties. Applications use Open ID or SAML to connect to the CIAM system. Tokens they receive contain user-profile information, but can make API calls, with the token as auth mechanism, to do user-profile data create, read, update and delete (CRUD) operations.
+
+> [!NOTE]
+> Components developed by Grit, except the visual IEF editor, will be deployed in the Contoso Azure environment.
+
+## Configure Grit B2B2C with Azure AD B2C
+
+Use the guidance provided in the following sections to get started with configuration.
+
+### Step 1 - Infrastructure setup
+
+To get started with setup:
+
+- Contact [Grit support](mailto:info@gritsoftwaresystems.com) to obtain access.
+- For evaluation, the infrastructure is deployed in the Grit Azure subscription and you'll be given admin rights.
+- After the solution is purchased, Grit engineers install the dev, test, and production version in your Azure subscription.
+- The infrastructure integrates with your virtual network (VNet) setup, supports APIM (third-party API management) and the firewall.
+- Implementation engineers can provide custom recommendations based on your infrastructure.
+
+### Step 2 - Create admins in the Admin Portal
+
+The Grit Admin portal is to assign administrators access to the portal where they can perform the following tasks -
+
+- Add other admins such as super, organization, application admin in the hierarchy depending on their permission level.
+
+- View/Accept/Reject all the user's requests for the application registration.
+
+- Search users.
+
+To learn how to assign admin roles, check the [tutorial.](https://app.archbee.com/doc/j1VX2J3B3xJ-zMqnmlDA5/9IW3PgI2yn1cCpPGm1vVN). 
+
+### Step 3 - Onboard organizations
+
+Use the Onboarding portal for one or more of your customers and their identity provider (IdP) supporting OpenID Connect (OIDC) and SAML. Onboard customers without an IdP, for local account authentication. For B2C applications, enable social authentications.
+
+Make sure you have Azure portal tenant access and the application is configured in the Azure portal.
+
+>[!NOTE]
+>To provide a walk-through or demo, some applications are pre-configured in the Azure AD tenant of the Onboarding portal.
+
+The Onboarding portal defines the claims per application and per organization. Thereafter, the portal creates an endpoint URL for the sign-in sign-up user flow.
+
+To learn how to onboard an organization, check this [tutorial](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2).
+
+### Step 4 - Integrate applications using OIDC or SAML
+
+The Grit Onboarding portal provides URLs to onboard the applications after onboarding a customer.
+
+Learn [how your customers can sign up, sign in, and manage their profiles](https://docs.microsoft.com/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-custom-policy). 
+
+### Test the scenarios
+
+Run through the authentication scenarios in the applications.  Ensure there's a super admin for the tenant. You can use the Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
+
+## Next steps
+
+- [Azure AD B2C custom policy overview](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+
+- [SAAS Platform - Organization Application Onboarding Portal](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2)
+
+- [SAAS Platform - Admin Portal](https://app.archbee.com/doc/j1VX2J3B3xJ-zMqnmlDA5/9IW3PgI2yn1cCpPGm1vVN)
