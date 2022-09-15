@@ -213,7 +213,7 @@ You can view and change most settings for a network interface after it's created
 
     - **Network security group (NSG):** Displays which NSG is associated to the network interface. An NSG contains inbound and outbound rules to filter network traffic for the network interface. If an NSG is associated to the network interface, the name of the associated NSG is displayed. To modify what's displayed, see [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group).
    
-    :::image type="content" source="./media/virtual-network-network-interface/nsg-configuration.png" alt-text="Screenshot of network security group configuration.":::
+    :::image type="content" source="./media/virtual-network-network-interface/network-security-group.png" alt-text="Screenshot of network security group configuration.":::
 
     - **Properties:** Displays settings about the network interface, MAC address, and the subscription it exists in. The MAC address is blank if the network interface isn't attached to a virtual machine.
    
@@ -509,7 +509,7 @@ You can use PowerShell or the Azure CLI to add a network interface to, or remove
 
 6. Select **Configure the application security groups**.
 
-    :::image type="content" source="./media/virtual-network-network-interface/asg-configuration.png" alt-text="Screenshot of application security group configuration.":::
+    :::image type="content" source="./media/virtual-network-network-interface/application-security-group.png" alt-text="Screenshot of application security group configuration.":::
 
 7. Select the application security groups that you want to add the network interface to, or unselect the application security groups that you want to remove the network interface from.
 
