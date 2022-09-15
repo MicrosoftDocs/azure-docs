@@ -175,16 +175,11 @@ do
 } while (DateTime.Now.Ticks - start < duration.Ticks);
 ```
 
-| Status Name         | Description                                                                                                                                          |
-| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| None                | An email with this messageId couldn't be found.                                                                                                     |
-| Queued              | The email has been placed in the queue for delivery.                                                                                                 |
-| OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
-| InternalError       | An error occurred internally during the delivery of this message. Please try again.                                                                  |
-| Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
-| InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
-| InvalidAttachments  | The content bytes string for the attachment isn't valid.                                                                                           |
-| InvalidSenderDomain | The sender's email address domain isn't valid.                                                                                                     |
+| Status Name | Description |
+| ----------- | ------------|
+| Queued | The email has been placed in the queue for delivery. |
+| OutForDelivery | The email is currently en route to its recipient(s). |
+| Dropped | The email message was dropped before the delivery could be successfully completed. |
 
 ## Run the code
 
