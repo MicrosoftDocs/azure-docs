@@ -205,15 +205,27 @@ You can view and change most settings for a network interface after it's created
 
     - **IP configurations:** Public and private IPv4 and IPv6 address assigned to IP configurations are listed. To learn more about IP configurations and how to add and remove IP addresses, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, see [Enable or disable IP forwarding](#enable-or-disable-ip-forwarding) and [Change subnet assignment](#change-subnet-assignment).
 
+    :::image type="content" source="./media/virtual-network-network-interface/ip-configurations.png" alt-text="Screenshot of network interface IP configurations.":::    
+
     - **DNS servers:** You can specify which DNS server a network interface is assigned by the Azure DHCP servers. The network interface can inherit the setting from the virtual network or have a custom setting that overrides the setting for the virtual network it's assigned to. To modify what's displayed, see [Change DNS servers](#change-dns-servers).
    
+    :::image type="content" source="./media/virtual-network-network-interface/dns-servers.png" alt-text="Screenshot of DNS server configuration."::: 
+
     - **Network security group (NSG):** Displays which NSG is associated to the network interface. An NSG contains inbound and outbound rules to filter network traffic for the network interface. If an NSG is associated to the network interface, the name of the associated NSG is displayed. To modify what's displayed, see [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group).
    
-    - **Properties:** Displays settings about the network interface, MAC address, and the subscription it exists in. The MAC address isblank if the network interface isn't attached to a virtual machine.
+    :::image type="content" source="./media/virtual-network-network-interface/nsg-configuration.png" alt-text="Screenshot of network security group configuration.":::
+
+    - **Properties:** Displays settings about the network interface, MAC address, and the subscription it exists in. The MAC address is blank if the network interface isn't attached to a virtual machine.
    
+    :::image type="content" source="./media/virtual-network-network-interface/nic-properties.png" alt-text="Screenshot of network interface properties.":::
+
     - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine and associated with a network security group. The network security group can be assigned to the subnet the network interface is assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
    
+    :::image type="content" source="./media/virtual-network-network-interface/effective-security-rules.png" alt-text="Screenshot of effective security rules.":::
+
     - **Effective routes:** Routes are listed if the network interface is attached to a running virtual machine. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the network interface is assigned to. To learn more about what's displayed, see [View effective routes](#view-effective-routes). To learn more about Azure default routes and user-defined routes, see [Routing overview](virtual-networks-udr-overview.md).
+    
+    :::image type="content" source="./media/virtual-network-network-interface/effective-routes.png" alt-text="Screenshot of effective routes.":::
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
@@ -496,6 +508,8 @@ You can use PowerShell or the Azure CLI to add a network interface to, or remove
 5. Select the **Application security groups** tab.
 
 6. Select **Configure the application security groups**.
+
+    :::image type="content" source="./media/virtual-network-network-interface/asg-configuration.png" alt-text="Screenshot of application security group configuration.":::
 
 7. Select the application security groups that you want to add the network interface to, or unselect the application security groups that you want to remove the network interface from.
 
