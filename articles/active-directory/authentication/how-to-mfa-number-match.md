@@ -24,7 +24,7 @@ This topic covers how to enable number matching in Microsoft Authenticator push 
 - Your organization needs to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
 
   >[!NOTE]
-  >The [policy schema changes](#policy-schema-changes) have been improved. The policy schema for preview is deprecated. Make sure you use the new schema to help prevent errors.
+  >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
 
 - If your organization is using ADFS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
 
@@ -89,14 +89,14 @@ To create the registry key that overrides push notifications:
 
 ### Policy schema changes 
 
->[!NOTE]
->In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
-
-Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled** and include or exclude groups:
+Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled**, and include or exclude groups:
 
 ```
 https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
+
+>[!NOTE]
+>Make sure you use the new policy schema for Microsoft Graph APIs. In Graph Explorer, you'll need to consent to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties

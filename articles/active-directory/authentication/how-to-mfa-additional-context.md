@@ -20,7 +20,7 @@ This topic covers how to improve the security of user sign-in by adding the appl
 - Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
 
 >[!NOTE]
->The [policy schema changes](#policy-schema-changes) have been improved. The policy schema for preview is deprecated. Make sure you use the new schema to help prevent errors.
+>The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
 
 - Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication method policy.
 
@@ -36,14 +36,13 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 ### Policy schema changes 
 
->[!NOTE]
->In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
-
-You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following mapping for the following features:
+You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following name mapping for each features:
 
 - Application name: displayAppInformationRequiredState
 - Geographic location: displayLocationInformationRequiredState
 
+>[!NOTE]
+>Make sure you use the new policy schema for Microsoft Graph APIs. In Graph Explorer, you'll need to consent to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify your single target group for each of the features. Then use the following API endpoint to change the displayAppInformationRequiredState or displayLocationInformationRequiredState properties under featureSettings to **enabled** and include or exclude the groups you want::
 
