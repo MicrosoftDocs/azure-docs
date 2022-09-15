@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/15/2022
 ms.author: jianleishen
 ---
 
@@ -248,6 +248,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| convertDecimalToInteger |  | No |
 
 **Example: copy data by using a basic query without partition**
 
@@ -271,6 +272,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
         "typeProperties": {
             "source": {
                 "type": "OracleSource",
+                "convertDecimalToInteger": false,
                 "oracleReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
