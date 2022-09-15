@@ -4241,6 +4241,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/sql/working-with-dates.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/working-with-dates",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql/sql-query-working-with-json.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/working-with-json",
       "redirect_document_id": true
