@@ -25,6 +25,8 @@ GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` pat
 
 [!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 
+* A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+
 ## Step 1. Get the code
 
 Fork the following repo at GitHub:
