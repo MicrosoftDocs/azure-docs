@@ -9,18 +9,24 @@ ms.date: 09/13/2022
 ---
 # Lambda functions for Bicep
 
-This article describes the lambda functions to use in Bicep.
+This article describes the lambda functions to use in Bicep. Lambda expressions (or lambda functions) are essentially blocks of code that can be passed as an argument. In Bicep, lambda expression is in this format:
+
+```bicep
+<variable> => <expression>
+```
+
+## Limitations
 
 Bicep lambda function has these limitations:
 
-- Lambda can only be specified directly as function arguments.
-- Using lambda variables inside resource or module array access isn't currently supported.
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), and [`sort()`](#sort).
+- Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
 
 ## filter
 
-`filter(inputArray, predicate)`
+`filter(inputArray, lambda expression)`
 
 Filters an array with a custom filtering function.
 
@@ -31,7 +37,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| predicate |Yes |lambda expression |The predicate applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
 
 ### Return value
 
@@ -76,13 +82,13 @@ The output from the preceding example shows the dogs that are five or older:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| itemForLoop | Array | [6, 7, 8, 9] |
+| filteredLoop | Array | [6, 7, 8, 9] |
 | isEven | Array | [0, 2, 4, 6, 8] |
 | oldBois | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
 
 ## map
 
-`map(inputArray, predicate)`
+`map(inputArray, lambda expression)`
 
 Applies a custom mapping function to each element of an array.
 
@@ -93,7 +99,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to map.|
-| predicate |Yes |lambda expression |The predicate applied to each input array element, in order to generate the output array.|
+| lambda expression |Yes |expression |The lambda expression applied to each input array element, in order to generate the output array.|
 
 ### Return value
 
@@ -134,7 +140,6 @@ output mapObject array = map(range(0, length(dogs)), i => {
   dog: dogs[i].name
   greeting: 'Ahoy, ${dogs[i].name}!'
 })
-
 ```
 
 The output from the preceding example is:
@@ -143,11 +148,11 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | dogNames | Array | ["Evie","Casper","Indy","Kira"]  |
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
-| mapObject | Array | [{"dog": "Evie", "greeting": "Ahoy, Evie!", "i": 0}, {"dog": "Casper", "greeting": "Ahoy, Casper!", "i": 1}, {"dog": "Indy", "greeting": "Ahoy, Indy!", "i": 2}, {"dog": "Kira", "greeting": "Ahoy, Kira!", "i": 3}] |
+| mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
 
 ## reduce
 
-`reduce(inputArray, initialValue, predicate)`
+`reduce(inputArray, initialValue, lambda expression)`
 
 Reduces an array with a custom reduce function.
 
@@ -159,7 +164,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
 | initialValue |No |any |Initial value.|
-| predicate |Yes |lambda expression |The predicate used to aggregate the current value and the next value.|
+| lambda expression |Yes |expression |The lambda expression used to aggregate the current value and the next value.|
 
 ### Return value
 
@@ -213,7 +218,7 @@ The output from the preceding example is:
 
 ## sort
 
-`sort(inputArray, predicate)`
+`sort(inputArray, lambda expression)`
 
 Sorts an array with a custom sort function.
 
@@ -224,7 +229,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to sort.|
-| predicate |Yes |lambda expression |The predicate used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
+| lambda expression |Yes |expression |The lambda expression used to compare two array elements for ordering. If true, the second element will be ordered after the first in the output array.|
 
 ### Return value
 
