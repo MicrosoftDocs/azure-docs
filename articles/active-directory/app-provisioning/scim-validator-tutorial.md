@@ -74,7 +74,7 @@ Finally, you need to test and validate your endpoint.
 
 :::image type="content" source="./media/scim-validator-tutorial/scim-validator-results.png" alt-text="SCIM Validator Results Page" lightbox="./media/scim-validator-tutorial/scim-validator-results.png":::
 
-### Use Postman to test endpoints
+### Use Postman to test endpoints (optional)
 
 In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman that validate CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
 
