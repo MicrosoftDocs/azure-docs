@@ -33,7 +33,7 @@ There are two versions of group writeback. The original version is in general av
 - The common name in an Active Directory group’s distinguished name can be configured to include the group’s display name when written back.  
 - The Azure AD Admin portal, Graph Explorer, and PowerShell can be used to configure which Azure AD groups are written back. 
 
-The new version is only available in the [Azure AD Connect version 2.0.89.0 or later](https://www.microsoft.com/download/details.aspx?id=47594). or later and must be enabled in addition to the original version. 
+The new version is enabled on the tenant and not per Azure AD Connect client instance. Please make sure that all Azure AD Connect client instances are updated to a minimal build of [Azure AD Connect version 2.0 or later](https://www.microsoft.com/download/details.aspx?id=47594) if group writeback is currently enabled on the client instance.
 
 The following document will walk you through what you need to know before you enable group writeback for your tenant. 
 
