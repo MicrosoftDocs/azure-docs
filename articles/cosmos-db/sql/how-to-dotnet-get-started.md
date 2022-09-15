@@ -48,7 +48,7 @@ Build the project with the [``dotnet build``](/dotnet/core/tools/dotnet-build) c
 dotnet build
 ```
 
-## Connect to Azure Cosmos DB for NoSQL
+## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
 To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to a API for NoSQL account using the **CosmosClient** class:
 
