@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 09/15/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -100,8 +100,8 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
-6. Select **Add permissions** at the bottom of the page.
-7. Select **Grant admin consent for "DirectoryName"**.
+6. Select **Grant admin consent for "DirectoryName"**.
+7. Select **Yes** to confirm.
 
 ## Disable multi-factor authentication on the storage account
 
