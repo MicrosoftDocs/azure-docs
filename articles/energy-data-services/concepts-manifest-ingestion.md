@@ -72,6 +72,6 @@ The manifest schema has containers for the following entities
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-* [CSV Parser Ingestion Concepts](concepts-csv-parser-ingestion.md)
-* [CSV Parser Ingestion Tutorial](tutorial-csv-ingestion.md)
+Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion
+> [!div class="nextstepaction"]
+> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)

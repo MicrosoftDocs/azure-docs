@@ -88,4 +88,6 @@ Workflow service provides API to monitor the status of each workflow run. Once t
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-* [DDMS Concepts](concepts-ddms.md)
+Advance to the CSV parser tutorial and learn how to perform a CSV parser ingestion
+> [!div class="nextstepaction"]
+> [Tutorial: Sample steps to perform a CSV parser ingestion](tutorial-csv-ingestion.md)
