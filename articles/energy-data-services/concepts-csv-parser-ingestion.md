@@ -86,4 +86,6 @@ The CSV parser ingestion currently supports the following functionality as a one
 Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU&trade; Data Platform, and can be searched through search service
 
 ## Next steps
-* [DDMS Concepts](concepts-ddms.md)
+Advance to the CSV parser tutorial and learn how to perform a CSV parser ingestion
+> [!div class="nextstepaction"]
+> [Tutorial: Sample steps to perform a CSV parser ingestion](tutorial-csv-ingestion.md)
