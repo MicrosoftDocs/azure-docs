@@ -66,14 +66,14 @@ Different agent resource configurations are tested:
 
 ### [8 CPU / 16 GiB RAM](#tab/boostspec)
 
-8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
+8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-|                          |Single file, 1 TiB |~3.3M files, ~200K folders, ~45 GiB |
-|--------------------------|-------------------|------------------------------------------------------|
-|Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                        |
-|Items* per Second         | -                 | 6298                                                 |
-|Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                              |
-|Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                              |
+|                          | Single file, 1 TiB| 3.3M files, 200K folders, 45 GiB (approximate figures) |
+|--------------------------|-------------------|--------------------------------------------------------|
+|Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                          |
+|Items* per Second         | -                 | 6298                                                   |
+|Memory (RAM) usage        | 400 MiB           | 1.4 GiB                                                |
+|Disk usage (for logs)     | 28 KiB            | 1.4 GiB                                                |
 
 *A namespace item is either a file or a folder.
 
