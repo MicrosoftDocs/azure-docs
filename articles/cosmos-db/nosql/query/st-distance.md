@@ -10,9 +10,9 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_DISTANCE (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](sql-query-geospatial-intro.md) article.
+ Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](geospatial-intro.md) article.
   
 ## Syntax
   
@@ -49,13 +49,13 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](../index-policy.md#spatial-indexes) except in queries with aggregates.
+This system function will benefit from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
 
 > [!NOTE]
 > The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
 ## Next steps
 
-- [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Spatial functions Azure Cosmos DB](spatial-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

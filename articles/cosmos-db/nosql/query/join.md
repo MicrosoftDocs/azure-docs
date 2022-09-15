@@ -11,12 +11,12 @@ ms.reviewer: jucocchi
 
 ---
 # Joins in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the API for NoSQL uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
 > [!NOTE]
-> In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](../modeling-data.md) can help avoid the need for cross-item and cross-container joins.
+> In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](../../modeling-data.md) can help avoid the need for cross-item and cross-container joins.
 
 Joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
 
@@ -102,7 +102,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 ## Examples
 
-The following examples show how the JOIN clause works. Before you run these examples, upload the sample [family data](sql-query-getting-started.md#upload-sample-data). In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
+The following examples show how the JOIN clause works. Before you run these examples, upload the sample [family data](getting-started.md#upload-sample-data). In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
 
 ```sql
     SELECT f.id
@@ -216,7 +216,7 @@ The results are:
 ```
 
 > [!IMPORTANT]
-> This example uses mulitple JOIN expressions in a single query. There is a maximum amount of JOINs that can be used in a single query. For more information, see [SQL query limits](../concepts-limits.md#sql-query-limits).
+> This example uses mulitple JOIN expressions in a single query. There is a maximum amount of JOINs that can be used in a single query. For more information, see [SQL query limits](../../concepts-limits.md#sql-query-limits).
 
 The following extension of the preceding example performs a double join. You could view the cross product as the following pseudo-code:
 
@@ -266,9 +266,9 @@ The results are:
 
 ## Subqueries instead of JOINs
 
-If your query has a JOIN and filters, you can rewrite part of the query as a [subquery](sql-query-subquery.md#optimize-join-expressions) to improve performance. In some cases, you may be able to use a subquery or [ARRAY_CONTAINS](sql-query-array-contains.md) to avoid the need for JOIN altogether and improve query performance.
+If your query has a JOIN and filters, you can rewrite part of the query as a [subquery](subquery.md#optimize-join-expressions) to improve performance. In some cases, you may be able to use a subquery or [ARRAY_CONTAINS](array-contains.md) to avoid the need for JOIN altogether and improve query performance.
 
-For example, consider the earlier query that projected the familyName, child's givenName, children's firstName, and pet's givenName. If this query just needed to filter on the pet's name and didn't need to return it, you could use `ARRAY_CONTAINS` or a [subquery](sql-query-subquery.md) to check for pets where `givenName = "Shadow"`.
+For example, consider the earlier query that projected the familyName, child's givenName, children's firstName, and pet's givenName. If this query just needed to filter on the pet's name and didn't need to return it, you could use `ARRAY_CONTAINS` or a [subquery](subquery.md) to check for pets where `givenName = "Shadow"`.
 
 ### Query rewritten with ARRAY_CONTAINS
 
@@ -301,6 +301,6 @@ For example, consider the earlier query that projected the familyName, child's g
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
+- [Getting started](getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Subqueries](sql-query-subquery.md)
+- [Subqueries](subquery.md)

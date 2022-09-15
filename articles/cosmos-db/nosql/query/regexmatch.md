@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # REGEXMATCH (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Provides regular expression capabilities. Regular expressions are a concise and flexible notation for finding patterns of text. Azure Cosmos DB uses [PERL compatible regular expressions (PCRE)](http://www.pcre.org/). 
 
@@ -104,10 +104,10 @@ WHERE RegexMatch (c.description, " s... ","i")
 
 ## Remarks
 
-This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy) if the regular expression can be broken down into either StartsWith, EndsWith, Contains, or StringEquals system functions.
+This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy) if the regular expression can be broken down into either StartsWith, EndsWith, Contains, or StringEquals system functions.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](sql-query-string-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [String functions Azure Cosmos DB](string-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

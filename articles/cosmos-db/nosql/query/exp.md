@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # EXP (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
  Returns the exponential value of the specified numeric expression.  
   
@@ -65,6 +65,6 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

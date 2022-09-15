@@ -11,9 +11,9 @@ ms.reviewer: jucocchi
 ---
 
 # SELECT clause in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Every query consists of a `SELECT` clause and optional [FROM](sql-query-from.md) and [WHERE](sql-query-where.md) clauses, per ANSI SQL standards. Typically, the source in the `FROM` clause is enumerated, and the `WHERE` clause applies a filter on the source to retrieve a subset of JSON items. The `SELECT` clause then projects the requested JSON values in the select list.
+Every query consists of a `SELECT` clause and optional [FROM](from.md) and [WHERE](where.md) clauses, per ANSI SQL standards. Typically, the source in the `FROM` clause is enumerated, and the `WHERE` clause applies a filter on the source to retrieve a subset of JSON items. The `SELECT` clause then projects the requested JSON values in the select list.
 
 ## Syntax
 
@@ -53,7 +53,7 @@ SELECT <select_specification>
 
 - `<scalar_expression>`  
 
-  Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) section for details.  
+  Expression representing the value to be computed. See [Scalar expressions](scalar-expressions.md) section for details.  
 
 ## Remarks
 
@@ -97,6 +97,6 @@ The results are:
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
+- [Getting started](getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [WHERE clause](sql-query-where.md)
+- [WHERE clause](where.md)

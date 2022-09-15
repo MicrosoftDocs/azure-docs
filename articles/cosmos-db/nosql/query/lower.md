@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LOWER (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Returns a string expression after converting uppercase character data to lowercase.
 
@@ -50,10 +50,10 @@ SELECT LOWER("Abc") AS lower
 
 ## Remarks
 
-This system function won't [use indexes](../index-overview.md#index-usage).
+This system function won't [use indexes](../../index-overview.md#index-usage).
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](sql-query-string-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [String functions Azure Cosmos DB](string-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

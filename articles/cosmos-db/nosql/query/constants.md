@@ -12,7 +12,7 @@ ms.reviewer: jucocchi
 ---
 
 # Azure Cosmos DB SQL query constants  
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
  A constant, also known as a literal or a scalar value, is a symbol that represents a specific data value. The format of a constant depends on the data type of the value it represents.  
   
@@ -118,4 +118,4 @@ ms.reviewer: jucocchi
 ## Next steps
 
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Model document data](../modeling-data.md)
+- [Model document data](../../modeling-data.md)

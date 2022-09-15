@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Spatial functions (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
 
@@ -18,11 +18,11 @@ Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in
 
 The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
 
-* [ST_DISTANCE](sql-query-st-distance.md)
-* [ST_INTERSECTS](sql-query-st-intersects.md)
-* [ST_ISVALID](sql-query-st-isvalid.md)
-* [ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)
-* [ST_WITHIN](sql-query-st-within.md)
+* [ST_DISTANCE](st-distance.md)
+* [ST_INTERSECTS](st-intersects.md)
+* [ST_ISVALID](st-isvalid.md)
+* [ST_ISVALIDDETAILED](st-isvaliddetailed.md)
+* [ST_WITHIN](st-within.md)
 
 
 
@@ -31,7 +31,7 @@ The following scalar functions perform an operation on a spatial object input va
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
-- [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregate-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [User Defined Functions](udfs.md)
+- [Aggregates](aggregate-functions.md)

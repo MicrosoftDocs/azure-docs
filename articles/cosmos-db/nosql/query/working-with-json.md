@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ---
 
 # Working with JSON in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 In Azure Cosmos DB's API for NoSQL, items are stored as JSON. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).
 
@@ -96,7 +96,7 @@ FROM Families f
 WHERE f.children[0].givenName = "Jesse"
 ```
 
-In most cases, however, you'll use a [subquery](sql-query-subquery.md) or [self-join](sql-query-join.md) when working with arrays.
+In most cases, however, you'll use a [subquery](subquery.md) or [self-join](join.md) when working with arrays.
 
 For example, here's a document that shows the daily balance of a customer's bank account.
 
@@ -125,7 +125,7 @@ For example, here's a document that shows the daily balance of a customer's bank
 }
 ```
 
-If you wanted to run a query that showed all the customers that had a negative balance at some point, you could use [EXISTS](sql-query-subquery.md#exists-expression) with a subquery:
+If you wanted to run a query that showed all the customers that had a negative balance at some point, you could use [EXISTS](subquery.md#exists-expression) with a subquery:
 
 ```sql
 SELECT c.id
@@ -160,10 +160,10 @@ In this example, the property `isRegistered` has a value of `undefined` because 
 
 Azure Cosmos DB supports two helpful type checking system functions for `null` and `undefined` properties:
 
-* [IS_NULL](sql-query-is-null.md) - checks if a property value is `null`
-* [IS_DEFINED](sql-query-is-defined.md) - checks if a property value is defined
+* [IS_NULL](is-null.md) - checks if a property value is `null`
+* [IS_DEFINED](is-defined.md) - checks if a property value is defined
 
-You can learn about [supported operators](sql-query-equality-comparison-operators.md) and their behavior for `null` and `undefined` values.
+You can learn about [supported operators](equality-comparison-operators.md) and their behavior for `null` and `undefined` values.
 
 ## Reserved keywords and special characters in JSON
 
@@ -301,6 +301,6 @@ Here's an example:
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
-- [SELECT clause](sql-query-select.md)
-- [WHERE clause](sql-query-where.md)
+- [Getting started](getting-started.md)
+- [SELECT clause](select.md)
+- [WHERE clause](where.md)

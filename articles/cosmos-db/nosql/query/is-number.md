@@ -11,7 +11,7 @@ ms.custom: query-reference
 ---
 
 # IS_NUMBER (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Returns a Boolean value indicating if the type of the specified expression is a number.  
   
@@ -67,10 +67,10 @@ Here's the result set.
 
 ## Remarks
 
-This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
-- [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Type checking functions Azure Cosmos DB](type-checking-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

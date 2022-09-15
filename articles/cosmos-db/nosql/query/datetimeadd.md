@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # DateTimeAdd (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Returns DateTime string value resulting from adding a specified number value (as a signed integer) to a specified DateTime string  
   
@@ -114,6 +114,6 @@ SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier
 
 ## Next steps
 
-- [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Date and time functions Azure Cosmos DB](date-time-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

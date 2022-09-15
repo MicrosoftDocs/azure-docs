@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 
 ---
 # WHERE clause in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result.
   
@@ -31,7 +31,7 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) for details.  
+   Expression representing the value to be computed. See [Scalar expressions](scalar-expressions.md) for details.  
   
 ## Remarks
   
@@ -63,7 +63,7 @@ The results are:
 
 ### Scalar expressions in the WHERE clause
 
-The previous example showed a simple equality query. The API for NoSQL also supports various [scalar expressions](sql-query-scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
+The previous example showed a simple equality query. The API for NoSQL also supports various [scalar expressions](scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
 
 You can use the following supported binary operators:  
 
@@ -107,6 +107,6 @@ You can also use property references in queries. For example, `SELECT * FROM Fam
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
-- [IN keyword](sql-query-keywords.md#in)
-- [FROM clause](sql-query-from.md)
+- [Getting started](getting-started.md)
+- [IN keyword](keywords.md#in)
+- [FROM clause](from.md)

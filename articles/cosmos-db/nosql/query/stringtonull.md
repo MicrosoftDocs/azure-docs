@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # StringToNull (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
  Returns expression translated to null. If expression can't be translated, returns undefined.  
   
@@ -88,6 +88,6 @@ This system function won't utilize the index.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](sql-query-string-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [String functions Azure Cosmos DB](string-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)

@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 
 ---
 # Keywords in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 
@@ -126,7 +126,7 @@ There are some additional restrictions on queries with an aggregate system funct
 
 ## LIKE
 
-Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](sql-query-regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
+Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
 
 > [!NOTE]
 > Because `LIKE` can utilize an index, you should [create a range index](./../index-policy.md) for properties you are comparing using `LIKE`.
@@ -209,7 +209,7 @@ The following example returns all items where the state is any of the specified 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-The API for NoSQL provides support for [iterating over JSON arrays](sql-query-object-array.md#Iteration), with a new construct added via the in keyword in the FROM source.
+The API for NoSQL provides support for [iterating over JSON arrays](object-array.md#Iteration), with a new construct added via the in keyword in the FROM source.
 
 If you include your partition key in the `IN` filter, your query will automatically filter to only the relevant partitions.
 
@@ -248,6 +248,6 @@ The results are:
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
-- [Joins](sql-query-join.md)
-- [Subqueries](sql-query-subquery.md)
+- [Getting started](getting-started.md)
+- [Joins](join.md)
+- [Subqueries](subquery.md)

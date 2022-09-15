@@ -11,9 +11,9 @@ ms.reviewer: jucocchi
 
 ---
 # Querying geospatial data with Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This article will cover how to query geospatial data in Azure Cosmos DB using SQL and LINQ. Currently storing and accessing geospatial data is supported by Azure Cosmos DB for NoSQL accounts only. Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query System Functions in Azure Cosmos DB](sql-query-system-functions.md).
+This article will cover how to query geospatial data in Azure Cosmos DB using SQL and LINQ. Currently storing and accessing geospatial data is supported by Azure Cosmos DB for NoSQL accounts only. Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query System Functions in Azure Cosmos DB](system-functions.md).
 
 ## Spatial SQL built-in functions
 
@@ -45,7 +45,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
     }]
 ```
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see [geospatial indexing](sql-query-geospatial-index.md). If you don't have a spatial index for the specified paths, the query will do a scan of the container.
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see [geospatial indexing](geospatial-index.md). If you don't have a spatial index for the specified paths, the query will do a scan of the container.
 
 `ST_WITHIN` can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index.
 
@@ -178,6 +178,6 @@ Similarly, here's a query for finding all the documents whose `location` is with
 
 Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
 
-* Learn more about [Azure Cosmos DB Query](sql-query-getting-started.md)
-* Learn more about [Geospatial and GeoJSON location data in Azure Cosmos DB](sql-query-geospatial-intro.md)
-* Learn more about [Index spatial data with Azure Cosmos DB](sql-query-geospatial-index.md)
+* Learn more about [Azure Cosmos DB Query](getting-started.md)
+* Learn more about [Geospatial and GeoJSON location data in Azure Cosmos DB](geospatial-intro.md)
+* Learn more about [Index spatial data with Azure Cosmos DB](geospatial-index.md)

@@ -11,9 +11,9 @@ ms.reviewer: mjbrown
 
 ---
 # Scalar expressions in Azure Cosmos DB SQL queries
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Examples of scalar expressions include: constants, property references, array element references, alias references, or function calls. Scalar expressions can be combined into complex expressions using operators.
+The [SELECT clause](select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Examples of scalar expressions include: constants, property references, array element references, alias references, or function calls. Scalar expressions can be combined into complex expressions using operators.
 
 ## Syntax
   
@@ -48,7 +48,7 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `<constant>`  
   
-   Represents a constant value. See [Constants](sql-query-constants.md) section for details.  
+   Represents a constant value. See [Constants](constants.md) section for details.  
   
 - `input_alias`  
   
@@ -139,6 +139,6 @@ The results are:
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Subqueries](sql-query-subquery.md)
+- [Subqueries](subquery.md)

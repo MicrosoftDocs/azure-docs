@@ -11,7 +11,7 @@ ms.custom: query-reference
 --- 
 
 # DateTimeBin (Azure Cosmos DB)
- [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)] 
+ [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)] 
 
 Returns the nearest multiple of *BinSize* below the specified DateTime given the unit of measurement *DateTimePart* and start value of *BinAtDateTime*. 
 
@@ -116,6 +116,6 @@ DateTimeBin('2021-06-28T17:24:29.2991234Z', 'day', 5, '0001-01-01T00:00:00
 
 ## Next steps 
 
-- [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md) 
-- [System functions Azure Cosmos DB](sql-query-system-functions.md) 
-- [Introduction to Azure Cosmos DB](../introduction.md) 
+- [Date and time functions Azure Cosmos DB](date-time-functions.md) 
+- [System functions Azure Cosmos DB](system-functions.md) 
+- [Introduction to Azure Cosmos DB](../../introduction.md) 

@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Mathematical functions (Azure Cosmos DB)  
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 
@@ -30,35 +30,35 @@ The result is:
 
 The following supported built-in mathematical functions perform a calculation, usually based on input arguments, and return a numeric expression. The **index usage** column assumes, where applicable, that you're comparing the mathematical system function to another value with an equality filter.
  
-| System function                 | Index usage | [Index usage in queries with scalar aggregate functions](../index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
+| System function                 | Index usage | [Index usage in queries with scalar aggregate functions](../../index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
 | ------------------------------- | ----------- | ------------------------------------------------------ | ------------------------------------------------------------ |
-| [ABS](sql-query-abs.md)         | Index seek  | Index seek                                             |                                                              |
-| [ACOS](sql-query-acos.md)       | Full scan   | Full scan                                              |                                                              |
-| [ASIN](sql-query-asin.md)       | Full scan   | Full scan                                              |                                                              |
-| [ATAN](sql-query-atan.md)       | Full scan   | Full scan                                              |                                                              |
-| [ATN2](sql-query-atn2.md)       | Full scan   | Full scan                                              |                                                              |
-| [CEILING](sql-query-ceiling.md) | Index seek  | Index seek                                             |                                                              |
-| [COS](sql-query-cos.md)         | Full scan   | Full scan                                              |                                                              |
-| [COT](sql-query-cot.md)         | Full scan   | Full scan                                              |                                                              |
-| [DEGREES](sql-query-degrees.md) | Index seek  | Index seek                                             |                                                              |
-| [EXP](sql-query-exp.md)         | Full scan   | Full scan                                              |                                                              |
-| [FLOOR](sql-query-floor.md)     | Index seek  | Index seek                                             |                                                              |
-| [LOG](sql-query-log.md)         | Full scan   | Full scan                                              |                                                              |
-| [LOG10](sql-query-log10.md)     | Full scan   | Full scan                                              |                                                              |
-| [PI](sql-query-pi.md)           | N/A         | N/A                                                    | PI () returns a constant value. Because the result is deterministic, comparisons with PI() can use the index. |
-| [POWER](sql-query-power.md)     | Full scan   | Full scan                                              |                                                              |
-| [RADIANS](sql-query-radians.md) | Index seek  | Index seek                                             |                                                              |
-| [RAND](sql-query-rand.md)       | N/A         | N/A                                                    | Rand() returns a random number. Because the result is non-deterministic, comparisons that involve Rand() cannot use the index. |
-| [ROUND](sql-query-round.md)     | Index seek  | Index seek                                             |                                                              |
-| [SIGN](sql-query-sign.md)       | Index seek  | Index seek                                             |                                                              |
-| [SIN](sql-query-sin.md)         | Full scan   | Full scan                                              |                                                              |
-| [SQRT](sql-query-sqrt.md)       | Full scan   | Full scan                                              |                                                              |
-| [SQUARE](sql-query-square.md)   | Full scan   | Full scan                                              |                                                              |
-| [TAN](sql-query-tan.md)         | Full scan   | Full scan                                              |                                                              |
-| [TRUNC](sql-query-trunc.md)     | Index seek  | Index seek                                              |                                                              |
+| [ABS](abs.md)         | Index seek  | Index seek                                             |                                                              |
+| [ACOS](acos.md)       | Full scan   | Full scan                                              |                                                              |
+| [ASIN](asin.md)       | Full scan   | Full scan                                              |                                                              |
+| [ATAN](atan.md)       | Full scan   | Full scan                                              |                                                              |
+| [ATN2](atn2.md)       | Full scan   | Full scan                                              |                                                              |
+| [CEILING](ceiling.md) | Index seek  | Index seek                                             |                                                              |
+| [COS](cos.md)         | Full scan   | Full scan                                              |                                                              |
+| [COT](cot.md)         | Full scan   | Full scan                                              |                                                              |
+| [DEGREES](degrees.md) | Index seek  | Index seek                                             |                                                              |
+| [EXP](exp.md)         | Full scan   | Full scan                                              |                                                              |
+| [FLOOR](floor.md)     | Index seek  | Index seek                                             |                                                              |
+| [LOG](log.md)         | Full scan   | Full scan                                              |                                                              |
+| [LOG10](log10.md)     | Full scan   | Full scan                                              |                                                              |
+| [PI](pi.md)           | N/A         | N/A                                                    | PI () returns a constant value. Because the result is deterministic, comparisons with PI() can use the index. |
+| [POWER](power.md)     | Full scan   | Full scan                                              |                                                              |
+| [RADIANS](radians.md) | Index seek  | Index seek                                             |                                                              |
+| [RAND](rand.md)       | N/A         | N/A                                                    | Rand() returns a random number. Because the result is non-deterministic, comparisons that involve Rand() cannot use the index. |
+| [ROUND](round.md)     | Index seek  | Index seek                                             |                                                              |
+| [SIGN](sign.md)       | Index seek  | Index seek                                             |                                                              |
+| [SIN](sin.md)         | Full scan   | Full scan                                              |                                                              |
+| [SQRT](sqrt.md)       | Full scan   | Full scan                                              |                                                              |
+| [SQUARE](square.md)   | Full scan   | Full scan                                              |                                                              |
+| [TAN](tan.md)         | Full scan   | Full scan                                              |                                                              |
+| [TRUNC](trunc.md)     | Index seek  | Index seek                                              |                                                              |
 ## Next steps
 
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
-- [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregate-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [User Defined Functions](udfs.md)
+- [Aggregates](aggregate-functions.md)

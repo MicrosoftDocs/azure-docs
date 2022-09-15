@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 
 ---
 # Index geospatial data with Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 We designed Azure Cosmos DB's database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data represented in the GeoJSON standard.
 
@@ -99,7 +99,7 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 > [!NOTE]
 > If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
 
-You can also [modify indexing policy](../how-to-manage-indexing-policy.md) using the Azure CLI, PowerShell, or any SDK.
+You can also [modify indexing policy](../../how-to-manage-indexing-policy.md) using the Azure CLI, PowerShell, or any SDK.
 
 ## Geometry data indexing examples
 
@@ -162,6 +162,6 @@ The above indexing policy has a **boundingBox** of (-10, 10) for x coordinates a
 
 Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
 
-* Learn more about [Azure Cosmos DB Query](sql-query-getting-started.md)
-* Learn more about [Querying spatial data with Azure Cosmos DB](sql-query-geospatial-query.md)
-* Learn more about [Geospatial and GeoJSON location data in Azure Cosmos DB](sql-query-geospatial-intro.md)
+* Learn more about [Azure Cosmos DB Query](getting-started.md)
+* Learn more about [Querying spatial data with Azure Cosmos DB](geospatial-query.md)
+* Learn more about [Geospatial and GeoJSON location data in Azure Cosmos DB](geospatial-intro.md)

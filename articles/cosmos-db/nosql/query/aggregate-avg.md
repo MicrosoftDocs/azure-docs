@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # AVG (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 This aggregate function returns the average of the values in the expression.
   
@@ -41,10 +41,10 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy). If any arguments in `AVG` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will not impact the `AVG` calculation.
+This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy). If any arguments in `AVG` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will not impact the `AVG` calculation.
 
 ## Next steps
 
-- [Mathematical functions in Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [System functions in Azure Cosmos DB](sql-query-system-functions.md)
-- [Aggregate functions in Azure Cosmos DB](sql-query-aggregate-functions.md)
+- [Mathematical functions in Azure Cosmos DB](mathematical-functions.md)
+- [System functions in Azure Cosmos DB](system-functions.md)
+- [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)

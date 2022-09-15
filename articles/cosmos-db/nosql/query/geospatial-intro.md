@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ms.custom: devx-track-js
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 This article is an introduction to the geospatial functionality in Azure Cosmos DB. After reading our documentation on geospatial indexing you will be able to answer the following questions:
 
@@ -216,6 +216,6 @@ If you don't have the latitude and longitude information, but have the physical 
 
 Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
 
-* Learn more about [Azure Cosmos DB Query](sql-query-getting-started.md)
-* Learn more about [Querying spatial data with Azure Cosmos DB](sql-query-geospatial-query.md)
-* Learn more about [Index spatial data with Azure Cosmos DB](sql-query-geospatial-index.md)
+* Learn more about [Azure Cosmos DB Query](getting-started.md)
+* Learn more about [Querying spatial data with Azure Cosmos DB](geospatial-query.md)
+* Learn more about [Index spatial data with Azure Cosmos DB](geospatial-index.md)

@@ -11,13 +11,13 @@ ms.reviewer: jucocchi
 
 ---
 # FROM clause in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
 
 The `FROM` clause enforces the following rules per query:
 
-* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to [alias](sql-query-working-with-json.md#aliasing) the identifier.  
+* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to [alias](working-with-json.md#aliasing) the identifier.  
 
 * Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and can't be resolved anymore.  
 
@@ -163,6 +163,6 @@ The results are:
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
-- [SELECT clause](sql-query-select.md)
-- [WHERE clause](sql-query-where.md)
+- [Getting started](getting-started.md)
+- [SELECT clause](select.md)
+- [WHERE clause](where.md)

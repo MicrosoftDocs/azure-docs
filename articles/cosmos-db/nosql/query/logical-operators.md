@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 
 ---
 # Logical operators in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 This article details the logical operators supported by Azure Cosmos DB.
 
@@ -66,5 +66,5 @@ The special operator * projects the entire item as is. When used, it must be the
 ## Next steps
 
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Keywords](sql-query-keywords.md)
-- [SELECT clause](sql-query-select.md)
+- [Keywords](keywords.md)
+- [SELECT clause](select.md)

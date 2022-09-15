@@ -11,9 +11,9 @@ ms.reviewer: jucocchi
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-A key feature of the Azure Cosmos DB for NoSQL is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
+A key feature of the Azure Cosmos DB for NoSQL is array and object creation. This document uses examples that can be recreated using the [Family dataset](getting-started.md#upload-sample-data).
 
 Here's an example item in this dataset:
 
@@ -67,7 +67,7 @@ The results are:
 ]
 ```
 
-You can also use the [ARRAY expression](sql-query-subquery.md#array-expression) to construct an array from [subquery's](sql-query-subquery.md) results. This query gets all the distinct given names of children in an array.
+You can also use the [ARRAY expression](subquery.md#array-expression) to construct an array from [subquery's](subquery.md) results. This query gets all the distinct given names of children in an array.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -94,7 +94,7 @@ The results are:
 
 ## <a id="Iteration"></a>Iteration
 
-The API for NoSQL provides support for iterating over JSON arrays, with the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
+The API for NoSQL provides support for iterating over JSON arrays, with the [IN keyword](keywords.md#in) in the FROM source. In the following example:
 
 ```sql
 SELECT *
@@ -196,12 +196,12 @@ The results are:
 ```
 
 > [!NOTE]
-> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](sql-query-join.md).
+> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](join.md).
 
 For additional examples, read our [blog post on working with arrays in Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
 
 ## Next steps
 
-- [Getting started](sql-query-getting-started.md)
+- [Getting started](getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Joins](sql-query-join.md)
+- [Joins](join.md)

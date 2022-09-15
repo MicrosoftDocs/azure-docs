@@ -11,7 +11,7 @@ ms.date: 06/02/2022
 ---
 
 # Bitwise operators in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 
 This article details the bitwise operators supported by Azure Cosmos DB. Bitwise operators are useful for constructing JSON result-sets on the fly. The bitwise operators work similarly to higher-level programming languages like C# and JavaScript. For examples of C# bitwise operators, see [Bitwise and shift operators](/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators).
@@ -63,5 +63,5 @@ The example query's results as a JSON object.
 ## Next steps
 
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Keywords](sql-query-keywords.md)
-- [SELECT clause](sql-query-select.md)
+- [Keywords](keywords.md)
+- [SELECT clause](select.md)

@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 
 ---
 # Aggregate functions in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Aggregate functions perform a calculation on a set of values in the `SELECT` clause and return a single value. For example, the following query returns the count of items within a container:
 
@@ -26,11 +26,11 @@ The API for NoSQL supports the following aggregate functions. `SUM` and `AVG` op
 
 | Function | Description |
 |-------|-------------|
-| [AVG](sql-query-aggregate-avg.md) | Returns the average of the values in the expression. |
-| [COUNT](sql-query-aggregate-count.md) | Returns the number of items in the expression. |
-| [MAX](sql-query-aggregate-max.md) | Returns the maximum value in the expression. |
-| [MIN](sql-query-aggregate-min.md) | Returns the minimum value in the expression. |
-| [SUM](sql-query-aggregate-sum.md) | Returns the sum of all the values in the expression. |
+| [AVG](aggregate-avg.md) | Returns the average of the values in the expression. |
+| [COUNT](aggregate-count.md) | Returns the number of items in the expression. |
+| [MAX](aggregate-max.md) | Returns the maximum value in the expression. |
+| [MIN](aggregate-min.md) | Returns the minimum value in the expression. |
+| [SUM](aggregate-sum.md) | Returns the sum of all the values in the expression. |
 
 
 You can also return only the scalar value of the aggregate by using the VALUE keyword. For example, the following query returns the count of values as a single number:
@@ -62,10 +62,10 @@ The results are:
 
 ## Remarks
 
-These aggregate system functions will benefit from a [range index](../index-policy.md#includeexclude-strategy). If you expect to do an `AVG`, `COUNT`, `MAX`, `MIN`, or `SUM` on a property, you should [include the relevant path in the indexing policy](../index-policy.md#includeexclude-strategy).
+These aggregate system functions will benefit from a [range index](../../index-policy.md#includeexclude-strategy). If you expect to do an `AVG`, `COUNT`, `MAX`, `MIN`, or `SUM` on a property, you should [include the relevant path in the indexing policy](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](../introduction.md)
-- [System functions](sql-query-system-functions.md)
-- [User defined functions](sql-query-udfs.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.md)
+- [User defined functions](udfs.md)

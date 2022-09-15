@@ -11,7 +11,7 @@ ms.date: 09/15/2021
 ---
 
 # Pagination in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 In Azure Cosmos DB, queries may have multiple pages of results. This document explains criteria that Azure Cosmos DB's query engine uses to decide whether to split query results into multiple pages. You can optionally use continuation tokens to manage query results that span multiple pages.
 
@@ -58,7 +58,7 @@ In Azure Cosmos DB's REST API, you can manage continuation tokens with the `x-ms
 
 As long as you are using the same SDK version, continuation tokens never expire. You can optionally [restrict the size of a continuation token](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb). Regardless of the amount of data or number of physical partitions in your container, queries return a single continuation token.
 
-You cannot use continuation tokens for queries with [GROUP BY](sql-query-group-by.md) or [DISTINCT](sql-query-keywords.md#distinct) because these queries would require storing a significant amount of state. For queries with `DISTINCT`, you can use continuation tokens if you add `ORDER BY` to the query.
+You cannot use continuation tokens for queries with [GROUP BY](group-by.md) or [DISTINCT](keywords.md#distinct) because these queries would require storing a significant amount of state. For queries with `DISTINCT`, you can use continuation tokens if you add `ORDER BY` to the query.
 
 Here's an example of a query with `DISTINCT` that could use a continuation token:
 
@@ -70,6 +70,6 @@ ORDER BY c.name
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [ORDER BY clause](sql-query-order-by.md)
+- [ORDER BY clause](order-by.md)

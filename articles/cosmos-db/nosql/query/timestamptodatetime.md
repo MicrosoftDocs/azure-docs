@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # TimestampToDateTime (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Converts the specified timestamp value to a DateTime.
   
@@ -67,6 +67,6 @@ SELECT TimestampToDateTime(1594227912345) AS DateTime
 
 ## Next steps
 
-- [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
-- [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](../introduction.md)
+- [Date and time functions Azure Cosmos DB](date-time-functions.md)
+- [System functions Azure Cosmos DB](system-functions.md)
+- [Introduction to Azure Cosmos DB](../../introduction.md)
