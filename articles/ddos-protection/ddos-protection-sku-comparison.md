@@ -5,24 +5,16 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 09/13/2022
+ms.date: 09/15/2022
 ms.custom: template-concept 
 ---
 
 
 # About Azure DDoS Protection SKU Comparison
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
 
 The sections in this article discuss the resources and settings of Azure DDoS Protection Standard.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 
 ## SKUs
 
@@ -49,7 +41,7 @@ The following table shows features and corresponding SKUs.
 | Protection of resources across subscriptions in a tenant   | Yes | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
->!Note
+>[!Note]
 >At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more details on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
 
 ## DDoS Network Protection
