@@ -294,7 +294,7 @@ Where:
 
 * `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we're posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
 
-* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net* is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
+* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net* is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace `[dps_scope_id]` and `[registration_id]` with the appropriate values.
 
 For example:
 
@@ -418,9 +418,9 @@ Where:
 
 * The last parameter is the URL to post to. For the Send Device Event API, the URL is: `https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13`.  
 
-* Replace the [assigned_iot_hub_name] with the name of the IoT hub that your device was assigned to.
+  * Replace `[assigned_iot_hub_name]` with the name of the IoT hub that your device was assigned to.
 
-* Replace [device_id] with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID will be the registration ID. For individual enrollments, you can, optionally, specify a device ID that is different than the registration ID in the enrollment entry.
+  * Replace `[device_id]` with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID will be the registration ID. For individual enrollments, you can, optionally, specify a device ID that is different than the registration ID in the enrollment entry.
 
 For example:
 
