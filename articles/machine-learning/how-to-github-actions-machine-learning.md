@@ -18,17 +18,12 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a
 
 This article will teach you how to create a GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
 
-This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/installv2), which is in public preview, and [Azure CLI ML extension v2](/cli/azure/ml). 
-
 GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
 
 ## Prerequisites 
 
-- Complete the [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources) to:
-    - Create a workspace
-    - Create a cloud-based compute instance to use for your development environment
-    - Create a cloud-based compute cluster to use for training your model. The cluster should have the name `cpu-cluster`
+[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)].
 - Have a GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
 ## Step 1. Get the code
