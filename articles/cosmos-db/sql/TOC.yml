@@ -71,6 +71,8 @@
       href: tutorial-global-distribution-sql-api.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
+    - name: Deploy Cosmos DB app to AKS cluster using Bicep
+      href: tutorial-bicep-deploy-sql-todoapp-on-aks.md
 - name: Samples
   items:
     - name: .NET
