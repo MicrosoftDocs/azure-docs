@@ -242,4 +242,4 @@ Alert when these changes are detected outside approved change management procedu
 
 [Security operations for devices](security-operations-devices.md)
 
-[Security operations for infrastructure](security-operations-infrastructure.md)
+[Security operations for infrastructure](security-operations-infrastructure.md) 
