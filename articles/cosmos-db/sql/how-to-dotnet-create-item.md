@@ -1,21 +1,21 @@
 ---
-title: Create an item in Azure Cosmos DB SQL API using .NET
-description: Learn how to create, upsert, or replace an item in your Azure Cosmos DB SQL API container using the .NET SDK.
+title: Create an item in Azure Cosmos DB for NoSQL using .NET
+description: Learn how to create, upsert, or replace an item in your Azure Cosmos DB for NoSQL container using the .NET SDK.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
-# Create an item in Azure Cosmos DB SQL API using .NET
+# Create an item in Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Items in Azure Cosmos DB represent a specific entity stored within a container. In the SQL API, an item consists of JSON-formatted data with a unique identifier.
+Items in Azure Cosmos DB represent a specific entity stored within a container. In the API for NoSQL, an item consists of JSON-formatted data with a unique identifier.
 
 ## Create a unique identifier for an item
 
@@ -36,7 +36,7 @@ Once created, the URI for an item is in this format:
 
 ``https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>/docs/<item-resource-identifier>``
 
-When referencing the item using a URI, use the system-generated *resource identifier* instead of the ``id`` field. For more information about system-generated item properties in Azure Cosmos DB SQL API, see [properties of an item](../account-databases-containers-items.md#properties-of-an-item)
+When referencing the item using a URI, use the system-generated *resource identifier* instead of the ``id`` field. For more information about system-generated item properties in Azure Cosmos DB for NoSQL, see [properties of an item](../account-databases-containers-items.md#properties-of-an-item)
 
 ## Create an item
 

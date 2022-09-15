@@ -1,9 +1,9 @@
 ---
 title: Enable notebooks in the Azure Cosmos DB account (preview)
-description: Azure Cosmos DB's built-in notebooks enable you to analyze and visualize your data from within the Portal. This article describes how to enable this feature for Cosmos accounts. 
+description: Azure Cosmos DB's built-in notebooks enable you to analyze and visualize your data from within the Portal. This article describes how to enable this feature for Azure Cosmos DB accounts. 
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.author: dech
@@ -17,10 +17,10 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Currently the notebook feature is temporarily disabled. Azure Cosmos DB team is working on a fix.  
 
-Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account. Notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new Cosmos account](#create-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions.
+Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account. Notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new Azure Cosmos DB account](#create-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions.
 
-## Create a new Cosmos account
-Starting February 10, 2021, new Azure Cosmos accounts created in one of the [supported region](#supported-regions) will automatically have notebooks enabled. There is no additional configuration needed to enable notebooks. Use the following instructions to create a new account:
+## <a id="create-a-new-cosmos-account"></a>Create a new Azure Cosmos DB account
+Starting February 10, 2021, new Azure Cosmos DB accounts created in one of the [supported region](#supported-regions) will automatically have notebooks enabled. There is no additional configuration needed to enable notebooks. Use the following instructions to create a new account:
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select **Create a resource** > **Databases** > **Azure Cosmos DB**.
 1. Enter the basic settings for the account.
@@ -40,11 +40,11 @@ Starting February 10, 2021, new Azure Cosmos accounts created in one of the [sup
 
     :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="New Azure Cosmos DB notebooks workspace":::
 
-## Enable notebooks in an existing Cosmos account
+## <a id="enable-notebooks-in-an-existing-cosmos-account"></a>Enable notebooks in an existing Azure Cosmos DB account
 
 You can also enable notebooks on existing accounts. This step needs to be done only once per account.
 
-1. Navigate to the **Data Explorer** pane in your Cosmos account.
+1. Navigate to the **Data Explorer** pane in your Azure Cosmos DB account.
 1. Select **Enable Notebooks**.
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Create a new notebooks workspace in Data Explorer":::
@@ -72,7 +72,7 @@ You can also select **New Notebook** to create a new notebook or upload an exist
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Create or upload a new notebook":::
 
 ## Supported regions
-Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regions. New Azure Cosmos accounts created in these regions will have notebooks automatically enabled. Notebooks are free with your account. 
+Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regions. New Azure Cosmos DB accounts created in these regions will have notebooks automatically enabled. Notebooks are free with your account. 
 
 - Australia Central
 - Australia Central 2

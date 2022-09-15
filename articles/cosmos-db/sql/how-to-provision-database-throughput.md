@@ -1,9 +1,9 @@
 ---
-title: Provision database throughput in Azure Cosmos DB SQL API
-description: Learn how to provision throughput at the database level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell and various other SDKs. 
+title: Provision database throughput in Azure Cosmos DB for NoSQL
+description: Learn how to provision throughput at the database level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell and various other SDKs. 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: sidandrews
@@ -11,18 +11,18 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
-# Provision standard (manual) throughput on a database in Azure Cosmos DB - SQL API
+# Provision standard (manual) throughput on a database in Azure Cosmos DB - API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article explains how to provision standard (manual) throughput on a database in Azure Cosmos DB SQL API. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](../set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
+This article explains how to provision standard (manual) throughput on a database in Azure Cosmos DB for NoSQL. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](../set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](../cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [API for Cassandra](../cassandra/how-to-provision-throughput-cassandra.md), [API for Gremlin](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Provision throughput using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 
@@ -45,7 +45,7 @@ To create a database with shared throughput see,
 ## Provision throughput using .NET SDK
 
 > [!Note]
-> You can use Azure Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
+> You can use Azure Cosmos DB SDKs for API for NoSQL to provision throughput for all APIs. You can optionally use the following example for API for Cassandra as well.
 
 # [.NET SDK V2](#tab/dotnetv2)
 

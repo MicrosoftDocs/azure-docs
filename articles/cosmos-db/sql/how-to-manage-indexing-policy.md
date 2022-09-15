@@ -3,7 +3,7 @@ title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: sidandrews
@@ -17,7 +17,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azure
 In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB Cassandra API.](../cassandra/secondary-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's API for NoSQL. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB for Apache Cassandra.](../cassandra/secondary-indexing.md)
 
 ## Indexing policy examples
 
@@ -351,11 +351,11 @@ An [indexing policy update](../index-policy.md#modifying-the-indexing-policy) tr
 
 ## Use the Azure portal
 
-Azure Cosmos containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
+Azure Cosmos DB containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Create a new Azure Cosmos account or select an existing account.
+1. Create a new Azure Cosmos DB account or select an existing account.
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 

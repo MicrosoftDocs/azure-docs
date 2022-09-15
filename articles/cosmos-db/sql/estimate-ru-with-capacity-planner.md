@@ -1,23 +1,23 @@
 ---
-title: Estimate costs using the Azure Cosmos DB capacity planner - SQL API
-description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using SQL API. 
+title: Estimate costs using the Azure Cosmos DB capacity planner - API for NoSQL
+description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using API for NoSQL. 
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: dech
 
 ---
 
-# Estimate RU/s using the Azure Cosmos DB capacity planner - SQL API
+# Estimate RU/s using the Azure Cosmos DB capacity planner - API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!NOTE]
 > If you are planning a data migration to Azure Cosmos DB and all that you know is the number of vcores and servers in your existing sharded and replicated database cluster, please also read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 >
 
-Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](../request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the SQL API. If you are using API for MongoDB, see how to [use capacity calculator with MongoDB](../mongodb/estimate-ru-capacity-planner.md) article.
+Configuring your Azure Cosmos DB databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](../request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the API for NoSQL. If you are using API for MongoDB, see how to [use capacity calculator with MongoDB](../mongodb/estimate-ru-capacity-planner.md) article.
 
 [!INCLUDE [capacity planner modes](../includes/capacity-planner-modes.md)]
 
@@ -26,8 +26,8 @@ To get a quick estimate for your workload using the basic mode, navigate to the 
 
 |**Input**  |**Description**  |
 |---------|---------|
-| API |Choose SQL (Core) API |
-|Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Cosmos account. See [global distribution](../distribute-data-globally.md) in Azure Cosmos DB for more details.|
+| API |Choose API for NoSQL |
+|Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Azure Cosmos DB account. See [global distribution](../distribute-data-globally.md) in Azure Cosmos DB for more details.|
 |Multi-region writes|If you enable [multi-region writes](../distribute-data-globally.md#key-benefits-of-global-distribution), your application can read and write to any Azure region. If you disable multi-region writes, your application can write data to a single region. <br/><br/> Enable multi-region writes if you expect to have an active-active workload that requires low latency writes in different regions. For example, an IOT workload that writes data to the database at high volumes in different regions. <br/><br/> Multi-region writes guarantees 99.999% read and write availability. Multi-region writes require more throughput when compared to the single write regions. To learn more, see [how RUs are different for single and multiple-write regions](../optimize-cost-regions.md) article.|
 |Total data stored in transactional store |Total estimated data stored(GB) in the transactional store in a single region.|
 |Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored (GB) in the analytical store in a single region.  |
@@ -50,8 +50,8 @@ After you sign in, you can see more fields compared to the fields in basic mode.
 
 |**Input**  |**Description**  |
 |---------|---------|
-|API|Azure Cosmos DB is a multi-model and multi-API service. Choose SQL(Core) API. |
-|Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Cosmos account. See [global distribution](../distribute-data-globally.md) in Azure Cosmos DB for more details.|
+|API|Azure Cosmos DB is a multi-model and multi-API service. Choose API for NoSQL. |
+|Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Azure Cosmos DB account. See [global distribution](../distribute-data-globally.md) in Azure Cosmos DB for more details.|
 |Multi-region writes|If you enable [multi-region writes](../distribute-data-globally.md#key-benefits-of-global-distribution), your application can read and write to any Azure region. If you disable multi-region writes, your application can write data to a single region. <br/><br/> Enable multi-region writes if you expect to have an active-active workload that requires low latency writes in different regions. For example, an IOT workload that writes data to the database at high volumes in different regions. <br/><br/> Multi-region writes guarantees 99.999% read and write availability. Multi-region writes require more throughput when compared to the single write regions. To learn more, see [how RUs are different for single and multiple-write regions](../optimize-cost-regions.md) article.|
 |Default consistency|Azure Cosmos DB supports 5 consistency levels, to allow developers to balance the tradeoff between consistency, availability, and latency tradeoffs. To learn more, see the [consistency levels](../consistency-levels.md) article. <br/><br/> By default, Azure Cosmos DB uses session consistency, which guarantees the ability to read your own writes in a session. <br/><br/> Choosing strong or bounded staleness will require double the required RU/s for reads, when compared to session, consistent prefix, and eventual consistency. Strong consistency with multi-region writes is not supported and will automatically default to single-region writes with strong consistency. |
 |Indexing policy|By default, Azure Cosmos DB [indexes all properties](../index-policy.md) in all items for flexible and efficient queries (maps to the **Automatic** indexing policy). <br/><br/> If you choose **off**, none of the properties are indexed. This results in the lowest RU charge for writes. Select **off** policy if you expect to only do [point reads](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) (key value lookups) and/or writes, and no queries. <br/><br/> If you choose **Automatic**, Azure Cosmos DB automatically indexes all the items as they are written. <br/><br/> **Custom** indexing policy allows you to include or exclude specific properties from the index for lower write throughput and storage. To learn more, see [indexing policy](../index-overview.md) and [sample indexing policies](how-to-manage-indexing-policy.md#indexing-policy-examples) articles.|
@@ -77,7 +77,7 @@ The prices shown in the Azure Cosmos DB capacity planner are estimates based on 
 
 * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * Learn more about [Azure Cosmos DB's pricing model](../how-pricing-works.md).
-* Create a new [Cosmos account, database, and container](create-cosmosdb-resources-portal.md).
+* Create a new [Azure Cosmos DB account, database, and container](create-cosmosdb-resources-portal.md).
 * Learn how to [optimize provisioned throughput cost](../optimize-cost-throughput.md).
 * Learn how to [optimize cost with reserved capacity](../cosmos-db-reserved-capacity.md).
 

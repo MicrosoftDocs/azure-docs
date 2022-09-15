@@ -26,9 +26,9 @@ To request a quota increase, you must create a new support request with your wor
 
    * For **Issue type**, select **Service and subscription limits (quotas)**
    * For **Subscription**, select the subscription for which you want to increase the quota.
-   * For **Quota type**, select **Cosmos DB**
+   * For **Quota type**, select **Azure Cosmos DB**
 
-   :::image type="content" source="./media/create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Create a new Cosmos DB support request for quota increase":::
+   :::image type="content" source="./media/create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Create a new Azure Cosmos DB support request for quota increase":::
 
 1. In the **Details** tab, enter the details corresponding to your quota request. The Information provided on this tab will be used to further assess your issue and help the support engineer troubleshoot the problem.
 

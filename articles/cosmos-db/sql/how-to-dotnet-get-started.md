@@ -1,28 +1,28 @@
 ---
-title: Get started with Azure Cosmos DB SQL API and .NET
-description: Get started developing a .NET application that works with Azure Cosmos DB SQL API. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB SQL API endpoint.
+title: Get started with Azure Cosmos DB for NoSQL and .NET
+description: Get started developing a .NET application that works with Azure Cosmos DB for NoSQL. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for NoSQL endpoint.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
-# Get started with Azure Cosmos DB SQL API and .NET
+# Get started with Azure Cosmos DB for NoSQL and .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article shows you how to connect to Azure Cosmos DB SQL API using the .NET SDK. Once connected, you can perform operations on databases, containers, and items.
+This article shows you how to connect to Azure Cosmos DB for NoSQL using the .NET SDK. Once connected, you can perform operations on databases, containers, and items.
 
 [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | [Samples](samples-dotnet.md) | [API reference](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure Cosmos DB SQL API account. [Create a SQL API account](how-to-create-account.md).
+* Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
 * [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
@@ -48,12 +48,12 @@ Build the project with the [``dotnet build``](/dotnet/core/tools/dotnet-build) c
 dotnet build
 ```
 
-## Connect to Azure Cosmos DB SQL API
+## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
-To connect to the SQL API of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to a SQL API account using the **CosmosClient** class:
+To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to a API for NoSQL account using the **CosmosClient** class:
 
-* [Connect with a SQL API endpoint and read/write key](#connect-with-an-endpoint-and-key)
-* [Connect with a SQL API connection string](#connect-with-a-connection-string)
+* [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
+* [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
 * [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with an endpoint and key
@@ -62,7 +62,7 @@ The most common constructor for **CosmosClient** has two parameters:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| ``accountEndpoint`` | ``COSMOS_ENDPOINT`` environment variable | SQL API endpoint to use for all requests |
+| ``accountEndpoint`` | ``COSMOS_ENDPOINT`` environment variable | API for NoSQL endpoint to use for all requests |
 | ``authKeyOrResourceToken`` | ``COSMOS_KEY`` environment variable | Account key or resource token to use when authenticating |
 
 #### Retrieve your account endpoint and key
@@ -88,7 +88,7 @@ The most common constructor for **CosmosClient** has two parameters:
     )
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
 
     ```azurecli-interactive
     az cosmosdb show \
@@ -131,7 +131,7 @@ The most common constructor for **CosmosClient** has two parameters:
     ).Name
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -163,15 +163,15 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the existing Azure Cosmos DB SQL API account page.
+1. Navigate to the existing Azure Cosmos DB for NoSQL account page.
 
-1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
+1. From the Azure Cosmos DB for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL API account.":::
 
 ---
 
@@ -205,8 +205,8 @@ Another constructor for **CosmosClient** only contains a single parameter:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| ``accountEndpoint`` | ``COSMOS_ENDPOINT`` environment variable | SQL API endpoint to use for all requests |
-| ``connectionString`` | ``COSMOS_CONNECTION_STRING`` environment variable | Connection string to the SQL API account |
+| ``accountEndpoint`` | ``COSMOS_ENDPOINT`` environment variable | API for NoSQL endpoint to use for all requests |
+| ``connectionString`` | ``COSMOS_CONNECTION_STRING`` environment variable | Connection string to the API for NoSQL account |
 
 #### Retrieve your account connection string
 
@@ -268,9 +268,9 @@ Another constructor for **CosmosClient** only contains a single parameter:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the existing Azure Cosmos DB SQL API account page.
+1. Navigate to the existing Azure Cosmos DB for NoSQL account page.
 
-1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
+1. From the Azure Cosmos DB for NoSQL account page, select the **Keys** navigation menu option.
 
 1. Record the value from the **PRIMARY CONNECTION STRING** field.
 
@@ -299,7 +299,7 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION
 
 ### Connect using the Microsoft Identity Platform
 
-To connect to your SQL API account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
+To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
 
 | Where the application runs | Security principal
 |--|--|---|
@@ -357,7 +357,7 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT``
 
 As you build your application, your code will primarily interact with four types of resources:
 
-* The SQL API account, which is the unique top-level namespace for your Azure Cosmos DB data.
+* The API for NoSQL account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
 * Databases, which organize the containers in your account.
 
@@ -398,7 +398,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a SQL API account, use the next guide to create and manage databases.
+Now that you've connected to a API for NoSQL account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md)
+> [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md)

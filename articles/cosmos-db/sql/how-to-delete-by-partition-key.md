@@ -1,19 +1,19 @@
 ---
-title:  Delete items by partition key value using the Cosmos SDK  (preview)
-description: Learn how to delete items by partition key value using the Cosmos SDKs
+title:  Delete items by partition key value using the Azure Cosmos DB SDK  (preview)
+description: Learn how to delete items by partition key value using the Azure Cosmos DB SDKs
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/19/2022
 ms.custom: 
 ---
 
-# Delete items by partition key value - SQL API (preview)
+# Delete items by partition key value - API for NoSQL (preview)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article explains how to use the Cosmos SDKs to delete all items by logical partition key value. 
+This article explains how to use the Azure Cosmos DB SDKs to delete all items by logical partition key value. 
 
 ## Feature overview
  
@@ -25,7 +25,7 @@ To help limit the resources used by this background task, the delete by partitio
 
 ## Getting started
 
-To use the feature, your Cosmos account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
+To use the feature, your Azure Cosmos DB account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
 
 :::image type="content" source="media/how-to-delete-by-partition-key/preview-enrollment-delete-by-partition-key.png" alt-text="Screenshot that shows the enroll in Delete All Items By Partition Key in Preview Features blade.":::
 
@@ -99,7 +99,7 @@ Support for other SDKs is planned for the future.
 ## Next steps
 
 See the following articles to learn about more SDK operations in Azure Cosmos DB.
-- [Query an Azure Cosmos container
+- [Query an Azure Cosmos DB container
 ](how-to-query-container.md)
 - [Transactional batch operations in Azure Cosmos DB using the .NET SDK
 ](transactional-batch.md)

@@ -3,7 +3,7 @@ title: Write stored procedures and triggers using the JavaScript query API in Az
 description: Learn how to write stored procedures and triggers using the JavaScript Query API in Azure Cosmos DB 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: sidandrews
@@ -19,7 +19,7 @@ Azure Cosmos DB allows you to perform optimized queries by using a fluent JavaSc
 
 ## <a id="stored-procedures"></a>Stored procedure using the JavaScript query API
 
-The following code sample is an example of how the JavaScript query API is used in the context of a stored procedure. The stored procedure inserts an Azure Cosmos item that is specified by an input parameter, and updates a metadata document by using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input item's size property.
+The following code sample is an example of how the JavaScript query API is used in the context of a stored procedure. The stored procedure inserts an Azure Cosmos DB item that is specified by an input parameter, and updates a metadata document by using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input item's size property.
 
 > [!NOTE]
 > `__` (double-underscore) is an alias to `getContext().getCollection()` when using the JavaScript query API.

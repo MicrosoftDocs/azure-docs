@@ -3,7 +3,7 @@ title: Migrate your application from Amazon DynamoDB to Azure Cosmos DB
 description: Learn how to migrate your .NET application from Amazon's DynamoDB to Azure Cosmos DB  
 author: manishmsfte
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/02/2020
 ms.author: mansha
@@ -30,7 +30,7 @@ The following are the key conceptual differences between Azure Cosmos DB and Dyn
 |Stream|ChangeFeed|
 |Write Compute Unit|Request Unit (Flexible, can be used for reads or writes)|
 |Read Compute Unit    |Request Unit (Flexible, can be used for reads or writes)|
-|Global Tables| Not Required. You can directly select the region while provisioning the Azure Cosmos account (you can change the region later)|
+|Global Tables| Not Required. You can directly select the region while provisioning the Azure Cosmos DB account (you can change the region later)|
 
 ## Structural differences
 
@@ -104,7 +104,7 @@ git clone https://github.com/Azure-Samples/DynamoDB-to-CosmosDB
 
 - .NET Framework 4.7.2
 * Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
-- Access to Azure Cosmos DB SQL API Account
+- Access to Azure Cosmos DB for NoSQL Account
 - Local installation of Amazon DynamoDB
 - Java 8
 - Run the downloadable version of Amazon DynamoDB at port 8000 (you can change and configure the code)
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/DynamoDB-to-CosmosDB
 Add the following "NuGet package" to your project:
 
 ```bash
-Install-Package Microsoft.Azure.Cosmos 
+Install-Package Microsoft.Azure.Azure Cosmos DB
 ```
 
 ### Establish connection
@@ -519,5 +519,5 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](../key-value-store-cost.md)
-- Learn about [Monitoring in Cosmos DB](../monitor-cosmos-db.md)
+- Learn about [Monitoring in Azure Cosmos DB](../monitor-cosmos-db.md)
 
