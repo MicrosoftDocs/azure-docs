@@ -27,14 +27,13 @@ Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-jav
 
 ## Code samples
 
-These code samples demonstrate several key operations for a single-page app.
-- [SPA with an ASP.NET back-end](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi): How to get tokens for your own back-end web API (ASP.NET Core) by using **MSAL.js**.
+These code samples demonstrate several key operations for a single-page app:
 
-- [Node.js Web API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): How to validate access tokens for your back-end web API (Node.js) by using **passport-azure-ad**.
+- [SPA with an ASP.NET backend](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/1-call-api): How to get tokens for your own back-end web API (ASP.NET Core) by using **MSAL.js**.
+
+- [SPA with an Node.js backend)](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/1-call-api): How to get tokens for your own back-end web API (Express.js) by using **MSAL.js**.
 
 - [SPA with Azure AD B2C](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa): How to use **MSAL.js** to sign in users in an app that's registered with **Azure Active Directory B2C** (Azure AD B2C).
-
-- [Node.js web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi): How to use **passport-azure-ad** to validate access tokens for apps registered with **Azure Active Directory B2C** (Azure AD B2C).
 
 ## Next steps
 
