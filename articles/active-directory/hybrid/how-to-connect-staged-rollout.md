@@ -50,7 +50,12 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
--  If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
+-   If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
+
+-   Synchronize userPrincipalName updates, 
+    This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:
+    If this feature is not enabled for your Azure AD directory, then you can enable it by running:
+    Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 
 ## Supported scenarios
