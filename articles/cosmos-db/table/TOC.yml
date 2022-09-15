@@ -284,7 +284,7 @@
           href: ../data-explorer.md
     - name: Manage Azure Cosmos DB resources
       items:
-        - name: Manage an Azure Cosmos account
+        - name: Manage an Azure Cosmos DB account
           href: ../how-to-manage-database-account.md
         - name: Manage using PowerShell
           href: powershell-samples.md
