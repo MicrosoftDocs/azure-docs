@@ -1,6 +1,6 @@
 ---
-title: Batch TLS 1.0 Migration Guide
-description: Describes the migration steps for the batch tls 1.0 and the end of support details.
+title: Batch Tls 1.0 Migration Guide
+description: Describes the migration steps for the batch TLS 1.0 and the end of support details.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -27,16 +27,16 @@ For TLS best practices, refer to [TLS best practices for .NET framework](https:/
 
 ## FAQ
 
-1. Why must we upgrade to TLS 1.2?<br>
+* Why must we upgrade to TLS 1.2?<br>
    TLS 1.0/1.1 has security issues that are fixed in TLS 1.2. TLS 1.2 has been available since 2008 and is the current default version in most frameworks.
 
-1. What happens if I don’t upgrade?<br>
+* What happens if I don’t upgrade?<br>
    After the feature retirement, our client application won't work until you upgrade.<br>
 
-1. Will Upgrading to TLS 1.2 affect the performance?<br>
+* Will Upgrading to TLS 1.2 affect the performance?<br>
    Upgrading to TLS 1.2 won't affect performance.<br>
 
-1. How do I know if I’m using TLS 1.0/1.1?<br>
+* How do I know if I’m using TLS 1.0/1.1?<br>
    You can check the Audit Log to determine the TLS version you're using.
 
 ## Next steps
