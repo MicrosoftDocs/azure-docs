@@ -102,8 +102,8 @@ When the volume free space reaches above the threshold, Azure File Sync reverts 
 
 If a volume has two server endpoints, one with tiering-enabled and one without tiering, Low Disk Space mode will only apply to the server endpoint where tiering is enabled.
 
-### How is the threshold for Low Disk Space calculated?
-The threshold is calculated by Azure File Sync by taking the minimum of the following three numbers:
+### How is the threshold for low disk space mode calculated?
+The threshold is calculated by taking the minimum of the following three numbers:
 - 10% of volume free space in GB 
 -	Volume Free Space Policy in GB
 -	20 GB of volume free space
@@ -119,10 +119,10 @@ The following table includes some examples of how the threshold is calculated an
 
 
 ### How does low disk space mode work with volume free space policy?
-Low Disk Space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected. Note that Low Disk Space does not kick in if no volume free space policy is configured on the server endpoint.
+Low disk space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected. Note that low disk space does not kick in if no volume free space policy is configured on the server endpoint.
 
 ### How to get out of low disk space mode?
-Low Disk Space mode is designed to revert to normal behavior when disk space reached above the calculated threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
+Low disk space mode is designed to revert to normal behavior when volume free space is above the threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
 
 ### How to check if a server is in Low Disk Space mode?
 Event ID 19000 is logged once every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode). 
