@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI Preview
 
-[!INCLUDE[applies-to](../includes/applies-to.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI preview.
 
