@@ -501,7 +501,7 @@ limits:
   max_nodes: 2 
 ```
 
---- 
+---
 
 ### Early termination policies  
 
