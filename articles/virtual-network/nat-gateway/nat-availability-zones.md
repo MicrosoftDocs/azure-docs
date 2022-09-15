@@ -30,7 +30,7 @@ NAT gateway can provide outbound connectivity for virtual machines from other av
 While virtual machines in subnets from different availability zones can all be configured to a single zonal NAT gateway resource, this configuration doesn't provide the most effective method for ensuring zone-resiliency against zonal outages. For more information on how to safeguard against zonal outages, see [Design considerations](#design-considerations) later in this article.
 
 ## Non-zonal
-If no zone is selected at the time that the NAT gateway resource is deployed, then it's placed in ‘no zone’ by default. When NAT gateway is placed in ‘no zone’, Azure places the resource in a zone for you. You won't have visibility into which zone Azure chooses for your NAT gateway. After NAT gateway is deployed, zonal configurations can't be changed. ‘No zone’ NAT gateway resources, while still zonal resources can be associated to public IP addresses from a zone, no zone, or that are zone-redundant. 
+If no zone is selected at the time that the NAT gateway resource is deployed, then it's placed in ‘no zone’ by default. When NAT gateway is placed in **no zone**, Azure places the resource in a zone for you. You won't have visibility into which zone Azure chooses for your NAT gateway. After NAT gateway is deployed, zonal configurations can't be changed. **No zone** NAT gateway resources, while still zonal resources can be associated to public IP addresses from a zone, no zone, or that are zone-redundant. 
 
 ## Design considerations
 
