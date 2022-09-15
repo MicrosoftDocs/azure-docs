@@ -1,9 +1,9 @@
 ---
 title: 'Azure Cosmos DB: SQL Go, SDK & resources'
-description: Learn all about the SQL API and Go SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Go SDK.
+description: Learn all about the API for NoSQL and Go SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Go SDK.
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 03/22/2022
@@ -12,7 +12,7 @@ ms.custom: devx-track-go
 
 
 ---
-# Azure Cosmos DB Go SDK for SQL API: Download and release notes
+# Azure Cosmos DB Go SDK for API for NoSQL: Download and release notes
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
@@ -41,4 +41,4 @@ Release history is maintained in the Azure Cosmos DB Go SDK source repo. For a d
 
 ## See also
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

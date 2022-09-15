@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: reference
 ms.date: 12/09/2021
@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-js
 
 ---
-# Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
+# Azure Cosmos DB Node.js SDK for API for NoSQL: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
@@ -85,7 +85,7 @@ for await(const { result: item } in client.databases.readAll().getAsyncIterator(
 
 ### Fixed containers are now partitioned
 
-The Cosmos service now supports partition keys on all containers, including those that were previously created as fixed containers. The v3 SDK updates to the latest API version that implements this change, but it is not breaking. If you do not supply a partition key for operations, we will default to a system key that works with all your existing containers and documents.
+The Azure Cosmos DB service now supports partition keys on all containers, including those that were previously created as fixed containers. The v3 SDK updates to the latest API version that implements this change, but it is not breaking. If you do not supply a partition key for operations, we will default to a system key that works with all your existing containers and documents.
 
 ### Upsert removed for stored procedures
 
@@ -110,7 +110,7 @@ if (item === undefined) { console.log('item not found') }
 
 ### Default multi-region writes
 
-The SDK will now write to multiple regions by default if your Cosmos configuration supports it. This was previously opt-in behavior.
+The SDK will now write to multiple regions by default if your Azure Cosmos DB configuration supports it. This was previously opt-in behavior.
 
 ### Proper error objects
 
@@ -137,7 +137,7 @@ database.containers.create({ id: 'my-container', throughput: 10000 })
 
 #### @azure/cosmos-sign
 
-Header token generation was split out into a new library, @azure/cosmos-sign. Anyone calling the Cosmos REST API directly can use this to sign headers using the same code we call inside @azure/cosmos.
+Header token generation was split out into a new library, @azure/cosmos-sign. Anyone calling the Azure Cosmos DB REST API directly can use this to sign headers using the same code we call inside @azure/cosmos.
 
 #### UUID for generated IDs
 
@@ -200,4 +200,4 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

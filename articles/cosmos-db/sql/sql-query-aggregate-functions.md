@@ -3,7 +3,7 @@ title: Aggregate functions in Azure Cosmos DB
 description: Learn about SQL aggregate function syntax, types of aggregate functions supported by Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: sidandrews
@@ -22,7 +22,7 @@ Aggregate functions perform a calculation on a set of values in the `SELECT` cla
 
 ## Types of aggregate functions
 
-The SQL API supports the following aggregate functions. `SUM` and `AVG` operate on numeric values, and `COUNT`, `MIN`, and `MAX` work on numbers, strings, Booleans, and nulls.
+The API for NoSQL supports the following aggregate functions. `SUM` and `AVG` operate on numeric values, and `COUNT`, `MIN`, and `MAX` work on numbers, strings, Booleans, and nulls.
 
 | Function | Description |
 |-------|-------------|

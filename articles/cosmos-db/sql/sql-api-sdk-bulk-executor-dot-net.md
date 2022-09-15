@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Bulk executor .NET API, SDK & resources'
 description: Learn all about the bulk executor .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor .NET SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
@@ -18,7 +18,7 @@ ms.reviewer: mjbrown
 
 | | Link/notes |
 |---|---|
-| **Description**| The .NET bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
+| **Description**| The .NET bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Bulk executor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor)|
@@ -48,7 +48,7 @@ ms.reviewer: mjbrown
 
 ### <a name="2.1.0-preview2"></a>2.1.0-preview2
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
+* Added BulkDelete support for API for NoSQL accounts to accept partition key, document ID tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
 
 ### <a name="2.0.0-preview2"></a>2.0.0-preview2
 
@@ -106,7 +106,7 @@ ms.reviewer: mjbrown
 
 ### <a name="1.4.0"></a>1.4.0
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete.
+* Added BulkDelete support for API for NoSQL accounts to accept partition key, document ID tuples to delete.
 
 ### <a name="1.3.0"></a>1.3.0
 
@@ -114,7 +114,7 @@ ms.reviewer: mjbrown
 
 ### <a name="1.2.0"></a>1.2.0
 
-* Made improvement to bulk executor import and update APIs to transparently adapt to elastic scaling of Cosmos container when storage exceeds current capacity without throwing exceptions.
+* Made improvement to bulk executor import and update APIs to transparently adapt to elastic scaling of Azure Cosmos DB container when storage exceeds current capacity without throwing exceptions.
 
 ### <a name="1.1.2"></a>1.1.2
 
@@ -126,21 +126,21 @@ ms.reviewer: mjbrown
 
 ### <a name="1.1.0"></a>1.1.0
 
-* Added support for BulkDelete operation for Azure Cosmos DB SQL API accounts.
+* Added support for BulkDelete operation for Azure Cosmos DB for NoSQL accounts.
 * Added support for BulkImport operation for accounts with Azure Cosmos DB's API for MongoDB.
 * Bumped up the DocumentDB .NET SDK dependency to version 2.0.0. 
 
 ### <a name="1.0.2"></a>1.0.2
 
-* Added support for BulkImport operation for Azure Cosmos DB Gremlin API accounts.
+* Added support for BulkImport operation for Azure Cosmos DB for Gremlin accounts.
 
 ### <a name="1.0.1"></a>1.0.1
 
-* Minor bug fix to the BulkImport operation for Azure Cosmos DB SQL API accounts.
+* Minor bug fix to the BulkImport operation for Azure Cosmos DB for NoSQL accounts.
 
 ### <a name="1.0.0"></a>1.0.0
 
-* Added support for BulkImport and BulkUpdate operations for Azure Cosmos DB SQL API accounts.
+* Added support for BulkImport and BulkUpdate operations for Azure Cosmos DB for NoSQL accounts.
 
 ## Next steps
 

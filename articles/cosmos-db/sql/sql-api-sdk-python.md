@@ -3,14 +3,14 @@ title: Azure Cosmos DB SQL Python API, SDK & resources
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
 author: Rodrigossz
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: python
 ms.topic: reference
 ms.date: 01/25/2022
 ms.author: rosouz
 ms.custom: devx-track-python
 ---
-# Azure Cosmos DB Python SDK for SQL API: Release notes and resources
+# Azure Cosmos DB Python SDK for API for NoSQL: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
@@ -35,7 +35,7 @@ Release history is maintained in the azure-sdk-for-python repo, for detailed lis
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes or provide support to versions 1.x and 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes or provide support to versions 1.x and 2.x of the Azure Cosmos DB Python SDK for API for NoSQL. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
@@ -78,4 +78,4 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 ## Next steps
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

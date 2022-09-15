@@ -3,7 +3,7 @@ title: MAX in Azure Cosmos DB query language
 description: Learn about the Max (MAX) SQL system function in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: sidandrews

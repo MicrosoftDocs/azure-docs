@@ -3,7 +3,7 @@ title: DateTimeBin in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimeBin in Azure Cosmos DB. 
 author: jcocchi 
 ms.service: cosmos-db 
-ms.subservice: cosmosdb-sql 
+ms.subservice: nosql 
 ms.topic: conceptual 
 ms.date: 05/27/2022 
 ms.author: jucocchi 
