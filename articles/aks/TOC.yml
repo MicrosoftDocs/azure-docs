@@ -64,7 +64,7 @@
       href: tutorial-kubernetes-upgrade-cluster.md
     - name: Security
       items:
-        - name: Use a workload identity with an application
+        - name: Configure application to use workload identity
           href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:

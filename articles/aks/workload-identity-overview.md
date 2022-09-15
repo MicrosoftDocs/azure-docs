@@ -105,8 +105,6 @@ The following table summarizes our migration or deployment recommendations for w
 | New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required.<br><br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
 | New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy with newer version, or use the [migration sidecar][deploy-migration-sidecar]. |
 
-## Upgrade cluster to use workload identity
-
 ## Next steps
 
 <!-- EXTERNAL LINKS -->
