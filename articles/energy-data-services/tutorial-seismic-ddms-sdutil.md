@@ -194,7 +194,7 @@ To be able to use seismic store, a user must be registered/added to at least a s
 - **admin**: read/write access + users management.
 - **viewer**: read/list access
 
-A user can be register by a **Subproject Admin Only** with the following sdutil command:
+A user can be registered by a **Subproject Admin Only** with the following sdutil command:
 
 ```code
   > python sdutil user [ *add | *list | *remove | *roles ] (options)
