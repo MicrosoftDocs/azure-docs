@@ -324,6 +324,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     ```bash
     python sdutil cp sd://<data-partition>/<subproject>/<filename.zgy> <local/destination/path>
     ```
+OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

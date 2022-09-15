@@ -48,6 +48,8 @@ A full list of all API endpoints for entitlements can be found in [OSDU&trade; e
 > [!NOTE]
 > The OSDU&trade; documentation refers to V1 endpoints, but the scripts noted in this documentation refers to V2 endpoints, which work and have been successfully validated
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
