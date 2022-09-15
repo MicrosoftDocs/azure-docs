@@ -8,7 +8,7 @@ ms.date: 09/15/2022
 
 # Quickstart: Create a dashboard in the Azure portal by using a Bicep file
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying a Bicep file to create a dashboard. The dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying a Bicep file to create a dashboard. The dashboard shows the performance of a virtual machine (VM), and some static information and links.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -30,7 +30,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
     # [CLI](#tab/CLI)
 
     ```azurecli
-    $resourceGroupName = '<resource-group-name>'
+    $resourceGroupName = 'SimpleWinVmResourceGroup'
     $location = 'eastus'
     $adminUserName = '<admin-user-name>'
     $adminPassword = '<admin-password>'
@@ -46,7 +46,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $resourceGroupName = '<resource-group-name>'
+    $resourceGroupName = 'SimpleWinVmResourceGroup'
     $location = 'eastus'
     $adminUserName = '<admin-user-name>'
     $adminPassword = '<admin-password>'
@@ -62,6 +62,14 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
     ```
 
     ---
+
+    Replace the following values in the script:
+
+    - &lt;admin-user-name>: specify an administrator username.
+    - &lt;admin-password>: specify an administrator password.
+    - $lt;dns-label-prefix>: specify a DNS prefix.
+
+    The Bicep file requires an existing virtual machine. Before deploying the Bicep file, the script deploys an ARM template located at *https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json* for creating a virtual machine. The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template.
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
