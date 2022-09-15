@@ -95,8 +95,6 @@
 
   - name: Cloud Workload Protection
     items:
-    - name: Monitoring extensions for data collection
-      href: monitoring-extensions.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
@@ -202,8 +200,12 @@
 
 - name: Protect your workloads
   items:
-  - name: Monitoring extensions
+  - name: Settings & monitoring
     items:
+    - name: Overview
+      href: monitoring-extensions.md
+    - name: Deploy the Azure Monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent
       href: working-with-log-analytics-agent.md
   - name: Defender for Servers
@@ -215,8 +217,6 @@
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
-    - name: Deploy the Azure Monitor agent
-      href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities with threat and vulnerability management
