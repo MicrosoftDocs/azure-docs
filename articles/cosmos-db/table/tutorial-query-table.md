@@ -1,10 +1,10 @@
 ---
 title: How to query table data in Azure Cosmos DB? 
-description: Learn how to query data stored in the Azure Cosmos DB Table API account by using OData filters and LINQ queries
+description: Learn how to query data stored in the Azure Cosmos DB for Table account by using OData filters and LINQ queries
 author: rothja
 ms.author: jroth
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: mjbrown
@@ -12,15 +12,15 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the Table API
+# Tutorial: Query Azure Cosmos DB by using the API for Table
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-The Azure Cosmos DB [Table API](introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
+The Azure Cosmos DB [API for Table](introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
 This article covers the following tasks:
 
 > [!div class="checklist"]
-> * Querying data with the Table API
+> * Querying data with the API for Table
 
 The queries in this article use the following sample `People` table:
 
@@ -30,9 +30,9 @@ The queries in this article use the following sample `People` table:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-See [Querying Tables and Entities](/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API.
+See [Querying Tables and Entities](/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the API for Table.
 
-For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md).
+For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB for Table](introduction.md) and [Develop with the API for Table in .NET](tutorial-develop-table-dotnet.md).
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ For more information on how to construct filter expressions for various data typ
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
-The queries on datetime properties don't return any data when executed in Azure Cosmos DB's Table API. While the Azure Table storage stores date values with time granularity of ticks, the Table API in Azure Cosmos DB uses the  `_ts` property. The `_ts` property is at a second level of granularity, which isn't an OData filter. So, the queries on timestamp properties are blocked by Azure Cosmos DB. As a workaround, you can define a custom datetime or long data type property and set the date value from the client.
+The queries on datetime properties don't return any data when executed in Azure Cosmos DB's API for Table. While the Azure Table storage stores date values with time granularity of ticks, the API for Table in Azure Cosmos DB uses the  `_ts` property. The `_ts` property is at a second level of granularity, which isn't an OData filter. So, the queries on timestamp properties are blocked by Azure Cosmos DB. As a workaround, you can define a custom datetime or long data type property and set the date value from the client.
 
 ## Query by using LINQ 
 You can also query by using LINQ, which translates to the corresponding OData query expressions. Here's an example of how to build queries by using the .NET SDK:
@@ -97,7 +97,7 @@ IQueryable<CustomerEntity> linqQuery = table.CreateQuery<CustomerEntity>()
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Learned how to query by using the Table API
+> * Learned how to query by using the API for Table
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
