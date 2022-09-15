@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot issues with advanced diagnostics queries for Mongo API
+title: Troubleshoot issues with advanced diagnostics queries for API for MongoDB
 titleSuffix: Azure Cosmos DB
-description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the MongoDB API.
+description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the API for MongoDB.
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
@@ -10,15 +10,15 @@ ms.author: esarroyo
 author: StefArroyo 
 ---
 
-# Troubleshoot issues with advanced diagnostics queries for the MongoDB API
+# Troubleshoot issues with advanced diagnostics queries for the API for MongoDB
 
 [!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](../cosmos-db-advanced-queries.md)
-> * [MongoDB API](diagnostic-queries-mongodb.md)
-> * [Cassandra API](../cassandra/diagnostic-queries-cassandra.md)
-> * [Gremlin API](../queries-gremlin.md)
+> * [API for NoSQL](../cosmos-db-advanced-queries.md)
+> * [API for MongoDB](diagnostic-queries-mongodb.md)
+> * [API for Cassandra](../cassandra/diagnostic-queries-cassandra.md)
+> * [API for Gremlin](../queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview)** tables.
@@ -100,7 +100,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    ```Kusto
    CDBMongoRequests
    //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    | summarize max(ResponseLength) by PIICommandText, RequestCharge, DurationMs, OperationName, TimeGenerated
    | order by max_ResponseLength desc
    ```
@@ -109,7 +109,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    AzureDiagnostics
    | where Category == "MongoRequests"
    //specify collection and database
-   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DB NAME" and collectionName_s == "COLLECTIONNAME"
    | summarize max(responseLength_s) by piiCommandText_s, OperationName, duration_s, requestCharge_s
    | order by max_responseLength_s desc
    ```    
@@ -122,7 +122,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    CDBPartitionKeyRUConsumption
    | where TimeGenerated >= now(-1d)
    //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
@@ -135,7 +135,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DB NAME" and collectionName_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
@@ -150,7 +150,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    CDBPartitionKeyRUConsumption
    | where TimeGenerated >= now(-1d)
    //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
@@ -162,7 +162,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
+   //| where databaseName_s == "DB NAME" and collectionName_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s

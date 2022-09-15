@@ -1,8 +1,8 @@
 ---
 title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
-description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
+description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 04/05/2022
 author: gahl-levy
@@ -101,7 +101,7 @@ The results are printed as an output in the DMA notebook and saved to a CSV file
 
 > [!NOTE]
 > Database Migration Assistant is a preliminary utility meant to assist you with the pre-migration steps. It does not perform an end-to-end assessment.
-> In addition to running the DMA, we also recommend you to go through [the supported features and syntax](./feature-support-42.md), [Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
+> In addition to running the DMA, we also recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ## Pre-migration mapping
 
@@ -138,7 +138,7 @@ Figure out what Azure Cosmos DB resources you'll create. This means stepping thr
 * Anticipate that each MongoDB database will become an Azure Cosmos DB database.
 * Anticipate that each MongoDB collection will become an Azure Cosmos DB collection.
 * Choose a naming convention for your Azure Cosmos DB resources. Barring any change in the structure of databases and collections, keeping the same resource names is usually a fine choice.
-* Determine whether you'll be using sharded or unsharded collections in Cosmos DB. The unsharded collection limit is 20 GB. Sharding, on the other hand, helps achieve horizontal scale that is critical to the performance of many workloads.
+* Determine whether you'll be using sharded or unsharded collections in Azure Cosmos DB. The unsharded collection limit is 20 GB. Sharding, on the other hand, helps achieve horizontal scale that is critical to the performance of many workloads.
 * If using sharded collections, *do not assume that your MongoDB collection shard key becomes your Azure Cosmos DB collection shard key. Do not assume that your existing MongoDB data model/document structure is what you'll employ on Azure Cosmos DB.* 
    * Shard key is the single most important setting for optimizing the scalability and performance of Azure Cosmos DB, and data modeling is the second most important. Both of these settings are immutable and cannot be changed once they are set; therefore it is highly important to optimize them in the planning phase. Follow the guidance in the [Immutable decisions](#immutable-decisions) section for more information.
 * Azure Cosmos DB does not recognize certain MongoDB collection types such as capped collections. For these resources, just create normal Azure Cosmos DB collections.
@@ -239,13 +239,13 @@ In the pre-migration phase, spend some time to plan what steps you will take tow
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* Migrate to Azure Cosmos DB API for MongoDB
+* Migrate to Azure Cosmos DB for MongoDB
    * [Offline migration using MongoDB native tools](tutorial-mongotools-cosmos-db.md)
    * [Offline migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md)
    * [Online migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db-online.md)
    * [Offline/online migration using Azure Databricks and Spark](migrate-databricks.md)
-* [Post-migration guide](post-migration-optimization.md) - optimize steps once you have migrated to Azure Cosmos DB API for MongoDB
-* [Provision throughput on Azure Cosmos containers and databases](../set-throughput.md)
+* [Post-migration guide](post-migration-optimization.md) - optimize steps once you have migrated to Azure Cosmos DB for MongoDB
+* [Provision throughput on Azure Cosmos DB containers and databases](../set-throughput.md)
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Global Distribution in Azure Cosmos DB](../distribute-data-globally.md)
 * [Indexing in Azure Cosmos DB](../index-overview.md)

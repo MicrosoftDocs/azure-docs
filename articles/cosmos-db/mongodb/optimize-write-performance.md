@@ -1,19 +1,19 @@
 ---
-title: Optimize write performance in the Azure Cosmos DB API for MongoDB
-description: This article describes how to optimize write performance in the Azure Cosmos DB API for MongoDB to get the most throughput possible for the lowest cost. 
+title: Optimize write performance in the Azure Cosmos DB for MongoDB
+description: This article describes how to optimize write performance in the Azure Cosmos DB for MongoDB to get the most throughput possible for the lowest cost. 
 author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: gahllevy
 
 ---
 
-# Optimize write performance in Azure Cosmos DB API for MongoDB
+# Optimize write performance in Azure Cosmos DB for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Optimizing write performance helps you get the most out of Azure Cosmos DB API for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
+Optimizing write performance helps you get the most out of Azure Cosmos DB for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
 
 The way you write data needs to be mindful of this by parallelizing and spreading data across shards to get the most writes out of your databases and collections. This article explains best practices to optimize write performance.
 
