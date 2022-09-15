@@ -12,7 +12,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Working with Dates in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON](https://www.json.org) data model. All Azure Cosmos DB resources including databases, containers, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and Azure Cosmos DB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays.
 
@@ -22,7 +22,7 @@ In addition to the basic types, many applications need the DateTime type to repr
 
 Azure Cosmos DB supports JSON types such as - string, number, boolean, null, array, object. It does not directly support a DateTime type. Currently, Azure Cosmos DB doesn't support localization of dates. So, you need to store DateTimes as strings. The recommended format for DateTime strings in Azure Cosmos DB is `yyyy-MM-ddTHH:mm:ss.fffffffZ` which follows the ISO 8601 UTC standard. It is recommended to store all dates in Azure Cosmos DB as UTC. Converting the date strings to this format will allow sorting dates lexicographically. If non-UTC dates are stored, the logic must be handled at the client-side. To convert a  local DateTime to UTC, the offset must be known/stored as a property in the JSON and the client can use the offset to compute the UTC DateTime value.
 
-Range queries with DateTime strings as filters are only supported if the DateTime strings are all in UTC and the same length. In Azure Cosmos DB, the [GetCurrentDateTime](sql-query-getcurrentdatetime.md) system function will return the current UTC date and time ISO 8601 string value in the format: `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+Range queries with DateTime strings as filters are only supported if the DateTime strings are all in UTC and the same length. In Azure Cosmos DB, the [GetCurrentDateTime](getcurrentdatetime.md) system function will return the current UTC date and time ISO 8601 string value in the format: `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 Most applications can use the default string representation for DateTime for the following reasons:
 
@@ -80,16 +80,16 @@ Translated to the following SQL statement and executed on Azure Cosmos DB:
     SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 ```
 
-You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Azure Cosmos DB in LINQ](sql-query-linq-to-sql.md).
+You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Azure Cosmos DB in LINQ](linq-to-sql.md).
 
 ## Indexing DateTimes for range queries
 
 Queries are common with DateTime values. To execute these queries efficiently, you must have an index defined on any properties in the query's filter.
 
-You can learn more about how to configure indexing policies at [Azure Cosmos DB Indexing Policies](../index-policy.md). 
+You can learn more about how to configure indexing policies at [Azure Cosmos DB Indexing Policies](../../index-policy.md). 
 
 ## Next Steps
 
 * Download and run the [Code samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples)
-* Learn more about [SQL queries](sql-query-getting-started.md)
-* Learn more about [Azure Cosmos DB Indexing Policies](../index-policy.md)
+* Learn more about [SQL queries](getting-started.md)
+* Learn more about [Azure Cosmos DB Indexing Policies](../../index-policy.md)
