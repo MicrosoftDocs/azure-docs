@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
+title: Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's API for MongoDB query issues.
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: mjbrown
 ---
 
-# Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
+# Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, see the [SQL API query troubleshooting guide](troubleshoot-query-performance.md) article.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB for NoSQL, see the [API for NoSQL query troubleshooting guide](troubleshoot-query-performance.md) article.
 
 Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
@@ -342,7 +342,7 @@ The value `estimatedDelayFromRateLimitingInMilliseconds` gives a sense of the po
 
 ## Next steps
 
-* [Troubleshoot query performance (SQL API)](troubleshoot-query-performance.md)
+* [Troubleshoot query performance (API for NoSQL)](troubleshoot-query-performance.md)
 * [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

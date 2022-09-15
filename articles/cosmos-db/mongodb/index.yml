@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure Cosmos DB MongoDB API documentation
-summary: The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
+title: Azure Cosmos DB for MongoDB documentation
+summary: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
 
 metadata:
-  title: Azure Cosmos DB MongoDB API documentation
-  description: The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
+  title: Azure Cosmos DB for MongoDB documentation
+  description: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
   services: service
   ms.service: cosmos-db
-  ms.subservice: cosmosdb-mongo
+  ms.subservice: mongodb
   ms.topic: landing-page
   ms.collection: collection
   author: seesharprun
@@ -17,11 +17,11 @@ metadata:
   ms.date: 05/24/2022
 
 landingContent:
-  - title: Use Azure Cosmos DB MongoDB API
+  - title: Use Azure Cosmos DB for MongoDB
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cosmos DB API for MongoDB?
+          - text: What is Azure Cosmos DB for MongoDB?
             url: mongodb-introduction.md
       - linkListType: quickstart
         links:

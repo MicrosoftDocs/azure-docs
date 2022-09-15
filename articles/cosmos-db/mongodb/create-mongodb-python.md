@@ -1,17 +1,17 @@
 ---
-title: Get started using Azure Cosmos DB API for MongoDB and Python
+title: Get started using Azure Cosmos DB for MongoDB and Python
 description: Presents a Python code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: quickstart
 ms.date: 04/26/2022
 ms.devlang: python
 ms.custom: mode-api
 ---
 
-# Quickstart: Get started using Azure Cosmos DB API for MongoDB and Python
+# Quickstart: Get started using Azure Cosmos DB for MongoDB and Python
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.custom: mode-api
 >  
 
 This [quickstart](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) demonstrates how to:
-1. Create an [Azure Cosmos DB API for MongoDB account](mongodb-introduction.md) 
+1. Create an [Azure Cosmos DB for MongoDB account](mongodb-introduction.md) 
 2. Connect to your account using PyMongo
 3. Create a sample database and collection
 4. Perform CRUD operations in the sample collection
@@ -42,7 +42,7 @@ This [quickstart](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-pytho
 
 Before you continue building the application, let's look into the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
 
-* Azure Cosmos DB API for MongoDB account
+* Azure Cosmos DB for MongoDB account
 * Databases 
 * Collections 
 * Documents
@@ -61,7 +61,7 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-gettin
 
 When running the sample code, you have to enter your API for MongoDB account's connection string. Use the following steps to find it:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB account.
 
 2. In the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string.
 
@@ -106,7 +106,7 @@ db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
 ```
 
 ```python
- # Creates a unsharded collection that uses the DBs shared throughput
+ # Creates a unsharded collection that uses the DB s shared throughput
 db.command({'customAction': "CreateCollection", 'collection': UNSHARDED_COLLECTION_NAME})
 ```
 

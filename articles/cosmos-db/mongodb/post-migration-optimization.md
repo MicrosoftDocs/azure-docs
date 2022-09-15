@@ -1,8 +1,8 @@
 ---
 title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB 
-description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for Mongo DB.
+description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for MongoDB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
@@ -45,9 +45,9 @@ In this guide, we assume that you are maintaining a record of your migration's p
 
 In order to optimize price and performance, we recommend that you step through your data estate migration spreadsheet and design an index configuration for each resource. 
 1. We actually recommend [planning your indexes during the pre-migration phase](pre-migration-steps.md#post-migration). Add a column to your data estate migration spreadsheet for index settings. 
-   * The Azure Cosmos DB API for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+   * The Azure Cosmos DB for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB for NoSQL, which indexes all fields by default.
 
-   * For the Azure Cosmos DB API for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
+   * For the Azure Cosmos DB for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
 
    * The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the createIndex() command. Learn more at Indexing in Azure Cosmos DB and Indexing in Azure Cosmos DB's API for MongoDB.
 2. Apply these index settings during post-migration.

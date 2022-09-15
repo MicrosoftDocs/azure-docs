@@ -1,8 +1,8 @@
 ---
-title: Create a collection in Azure Cosmos DB API for MongoDB
-description: Learn how to create a collection in Azure Cosmos DB API for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
+title: Create a collection in Azure Cosmos DB for MongoDB
+description: Learn how to create a collection in Azure Cosmos DB for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 04/07/2022
 author: gahl-levy
@@ -11,15 +11,15 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
-# Create a collection in Azure Cosmos DB API for MongoDB
+# Create a collection in Azure Cosmos DB for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. It shows how to create a collection using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a collection, specify the partition key, and provision throughput.
+This article explains the different ways to create a collection in Azure Cosmos DB for MongoDB. It shows how to create a collection using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a collection, specify the partition key, and provision throughput.
 
 >[!NOTE]
-> **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Cosmos DB SQL API and throughout the Azure portal, while we use **collections** in the context of the Cosmos DB MongoDB API to match the terminology used in Mongo DB.
+> **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Azure Cosmos DB for NoSQL and throughout the Azure portal, while we use **collections** in the context of the Azure Cosmos DB for MongoDB to match the terminology used in MongoDB.
 
-This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../how-to-create-container.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the collection.
+This article explains the different ways to create a collection in Azure Cosmos DB for MongoDB. If you are using a different API, see [API for NoSQL](../how-to-create-container.md), [API for Cassandra](../cassandra/how-to-create-container-cassandra.md), [API for Gremlin](../how-to-create-container-gremlin.md), and [API for Table](../table/how-to-create-container.md) articles to create the collection.
 
 > [!NOTE]
 > When creating collections, make sure you don’t create two collections with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on collections with such names.
@@ -28,7 +28,7 @@ This article explains the different ways to create a collection in Azure Cosmos 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
@@ -38,7 +38,7 @@ This article explains the different ways to create a collection in Azure Cosmos 
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box":::
+    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot of Azure Cosmos DB for MongoDB, Add Container dialog box":::
 
 ## <a id="dotnet-mongodb"></a>Create using .NET SDK
 
@@ -59,22 +59,22 @@ If you encounter timeout exception when creating a collection, do a read operati
 
 ## <a id="cli-mongodb"></a>Create using Azure CLI
 
-[Create a collection for Azure Cosmos DB for MongoDB API with Azure CLI](../scripts/cli/mongodb/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
+[Create a collection for Azure Cosmos DB for API for MongoDB with Azure CLI](../scripts/cli/mongodb/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
 
 ## Create using PowerShell
 
-[Create a collection for Azure Cosmos DB for MongoDB API with PowerShell](../scripts/powershell/mongodb/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
+[Create a collection for Azure Cosmos DB for API for MongoDB with PowerShell](../scripts/powershell/mongodb/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
 
 ## Create a collection using Azure Resource Manager templates
 
-[Create a collection for Azure Cosmos DB for MongoDB API with Resource Manager template](../manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
+[Create a collection for Azure Cosmos DB for API for MongoDB with Resource Manager template](../manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
 
 ## Next steps
 
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
