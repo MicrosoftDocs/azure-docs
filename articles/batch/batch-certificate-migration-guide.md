@@ -37,7 +37,7 @@ Azure Key Vault can be created in three ways:
 
 __Prerequisite__: Valid Azure subscription and owner/contributor access on Key Vault service.
 
-   1. Login to the Azure portal.
+   1. Log in to the Azure portal.
 
    2. In the top-level search box, look for **Key Vaults**.
 
@@ -49,9 +49,9 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
 
 **Create Azure Key Vault step by step using the Azure PowerShell:**
 
-   1. Login to the user PowerShell using the following command - Login-AzAccount
+   1. Log in to the user PowerShell using the following command - Login-AzAccount
 
-   2. Create a 'azuresecure' resource group in the 'eastus' location. You can change the name and location as per your need.
+   2. Create a 'azure secure' resource group in the 'eastus' location. You can change the name and location as per your need.
 ``` 
   New-AzResourceGroup -Name "azuresecure" -Location "EastUS"
 ```
@@ -64,7 +64,7 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
 
 **Create Azure Key Vault step by step using the Azure CLI bash:**
 
-   1. Create an 'azuresecure' resource in the 'eastus' location. You can change the name and location as per your need. Use the following bash command.
+   1. Create an 'azure secure' resource in the 'eastus' location. You can change the name and location as per your need. Use the following bash command.
 ``` 
   az group create –name "azuresecure" -l "EastUS."
 ``` 
@@ -88,4 +88,4 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
 
 ## Next steps
 
-For more information, refer to [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
+For more information, see [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
