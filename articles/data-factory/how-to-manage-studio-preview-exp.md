@@ -110,7 +110,10 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
-#### Adding activities to the canvas (coming soon to default ADF settings)
+#### Adding activities to the canvas
+
+> [!NOTE]
+> This experience will soon be available in the default ADF settings. 
 
 You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
@@ -118,7 +121,11 @@ Select an activity by using the search box or scrolling through the listed activ
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop-down list to select activities.":::
 
-#### Iteration and conditionals container view (coming soon to default ADF settings)
+#### Iteration and conditionals container view
+
+> [!NOTE]
+> This experience will soon be available in the default ADF settings. 
+
 
 You can now view the activities contained iteration and conditional activities.
 
