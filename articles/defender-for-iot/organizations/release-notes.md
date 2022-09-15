@@ -82,7 +82,9 @@ Access security recommendations from one of the following locations:
 
 - The **Recommendations** tab on a device details page, which displays all current recommendations for the selected device.
 
-From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. Select device links to jump to the device details page.
+From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. From the **Unhealthy devices** or **Healthy devices** tab, select a device link to jump to the selected device details page. For example:
+
+:::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
 
 ## August 2022
 
