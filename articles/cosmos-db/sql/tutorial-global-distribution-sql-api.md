@@ -1,30 +1,30 @@
 ---
-title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the SQL API'
-description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .NET, Java, Python and various other SDKs'
+title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the API for NoSQL'
+description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the API for NoSQL with .NET, Java, Python and various other SDKs'
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 04/03/2022
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
-# Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
+# Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the SQL API.
+In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the API for NoSQL.
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [SQL APIs](../introduction.md)
+> * Configure global distribution using the [API for NoSQLs](../introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
+## <a id="preferred-locations"></a> Connecting to a preferred region using the API for NoSQL
 
 In order to take advantage of [global distribution](../distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 
@@ -32,7 +32,7 @@ This preference list is specified when initializing a connection using the SQL S
 
 The SDK will automatically send all writes to the current write region. All reads will be sent to the first available region in the preferred locations list. If the request fails, the client will fail down the list to the next region.
 
-The SDK will only attempt to read from the regions specified in preferred locations. So, for example, if the Azure Cosmos account is available in four regions, but the client only specifies two read(non-write) regions within the `PreferredLocations`, then no reads will be served out of the read region that is not specified in `PreferredLocations`. If the read regions specified in the `PreferredLocations` list are not available, reads will be served out of write region.
+The SDK will only attempt to read from the regions specified in preferred locations. So, for example, if the Azure Cosmos DB account is available in four regions, but the client only specifies two read(non-write) regions within the `PreferredLocations`, then no reads will be served out of the read region that is not specified in `PreferredLocations`. If the read regions specified in the `PreferredLocations` list are not available, reads will be served out of write region.
 
 The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, `WriteEndpoint` and `ReadEndpoint`, available in SDK version 1.8 and above. If the `PreferredLocations` property is not set, all requests will be served from the current write region.
 
@@ -241,7 +241,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the SQL APIs
+> * Configure global distribution using the API for NoSQLs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

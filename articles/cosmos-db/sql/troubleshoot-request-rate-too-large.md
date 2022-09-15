@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB request rate too large exceptions
 description: Learn how to diagnose and fix request rate too large exceptions.
 author: rothja
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 03/03/2022
 ms.author: jroth
 ms.topic: troubleshooting
@@ -13,7 +13,7 @@ ms.reviewer: mjbrown
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article contains known causes and solutions for various 429 status code errors for the SQL API. If you're using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
+This article contains known causes and solutions for various 429 status code errors for the API for NoSQL. If you're using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
 
 A "Request rate too large" exception, also known as error code 429, indicates that your requests against Azure Cosmos DB are being rate limited.
 
@@ -50,7 +50,7 @@ In general, for a production workload, **if you see between 1-5% of requests wit
 
 If you're using autoscale, it's possible to see 429s on your database or container, even if the RU/s was not scaled to the maximum RU/s. See the section [Request rate is large with autoscale](#request-rate-is-large-with-autoscale) for an explanation.
 
-One common question that arises is, **"Why am I seeing 429s in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429s, but you've not seen any in your own application, this is because by default, the Cosmos client SDKs [`automatically retried internally on the 429s`](xref:Microsoft.Azure.Cosmos.CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests) and the request succeeded in subsequent retries. As a result, the 429 status code is not returned to the application. In these cases, the overall rate of 429s is typically very low and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.
+One common question that arises is, **"Why am I seeing 429s in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429s, but you've not seen any in your own application, this is because by default, the Azure Cosmos DB client SDKs [`automatically retried internally on the 429s`](xref:Microsoft.Azure.Cosmos.CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests) and the request succeeded in subsequent retries. As a result, the 429 status code is not returned to the application. In these cases, the overall rate of 429s is typically very low and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.
 
 ### Step 2: Determine if there's a hot partition
 A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical (which implies physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput.
@@ -159,14 +159,14 @@ For example, this sample output shows that each minute, 30% of Create Document r
 You can use the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
 
 ##### 429s on create, replace, or upsert document requests
-- By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
+- By default, in the API for NoSQL, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
 This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s.
 
 ##### 429s on query document requests
 - Follow the guidance to [troubleshoot queries with high RU charge](troubleshoot-query-performance.md#querys-ru-charge-is-too-high)
 
 ##### 429s on execute stored procedures
-- [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs.
+- [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Azure Cosmos DB SDKs.
 
 ## Request rate is large with autoscale
 All the guidance in this article applies to both manual and autoscale throughput. 
@@ -190,7 +190,7 @@ This typically occurs for workloads that have temporary or intermittent spikes o
 
 Metadata rate limiting can occur when you are performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
 - Create, read, update, or delete a container or database
-- List databases or containers in a Cosmos account
+- List databases or containers in an Azure Cosmos DB account
 - Query for offers to see the current provisioned throughput
 
 There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
@@ -203,7 +203,7 @@ Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Fi
 #### Recommended solution
 - If your application needs to perform metadata operations, consider implementing a backoff policy to send these requests at a lower rate.
 
-- Use static Cosmos DB client instances. When the DocumentClient or CosmosClient is initialized, the Cosmos DB SDK fetches metadata about the account, including information about the consistency level, databases, containers, partitions, and offers. This initialization may consume a high number of RUs, and should be performed infrequently. Use a single DocumentClient instance and use it for the lifetime of your application.
+- Use static Azure Cosmos DB client instances. When the DocumentClient or CosmosClient is initialized, the Azure Cosmos DB SDK fetches metadata about the account, including information about the consistency level, databases, containers, partitions, and offers. This initialization may consume a high number of RUs, and should be performed infrequently. Use a single DocumentClient instance and use it for the lifetime of your application.
 
 - Cache the names of databases and containers. Retrieve the names of your databases and containers from configuration or cache them on start. Calls like ReadDatabaseAsync/ReadDocumentCollectionAsync or CreateDatabaseQuery/CreateDocumentCollectionQuery will result in metadata calls to the service, which consume from the system-reserved RU limit. These operations should be performed infrequently.
 

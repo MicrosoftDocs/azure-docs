@@ -5,16 +5,16 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 08/26/2021
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the SQL API
+# Tutorial: Query Azure Cosmos DB by using the API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB [SQL API](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+The Azure Cosmos DB [API for NoSQL](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
 This article covers the following tasks: 
 

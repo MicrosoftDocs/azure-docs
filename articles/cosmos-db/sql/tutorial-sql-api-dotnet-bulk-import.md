@@ -1,17 +1,17 @@
 ---
-title: Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
+title: Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET SDK
 description: Learn how to import or ingest data to Azure Cosmos DB by building a .NET console application that optimizes provisioned throughput (RU/s) required for importing data
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 03/25/2022
 ms.reviewer: mjbrown
 ms.devlang: csharp
 ms.custom: devx-track-csharp, cosmos-db-video
 ---
-# Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
+# Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET SDK
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
@@ -19,15 +19,15 @@ This tutorial shows how to build a .NET console application that optimizes provi
 >
 > [!VIDEO https://aka.ms/docs.learn-live-dotnet-bulk]
 
-In this article, you'll read data from a sample data source and import it into an Azure Cosmos container.
+In this article, you'll read data from a sample data source and import it into an Azure Cosmos DB container.
 This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to .NET Framework or .NET Core.
 
 This tutorial covers:
 
 > [!div class="checklist"]
-> * Creating an Azure Cosmos account
+> * Creating an Azure Cosmos DB account
 > * Configuring your project
-> * Connecting to an Azure Cosmos account with bulk support enabled
+> * Connecting to an Azure Cosmos DB account with bulk support enabled
 > * Perform a data import through concurrent create operations
 
 ## Prerequisites
@@ -42,7 +42,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 1: Create an Azure Cosmos DB account
 
-[Create an Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
+[Create an Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
 
 ## Step 2: Set up your .NET project
 
@@ -80,12 +80,12 @@ While still in the application directory, install the Azure Cosmos DB client lib
    dotnet add package Microsoft.Azure.Cosmos
    ```
 
-## Step 4: Get your Azure Cosmos account credentials
+## Step 4: Get your Azure Cosmos DB account credentials
 
-The sample application needs to authenticate to your Azure Cosmos account. To authenticate, you should pass the Azure Cosmos account credentials to the application. Get your Azure Cosmos account credentials by following these steps:
+The sample application needs to authenticate to your Azure Cosmos DB account. To authenticate, you should pass the Azure Cosmos DB account credentials to the application. Get your Azure Cosmos DB account credentials by following these steps:
 
 1.    Sign in to the [Azure portal](https://portal.azure.com/).
-1.    Navigate to your Azure Cosmos account.
+1.    Navigate to your Azure Cosmos DB account.
 1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
 If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
@@ -189,15 +189,15 @@ The sample can be run by changing to the repository directory and using `dotnet`
 In this tutorial, you've done the following steps:
 
 > [!div class="checklist"]
-> * Creating an Azure Cosmos account
+> * Creating an Azure Cosmos DB account
 > * Configuring your project
-> * Connecting to an Azure Cosmos account with bulk support enabled
+> * Connecting to an Azure Cosmos DB account with bulk support enabled
 > * Perform a data import through concurrent create operations
 
 You can now proceed to the next tutorial:
 
 > [!div class="nextstepaction"]
->[Query Azure Cosmos DB by using the SQL API](tutorial-query-sql-api.md)
+>[Query Azure Cosmos DB by using the API for NoSQL](tutorial-query-sql-api.md)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

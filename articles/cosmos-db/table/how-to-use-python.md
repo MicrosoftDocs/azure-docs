@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Table API with Python - Azure Cosmos DB'
-description: This quickstart shows how to access the Azure Cosmos DB Table API from a Python application using the Azure Data Tables SDK
+title: 'Quickstart: API for Table with Python - Azure Cosmos DB'
+description: This quickstart shows how to access the Azure Cosmos DB for Table from a Python application using the Azure Data Tables SDK
 author: rothja
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/23/2021
@@ -12,11 +12,11 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli
 ---
 
-# Quickstart: Build a Table API app with Python SDK and Azure Cosmos DB
+# Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a Python application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table. Python applications can access the Cosmos DB Table API using the [Azure Data Tables SDK for Python](https://pypi.org/project/azure-data-tables/) package.
+This quickstart shows how to access the Azure Cosmos DB [API for Table](introduction.md) from a Python application. The Azure Cosmos DB for Table is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table. Python applications can access the Azure Cosmos DB for Table using the [Azure Data Tables SDK for Python](https://pypi.org/project/azure-data-tables/) package.
 
 ## Prerequisites
 
@@ -32,34 +32,34 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the Table API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Table API.
+The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with additional properties to demonstrate the schemaless capabilities of the API for Table.
 
-:::image type="content" source="./media/create-table-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in a Cosmos DB table using the Table API." lightbox="./media/create-table-python/table-api-app-finished-application.png":::
+:::image type="content" source="./media/create-table-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/create-table-python/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create a Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create an Azure Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
-Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Cosmos DB account.
+Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Azure Cosmos DB account.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db account step 1](./includes/create-table-python/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Cosmos DB accounts in Azure." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db account step 2](./includes/create-table-python/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Cosmos DB accounts page in Azure." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db account step 3](./includes/create-table-python/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
-| [!INCLUDE [Create cosmos db account step 4](./includes/create-table-python/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Cosmos DB Account creation page." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-python/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure Cosmos DB accounts in Azure." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 2](./includes/create-table-python/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Azure Cosmos DB accounts page in Azure." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 3](./includes/create-table-python/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 4](./includes/create-table-python/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Azure Cosmos DB Account creation page." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB. As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Cosmos DB account.
+Azure Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Azure Cosmos DB. As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
 
-Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character. Cosmos DB account names must also be unique across Azure.
+Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character. Azure Cosmos DB account names must also be unique across Azure.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-It typically takes several minutes for the Cosmos DB account creation process to complete.
+It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
 ```azurecli
 LOCATION='eastus'
@@ -79,13 +79,13 @@ az cosmosdb create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
+Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Azure Cosmos DB.  As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
 Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 
-It typically takes several minutes for the Cosmos DB account creation process to complete.
+It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
 ```azurepowershell
 $location = 'eastus'
@@ -109,21 +109,21 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) will be automatically created as needed.
+Next, you need to create a table within your Azure Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) will be automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Cosmos DB account.
+In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Azure Cosmos DB account.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db table step 1](./includes/create-table-python/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Cosmos DB account." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db table step 2](./includes/create-table-python/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db table step 3](./includes/create-table-python/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Cosmos DB table." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 1](./includes/create-table-python/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 2](./includes/create-table-python/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 3](./includes/create-table-python/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-python/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/create-table-python/azure-portal-create-cosmos-db-table-api-3.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Tables in Cosmos DB are created using the [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
+Tables in Azure Cosmos DB are created using the [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
 
 ```azurecli
 COSMOS_TABLE_NAME='WeatherData'
@@ -137,7 +137,7 @@ az cosmosdb table create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Tables in Cosmos DB are created using the [New-AzCosmosDBTable](/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
+Tables in Azure Cosmos DB are created using the [New-AzCosmosDBTable](/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
 
 ```azurepowershell
 $cosmosTableName = 'WeatherData'
@@ -151,16 +151,16 @@ New-AzCosmosDBTable `
 
 ---
 
-## 3 - Get Cosmos DB connection string
+## 3 - Get Azure Cosmos DB connection string
 
-To access your table(s) in Cosmos DB, your app will need the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
+To access your table(s) in Azure Cosmos DB, your app will need the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Get cosmos db table connection string step 1](./includes/create-table-python/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Cosmos DB page." lightbox="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-1.png":::           |
-| [!INCLUDE [Get cosmos db table connection string step 2](./includes/create-table-python/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing which connection string to select and use in your application." lightbox="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-2.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 1](./includes/create-table-python/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Azure Cosmos DB page." lightbox="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 2](./includes/create-table-python/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing which connection string to select and use in your application." lightbox="./media/create-table-python/azure-portal-cosmos-db-table-connection-string-2.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -188,13 +188,13 @@ $(Get-AzCosmosDBAccountKey `
     -Type "ConnectionStrings")."Primary Table Connection String"
 ```
 
-The connection string for your Cosmos DB account is considered an app secret and must be protected like any other app secret or password.
+The connection string for your Azure Cosmos DB account is considered an app secret and must be protected like any other app secret or password.
 
 ---
 
 ## 4 - Install the Azure Data Tables SDK for Python
 
-After you've created a Cosmos DB account, your next step is to install the Microsoft [Azure Data Tables SDK for Python](https://pypi.python.org/pypi/azure-data-tables/). For details on installing the SDK, refer to the [README.md](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/tables/azure-data-tables/README.md) file in the Data Tables SDK for Python repository on GitHub.
+After you've created an Azure Cosmos DB account, your next step is to install the Microsoft [Azure Data Tables SDK for Python](https://pypi.python.org/pypi/azure-data-tables/). For details on installing the SDK, refer to the [README.md](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/tables/azure-data-tables/README.md) file in the Data Tables SDK for Python repository on GitHub.
 
 Install the Azure Tables client library for Python with pip:
 
@@ -210,12 +210,12 @@ Copy your Azure Cosmos DB account connection string from the Azure portal, and c
 
 ```python
 # Configuration Parameters
-conn_str = "A connection string to an Azure Cosmos account."
+conn_str = "A connection string to an Azure Cosmos DB account."
 table_name = "WeatherData"
 project_root_path = "Project abs path"
 ```
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Cosmos DB Table API. An application will typically have a single `TableServiceClient` overall, and it will have a `TableClient` per table.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Azure Cosmos DB for Table. An application will typically have a single `TableServiceClient` overall, and it will have a `TableClient` per table.
 
 ```python
 self.conn_str = os.getenv("AZURE_CONNECTION_STRING")
@@ -224,9 +224,9 @@ self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 
 ---
 
-## 6 - Implement Cosmos DB table operations
+## 6 - Implement Azure Cosmos DB table operations
 
-All Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You will need to import the `TableServiceClient` class at the top of this file to work with objects in the `azure.data.tables` SDK package.
+All Azure Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You will need to import the `TableServiceClient` class at the top of this file to work with objects in the `azure.data.tables` SDK package.
 
 ```python
 from azure.data.tables import TableServiceClient
@@ -312,11 +312,11 @@ def deserialize():
 
 ### Insert or upsert data with variable properties
 
-One of the advantages of using the Cosmos DB Table API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB. There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
+One of the advantages of using the Azure Cosmos DB for Table is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB. There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
 
 This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
 
-To insert or upsert such an object using the Table API, map the properties of the expandable object into a `TableEntity` object and use the `create_entity` or `upsert_entity` methods on the `TableClient` object as appropriate.
+To insert or upsert such an object using the API for Table, map the properties of the expandable object into a `TableEntity` object and use the `create_entity` or `upsert_entity` methods on the `TableClient` object as appropriate.
 
 In the sample application, the `upsert_entity` function can also implement the function of insert or upsert data with variable properties
 
@@ -369,23 +369,23 @@ def delete_entity(self):
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Cosmos DB Table API. The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
+Run the sample application to interact with the Azure Cosmos DB for Table. The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
 
-:::image type="content" source="./media/create-table-python/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table A P I." lightbox="./media/create-table-python/table-api-app-data-insert-buttons.png":::
+:::image type="content" source="./media/create-table-python/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Azure Cosmos DB using the Table API." lightbox="./media/create-table-python/table-api-app-data-insert-buttons.png":::
 
 Selecting the **Insert using Table Entity** button opens a dialog allowing you to insert or upsert a new row using a `TableEntity` object.
 
 :::image type="content" source="./media/create-table-python/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/create-table-python/table-api-app-insert-table-entity.png":::
 
-Selecting the **Insert using Expandable** Data button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed. Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
+Selecting the **Insert using Expandable** Data button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Azure Cosmos DB for Table automatically adds properties (columns) to the table when needed. Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
 :::image type="content" source="./media/create-table-python/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/create-table-python/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Cosmos DB Table.
+Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table.
 
 :::image type="content" source="./media/create-table-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/create-table-python/table-api-app-sample-data-insert.png":::
 
-Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Cosmos DB Table API.
+Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Azure Cosmos DB for Table.
 
 :::image type="content" source="./media/create-table-python/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/create-table-python/table-api-app-filter-data.png":::
 
@@ -423,7 +423,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the API for Table.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table-import.md)
+> [Import table data to the API for Table](table-import.md)

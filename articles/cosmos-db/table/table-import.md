@@ -1,20 +1,20 @@
 ---
-title: Migrate existing data to a Table API account in Azure Cosmos DB 
-description: Learn how to migrate or import on-premises or cloud data to an Azure Table API account in Azure Cosmos DB.
+title: Migrate existing data to a API for Table account in Azure Cosmos DB 
+description: Learn how to migrate or import on-premises or cloud data to an Azure API for Table account in Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: tutorial
 ms.date: 03/03/2022
 ms.custom: seodec18
 ---
 
-# Migrate your data to an Azure Cosmos DB Table API account
+# Migrate your data to an Azure Cosmos DB for Table account
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This tutorial provides instructions on importing data for use with the Azure Cosmos DB [Table API](introduction.md). If you have data stored in Azure Table Storage, you can use the **Data migration tool** to import your data to the Azure Cosmos DB Table API. 
+This tutorial provides instructions on importing data for use with the Azure Cosmos DB [API for Table](introduction.md). If you have data stored in Azure Table Storage, you can use the **Data migration tool** to import your data to the Azure Cosmos DB for Table. 
 
 
 ## Prerequisites
@@ -28,7 +28,7 @@ This tutorial provides instructions on importing data for use with the Azure Cos
 > [!IMPORTANT]
 > Ownership of the Data Migration Tool has been transferred to a 3rd party who is acting as maintainers of this tool which is open source. The tool is currently being updated to use the latest nuget packages so does not currently work on the main branch. There is a fork of this tool which does work. You can learn more [here](https://github.com/Azure/azure-documentdb-datamigrationtool/issues/89).
 
-You can use the command-line data migration tool (dt.exe) in Azure Cosmos DB to import your existing Azure Table Storage data to a Table API account. 
+You can use the command-line data migration tool (dt.exe) in Azure Cosmos DB to import your existing Azure Table Storage data to a API for Table account. 
 
 To migrate table data:
 
@@ -66,9 +66,9 @@ To retrieve the source connection string when you import from Table Storage, ope
 
 ### Command-line target settings
 
-Use the following target options when you define the Azure Cosmos DB Table API as the target of the migration.
+Use the following target options when you define the Azure Cosmos DB for Table as the target of the migration.
 
-* **/t:TableAPIBulk:** Uploads data into the Azure Cosmos DB Table API in batches.
+* **/t:TableAPIBulk:** Uploads data into the Azure Cosmos DB for Table in batches.
 * **/t.ConnectionString:** The connection string for the table endpoint.
 * **/t.TableName:** Specifies the name of the table to write to.
 * **/t.Overwrite:** Optional, default is `false`. Specifies if existing values should be overwritten.
@@ -78,14 +78,14 @@ Use the following target options when you define the Azure Cosmos DB Table API a
 
 ### Sample command: Source is Table Storage
 
-Here's a command-line sample showing how to import from Table Storage to the Table API:
+Here's a command-line sample showing how to import from Table Storage to the API for Table:
 
 ```bash
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmos.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 ## Next steps
 
-Learn how to query data by using the Azure Cosmos DB Table API. 
+Learn how to query data by using the Azure Cosmos DB for Table. 
 
 > [!div class="nextstepaction"]
 >[How to query data?](tutorial-query-table.md)

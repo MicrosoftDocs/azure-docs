@@ -2,7 +2,7 @@
 title: Working with dates in Azure Cosmos DB
 description: Learn how to store, index, and query DataTime objects in Azure Cosmos DB
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
@@ -80,7 +80,7 @@ Translated to the following SQL statement and executed on Azure Cosmos DB:
     SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 ```
 
-You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB in LINQ](sql-query-linq-to-sql.md).
+You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Azure Cosmos DB in LINQ](sql-query-linq-to-sql.md).
 
 ## Indexing DateTimes for range queries
 
