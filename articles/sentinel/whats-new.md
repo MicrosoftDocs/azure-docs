@@ -27,9 +27,36 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2022
 
+- [Create automation rule conditions based on custom details (Preview)](#create-automation-rule-conditions-based-on-custom-details-preview)
+- [Add advanced "Or" conditions to automation rules (Preview)](#add-advanced-or-conditions-to-automation-rules-preview)
+- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
 - [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
+
+### Create automation rule conditions based on custom details (Preview)
+
+You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
+
+Learn how to [add a condition based on a custom detail](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview).
+
+### Add advanced "Or" conditions to automation rules (Preview)
+
+You can now add OR conditions to automation rules. Also known as condition groups, these allow you to combine several rules with identical actions into a single rule, greatly increasing your SOC's efficiency.
+
+For more information, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
+
+### Windows DNS Events via AMA connector (Preview)
+
+You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
+
+The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
+
+Here are some benefits of using AMA for DNS log collection:
+
+- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
+- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
+- AMA supports transformation from the incoming stream into other data tables.
+- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 ### Create and delete incidents manually (Preview)
 
@@ -53,19 +80,6 @@ When investigating an incident, you examine entities and their context as an imp
 Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
 
 Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
-
-### Windows DNS Events via AMA connector (Preview)
-
-You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
-
-The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
-
-Here are some benefits of using AMA for DNS log collection:
-
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
-- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
-- AMA supports transformation from the incoming stream into other data tables.
-- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 
 ## August 2022

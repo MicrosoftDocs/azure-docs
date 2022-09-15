@@ -201,8 +201,10 @@ Playbook actions within an automation rule may be treated differently under some
 | More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
 
 ## Next steps
+
 In this document, you learned how to use automation rules to centrally manage response automation for Microsoft Sentinel incidents and alerts.
 
+- To learn how to add advanced conditions with `OR` operators to automation rules, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
 - To learn more about automation rules, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 - To migrate alert-trigger playbooks to be invoked by automation rules, see [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md)

@@ -119,6 +119,8 @@ Now we decide we're going to be a little more picky. We want to add more conditi
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-compound-conditions.png" alt-text="Screenshot of adding multiple compound conditions to an automation rule.":::
 
+That's it! You can use what you've learned here to add more conditions and condition groups, using different combinations of `AND` and `OR` operators, to create powerful, flexible, and efficient automation rules to really help your SOC run smoothly and lower your response and resolution times.
+
 ## Next steps
 
 In this document, you learned how to add condition groups using `OR` operators to automation rules.
