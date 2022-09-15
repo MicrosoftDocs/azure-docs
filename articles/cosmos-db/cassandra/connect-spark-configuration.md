@@ -78,7 +78,7 @@ The following table lists Azure Cosmos DB for Apache Cassandra-specific throughp
 Adjust the throughput and degree of parallelism of these parameters based on the workload you expect for your spark jobs, and the throughput you've provisioned for your Azure Cosmos DB account.
 
 
-## Connecting to Azure Cosmos DB for Apache Cassandra from Spark
+## <a id="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connecting to Azure Cosmos DB for Apache Cassandra from Spark
 
 ### cqlsh
 The following commands detail how to connect to Azure Cosmos DB for Apache Cassandra from cqlsh.  This is useful for validation as you run through the samples in Spark.<br>
