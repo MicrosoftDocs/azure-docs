@@ -146,19 +146,6 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
 
-## Save SSH keys and kubeconfig
-
-> [!IMPORTANT]
-> Performing [day 2 operations on the Arc resource bridge](day2-operations-resource-bridge.md) will require the SSH key to the resource bridge VM and kubeconfig to the Kubernetes cluster on it. It is important to store them to a secure location as it is not possible to retrieve them if the workstation used for the onboarding is deleted.
-
-You will find the kubeconfig file with the name `kubeconfig` in the folder where  the onboarding script is downloaded and run.
-
-The SSH key pair will be available in the following location.
-
-- If you used a Windows workstation, `C:\ProgramData\kva\.ssh\logkey` and `C:\ProgramData\kva\.ssh\logkey.pub`
-  
-- If you used a Linux workstation, `$HOME\.KVA\.ssh\logkey` and `$HOME\.KVA\.ssh\logkey.pub`
-
 ## Next steps
 
 - [Browse and enable VMware vCenter resources in Azure](browse-and-enable-vcenter-resources-in-azure.md)
