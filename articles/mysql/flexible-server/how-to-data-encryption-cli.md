@@ -7,10 +7,12 @@ ms.reviewer: maghan
 ms.date: 09/15/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
-# Tutorial: Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI Preview
+# Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI Preview
+
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI preview.
 
@@ -76,6 +78,9 @@ You can verify the above attributes of the key by using the following command:
 ```azurecli-interactive
 az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
 ```
+
+> [!Note]
+> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
 
 ## Update an existing MySQL flexible server with data encryption
 
@@ -243,5 +248,6 @@ The params **identityUri** and **primaryKeyUri** are the resource ID of the user
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key-mysql-flexible-server.md)
-- [Data encryption with Azure portal (Preview)](tutorial-data-encryption-mysql-flexible-server-portal.md)
+- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
+- [Data encryption with Azure portal (Preview)](how-to-data-encryption-portal.md)
+

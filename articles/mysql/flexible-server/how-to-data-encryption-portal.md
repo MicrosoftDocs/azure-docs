@@ -7,10 +7,12 @@ ms.reviewer: maghan
 ms.date: 09/15/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
-# Tutorial: Data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal Preview
+# Data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal Preview
+
+[!INCLUDE[applies-to](../includes/applies-to.md)]
 
 This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL flexible server.
 
@@ -32,15 +34,18 @@ In this tutorial, you learn how to:
 
 1. In Key Vault, select **Access policies**, and then select **Create**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/1-mysql-key-vault-access-policy.jpeg" alt-text="Screenshot of Key Vault Access Policy in the Azure portal.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/1-mysql-key-vault-access-policy.jpeg" alt-text="Screenshot of Key Vault Access Policy in the Azure portal.":::
 
 2. On the **Permissions** tab, select the following **Key permissions - Get** , **List** , **Wrap Key** , **Unwrap Key**.
 
 3. On the **Principal** tab, select the User-assigned Managed Identity.
   
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/2-mysql-principal-tab.jpeg" alt-text="Screenshot of the principal tab in the Azure portal.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/2-mysql-principal-tab.jpeg" alt-text="Screenshot of the principal tab in the Azure portal.":::
 
 4. Select **Create**.
+
+> [!Note]
+> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
 
 ## Configure customer managed key
 
@@ -48,17 +53,17 @@ To set up the customer managed key, perform the following steps.
 
 1. In the portal, navigate to your Azure Database for MySQL flexible server, and then, under **Security** , select **Data encryption**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/3-mysql-data-encryption.jpeg" alt-text="Screenshot of the data encryption page.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/3-mysql-data-encryption.jpeg" alt-text="Screenshot of the data encryption page.":::
 
 2. On the **Data encryption** page, under **No identity assigned** , select **Change identity** ,
 
 3. In the **Select user assigned**** managed identity **dialog box, select the** demo-umi **identity, and then select** Add**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/4-mysql-assigned-managed-identity-demo-uni.jpeg" alt-text="Screenshot of selecting the demo-umi from the assigned managed identity page.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/4-mysql-assigned-managed-identity-demo-uni.jpeg" alt-text="Screenshot of selecting the demo-umi from the assigned managed identity page.":::
 
 4. To the right of **Key selection method** , either **Select a key** and specify a key vault and key pair, or select **Enter a key identifier**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/5-mysql-select-key.jpeg" alt-text="Screenshot of the Select Key page in the Azure portal.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/5-mysql-select-key.jpeg" alt-text="Screenshot of the Select Key page in the Azure portal.":::
 
 5. Select **Save**.
 
@@ -69,12 +74,12 @@ To use data encryption as part of a restore operation, perform the following ste
 1. In the Azure portal, on the navigate Overview page for your server, select **Restore**.
     1. On the **Security** tab, you specify the identity and the key.
 
-        :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/6-mysql-navigate-overview-page.jpeg" alt-text="Screenshot of overview page.":::
+        :::image type="content" source="media/how-to-data-encryption-portal/6-mysql-navigate-overview-page.jpeg" alt-text="Screenshot of overview page.":::
 
 2. Select **Change identity** and select the **User assigned managed identity** and select on **Add**
 **To select the Key** , you can either select a **key vault** and **key pair** or enter a **key identifier**
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/7-mysql-change-identity.jpeg" alt-text="SCreenshot of the change identity page.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/7-mysql-change-identity.jpeg" alt-text="SCreenshot of the change identity page.":::
 
 ## Using Data encryption for replica servers
 
@@ -82,16 +87,16 @@ After your Azure Database for MySQL flexible server is encrypted with a customer
 
 1. To configuration replication, under **Settings** , select **Replication** , and then select **Add replica**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/8-mysql-replication.jpeg" alt-text="Screenshot of the Replication page.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/8-mysql-replication.jpeg" alt-text="Screenshot of the Replication page.":::
 
 2. In the Add Replica server to Azure Database for MySQL dialog box, select the appropriate **Compute + storage** option, and then select **OK**.
 
-    :::image type="content" source="media/tutorial-set-data-encryption-portal-mysql-flexible-server/9-mysql-compute-storage.jpeg" alt-text="Screenshot of the Compute + Storage page.":::
+    :::image type="content" source="media/how-to-data-encryption-portal/9-mysql-compute-storage.jpeg" alt-text="Screenshot of the Compute + Storage page.":::
 
-    > [!Important}
+    > [!Important]
     > When trying to encrypt Azure Database for MySQL flexible server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) as well by adding the managed identity and key.
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key-mysql-flexible-server.md)
-- [Data encryption with Azure CLI (Preview)](tutorial-data-encryption-mysql-flexible-server-cli.md)
+- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
+- [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
