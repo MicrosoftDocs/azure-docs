@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/02/2022
+ms.date: 07/27/2022
 ---
 # Integration FAQs for Azure NetApp Files
 
@@ -14,7 +14,7 @@ This article answers frequently asked questions (FAQs) about using other product
 
 ## Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more information, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+Yes, Azure NetApp Files can be used to expand your AVS private cloud storage via [Azure NetApp Files datastores](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md). In addition, you can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more information, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md). 
 
 ## What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 

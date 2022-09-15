@@ -24,7 +24,7 @@ ms.custom: devx-track-js
 
 As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from a SQL API account in Azure Cosmos DB by using a Node.js Express application that is hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you will build a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
 
-This tutorial demonstrates how to create a SQL API account in Azure Cosmos DB by using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create a database and container, and add items to the container. This tutorial uses JavaScript SDK version 3.0.
+This tutorial demonstrates how to create a SQL API account in Azure Cosmos DB by using the Azure portal. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). You then build and run a web app that is built on the Node.js SDK to create a database and container, and add items to the container. This tutorial uses JavaScript SDK version 3.0.
 
 This tutorial covers the following tasks:
 
@@ -39,7 +39,7 @@ This tutorial covers the following tasks:
 Before following the instructions in this article, ensure
 that you have the following resources:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+* If you don't have an Azure subscription, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 

@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 06/28/2022
+ms.date: 09/07/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to validate upcoming releases.
@@ -159,7 +159,7 @@ Run the notebook by clicking **Run All**.
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure portal by using this special URL: [https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
+Open the Azure portal by using this special URL: [https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
 
 Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 
