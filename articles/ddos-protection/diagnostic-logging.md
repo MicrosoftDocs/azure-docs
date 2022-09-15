@@ -42,16 +42,16 @@ In this tutorial, you'll learn how to:
 If you want to automatically enable diagnostic logging on all public IPs within an environment, skip to [Enable diagnostic logging on all public IPs](#enable-diagnostic-logging-on-all-public-ips).
 
 1. Select **All services** on the top, left of the portal.
-2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
-3. Under **Settings**, select **Diagnostic Settings**.
-4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
-5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to enable logs for.
-6. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require, and then select **Save**.
+1. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
+1. Under **Settings**, select **Diagnostic Settings**.
+1. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
+1. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to enable logs for.
+1. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require, and then select **Save**.
 
     :::image type="content" source="./media/ddos-attack-telemetry/ddos-diagnostic-settings.png" alt-text="Screenshot of DDoS diagnostic settings." lightbox="./media/ddos-attack-telemetry/ddos-diagnostic-settings.png":::
 
     
-7. Under **Destination details**, select as many of the following options as you require:
+1. Under **Destination details**, select as many of the following options as you require:
 
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
@@ -63,9 +63,9 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
 
-4. Under **General**, click on **Logs**
+1. Under **General**, click on **Logs**
 
-5. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
+1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
 
     ```kusto
     AzureDiagnostics
@@ -163,19 +163,19 @@ This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/Po
 
 ### Microsoft Sentinel data connector
 
-You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
+You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection).
 
 
 :::image type="content" source="./media/ddos-attack-telemetry/azure-sentinel-ddos.png" alt-text="Screenshot of Microsoft Sentinel DDoS Connector." lightbox="./media/ddos-attack-telemetry/azure-sentinel-ddos.png":::
 
 ### Azure DDoS Protection Workbook
 
-You can use [this Azure Resource Manager (ARM) template](https://aka.ms/ddosworkbook) to deploy an attack analytics workbook. This workbook allows you to visualize attack data across several filterable panels to easily understand what’s at stake. 
+You can use [this Azure Resource Manager (ARM) template](https://aka.ms/ddosworkbook) to deploy an attack analytics workbook. This workbook allows you to visualize attack data across several filterable panels to easily understand what’s at stake.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 
-:::image type="content" source="./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png" alt-text="Screenshot of DDoS Protection Workbook." lightbox="./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png":::
+:::image type="content" source="./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png" alt-text="Screenshot of Azure DDoS Protection Workbook." lightbox="./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png":::
 
 ## Validate and test
 
