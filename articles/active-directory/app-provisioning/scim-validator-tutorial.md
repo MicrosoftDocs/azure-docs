@@ -118,7 +118,7 @@ That's it! You can now run the **Postman** collection to test the SCIM endpoint 
 
 If you created any Azure resources in your testing that are no longer needed, don't forget to delete them.
 
-## Known issues 
+## Known Issues with Azure AD SCIM Validator
 
 - Soft deletes (disables) aren’t yet supported.
 - The time zone format is randomly generated and will fail for systems that try to validate it.
