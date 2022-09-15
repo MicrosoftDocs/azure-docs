@@ -10,7 +10,9 @@ ms.author: tejaswikolli
 
 Azure Container Registry (ACR) allows you to enable the *soft delete policy* to recover any accidentally deleted artifacts for a set retention period.
 
+
 :::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram of soft delete artifacts lifecycle.":::
+
 
 This feature is available in all the service tiers (also known as SKUs). For information about registry service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).
 
@@ -55,15 +57,15 @@ For example, after five days of soft deleting the artifact, if the user changes 
 
 1. Update soft delete policy for a given `MyRegistry` ACR with a retention period set between 1 to 90 days.
 
-```azurecli-interactive
-az acr config soft-delete update -r MyRegistry --days 7 --status <enabled/disabled>
-```
+    ```azurecli-interactive
+    az acr config soft-delete update -r MyRegistry --days 7 --status <enabled/disabled>
+    ```
 
 2. Show configured soft delete policy for a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr config soft-delete show -r MyRegistry 
-```
+    ```azurecli-interactive
+    az acr config soft-delete show -r MyRegistry 
+    ```
 
 ### List the soft-delete artifacts- CLI
 
@@ -71,31 +73,31 @@ The `az acr repository list-deleted` commands enable fetching and listing of the
 
 1. List the soft deleted repositories in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr repository list-deleted -n MyRegistry
-```
+    ```azurecli-interactive
+    az acr repository list-deleted -n MyRegistry
+    ```
 
 The `az acr manifest list-deleted` commands enable fetching and listing of the soft delete manifests.
 
 2. List the soft deleted manifests of a `hello-world` repository in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest list-deleted -r MyRegistry -n hello-world
-```
+    ```azurecli-interactive
+    az acr manifest list-deleted -r MyRegistry -n hello-world
+    ```
 
 The `az acr manifest list-deleted-tags` commands  enable fetching and listing of the soft delete tags.
 
 3. List the soft delete tags of a `hello-world` repository in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest list-deleted-tags -r MyRegistry -n hello-world
-```
+    ```azurecli-interactive
+    az acr manifest list-deleted-tags -r MyRegistry -n hello-world
+    ```
 
 4. Filter the soft delete tags of a `hello-world` repository to match tag `latest` in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest list-deleted-tags -r MyRegistry -n hello-world:latest
-```
+    ```azurecli-interactive
+    az acr manifest list-deleted-tags -r MyRegistry -n hello-world:latest
+    ```
 
 ### Restore the soft delete artifacts - CLI
 
@@ -103,23 +105,23 @@ The `az acr manifest restore` commands restore a single image by tag and digest.
 
 1. Restore the image of a `hello-world` repository by tag `latest`and digest `sha256:abc123` in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123
-```
+    ```azurecli-interactive
+    az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123
+    ```
 
 2. Restore the most recently deleted manifest of a `hello-world` repository by tag `latest` in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest restore -r MyRegistry -n hello-world:latest
-```
+    ```azurecli-interactive
+    az acr manifest restore -r MyRegistry -n hello-world:latest
+    ```
 
 Force restore will overwrite the existing tag with the same name in the repository. If the soft delete policy is enabled during force restore. The overwritten tag will be soft deleted. You can force restore with specific arguments `--force, -f`.  
 
 3. Force restore the image of a `hello-world` repository by tag `latest`and digest `sha256:abc123` in a given `MyRegistry` ACR.
 
-```azurecli-interactive
-az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123 -f
-```
+    ```azurecli-interactive
+    az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123 -f
+    ```
 
 > [!IMPORTANT]
 >* Restoring a [manifest list](push-multi-architecture-images.md#manifest-list) won't recursively restore any underlying soft deleted manifests.
@@ -133,13 +135,21 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. In the **Overview tab**, verify the status of the **Soft Delete** (Preview).
 1. If the **Status** is **Disabled**, Select **Update**.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="Screenshot to view the soft delete policy.":::
+
+
 
 1. Select the checkbox to **Enable Soft Delete**.
 1. Select the number of days between `0` and `90` days to retain the soft deleted artifacts.
 1.  Select **Save** to save your changes.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="Screenshot to enable soft delete policy.":::
+
+
 
 ### Restore the soft deleted artifacts - Portal
 
@@ -151,18 +161,30 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 > [!NOTE]
 > Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="Screenshot of manage deleted artifacts.":::
+
+
 
 1.  Filter the deleted artifact you have to restore
 1.  Select the artifact, and Click on the **Restore** in the right column.
 1.  A **Restore Artifact** window pops up.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/04-managed-deleted-artifacts.png" alt-text="Screenshot to restore soft delete artifacts.":::
+
+
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="Screenshot of restore window.":::
+
+
 
 ### Restore from soft deleted repositories - Portal
 
@@ -171,22 +193,37 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. In the **Services** tab, Select **Repositories**.
 1. In the **Repositories** tab, Click on **Manage Deleted Repositories**.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/06-manage-delete-repositories.png" alt-text="Screenshot of manage delete repositories.":::
+
+
 
 1. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-repositories.png" alt-text="Screenshot of soft delete repositories.":::
+
+
 
 1. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
 1. Select the artifact, and Click on the **Restore** in the right column.
 1.  A **Restore Artifact** window pops up.
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-repository-artifacts.png" alt-text="Screenshot to restore soft delete repositories.":::
+
+
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
+
+
 :::image type="content" source="./media/container-registry-soft-delete/09-soft-delete-restore.png" alt-text="Screenshot of restore window for soft delete repositories.":::
+
 
 
 > [!IMPORTANT]
