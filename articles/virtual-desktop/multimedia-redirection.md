@@ -43,7 +43,7 @@ to do these things:
 
 ## Managing group policies for the multimedia redirection browser extension
 
-Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
+Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](troubleshoot-multimedia-redirection.md#known-issues-and-limitations).
 
 Keep in mind that when the IT admin installs an extension with MSI, the users will see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
 
@@ -114,7 +114,7 @@ To use MMR for Teams live events:
 
 1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
 
-2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
+2. Make sure you can see a green check mark next to the [multimedia redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
 
 3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
 

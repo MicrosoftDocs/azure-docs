@@ -18,7 +18,7 @@ manager: femila
 >
 >Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the Windows Desktop client, version 1.2.2999 or later.
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media content from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on sites in the "Known Sites" list. To test sites on the list within your organization's deployment, you'll need to [enable an extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media content from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on sites in the "Known Sites" list. To test sites on the list within your organization's deployment, you'll need to [enable an extension](multimedia-redirection.md#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
 ## Websites that work with MMR 
 
@@ -61,7 +61,7 @@ If you run into issues while using the public preview version of multimedia redi
 
 ## Next steps
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimdia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
 
 To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
 

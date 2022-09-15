@@ -28,14 +28,14 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](mutlimedia-redirection-intro.md#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
 - There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
 
     - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
     - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
@@ -49,4 +49,4 @@ If you run into issues while using the public preview version of multimedia redi
 
 For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimdia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
