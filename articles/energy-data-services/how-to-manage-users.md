@@ -60,18 +60,18 @@ You have two ways to get the list of data-partitions in your Microsoft Energy Da
 
 ## 2. Generate access token
 
-You need to generate access token to use entitlements API. Run the following curl command after replacing the placeholder values with the corresponding values found earlier in the pre-requisites step.
+You need to generate access token to use entitlements API. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the pre-requisites step.
  
 **Request format**
 
 ```bash
-curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/oauth2/token' \
+curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'scope={{client-id}}.default' \
---data-urlencode 'client_id={{client-id}}' \
---data-urlencode 'client_secret={{client-secret}}' \
---data-urlencode 'resource={{client-id}}'
+--data-urlencode 'scope=<client-id>.default' \
+--data-urlencode 'client_id=<client-id>' \
+--data-urlencode 'client_secret=<client-secret>' \
+--data-urlencode 'resource=<client-id>'
 ```
 
 **Sample response**
@@ -81,10 +81,10 @@ curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/
         "token_type": "Bearer",
         "expires_in": 86399,
         "ext_expires_in": 86399,
-        "access_token": <access_token>"
+        "access_token": abcdefgh123456............."
     }
 ```
-Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
+Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
 
 ## 3. User management activities
 You can manage user's access to your Microsoft Energy Data Services instance or data partitions. As a prerequisite for the same, you need to find the 'object-id' (OID) of the user(s) first. 
@@ -97,17 +97,17 @@ You'll need to input `object-id` (OID) of the users as parameters in the calls t
 
 ### 1. Get the list of all available groups 
 
-Run the below curl command to get all the groups that are available for your Microsoft Energy Data Services instance and its data partitions.
+Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Microsoft Energy Data Services instance and its data partitions.
 
 ```bash
-    curl --location --request GET "<url>/api/entitlements/v2/groups/" \
+    curl --location --request GET "https://<URI>/api/entitlements/v2/groups/" \
     --header 'data-partition-id: <data-partition>' \
     --header 'Authorization: Bearer <access_token>'
 ```
 
 ### 2. Add user(s) to a users group
 
-Run the below curl command to add user(s) to the "Users" group using Entitlement service.
+Run the below curl command in Azure Cloud Bash to add user(s) to the "Users" group using Entitlement service.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users@<data-partition-id>.dataservices.energy/members' \
@@ -146,10 +146,10 @@ Run the below curl command to add user(s) to the "Users" group using Entitlement
 
 ### 3. Add user(s) to an entitlements group
 
-Run the below curl command to add user(s) to an entitlement group using Entitlement service.
+Run the below curl command in Azure Cloud Bash to add user(s) to an entitlement group using Entitlement service.
 
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users.datalake.editors@<data-partition-id>.dataservices.energy/members' \
+    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/service.search.user@<data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -164,7 +164,7 @@ Run the below curl command to add user(s) to an entitlement group using Entitlem
 **Sample request**
 
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@<instance>-<data-partition-name>.dataservices.energy/members' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/service.search.user@<instance>-<data-partition-name>.dataservices.energy/members' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -185,7 +185,7 @@ Run the below curl command to add user(s) to an entitlement group using Entitlem
 
 ### 4. Get entitlements groups for a given user
 
-Run the below curl command to get all the groups associated with the user.
+Run the below curl command in Azure Cloud Bash to get all the groups associated with the user.
 
 ```bash
     curl --location --request GET 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>/groups?type=none' \
@@ -208,14 +208,9 @@ Run the below curl command to get all the groups associated with the user.
     "memberEmail": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
     "groups": [
         {
-        "name": "data.default.viewers",
-        "description": "Default data viewers",
-        "email": "data.default.viewers@<instance>-<data-partition-name>.dataservices.energy"
-        },
-        {
-        "name": "data.default.owners",
-        "description": "Default data owners",
-        "email": "data.default.owners@<instance>-<data-partition-name>.dataservices.energy"
+        "name": "users",
+        "description": "Datalake users",
+        "email": "users@<instance>-<data-partition-name>.dataservices.energy"
         },
         {
         "name": "service.search.user",
@@ -228,7 +223,7 @@ Run the below curl command to get all the groups associated with the user.
 
 ### 5. Delete entitlement groups of a given user
 
-Run the below curl command to delete a given user to your Microsoft Energy Data Services instance data partition.
+Run the below curl command in Azure Cloud Bash to delete a given user to your Microsoft Energy Data Services instance data partition.
 
 > [!NOTE]
 > As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER that can manage users in that group.
