@@ -54,10 +54,6 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-    > [!TIP]
-    > If you see an error message, make sure that you have [Defender for IoT enabled](#enablehub) on at least one IoT Hub instance within your selected subscription.
-    >
-
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
 
 
