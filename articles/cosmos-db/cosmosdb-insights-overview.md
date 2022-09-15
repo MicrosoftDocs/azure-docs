@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Cosmos DB with Azure Monitor Cosmos DB insights| Microsoft Docs
-description: This article describes the Cosmos DB insights feature of Azure Monitor that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their Cosmos DB accounts.
+title: Monitor Azure Cosmos DB with Azure Monitor Azure Cosmos DB insights| Microsoft Docs
+description: This article describes the Azure Cosmos DB insights feature of Azure Monitor that provides Azure Cosmos DB owners with a quick understanding of performance and utilization issues with their Azure Cosmos DB accounts.
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
@@ -11,9 +11,9 @@ ms.custom: subject-monitoring
 
 ---
 
-# Explore Azure Monitor Cosmos DB insights
+# Explore Azure Monitor Azure Cosmos DB insights
 
-Cosmos DB insights provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+Azure Cosmos DB insights provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
 ## Introduction
 
@@ -42,9 +42,9 @@ To view the utilization and performance of your storage accounts across all of y
 
     ![Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer style image](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Select **Cosmos DB**.
+3. Select **Azure Cosmos DB**.
 
-    ![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
+    ![Screenshot of Azure Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
 
 ### Overview
 
@@ -52,7 +52,7 @@ On **Overview**, the table displays interactive Azure Cosmos DB metrics. You can
 
 * **Subscriptions** - only subscriptions that have an Azure Cosmos DB resource are listed.  
 
-* **Cosmos DB** - You can select all, a subset, or single Azure Cosmos DB resource.
+* **Azure Cosmos DB** - You can select all, a subset, or single Azure Cosmos DB resource.
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
@@ -102,13 +102,13 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights (preview)** or **Workbooks** to perform further analysis on throughput, requests, storage, availability, latency, system, and account management.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights Overview." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Azure Cosmos DB Insights Overview." border="true":::
 
 ### Time range
 
 By default, the **Time Range** field displays data from the **Last 24 hours**. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The time range selector also includes a **Custom** mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB Time Range." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Azure Cosmos DB Time Range." border="true":::
 
 ### Insights overview
 
@@ -118,19 +118,19 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 * Failed Requests (429s)
 * Normalized RU Consumption (max)
 * Data & Index Usage
-* Cosmos DB Account Metrics by Collection
+* Azure Cosmos DB Account Metrics by Collection
 
 **Total Requests:** This graph provides a view of the total requests for the account broken down by status code. The units at the bottom of the graph are a sum of the total requests for the period.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Cosmos DB Total Requests Graph." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Azure Cosmos DB Total Requests Graph." border="true":::
 
 **Failed Requests (429s)**: This graph provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB Failed Requests Graph." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Azure Cosmos DB Failed Requests Graph." border="true":::
 
 **Normalized RU Consumption (max)**: This graph provides the max percentage between 0-100% of Normalized RU Consumption units for the specified period.
 
-:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB Normalized RU Consumption." border="true":::
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Azure Cosmos DB Normalized RU Consumption." border="true":::
 
 ## Pin, export, and expand
 
@@ -146,7 +146,7 @@ To expand or collapse all drop-down views in the workbook, select the expand ico
 
 ![Expand workbook icon](./media/cosmosdb-insights-overview/expand.png)
 
-## Customize Cosmos DB insights
+## Customize Azure Cosmos DB insights
 
 Since this experience is built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
 

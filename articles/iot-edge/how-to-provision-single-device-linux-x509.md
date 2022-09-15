@@ -197,20 +197,29 @@ If you need to troubleshoot the service, retrieve the service logs.
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-   ```bash
-   sudo iotedge system logs
-   ```
+```bash
+sudo iotedge system logs
+```
 
 ::: moniker-end
 
 Use the `check` tool to verify configuration and connection status of the device.
 
-   ```bash
-   sudo iotedge check
-   ```
+```bash
+sudo iotedge check
+```
 
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+
+>[!NOTE]
+>On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>
+>**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+>
+>**Could not check current state of edgeHub container**
+>
+>This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 

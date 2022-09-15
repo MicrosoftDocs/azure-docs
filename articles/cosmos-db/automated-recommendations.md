@@ -19,7 +19,7 @@ All the cloud services including Azure Cosmos DB get frequent updates with new f
 
 You can view recommendations for Azure Cosmos DB in the following ways:
 
-- One way to view the recommendations is within the notifications tab. If there are new recommendations, you will see a message bar. Sign into your [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos account. Within your Azure Cosmos account, open the **Notifications** pane and then select the **Recommendations** tab. You can select the message and view recommendations.  
+- One way to view the recommendations is within the notifications tab. If there are new recommendations, you will see a message bar. Sign into your [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Within your Azure Cosmos DB account, open the **Notifications** pane and then select the **Recommendations** tab. You can select the message and view recommendations.  
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="View recommendations from Azure Cosmos DB pane":::
 

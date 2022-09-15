@@ -100,7 +100,7 @@ The RestorableAction below represents a custom role. You have to explicitly crea
   "assignableScopes": [
     "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744"
   ],
-  "description": "Can do a restore request for any Cosmos DB database account with continuous backup",
+  "description": "Can do a restore request for any Azure Cosmos DB database account with continuous backup",
   "permissions": [
     {
       "actions": [

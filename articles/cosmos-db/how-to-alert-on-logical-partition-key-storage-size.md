@@ -43,9 +43,9 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
 
    * Select **Azure Cosmos DB accounts** for the **resource type**.
 
-   * The **location** of your Azure Cosmos account.
+   * The **location** of your Azure Cosmos DB account.
 
-   * After filling in the details, a list of Azure Cosmos accounts in the selected scope is displayed. Choose the one for which you want to configure alerts and select **Done**.
+   * After filling in the details, a list of Azure Cosmos DB accounts in the selected scope is displayed. Choose the one for which you want to configure alerts and select **Done**.
 
 1. Fill out the **Condition** section: 
 
@@ -87,7 +87,7 @@ Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic set
         * For all other dimensions:
             * If you want to monitor only a specific Azure Cosmos DB account, database, collection, or partition key, select the specific value or **Add custom value** if the value doesn’t currently appear in the dropdown.  
 
-            * Otherwise, select **Select all current and future values**. For example, if your Cosmos account currently has two databases and five collections, selecting all current and feature values for the Database and CollectionName dimension will ensure that the alert will apply to all existing databases and collections, as well as any you may create in the future. 
+            * Otherwise, select **Select all current and future values**. For example, if your Azure Cosmos DB account currently has two databases and five collections, selecting all current and feature values for the Database and CollectionName dimension will ensure that the alert will apply to all existing databases and collections, as well as any you may create in the future. 
 
    * In the Alert logic section:
 
@@ -156,7 +156,7 @@ To learn about best practices for managing workloads that have partition keys re
 
 ## Next steps
 * How to [create alerts for Azure Cosmos DB using Azure Monitor](create-alerts.md).
-* How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos container.
+* How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos DB container.
 * How to [monitor throughput or request unit usage](monitor-request-unit-usage.md) of an operation in Azure Cosmos DB.
-* How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos container.
+* How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos DB container.
 

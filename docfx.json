@@ -1181,6 +1181,7 @@
           "articles/defender-for-iot/organizations/alert-engine-messages.md",
           "articles/dms/known-issues-troubleshooting-dms.md",
           "articles/dms/tutorial-mysql-azure-mysql-online.md",
+          "articles/dms/tutorial-mysql-azure-single-to-flex-online-portal.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
           "articles/mariadb/**/*.md",
           "articles/mysql/**/*.md",
