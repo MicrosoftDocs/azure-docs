@@ -66,7 +66,7 @@ Upgrading may have undesired consequences on your CycleCloud environment and any
 
 ### Migration strategy
 
-Refer to [Upgrade or Migrate Cyclecloud](./how-to/upgrade-and-migrate.md) for instructions on how to Upgrade or Migrate.
+Refer to [Upgrade or Migrate Cyclecloud](upgrade-and-migrate.md) for instructions on how to Upgrade or Migrate.
 
 ## FAQ
 
@@ -81,4 +81,4 @@ Refer to [Upgrade or Migrate Cyclecloud](./how-to/upgrade-and-migrate.md) for in
 
 ## Next steps
 
-For more information about CycleCloud, see [What is Azure CycleCloud](./overview.md).
+For more information about CycleCloud, see [What is Azure CycleCloud](../overview.md).
