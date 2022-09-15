@@ -2,7 +2,7 @@
 title: Build a graph database with Java in Azure Cosmos DB
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
 ms.service: cosmos-db
-ms.subservice: apache-gremlin
+ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
@@ -11,7 +11,7 @@ ms.author: mansha
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Build a graph database with the Java SDK and the Azure Cosmso DB for Gremlin
+# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB for Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 > * [PHP](create-graph-php.md)
 >  
 
-In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
@@ -34,7 +34,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Create a database account
 
-Before you can create a graph database, you need to create a API for Gremlin database account with Azure Cosmos DB.
+Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -44,7 +44,7 @@ Before you can create a graph database, you need to create a API for Gremlin dat
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a API for Gremlin app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
+Now let's switch to working with code. Let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -70,7 +70,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 The following snippets are all taken from the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java* file.
 
-This Java console app uses a [API for Gremlin](graph-introduction.md) database with the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. 
+This Java console app uses a [Gremlin API](graph-introduction.md) database with the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. 
 
 - The Gremlin `Client` is initialized from the configuration in the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml* file.
 
@@ -166,7 +166,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the API with the option to Apply Filter.":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that the user is connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 

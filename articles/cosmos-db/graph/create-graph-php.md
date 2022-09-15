@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: API for Gremlin with PHP - Azure Cosmos DB'
-description: Follow this quickstart to run a PHP console application that populates an Azure Cosmso DB for Gremlin database in the Azure portal.
+title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
+description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB for Gremlin database in the Azure portal.
 ms.service: cosmos-db
-ms.subservice: apache-gremlin
+ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2022
@@ -23,16 +23,16 @@ ms.custom: mode-api, kr2b-contr-experiment
 > * [PHP](create-graph-php.md)
 >  
 
-In this quickstart, you create and use an Azure Cosmos DB [API for Gremlin](graph-introduction.md) database by using PHP and the Azure portal.
+In this quickstart, you create and use an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
 
-Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: NoSQL, MongoDB, Gremlin, Azure Table, and Cassandra.
+Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: Core (SQL), MongoDB, Gremlin, Azure Table, and Cassandra.
 
-You must create a separate account to use each API. In this article, you create an account for the API for Gremlin.
+You must create a separate account to use each API. In this article, you create an account for the Gremlin (Graph) API.
 
 This quickstart walks you through the following steps:
 
-- Use the Azure portal to create an Azure Cosmso DB for Gremlin account and database.
-- Clone a sample API for Gremlin PHP console app from GitHub, and run it to populate your database.
+- Use the Azure portal to create an Azure Cosmos DB for Gremlin (Graph) API account and database.
+- Clone a sample Gremlin API PHP console app from GitHub, and run it to populate your database.
 - Use Data Explorer in the Azure portal to query, add, and connect data in your database.
 
 ## Prerequisites
@@ -41,9 +41,9 @@ This quickstart walks you through the following steps:
 - [PHP](https://php.net/) 5.6 or newer installed.
 - [Composer](https://getcomposer.org/download) open-source dependency management tool for PHP installed.
 
-## Create a API for Gremlin database account
+## Create a Gremlin (Graph) database account
 
-First, create a API for Gremlin database account for Azure Cosmos DB.
+First, create a Gremlin (Graph) database account for Azure Cosmos DB.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** from the left menu.
 
@@ -51,16 +51,16 @@ First, create a API for Gremlin database account for Azure Cosmos DB.
 
 1. On the **New** page, select **Databases** > **Azure Cosmos DB**.
 
-1. On the **Select API Option** page, under **API for Gremlin**, select **Create**.
+1. On the **Select API Option** page, under **Gremlin (Graph)**, select **Create**.
 
-1. On the **Create Azure Cosmos DB Account - API for Gremlin** page, enter the following required settings for the new account:
+1. On the **Create Azure Cosmos DB Account - Gremlin (Graph)** page, enter the following required settings for the new account:
 
    - **Subscription**: Select the Azure subscription that you want to use for this account.
    - **Resource Group**: Select **Create new**, then enter a unique name for the new resource group.
    - **Account Name**: Enter a unique name between 3-44 characters, using only lowercase letters, numbers, and hyphens. Your account URI is *gremlin.azure.com* appended to your unique account name.
    - **Location**: Select the Azure region to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
 
-   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png" alt-text="Screenshot showing the Create Account page for Azure Cosmos DB for a API for Gremlin account.":::
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png" alt-text="Screenshot showing the Create Account page for Azure Cosmos DB for a Gremlin (Graph) account.":::
 
 1. For this quickstart, you can leave the other fields and tabs at their default values. Optionally, you can configure more details for the account. See [Optional account settings](#optional-account-settings).
 
@@ -74,7 +74,7 @@ First, create a API for Gremlin database account for Azure Cosmos DB.
 
 ### Optional account settings
 
-Optionally, you can also configure the following settings on the **Create Azure Cosmos DB Account - API for Gremlin** page.
+Optionally, you can also configure the following settings on the **Create Azure Cosmos DB Account - Gremlin (Graph)** page.
 
 - On the **Basics** tab:
 
@@ -118,7 +118,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
    - **Database Throughput**: Select **Manual**, so you can set the throughput to a low value.
    - **Database Max RU/s**: Change the throughput to *400* request units per second (RU/s). If you want to reduce latency, you can scale up throughput later.
    - **Graph id**: Enter *sample-graph*. Graph names have the same character requirements as database IDs.
-   - **Partition key**: Enter */pk*. All Azure Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
+   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
 
    :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="Screenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
 
@@ -140,7 +140,7 @@ Get the Azure Cosmos DB account connection keys to use later in this quickstart.
 
 ## Clone the sample application
 
-Now, switch to working with code. Clone a API for Gremlin app from GitHub, set the connection string, and run the app to see how easy it is to work with data programmatically.
+Now, switch to working with code. Clone a Gremlin API app from GitHub, set the connection string, and run the app to see how easy it is to work with data programmatically.
 
 1. In git terminal window, such as git bash, create a new folder named *git-samples*.
 
@@ -318,11 +318,11 @@ You can review the metrics that Azure Cosmos DB provides, and then clean up the 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
-This action deletes the resource group and all resources within it, including the Azure Cosmso DB for Gremlin account and database.
+This action deletes the resource group and all resources within it, including the Azure Cosmos DB for Gremlin (Graph) account and database.
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmso DB for Gremlin account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
+In this quickstart, you learned how to create an Azure Cosmos DB for Gremlin (Graph) account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)

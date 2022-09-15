@@ -1,15 +1,15 @@
 ---
-title: 'Graph data modeling for Azure Cosmso DB for Gremlin'
-description: Learn how to model a graph database by using Azure Cosmso DB for Gremlin. This article describes when to use a graph database and best practices to model entities and relationships. 
+title: 'Graph data modeling for Azure Cosmos DB for Gremlin'
+description: Learn how to model a graph database by using Azure Cosmos DB for Gremlin. This article describes when to use a graph database and best practices to model entities and relationships. 
 ms.service: cosmos-db
-ms.subservice: apache-gremlin
+ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 author: manishmsfte
 ms.author: mansha
 ---
 
-# Graph data modeling for Azure Cosmso DB for Gremlin
+# Graph data modeling for Azure Cosmos DB for Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
@@ -33,7 +33,7 @@ A graph database solution can be optimally applied if the entities and relations
 
 If the above criteria is satisfied, it's likely that a graph database approach will provide advantages for **query complexity**, **data model scalability**, and **query performance**.
 
-The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Azure Cosmos DB Spark connector](../create-sql-api-spark.md) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
+The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](../create-sql-api-spark.md) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
 
 ## How to use graph objects
 
@@ -56,10 +56,10 @@ The following are the best practices for the properties in the graph objects:
 
 ## Entity and relationship modeling guidelines
 
-The following are a set of guidelines to approach data modeling for an Azure Cosmso DB for Gremlin graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
+The following are a set of guidelines to approach data modeling for an Azure Cosmos DB for Gremlin graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
 
 > [!NOTE]
-> The steps outlined below are presented as recommendations. The final model should be evaluated and tested before its consideration as production-ready. Additionally, the recommendations below are specific to Azure Cosmos DB's API for Gremlin implementation. 
+> The steps outlined below are presented as recommendations. The final model should be evaluated and tested before its consideration as production-ready. Additionally, the recommendations below are specific to Azure Cosmos DB's Gremlin API implementation. 
 
 ### Modeling vertices and properties 
 
@@ -90,7 +90,7 @@ Edge objects have a default direction that is followed by a traversal when using
 
 However, traversing in the opposite direction of an edge, using the `in()` function, will always result in a cross-partition query. Learn more about [graph partitioning](graph-partitioning.md). If there's a need to constantly traverse using the `in()` function, it's recommended to add edges in both directions.
 
-You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [bulk executor library for API for Gremlin](bulk-executor-graph-dotnet.md).
+You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [bulk executor library for Gremlin API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Edge objects have a direction by default.

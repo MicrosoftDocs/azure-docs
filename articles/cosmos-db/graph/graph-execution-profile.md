@@ -1,9 +1,9 @@
 ---
-title: Use the execution profile to evaluate queries in Azure Cosmso DB for Gremlin
+title: Use the execution profile to evaluate queries in Azure Cosmos DB for Gremlin
 description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step.
 services: cosmos-db
 ms.service: cosmos-db
-ms.subservice: apache-gremlin
+ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 author: manishmsfte
@@ -14,7 +14,7 @@ ms.author: mansha
 # How to use the execution profile step to evaluate your Gremlin queries
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This article provides an overview of how to use the execution profile step for Azure Cosmso DB for Gremlin graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against an Azure Cosmso DB for Gremlin account.
+This article provides an overview of how to use the execution profile step for Azure Cosmos DB for Gremlin graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
 
 To use this step, simply append the `executionProfile()` function call at the end of your Gremlin query. **Your Gremlin query will be executed** and the result of the operation will return a JSON response object with the query execution profile.
 
@@ -28,10 +28,10 @@ For example:
     g.V('mary').out().executionProfile()
 ```
 
-After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the Azure Cosmos DB runtime operators that the statement resulted in.
+After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the Cosmos DB runtime operators that the statement resulted in.
 
 > [!NOTE]
-> This implementation for Execution Profile is not defined in the Apache Tinkerpop specification. It is specific to Azure Cosmso DB for Gremlin's implementation.
+> This implementation for Execution Profile is not defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB for Gremlin's implementation.
 
 
 ## Response Example
@@ -138,9 +138,9 @@ The response of an executionProfile() function will yield a hierarchy of JSON ob
   - **Gremlin operation object**: Represents the entire Gremlin operation that was executed. Contains the following properties.
     - `gremlin`: The explicit Gremlin statement that was executed.
     - `totalTime`: The time, in milliseconds, that the execution of the step incurred in. 
-    - `metrics`: An array that contains each of the Azure Cosmos DB runtime operators that were executed to fulfill the query. This list is sorted in order of execution.
+    - `metrics`: An array that contains each of the Cosmos DB runtime operators that were executed to fulfill the query. This list is sorted in order of execution.
     
-  - **Azure Cosmos DB runtime operators**: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
+  - **Cosmos DB runtime operators**: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
     - `name`: Name of the operator. This is the type of step that was evaluated and executed. Read more in the table below.
     - `time`: Amount of time, in milliseconds, that a given operator took.
     - `annotations`: Contains additional information, specific to the operator that was executed.
@@ -151,7 +151,7 @@ The response of an executionProfile() function will yield a hierarchy of JSON ob
     - `storeOps.count`: Represents the number of results that this storage operation returned.
     - `storeOps.size`: Represents the size in bytes of the result of a given storage operation.
 
-Azure Cosmos DB Gremlin Runtime Operator|Description
+Cosmos DB Gremlin Runtime Operator|Description
 ---|---
 `GetVertices`| This step obtains a predicated set of objects from the persistence layer. 
 `GetEdges`| This step obtains the edges that are adjacent to a set of vertices. This step can result in one or many storage operations.
@@ -385,4 +385,4 @@ These two queries reached the same result, however, the first one will require m
 
 ## Next steps
 * Learn about the [supported Gremlin features](../gremlin-support.md) in Azure Cosmos DB. 
-* Learn more about the [API for Gremlin in Azure Cosmos DB](../graph-introduction.md).
+* Learn more about the [Gremlin API in Azure Cosmos DB](../graph-introduction.md).
