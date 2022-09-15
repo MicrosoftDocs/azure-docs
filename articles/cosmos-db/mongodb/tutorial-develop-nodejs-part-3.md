@@ -1,13 +1,13 @@
 ---
 title: Create the Angular app UI with Azure Cosmos DB's API for MongoDB (Part3)
 description: Part 3 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB. 
-author: johnpapa
+author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.author: jopapa
+ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
 ms.reviewer: mjbrown
 ---
