@@ -474,7 +474,13 @@ text_ner_job.set_sweep(
 
 ### Sampling methods for the sweep 
 
-Same as Vision: Set up AutoML for computer vision - Azure Machine Learning | Microsoft Docs 
+When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `sampling_algorithm` parameter:
+
+| Sampling type | AutoML Job syntax |
+|-------|---------|
+|[Random Sampling](how-to-tune-hyperparameters.md#random-sampling)| `random` |
+|[Grid Sampling](how-to-tune-hyperparameters.md#grid-sampling)| `grid` |
+|[Bayesian Sampling](how-to-tune-hyperparameters.md#bayesian-sampling)| `bayesian` |
 
 ### Experiment budget 
 
