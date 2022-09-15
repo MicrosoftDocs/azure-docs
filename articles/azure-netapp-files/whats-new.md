@@ -12,12 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/07/2022
+ms.date: 09/15/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Backup vault](backup-introduction.md#backup-vault)
+<!-- Content pending-->
 
 ## August 2022
 

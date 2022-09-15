@@ -39,6 +39,10 @@ Azure NetApp Files backup is supported for the following regions:
 * West US
 * West US 2
 
+## Backup Vault
+
+Backup vaults are a new organizational 
+
 ## Cost model for Azure NetApp Files backup
 
 Pricing for Azure NetApp Files backup is based on the total amount of storage consumed by the backup. There are no setup charges or minimum usage fees. 
