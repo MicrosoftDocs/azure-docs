@@ -85,7 +85,7 @@ To use Visual Studio Code for running Playwright tests in an interactive way:
       [Galaxy S9+] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ===========
   
       145 passed (2m)
-    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default/987351621824417792    
+    Test report: https://17157345.playwright-int.io/workspaces/Default/987351621824417792    
     ```
 
 ### Run tests in the CLI
@@ -115,7 +115,7 @@ To run your tests from the command-line with [Playwright Test](https://playwrigh
     ...
 
       145 passed (2m)
-    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default/987351621824417792
+    Test report: https://17157345.playwright-int.io/workspaces/Default/987351621824417792
     ```
 
 ## Explore test results in the portal
@@ -124,9 +124,9 @@ After the tests finish, explore the test results in the Microsoft Playwright Tes
 
 You can find a direct link to the test run results in the output log of the test run in Visual Studio Code or the command-line.
 
-1. Open the link to the Microsoft Playwright Testing dashboard in the test output.
+1. Open the link to the [Microsoft Playwright Testing dashboard](https://17157345.playwright-int.io/) in the test output.
 
-1. Sign in with your GitHub credentials.
+1. Sign in with your Azure credentials.
 
 1. View the test run details.
 
