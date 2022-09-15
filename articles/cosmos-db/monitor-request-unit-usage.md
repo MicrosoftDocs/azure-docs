@@ -36,7 +36,7 @@ If you notice certain queries are taking more request units, you can take action
 
    :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
 
-1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
+1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos DB accounts, and select **Apply**.
 
    :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 
@@ -50,11 +50,11 @@ You can also filter metrics and get the charts displayed by a specific **Collect
 
 To get the request unit usage of each operation either by total(sum) or average, select **Apply splitting** and choose **Operation type** and the filter value as shown in the following image:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Cosmos DB Request units for operations in Azure monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Azure Cosmos DB Request units for operations in Azure monitor":::
 
 If you want to see the request unit usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chat like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB Request units for all operations by the collection in Azure monitor" border="true":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure Cosmos DB Request units for all operations by the collection in Azure monitor" border="true":::
 
 ## Next steps
 

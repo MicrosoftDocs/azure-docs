@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples for Azure Cosmos DB Gremlin API
-description: Azure CLI Samples for Azure Cosmos DB Gremlin API
+title: Azure CLI Samples for Azure Cosmos DB for Gremlin
+description: Azure CLI Samples for Azure Cosmos DB for Gremlin
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -11,11 +11,11 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-azurecli
 ---
 
-# Azure CLI samples for Azure Cosmos DB Gremlin API
+# Azure CLI samples for Azure Cosmos DB for Gremlin
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB Gremlin API and to sample Azure CLI scripts that apply to all Cosmos DB APIs. Common samples are the same across all APIs.
+The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB for Gremlin and to sample Azure CLI scripts that apply to all Cosmos DB APIs. Common samples are the same across all APIs.
 
 These samples require Azure CLI version 2.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 

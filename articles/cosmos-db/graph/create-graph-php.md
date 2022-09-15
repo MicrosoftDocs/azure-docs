@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
-description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB Gremlin API database in the Azure portal.
+description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB for Gremlin database in the Azure portal.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
@@ -31,7 +31,7 @@ You must create a separate account to use each API. In this article, you create 
 
 This quickstart walks you through the following steps:
 
-- Use the Azure portal to create an Azure Cosmos DB Gremlin (Graph) API account and database.
+- Use the Azure portal to create an Azure Cosmos DB for Gremlin (Graph) API account and database.
 - Clone a sample Gremlin API PHP console app from GitHub, and run it to populate your database.
 - Use Data Explorer in the Azure portal to query, add, and connect data in your database.
 
@@ -318,11 +318,11 @@ You can review the metrics that Azure Cosmos DB provides, and then clean up the 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
-This action deletes the resource group and all resources within it, including the Azure Cosmos DB Gremlin (Graph) account and database.
+This action deletes the resource group and all resources within it, including the Azure Cosmos DB for Gremlin (Graph) account and database.
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB Gremlin (Graph) account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
+In this quickstart, you learned how to create an Azure Cosmos DB for Gremlin (Graph) account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)

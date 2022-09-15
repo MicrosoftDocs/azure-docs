@@ -62,7 +62,7 @@ To create a free tier account by using an ARM template, set the property `"enabl
 To create an account with free tier using CLI, set the `--enable-free-tier` parameter to true:
 
 ```azurecli-interactive
-# Create a free tier account for SQL API
+# Create a free tier account for API for NoSQL
 az cosmosdb create \
     -n "Myaccount" \
     -g "MyResourcegroup" \
@@ -75,7 +75,7 @@ az cosmosdb create \
 To create an account with free tier using Azure PowerShell, set the `-EnableFreeTier` parameter to true:
 
 ```powershell-interactive
-# Create a free tier account for SQL API. 
+# Create a free tier account for API for NoSQL. 
 New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
     -Name "Myaccount" `
     -ApiKind "sql" `

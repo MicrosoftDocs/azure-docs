@@ -17,7 +17,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 ## Metrics
 
-All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
+All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Azure Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
 
 ### Request metrics
 
@@ -58,13 +58,13 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **C
 |---|---|---|---| ---| ---|
 | ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
-### Cassandra API metrics
+### API for Cassandra metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
-| CassandraRequests (Cassandra Requests) | Count (Count) | Number of Cassandra API requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
-| CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request units consumed by the Cassandra API | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a Cassandra API account.|
-| CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
+| CassandraRequests (Cassandra Requests) | Count (Count) | Number of API for Cassandra requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
+| CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request units consumed by the API for Cassandra | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a API for Cassandra account.|
+| CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB API for Cassandra.|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
@@ -99,7 +99,7 @@ For a list of all Azure Monitor log categories and links to associated schemas, 
 
 ## Azure Monitor Logs tables
 
-Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Cosmos DB uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
+Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Azure Cosmos DB uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
 
 ## See Also
 

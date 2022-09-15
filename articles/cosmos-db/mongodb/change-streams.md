@@ -2,7 +2,7 @@
 title: Change streams in Azure Cosmos DB’s API for MongoDB
 description: Learn how to use change streams n Azure Cosmos DB’s API for MongoDB to get the changes made to your data.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 03/02/2021
 author: gahl-levy
@@ -140,7 +140,7 @@ The following limitations are applicable when using change streams:
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
 
-Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](../change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](../change-feed-functions.md) to process change streams.
+Unlike the change feed in Azure Cosmos DB's API for NoSQL, there is not a separate [Change Feed Processor Library](../change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](../change-feed-functions.md) to process change streams.
 
 ## Error handling
 

@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot issues with advanced diagnostics queries for Gremlin API
+title: Troubleshoot issues with advanced diagnostics queries for API for Gremlin
 titleSuffix: Azure Cosmos DB
-description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the Gremlin API.
+description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB for the API for Gremlin.
 author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,15 +10,15 @@ ms.date: 06/12/2021
 ms.author: esarroyo 
 ---
 
-# Troubleshoot issues with advanced diagnostics queries for the Gremlin API
+# Troubleshoot issues with advanced diagnostics queries for the API for Gremlin
 
 [!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](../cosmos-db-advanced-queries.md)
-> * [MongoDB API](../mongodb/diagnostic-queries-mongodb.md)
-> * [Cassandra API](../cassandra/diagnostic-queries-cassandra.md)
-> * [Gremlin API](diagnostic-queries-gremlin.md)
+> * [API for NoSQL](../cosmos-db-advanced-queries.md)
+> * [API for MongoDB](../mongodb/diagnostic-queries-mongodb.md)
+> * [API for Cassandra](../cassandra/diagnostic-queries-cassandra.md)
+> * [API for Gremlin](diagnostic-queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview)** tables.
@@ -99,7 +99,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
    CDBGremlinRequests
    //specify collection and database
-    //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+    //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    | join kind=inner operationsbyUserAgent on ActivityId
    | summarize max(ResponseLength) by PIICommandText
    | order by max_ResponseLength desc
@@ -112,7 +112,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
    AzureDiagnostics
    | where Category == "GremlinRequests"
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databasename_s == "DB NAME" and collectioname_s == "COLLECTIONNAME"
    | join kind=inner operationsbyUserAgent on activityId_g
    | summarize max(responseLength_s1) by piiCommandText_s
    | order by max_responseLength_s1 desc
@@ -126,7 +126,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    CDBPartitionKeyRUConsumption
    | where TimeGenerated >= now(-1d)
    //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(RequestCharge)) by toint(PartitionKeyRangeId)
@@ -138,7 +138,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databasename_s == "DB NAME" and collectioname_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by toint(partitionKeyRangeId_s)
@@ -153,7 +153,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    CDBPartitionKeyRUConsumption
    | where TimeGenerated >= now(-1d)
    //specify collection and database
-   //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
+   //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
@@ -165,7 +165,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
    | where TimeGenerated >= now(-1d)
    | where Category == 'PartitionKeyRUConsumption'
    //specify collection and database
-   //| where databasename_s == "DBNAME" and collectioname_s == "COLLECTIONNAME"
+   //| where databasename_s == "DB NAME" and collectioname_s == "COLLECTIONNAME"
    // filter by operation type
    //| where operationType_s == 'Create'
    | summarize sum(todouble(requestCharge_s)) by partitionKey_s, partitionKeyRangeId_s

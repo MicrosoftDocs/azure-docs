@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB Gremlin support and compatibility with TinkerPop features
+title: Azure Cosmos DB for Gremlin support and compatibility with TinkerPop features
 description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB and the TinkerPop Graph engine compatibility differences.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: overview
 ms.date: 07/06/2021
 author: manishmsfte
 ms.author: mansha
 ---
 
-# Azure Cosmos DB Gremlin graph support and compatibility with TinkerPop features
+# Azure Cosmos DB for Gremlin graph support and compatibility with TinkerPop features
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB supports [Apache Tinkerpop's](https://tinkerpop.apache.org) graph traversal language, known as [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities.
 
-Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. In this article, we provide a quick walkthrough of Gremlin and enumerate the Gremlin features that are supported by the Gremlin API.
+Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. In this article, we provide a quick walkthrough of Gremlin and enumerate the Gremlin features that are supported by the API for Gremlin.
 
 ## Compatible client libraries
 
@@ -168,11 +168,11 @@ The write-optimized engine provided by Azure Cosmos DB supports automatic indexi
 
 ## Behavior differences
 
-* Azure Cosmos DB Graph engine runs ***breadth-first*** traversal while TinkerPop Gremlin is depth-first. This behavior achieves better performance in horizontally scalable system like Cosmos DB.
+* Azure Cosmos DB Graph engine runs ***breadth-first*** traversal while TinkerPop Gremlin is depth-first. This behavior achieves better performance in horizontally scalable system like Azure Cosmos DB.
 
 ## Unsupported features
 
-* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use `GremlinClient.SubmitAsync()` and pass traversal as a text string.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Azure Cosmos DB Graph doesn't support it yet. Use `GremlinClient.SubmitAsync()` and pass traversal as a text string.
 
 * ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
@@ -184,7 +184,7 @@ The write-optimized engine provided by Azure Cosmos DB supports automatic indexi
 
 * ***Non-primitive JSON types*** aren't supported. Use `string`, `number`, or `true`/`false` types. `null` values aren't supported. 
 
-* ***GraphSONv3*** serializer isn't currently supported. Use `GraphSONv2` Serializer, Reader, and Writer classes in the connection configuration. The results returned by the Azure Cosmos DB Gremlin API don't have the same format as the GraphSON format. 
+* ***GraphSONv3*** serializer isn't currently supported. Use `GraphSONv2` Serializer, Reader, and Writer classes in the connection configuration. The results returned by the Azure Cosmos DB for Gremlin don't have the same format as the GraphSON format. 
 
 * **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}`, and the `.filter{<expression>}` functions. To learn more, and to learn how to rewrite them using Gremlin steps, see [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 

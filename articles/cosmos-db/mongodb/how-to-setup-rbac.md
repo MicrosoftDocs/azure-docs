@@ -1,5 +1,5 @@
 ---
-title: Configure role-based access control for your Azure Cosmos DB API for MongoDB database (preview)
+title: Configure role-based access control for your Azure Cosmos DB for MongoDB database (preview)
 description: Learn how to configure native role-based access control in the API for MongoDB
 author: gahl-levy
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 04/07/2022
 ms.author: gahllevy
 ---
 
-# Configure role-based access control for your Azure Cosmos DB API for MongoDB (preview)
+# Configure role-based access control for your Azure Cosmos DB for MongoDB (preview)
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This article is about role-based access control for data plane operations in Azure Cosmos DB API for MongoDB, currently in public preview. 
+This article is about role-based access control for data plane operations in Azure Cosmos DB for MongoDB, currently in public preview. 
 
 If you are using management plane operations, see [role-based access control](../role-based-access-control.md) applied to your management plane operations article.
 
-The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users are roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
+The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
 
 ## Concepts
 
@@ -217,7 +217,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
-The API for MongoDB (preview) and the SQL API.
+The API for MongoDB (preview) and the API for NoSQL.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
@@ -233,5 +233,5 @@ Update the user definition with the new password.
 
 ## Next steps
 
-- Get an overview of [secure access to data in Cosmos DB](../secure-access-to-data.md).
+- Get an overview of [secure access to data in Azure Cosmos DB](../secure-access-to-data.md).
 - Learn more about [RBAC for Azure Cosmos DB management](../role-based-access-control.md).

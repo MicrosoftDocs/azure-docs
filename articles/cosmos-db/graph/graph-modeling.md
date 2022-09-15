@@ -1,6 +1,6 @@
 ---
-title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
-description: Learn how to model a graph database by using Azure Cosmos DB Gremlin API. This article describes when to use a graph database and best practices to model entities and relationships. 
+title: 'Graph data modeling for Azure Cosmos DB for Gremlin'
+description: Learn how to model a graph database by using Azure Cosmos DB for Gremlin. This article describes when to use a graph database and best practices to model entities and relationships. 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
@@ -9,7 +9,7 @@ author: manishmsfte
 ms.author: mansha
 ---
 
-# Graph data modeling for Azure Cosmos DB Gremlin API
+# Graph data modeling for Azure Cosmos DB for Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
@@ -56,7 +56,7 @@ The following are the best practices for the properties in the graph objects:
 
 ## Entity and relationship modeling guidelines
 
-The following are a set of guidelines to approach data modeling for an Azure Cosmos DB Gremlin API graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
+The following are a set of guidelines to approach data modeling for an Azure Cosmos DB for Gremlin graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
 
 > [!NOTE]
 > The steps outlined below are presented as recommendations. The final model should be evaluated and tested before its consideration as production-ready. Additionally, the recommendations below are specific to Azure Cosmos DB's Gremlin API implementation. 

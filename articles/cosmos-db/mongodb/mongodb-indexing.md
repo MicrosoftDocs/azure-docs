@@ -1,8 +1,8 @@
 ---
-title: Manage indexing in Azure Cosmos DB API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB API for MongoDB
+title: Manage indexing in Azure Cosmos DB for MongoDB
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB for MongoDB
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 4/5/2022
@@ -10,19 +10,19 @@ author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video
 ---
-# Manage indexing in Azure Cosmos DB API for MongoDB
+# Manage indexing in Azure Cosmos DB for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
+Azure Cosmos DB for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
 
 >
 > [!VIDEO https://aka.ms/docs.mongo-indexing]
 
 ## Indexing for MongoDB server version 3.6 and higher
 
-Azure Cosmos DB API for MongoDB server version 3.6+ automatically indexes the `_id` field and the shard key (only in sharded collections). The API automatically enforces the uniqueness of the `_id` field per shard key. 
+Azure Cosmos DB for MongoDB server version 3.6+ automatically indexes the `_id` field and the shard key (only in sharded collections). The API automatically enforces the uniqueness of the `_id` field per shard key. 
 
-The API for MongoDB behaves differently from the Azure Cosmos DB SQL API, which indexes all fields by default.
+The API for MongoDB behaves differently from the Azure Cosmos DB for NoSQL, which indexes all fields by default.
 
 ### Editing indexing policy
 
@@ -81,7 +81,7 @@ Azure Cosmos DB creates multikey indexes to index content stored in arrays. If y
 
 ### Geospatial indexes
 
-Many geospatial operators will benefit from geospatial indexes. Currently, Azure Cosmos DB API for MongoDB supports `2dsphere` indexes. The API does not yet support `2d` indexes.
+Many geospatial operators will benefit from geospatial indexes. Currently, Azure Cosmos DB for MongoDB supports `2dsphere` indexes. The API does not yet support `2d` indexes.
 
 Here's an example of creating a geospatial index on the `location` field:
 
@@ -89,7 +89,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Azure Cosmos DB API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
+Azure Cosmos DB for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
 
 ## Wildcard indexes
 
@@ -163,7 +163,7 @@ Wildcard indexes do not support any of the following index types or properties:
 * TTL
 * Unique
 
-**Unlike in MongoDB**, in Azure Cosmos DB API for MongoDB you **can't** use wildcard indexes for:
+**Unlike in MongoDB**, in Azure Cosmos DB for MongoDB you **can't** use wildcard indexes for:
 
 * Creating a wildcard index that includes multiple specific fields
 
@@ -262,7 +262,7 @@ The preceding command deletes any documents in the ```db.coll``` collection that
 
 ## Track index progress
 
-Version 3.6+ of Azure Cosmos DB API for MongoDB support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB API for MongoDB, this command only supports tracking the index operation.
+Version 3.6+ of Azure Cosmos DB for MongoDB support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track index progress:
 
@@ -278,7 +278,7 @@ Here are some examples that show how to use the `currentOp` command to track ind
   db.currentOp({"command.$db": <databaseName>})
   ```
 
-* Get the index progress for all databases and collections in an Azure Cosmos account:
+* Get the index progress for all databases and collections in an Azure Cosmos DB account:
 
   ```shell
   db.currentOp({"command.createIndexes": { $exists : true } })
@@ -407,13 +407,13 @@ Currently, you can only create unique indexes when the collection contains no do
 
 ## Indexing for MongoDB version 3.2
 
-Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](feature-support-36.md#protocol-support) and [upgrade to version 3.6](upgrade-mongodb-version.md).
+Available indexing features and defaults are different for Azure Cosmos DB accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](feature-support-36.md#protocol-support) and [upgrade to version 3.6](upgrade-mongodb-version.md).
 
 If you're using version 3.2, this section outlines key differences with versions 3.6+.
 
 ### Dropping default indexes (version 3.2)
 
-Unlike the 3.6+ versions of Azure Cosmos DB API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
+Unlike the 3.6+ versions of Azure Cosmos DB for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
@@ -434,7 +434,7 @@ If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-
 
 * [Indexing in Azure Cosmos DB](../index-policy.md)
 * [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)
-* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](../how-to-query-container.md) article.
+* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos DB container](../how-to-query-container.md) article.
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

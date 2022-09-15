@@ -1,5 +1,5 @@
 ---
-title: Use the execution profile to evaluate queries in Azure Cosmos DB Gremlin API
+title: Use the execution profile to evaluate queries in Azure Cosmos DB for Gremlin
 description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step.
 services: cosmos-db
 ms.service: cosmos-db
@@ -14,7 +14,7 @@ ms.author: mansha
 # How to use the execution profile step to evaluate your Gremlin queries
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This article provides an overview of how to use the execution profile step for Azure Cosmos DB Gremlin API graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
+This article provides an overview of how to use the execution profile step for Azure Cosmos DB for Gremlin graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
 
 To use this step, simply append the `executionProfile()` function call at the end of your Gremlin query. **Your Gremlin query will be executed** and the result of the operation will return a JSON response object with the query execution profile.
 
@@ -31,7 +31,7 @@ For example:
 After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the Cosmos DB runtime operators that the statement resulted in.
 
 > [!NOTE]
-> This implementation for Execution Profile is not defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB Gremlin API's implementation.
+> This implementation for Execution Profile is not defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB for Gremlin's implementation.
 
 
 ## Response Example

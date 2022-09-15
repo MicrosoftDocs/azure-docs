@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure Cosmos DB Gremlin API documentation
-summary: Azure Cosmos DB Gremlin API provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.
+title: Azure Cosmos DB for Gremlin documentation
+summary: Azure Cosmos DB for Gremlin provides a graph database service via the API for Gremlin on a fully managed database service designed for any scale.
 
 metadata:
-  title: Azure Cosmos DB Gremlin API documentation
-  description: Azure Cosmos DB Gremlin API provides a graph database service via the Gremlin API on a fully managed database service designed for any scale. 
+  title: Azure Cosmos DB for Gremlin documentation
+  description: Azure Cosmos DB for Gremlin provides a graph database service via the API for Gremlin on a fully managed database service designed for any scale. 
   services: service
   ms.service: cosmos-db
-  ms.subservice: cosmosdb-graph
+  ms.subservice: apache-gremlin
   ms.topic: landing-page
   ms.collection: collection
   author: seesharprun
@@ -17,11 +17,11 @@ metadata:
   ms.date: 05/24/2022
 
 landingContent:
-  - title: Use Azure Cosmos DB Gremlin API 
+  - title: Use Azure Cosmos DB for Gremlin 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cosmos Gremlin API?
+          - text: What is Azure Cosmos DB for Gremlin?
             url: graph-introduction.md
       - linkListType: quickstart
         links:
@@ -33,7 +33,7 @@ landingContent:
         links:  
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
             url: gremlin-support.md      
-          - text: Gremlin API service limits
+          - text: API for Gremlin service limits
             url: gremlin-limits.md                                     
       - linkListType: how-to-guide
         links:

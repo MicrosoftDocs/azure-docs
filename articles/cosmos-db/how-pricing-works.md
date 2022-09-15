@@ -18,14 +18,14 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 >
 > [!VIDEO https://aka.ms/docs.how-pricing-works]
 
-- **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos account you're using.
+- **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos DB account you're using.
 
   - **Provisioned Throughput**: [Provisioned throughput](set-throughput.md) (also called reserved throughput) provides high performance at any scale. You specify the throughput that you need in [Request Units](request-units.md) per second (RU/s), and Azure Cosmos DB dedicates the resources required to provide the configured throughput. You can [provision throughput on either a database or a container](set-throughput.md). Based on your workload needs, you can scale throughput up/down at any time or use [autoscale](provision-throughput-autoscale.md) (although there's a minimum throughput required on a database or a container to guarantee the SLAs). You're billed hourly for the maximum provisioned throughput for a given hour.
 
    > [!NOTE]
    > Because the provisioned throughput model dedicates resources to your container or database, you will be charged for the throughput you have provisioned even if you don't run any workloads.
 
-  - **Serverless**: In [serverless](serverless.md) mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the number of Request Units that has been consumed by your database operations.
+  - **Serverless**: In [serverless](serverless.md) mode, you don't have to provision any throughput when creating resources in your Azure Cosmos DB account. At the end of your billing period, you get billed for the number of Request Units that has been consumed by your database operations.
 
 - **Storage**: You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour. Storage is billed on a consumption basis, so you don't have to reserve any storage in advance. You're billed only for the storage you consume.
 
@@ -64,6 +64,6 @@ You can learn more about optimizing the costs for your Azure Cosmos DB resources
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
+* Learn more about [Optimizing the cost of multi-region Azure Cosmos DB accounts](optimize-cost-regions.md)
 * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn about [Azure Cosmos DB Emulator](local-emulator.md)

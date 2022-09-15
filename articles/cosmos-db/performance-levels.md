@@ -128,6 +128,6 @@ EA customers will be price protected until the end of their current contract.
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
 
-1.	[Partitioning data in Cosmos DB](partitioning-overview.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
-2.	[Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
+1.	[Partitioning data in Azure Cosmos DB](partitioning-overview.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
+2.	[Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.

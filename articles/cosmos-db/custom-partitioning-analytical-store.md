@@ -124,7 +124,7 @@ You could use one or more partition keys for your analytical data. If you are us
 
 * Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. Selecting custom storage accounts is not supported at this point.
 
-* Custom partitioning is only available for SQL API in Cosmos DB. API for Mongo DB, Gremlin and Cassandra are not supported at this time. 
+* Custom partitioning is only available for API for NoSQL in Azure Cosmos DB. API for MongoDB, Gremlin and Cassandra are not supported at this time. 
 
 ## Pricing
 

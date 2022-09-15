@@ -10,7 +10,7 @@ author: manishmsfte
 ms.author: mansha
 ms.custom: devx-track-js, mode-api
 ---
-# Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
+# Quickstart: Build a Node.js application by using Azure Cosmos DB for Gremlin account
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.custom: devx-track-js, mode-api
 > * [PHP](create-graph-php.md)
 >  
 
-In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 

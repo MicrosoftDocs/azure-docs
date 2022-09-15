@@ -1,8 +1,8 @@
 ---
-title: Migrate data to Azure Cosmos DB Cassandra API account using Striim 
-description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB Cassandra API account. 
+title: Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim 
+description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for Apache Cassandra account. 
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 12/09/2021
 author: TheovanKraay
@@ -10,12 +10,12 @@ ms.author: thvankra
 ms.reviewer: mjbrown
 ---
 
-# Migrate data to Azure Cosmos DB Cassandra API account using Striim
+# Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB Cassandra API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
+The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB for Apache Cassandra. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
-This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB Cassandra API account**.
+This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB for Apache Cassandra account**.
 
 ## Prerequisites
 
@@ -60,13 +60,13 @@ In this section, you configure the Oracle database as the source for data moveme
 
 ## Configure target database
 
-In this section, you will configure the Azure Cosmos DB Cassandra API account as the target for data movement.
+In this section, you will configure the Azure Cosmos DB for Apache Cassandra account as the target for data movement.
 
-1. Create an [Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account) using the Azure portal.
+1. Create an [Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account) using the Azure portal.
 
-1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Table** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new Keyspace named **StriimDemo** with an Orders container. Provision the container with **1000 RUs**(this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the primary key. These values will differ depending on your source data. 
+1. Navigate to the **Data Explorer** pane in your Azure Cosmos DB account. Select **New Table** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new Keyspace named **StriimDemo** with an Orders container. Provision the container with **1000 RUs**(this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the primary key. These values will differ depending on your source data. 
 
-   :::image type="content" source="./media/migrate-data-striim/create-cassandra-api-account.png" alt-text="Create Cassandra API account":::
+   :::image type="content" source="./media/migrate-data-striim/create-cassandra-api-account.png" alt-text="Create API for Cassandra account":::
 
 ## Configure Oracle to Azure Cosmos DB data flow
 
@@ -131,13 +131,13 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 1. Enter the configuration properties of your target Azure Cosmos DB instance and select **Save** to continue. Here are the key parameters to note:
 
-   * **Adapter** - Use **DatabaseWriter**. When writing to Azure Cosmos DB Cassandra API, DatabaseWriter is required. The Cassandra driver 3.6.0 is bundled with Striim. If the DatabaseWriter exceeds the number of RUs provisioned on your Azure Cosmos container, the application will crash.
+   * **Adapter** - Use **DatabaseWriter**. When writing to Azure Cosmos DB for Apache Cassandra, DatabaseWriter is required. The Cassandra driver 3.6.0 is bundled with Striim. If the DatabaseWriter exceeds the number of RUs provisioned on your Azure Cosmos DB container, the application will crash.
 
    * **Connection URL** - Specify your Azure Cosmos DB JDBC connection URL. The URL is in the format     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
-   * **Username** - Specify your Azure Cosmos account name.
+   * **Username** - Specify your Azure Cosmos DB account name.
    
-   * **Password** - Specify the primary key of your Azure Cosmos account.
+   * **Password** - Specify the primary key of your Azure Cosmos DB account.
 
    * **Tables** - Target tables must have primary keys and primary keys can not be updated.
 
@@ -160,12 +160,12 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    :::image type="content" source="./media/migrate-data-striim/setup-cdc-pipeline.png" alt-text="Set up the CDC pipeline":::
 
-1. Finally, let’s sign into Azure and navigate to your Azure Cosmos account. Refresh the Data Explorer, and you can see that data has arrived. 
+1. Finally, let’s sign into Azure and navigate to your Azure Cosmos DB account. Refresh the Data Explorer, and you can see that data has arrived. 
 
 By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB, and various others to Azure Cosmos DB. To learn more please visit the [Striim website](https://www.striim.com/), [download a free 30-day trial of Striim](https://go2.striim.com/download-free-trial), and for any issues when setting up the migration path with Striim, file a [support request.](https://go2.striim.com/request-support-striim)
 
 ## Next steps
 
-* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](../cosmosdb-sql-api-migrate-data-striim.md)
+* If you are migrating data to Azure Cosmso DB for NoSQL, see [how to migrate data to API for Cassandra account using Striim](../cosmosdb-sql-api-migrate-data-striim.md)
 
 * [Monitor and debug your data with Azure Cosmos DB metrics](../use-metrics.md)

@@ -11,7 +11,7 @@ ms.author: mansha
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
+# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB for Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 > * [PHP](create-graph-php.md)
 >  
 
-In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 

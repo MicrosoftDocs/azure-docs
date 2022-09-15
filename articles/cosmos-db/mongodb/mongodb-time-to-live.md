@@ -4,7 +4,7 @@ description: Learn how to set time to live value for documents using Azure Cosmo
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: csharp, java, javascript
 ms.topic: how-to
 ms.date: 02/16/2022
@@ -13,7 +13,7 @@ ms.custom: devx-track-js, devx-track-csharp
 # Expire data with Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Cosmos DB's API for MongoDB is the [same as in Cosmos DB](mongodb-indexing.md).
+Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Azure Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Azure Cosmos DB's API for MongoDB is the [same as in Azure Cosmos DB](mongodb-indexing.md).
 
 ## TTL indexes
 To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](mongodb-indexing.md) needs to be created. The TTL index is an index on the `_ts` field with an "expireAfterSeconds" value.
@@ -40,7 +40,7 @@ The output of the command includes various metadata:
  Once the index is created, the database will automatically delete any documents in that collection that have not been modified in the last 10 seconds. 
 
 > [!NOTE]
-> `_ts` is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
+> `_ts` is an Azure Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
 
 Java example:
 
@@ -83,4 +83,4 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)
-* [Indexing your Cosmos database configured with Azure Cosmos DB's API for MongoDB](../mongodb-indexing.md)
+* [Indexing your Azure Cosmos DB database configured with Azure Cosmos DB's API for MongoDB](../mongodb-indexing.md)
