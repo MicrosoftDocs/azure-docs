@@ -70,7 +70,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
 |**Frontline workers**|SMS sign-in | Feature not available. |
-|| Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
+|| Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
 || Delegated user management portal (My Staff) | Feature not available. |
 
 <sup>1</sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
