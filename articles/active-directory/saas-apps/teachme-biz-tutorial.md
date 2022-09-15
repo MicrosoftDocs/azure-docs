@@ -46,6 +46,8 @@ To configure the integration of Teachme Biz into Azure AD, you need to add Teach
 1. In the **Add from the gallery** section, type **Teachme Biz** in the search box.
 1. Select **Teachme Biz** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Teachme Biz
 
 Configure and test Azure AD SSO with Teachme Biz using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Teachme Biz.

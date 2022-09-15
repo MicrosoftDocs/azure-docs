@@ -133,8 +133,6 @@ items:
     href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
-  - name: Continuous monitoring
-    href: continuous-monitoring.md
   - name: Observability
     href: observability-data.md
   - name: Data platform
@@ -614,6 +612,8 @@ items:
       href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
+    - name: Flapping in autoscale
+      href: autoscale/autoscale-flapping.md
     - name: Common metrics
       href: autoscale/autoscale-common-metrics.md  
     - name: Autoscale with multiple profiles
@@ -1188,6 +1188,8 @@ items:
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
+    - name: Migrate from service map
+      href: vm/vminsights-migrate-from-service-map.md
     - name: Monitor performance
       href: vm/vminsights-performance.md
     - name: Monitor guest health (preview)
@@ -1278,8 +1280,6 @@ items:
         href: containers/container-insights-livedata-setup.md
       - name: View cluster metrics
         href: containers/container-insights-livedata-metrics.md
-      - name: View deployments
-        href: containers/container-insights-livedata-deployments.md
     - name: Alerting
       items:
       - name: Create log alert rules
@@ -1422,6 +1422,8 @@ items:
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
         href: visualize/workbooks-view-designer-conversions.md 
+    - name: Access Troubleshooting guides
+      href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md          
   - name: Other visualizations
