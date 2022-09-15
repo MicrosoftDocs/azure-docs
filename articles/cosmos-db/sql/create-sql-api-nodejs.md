@@ -31,12 +31,6 @@ Get started with the Azure Cosmos DB client library for JavaScript to create dat
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples) are available on GitHub as a Node.js project.
 
-## Walkthrough video
-
-Watch this video for a complete walk-through of the content in this article.
-
-> [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Quickstart-Use-Nodejs-to-connect-and-query-data-from-Azure-Cosmos-DB-SQL-API-account/player]
-
 ## Prerequisites
 
 * In a terminal or command window, run ``node --version`` to check that the Node.js version one of the current long term support (LTS) versions.
@@ -62,7 +56,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
     npm init -y
     ```
 
-2. Update the `package.json` file to use ES6 modules. This allows your code to use modern async/await syntax.
+2. Edit the `package.json` file to use ES6 modules by adding the `"type": "module",` entry. This allows your code to use modern async/await syntax.
 
     :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/package.json" highlight="6":::
 
@@ -77,25 +71,25 @@ This section walks you through creating an Azure Cosmos account and setting up a
     
 
 1. Add the [dotenv](https://www.npmjs.com/package/dotenv) npm package to read environment variables from a `.env` file. 
-1. 
+ 
     ```bash
     npm install dotenv
     ```
 
 ### Create local development environment files
 
-1. Create a `.env` file with the following variables:
-
-    ```text
-    COSMOS_ENDPOINT=
-    COSMOS_KEY=
-    ```
-
 1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. This ensures that only the secure and relevant information can be checked into source code.
 
     ```text
     .env
     node_modules
+    ```
+
+1. Create a `.env` file with the following variables:
+
+    ```text
+    COSMOS_ENDPOINT=
+    COSMOS_KEY=
     ```
 
 ### Create a code file
