@@ -132,7 +132,5 @@ When you've entered the required information and any additional details, select 
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
  
-Your request is processed automatically and the Azure Lab Services team will contact you if they require any clarification or any more information.  
-
 ## Next steps
 For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).
