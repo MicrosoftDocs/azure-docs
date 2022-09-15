@@ -1,6 +1,6 @@
 ---
 title: Integrate airflow logs with Azure Monitor - Microsoft Energy Data Services Preview
-description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics Workspace.
+description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -16,19 +16,21 @@ This article describes how you can start collecting Airflow Logs for your Micros
 
 ## Prerequisites
 
+
 * An existing **Log Analytics Workspace**. 
     This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
-* An existing **storage account**. 
-    It will be used to store JSON dumps of Airflow logs. The storage account doesn’t have to be in the same subscription as your Log Analytics Workspace. 
+
+* An existing **storage account**:
+    It will be used to store JSON dumps of Airflow logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. 
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Microsoft Energy Data instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Microsoft Energy Data Services instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
-* Log Analytics Workspace
+* Log Analytics workspace
 
 To access logs via any of the above two options, you need to create a Diagnostic Setting. Each Diagnostic Setting has three basic parts:
 
