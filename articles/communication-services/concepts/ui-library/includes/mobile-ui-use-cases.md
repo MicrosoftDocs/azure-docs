@@ -77,7 +77,7 @@ Accessibility is a key focus of the call libraries. You can use a screen reader 
 
 ## View Data Injection
 
-Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation bar title and subtitle when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
+Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation's title and subtitle on Setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
