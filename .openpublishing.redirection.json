@@ -5814,11 +5814,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/availability-zones/index.md",
-            "redirect_url": "/azure/reliability/az-service-support",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/partner-solutions/index.md",
             "redirect_url": "/azure/partner-solutions/overview",
             "redirect_document_id": false
