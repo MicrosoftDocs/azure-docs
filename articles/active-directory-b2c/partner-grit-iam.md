@@ -104,7 +104,7 @@ The Grit Onboarding portal provides URLs to onboard the applications after onboa
 
 Learn [how your customers can sign up, sign in, and manage their profiles](https://docs.microsoft.com/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-custom-policy). 
 
-### Test the scenarios
+## Test the scenarios
 
 Run through the authentication scenarios in the applications.  Ensure there's a super admin for the tenant. You can use the Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
 
