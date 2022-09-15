@@ -41,7 +41,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
 > [!NOTE]
-> ASP.NET Core 6.0 requires [Application Insights 2.18.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later.<br/>ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
+> ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later.<br/>ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
@@ -126,16 +126,16 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
     ```json
     {
-        "Logging": {
+      "Logging": {
         "LogLevel": {
-            "Default": "Information",
-            "Microsoft.AspNetCore": "Warning"
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
         }
-        },
-        "AllowedHosts": "*",
-        "ApplicationInsights": {
+      },
+      "AllowedHosts": "*",
+      "ApplicationInsights": {
         "ConnectionString": "Copy connection string from Application Insights Resource Overview"
-        }
+      }
     }
     ```
 
@@ -572,9 +572,8 @@ builder.Services.AddApplicationInsightsTelemetry();
 
 // any custom configuration can be done here:
 builder.Services.Configure<TelemetryConfiguration>(x => x.DisableTelemetry = true);
-var app = builder.Build();
 
-// Not sure how to translate the second part with Configure(IApplicationBuilder app...) to .NET Core 6.0, or if that part will stay the same!
+var app = builder.Build();
 ```
 
 ### [ASP.NET Core 3.1](#tab/netcore3)
