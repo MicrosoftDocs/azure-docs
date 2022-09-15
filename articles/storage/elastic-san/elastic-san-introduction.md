@@ -54,13 +54,13 @@ At the SAN-level, you select the redundancy of the entire SAN and provision stor
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
- Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). Follow these rules when naming a volume group: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
+ Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). Follow these rules when naming a volume group: The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
 ### Volumes
 
 You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
-The name of your volume is part of their iSCSI IQN. Follow these rules when naming a volume: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
+The name of your volume is part of their iSCSI IQN. Follow these rules when naming a volume: The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
 ## Support for Azure Storage features
 
