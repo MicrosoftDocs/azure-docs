@@ -73,7 +73,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
 || Delegated user management portal (My Staff) | Feature not available. |
 
-<sup>1<sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
+<sup>1</sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
 
 ## Identity protection
 
