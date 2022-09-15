@@ -137,7 +137,7 @@ To deploy the solution:
 - Navigate to the Azure p and sign in with the same credentials you used to sign in to the tool.
 - Find the resource group the tool created. The name of the resource group is **iotc-rg-{suffix from tool}**. In the following screenshot, the suffix used by the tool is  **iotcsb29472**:
 
-  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-p-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure p.":::
+  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-portal-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure p.":::
 
 To customize the deployed solution, you can edit the `adxconfig-opcpub.json` configuration file and then run the tool.
 
