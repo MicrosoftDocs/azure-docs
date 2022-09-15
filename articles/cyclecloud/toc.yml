@@ -60,6 +60,8 @@
       href: ./how-to/user-authentication.md
     - name: Upgrade and Migrate
       href: ./how-to/upgrade-and-migrate.md
+    - name: Plan CycleCloud 7 retirement
+      href: ./how-to/cyclecloud7-retirement-guide.md
     - name: Backup and Restore
       href: ./how-to/backup-and-restore.md
     - name: Configure Proxies
