@@ -104,7 +104,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
 | Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks, all storage types  | Managed and unmanaged disks, Ultradisk not supported |
 | Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
-| Write Accelerator   | No  | Yes  | Yes |
+| Write Accelerator   | Yes  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | No  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
