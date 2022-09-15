@@ -66,6 +66,6 @@ Customers in Batch Managed mode must recreate the Batch account, pool, and jobs 
 
 ## Next steps
 
-Use the [CLI](../virtual-machines/linux/spot-cli.md), [portal](../virtual-machines/linux/spot-portal.md), [ARM template](../virtual-machines/linux/spot-template.md), or [PowerShell](../virtual-machines/windows/spot-powershell.md) to deploy Azure Spot Virtual Machines.
+Use the [CLI](../virtual-machines/linux/spot-cli.md), [portal](../virtual-machines/spot-portal.md), [ARM template](../virtual-machines/linux/spot-template.md), or [PowerShell](../virtual-machines/windows/spot-powershell.md) to deploy Azure Spot Virtual Machines.
 
 You can also deploy a [scale set with Azure Spot Virtual Machine instances](../virtual-machine-scale-sets/use-spot.md).
