@@ -39,11 +39,11 @@
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
-        href: /graph/tutorial-accessreviews-m365group
+        href: /graph/tutorial-accessreviews-m365group?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to security groups - Microsoft Graph
-        href: /graph/tutorial-accessreviews-securitygroup
+        href: /graph/tutorial-accessreviews-securitygroup?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to privileged roles - Microsoft Graph
-        href: /graph/tutorial-accessreviews-roleassignments
+        href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Lifecycle Workflows (Preview)
       items:
       - name: Automate employee onboarding tasks - Azure portal (Preview)
