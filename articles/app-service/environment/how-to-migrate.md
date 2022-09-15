@@ -201,17 +201,17 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). Select **Enabled** if you'd like to configure zone redundancy.
 
-:::image type="content" source="./media/migration/zone-redundancy-supported.png" alt-text="Sample that shows how to enable zone redundancy for App Service Environment in a supported region.":::
+:::image type="content" source="./media/migration/zone-redundancy-supported.png" alt-text="Screenshot that shows how to enable zone redundancy for App Service Environment in a supported region.":::
 
 If your environment is in a region that doesn't support zone redundancy, the checkbox will be disabled. If you need a zone redundant App Service Environment v3, use one of the manual migration options and create your new App Service Environment v3 in one of the regions that supports zone redundancy.
 
 If your existing App Service Environment uses a [custom domain suffix](./migrate.md#choose-your-app-service-environment-v3-configurations), you'll be required to configure one for your new App Service Environment v3. You'll be shown the custom domain suffix configuration options if this situation applies to you. You won't be able to migrate until you provide the required information. If you'd like to use a custom domain suffix but don't currently have one configured, you can configure one once migration is complete. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
 
-:::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Sample that shows how to add a custom domain suffix configuration.":::
+:::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Screenshot that shows how to add a custom domain suffix configuration.":::
 
 After you add your custom domain suffix details, the "Migrate" button will be enabled.
 
-:::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Sample that shows the configuration details have been added and environment is ready for migration.":::
+:::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Screenshot that shows the configuration details have been added and environment is ready for migration.":::
 
 ## 6. Migrate to App Service Environment v3
 
@@ -221,7 +221,7 @@ When migration is complete, you'll have an App Service Environment v3, and all o
 
 If your migration included a custom domain suffix, for App Service Environment v3, the custom domain will no longer be shown in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously. 
 
-:::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Sample that shows how to access custom domain suffix configuration for App Service Environment v3.":::
+:::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Screenshot that shows how to access custom domain suffix configuration for App Service Environment v3.":::
 
 ::: zone-end
 
