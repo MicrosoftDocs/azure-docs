@@ -31,7 +31,9 @@ Microsoft Energy Data Services platform provides enerprise level security includ
 
 ## Azure enterprise promise
 
-As an Azure-based service, Microsoft Energy Data Services is highly available with support for multiple availability zones. It also provides reliability with auto-scaling to handle dynamically varying workloads. Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft’s Terms of Use (TOU).
+As an Azure-based service, Microsoft Energy Data Services is highly available with support for multiple availability zones. It also provides reliability with auto-scaling to handle dynamically varying workloads. Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft's Terms of Use (TOU).
+
+OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
 

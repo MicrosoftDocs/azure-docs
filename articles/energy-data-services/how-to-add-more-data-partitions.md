@@ -55,6 +55,8 @@ The status of such data partitions shows as "Creation Failed". You can delete th
 
 [![Screenshot for the deleting failed instances page. The button to delete an incorrectly created data partition is available next to the partition's name.](media/how-to-add-more-data-partitions/delete-failed-instances.png)](media/how-to-add-more-data-partitions/delete-failed-instances.png#lightbox)
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 
 You can start loading data in your new data partitions.

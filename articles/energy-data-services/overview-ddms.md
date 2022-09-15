@@ -76,6 +76,8 @@ Geoscientists therefore want to access numerous well logs in a single session. T
 
 The Well Delivery DMS stores critical drilling domain information related to the planning and execution of a well. Throughout a drilling program, engineers and domain experts need to access a wide variety of data types including activities, trajectories, risks, subsurface information, equipment used, fluid and cementing, rig utilization, and reports. Integrating this collection of data types together are the cornerstone to drilling insights. At the same time, until now, there was no industry wide standardization or enforced format. The common standards the Well Delivery DMS enables is critical to the Drilling Value Chain as it connects a diverse group of personas including operations, oil companies, service companies, logistics companies, etc.
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 Learn more about DDMS concepts below.
 > [!div class="nextstepaction"]

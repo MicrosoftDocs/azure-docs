@@ -86,6 +86,8 @@ A DDMS meets the following requirements, further classified into capability, arc
 | 18 | Workflow composability and customizations |  | Openness and Extensibility |
 | 19 | Data-Centric Extensibility |  | Openness and Extensibility |
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 Advance to the seismic ddms sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
 > [!div class="nextstepaction"]

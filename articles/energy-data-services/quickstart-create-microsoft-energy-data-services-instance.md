@@ -103,9 +103,9 @@ To uninstall a Microsoft Energy Data Services instance, complete the following s
 
 2. Go to Azure Active Directory and **delete the Azure AD application** linked to the Microsoft Energy Data Services installation.
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
-
 After installing a Microsoft Energy Data Services instance, you can learn about user management on this instance.
-
 > [!div class="nextstepaction"]
 > [How to manage users](how-to-manage-users.md)

@@ -69,6 +69,8 @@ The manifest schema has containers for the following entities
 
 :::image type="content" source="media/concepts-manifest-ingestion/concept-manifest-ingestion-sequence.png" alt-text="Screenshot of the manifest ingestion sequence.":::
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion
 > [!div class="nextstepaction"]

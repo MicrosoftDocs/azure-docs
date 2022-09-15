@@ -85,6 +85,8 @@ The CSV parser ingestion currently supports the following functionality as a one
 * **Trigger the Workflow service** – To trigger the workflow, the customer needs to provide the file ID, the kind of the file and data partition ID. Once the workflow is triggered, the customer gets a run ID.
 Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU&trade; Data Platform, and can be searched through search service
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 Advance to the CSV parser tutorial and learn how to perform a CSV parser ingestion
 > [!div class="nextstepaction"]
