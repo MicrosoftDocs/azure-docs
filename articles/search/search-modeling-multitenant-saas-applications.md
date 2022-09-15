@@ -74,7 +74,7 @@ Azure Cognitive Search offers a few boundaries that can be used to isolate tenan
 
 ## Modeling multitenancy with Azure Cognitive Search
 
-In the case of a multitenant scenario, the application developer consumes one or more search services and divide their tenants among services, indexes, or both. Azure Cognitive Search has a few common patterns when modeling a multitenant scenario:
+In the case of a multitenant scenario, the application developer consumes one or more search services and divides their tenants among services, indexes, or both. Azure Cognitive Search has a few common patterns when modeling a multitenant scenario:
 
 + *One index per tenant:* Each tenant has its own index within a search service that is shared with other tenants.
 
