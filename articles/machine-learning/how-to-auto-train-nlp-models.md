@@ -503,7 +503,7 @@ You can automatically end poorly performing runs with an early termination polic
 
 Learn more about [how to configure the early termination policy for your hyperparameter sweep.](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#early-termination) 
 
-Resources for the sweep or Fixed settings[Set up AutoML for computer vision - Azure Machine Learning | Microsoft Docs](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models?tabs=cli#resources-for-the-sweep)
+Resources for the sweep or Fixed settings[Set up AutoML for computer vision - Azure Machine Learning | Microsoft Docs](how-to-auto-train-image-models.md#resources-for-the-sweep)
 
 
 ## Next steps
