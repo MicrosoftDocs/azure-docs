@@ -26,7 +26,7 @@ This section outlines variations and considerations when using Azure Bot Service
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 |Azure Machine learning| See [Azure Machine Learning feature availability across US Gov cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-china)  ||
+| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp.md#azure-china)  ||
 
 ### Media
 
@@ -34,7 +34,7 @@ This section outlines variations and considerations when using Media services in
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Media Services | For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](../media-services/latest/azure-clouds-regions.md#china).  |  
+| Azure Media Services | For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  |  
 
 ### Networking
 
@@ -70,7 +70,7 @@ This section outlines variations and considerations when using Azure Bot Service
 |Azure Machine learning| See [Azure Machine Learning feature availability across US Gov cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government). | |
 | Cognitive Services: Content Moderator| <li>Review UI and Review APIs ||
 | Cognitive Services: Language Understanding (LUIS)|  <li>Speech Requests<li>Prebuilt Domains ||
-| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-government-united-states)  ||
+| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp#azure-government-united-states)  ||
 | Cognitive Services: Translator|  <li>Custom Translator<li>Translator Hub ||
 
 ### Analytics
@@ -80,8 +80,8 @@ This section outlines variations and considerations when using Analytics service
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 | Azure HDInsight |For secured virtual networks, you'll want to allow network security groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow all IP addresses (all with an Allowed port of 443) in the [Network Security Groups IP address and ports table](#hdinsight-network-security-groups-ip-address-and-ports). |  |
-| Power BI]| See [Power BI for US government customers](../power-bi/enterprise/service-govus-overview.md).|  |
-| Power BI Embedded| See [Tutorial: Embed Power BI content into your application for national clouds](../power-bi/developer/embedded/embed-sample-for-customers-national-clouds.md). | |
+| Power BI]| See [Power BI for US government customers](/power-bi/enterprise/service-govus-overview).|  |
+| Power BI Embedded| See [Tutorial: Embed Power BI content into your application for national clouds](/power-bi/developer/embedded/embed-sample-for-customers-national-clouds). | |
 
 
 #### HDInsight: Network Security Groups IP address and ports
@@ -111,7 +111,7 @@ This section outlines variations and considerations when using Developer tools i
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Enterprise Dev/Test subscription offer |   Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](../cost-management-billing/manage/ea-portal-administration#enterprise-devtest-offer). |  
+| Enterprise Dev/Test subscription offer |   Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](/azure/cost-management-billing/manage/ea-portal-administration#enterprise-devtest-offer). |  
 
 ### Identity
 
@@ -128,7 +128,7 @@ This section outlines variations and considerations when using Management and Go
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 | Automation| <li>Automation analytics solution |  
-| Azure Advisor| <!-- move content--> Content is large enough to have its own page in product TOC. See [Azure Advisor](../azure-government/compare-azure-government-global-azure.md#azure-advisor) |  |
+| Azure Advisor| <!-- move content--> Content is large enough to have its own page in product TOC. See [Azure Advisor](/azure/azure-government/compare-azure-government-global-azure#azure-advisor) |  |
 | Azure Lighthouse)| <li>Managed Service offers published to Azure Marketplace<li>Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, isn't supported<li>Privileged Identity Management (PIM) feature isn't enabled, for example, just-in-time (JIT) / eligible authorization capability |  
 | Azure Monitor| <!-- move content--> There is information on [this page]((../azure-government/compare-azure-government-global-azure.md#azure-monitor)) that should be put entirely on the product pages: For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md). |  
 | [Application Insights](../azure-government/compare-azure-government-global-azure.md#application-insights)|  <!-- move content-->  Content needs to be moved to its own page. |  
@@ -146,7 +146,7 @@ This section outlines variations and considerations when using Media services in
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Media Services | For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](../media-services/latest/azure-clouds-regions.md#us-government-cloud).  |   
+| Azure Media Services | For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#us-government-cloud).  |   
 
 ### Migration
 
@@ -174,7 +174,7 @@ This section outlines variations and considerations when using Security services
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 | Microsoft Defender for IoT | For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot). |   
-| Azure Information Protection|See [Azure Information Protection Premium Government Service Description](../enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description.md). |  |
+| Azure Information Protection|See [Azure Information Protection Premium Government Service Description](/azure/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description). |  |
 | Microsoft Defender for Cloud | For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud). |  
 | Microsoft Sentinel| For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-sentinel). |  
 
