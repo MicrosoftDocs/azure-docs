@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 08/26/2022
+ms.date: 09/15/2022
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -110,7 +110,7 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
-#### Adding activities to the canvas
+#### Adding activities to the canvas (coming soon to default ADF settings)
 
 You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
@@ -118,13 +118,13 @@ Select an activity by using the search box or scrolling through the listed activ
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop-down list to select activities.":::
 
-#### Iteration and conditionals container view
+#### Iteration and conditionals container view (coming soon to default ADF settings)
 
 You can now view the activities contained iteration and conditional activities.
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iteration and conditional activity containers.":::
 
-##### Adding Activities
+##### Adding Activities 
 
 You have two options to add activities to your iteration and conditional activities.
 
