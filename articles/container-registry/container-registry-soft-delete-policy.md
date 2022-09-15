@@ -10,7 +10,7 @@ ms.author: tejaswikolli
 
 Azure Container Registry (ACR) allows you to enable the *soft delete policy* to recover any accidentally deleted artifacts for a set retention period.
 
-:::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram-of-soft-delete-artifacts-lifecycle.":::
+:::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram of soft delete artifacts lifecycle.":::
 
 This feature is available in all the service tiers (also known as SKUs). For information about registry service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).
 
@@ -133,13 +133,13 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. In the **Overview tab**, verify the status of the **Soft Delete** (Preview).
 1. If the **Status** is **Disabled**, Select **Update**.
 
-:::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="Screenshot-to-view-the-soft-delete-policy.":::
+:::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="Screenshot to view the soft delete policy.":::
 
 1. Select the checkbox to **Enable Soft Delete**.
 1. Select the number of days between `0` and `90` days to retain the soft deleted artifacts.
 1.  Select **Save** to save your changes.
 
-:::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="Screenshot-to-enable-soft-delete-policy.":::
+:::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="Screenshot to enable soft delete policy.":::
 
 ### Restore the soft deleted artifacts - Portal
 
@@ -151,18 +151,18 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 > [!NOTE]
 Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
 
-:::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="Screenshot-of-manage-deleted-artifacts.":::
+:::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="Screenshot of manage deleted artifacts.":::
 
 1.  Filter the deleted artifact you have to restore
 1.  Select the artifact, and Click on the **Restore** in the right column.
 1.  A **Restore Artifact** window pops up.
 
-:::image type="content" source="./media/container-registry-soft-delete/04-managed-deleted-artifacts.png" alt-text="Screenshot-to-restore-soft-delete-artifacts.":::
+:::image type="content" source="./media/container-registry-soft-delete/04-managed-deleted-artifacts.png" alt-text="Screenshot to restore soft delete artifacts.":::
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
-:::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="Screenshot-of-restore-window.":::
+:::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="Screenshot of restore window.":::
 
 ### Restore from soft deleted repositories - Portal
 
@@ -171,19 +171,22 @@ Once you enable the soft delete policy and perform actions such as untag a manif
 1. In the **Services** tab, Select **Repositories**.
 1. In the **Repositories** tab, Click on **Manage Deleted Repositories**.
 
-:::image type="content" source="./media/container-registry-soft-delete/06-soft-delete-manage-repositories.png" alt-text="Screenshot-of-manage-delete-repositories.":::
+:::image type="content" source="./media/container-registry-soft-delete/06-manage-delete-repositories.png" alt-text="Screenshot of manage delete repositories.":::
 
 1. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
+1. 
+:::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-repositories.png" alt-text="Screenshot of soft delete repositories.":::
+
 1. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
 1. Select the artifact, and Click on the **Restore** in the right column.
 1.  A **Restore Artifact** window pops up.
 
-:::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-artifacts-restore.png" alt-text="Screenshot-to-restore-soft-delete-repositories.":::
+:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-repository-artifacts.png.png" alt-text="Screenshot to restore soft delete repositories.":::
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
-:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="Screenshot-of-restore-window- for-soft-delete-repositories.":::
+:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="Screenshot of restore window for soft delete repositories.":::
 
 
 > [!IMPORTANT]
