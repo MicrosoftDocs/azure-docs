@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Tutorial: Set data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal Preview
+# Tutorial: Data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal Preview
 
 This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL flexible server.
 
