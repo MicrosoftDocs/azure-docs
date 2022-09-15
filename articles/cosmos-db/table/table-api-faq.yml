@@ -72,7 +72,7 @@ sections:
           No, existing storage SDKs should still work. However, it's recommended that one always gets the latest SDKs for the best support and in many cases superior performance. See the list of available languages in the [Introduction to Azure Cosmos DB for Table](introduction.md).
 
       - question: |
-          <a id="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api-"></a>What is the connection string that I need to use to connect to the API for Table?
+          What is the connection string that I need to use to connect to the API for Table?
         answer: |
           The connection string is:
 
