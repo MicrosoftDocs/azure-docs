@@ -20,7 +20,7 @@ If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentatio
 ## Basics of Azure Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Azure Cosmos DB containers. 
 
-Stream Analytics doesn't create containers in your database. Instead, it requires you to create them up front. You can then control the billing costs of Azure Cosmos DB containers. You can also tune the performance, consistency, and capacity of your containers directly by using the [Azure Cosmos DB APIs](/rest/api/cosmos-db/).
+Stream Analytics doesn't create containers in your database. Instead, it requires you to create them beforehand. You can then control the billing costs of Azure Cosmos DB containers. You can also tune the performance, consistency, and capacity of your containers directly by using the [Azure Cosmos DB APIs](/rest/api/cosmos-db/).
 
 
 The following sections detail some of the container options for Azure Cosmos DB.
