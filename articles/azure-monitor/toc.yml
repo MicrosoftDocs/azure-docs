@@ -98,54 +98,7 @@ items:
     href: azure-cli-metrics-alert-sample.md
 - name: Scenarios
   items:
-  - name: Observability
-    href: observability-data.md
-  - name: Data platform
-    href: data-platform.md
-  - name: Usage and cost
-    items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
-    - name: Logs pricing details
-      href: logs/cost-logs.md
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
-    - name: Optimize costs
-      href: best-practices-cost.md
-  - name: Data security
-    items:
-    - name: Roles permissions and security
-      href: roles-permissions-security.md
-    - name: Log data
-      href: logs/data-security.md
-    - name: Customer-managed keys
-      href: logs/customer-managed-keys.md
-    - name: Private storage
-      href: logs/private-storage.md
-    - name: Personal log data handling
-      href: logs/personal-data-mgmt.md
-    - name: Application data collection, retention, and storage
-      href: app/data-retention-privacy.md
-  - name: Alerts
-    items:
-    - name: Overview
-      href: alerts/alerts-overview.md
-    - name: Alert Types
-      href: alerts/alerts-types.md
-  - name: Partner integrations
-    href: partners.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: .//security-controls-policy.md
-  - name: Self-monitoring
-    href: monitor-azure-monitor.md 
-- name: How-to guides
-  items:
-  - name: Best practices
+  - name: End to end deployment
     items:
     - name: Overview
       href: best-practices.md
@@ -506,16 +459,16 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
-  - name: Data export
-    items:
-      - name: Workspace data export
-        href: logs/logs-data-export.md
-      - name: Export with Logic Apps
-        href: logs/logs-export-logic-app.md
-      - name: Query data with Azure Data Explorer
-        href: logs/azure-data-explorer-query-storage.md
-      - name: Send to Excel
-        href: logs/log-excel.md
+        - name: Data export
+          items:
+          - name: Workspace data export
+            href: logs/logs-data-export.md
+          - name: Export with Logic Apps
+            href: logs/logs-export-logic-app.md
+          - name: Query data with Azure Data Explorer
+            href: logs/azure-data-explorer-query-storage.md
+          - name: Send to Excel
+            href: logs/log-excel.md
 - name: Insights
   items:
   - name: Application Insights
@@ -1091,22 +1044,6 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
-  - name: Office 365
-    href: insights/solution-office-365.md
-  - name: Service Map solution
-    href: vm/service-map.md
-  - name: Service Map and Operations Manager
-    href: vm/service-map-scom.md
-  - name: Azure SQL
-    href: insights/sql-assessment.md
-  - name: Surface Hub
-    href: insights/surface-hubs.md
-  - name: VMware Analytics solution
-    href: insights/vmware.md
-  - name: Wire Data solution
-    href: insights/wire-data.md
-  - name: Alert Management solution
-    href: insights/alert-management-solution.md
   - name: Activity logs
     href: essentials/activity-log-insights.md
   - name: Azure Cache for Redis
@@ -1533,6 +1470,10 @@ items:
         href: autoscale/autoscale-troubleshoot.md
       - name: Resource Log schemas
         href: autoscale/autoscale-resource-log-schema.md  
+- name: Integrate
+  items:
+  - name: Service limits -bogus entry for now
+    href: service-limits.md
 - name: Reference
   items:
   - name: Service limits
@@ -1653,7 +1594,7 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
-  - name: Feature and API Retirement
+  - name: Legacy and retired features
     items:
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
@@ -1690,6 +1631,22 @@ items:
           href: insights/capacity-performance.md
         - name: Docker and Windows Container monitoring
           href: containers/containers.md
+        - name: Office 365
+          href: insights/solution-office-365.md
+        - name: Service Map solution
+          href: vm/service-map.md
+        - name: Service Map and Operations Manager
+          href: vm/service-map-scom.md
+        - name: Azure SQL
+          href: insights/sql-assessment.md
+        - name: Surface Hub
+          href: insights/surface-hubs.md
+        - name: VMware Analytics solution
+          href: insights/vmware.md
+        - name: Wire Data solution
+          href: insights/wire-data.md
+        - name: Alert Management solution
+          href: insights/alert-management-solution.md
         - name: Networks
           items:
           - name: Networking Analytics
