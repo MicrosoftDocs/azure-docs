@@ -42,7 +42,7 @@ Create a new project in Android Studio and add the Speech SDK for Java as a libr
 
 Android Studio takes some moments to prepare your new project. If this is your first time using Android Studio, it may take a few minutes to set preferences, accept licenses, and complete the wizard. 
 
-#### Install the Speech SDK
+#### Install the Speech SDK for Java on Android
 
 Add the Speech SDK as a dependency in your project.
 

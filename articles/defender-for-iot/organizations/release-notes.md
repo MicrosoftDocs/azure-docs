@@ -36,15 +36,17 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 >
 > - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-## Versions 22.3.x
-
-Software versions 22.3.x support direct updates to the latest OT monitoring software versions available.
-
 ## Versions 22.2.x
 
-Software versions 22.2.x support direct updates to the latest OT monitoring software versions available.
+Software versions 22.2.x support direct updates to the latest OT monitoring software versions available. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-Known issues currently exist for sensors deployed on virtual machines using Hyper-V. If you have sensors deployed using Hyper-V, we recommend that you do not update to versions 22.2.x, but remain on version [22.1.7](#2217).
+|Version  |Release date  |Supported until  |Updates  |
+|---------|---------|---------|---------|
+|**22.2.6**     |   09/2022      |   04/2023      |   TBD      |
+|**22.2.5**     |  08/2022       |    04/2023     |   - Minor stability improvements.      |
+|**22.2.4**     |     07/2022    |   04/2023      | - [Device inventory enhancements](whats-new.md#device-inventory-enhancements) <br>- [Enhancements for the ServiceNow integration API](whats-new.md#enhancements-for-the-servicenow-integration-api)<br>- [New alert columns with timestamp data](whats-new.md#new-alert-columns-with-timestamp-data)        |
+|**22.2.3**     |   07/2022      |  04/2023       |  - [OT appliance hardware profile updates](whats-new.md#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](whats-new.md#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](whats-new.md#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](whats-new.md#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](whats-new.md#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](whats-new.md#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](whats-new.md#sensor-names-shown-in-browser-tabs)       |
+
 
 ### 22.2.6
 
@@ -94,9 +96,7 @@ This version includes the following new updates and fixes:
 
 ## Versions 22.1.x
 
-Software versions 22.1.x support direct updates to the latest OT monitoring software versions available.
-
-However, known issues currently exist for sensors deployed on virtual machines using Hyper-V. If you have sensors deployed using Hyper-V, we recommend that you remain on version [22.1.7](#2217).
+Software versions 22.1.x support direct updates to the latest OT monitoring software versions available. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### 22.1.7
 
@@ -169,7 +169,7 @@ This version includes the following new updates and fixes:
 
 ## Versions 10.5.x
 
-To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version.
+To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### 10.5.5
 

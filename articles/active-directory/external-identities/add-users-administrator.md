@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 08/31/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
@@ -37,10 +36,10 @@ To add B2B collaboration users to the directory, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is assigned a limited administrator directory role or the Guest Inviter role.
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Users**.
-4. Select **New guest user**.
+4. Select **New user** > **Invite external user**. (Or, if you're using the legacy experience, select **New guest user**).
 5. On the **New user** page, select **Invite user** and then add the guest user's information.
 
-   ![Guest user type image](media/add-users-administrator/invite-user.png)
+   ![Screenshot showing the new user page.](media/add-users-administrator/invite-user.png)
 
       - **Name.** The first and last name of the guest user.
    - **Email address (required)**. The email address of the guest user.
@@ -54,7 +53,7 @@ To add B2B collaboration users to the directory, follow these steps:
  
 After you send the invitation, the user account is automatically added to the directory as a guest.
 
- ![Guest user image](media/add-users-administrator//guest-user-type.png)
+ ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
 
 ## Add guest users to a group
 If you need to manually add B2B collaboration users to a group, follow these steps:
@@ -131,16 +130,15 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
 3. Under **Manage**, select **Users**.
-4. Select the user account.
-5. In the **Identity** section, under **Invitation accepted**, Select the **(manage)** link. 
+4. In the list, select the user's name to open their user profile.
+5. Under **My Feed**, in the **B2B collaboration** tile, select the **Manage (resend invitation / reset status** link.
 6. If the user has not yet accepted the invitation, Select the **Yes** option to resend.
 
-    ![Resend Invitation](./media/add-users-administrator/resend-invitation.png)
+    ![Screenshot showing the Resend Invite radio button.](./media/add-users-administrator/resend-invitation.png)
 
-> [!NOTE]
-> An invitation URL will be generated.
+7. In the confirmation message, select **Yes** to confirm that you want to send the user a new email invitation for redeeming their guest account. An invitation URL will be generated and sent to the user.
 
 ## Next steps
 
-- To learn how non-Azure AD admins can add B2B guest users, see [How do information workers add B2B collaboration users?](add-users-information-worker.md)
+- To learn how non-Azure AD admins can add B2B guest users, see [How users in your organization can invite guest users to an app](add-users-information-worker.md)
 - For information about the invitation email, see [The elements of the B2B collaboration invitation email](invitation-email-elements.md).

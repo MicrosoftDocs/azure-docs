@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for Table API
 description: Learn how global distribution works in Azure Cosmos DB Table API accounts and how to configure the preferred list of regions
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial

@@ -21,9 +21,9 @@ Follow the guidelines in this article to provide extra protection for your Azure
 
  - A deployed Azure Virtual Desktop environment and host pool.
  - An Azure Firewall deployed with at least one Firewall Manager Policy.
- - DNS and DNS Proxy enabled in the Firewall Policy to use [FQDN in Network Rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+ - DNS and DNS Proxy enabled in the Firewall Policy to use [FQDN in Network Rules](../firewall/fqdn-filtering-network-rules.md).
 
-   For more information, see [Tutorial: Create a host pool by using the Azure portal](../virtual-desktop/create-host-pools-azure-marketplace.md)
+For more information, see [Tutorial: Create a host pool by using the Azure portal](../virtual-desktop/create-host-pools-azure-marketplace.md)
 
 To learn more about Azure Virtual Desktop environments see [Azure Virtual Desktop environment](../virtual-desktop/environment-setup.md).
 
@@ -32,14 +32,15 @@ To learn more about Azure Virtual Desktop environments see [Azure Virtual Deskto
 The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall provides an Azure Virtual Desktop FQDN Tag to simplify this configuration. Use the following steps to allow outbound Azure Virtual Desktop platform traffic:
 
 You'll need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an allow or deny action.
-In order to identify a specific AVD Host Pool as "Source" in the tables below, [IP Group](https://docs.microsoft.com/azure/firewall/ip-groups) can be created to represent it. 
+In order to identify a specific AVD Host Pool as "Source" in the tables below, [IP Group](../firewall/ip-groups.md) can be created to represent it. 
 
 ### Create network rules
 
-Based on the Azure Virtual Desktop (AVD) [reference article](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list), these are the ***mandatory*** rules to allow outbound access to the control plane and core dependent services: 
+Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/safe-url-list.md), these are the ***mandatory*** rules to allow outbound access to the control plane and core dependent services: 
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureFrontDoor.Frontend, AzureMonitor |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
@@ -58,7 +59,6 @@ Azure Virtual Desktop (AVD) official documentation reports the following Network
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | ----------| -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | UDP      | 123               | FQDN             | time.windows.com |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.windows.net |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | www.msftconnecttest.com |
 
