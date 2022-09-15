@@ -164,38 +164,390 @@ Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to cre
 
 ---
 
->[!Note]
+>[!NOTE]
 > Azure assigns a MAC address to the network interface only after the network interface is attached to a virtual machine and the virtual machine is started the first time. You cannot specify the MAC address that Azure assigns to the network interface. The MAC address remains assigned to the network interface until the network interface is deleted or the private IP address assigned to the primary IP configuration of the primary network interface is changed. To learn more about IP addresses and IP configurations, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md)
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## View network interface settings
 
-You can view and change most settings for a network interface after it's created. The portal does not display the DNS suffix or application security group membership for the network interface. You can use the PowerShell or Azure CLI [commands](#view-settings-commands) to view the DNS suffix and application security group membership.
+You can view and change most settings for a network interface after it's created. The portal doesn't display the DNS suffix or application security group membership for the network interface. You can use Azure PowerShell or Azure CLI to view the DNS suffix and application security group membership.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
-2. Select the network interface you want to view or change settings for from the list.
-3. The following items are listed for the network interface you selected:
-   - **Overview:** Provides information about the network interface, such as the IP addresses assigned to it, the virtual network/subnet the network interface is assigned to, and the virtual machine the network interface is attached to (if it's attached to one). The following picture shows the overview settings for a network interface named **mywebserver256**:
-     ![Network interface overview](./media/virtual-network-network-interface/nic-overview.png)
+# [**Portal**](#tab/network-interface-portal)
 
-     You can move a network interface to a different resource group or subscription by selecting (**change**) next to the **Resource group** or **Subscription name**. If you move the network interface to a new subscription, you must move all resources related to the network interface with it. If the network interface is attached to a virtual machine, for example, you must also move the virtual machine, and other virtual machine-related resources. To move a network interface, see [Move resource to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). The article lists prerequisites, and how to move resources using the Azure portal, PowerShell, and the Azure CLI.
-   - **IP configurations:** Public and private IPv4 and IPv6 addresses assigned to IP configurations are listed here. If an IPv6 address is assigned to an IP configuration, the address is not displayed. To learn more about IP configurations and how to add and remove IP addresses, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, see [Enable or disable IP forwarding](#enable-or-disable-ip-forwarding) and [Change subnet assignment](#change-subnet-assignment).
-   - **DNS servers:** You can specify which DNS server a network interface is assigned by the Azure DHCP servers. The network interface can inherit the setting from the virtual network the network interface is assigned to, or have a custom setting that overrides the setting for the virtual network it's assigned to. To modify what's displayed, see [Change DNS servers](#change-dns-servers).
-   - **Network security group (NSG):** Displays which NSG is associated to the network interface (if any). An NSG contains inbound and outbound rules to filter network traffic for the network interface. If an NSG is associated to the network interface, the name of the associated NSG is displayed. To modify what's displayed, see [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group).
-   - **Properties:** Displays key settings about the network interface, including its MAC address (blank if the network interface isn't attached to a virtual machine), and the subscription it exists in.
-   - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine, and an NSG is associated to the network interface, the subnet it's assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
-   - **Effective routes:** Routes are listed if the network interface is attached to a running virtual machine. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the network interface is assigned to. To learn more about what's displayed, see [View effective routes](#view-effective-routes). To learn more about Azure default routes and user-defined routes, see [Routing overview](virtual-networks-udr-overview.md).
-Common Azure Resource Manager settings: To learn more about common Azure Resource Manager settings, see [Activity log](../azure-monitor/essentials/platform-logs-overview.md), [Access control (IAM)](../role-based-access-control/overview.md), [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/templates/export-template-portal.md).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-<a name="view-settings-commands"></a>**Commands**
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
 
-If an IPv6 address is assigned to a network interface, the PowerShell output returns the fact that the address is assigned, but it doesn't return the assigned address. Similarly, the CLI returns the fact that the address is assigned, but returns *null* in its output for the address.
+3. Select the network interface you want to view or change settings for from the list.
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic list](/cli/azure/network/nic) to view network interfaces in the subscription; [az network nic show](/cli/azure/network/nic) to view settings for a network interface|
-|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to view network interfaces in the subscription or view settings for a network interface|
+4. The following items are listed for the network interface you selected:
+
+    - **Overview:** The overview provides essential information about the network interface. IP addresses for IPv4 and IPv6 and network security group membership are displayed. The virtual network/subnet the network interface is assigned to, and the virtual machine the network interface is attached to is also shown. The accelerated networking feature for network interfaces can be set in the overview. For more information about accelerated networking, see [What is Accelerated Networking?](accelerated-networking-overview.md)
+    
+    The following screenshot displays the overview settings for a network interface named **myNIC**:
+
+    :::image type="content" source="./media/virtual-network-network-interface/nic-overview.png" alt-text="Screenshot of network interface overview.":::
+
+    - **IP configurations:** Public and private IPv4 and IPv6 addresses assigned to IP configurations are listed. To learn more about IP configurations and how to add and remove IP addresses, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). IP forwarding and subnet assignment are also configured in this section. To learn more about these settings, see [Enable or disable IP forwarding](#enable-or-disable-ip-forwarding) and [Change subnet assignment](#change-subnet-assignment).
+
+    - **DNS servers:** You can specify which DNS server a network interface is assigned by the Azure DHCP servers. The network interface can inherit the setting from the virtual network the network interface is assigned to, or have a custom setting that overrides the setting for the virtual network it's assigned to. To modify what's displayed, see [Change DNS servers](#change-dns-servers).
+   
+    - **Network security group (NSG):** Displays which NSG is associated to the network interface. An NSG contains inbound and outbound rules to filter network traffic for the network interface. If an NSG is associated to the network interface, the name of the associated NSG is displayed. To modify what's displayed, see [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group).
+   
+    - **Properties:** Displays settings about the network interface, MAC address, and the subscription it exists in. The MAC address isblank if the network interface isn't attached to a virtual machine.
+   
+    - **Effective security rules:**  Security rules are listed if the network interface is attached to a running virtual machine, and an NSG is associated to the network interface, the subnet it's assigned to, or both. To learn more about what's displayed, see [View effective security rules](#view-effective-security-rules). To learn more about NSGs, see [Network security groups](./network-security-groups-overview.md).
+   
+    - **Effective routes:** Routes are listed if the network interface is attached to a running virtual machine. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the network interface is assigned to. To learn more about what's displayed, see [View effective routes](#view-effective-routes). To learn more about Azure default routes and user-defined routes, see [Routing overview](virtual-networks-udr-overview.md).
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to view network interfaces in the subscription or view settings for a network interface.
+
+>[!NOTE]
+> Removal of the parameters **`-Name`** and **`-ResourceGroupName`** will return all of the network interfaces in the subscription.
+
+```azurepowershell
+Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+```
+
+```azurepowershell
+PS /home/azureuser> Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup     
+
+Name                        : myNIC
+ResourceGroupName           : myResourceGroup
+Location                    : eastus2
+Id                          : /subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+Etag                        : W/"78bc7410-8e4a-4736-b4a1-0f9905dbc60d"
+ResourceGuid                : 7cce9620-19e2-43a5-a03a-0afac3619fd8
+ProvisioningState           : Succeeded
+Tags                        : 
+VirtualMachine              : {
+                                "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+                              }
+IpConfigurations            : [
+                                {
+                                  "Name": "Ipv4config",
+                                  "Etag": "W/\"78bc7410-8e4a-4736-b4a1-0f9905dbc60d\"",
+                                  "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC/ipConfigurations/Ipv4config",
+                                  "PrivateIpAddress": "10.0.0.4",
+                                  "PrivateIpAllocationMethod": "Dynamic",
+                                  "Subnet": {
+                                    "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myBackendSubnet",
+                                    "IpAllocations": []
+                                  },
+                                  "PublicIpAddress": {
+                                    "IpTags": [],
+                                    "Zones": [],
+                                    "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP-IPv4"
+                                  },
+                                  "ProvisioningState": "Succeeded",
+                                  "PrivateIpAddressVersion": "IPv4",
+                                  "LoadBalancerBackendAddressPools": [],
+                                  "LoadBalancerInboundNatRules": [],
+                                  "Primary": true,
+                                  "ApplicationGatewayBackendAddressPools": [],
+                                  "ApplicationSecurityGroups": [
+                                    {
+                                      "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/myASG"
+                                    }
+                                  ],
+                                  "VirtualNetworkTaps": []
+                                },
+                                {
+                                  "Name": "ipv6config",
+                                  "Etag": "W/\"78bc7410-8e4a-4736-b4a1-0f9905dbc60d\"",
+                                  "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC/ipConfigurations/ipv6config",
+                                  "PrivateIpAddress": "2404:f800:8000:122::4",
+                                  "PrivateIpAllocationMethod": "Dynamic",
+                                  "Subnet": {
+                                    "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myBackendSubnet",
+                                    "IpAllocations": []
+                                  },
+                                  "PublicIpAddress": {
+                                    "IpTags": [],
+                                    "Zones": [],
+                                    "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP-IPv6"
+                                  },
+                                  "ProvisioningState": "Succeeded",
+                                  "PrivateIpAddressVersion": "IPv6",
+                                  "LoadBalancerBackendAddressPools": [],
+                                  "LoadBalancerInboundNatRules": [],
+                                  "Primary": false,
+                                  "ApplicationGatewayBackendAddressPools": [],
+                                  "ApplicationSecurityGroups": [
+                                    {
+                                      "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/myASG"
+                                    }
+                                  ],
+                                  "VirtualNetworkTaps": []
+                                }
+                              ]
+DnsSettings                 : {
+                                "DnsServers": [],
+                                "AppliedDnsServers": [],
+                                "InternalDomainNameSuffix": "zec443ittltuhonmxwyet0ribe.cx.internal.cloudapp.net"
+                              }
+EnableIPForwarding          : False
+EnableAcceleratedNetworking : False
+VnetEncryptionSupported     : False
+AuxiliaryMode               : 
+NetworkSecurityGroup        : {
+                                "Id": "/subscriptions/ca95e2ec-ee4f-4907-891b-68eb62c84785/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+                              }
+TapConfigurations           : []
+Primary                     : True
+MacAddress                  : 60-45-BD-80-B8-71
+ExtendedLocation            : null
+```
+
+# [**CLI**](#tab/network-interface-CLI)
+
+Use [az network nic list](/cli/azure/network/nic#az-network-nic-list) to view network interfaces in the subscription.
+
+```azurecli
+az network nic list 
+```
+
+Use [az network nic show](/azure/network/nic#az-network-nic-show) to view the settings for a network interface.
+
+```azurecli
+az network nic show --name myNIC --resource-group myResourceGroup
+```
+
+```azurecli
+azureuser@Azure:~$ az network nic show --name myNIC --resource-group myResourceGroup
+{
+  "auxiliaryMode": null,
+  "dnsSettings": {
+    "appliedDnsServers": [],
+    "dnsServers": [],
+    "internalDnsNameLabel": null,
+    "internalDomainNameSuffix": "zec443ittltuhonmxwyet0ribe.cx.internal.cloudapp.net",
+    "internalFqdn": null
+  },
+  "dscpConfiguration": null,
+  "enableAcceleratedNetworking": false,
+  "enableIpForwarding": false,
+  "etag": "W/\"78bc7410-8e4a-4736-b4a1-0f9905dbc60d\"",
+  "extendedLocation": null,
+  "hostedWorkloads": [],
+  "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC",
+  "ipConfigurations": [
+    {
+      "applicationGatewayBackendAddressPools": null,
+      "applicationSecurityGroups": [
+        {
+          "etag": null,
+          "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/myASG",
+          "location": null,
+          "name": null,
+          "provisioningState": null,
+          "resourceGroup": "myResourceGroup",
+          "resourceGuid": null,
+          "tags": null,
+          "type": null
+        }
+      ],
+      "etag": "W/\"78bc7410-8e4a-4736-b4a1-0f9905dbc60d\"",
+      "gatewayLoadBalancer": null,
+      "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC/ipConfigurations/Ipv4config",
+      "loadBalancerBackendAddressPools": null,
+      "loadBalancerInboundNatRules": null,
+      "name": "Ipv4config",
+      "primary": true,
+      "privateIpAddress": "10.0.0.4",
+      "privateIpAddressVersion": "IPv4",
+      "privateIpAllocationMethod": "Dynamic",
+      "privateLinkConnectionProperties": null,
+      "provisioningState": "Succeeded",
+      "publicIpAddress": {
+        "ddosSettings": null,
+        "deleteOption": null,
+        "dnsSettings": null,
+        "etag": null,
+        "extendedLocation": null,
+        "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP-IPv4",
+        "idleTimeoutInMinutes": null,
+        "ipAddress": null,
+        "ipConfiguration": null,
+        "ipTags": null,
+        "linkedPublicIpAddress": null,
+        "location": null,
+        "migrationPhase": null,
+        "name": null,
+        "natGateway": null,
+        "provisioningState": null,
+        "publicIpAddressVersion": null,
+        "publicIpAllocationMethod": null,
+        "publicIpPrefix": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceGuid": null,
+        "servicePublicIpAddress": null,
+        "sku": null,
+        "tags": null,
+        "type": null,
+        "zones": null
+      },
+      "resourceGroup": "myResourceGroup",
+      "subnet": {
+        "addressPrefix": null,
+        "addressPrefixes": null,
+        "applicationGatewayIpConfigurations": null,
+        "delegations": null,
+        "etag": null,
+        "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myBackendSubnet",
+        "ipAllocations": null,
+        "ipConfigurationProfiles": null,
+        "ipConfigurations": null,
+        "name": null,
+        "natGateway": null,
+        "networkSecurityGroup": null,
+        "privateEndpointNetworkPolicies": null,
+        "privateEndpoints": null,
+        "privateLinkServiceNetworkPolicies": null,
+        "provisioningState": null,
+        "purpose": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceNavigationLinks": null,
+        "routeTable": null,
+        "serviceAssociationLinks": null,
+        "serviceEndpointPolicies": null,
+        "serviceEndpoints": null,
+        "type": null
+      },
+      "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+      "virtualNetworkTaps": null
+    },
+    {
+      "applicationGatewayBackendAddressPools": null,
+      "applicationSecurityGroups": [
+        {
+          "etag": null,
+          "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/myASG",
+          "location": null,
+          "name": null,
+          "provisioningState": null,
+          "resourceGroup": "myResourceGroup",
+          "resourceGuid": null,
+          "tags": null,
+          "type": null
+        }
+      ],
+      "etag": "W/\"78bc7410-8e4a-4736-b4a1-0f9905dbc60d\"",
+      "gatewayLoadBalancer": null,
+      "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC/ipConfigurations/ipv6config",
+      "loadBalancerBackendAddressPools": null,
+      "loadBalancerInboundNatRules": null,
+      "name": "ipv6config",
+      "primary": null,
+      "privateIpAddress": "2404:f800:8000:122::4",
+      "privateIpAddressVersion": "IPv6",
+      "privateIpAllocationMethod": "Dynamic",
+      "privateLinkConnectionProperties": null,
+      "provisioningState": "Succeeded",
+      "publicIpAddress": {
+        "ddosSettings": null,
+        "deleteOption": null,
+        "dnsSettings": null,
+        "etag": null,
+        "extendedLocation": null,
+        "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP-IPv6",
+        "idleTimeoutInMinutes": null,
+        "ipAddress": null,
+        "ipConfiguration": null,
+        "ipTags": null,
+        "linkedPublicIpAddress": null,
+        "location": null,
+        "migrationPhase": null,
+        "name": null,
+        "natGateway": null,
+        "provisioningState": null,
+        "publicIpAddressVersion": null,
+        "publicIpAllocationMethod": null,
+        "publicIpPrefix": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceGuid": null,
+        "servicePublicIpAddress": null,
+        "sku": null,
+        "tags": null,
+        "type": null,
+        "zones": null
+      },
+      "resourceGroup": "myResourceGroup",
+      "subnet": {
+        "addressPrefix": null,
+        "addressPrefixes": null,
+        "applicationGatewayIpConfigurations": null,
+        "delegations": null,
+        "etag": null,
+        "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myBackendSubnet",
+        "ipAllocations": null,
+        "ipConfigurationProfiles": null,
+        "ipConfigurations": null,
+        "name": null,
+        "natGateway": null,
+        "networkSecurityGroup": null,
+        "privateEndpointNetworkPolicies": null,
+        "privateEndpoints": null,
+        "privateLinkServiceNetworkPolicies": null,
+        "provisioningState": null,
+        "purpose": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceNavigationLinks": null,
+        "routeTable": null,
+        "serviceAssociationLinks": null,
+        "serviceEndpointPolicies": null,
+        "serviceEndpoints": null,
+        "type": null
+      },
+      "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+      "virtualNetworkTaps": null
+    }
+  ],
+  "kind": "Regular",
+  "location": "eastus2",
+  "macAddress": "60-45-BD-80-B8-71",
+  "migrationPhase": null,
+  "name": "myNIC",
+  "networkSecurityGroup": {
+    "defaultSecurityRules": null,
+    "etag": null,
+    "flowLogs": null,
+    "flushConnection": null,
+    "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "location": null,
+    "name": null,
+    "networkInterfaces": null,
+    "provisioningState": null,
+    "resourceGroup": "myResourceGroup",
+    "resourceGuid": null,
+    "securityRules": null,
+    "subnets": null,
+    "tags": null,
+    "type": null
+  },
+  "nicType": "Standard",
+  "primary": true,
+  "privateEndpoint": null,
+  "privateLinkService": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "resourceGuid": "7cce9620-19e2-43a5-a03a-0afac3619fd8",
+  "tags": {},
+  "tapConfigurations": [],
+  "type": "Microsoft.Network/networkInterfaces",
+  "virtualMachine": {
+    "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    "resourceGroup": "myResourceGroup"
+  },
+  "vnetEncryptionSupported": false,
+  "workloadType": null
+}
+```
+
+---
 
 ## Change DNS servers
 
