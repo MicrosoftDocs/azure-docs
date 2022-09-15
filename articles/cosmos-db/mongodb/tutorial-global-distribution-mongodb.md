@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial to set up global distribution with Azure Cosmos DB API for MongoDB'
+title: 'Tutorial to set up global distribution with Azure Cosmos DB for MongoDB'
 description: Learn how to set up global distribution using Azure Cosmos DB's API for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
@@ -26,7 +26,7 @@ This article covers the following tasks:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Verifying your regional setup 
-A simple way to check your global configuration with Cosmos DB's API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
+A simple way to check your global configuration with Azure Cosmos DB's API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
 
 From your Mongo Shell:
 
@@ -92,7 +92,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the Cosmos DB's API for MongoDB
+> * Configure global distribution using the Azure Cosmos DB's API for MongoDB
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

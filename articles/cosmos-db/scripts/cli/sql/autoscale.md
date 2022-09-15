@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB SQL API account, database, and container with autoscale
-description: Use Azure CLI to create an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.
+title: Azure Cosmos DB for NoSQL account, database, and container with autoscale
+description: Use Azure CLI to create an Azure Cosmos DB for NoSQL account, database, and container with autoscale.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/22/2022
 ms.custom: kr2b-contr-experiment
 ---
 
-# Create an Azure Cosmos DB SQL API account, database, and container with autoscale
+# Create an Azure Cosmos DB for NoSQL account, database, and container with autoscale
 
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
-The script in this article creates an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.
+The script in this article creates an Azure Cosmos DB for NoSQL account, database, and container with autoscale.
 
 ## Prerequisites
 
@@ -41,16 +41,16 @@ The script in this article creates an Azure Cosmos DB Core (SQL) API account, da
 
 ## Sample script
 
-Run the following script to create an Azure resource group, an Azure Cosmos DB SQL API account and database, and a container with autoscale. The resources might take a while to create.
+Run the following script to create an Azure resource group, an Azure Cosmos DB for NoSQL account and database, and a container with autoscale. The resources might take a while to create.
 
 :::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/sql/autoscale.sh" id="FullScript":::
 
 This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
-- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) creates an Azure Cosmos DB account for SQL API.
-- [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) creates an Azure Cosmos SQL (Core) database.
-- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 1000` creates an Azure Cosmos SQL (Core) container with autoscale capability.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) creates an Azure Cosmos DB account for API for NoSQL.
+- [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) creates an Azure Cosmos DB for NoSQL database.
+- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 1000` creates an Azure Cosmos DB for NoSQL container with autoscale capability.
 
 ## Clean up resources
 
@@ -63,4 +63,4 @@ az group delete --name $resourceGroup
 ## Next steps
 
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
-- [Throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources](throughput.md)
+- [Throughput (RU/s) operations for Azure Cosmos DB for NoSQL resources](throughput.md)

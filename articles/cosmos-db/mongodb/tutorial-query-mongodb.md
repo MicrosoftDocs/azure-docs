@@ -4,7 +4,7 @@ description: Learn how to query data from Azure Cosmos DB's API for MongoDB by u
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: mjbrown
@@ -18,7 +18,7 @@ The [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md) supports [Mongo
 This article covers the following tasks: 
 
 > [!div class="checklist"]
-> * Querying data stored in your Cosmos database using MongoDB shell
+> * Querying data stored in your Azure Cosmos DB database using MongoDB shell
 
 You can get started by using the examples in this document and watch the [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) video .
 
@@ -324,7 +324,7 @@ No results will be returned as there are no families with more than two children
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Learned how to query using Cosmos DB’s API for MongoDB
+> * Learned how to query using Azure Cosmos DB’s API for MongoDB
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 

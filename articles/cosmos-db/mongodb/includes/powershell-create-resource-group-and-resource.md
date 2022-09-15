@@ -1,7 +1,7 @@
 ---
 author: diberry
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry
@@ -30,7 +30,7 @@ ms.author: diberry
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB MongoDB API account with default settings. 
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB for MongoDB account with default settings. 
 
     ```azurepowershell-interactive
     $parameters = @{
