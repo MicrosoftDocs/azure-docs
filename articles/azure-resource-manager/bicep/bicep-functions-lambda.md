@@ -4,7 +4,7 @@ description: Describes the lambda functions to use in a Bicep file.
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/13/2022
+ms.date: 09/15/2022
 
 ---
 # Lambda functions for Bicep
@@ -14,6 +14,9 @@ This article describes the lambda functions to use in Bicep. Lambda expressions 
 ```bicep
 <lambda variable> => <expression>
 ```
+
+> [!NOTE]
+> The lambda functions are only supported in Bicep CLI version 0.10.61 or newer.
 
 ## Limitations
 
