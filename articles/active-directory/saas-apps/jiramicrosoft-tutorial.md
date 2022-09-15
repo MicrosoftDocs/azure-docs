@@ -123,23 +123,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. The Name ID attribute in Azure AD can be mapped to any desired user attribute by editing the Attributes & Claims section.
 
-	![Edit Attributes and Claims](common/edit-attribute.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
 	
     a. After clicking on Edit, any desired user attribute can be mapped by clicking on Unique User Identifier (Name ID).
     
-	![NameID in Attributes and Claims](common/attribute-nameID.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
 	
     b. On the next screen, the desired attribute name like user.userprincipalname can be selected as an option from the Source Attribute dropdown menu.
     
-	![Select Attributes and Claims](common/attribute-select.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to select Attributes and Claims.](common/attribute-select.png)
 	
     c. The selection can then be saved by clicking on the Save button at the top.
     
-	![Save Attributes and Claims](common/attribute-save.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to save Attributes and Claims.](common/attribute-save.png)
 	
     d. Now, the user.userprincipalname attribute source in Azure AD is mapped to the Name ID attribute name in Azure AD which will be compared with the username attribute in Atlassian by the SSO plugin.
     
-	![Review Attributes and Claims](common/attribute-review.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to review Attributes and Claims.](common/attribute-review.png)
 	
 	> [!NOTE]
 	> The SSO service provided by Microsoft Azure supports SAML authentication which is able to perform user identification using different attributes such as givenname (first name), surname (last name), email (email address), and user principal name (username). We recommend not to use email as an authentication attribute as email addresses are not always verified by Azure AD. The plugin compares the values of Atlassian username attribute with the NameID attribute in Azure AD in order to determine the valid user authentication.
