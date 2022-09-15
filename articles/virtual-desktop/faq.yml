@@ -183,6 +183,6 @@ sections:
           Yes. You can have both deployments within the same Azure Active Directory tenant.
 
       - question: |
-         Are [ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) supported?
+         Are [ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) supported with Azure Virtual Desktop?
         answer: |
           No. Ephemeral OS disks for Azure VMs are not supported with Azure Virtual Desktop.
