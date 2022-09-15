@@ -21,11 +21,11 @@ This article explains how to create a network interface with custom settings and
 
 * [Subnet assignment](#change-subnet-assignment)
 
-* [Application security group](add-or-remove-from-application-security-groups)
+* [Application security group](#add-or-remove-from-application-security-groups)
 
-* [Network security group](associate-or-dissociate-a-network-security-group)
+* [Network security group](#associate-or-dissociate-a-network-security-group)
 
-* [Network interface deletion](delete-a-network-interface)
+* [Network interface deletion](#delete-a-network-interface)
 
 If you need to add, change, or remove IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). If you need to add network interfaces to, or remove network interfaces from virtual machines, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
 
@@ -92,7 +92,7 @@ For more information on how to create a virtual machine with an existing network
 
 The portal doesn't provide the option to assign a public IP address to the network interface when you create it. The portal does create a public IP address and assign it to a network interface when you create a virtual machine in the portal. To learn how to add a public IP address to the network interface after creating it, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). If you want to create a network interface with a public IP address, you must use the Azure CLI, or PowerShell to create the network interface.
 
-The portal doesn't provide the option to assign the network interface to application security groups when creating a network interface, but the Azure CLI and PowerShell do. You can assign an existing network interface to an application security group using the portal however, as long as the network interface is attached to a virtual machine. To learn how to assign a network interface to an application security group, see [Add to or remove from application security groups](#add-to-or-remove-from-application-security-groups).
+The portal doesn't provide the option to assign the network interface to application security groups when creating a network interface, but the Azure CLI and PowerShell do. You can assign an existing network interface to an application security group using the portal however, as long as the network interface is attached to a virtual machine. To learn how to assign a network interface to an application security group, see [Add to or remove from application security groups](#add-or-remove-from-application-security-groups).
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
