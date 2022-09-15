@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/24/2022
+ms.date: 09/12/2022
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
@@ -160,6 +160,21 @@ Status code: 201
   "type": "Microsoft.Authorization/RoleAssignmentScheduleRequests" 
 } 
 ````
+## Activate a role with PowerShell
+
+There is also an option to activate Privileged Identity Management using PowerShell. You may find more details as documented in the article [PowerShell for Azure AD roles PIM](powershell-for-azure-ad-roles.md).
+
+The following is a sample script for how to activate Azure resource roles using PowerShell.
+
+```powershell
+$managementgroupID = "<management group ID" # Tenant Root Group
+$guid = (New-Guid)
+$startTime = Get-Date -Format o
+$userObjectID = "<user object ID"
+$RoleDefinitionID = "b24988ac-6180-42a0-ab88-20f7382dd24c" # Contributor
+$scope = "/providers/Microsoft.Management/managementGroups/$managementgroupID"
+New-AzRoleAssignmentScheduleRequest -Name $guid -Scope $scope -ExpirationDuration PT8H -ExpirationType AfterDuration -PrincipalId $userObjectID -RequestType SelfActivate -RoleDefinitionId /providersproviders/Microsoft.Management/managementGroups/$managementgroupID/providers/Microsoft.Authorization/roleDefinitions/$roledefinitionId -ScheduleInfoStartDateTime $startTime -Justification work
+```
 
 ## View the status of your requests
 

@@ -127,10 +127,16 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
+    - name: Security
+      items:
+      - name: Data encryption
+        href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Power BI
+      href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure advisor
-      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
+      href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
@@ -247,7 +253,13 @@
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md       
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Security
+      items:
+      - name: Data encryption with Azure portal
+        href: flexible-server/how-to-data-encryption-portal.md
+      - name: Data encryption with Azure CLI
+        href: flexible-server/how-to-data-encryption-cli.md        
   - name: Samples
     items:
     - name: Azure CLI samples
@@ -503,6 +515,11 @@
       - name: Connect with redirection
         href: single-server/how-to-redirection.md
         displayName: development, redirection , php
+      - name: Database Deployment
+        items:
+        - name: Azure Pipelines
+          href: single-server/azure-pipelines-mysql-deploy.md
+
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
