@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Azure Cosmos DB Gremlin API'
+title: 'Introduction to Azure Cosmos DB for Gremlin'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -15,7 +15,7 @@ ms.author: mansha
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
 
-This article provides an overview of the Azure Cosmos DB Gremlin API and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
+This article provides an overview of the Azure Cosmos DB for Gremlin and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
 
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
 
@@ -29,7 +29,7 @@ Azure Cosmos DB is a fully managed graph database that offers global distributio
 > [!NOTE]
 > The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Gremlin API.
 
-The following are the differentiated features that Azure Cosmos DB Gremlin API offers:
+The following are the differentiated features that Azure Cosmos DB for Gremlin offers:
 
 * **Elastically scalable throughput and storage**
 
