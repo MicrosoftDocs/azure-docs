@@ -57,7 +57,7 @@ The first step in defining a migration job is the creation of a project resource
 
 ### [PowerShell](#tab/powershell)
    
-   Creating a project you to decide on a name. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name. A description is optional and can contain up to 1024 single-byte characters.
+   Creating a project requires you to decide on a name. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name. A description is optional and can contain up to 1024 single-byte characters.
    
    The `New-AzStorageMoverProject` cmdlet is used to create a new project within a [storage mover resource](storage-mover-create.md) you previously deployed. If you haven't yet installed the `Az.StorageMover` module:
 
