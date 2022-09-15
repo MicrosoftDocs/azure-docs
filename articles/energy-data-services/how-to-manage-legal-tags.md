@@ -17,7 +17,7 @@ While in Microsoft Energy Data Services Preview instance, [entitlement service](
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Create a legal tag
-Run the below curl command to create a legal tag for a given data partition of your Microsoft Energy Data Services Preview instance.
+Run the below curl command in Azure Cloud Bash to create a legal tag for a given data partition of your Microsoft Energy Data Services Preview instance.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/legal/v1/legaltags' \
@@ -135,7 +135,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 ```
 
 ## Get a legal tag
-Run the below curl command to get the legal tag associated with a data partition of your Microsoft Energy Data Services Preview instance.
+Run the below curl command in Azure Cloud Bash to get the legal tag associated with a data partition of your Microsoft Energy Data Services Preview instance.
     
 ```bash
     curl --location --request GET 'https://<URI>/api/legal/v1/legaltags/<legal-tag-name>' \
