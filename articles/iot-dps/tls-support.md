@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-dps
  ms.topic: conceptual
- ms.date: 09/14/2020
+ ms.date: 09/15/2022
  ms.author: kgremban
 ---
 
@@ -23,7 +23,7 @@ You can configure your DPS instances to *only* allow device client connections t
 
 > [!IMPORTANT]
 >
-> Currently, DPS instances only support TLS 1.2, so there is no need to specify the minimum TLS version when you create a DPS instance. This feature is provided for future expansion.
+> Currently, DPS only supports TLS 1.2, so there is no need to specify the minimum TLS version when you create a DPS instance. This feature is provided for future expansion.
 
 To do this, provision a new DPS resource setting the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's DPS resource specification. The following example template JSON specifies the `minTlsVersion` property for a new DPS instance.
 
