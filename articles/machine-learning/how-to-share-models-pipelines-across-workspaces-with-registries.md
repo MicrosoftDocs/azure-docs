@@ -1,5 +1,5 @@
 ---
-title: Share models, components, and environments across workspaces through registries (preview)
+title: Share models, components, and environments across workspaces with registries using CLI v2 (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 
 ---
 
-# Share models, components and environments across workspaces through registries (preview)
+# Share models, components and environments across workspaces with registries using CLI v2 (preview)
 
 Azure Machine Learning registry enables you collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  

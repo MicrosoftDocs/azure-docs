@@ -1,5 +1,5 @@
 ---
-title: Share models, components and environments across workspaces through registries (preview)
+title: Share models, components and environments across workspaces with registries using SDK v2 (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries
 services: machine-learning
@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 
 ---
 
-# Share models, components and environments across workspaces through registries (preview)
+# Share models, components and environments across workspaces with registries using SDK v2 (preview)
 
 There are two scenarios where you'd want to use the same set of models, components and environments in multiple workspaces. First is cross-workspace MLOps. You are trining a model in a `dev` workspace and need to deploy it to `test` and `prod` workspaces. In this case you want to have end-to-end lineage between endpoints to which the model is deployed in `test` or `prod` workspaces and the training job, metrics, code, data and environment that was used to train the model in the `dev` workspace. Second is to share and reuse models and pipelines across different teams in your organization that in turn improves collaboration and productivity. In this scenario, you may want to publish a trained model and the associated components and environments used to train the model to a central catalog where colleagues from other teams and search and reuse assets shared by you in their experiments. You will learn how to create models, components and environments in a Azure Machine Learning registry and use them in any workspace within your organization. 
 
