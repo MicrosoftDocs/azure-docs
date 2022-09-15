@@ -181,4 +181,4 @@ You've now successfully created a Microsoft Playwright Testing workspace, and ha
 Advance to the next tutorial to learn how to identify app issues by using the information in the Microsoft Playwright Testing portal.
 
 > [!div class="nextstepaction"]
-> [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)
+> [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)
