@@ -64,13 +64,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**Sensor software versions 22.x**: [Updates for cloud connection outbound allow rules](#updates-for-cloud-connection-outbound-allow-rules) |
+|**OT networks**     |**Sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules) |
 
-### Increased security for Azure connection firewall rules
+### Updates for Azure cloud connection firewall rules
 
-OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more
+OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more. Connected Azure services include IoT Hub, Blob Storage, Event Hubs, and the Microsoft Download Center.
 
-For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards. Connections between your OT sensors and the Azure portal provide alerts and device data, health messages, threat intelligence packages, and more.
+For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards.
 
 When defining outbound allow rules to connect to Azure, you'll need to enable HTTPS traffic to each of the required endpoints on port 443. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.
 
