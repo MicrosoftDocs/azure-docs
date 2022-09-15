@@ -53,7 +53,7 @@ For example, the following rules where there's no margin between thresholds, cau
 * Scale out when thread count >=600
 * Scale in when thread count < 600
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-2.png" alt-text="A screenshot showing autoscale rules with scale out when thread count is greater than or equal to 600 and scale in when thread count less than 600":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-2.png" alt-text="A screenshot showing autoscale rules with scale out when thread count is greater than or equal to 600 and scale in when thread count less than 600.":::
 
 The table below shows a potential outcome of these autoscale rules:
 
@@ -76,7 +76,7 @@ Setting an adequate margin between thresholds avoids the above scenario. For exa
 * Scale out when thread count >=600
 * Scale in when thread count < 400
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-3.png" alt-text="A screenshot showing autoscale rules with scale out when thread count greater than or equal to 600 and scale in when thread count less than 400" lightbox:::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-3.png" alt-text="A screenshot showing autoscale rules with scale out when thread count greater than or equal to 600 and scale in when thread count less than 400." lightbox:::
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -166,7 +166,7 @@ Below is an example of an activity log record for flapping:
 }
 ````
 
-## Next Steps
+## Next steps
 
 To learn more about autoscale, see the following resources:
 
