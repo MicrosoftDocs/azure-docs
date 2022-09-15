@@ -18,15 +18,15 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 `LocalOptions` is data model that can have `ParticipantViewData` and `NavigationBarViewData` that will represent the local participant.  By default for `ParticipantViewData`, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components. 
 
-Similarly, for 'NavigationBarViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'NavigationBarViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
+Similarly, for 'SetupScreenViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'SetupScreenViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
 
 #### Participant View Data
 
 `ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
 
-#### Navigation Bar View Data
+#### Setup Screen View Data
 
-`NavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). If `NavigationBarViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
+`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
 If `subtitle` is not defined, then the subtitle would always be set to hidden. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
@@ -35,10 +35,10 @@ If `subtitle` is not defined, then the subtitle would always be set to hidden. T
 // LocalOptions (data not sent to server)
 let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
-let localNavigationBarViewData = NavigationBarViewData(title: "<NAV_TITLE>",
+let localSetupScreenViewData = SetupScreenViewData(title: "<NAV_TITLE>",
                                                                subtitle: "<NAV_SUBTITLE>")
 let localOptions = LocalOptions(participantViewData: localParticipantViewData, 
-                                navigationBarViewData: localNavigationBarViewData)
+                                navigationBarViewData: localSetupScreenViewData)
 // RemoteOptions (data sent to server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
