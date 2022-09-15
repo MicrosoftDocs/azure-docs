@@ -17,8 +17,6 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
-  - name: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
-    href: vmware-azure-set-up-replication-modernized-quickstart.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
