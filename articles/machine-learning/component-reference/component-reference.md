@@ -13,7 +13,7 @@ ms.date: 11/09/2020
 ---
 # Algorithm & component reference for Azure Machine Learning designer
 
-This reference content provides the technical background on each of the machine learning algorithms and components available in Azure Machine Learning designer.
+This reference content provides the technical background on each of the built-in machine learning algorithms and components available in Azure Machine Learning designer.
 
 Each component represents a set of code that can run independently and perform a machine learning task, given the required inputs. A component might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
@@ -62,6 +62,25 @@ Learn about the [web service components](web-service-input-output.md), which are
 ## Error messages
 
 Learn about the [error messages and exception codes](designer-error-codes.md) that you might encounter using components in Azure Machine Learning designer.
+
+## Components environment
+
+All built-in components in the designer will be executed in a fixed environment provided by Microsoft. 
+
+Previously this environment was based on Python 3.6, and now it is upgraded to Python 3.8 now. This upgrading is transparent - the components will be automatically run in Python 3.8 environment. This may have following impacts.
+
+### Components outputs are different from previous results
+
+After Python version is upgraded from 3.6 to 3.8, the dependencies of built-in components may be also upgraded accordingly. Hence, you may find some components outputs are different from previous results.
+
+If you are using Execute Python Script component, previously if you installed packages tied to Python 3.6, you may run into errors like "Could not find a version that satisfies the requirement" or "No matching distribution found", then you need to specify the package version adapted to Python 3.8, and run your pipeline again.
+
+### Deploy real-time endpoint from real-time inference pipeline issue
+
+If you directly deploy real-time endpoint from a previous completed real-time inference pipeline, it may run into errors. 
+
+**Recommendation**: clone the inference pipeline and submit it again, and then deploy to real-time endpoint.
+
 
 ## Next steps
 
