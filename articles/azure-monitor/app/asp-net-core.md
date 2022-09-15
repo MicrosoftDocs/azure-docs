@@ -41,7 +41,8 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
 > [!NOTE]
-> ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later.<br/>ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
+> - ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later
+> - ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later
 
 ## Prerequisites
 
@@ -200,23 +201,23 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
 1. In `_ViewImports.cshtml`, add injection:
 
-   ```cshtml
-       @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-   ```
+    ```cshtml
+    @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+    ```
 
 2. In `_Layout.cshtml`, insert `HtmlHelper` at the end of the `<head>` section but before any other script. If you want to report any custom JavaScript telemetry from the page, inject it after this snippet:
 
-   ```cshtml
-       @Html.Raw(JavaScriptSnippet.FullScript)
-       </head>
-   ```
+    ```cshtml
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+    ```
 
 As an alternative to using the `FullScript`, the `ScriptBody` is available starting in Application Insights SDK for ASP.NET Core version 2.14. Use `ScriptBody` if you need to control the `<script>` tag to set a Content Security Policy:
 
 ```cshtml
- <script> // apply custom changes to this script tag.
-     @Html.Raw(JavaScriptSnippet.ScriptBody)
- </script>
+<script> // apply custom changes to this script tag.
+ @Html.Raw(JavaScriptSnippet.ScriptBody)
+</script>
 ```
 
 The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. Add the JavaScript snippet to `_Layout.cshtml` in an application template to enable client-side monitoring.
@@ -544,14 +545,14 @@ var app = builder.Build();
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // Use the following to replace the default channel with InMemoryChannel.
-        // This can also be applied to ServerTelemetryChannel.
-        services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
+public void ConfigureServices(IServiceCollection services)
+{
+    // Use the following to replace the default channel with InMemoryChannel.
+    // This can also be applied to ServerTelemetryChannel.
+    services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
 
-        services.AddApplicationInsightsTelemetry();
-    }
+    services.AddApplicationInsightsTelemetry();
+}
 ```
 
 ---
@@ -579,16 +580,16 @@ var app = builder.Build();
 ### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry();
-    }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+}
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
-    {
-        configuration.DisableTelemetry = true;
-        ...
-    }
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+{
+    configuration.DisableTelemetry = true;
+    ...
+}
 ```
 
 ---
@@ -720,16 +721,16 @@ var app = builder.Build();
 using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // The following will configure the channel to use the given folder to temporarily
-        // store telemetry items during network or Application Insights server issues.
-        // User should ensure that the given folder already exists
-        // and that the application has read/write permissions.
-        services.AddSingleton(typeof(ITelemetryChannel),
-                                new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-        services.AddApplicationInsightsTelemetry();
-    }
+public void ConfigureServices(IServiceCollection services)
+{
+    // The following will configure the channel to use the given folder to temporarily
+    // store telemetry items during network or Application Insights server issues.
+    // User should ensure that the given folder already exists
+    // and that the application has read/write permissions.
+    services.AddSingleton(typeof(ITelemetryChannel),
+                            new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+    services.AddApplicationInsightsTelemetry();
+}
 ```
 
 ---
