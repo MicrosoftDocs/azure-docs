@@ -169,4 +169,4 @@ For more information on this vCenter version, see [VMware vCenter Server 6.7 Upd
 >This is non-disruptive and should not impact Azure VMware Services or workloads. During maintenance, various VMware alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
-Once complete, newer versions of VMware components appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
