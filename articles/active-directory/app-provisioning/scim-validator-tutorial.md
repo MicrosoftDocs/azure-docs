@@ -37,7 +37,7 @@ The first step is to select a testing method to validate your SCIM endpoint.
 1. Open your web browser and navigate to the SCIM Validator: [https://scimvalidator.microsoft.com/](https://scimvalidator.microsoft.com/).
 1. Select one of the three test options. You can use default attributes, automatically discover the schema, or upload a schema.
 
-:::image type="content" source="./media/scim-validator-tutorial/scim-validator.png" alt-text="SCIM Validator Main Page" lightbox="./media/scim-validator-tutorial/scim-validator.png":::
+    :::image type="content" source="./media/scim-validator-tutorial/scim-validator.png" alt-text="Screenshot of SCIM Validator main page." lightbox="./media/scim-validator-tutorial/scim-validator.png":::
 
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
@@ -49,7 +49,7 @@ The first step is to select a testing method to validate your SCIM endpoint.
 ## Configure the testing method
 Now that you've selected a testing method, the next step is to configure it.
 
-:::image type="content" source="./media/scim-validator-tutorial/scim-validator-attributes.png" alt-text="SCIM Validator Attributes Page" lightbox="./media/scim-validator-tutorial/scim-validator-attributes.png":::
+:::image type="content" source="./media/scim-validator-tutorial/scim-validator-attributes.png" alt-text="Screenshot of SCIM Validator attributes page." lightbox="./media/scim-validator-tutorial/scim-validator-attributes.png":::
 
 1. If you're using the default attributes option, then fill in all of the indicated fields.
 2. If you're using the discover schema option, then enter the SCIM endpoint URL and token.
@@ -71,8 +71,7 @@ Finally, you need to test and validate your endpoint.
 1. Select the **show details** tab and review and fix issues.
 1. Continue to test your schema until all tests pass.
 
-
-:::image type="content" source="./media/scim-validator-tutorial/scim-validator-results.png" alt-text="SCIM Validator Results Page" lightbox="./media/scim-validator-tutorial/scim-validator-results.png":::
+    :::image type="content" source="./media/scim-validator-tutorial/scim-validator-results.png" alt-text="Screenshot of SCIM Validator results page." lightbox="./media/scim-validator-tutorial/scim-validator-results.png":::
 
 ### Use Postman to test endpoints (optional)
 
