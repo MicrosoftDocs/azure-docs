@@ -627,6 +627,7 @@ Use [az network nic delete](/cli/azure/network/nic#az-network-nic-delete) to del
 ```azurecli
 az network nic delete --name myNIC --resource-group myResourceGroup
 ```
+
 ---
 
 ## Resolve connectivity issues
@@ -676,6 +677,7 @@ az network nic list-effective-nsg --name myNIC --resource-group myResourceGroup
 The effective routes for the network interface or interfaces attached to a virtual machine are a combination of:
 
 - Default routes
+
 - User created routes
 
 - Routes propagated from on-premises networks via BGP through an Azure virtual network gateway. 
@@ -737,6 +739,8 @@ To perform tasks on network interfaces, your account must be assigned to the [ne
 ## Next steps
 
 - Create a VM with multiple NICs using the [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
 - Create a single NIC VM with multiple IPv4 addresses using the [Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md) or [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
+
 - Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) using the [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), or [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
