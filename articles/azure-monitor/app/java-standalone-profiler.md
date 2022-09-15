@@ -34,15 +34,16 @@ When a threshold is reached, a profile of the configured type and duration is ga
 > and processes running on the system.
 
 The flags that have been disabled are:
->
-> - jdk.JVMInformation
-> - jdk.InitialSystemProperty
-> - jdk.OSInformation
-> - jdk.InitialEnvironmentVariable
-> - jdk.SystemProcess
->
-> However, you should review all enabled flags to ensure that profiles do not contain sensitive data.
-> See [Configuring Profile Contents](#configuring-profile-contents) on setting a custom profiler configuration.
+
+- jdk.JVMInformation
+- jdk.InitialSystemProperty
+- jdk.OSInformation
+- jdk.InitialEnvironmentVariable
+- jdk.SystemProcess
+
+However, you should review all enabled flags to ensure that profiles don't contain sensitive data.
+
+See [Configuring Profile Contents](#configuring-profile-contents) on setting a custom profiler configuration.
 
 ## Prerequisites
 
@@ -94,13 +95,13 @@ configuring resource limits that will trigger a profile if breached.
 1. Configure the resource thresholds that will cause a profile to be collected:
     
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
-       :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiling/performance-blade.png":::
-       :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiling/profiler-button.png":::
+       :::image type="content" source="./media/java-standalone-profiler/performance-blade.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiler/performance-blade.png":::
+       :::image type="content" source="./media/java-standalone-profiler/profiler-button.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiler/profiler-button.png":::
        
     2. Select "Triggers"
     
     3. Configure the required CPU and Memory thresholds and select Apply.
-       :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
+       :::image type="content" source="./media/java-standalone-profiler/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers.":::
        
 1. Inside the `applicationinsights.json` configuration of your process, enable profiler with the `preview.profiler.enabled` setting:
    ```json
@@ -127,7 +128,7 @@ Application Insights instance within the Performance -> Profiler section. From t
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
 tool of your choosing, for example JDK Mission Control (JMC).
 
-:::image type="content" source="./media/java-standalone-profiling/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiling/configure-blade.png":::
+:::image type="content" source="./media/java-standalone-profiler/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiler/configure-blade-inline.png":::
 
 ### Configuration
 
@@ -206,10 +207,10 @@ Java Profiling enablement is a free feature with Application Insights. [Azure Mo
 Profiling data collected by the JFR includes: method and execution profiling data, garbage collection data, and lock profiles. 
 
 ### How can I use App Insights Java Profiling and visualize the data?
-Check out Microsoft documentation on "[How to configure the Azure Monitor Application Insights for Java Profiler](https://azure-docs/blob/add-java-profiler-doc/articles/azure-monitor/app/java-standalone-profiling.md#installation)." JFR recording can be viewed and analyzed with your preferred tool, for example [Java Mission Control (JMC)](https://jdk.java.net/jmc/8/).
+JFR recording can be viewed and analyzed with your preferred tool, for example [Java Mission Control (JMC)](https://jdk.java.net/jmc/8/).
 
 ### Are performance diagnosis and fix recommendations provided with App Insights Java Profiling? 
-'Performance diagnostics and recommendations' is a new feature that will be available as Application Insights Java Diagnostics. You may sign up to preview this feature at https://aka.ms/JavaO11y. JFR recording can be viewed with Java Mission Control (JMC).
+'Performance diagnostics and recommendations' is a new feature that will be available as Application Insights Java Diagnostics. You may [sign up](https://aka.ms/JavaO11y) to preview this feature. JFR recording can be viewed with Java Mission Control (JMC).
 
 ### What's the difference between on-demand and automatic Java Profiling in App Insights? 
 
