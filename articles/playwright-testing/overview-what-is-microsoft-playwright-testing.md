@@ -50,7 +50,7 @@ You can integrate Microsoft Playwright Testing in your CI/CD pipeline to impleme
 
 ## Troubleshoot issues with rich test results
 
-After your tests finish, you can [use the unified Microsoft Playwright dashboard](./tutorial-identify-issues-with-end-to-end-web-tests.md) to explore the test results and troubleshoot issues. The dashboard shows rich test results to help diagnose failing tests:
+After your tests finish, you can [use the unified Microsoft Playwright dashboard](./tutorial-identify-issues-with-end-to-end-tests.md) to explore the test results and troubleshoot issues. The dashboard shows rich test results to help diagnose failing tests:
 
 - Use error details to identify where in the test an error occurred, and what the expected and actual state was.
 - Use application screenshots and video recordings for a visual representation of the application during the test run.
@@ -83,5 +83,5 @@ To test applications that aren't publicly accessible, you can add a configuratio
 Start using Microsoft Playwright Testing.
 
 - [Quickstart: Run end-to-end tests at scale](./quickstart-run-end-to-end-tests.md).
-- [Tutorial: Identify issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+- [Tutorial: Identify issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
 - [Tutorial: Automate end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).

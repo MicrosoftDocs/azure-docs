@@ -78,6 +78,6 @@ In the [Azure portal](https://portal.azure.com), select **Delete** at the top of
 
 ## Next steps
 
-- Learn how to [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)
+- Learn how to [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)
 - Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
 - Learn how to [Run existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).
