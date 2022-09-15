@@ -1,9 +1,11 @@
-- name: Azure DDoS Protection Standard documentation
+- name: Azure DDoS Protection documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DDoS Protection Standard?
+  - name: What is Azure DDoS Protection?
     href: ddos-protection-overview.md
+  - name: Azure DDoS Protection SKU comparison
+    href: ddos-protection-sku-comparison.md
 - name: Quickstarts
   items:
   - name: Create a DDoS protection plan - Portal
@@ -32,7 +34,7 @@
     href: types-of-attacks.md
   - name: Fundamental best practices
     href: fundamental-best-practices.md
-  - name: Azure DDoS Protection Standard features
+  - name: Azure DDoS Protection features
     href: ddos-protection-standard-features.md
   - name: Components of a DDoS response strategy
     href: ddos-response-strategy.md
