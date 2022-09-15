@@ -118,6 +118,21 @@ Place this file in the same folder as the executable file `OrchestratorSandbox.e
 
 `%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
 
+
+### Scenario: Windows Azure VMs automatically dropped from a hybrid worker group
+
+#### Issue
+
+You can't see the Hybrid Runbook Worker or VMs when the worker machine has been turned off for a long time.
+
+#### Cause
+
+The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 30 days. As a result, Automation has purged the Hybrid Runbook Worker group or the System Worker group. 
+
+#### Resolution
+
+Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:

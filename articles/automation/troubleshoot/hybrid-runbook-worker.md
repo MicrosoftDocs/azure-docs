@@ -90,7 +90,7 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 #### Resolution
 
-Start the worker machine, and then rereregister it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on the Hybrid Runbook Worker
 
