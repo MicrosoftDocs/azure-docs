@@ -103,9 +103,9 @@ The following image shows the first flow:
 1. Generate an access token.
     
     > [!NOTE]
-    > In this step we generate an access token. This tutorial is based on the ARM accounts, for the classic accounts, see [Logic App connectors with classic-based AVI accounts](logic-apps-connector-tutorial.md). 
+    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP).
     >
-    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
+    > Press **Try it** to get the correct values for your account.
 
     Search and create an **HTTP** action.
     
@@ -130,25 +130,29 @@ The following image shows the first flow:
     
     > [!TIP]
     > Before moving to the next step step up the right permission between the Logic app and the Azure Video Indexer account.
-    > Make sure you have followed the steps to enable the system assigned managed identity of your Logic Apps.
-    
+    >
+    > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
+
     ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
 
     1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
 
-        In the Azure portal, go to your Azure Video Indexer resource/account, on the left side blade, and select **Access control**.
+        In the Azure portal, go to your Azure Video Indexer resource/account.
 
-        1. Select **Add** -> **Add role assignment** -> **Contributor** -> **Next** -> **User, group, or service principal** -> **Members**.
-        1. Search the Logic Apps name you created (in this case, `UploadIndexVideosApp`) and select it.
-1. Create an **Upload video and index** action.
+        1. On the left side blade, and select **Access control**.
+        1. Select **Add** -> **Add role assignment** -> **Contributor** -> **Next** -> **User, group, or service principal** -> **+Select members**.
+        1. Under **Members**, search for the Logic Apps name you created (in this case, `UploadIndexVideosApp`).
+        1. Press **Select**.
+        1. Press **Review + assign**.
+1. Back in your Logic App, create an **Upload video and index** action.
     
-    1. Search for "Video Indexer".
+    1. Select **Video Indexer(V2).
     1. From Video Indexer(V2) chose **Upload Video and index**.
     1. Set the connection to the Video Indexer account.
 
     |Key| Value|
     |----|----|
-    | Connection name| *Enter name for connection*.|
+    | Connection name| *Enter name for connection*, in this case `aviconnection`.|
     | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile)|
 
     Select **Create**.
@@ -200,22 +204,19 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     
     |Key| Value|
     |----|----|
-    |Connection name| *Enter name for connection*.|
-    | API key| This is your personal API key, which is available under *Profile* at the [developer portal](https://api-portal.videoindexer.ai/profile)|
-    
-    - Select **Create**.
-    - Fill out the required parameters according to the table: 
+    |Connection name| *Enter name for connection*. For example, `aviconnection`.|
+    | API key| This is your personal API key, which is available under **Profile** at the [developer portal](https://api-portal.videoindexer.ai/profile). For more information, see [Subscribe to the API](video-indexer-use-apis.md#subscribe-to-the-api).|
+    1. Select **Create**.
+    1. Fill out the required parameters according to the table: 
         
     |Key| Value|
     |----|----|
     |Location| Enter the Location of the Azure Video Indexer account.|
     | Account ID| The Video Indexer account ID can be copied from the resource/account **Overview** page in the Azure portal.|
-    | Video ID| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
+    | Video ID\*| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
     | Access Token| From the dynamic content, under the **Parse JSON** section select the **accessToken** that is the output of the parse JSON action. |
 
-    *This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of 
-
-    “Upload video and index” in your first trigger.
+    \*This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of **Upload video and index** in your first trigger.
     
     ![Upload video and index](./media/logic-apps-connector-arm-accounts/get-video-index.png)
         
@@ -231,7 +232,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     | Connection name| *Enter a connection name*.|
     | Authentication type |Access Key|
     | Azure Storage Account name| *Storage account name where insights will be stored*. |
-    | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys |  
+    | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
 
     ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
     1. Select **Create**.
