@@ -106,6 +106,22 @@ This guide assumes you don't have a managed identity, a storage account or an on
     ```
 * To follow along with this notebook, access the companion [example notebook](online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
+* Additional Python packages are required for this example: 
+
+    * Microsoft Azure Storage Management Client 
+
+    * Microsoft Azure Authorization Management Client
+
+    Install them with the following code: 
+    
+    ```python 
+    pip install --pre azure-mgmt-storage
+    pip install --pre azure-mgmt-authorization
+    ```
+
+
+Install them with the following code:
+
 # [User-assigned (Python)](#tab/user-identity-python)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
@@ -127,6 +143,22 @@ This guide assumes you don't have a managed identity, a storage account or an on
     cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
 * To follow along with this notebook, access the companion [example notebook](online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+
+* Additional Python packages are required for this example: 
+
+    * Microsoft Azure Msi Management Client 
+
+    * Microsoft Azure Storage Client
+
+    * Microsoft Azure Authorization Management Client
+
+    Install them with the following code: 
+    
+    ```python
+    pip install --pre azure-mgmt-msi
+    pip install --pre azure-mgmt-storage
+    pip install --pre azure-mgmt-authorization
+    ```
     
 ---
 
@@ -205,6 +237,8 @@ from azure.ai.ml.entities import (
 
 credential = AzureCliCredential()
 ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
+
+workspace_location = ml_client.workspaces.get(workspace_name).location
 ``` 
 
 We will use this value to create a storage account. 
@@ -252,6 +286,8 @@ from azure.ai.ml.entities import (
 
 credential = AzureCliCredential()
 ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
+
+workspace_location = ml_client.workspaces.get(workspace_name).location
 ``` 
 
 We will use this value to create a storage account. 
@@ -661,11 +697,10 @@ When you create an online endpoint, a system-assigned managed identity is create
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
 ``` 
 
-A deployed endpoint object can be retrieved using `online_endpoints.get`. One is also returned by the `begin_create_or_update` method as above. 
-
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
 
 ```python
+endpoint = ml_client.online_endpoints.get(endpoint_name)
 endpoint.identity.as_dict()
 ```
 
@@ -680,27 +715,25 @@ First, deploy the endpoint:
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
 ``` 
 
-Then, update the identity configuration of the deployment to User-assigned: 
+Then, update the identity configuration of the deployment to the User-assigned identity: 
 
 ```python 
+endpoint = ml_client.online_endpoints.get(endpoint_name)
 endpoint.identity = endpoint.identity.from_dict(
     {"type": "UserAssigned", "user_assigned_identities": {uai_identity.id: {}}}
 )
 
-endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
+ml_client.online_endpoints.begin_create_or_update(endpoint)
 ``` 
-
-A deployed endpoint object can be retrieved using `online_endpoints.get`. One is also returned by the `begin_create_or_update` method as above. 
 
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
 
 ```python
+endpoint = ml_client.online_endpoints.get(endpoint_name)
 endpoint.identity.as_dict()
 ```
 
 If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md).
-
-
 
 ---
 
@@ -753,21 +786,32 @@ Give permission of default workspace storage to user-assigned managed identity.
 
 # [System-assigned (Python)](#tab/system-identity-python)
 
-First, get a handle to the `AuthorizationManagementClient`: 
+First, make an `AuthorizationManagementClient` to list Role Definitions: 
 
 ```python 
 from azure.mgmt.authorization import AuthorizationManagementClient
-from azure.mgmt.authorization.models import (
-    RoleAssignment,
-    RoleDefinition,
-    RoleAssignmentCreateParameters,
-    RoleAssignmentProperties,
-    RoleAssignmentPropertiesWithScope,
-)
+from azure.mgmt.authorization.v2018_01_01_preview.models import RoleDefinition
 import uuid
 
-auth_client = AuthorizationManagementClient(
-    credential=credential, subscription_id=subscription_id
+role_definition_client = AuthorizationManagementClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    api_version="2018-01-01-preview",
+)
+```
+
+Now, initialize one to make Role Assignments: 
+
+```python 
+from azure.mgmt.authorization.v2020_10_01_preview.models import (
+    RoleAssignment,
+    RoleAssignmentCreateParameters,
+)
+
+role_assignment_client = AuthorizationManagementClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    api_version="2020-10-01-preview",
 )
 ```
 
@@ -778,19 +822,19 @@ endpoint = ml_client.online_endpoints.get(endpoint_name)
 system_principal_id = endpoint.identity.principal_id
 ```
 
-Next, give permission to the user storage account:
+Next, give assign the `Storage Blob Data Reader` role to the endpoint. The Role Definition is retrieved by name and passed along with the Principal ID of the endpoint. The role is applied at the scope of the storage account created above and allows the endpoint to read the file. 
 
 ```python 
 role_name = "Storage Blob Data Reader"
 scope = storage_account.id
 
-role_defs = auth_client.role_definitions.list(scope=scope)
+role_defs = role_definition_client.role_definitions.list(scope=scope)
 role_def = next((r for r in role_defs if r.role_name == role_name))
 
-auth_client.role_assignments.create(
+role_assignment_client.role_assignments.create(
     scope=scope,
-    role_assignment_name=uuid.uuid4(),
-    parameters=RoleAssignmentProperties(
+    role_assignment_name=str(uuid.uuid4()),
+    parameters=RoleAssignmentCreateParameters(
         role_definition_id=role_def.id, principal_id=system_principal_id
     ),
 )
@@ -799,26 +843,36 @@ auth_client.role_assignments.create(
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
-
-First, get a handle to the `AuthorizationManagementClient`: 
+First, make an `AuthorizationManagementClient` to list Role Definitions: 
 
 ```python 
 from azure.mgmt.authorization import AuthorizationManagementClient
-from azure.mgmt.authorization.models import (
-    RoleAssignment,
-    RoleDefinition,
-    RoleAssignmentCreateParameters,
-    RoleAssignmentProperties,
-    RoleAssignmentPropertiesWithScope,
-)
+from azure.mgmt.authorization.v2018_01_01_preview.models import RoleDefinition
 import uuid
 
-auth_client = AuthorizationManagementClient(
-    credential=credential, subscription_id=subscription_id
+role_definition_client = AuthorizationManagementClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    api_version="2018-01-01-preview",
 )
 ```
 
-Then, get the UAI identity object, which contains the Principal and Client IDs:  
+Now, initialize one to make Role Assignments: 
+
+```python 
+from azure.mgmt.authorization.v2020_10_01_preview.models import (
+    RoleAssignment,
+    RoleAssignmentCreateParameters,
+)
+
+role_assignment_client = AuthorizationManagementClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    api_version="2020-10-01-preview",
+)
+```
+
+Then, get the Principal ID and Client ID of the System-assigned managed identity. To assign roles, we only need the Principal ID. However, we will use the Client ID to fill the `UAI_CLIENT_ID` placeholder environment variable before creating the deployment.
 
 ```python
 uai_identity = msi_client.user_assigned_identities.get(
@@ -828,24 +882,23 @@ uai_principal_id = uai_identity.principal_id
 uai_client_id = uai_identity.client_id
 ```
 
-Next, give permission to the user storage account:
+Next, assign the `Storage Blob Data Reader` role to the endpoint. The Role Definition is retrieved by name and passed along with the Principal ID of the endpoint. The role is applied at the scope of the storage account created above to allow the endpoint to read the file. 
 
 ```python 
 role_name = "Storage Blob Data Reader"
 scope = storage_account.id
 
-role_defs = auth_client.role_definitions.list(scope=scope)
+role_defs = role_definition_client.role_definitions.list(scope=scope)
 role_def = next((r for r in role_defs if r.role_name == role_name))
 
-auth_client.role_assignments.create(
+role_assignment_client.role_assignments.create(
     scope=scope,
-    role_assignment_name=uuid.uuid4(),
-    parameters=RoleAssignmentProperties(
+    role_assignment_name=str(uuid.uuid4()),
+    parameters=RoleAssignmentCreateParameters(
         role_definition_id=role_def.id, principal_id=uai_principal_id
     ),
 )
 ``` 
-
 For the next two permissions, we'll need the workspace and container registry objects: 
 
 ```python 
@@ -853,37 +906,39 @@ workspace = ml_client.workspaces.get(workspace_name)
 container_registry = workspace.container_registry
 ``` 
 
-Now, give permission for the UAI top pull from the container registry: 
+Next, assign the `AcrPull` role to the User-assigned identity. This role allows images to be pulled from an Azure Container Registry. The scope is applied at the level of the container registry associated with the workspace.
 
 ```python 
 role_name = "AcrPull"
 scope = container_registry
 
-role_defs = auth_client.role_definitions.list(scope=scope)
+role_defs = role_definition_client.role_definitions.list(scope=scope)
 role_def = next((r for r in role_defs if r.role_name == role_name))
 
-auth_client.role_assignments.create(
+role_assignment_client.role_assignments.create(
     scope=scope,
-    role_assignment_name=uuid.uuid4(),
-    parameters=RoleAssignmentProperties(
+    role_assignment_name=str(uuid.uuid4()),
+    parameters=RoleAssignmentCreateParameters(
         role_definition_id=role_def.id, principal_id=uai_principal_id
     ),
 )
 ``` 
 
-Finally, give permission to the workspace storage account: 
+Finally, assign the `Storage Blob Data Reader` role to the endpoint at the workspace storage account scope. This role assignment will allow the endpoint to read blobs in the workspace storage account as well as the newly created storage account.
+
+The role has the same name and capabilities as the first role assigned above, however it is applied at a different scope and has a different ID. 
 
 ```python 
 role_name = "Storage Blob Data Reader"
 scope = workspace.storage_account
 
-role_defs = auth_client.role_definitions.list(scope=scope)
+role_defs = role_definition_client.role_definitions.list(scope=scope)
 role_def = next((r for r in role_defs if r.role_name == role_name))
 
-auth_client.role_assignments.create(
+role_assignment_client.role_assignments.create(
     scope=scope,
-    role_assignment_name=uuid.uuid4(),
-    parameters=RoleAssignmentProperties(
+    role_assignment_name=str(uuid.uuid4()),
+    parameters=RoleAssignmentCreateParameters(
         role_definition_id=role_def.id, principal_id=uai_principal_id
     ),
 )
@@ -949,15 +1004,20 @@ To check the init method output, see the deployment log with the following code.
 
 # [System-assigned (Python)](#tab/system-identity-python)
 
+First, create the deployment:  
+
 ```python 
 deployment = ml_client.online_deployments.begin_create_or_update(deployment)
 ```
 
-Once the command executes, you can check the status of the deployment.
+Once deployment completes, check its status and confirm its identity details: 
 
 
 ```python 
-deployment.as_dict()
+deployment = ml_client.online_deployments.get(
+    endpoint_name=endpoint_name, name=deployment.name
+)
+print(deployment)
 ``` 
 
 > [!NOTE]
@@ -969,28 +1029,34 @@ To check the init method output, see the deployment log with the following code.
 ml_client.online_deployments.get_logs(deployment.name, deployment.endpoint_name, 1000)
 ``` 
 
+Now that the deployment is confirmed, set the traffic to 100%: 
+
+```python 
+endpoint.traffic = {str(deployment.name): 100}
+ml_client.begin_create_or_update(endpoint)
+```
+
 # [User-assigned (Python)](#tab/user-identity-python)
 
-Before we deploy, update the `UAI_CLIENT_ID` environment variable placeholder: 
+Before we deploy, update the `UAI_CLIENT_ID` environment variable placeholder. 
 
 ```python
 deployment.environment_variables['UAI_CLIENT_ID'] = uai_client_id
-
-deployment = ml_client.online_deployments.begin_create_or_update(deployment)
-
 ```
 
-Create the deployment. 
+Now, create the deployment: 
 
 ```python 
 deployment = ml_client.online_deployments.begin_create_or_update(deployment)
 ```
 
-Once the command executes, you can check the status of the deployment.
-
+Once deployment completes, check its status and confirm its identity details: 
 
 ```python 
-deployment.as_dict()
+deployment = ml_client.online_deployments.get(
+    endpoint_name=endpoint_name, name=deployment.name
+)
+print(deployment)
 ``` 
 
 > [!NOTE]
@@ -1002,13 +1068,20 @@ To check the init method output, see the deployment log with the following code.
 ml_client.online_deployments.get_logs(deployment.name, deployment.endpoint_name, 1000)
 ``` 
 
+Now that the deployment is confirmed, set the traffic to 100%: 
+
+```python 
+endpoint.traffic = {str(deployment.name): 100}
+ml_client.begin_create_or_update(endpoint)
+```
+
 ---
 
 When your deployment completes,  the model, the environment, and the endpoint are registered to your Azure Machine Learning workspace.
 
-## Confirm your endpoint deployed successfully
+## Test the endpoint
 
-Once your online endpoint is deployed, confirm its operation. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
+Once your online endpoint is deployed, test and confirm its operation with a request. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
 
 :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/model-1/sample-request.json" :::
 
@@ -1084,7 +1157,16 @@ Delete the storage account:
 storage_client.storage_accounts.delete(
     resource_group_name=resource_group, account_name=storage_account_name
 )
-``` 
+```
+
+Delete the User-assigned managed identity: 
+
+```python
+msi_client.user_assigned_identities.delete(
+    resource_group_name=resource_group, resource_name=uai_name
+)
+```
+
 
 ---
 
