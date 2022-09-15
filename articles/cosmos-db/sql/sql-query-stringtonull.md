@@ -3,7 +3,7 @@ title: StringToNull in Azure Cosmos DB query language
 description: Learn about SQL system function StringToNull in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # StringToNull (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns expression translated to null. If expression cannot be translated, returns undefined.  
+ Returns expression translated to null. If expression can't be translated, returns undefined.  
   
 ## Syntax
   
@@ -44,7 +44,7 @@ SELECT
     IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{"n1": null, "n2": null, "n3": true}]
@@ -52,7 +52,7 @@ SELECT
 
 The following are examples with invalid input.
 
-Null is case sensitive and must be written with all lowercase characters i.e. "null".
+Null is case sensitive and must be written with all lowercase characters such as `null`.
 
 ```sql
 SELECT    
@@ -60,13 +60,13 @@ SELECT
     StringToNull("Null")
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{}]
 ```  
 
-The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
+The expression passed will be parsed as a null expression; these inputs don't evaluate to type null and thus return undefined.
 
 ```sql
 SELECT    
@@ -76,7 +76,7 @@ SELECT
     StringToNull(NaN) 
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{}]
@@ -84,7 +84,7 @@ SELECT
 
 ## Remarks
 
-This system function will not utilize the index.
+This system function won't utilize the index.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Cosmos DB Spark Connector - Throughput Control
 description: Learn about controlling throughput for bulk data movements in the Azure Cosmos DB Spark Connector
 author: TheovanKraay
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/22/2022
 ms.author: thvankra
@@ -106,5 +106,5 @@ In each client record, the `loadFactor` attribute represents the load on the giv
 ## Next steps
 
 * [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).
-* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API](create-sql-api-spark.md).
+* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL](create-sql-api-spark.md).
 * Learn more about [Apache Spark](https://spark.apache.org/).

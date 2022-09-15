@@ -3,7 +3,7 @@ title: System functions in Azure Cosmos DB query language
 description: Learn about built-in and user defined SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: girobins
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # System functions (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
+ Azure Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
 |Function group|Description|Operations|  
 |--------------|-----------------|-----------------| 
@@ -29,7 +29,7 @@ If you’re currently using a user-defined function (UDF) for which a built-in f
 
 ## Built-in versus ANSI SQL functions
 
-The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `undefined`, the item is skipped instead of returning an error.
+The main difference between Azure Cosmos DB functions and ANSI SQL functions is that Azure Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `undefined`, the item is skipped instead of returning an error.
 
 ## Next steps
 

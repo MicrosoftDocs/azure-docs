@@ -3,7 +3,7 @@ title: WHERE clause in Azure Cosmos DB
 description: Learn about SQL WHERE clause for Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: sidandrews
@@ -63,7 +63,7 @@ The results are:
 
 ### Scalar expressions in the WHERE clause
 
-The previous example showed a simple equality query. The SQL API also supports various [scalar expressions](sql-query-scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
+The previous example showed a simple equality query. The API for NoSQL also supports various [scalar expressions](sql-query-scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
 
 You can use the following supported binary operators:  
 

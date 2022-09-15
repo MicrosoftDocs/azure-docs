@@ -3,7 +3,7 @@ title: ST_DISTANCE in Azure Cosmos DB query language
 description: Learn about SQL system function ST_DISTANCE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: girobins

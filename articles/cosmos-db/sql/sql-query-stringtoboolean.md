@@ -3,7 +3,7 @@ title: StringToBoolean in Azure Cosmos DB query language
 description: Learn about SQL system function StringToBoolean in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # StringToBoolean (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
+ Returns expression translated to a Boolean. If expression can't be translated, returns undefined.  
   
 ## Syntax
   
@@ -35,7 +35,7 @@ StringToBoolean(<str_expr>)
  
  The following are examples with valid input.
 
-Whitespace is allowed only before or after "true"/"false".
+Whitespace is allowed only before or after `true`/`false`.
 
 ```sql
 SELECT 
@@ -44,7 +44,7 @@ SELECT
     StringToBoolean("false    ") AS b3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{"b1": true, "b2": false, "b3": false}]
@@ -52,7 +52,7 @@ SELECT
 
 The following are examples with invalid input.
 
- Booleans are case sensitive and must be written with all lowercase characters i.e. "true" and "false".
+ Booleans are case sensitive and must be written with all lowercase characters such as `true` and `false`.
 
 ```sql
 SELECT 
@@ -60,13 +60,13 @@ SELECT
     StringToBoolean("False")
 ```  
 
-Here is the result set.  
+Here's the result set.  
   
 ```json
 [{}]
 ``` 
 
-The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
+The expression passed will be parsed as a Boolean expression; these inputs don't evaluate to type Boolean and thus return undefined.
 
 ```sql
 SELECT 
@@ -77,7 +77,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
-Here is the result set.  
+Here's the result set.  
   
 ```json
 [{}]
@@ -85,7 +85,7 @@ Here is the result set.
 
 ## Remarks
 
-This system function will not utilize the index.
+This system function won't utilize the index.
 
 ## Next steps
 

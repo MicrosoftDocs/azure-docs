@@ -3,7 +3,7 @@ title: User-defined functions (UDFs) in Azure Cosmos DB
 description: Learn about User-defined functions in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: sidandrews
@@ -14,11 +14,11 @@ ms.custom: devx-track-js
 # User-defined functions (UDFs) in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The SQL API provides support for user-defined functions (UDFs). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
+The API for NoSQL provides support for user-defined functions (UDFs). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
 
 ## UDF use cases
 
-The API extends the SQL syntax to support custom application logic using UDFs. You can register UDFs with the SQL API, and reference them in SQL queries. Unlike stored procedures and triggers, UDFs are read-only.
+The API extends the SQL syntax to support custom application logic using UDFs. You can register UDFs with the API for NoSQL, and reference them in SQL queries. Unlike stored procedures and triggers, UDFs are read-only.
 
 Using UDFs, you can extend Azure Cosmos DB's query language. UDFs are a great way to express complex business logic in a query's projection.
 
@@ -31,7 +31,7 @@ If you must use the same UDF multiple times in a query, you should reference the
 
 ## Examples
 
-The following example registers a UDF under an item container in the Cosmos database. The example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values, `input` and `pattern`, and checks if the first matches the pattern specified in the second using JavaScript's `string.match()` function.
+The following example registers a UDF under an item container in the Azure Cosmos DB database. The example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values, `input` and `pattern`, and checks if the first matches the pattern specified in the second using JavaScript's `string.match()` function.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -134,7 +134,7 @@ The results are:
 
 If the properties referred to by the UDF parameters aren't available in the JSON value, the parameter is considered as undefined and the UDF invocation is skipped. Similarly, if the result of the UDF is undefined, it's not included in the result.
 
-As the preceding examples show, UDFs integrate the power of JavaScript language with the SQL API. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The SQL API provides the arguments to the UDFs for each source item at the current WHERE or SELECT clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline. In summary, UDFs are great tools to do complex business logic as part of queries.
+As the preceding examples show, UDFs integrate the power of JavaScript language with the API for NoSQL. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The API for NoSQL provides the arguments to the UDFs for each source item at the current WHERE or SELECT clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline. In summary, UDFs are great tools to do complex business logic as part of queries.
 
 ## Next steps
 

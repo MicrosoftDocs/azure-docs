@@ -1,23 +1,23 @@
 ---
-title: Troubleshoot issues when using Azure Functions trigger for Cosmos DB
-description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Cosmos DB
+title: Troubleshoot issues when using Azure Functions trigger for Azure Cosmos DB
+description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Azure Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
 ---
 
-# Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
+# Diagnose and troubleshoot issues when using Azure Functions trigger for Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Functions trigger for Cosmos DB](change-feed-functions.md).
+This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Functions trigger for Azure Cosmos DB](change-feed-functions.md).
 
 ## Dependencies
 
-The Azure Functions trigger and bindings for Cosmos DB depend on the extension packages over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter:
+The Azure Functions trigger and bindings for Azure Cosmos DB depend on the extension packages over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter:
 
 * For Azure Functions V2, see [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * For Azure Functions V1, see [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -26,7 +26,7 @@ This article will always refer to Azure Functions V2 whenever the runtime is men
 
 ## Consume the Azure Cosmos DB SDK independently
 
-The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Cosmos DB. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
+The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Azure Cosmos DB. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
 If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**. Consume the Azure Cosmos DB SDK separately from the trigger and bindings
 
@@ -38,12 +38,12 @@ Additionally, if you are manually creating your own instance of the [Azure Cosmo
 
 Azure Function fails with error message "Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') does not exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'"
 
-This means that either one or both of the Azure Cosmos containers required for the trigger to work do not exist or are not reachable to the Azure Function. **The error itself will tell you which Azure Cosmos database and container is the trigger looking for** based on your configuration.
+This means that either one or both of the Azure Cosmos DB containers required for the trigger to work do not exist or are not reachable to the Azure Function. **The error itself will tell you which Azure Cosmos DB database and container is the trigger looking for** based on your configuration.
 
 1. Verify the `ConnectionStringSetting` attribute and that it **references a setting that exists in your Azure Function App**. The value on this attribute shouldn't be the Connection String itself, but the name of the Configuration Setting.
-2. Verify that the `databaseName` and `collectionName` exist in your Azure Cosmos account. If you are using automatic value replacement (using `%settingName%` patterns), make sure the name of the setting exists in your Azure Function App.
+2. Verify that the `databaseName` and `collectionName` exist in your Azure Cosmos DB account. If you are using automatic value replacement (using `%settingName%` patterns), make sure the name of the setting exists in your Azure Function App.
 3. If you don't specify a `LeaseCollectionName/leaseCollectionName`, the default is "leases". Verify that such container exists. Optionally you can set the `CreateLeaseCollectionIfNotExists` attribute in your Trigger to `true` to automatically create it.
-4. Verify your [Azure Cosmos account's Firewall configuration](../how-to-configure-firewall.md) to see to see that it's not it's not blocking the Azure Function.
+4. Verify your [Azure Cosmos DB account's Firewall configuration](../how-to-configure-firewall.md) to see to see that it's not it's not blocking the Azure Function.
 
 ### Azure Function fails to start with "Shared throughput collection should have a partition key"
 
@@ -69,12 +69,12 @@ This issue appears if you are using the Azure portal and you try to select the *
 
 This scenario can have multiple causes and all of them should be checked:
 
-1. Is your Azure Function deployed in the same region as your Azure Cosmos account? For optimal network latency, both the Azure Function and your Azure Cosmos account should be colocated in the same Azure region.
-2. Are the changes happening in your Azure Cosmos container continuous or sporadic?
-If it's the latter, there could be some delay between the changes being stored and the Azure Function picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos container and finds none pending to be read, it will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
-3. Your Azure Cosmos container might be [rate-limited](../request-units.md).
+1. Is your Azure Function deployed in the same region as your Azure Cosmos DB account? For optimal network latency, both the Azure Function and your Azure Cosmos DB account should be colocated in the same Azure region.
+2. Are the changes happening in your Azure Cosmos DB container continuous or sporadic?
+If it's the latter, there could be some delay between the changes being stored and the Azure Function picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos DB container and finds none pending to be read, it will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
+3. Your Azure Cosmos DB container might be [rate-limited](../request-units.md).
 4. You can use the `PreferredLocations` attribute in your trigger to specify a comma-separated list of Azure regions to define a custom preferred connection order.
-5. The speed at which your Trigger receives new changes is dictated by the speed at which you are processing them. Verify the Function's [Execution Time / Duration](../../azure-functions/analyze-telemetry-data.md), if your Function is slow that will increase the time it takes for your Trigger to get new changes. If you see a recent increase in Duration, there could be a recent code change that might affect it. If the speed at which you are receiving operations on your Azure Cosmos container is faster than the speed of your Trigger, you will keep lagging behind. You might want to investigate in the Function's code, what is the most time consuming operation and how to optimize it.
+5. The speed at which your Trigger receives new changes is dictated by the speed at which you are processing them. Verify the Function's [Execution Time / Duration](../../azure-functions/analyze-telemetry-data.md), if your Function is slow that will increase the time it takes for your Trigger to get new changes. If you see a recent increase in Duration, there could be a recent code change that might affect it. If the speed at which you are receiving operations on your Azure Cosmos DB container is faster than the speed of your Trigger, you will keep lagging behind. You might want to investigate in the Function's code, what is the most time consuming operation and how to optimize it.
 
 ### Some changes are repeated in my Trigger
 
@@ -85,7 +85,7 @@ The concept of a "change" is an operation on a document. The most common scenari
 
 ### Some changes are missing in my Trigger
 
-If you find that some of the changes that happened in your Azure Cosmos container are not being picked up by the Azure Function or some changes are missing in the destination when you are copying them, please follow the below steps.
+If you find that some of the changes that happened in your Azure Cosmos DB container are not being picked up by the Azure Function or some changes are missing in the destination when you are copying them, please follow the below steps.
 
 When your Azure Function receives the changes, it often processes them, and could optionally, send the result to another destination. When you are investigating missing changes, make sure you **measure which changes are being received at the ingestion point** (when the Azure Function starts), not on the destination.
 
@@ -94,9 +94,9 @@ If some changes are missing on the destination, this could mean that is some err
 In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry).
 
 > [!NOTE]
-> The Azure Functions trigger for Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+> The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
 
-If the destination is another Cosmos container and you are performing Upsert operations to copy the items, **verify that the Partition Key Definition on both the monitored and destination container are the same**. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
+If the destination is another Azure Cosmos DB container and you are performing Upsert operations to copy the items, **verify that the Partition Key Definition on both the monitored and destination container are the same**. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
 
 If you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 
@@ -115,9 +115,9 @@ Setting [StartFromBeginning](../../azure-functions/functions-bindings-cosmosdb-v
 
 ### Binding can only be done with IReadOnlyList\<Document> or JArray
 
-This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Azure Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
 
-To work around this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Cosmos DB Extension package.
+To work around this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Azure Cosmos DB Extension package.
 
 ### Changing Azure Function's polling interval for the detecting changes
 

@@ -3,7 +3,7 @@ title: Ternary and coalesce operators in Azure Cosmos DB
 description: Learn about SQL ternary and coalesce  operators supported by Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 01/07/2022
 ms.author: sidandrews
