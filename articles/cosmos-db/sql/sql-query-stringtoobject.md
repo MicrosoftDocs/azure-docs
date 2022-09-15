@@ -12,7 +12,7 @@ ms.custom: query-reference
 # StringToObject (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns expression translated to an Object. If expression cannot be translated, returns undefined.  
+ Returns expression translated to an Object. If expression can't be translated, returns undefined.  
   
 ## Syntax
   
@@ -23,7 +23,7 @@ StringToObject(<str_expr>)
 ## Arguments
   
 *str_expr*  
-   Is a string expression to be parsed as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+   Is a string expression to be parsed as a JSON object expression. Nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
   
 ## Return types
   
@@ -43,7 +43,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{"obj1": {}, 
@@ -53,31 +53,31 @@ Here is the result set.
 ```
 
  The following are examples with invalid input.
-Even though they are valid within a query, they will not parse to valid objects. 
+Even though they're valid within a query, they won't parse to valid objects. 
  Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
  '{"a": "str"}'.
 
-Single quotes surrounding property names are not valid JSON.
+Single quotes surrounding property names aren't valid JSON.
 
 ```sql
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{}]
 ```  
 
-Property names without surrounding quotes are not valid JSON.
+Property names without surrounding quotes aren't valid JSON.
 
 ```sql
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{}]
@@ -85,7 +85,7 @@ Here is the result set.
 
 The following are examples with invalid input.
 
- The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
+ The expression passed will be parsed as a JSON object; these inputs don't evaluate to type object and thus return undefined.
 
 ```sql
 SELECT 
@@ -97,7 +97,7 @@ SELECT
     StringToObject(undefined)
 ``` 
  
- Here is the result set.
+ Here's the result set.
 
 ```json
 [{}]
@@ -105,7 +105,7 @@ SELECT
 
 ## Remarks
 
-This system function will not utilize the index.
+This system function won't utilize the index.
 
 ## Next steps
 

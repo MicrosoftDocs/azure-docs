@@ -12,7 +12,7 @@ ms.custom: query-reference
 # StringToArray (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns expression translated to an Array. If expression cannot be translated, returns undefined.  
+ Returns expression translated to an Array. If expression can't be translated, returns undefined.  
   
 ## Syntax
   
@@ -30,7 +30,7 @@ StringToArray(<str_expr>)
   Returns an array expression or undefined. 
   
 ## Remarks
-  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/). This system function will not utilize the index.
+  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/). This system function won't utilize the index.
   
 ## Examples
   
@@ -47,24 +47,24 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-The following is an example of invalid input. 
+The following examples illustrate invalid input:
    
- Single quotes within the array are not valid JSON.
-Even though they are valid within a query, they will not parse to valid arrays. 
- Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
+- Single quotes within the array aren't valid JSON.
+- Even though they're valid within a query, they won't parse to valid arrays. 
+- Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
 
 ```sql
 SELECT
     StringToArray("['5','6','7']")
 ```
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{}]
@@ -72,7 +72,7 @@ Here is the result set.
 
 The following are examples of invalid input.
    
- The expression passed will be parsed as a JSON array; the following do not evaluate to type array and thus return undefined.
+ The expression passed will be parsed as a JSON array; the following don't evaluate to type array and thus return undefined.
    
 ```sql
 SELECT
@@ -83,7 +83,7 @@ SELECT
     StringToArray(undefined)
 ```
 
-Here is the result set.
+Here's the result set.
 
 ```json
 [{}]
