@@ -120,7 +120,7 @@ You can make changes in JSON directly, if necessary. These changes will be refle
 
 ### Cool-down period effects
 
-Autoscale uses a cool-down period to prevent "flapping," which is the rapid, repetitive up-and-down scaling of instances. For more information, see [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation). For other valuable information on flapping and understanding how to monitor the autoscale engine, see [Autoscale best practices](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) and [Troubleshooting autoscale](autoscale-troubleshoot.md), respectively.
+Autoscale uses a cool-down period to prevent "flapping," which is the rapid, repetitive up-and-down scaling of instances. For more information, see [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation). For other valuable information on flapping and understanding how to monitor the autoscale engine, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md), respectively.
 
 ## Route traffic to healthy instances (App Service)
 
