@@ -4926,11 +4926,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/sql/TOC.yml",
-      "redirect_url": "/azure/cosmos-db/nosql/TOC",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/sql/transactional-batch.md",
       "redirect_url": "/azure/cosmos-db/nosql/transactional-batch",
       "redirect_document_id": true
