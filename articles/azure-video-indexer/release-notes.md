@@ -43,13 +43,13 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## September 2022
 
-### Azure Monitor integration enabling Indexing Logs 
+### Azure Monitor integration enabling indexing logs 
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. Users can now export Logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
 The new set of Logs allows users to better monitor their indexing pipeline.
 
-### General Availability of Azure Resource Management (ARM)
+### General availability of Azure Resource Management (ARM)
 
 With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
 
