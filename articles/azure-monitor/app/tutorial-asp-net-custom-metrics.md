@@ -111,29 +111,29 @@ To send metrics to Application Insights, you can use the `TrackMetric(..)` API. 
 
 4. Right-click the **AzureCafe** project in Solution Explorer and select **Publish** from the context menu.
 
-    ![Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted.](./media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png "Publish Web App")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png" alt-text="Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted." lightbox="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png":::
 
 5. Select **Publish** to promote the new code to the Azure App Service.
 
-    ![Screenshot of the Azure Cafe publish profile screen with the Publish button highlighted.](./media/tutorial-asp-net-custom-metrics/publish-profile.png "Publish profile")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/publish-profile.png" alt-text="Screenshot of the Azure Cafe publish profile screen with the Publish button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/publish-profile.png":::
 
 6. Once the publish has succeeded, a new browser window opens to the Azure Cafe web application.
 
-    ![Screenshot of the Azure Cafe web application.](./media/tutorial-asp-net-custom-metrics/azure-cafe-index.png "Azure Cafe web application")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png" alt-text="Screenshot of the Azure Cafe web application." lightbox="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png":::
 
 7. Perform various activities in the web application to generate some telemetry.
 
    1. Select **Details** next to a Cafe to view its menu and reviews.
 
-        ![Screenshot of a portion of the Azure Cafe list with the Details button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-details-button.png "Azure Cafe Details")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list with the Details button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-details-button.png":::
 
    2. On the Cafe screen, select the **Reviews** tab to view and add reviews. Select the **Add review** button to add a review.
 
-        ![Screenshot of the Cafe details screen with the Add review button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png "Add review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png" alt-text="Screenshot of the Cafe details screen with the Add review button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png":::
 
    3. On the Create a review dialog, enter a name, rating, comments, and upload a photo for the review. Once completed, select **Add review**.
 
-        ![Screenshot of the Create a review dialog.](./media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png "Create a review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png" alt-text="Screenshot of the Create a review dialog." lightbox="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png":::
 
    4. Repeat adding reviews as desired to generate more telemetry.
 
@@ -176,29 +176,29 @@ When running the sample code, you'll see that no telemetry is being sent from th
 
 4. Right-click the **AzureCafe** project in Solution Explorer and select **Publish** from the context menu.
 
-    ![Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted.](./media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png "Publish Web App")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png" alt-text="Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted." lightbox="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png":::
 
 5. Select **Publish** to promote the new code to the Azure App Service.
 
-    ![Screenshot of the Azure Cafe publish profile with the Publish button highlighted.](./media/tutorial-asp-net-custom-metrics/publish-profile.png "Publish profile")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/publish-profile.png" alt-text="Screenshot of the Azure Cafe publish profile with the Publish button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/publish-profile.png":::
 
 6. Once the publish has succeeded, a new browser window opens to the Azure Cafe web application.
 
-    ![Screenshot of the Azure Cafe web application.](./media/tutorial-asp-net-custom-metrics/azure-cafe-index.png "Azure Cafe web application")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png" alt-text="Screenshot of the Azure Cafe web application." lightbox="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png":::
 
 7. Perform various activities in the web application to generate some telemetry.
 
    1. Select **Details** next to a Cafe to view its menu and reviews.
 
-        ![Screenshot of a portion of the Azure Cafe list with the Details button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-details-button.png "Azure Cafe Details")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list with the Details button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-details-button.png":::
 
    2. On the Cafe screen, select the **Reviews** tab to view and add reviews. Select the **Add review** button to add a review.
 
-        ![Screenshot of the Cafe details with the Add review button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png "Add review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png" alt-text="Screenshot of the Cafe details with the Add review button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png":::
 
    3. On the Create a review dialog, enter a name, rating, comments, and upload a photo for the review. Once completed, select **Add review**.
 
-        ![Screenshot of the Create a review dialog displays.](./media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png "Create a review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png" alt-text="Screenshot of the Create a review dialog displays." lightbox="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png":::
 
    4. Repeat adding reviews as desired to generate more telemetry.
 
@@ -206,7 +206,7 @@ When running the sample code, you'll see that no telemetry is being sent from th
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Second screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="Second screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
@@ -276,29 +276,29 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 5. Right-click the **AzureCafe** project in Solution Explorer and select **Publish** from the context menu.
 
-    ![Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted.](./media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png "Publish Web App")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png" alt-text="Screenshot of the Visual Studio Solution Explorer with the Azure Cafe project selected and the Publish context menu item highlighted." lightbox="media/tutorial-asp-net-custom-metrics/web-project-publish-context-menu.png":::
 
 6. Select **Publish** to promote the new code to the Azure App Service.
 
-    ![Screenshot of the Azure Cafe publish profile with the Publish button highlighted.](./media/tutorial-asp-net-custom-metrics/publish-profile.png "Publish profile")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/publish-profile.png" alt-text="Screenshot of the Azure Cafe publish profile with the Publish button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/publish-profile.png":::
 
 7. Once the publish has succeeded, a new browser window opens to the Azure Cafe web application.
 
-    ![Screenshot of the Azure Cafe web application.](./media/tutorial-asp-net-custom-metrics/azure-cafe-index.png "Azure Cafe web application")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png" alt-text="Screenshot of the Azure Cafe web application." lightbox="media/tutorial-asp-net-custom-metrics/azure-cafe-index.png":::
 
 8. Perform various activities in the web application to generate some telemetry.
 
    1. Select **Details** next to a Cafe to view its menu and reviews.
 
-        ![Screenshot of a portion of the Azure Cafe list with the Details button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-details-button.png "Azure Cafe Details")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list with the Details button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-details-button.png":::
 
    2. On the Cafe screen, select the **Reviews** tab to view and add reviews. Select the **Add review** button to add a review.
 
-        ![Screenshot of the Cafe details screen with the Add review button highlighted.](./media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png "Add review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png" alt-text="Screenshot of the Cafe details screen with the Add review button highlighted." lightbox="media/tutorial-asp-net-custom-metrics/cafe-add-review-button.png":::
 
    3. On the Create a review dialog, enter a name, rating, comments, and upload a photo for the review. Once completed, select **Add review**.
 
-        ![Screenshot of the Create a review dialog.](./media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png "Create a review")
+        :::image type="content" source="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png" alt-text="Screenshot of the Create a review dialog." lightbox="media/tutorial-asp-net-custom-metrics/create-a-review-dialog.png":::
 
    4. Repeat adding reviews as desired to generate more telemetry.
 
@@ -306,7 +306,7 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Third screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="Third screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
 
 2. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **customMetrics** table, located under the **Application Insights** tree. Modify the query to retrieve metrics for the **ReviewPerformed** custom named metric as follows, then select **Run** to filter the results.
 
@@ -337,25 +337,25 @@ Once you have made that change and send new multi-dimensional telemetry, you'll 
 
 1. Go to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    ![Fourth screenshot of a resource group with the Application Insights resource highlighted.](./media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png "Resource Group")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png" alt-text="Fourth screenshot of a resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-custom-metrics/application-insights-resource-group.png":::
 
 2. From the left menu of the Application Insights resource, select **Metrics** from beneath the **Monitoring** section.
 
 3. For **Metric Namespace**, select **azure.applicationinsights**.
 
-    ![Screenshot of metrics explorer with the Metric Namespace highlighted.](./media/tutorial-asp-net-custom-metrics/metrics-explorer-namespace.png "Metric Namespace")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/metrics-explorer-namespace.png" alt-text="Screenshot of metrics explorer with the Metric Namespace highlighted." lightbox="media/tutorial-asp-net-custom-metrics/metrics-explorer-namespace.png":::
 
 4. For **Metric**, select **ReviewPerformed**.
 
-    ![Screenshot of metrics explorer with the Metric highlighted.](./media/tutorial-asp-net-custom-metrics/metrics-explorer-metric.png "Metric")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/metrics-explorer-metric.png" alt-text="Screenshot of metrics explorer with the Metric highlighted." lightbox="media/tutorial-asp-net-custom-metrics/metrics-explorer-metric.png":::
 
 5. However, you'll notice that you aren't able to split the metric by your new custom dimension, or view your custom dimension with the metrics view. Select **Apply Splitting**.
 
-    ![Screenshot of the Apply Splitting button.](./media/tutorial-asp-net-custom-metrics/apply-splitting.png "Splitting")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/apply-splitting.png" alt-text="Screenshot of the Apply Splitting button." lightbox="media/tutorial-asp-net-custom-metrics/apply-splitting.png":::
 
 6. For the custom dimension **Values** to use, select **IncludesPhoto**.
 
-    ![Screenshot illustrating splitting using a custom dimension](./media/tutorial-asp-net-custom-metrics/splitting-dimension.png "Splitting dimension")
+    :::image type="content" source="media/tutorial-asp-net-custom-metrics/splitting-dimension.png" alt-text="Screenshot illustrating splitting using a custom dimension" lightbox="media/tutorial-asp-net-custom-metrics/splitting-dimension.png":::
 
 ## Next steps
 
