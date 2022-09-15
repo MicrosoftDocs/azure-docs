@@ -158,6 +158,9 @@ The following image shows the first flow:
         Select **Create**.
     1. Fill **Upload video and index** action parameters.
     
+        > [!TIP]
+        > If the AVI Account ID cannot be found and isn't in the drop-down, use the custom value.
+        
         |Key| Value|
         |----|----|
         |Location| Location of the associated the Azure Video Indexer account.|	
