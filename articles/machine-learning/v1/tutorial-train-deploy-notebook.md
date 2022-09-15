@@ -54,7 +54,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
     :::image type="content" source="media/tutorial-train-deploy-notebook/open-terminal.png" alt-text="Screenshot: Open terminal from Notebooks section.":::
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use if it's not already selected.  Start the compute instance if it is stopped.
+1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md)  to use if it's not already selected.  Start the compute instance if it is stopped.
 
 1. In the terminal window, clone the MachineLearningNotebooks repository:
 
@@ -90,7 +90,7 @@ You may see a few install warnings.  These can safely be ignored.
 
 ## Run the notebook
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](../how-to-configure-environment.md#local). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
