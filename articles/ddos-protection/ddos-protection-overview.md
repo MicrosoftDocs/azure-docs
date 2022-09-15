@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2022
+ms.date: 09/15/2022
 ms.author: abell
 
 ---
@@ -37,8 +37,7 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
 
 Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [DDoS Protection SKU comparison](ddos-protection-sku-comparison.md).
 
-The following table shows features. 
-
+The following table shows features and corresponding SKUs.
 
 | Feature | DDoS IP Protection | DDoS Network Protection |
 |---|---|---|
@@ -95,5 +94,5 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 
 ## Next steps
 
-* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md) 
+* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
 * [Learn module: Introduction to Azure DDoS Protection](/learn/modules/introduction-azure-ddos-protection/)
