@@ -51,7 +51,7 @@ It also caches the environments in Azure Container Registry associated with your
 Multiple environments with the same definition may result the same image, so the cached image will be reused.
 Running a training script remotely requires the creation of a Docker image.
 
-## Reproducibility and Vulnerabilities
+## Reproducibility and vulnerabilities
 
 Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by the scanning tools.
 Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
@@ -59,23 +59,6 @@ It's your responsibility to evaluate the threat and address vulnerabilities in e
 Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
 > [!IMPORTANT]
 > There's no guarantee that the same set of python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
-
-## Table of Contents
-**[Environment Definition Problems](#environment-definition-problems)**<br>
-- **[Environment Name Issues](#environment-name-issues)**<br>
-- **[Docker Issues](#docker-issues)**<br>
-- **[Docker Build Context Issues](#docker-build-context-issues)**<br>
-- **[Base Image Issues](#base-image-issues)**<br>
-- **[Environment Variable Issues](#environment-variable-issues)**<br>
-- **[Python Issues](#python-issues)**<br>
-- **[Pip Issues](#pip-issues)**<br>
-- **[Deprecated Environment Property Issues](#deprecated-environment-property-issues)**<br>
-
-**[Image Build Problems](#image-build-problems)**<br>
-- **[Miscellaneous Issues](#miscellaneous-issues)**<br>
-- **[Docker Pull Issues](#docker-pull-issues)**<br>
-- **[Conda Issues During Build](#conda-issues-during-build)**<br>
-- **[Pip Issues During Build](#pip-issues-during-build)** <br>
 
 ## *Environment definition problems*
 
@@ -287,7 +270,7 @@ conda_dep.add_conda_package("python==3.8")
 - Consider using a newer version of Python as the specified version will eventually unsupported
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
-#### **"Failed to validate python version"**
+#### **"Failed to validate Python version"**
 - The provided Python version may have been formatted improperly or specified with incorrect syntax
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
@@ -350,7 +333,7 @@ image builds on the environment
 experience using Azure Machine Learning CLI 2.0
 - See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the Public Preview edition of the 2.0 CLI
 
-## *Image Build Problems*
+## *Image build problems*
 
 ### Miscellaneous issues
 #### **"Build log unavailable"**
