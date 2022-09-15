@@ -51,7 +51,7 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
 
    1. Log in to the user PowerShell using the following command - Login-AzAccount
 
-   2. Create a 'azure secure' resource group in the 'eastus' location. You can change the name and location as per your need.
+   2. Create an 'azure secure' resource group in the 'eastus' location. You can change the name and location as per your need.
 ``` 
   New-AzResourceGroup -Name "azuresecure" -Location "EastUS"
 ```
