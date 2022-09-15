@@ -1,10 +1,10 @@
 ---
 title: Migrate your application to use the Azure Cosmos DB .NET SDK 3.0 (Microsoft.Azure.Cosmos)
-description: Learn how to upgrade your existing .NET application from the v2 SDK to the newer .NET SDK v3 (Microsoft.Azure.Cosmos package) for Core (SQL) API.
+description: Learn how to upgrade your existing .NET application from the v2 SDK to the newer .NET SDK v3 (Microsoft.Azure.Azure Cosmos DB package) for API for NoSQL.
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.devlang: csharp
@@ -17,12 +17,12 @@ ms.devlang: csharp
 > To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sql-api-sdk-dotnet-standard.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
-This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you're migrating your application from any of the following Azure Cosmos DB .NET SDKs:
+This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for API for NoSQL. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Azure Cosmos DB namespace. You can use the information provided in this doc if you're migrating your application from any of the following Azure Cosmos DB .NET SDKs:
 
-* Azure Cosmos DB .NET Framework SDK v2 for SQL API
-* Azure Cosmos DB .NET Core SDK v2 for SQL API
+* Azure Cosmos DB .NET Framework SDK v2 for API for NoSQL
+* Azure Cosmos DB .NET Core SDK v2 for API for NoSQL
 
-The instructions in this article also help you to migrate the following external libraries that are now part of the Azure Cosmos DB .NET SDK v3 for Core (SQL) API:
+The instructions in this article also help you to migrate the following external libraries that are now part of the Azure Cosmos DB .NET SDK v3 for API for NoSQL:
 
 * .NET change feed processor library 2.0
 * .NET bulk executor library 1.1 or greater
@@ -55,7 +55,7 @@ The v2 SDK is currently in maintenance mode. For the best development experience
 
 ## Major name changes from v2 SDK to v3 SDK
 
-The following name changes have been applied throughout the .NET 3.0 SDK to align with the API naming conventions for the Core (SQL) API:
+The following name changes have been applied throughout the .NET 3.0 SDK to align with the API naming conventions for the API for NoSQL:
 
 * `DocumentClient` is renamed to `CosmosClient`
 * `Collection` is renamed to `Container`
@@ -821,7 +821,7 @@ private static async Task QueryChangeFeedAsync(DocumentClient client, string par
 
 ## Next steps
 
-* [Build a Console app](sql-api-get-started.md) to manage Azure Cosmos DB SQL API data using the v3 SDK
+* [Build a Console app](sql-api-get-started.md) to manage Azure Cosmos DB for NoSQL data using the v3 SDK
 * Learn more about [what you can do with the v3 SDK](sql-api-dotnet-v3sdk-samples.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

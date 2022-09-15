@@ -1,21 +1,21 @@
 ---
-title: Migrate data to Azure Cosmos DB SQL API account using Striim 
-description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB SQL API account. 
+title: Migrate data to Azure Cosmos DB for NoSQL account using Striim 
+description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for NoSQL account. 
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/09/2021
 ms.reviewer: mjbrown
 ---
 
-# Migrate data to Azure Cosmos DB SQL API account using Striim
+# Migrate data to Azure Cosmos DB for NoSQL account using Striim
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
  
-The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
+The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB for NoSQL. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
-This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB SQL API account**.
+This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB for NoSQL account**.
 
 ## Prerequisites
 
@@ -59,13 +59,13 @@ In this section, you configure the Oracle database as the source for data moveme
 
 ## Configure the target database
 
-In this section, you will configure the Azure Cosmos DB SQL API account as the target for data movement.
+In this section, you will configure the Azure Cosmos DB for NoSQL account as the target for data movement.
 
-1. Create an [Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) using the Azure portal.
+1. Create an [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md) using the Azure portal.
 
-1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Container** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
+1. Navigate to the **Data Explorer** pane in your Azure Cosmos DB account. Select **New Container** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="Create a SQL API account":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="Create a API for NoSQL account":::
 
 ## Configure Oracle to Azure Cosmos DB data flow
 
@@ -112,7 +112,7 @@ In this section, you will configure the Azure Cosmos DB SQL API account as the t
 
 1. In the **Search templates** field, type “Cosmos” and select **Target: Azure Cosmos DB** and then select **Oracle CDC to Azure Cosmos DB**.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Select Oracle CDC to Cosmos DB":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Select Oracle CDC to Azure Cosmos DB":::
 
 1. In the next page, name your application. You can provide a name such as **oraToCosmosDB** and then select **Save**.
 
@@ -135,8 +135,8 @@ In this section, you will configure the Azure Cosmos DB SQL API account as the t
    * **Target Name** - Provide a friendly name for the target. 
    * **Input From** - From the dropdown list, select the input stream from the one you created in the source Oracle configuration. 
    * **Collections**- Enter the target Azure Cosmos DB configuration properties. The collections syntax is **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. In this example, the value would be “SYSTEM.ORDERS, StriimDemo.Orders”. 
-   * **AccessKey** - The PrimaryKey of your Azure Cosmos account.
-   * **ServiceEndpoint** – The URI of your Azure Cosmos account, they can be found under the **Keys** section of the Azure portal. 
+   * **AccessKey** - The PrimaryKey of your Azure Cosmos DB account.
+   * **ServiceEndpoint** – The URI of your Azure Cosmos DB account, they can be found under the **Keys** section of the Azure portal. 
 
    Select **Save** and **Next**.
 
@@ -161,7 +161,7 @@ In this section, you will configure the Azure Cosmos DB SQL API account as the t
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-cdc-pipeline.png" alt-text="Configure CDC pipeline":::
 
-1. Finally, let’s sign into Azure and navigate to your Azure Cosmos account. Refresh the Data Explorer, and you can see that data has arrived.  
+1. Finally, let’s sign into Azure and navigate to your Azure Cosmos DB account. Refresh the Data Explorer, and you can see that data has arrived.  
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png" alt-text="Validate migrated data in Azure":::
 
@@ -173,6 +173,6 @@ By using the Striim solution in Azure, you can continuously migrate data to Azur
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
-* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](../cassandra/migrate-data-striim.md)
+* If you are migrating data to Azure Cosmos DB for NoSQL, see [how to migrate data to API for Cassandra account using Striim](../cassandra/migrate-data-striim.md)
 
 * [Monitor and debug your data with Azure Cosmos DB metrics](../use-metrics.md)

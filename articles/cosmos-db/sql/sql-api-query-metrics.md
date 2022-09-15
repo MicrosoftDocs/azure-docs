@@ -1,11 +1,11 @@
 ---
-title: SQL query metrics for Azure Cosmos DB SQL API
+title: SQL query metrics for Azure Cosmos DB for NoSQL
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.devlang: csharp
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 # Tuning query performance with Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
+Azure Cosmos DB provides a [API for NoSQL for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
@@ -43,7 +43,7 @@ The SDKs provide various options for query execution. For example, in .NET these
 | `EnableScanInQuery` | Must be set to true if you have opted out of indexing, but want to run the query via a scan anyway. Only applicable if indexing for the requested filter path is disabled. | 
 | `MaxItemCount` | The maximum number of items to return per round trip to the server. By setting to -1, you can let the server manage the number of items. Or, you can lower this value to retrieve only a small number of items per round trip. 
 | `MaxBufferedItemCount` | This is a client-side option, and used to limit the memory consumption when performing cross-partition ORDER BY. A higher value helps reduce the latency of cross-partition sorting. |
-| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure Cosmos database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
+| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure Cosmos DB database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
 | `PopulateQueryMetrics` | Enables detailed logging of statistics of time spent in various phases of query execution like compilation time, index loop time, and document load time. You can share output from query statistics with Azure Support to diagnose query performance issues. |
 | `RequestContinuation` | You can resume query execution by passing in the opaque continuation token returned by any query. The continuation token encapsulates all state required for query execution. |
 | `ResponseContinuationTokenLimitInKb` | You can limit the maximum size of the continuation token returned by the server. You might need to set this if your application host has limits on response header size. Setting this may increase the overall duration and RUs consumed for the query.  |
@@ -144,7 +144,7 @@ The following are the most common factors that impact Azure Cosmos DB query perf
 | Query execution metrics | Analyze the query execution metrics to identify potential rewrites of query and data shapes.  |
 
 ### Provisioned throughput
-In Cosmos DB, you create containers of data, each with reserved throughput expressed in request units (RU) per-second. A read of a 1-KB document is 1 RU, and every operation (including queries) is normalized to a fixed number of RUs based on its complexity. For example, if you have 1000 RU/s provisioned for your container, and you have a query like `SELECT * FROM c WHERE c.city = 'Seattle'` that consumes 5 RUs, then you can perform (1000 RU/s) / (5 RU/query) = 200 query/s such queries per second. 
+In Azure Cosmos DB, you create containers of data, each with reserved throughput expressed in request units (RU) per-second. A read of a 1-KB document is 1 RU, and every operation (including queries) is normalized to a fixed number of RUs based on its complexity. For example, if you have 1000 RU/s provisioned for your container, and you have a query like `SELECT * FROM c WHERE c.city = 'Seattle'` that consumes 5 RUs, then you can perform (1000 RU/s) / (5 RU/query) = 200 query/s such queries per second. 
 
 If you submit more than 200 queries/sec, the service starts rate-limiting incoming requests above 200/s. The SDKs automatically handle this case by performing a backoff/retry, therefore you might notice a higher latency for these queries. Increasing the provisioned throughput to the required value improves your query latency and throughput. 
 

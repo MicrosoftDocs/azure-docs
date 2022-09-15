@@ -3,7 +3,7 @@ title: Kafka Connect for Azure Cosmos DB - Source connector
 description: Azure Cosmos DB source connector provides the capability to read data from the Azure Cosmos DB change feed and publish this data to a Kafka topic. Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. 
 author: kushagrathapar
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/13/2022
 ms.author: kuthapar
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 1. Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
 1. Open the **Data Explore** tab and select **Databases**
 1. Open the "kafkaconnect" database and "kafka" container you created earlier.
-1. To create a new JSON document, in the SQL API pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
+1. To create a new JSON document, in the API for NoSQL pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
 1. Now, add a document to the container with the following structure. Paste the following sample JSON block into the Items tab, overwriting the current content:
 
    ``` json

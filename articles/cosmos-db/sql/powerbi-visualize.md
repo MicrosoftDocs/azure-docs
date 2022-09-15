@@ -3,7 +3,7 @@ title: Power BI tutorial for Azure Cosmos DB
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB.
 author: Rodrigossz
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/28/2022
 ms.author: rosouz
@@ -30,14 +30,14 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * [Download the latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and add data to your Cosmos containers.
+* [Create an Azure Cosmos DB database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and add data to your Azure Cosmos DB containers.
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI and Power BI Pro, see [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## Let's get started
 ### Building BI reports using Azure Synapse Link
 
-You can enable Azure Synapse Link on your existing Cosmos DB containers and build BI reports on this data, in just a few clicks using Azure Cosmos DB portal. Power BI will connect to Cosmos DB using Direct Query mode, allowing you to query your live Cosmos DB data, without impacting your transactional workloads. 
+You can enable Azure Synapse Link on your existing Azure Cosmos DB containers and build BI reports on this data, in just a few clicks using Azure Cosmos DB portal. Power BI will connect to Azure Cosmos DB using Direct Query mode, allowing you to query your live Azure Cosmos DB data, without impacting your transactional workloads. 
 
 To build a Power BI report/dashboard: 
 
@@ -46,7 +46,7 @@ To build a Power BI report/dashboard:
 1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
 
    > [!NOTE]
-   > Currently, this option is only available for SQL API accounts. You can create T-SQL views directly in Synapse serverless SQL pools and build BI dashboards for Azure Cosmos DB API for MongoDB. See ["Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse"](../synapse-link-power-bi.md) for more information. 
+   > Currently, this option is only available for API for NoSQL accounts. You can create T-SQL views directly in Synapse serverless SQL pools and build BI dashboards for Azure Cosmos DB for MongoDB. See ["Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse"](../synapse-link-power-bi.md) for more information. 
 
 1. From the **Enable Azure Synapse Link** tab, you can enable Synapse Link on your account from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab. This step is a pre-requisite to start enabling Synapse Link on your containers.
 
@@ -69,9 +69,9 @@ To build a Power BI report/dashboard:
 
    :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-link-existing-containers-registration-complete.png" alt-text="Synapse Link successfully enabled on the selected containers." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-link-existing-containers-registration-complete.png":::
 
-1. From the **Select workspace** tab, choose the Azure Synapse Analytics workspace and select **Next**. This step will automatically create T-SQL views in Synapse Analytics, for the containers selected earlier. For more information on T-SQL views required to connect your Cosmos DB to Power BI, see [Prepare views](../../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#3---prepare-view) article.
+1. From the **Select workspace** tab, choose the Azure Synapse Analytics workspace and select **Next**. This step will automatically create T-SQL views in Synapse Analytics, for the containers selected earlier. For more information on T-SQL views required to connect your Azure Cosmos DB to Power BI, see [Prepare views](../../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#3---prepare-view) article.
    > [!NOTE]
-   >  Your Cosmos DB container proprieties will be represented as columns in T-SQL views, including deep nested JSON data. This is a quick start for your BI dashboards. These views will be available in your Synapse workspace/database; you can also use these exact same views in Synapse Workspace for data exploration, data science, data engineering, etc. Please note that advanced scenarios may demand more complex views or fine tuning of these views, for better performance. For more information. see [best practices for Synapse Link when using Synapse serverless SQL pools](../../synapse-analytics/sql/resources-self-help-sql-on-demand.md#azure-cosmos-db-performance-issues) article.
+   >  Your Azure Cosmos DB container proprieties will be represented as columns in T-SQL views, including deep nested JSON data. This is a quick start for your BI dashboards. These views will be available in your Synapse workspace/database; you can also use these exact same views in Synapse Workspace for data exploration, data science, data engineering, etc. Please note that advanced scenarios may demand more complex views or fine tuning of these views, for better performance. For more information. see [best practices for Synapse Link when using Synapse serverless SQL pools](../../synapse-analytics/sql/resources-self-help-sql-on-demand.md#azure-cosmos-db-performance-issues) article.
     
 1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Azure AD credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
 
@@ -92,7 +92,7 @@ To build a Power BI report/dashboard:
 
 ### Building BI reports using Power BI connector
 > [!NOTE]
-> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL API and Gremlin API accounts only.
+> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB for NoSQL and API for Gremlin accounts only.
 
 1. Run Power BI Desktop.
 

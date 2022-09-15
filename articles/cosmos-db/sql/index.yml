@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure Cosmos DB SQL API documentation
-summary: Azure Cosmos DB SQL API accounts provide support for querying items using the Structured Query Language (SQL) syntax.
+title: Azure Cosmos DB for NoSQL documentation
+summary: Azure Cosmos DB for NoSQL accounts provide support for querying items using the Structured Query Language (SQL) syntax.
 
 metadata:
-  title: Azure Cosmos DB SQL API
-  description: Azure Cosmos DB SQL API accounts provide support for querying items using the Structured Query Language (SQL) syntax.
+  title: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL accounts provide support for querying items using the Structured Query Language (SQL) syntax.
   services: service
   ms.service: cosmos-db
-  ms.subservice: cosmosdb-sql
+  ms.subservice: nosql
   ms.topic: landing-page
   ms.collection: collection
   author: seesharprun
@@ -17,7 +17,7 @@ metadata:
   ms.date: 05/24/2022
 
 landingContent:
-  - title: Use Azure Cosmos DB SQL API 
+  - title: Use Azure Cosmos DB for NoSQL 
     linkLists:
       - linkListType: quickstart
         links:

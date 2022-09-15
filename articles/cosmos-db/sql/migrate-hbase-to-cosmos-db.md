@@ -1,20 +1,20 @@
 ---
-title: Migrate data from Apache HBase to Azure Cosmos DB SQL API account
-description: Learn how to migrate your data from HBase to Azure Cosmos DB SQL API account.
+title: Migrate data from Apache HBase to Azure Cosmos DB for NoSQL account
+description: Learn how to migrate your data from HBase to Azure Cosmos DB for NoSQL account.
 author: thakagi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/07/2021
 ms.author: hitakagi
 ms.reviewer: mjbrown
 ---
 
-# Migrate data from Apache HBase to Azure Cosmos DB SQL API account
+# Migrate data from Apache HBase to Azure Cosmos DB for NoSQL account
 
-Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article guides how to migrate your data from HBase to Azure Cosmos DB SQL API account.
+Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article guides how to migrate your data from HBase to Azure Cosmos DB for NoSQL account.
 
-## Differences between Cosmos DB and HBase
+## Differences between Azure Cosmos DB and HBase
 
 Before migrating, you must understand the differences between Azure Cosmos DB and HBase.
 
@@ -58,7 +58,7 @@ The key differences between the data structure of Azure Cosmos DB and HBase are 
 
 * In HBase, columns are grouped within a Column Family (CF).
 
-* Azure Cosmos DB (SQL API) stores data as [JSON](https://www.json.org/json-en.html) document. Hence, all properties associated with a JSON data structure apply.
+* Azure Cosmos DB (API for NoSQL) stores data as [JSON](https://www.json.org/json-en.html) document. Hence, all properties associated with a JSON data structure apply.
 
 **Timestamp**
 
@@ -78,7 +78,7 @@ The key differences between the data structure of Azure Cosmos DB and HBase are 
    1000                              column=Personal:Phone, timestamp=1611408732385, value=1-425-000-0001
   ```
 
-* In Azure Cosmos DB SQL API, the JSON object represents the data format. The partition key resides in a field in the document and sets which field is the partition key for the collection. Azure Cosmos DB does not have the concept of timestamp used for column family or version. As highlighted previously, it has change feed support through which one can track/record changes performed on a container. The following is an example of a document.
+* In Azure Cosmos DB for NoSQL, the JSON object represents the data format. The partition key resides in a field in the document and sets which field is the partition key for the collection. Azure Cosmos DB does not have the concept of timestamp used for column family or version. As highlighted previously, it has change feed support through which one can track/record changes performed on a container. The following is an example of a document.
 
   ```json
   {
@@ -113,7 +113,7 @@ For an enterprise-scale deployment of HBase, Master; Region servers; and ZooKeep
 
 **Azure Cosmos DB**
 
-Azure Cosmos DB is a PaaS offering from Microsoft and underlying infrastructure deployment details are abstracted from the end users. When a Cosmos DB container is provisioned, Azure platform automatically provisions underlying infrastructure (compute, storage, memory, networking stack) to support the performance requirements of a given workload. The cost of all database operations is normalized by Azure Cosmos DB and is expressed by [Request Units (or RUs, for short).](../request-units.md)
+Azure Cosmos DB is a PaaS offering from Microsoft and underlying infrastructure deployment details are abstracted from the end users. When an Azure Cosmos DB container is provisioned, Azure platform automatically provisions underlying infrastructure (compute, storage, memory, networking stack) to support the performance requirements of a given workload. The cost of all database operations is normalized by Azure Cosmos DB and is expressed by [Request Units (or RUs, for short).](../request-units.md)
 
 To estimate RUs consumed by your workload, consider the following [factors](../request-units.md#request-unit-considerations):
 
@@ -129,7 +129,7 @@ HBase sorts data according to RowKey. The data is then partitioned into regions 
 **Azure Cosmos DB**
 Azure Cosmos DB uses [partitioning](../partitioning-overview.md) to scale individual containers in the database. Partitioning divides the items in a container into specific subsets called "logical partitions". Logical partitions are formed based on the value of the "partition key" associated with each item in the container. All items in a logical partition have the same partition key value. Each logical partition can hold up to 20 GB of data.
 
-Physical partitions each contain a replica of your data and an instance of the Cosmos DB database engine. This structure makes your data durable and highly available and throughput is divided equally amongst the local physical partitions. Physical partitions are automatically created and configured, and it's not possible to control their size, location, or which logical partitions they contain. Logical partitions are not split between physical partitions.
+Physical partitions each contain a replica of your data and an instance of the Azure Cosmos DB database engine. This structure makes your data durable and highly available and throughput is divided equally amongst the local physical partitions. Physical partitions are automatically created and configured, and it's not possible to control their size, location, or which logical partitions they contain. Logical partitions are not split between physical partitions.
 
 As with HBase RowKey, partition key design is important for Azure Cosmos DB. HBase's Row Key works by sorting data and storing continuous data, and Azure Cosmos DB's Partition Key is a different mechanism because it hash-distributes data. Assuming your application using HBase is optimized for data access patterns to HBase, using the same RowKey for the partition Key will not give good performance results. Given that it's sorted data on HBase, the [Azure Cosmos DB composite index](../index-policy.md#composite-indexes) may be useful. It is required if you want to use the ORDER BY clause in more than one field. You can also improve the performance of many equal and range queries by defining a composite index.
 
@@ -147,7 +147,7 @@ Azure Cosmos DB does not require any configuration such as cluster component red
 HBase is built on Hadoop Distributed File System (HDFS) and data stored on HDFS is replicated three times.
 
 **Azure Cosmos DB**
-Azure Cosmos DB primarily provides high availability in two ways. First, Azure Cosmos DB replicates data between regions configured within your Cosmos account. Second, Azure Cosmos DB keeps four replicas of the data in the region.
+Azure Cosmos DB primarily provides high availability in two ways. First, Azure Cosmos DB replicates data between regions configured within your Azure Cosmos DB account. Second, Azure Cosmos DB keeps four replicas of the data in the region.
 
 ## Considerations before migrating
 
@@ -186,11 +186,11 @@ When executing queries that request sorted data, HBase will return the result qu
 
 ### Deployment considerations
 
-You can use [the Azure portal or Azure CLI to deploy the Cosmos DB SQL API](create-cosmosdb-resources-portal.md). Since the migration destination is Azure Cosmos DB SQL API, select "Core (SQL)" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
+You can use [the Azure portal or Azure CLI to deploy the Azure Cosmos DB for NoSQL](create-cosmosdb-resources-portal.md). Since the migration destination is Azure Cosmos DB for NoSQL, select "NoSQL" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
 
 ### Network consideration
 
-Cosmos DB has three main network options. The first is a configuration that uses a Public IP address and controls access with an IP firewall (default). The second is a configuration that uses a Public IP address and allows access only from a specific subnet of a specific virtual network (service endpoint). The third is a configuration (private endpoint) that joins a private network using a Private IP address.
+Azure Cosmos DB has three main network options. The first is a configuration that uses a Public IP address and controls access with an IP firewall (default). The second is a configuration that uses a Public IP address and allows access only from a specific subnet of a specific virtual network (service endpoint). The third is a configuration (private endpoint) that joins a private network using a Private IP address.
 
 See the following documents for more information on the three network options:
 
@@ -348,7 +348,7 @@ There are various methods to migrate data offline, but here we will introduce ho
 | --------- | -------- | ------- |
 | Azure Data Factory    | HBase < 2 | Easy to set up. Suitable for large datasets. Doesn’t support HBase 2 or later. |
 | Apache Spark | All versions | Support all versions of HBase. Suitable for large datasets. Spark setup required. |
-| Custom tool with Cosmos DB bulk executor library | All versions | Most flexible to create custom data migration tools using libraries. Requires more effort to set up. |
+| Custom tool with Azure Cosmos DB bulk executor library | All versions | Most flexible to create custom data migration tools using libraries. Requires more effort to set up. |
 
 The following flowchart uses some conditions to reach the available data migration methods.
 :::image type="content" source="./media/migrate-hbase-to-cosmos-db/flowchart-hbase-migration-tools.png" alt-text="Flowchart for options to migrate data to Azure Cosmos DB.":::
@@ -359,11 +359,11 @@ This option is suitable for large datasets. The Azure Cosmos DB Bulk Executor li
 
 Data Factory's Copy activity supports HBase as a data source. See the [Copy data from HBase using Azure Data Factory](../../data-factory/connector-hbase.md) article for more details.
 
-You can specify Cosmos DB (SQL API) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory](../../data-factory/connector-azure-cosmos-db.md) article for more details.
+You can specify Azure Cosmos DB (API for NoSQL) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (API for NoSQL) by using Azure Data Factory](../../data-factory/connector-azure-cosmos-db.md) article for more details.
 
 :::image type="content" source="./media/migrate-hbase-to-cosmos-db/data-migration-hbase-azure-data-factory.png" alt-text="Architecture for migrating data from on-premises to Azure Cosmos DB using Data Factory.":::
 
-### Migrate using Apache Spark - Apache HBase Connector & Cosmos DB Spark connector
+### Migrate using Apache Spark - Apache HBase Connector & Azure Cosmos DB Spark connector
 
 Here is an example to migrate your data to Azure Cosmos DB. It assumes that HBase 2.1.0 and Spark 2.4.0 are running in the same cluster.
 
@@ -430,7 +430,7 @@ For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql
    val df = withCatalog(catalog)
    ```
 
-1. Then import the libraries needed to use the Cosmos DB Spark connector.
+1. Then import the libraries needed to use the Azure Cosmos DB Spark connector.
 
    ```scala
    import com.microsoft.azure.cosmosdb.spark.schema._
@@ -438,7 +438,7 @@ For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql
    import com.microsoft.azure.cosmosdb.spark.config.Config
    ```
 
-1. Make settings for writing data to Cosmos DB.
+1. Make settings for writing data to Azure Cosmos DB.
 
    ```scala
    val writeConfig = Config(Map(   "Endpoint" -> "https://<cosmos-db-account-name>.documents.azure.com:443/",   "Masterkey" -> "<comsmos-db-master-key>",   "Database" -> "<database-name>",   "Collection" -> "<collection-name>",   "Upsert" -> "true" ))
@@ -462,11 +462,11 @@ Phoenix is supported as a Data Factory data source. Refer to the following docum
 
 ## Migrate your code
 
-This section describes the differences between creating applications in Azure Cosmos DB SQL APIs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md).
+This section describes the differences between creating applications in Azure Cosmos DB for NoSQLs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md).
 
 These HBase's sample codes are based on those described in [HBase's official documentation](https://hbase.apache.org/book.html).
 
-The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB SQL API: Java SDK v4 examples](sql-api-java-sdk-samples.md) documentation. You can access the full code example from the documentation.
+The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](sql-api-java-sdk-samples.md) documentation. You can access the full code example from the documentation.
 
 The mappings for code migration are shown here, but the HBase RowKeys and Azure Cosmos DB Partition Keys used in these examples are not always well designed. Design according to the actual data model of the migration source.
 
@@ -786,7 +786,7 @@ HBase offers several server-side programming features. If you are using these fe
 
 * [Stored Procedure](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)
 
-  * Azure Cosmos DB stored procedures are written in JavaScript and can perform operations such as creating, updating, reading, querying, and deleting items in Cosmos DB containers.
+  * Azure Cosmos DB stored procedures are written in JavaScript and can perform operations such as creating, updating, reading, querying, and deleting items in Azure Cosmos DB containers.
 
 * [Trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers)
 
@@ -803,24 +803,24 @@ Server-side programming mappings
 | HBase    | Azure Cosmos DB   | Description |
 | ----------------------- | ---------------- | ----------- |
 | Custom filters   | WHERE Clause  | If the processing implemented by the custom filter cannot be achieved by the WHERE clause in Azure Cosmos DB, use UDF in combination. See [UDF examples](sql-query-udfs.md#examples) for an example of using UDF to further filter the results of the WHERE clause. |
-| Coprocessor  (Observer) | Trigger  | Observer is a trigger that executes before and after a particular event. Just as Observer supports pre- and post-calls, Cosmos DB's Trigger also supports pre- and post-triggers. |
-| Coprocessor  (Endpoint) | Stored Procedure | Endpoint is a server-side data processing mechanism that is executed for each region. This is similar to an RDBMS stored procedure. Cosmos DB stored procedures are written using JavaScript. It provides access to all the operations you can perform on Cosmos DB through stored procedures. |
+| Coprocessor  (Observer) | Trigger  | Observer is a trigger that executes before and after a particular event. Just as Observer supports pre- and post-calls, Azure Cosmos DB's Trigger also supports pre- and post-triggers. |
+| Coprocessor  (Endpoint) | Stored Procedure | Endpoint is a server-side data processing mechanism that is executed for each region. This is similar to an RDBMS stored procedure. Azure Cosmos DB stored procedures are written using JavaScript. It provides access to all the operations you can perform on Azure Cosmos DB through stored procedures. |
 
 > [!NOTE]
-> Different mappings and implementations may be required in Cosmos DB depending on the processing implemented on HBase.
+> Different mappings and implementations may be required in Azure Cosmos DB depending on the processing implemented on HBase.
 
 ## Security
 
-Data security is a shared responsibility of the customer and the database provider. For on-premises solutions, customers have to provide everything from endpoint protection to physical hardware security, which is not an easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, customer involvement will be reduced. For Microsoft's security shared responsibility model, see [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91). Cosmos DB runs on the Azure platform, so it can be enhanced in a different way than HBase. Cosmos DB does not require any extra components to be installed for security. We recommend that you consider migrating your database system security implementation using the following checklist:
+Data security is a shared responsibility of the customer and the database provider. For on-premises solutions, customers have to provide everything from endpoint protection to physical hardware security, which is not an easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, customer involvement will be reduced. For Microsoft's security shared responsibility model, see [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91). Azure Cosmos DB runs on the Azure platform, so it can be enhanced in a different way than HBase. Azure Cosmos DB does not require any extra components to be installed for security. We recommend that you consider migrating your database system security implementation using the following checklist:
 
 |   **Security control**           | **HBase**        | **Azure Cosmos DB**    |
 | -------- | ----- | ------- |
 | Network Security  and firewall setting   | Control traffic  using security functions such as network devices. | Supports  policy-based IP-based access control on the inbound firewall. |
 | User  authentication and fine-grained user controls   | Fine-grained  access control by combining LDAP with security components such as Apache  Ranger. | You can use the  account primary key to create user and permission resources for each  database. Resource tokens are associated with permissions in the database to  determine how users can access application resources in the database (read/write, read-only, or no access). You can also use your Azure Active Directory (AAD) ID to authenticate your data requests. This allows you to authorize data requests using a fine-grained RBAC model.|
-| Ability to  replicate data globally for regional failures    | Make a database  replica in a remote data center using HBase's replication. | Cosmos DB  performs configuration-free global distribution and allows you to replicate  data to data centers around the world in Azure with the select of a button. In  terms of security, global replication ensures that your data is protected  from local failures. |
+| Ability to  replicate data globally for regional failures    | Make a database  replica in a remote data center using HBase's replication. | Azure Cosmos DB  performs configuration-free global distribution and allows you to replicate  data to data centers around the world in Azure with the select of a button. In  terms of security, global replication ensures that your data is protected  from local failures. |
 | Ability to fail  over from one data center to another        | You need to implement  failover yourself.       | If you're  replicating data to multiple data centers and the region's data center goes  offline, Azure Cosmos DB automatically rolls over the operation. |
-| Local data  replication within a data center                 | The HDFS  mechanism allows you to have multiple replicas across nodes within a single  file system. | Cosmos DB  automatically replicates data to maintain high availability, even within a  single data center. You can choose the consistency level yourself. |
-| Automatic data  backups                                      | There is no automatic  backup function. You need to implement data backup yourself. | Cosmos DB is  backed up regularly and stored in the geo redundant storage. |
+| Local data  replication within a data center                 | The HDFS  mechanism allows you to have multiple replicas across nodes within a single  file system. | Azure Cosmos DB  automatically replicates data to maintain high availability, even within a  single data center. You can choose the consistency level yourself. |
+| Automatic data  backups                                      | There is no automatic  backup function. You need to implement data backup yourself. | Azure Cosmos DB is  backed up regularly and stored in the geo redundant storage. |
 | Protect and  isolate sensitive data                          | For example, if  you are using Apache Ranger, you can use Ranger policy to apply the policy to  the table. | You can separate  personal and other sensitive data into specific containers and read / write,  or limit read-only access to specific users. |
 | Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor-cosmos-db.md), you can monitor your account  for normal and abnormal activity. |
 | Responding to  attacks                                       | It needs to be  implemented using third party products.        | When you contact  Azure support and report a potential attack, a five-step incident response  process begins. |
@@ -838,7 +838,7 @@ If your environment implements HBase system monitoring to send alerts, such as b
 
 For more information on alerts in Azure Monitor, please refer to [Create alerts for Azure Cosmos DB using Azure Monitor](../create-alerts.md)
 
-Also, see [Cosmos DB metrics and log types](../monitor-cosmos-db-reference.md) that can be collected by Azure Monitor.
+Also, see [Azure Cosmos DB metrics and log types](../monitor-cosmos-db-reference.md) that can be collected by Azure Monitor.
 
 ## Backup & disaster recovery
 
@@ -846,7 +846,7 @@ Also, see [Cosmos DB metrics and log types](../monitor-cosmos-db-reference.md) t
 
 There are several ways to get a backup of HBase. For example, Snapshot, Export, CopyTable, Offline backup of HDFS data, and other custom backups.
 
-Azure Cosmos DB automatically backs up data at periodic intervals, which does not affect the performance or availability of database operations. Backups are stored in Azure storage and can be used to recover data if needed. There are two types of Cosmos DB backups:
+Azure Cosmos DB automatically backs up data at periodic intervals, which does not affect the performance or availability of database operations. Backups are stored in Azure storage and can be used to recover data if needed. There are two types of Azure Cosmos DB backups:
 
 * [Periodic backup](../configure-periodic-backup-restore.md)
 
@@ -854,35 +854,35 @@ Azure Cosmos DB automatically backs up data at periodic intervals, which does no
 
 ### Disaster recovery
 
-HBase is a fault-tolerant distributed system, but you must implement disaster recovery using Snapshot, replication, etc. when failover is required at the backup location in the case of a data center level failure. HBase replication can be set up with three replication models: Leader-Follower, Leader-Leader, and Cyclic. If the source HBase implements Disaster Recovery, you need to understand how you can configure Disaster Recovery in Cosmos DB and meet your system requirements.
+HBase is a fault-tolerant distributed system, but you must implement disaster recovery using Snapshot, replication, etc. when failover is required at the backup location in the case of a data center level failure. HBase replication can be set up with three replication models: Leader-Follower, Leader-Leader, and Cyclic. If the source HBase implements Disaster Recovery, you need to understand how you can configure Disaster Recovery in Azure Cosmos DB and meet your system requirements.
 
 Azure Cosmos DB is a globally distributed database with built-in disaster recovery capabilities. You can replicate your DB data to any Azure region. Azure Cosmos DB keeps your database highly available in the unlikely event of a failure in some regions.
 
-Azure Cosmos DB account that uses only a single region may lose availability in the event of a region failure. We recommend that you configure at least two regions to ensure high availability always. You can also ensure high availability for both writes and reads by configuring your Azure Cosmos DB account to span at least two regions with multiple write regions to ensure high availability for writes and reads. For multi-region accounts that consist of multiple write regions, failover between regions is detected and handled by the Azure Cosmos DB client. These are momentary and do not require any changes from the application. In this way, you can achieve an availability configuration that includes Disaster Recovery for Azure Cosmos DB. As mentioned earlier, HBase replication can be set up with three models, but Cosmos DB can be set up with SLA-based availability by configuring single-write and multi-write regions.
+Azure Cosmos DB account that uses only a single region may lose availability in the event of a region failure. We recommend that you configure at least two regions to ensure high availability always. You can also ensure high availability for both writes and reads by configuring your Azure Cosmos DB account to span at least two regions with multiple write regions to ensure high availability for writes and reads. For multi-region accounts that consist of multiple write regions, failover between regions is detected and handled by the Azure Cosmos DB client. These are momentary and do not require any changes from the application. In this way, you can achieve an availability configuration that includes Disaster Recovery for Azure Cosmos DB. As mentioned earlier, HBase replication can be set up with three models, but Azure Cosmos DB can be set up with SLA-based availability by configuring single-write and multi-write regions.
 
 For more information on High Availability, please refer to [How does Azure Cosmos DB provide high availability](../high-availability.md)
 
 ## Frequently asked questions
 
-#### Why migrate to SQL API instead of other APIs in Azure Cosmos DB?
+#### Why migrate to API for NoSQL instead of other APIs in Azure Cosmos DB?
 
-SQL API provides the best end-to-end experience in terms of interface, service SDK client library. The new features rolled out to Azure Cosmos DB will be first available in your SQL API account. In addition, the SQL API supports analytics and provides performance separation between production and analytics workloads. If you want to use the modernized technologies to build your apps, SQL API is the recommended option.
+API for NoSQL provides the best end-to-end experience in terms of interface, service SDK client library. The new features rolled out to Azure Cosmos DB will be first available in your API for NoSQL account. In addition, the API for NoSQL supports analytics and provides performance separation between production and analytics workloads. If you want to use the modernized technologies to build your apps, API for NoSQL is the recommended option.
 
 #### Can I assign the HBase RowKey to the Azure Cosmos DB partition key?
 
-It may not be optimized as it is. In HBase, the data is sorted by the specified RowKey, stored in the Region, and divided into fixed sizes. This behaves differently than partitioning in Cosmos DB. Therefore, the keys need to be redesigned to better distribute the data according to the characteristics of the workload. See the [Distribution](#data-distribution) section for more details.
+It may not be optimized as it is. In HBase, the data is sorted by the specified RowKey, stored in the Region, and divided into fixed sizes. This behaves differently than partitioning in Azure Cosmos DB. Therefore, the keys need to be redesigned to better distribute the data according to the characteristics of the workload. See the [Distribution](#data-distribution) section for more details.
 
-#### Data is sorted by RowKey in HBase, but partitioning by key in Cosmos DB. How can Cosmos DB achieve sorting and collocation?
+#### Data is sorted by RowKey in HBase, but partitioning by key in Azure Cosmos DB. How can Azure Cosmos DB achieve sorting and collocation?
 
-In Cosmos DB, you can add a Composite Index to sort your data in ascending or descending order to improve the performance of equality and range queries. See the [Distribution](#data-distribution) section and the [Composite Index](../index-policy.md#composite-indexes) in product documentation.
+In Azure Cosmos DB, you can add a Composite Index to sort your data in ascending or descending order to improve the performance of equality and range queries. See the [Distribution](#data-distribution) section and the [Composite Index](../index-policy.md#composite-indexes) in product documentation.
 
-#### Analytical processing is executed on HBase data with Hive or Spark. How can I modernize them in Cosmos DB?
+#### Analytical processing is executed on HBase data with Hive or Spark. How can I modernize them in Azure Cosmos DB?
 
-You can use the Azure Cosmos DB analytical store to automatically synchronize operational data to another column store. The column store format is suitable for large analytic queries that are executed in an optimized way, which improves latency for such queries. Azure Synapse Link allows you to build an ETL-free HTAP solution by linking directly from Azure Synapse Analytics to the Azure Cosmos DB analytical store. This allows you to perform large-scale, near-real-time analysis of operational data. Synapse Analytics supports Apache Spark and serverless SQL pools in the Cosmos DB analytics store. You can take advantage of this feature to migrate your analytical processing. See [Analytical store](../analytical-store-introduction.md) for more information.
+You can use the Azure Cosmos DB analytical store to automatically synchronize operational data to another column store. The column store format is suitable for large analytic queries that are executed in an optimized way, which improves latency for such queries. Azure Synapse Link allows you to build an ETL-free HTAP solution by linking directly from Azure Synapse Analytics to the Azure Cosmos DB analytical store. This allows you to perform large-scale, near-real-time analysis of operational data. Synapse Analytics supports Apache Spark and serverless SQL pools in the Azure Cosmos DB analytics store. You can take advantage of this feature to migrate your analytical processing. See [Analytical store](../analytical-store-introduction.md) for more information.
 
-#### How can users be using timestamp query in HBase to Cosmos DB?
+#### How can users be using timestamp query in HBase to Azure Cosmos DB?
 
-Cosmos DB doesn't have exactly the same timestamp versioning feature as HBase. But Cosmos DB provides the ability to access the [change feed](../change-feed.md) and you can utilize it for versioning.
+Azure Cosmos DB doesn't have exactly the same timestamp versioning feature as HBase. But Azure Cosmos DB provides the ability to access the [change feed](../change-feed.md) and you can utilize it for versioning.
 
 * Store every version/change as a separate item.
 

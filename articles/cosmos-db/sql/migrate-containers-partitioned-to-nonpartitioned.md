@@ -1,9 +1,9 @@
 ---
-title: Migrate non-partitioned Azure Cosmos containers to partitioned containers
+title: Migrate non-partitioned Azure Cosmos DB containers to partitioned containers
 description: Learn how to migrate all the existing non-partitioned containers into partitioned containers.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: sidandrews
@@ -19,7 +19,7 @@ Azure Cosmos DB supports creating containers without a partition key. Currently 
 The non-partitioned containers are legacy and you should migrate your existing non-partitioned containers to partitioned containers to scale storage and throughput. Azure Cosmos DB provides a system defined mechanism to migrate your non-partitioned containers to partitioned containers. This document explains how all the existing non-partitioned containers are auto-migrated into partitioned containers. You can take advantage of the auto-migration feature only if you are using the V3 version of SDKs in all the languages.
 
 > [!NOTE]
-> Currently, you cannot migrate Azure Cosmos DB MongoDB and Gremlin API accounts by using the steps described in this document.
+> Currently, you cannot migrate Azure Cosmos DB MongoDB and API for Gremlin accounts by using the steps described in this document.
 
 ## Migrate container using the system defined partition key
 
@@ -182,7 +182,7 @@ If new items are inserted with different values for the partition key, querying 
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

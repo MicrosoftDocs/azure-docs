@@ -5,7 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/28/2019
 
@@ -21,16 +21,16 @@ Choose from a letter-sized or A3-sized download.
 
 Download the [Azure Cosmos DB letter-sized query cheat sheets](https://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Azure Cosmos DB query cheat sheets - letter-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Azure Cosmos DB query cheat sheets - letter-sized, with API for NoSQL, JavaScript, MongoDB, Gremlin, and API for Table queries and functions" border="false":::
 
 ## Oversized cheat sheets
 Download the [Azure Cosmos DB A3-sized query cheat sheets](https://go.microsoft.com/fwlink/?linkid=870413) if you're going to print using a plotter or large-scale printer on A3-sized paper (11.7" x 16.5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB query cheat sheets - A3-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB query cheat sheets - A3-sized, with API for NoSQL, JavaScript, MongoDB, Gremlin, and API for Table queries and functions" border="false":::
 
 ## Next steps
 For more help writing queries, see the following articles:
-* For SQL API queries, see [Query using the SQL API](tutorial-query-sql-api.md), [SQL queries for Azure Cosmos DB](./sql-query-getting-started.md), and [SQL syntax reference](./sql-query-getting-started.md)
+* For API for NoSQL queries, see [Query using the API for NoSQL](tutorial-query-sql-api.md), [SQL queries for Azure Cosmos DB](./sql-query-getting-started.md), and [SQL syntax reference](./sql-query-getting-started.md)
 * For MongoDB queries, see [Query using Azure Cosmos DB's API for MongoDB](../mongodb/tutorial-query-mongodb.md) and [Azure Cosmos DB's API for MongoDB feature support and syntax](../mongodb/feature-support-32.md)
-* For Gremlin API queries, see [Query using the Gremlin API](../tutorial-query-graph.md) and [Azure Cosmos DB Gremlin graph support](../gremlin-support.md)
-* For Table API queries, see [Query using the Table API](../table/tutorial-query-table.md)
+* For API for Gremlin queries, see [Query using the API for Gremlin](../tutorial-query-graph.md) and [Azure Cosmos DB for Gremlin graph support](../gremlin-support.md)
+* For API for Table queries, see [Query using the API for Table](../table/tutorial-query-table.md)

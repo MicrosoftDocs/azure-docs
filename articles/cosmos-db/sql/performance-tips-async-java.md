@@ -1,9 +1,9 @@
 ---
 title: Performance tips for Azure Cosmos DB Async Java SDK v2
-description: Learn client configuration options to improve Azure Cosmos database performance for Async Java SDK v2
+description: Learn client configuration options to improve Azure Cosmos DB database performance for Async Java SDK v2
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
@@ -51,7 +51,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
   * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
   
-  Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate   network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint.   The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure   Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+  Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate   network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint.   The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure   Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
   
   The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
 
@@ -71,7 +71,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Collocate clients in same Azure region for performance**
 
-  When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+  When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
   :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
 
@@ -87,7 +87,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Tuning ConnectionPolicy**
 
-  By default, Direct mode Cosmos DB requests are made over TCP when using the Azure Cosmos DB Async Java SDK v2. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
+  By default, Direct mode Azure Cosmos DB requests are made over TCP when using the Azure Cosmos DB Async Java SDK v2. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
 
   In the Azure Cosmos DB Async Java SDK v2, Direct mode is the best choice to improve database performance with most workloads. 
 
@@ -95,7 +95,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode   architecture" border="false":::
   
-  The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB   replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode   architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request   buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service   Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint   based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
+  The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB   replicas. The diagram above shows how Direct mode routes client requests to replicas in the Azure Cosmos DB backend. The Direct mode   architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request   buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service   Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint   based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
 
   * ***ConnectionPolicy Configuration options for Direct mode***
 

@@ -1,35 +1,35 @@
 ---
-title: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI
-description: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI. 
+title: Manage Azure Cosmos DB for NoSQL resources using Azure CLI
+description: Manage Azure Cosmos DB for NoSQL resources using Azure CLI. 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 
 ---
-# Manage Azure Cosmos Core (SQL) API resources using Azure CLI
+# Manage Azure Cosmos DB for NoSQL resources using Azure CLI
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
+The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Azure Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and API for Table.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.22.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-For Azure CLI samples for other APIs see [CLI Samples for Cassandra](../cassandra/cli-samples.md), [CLI Samples for MongoDB API](../mongodb/cli-samples.md), [CLI Samples for Gremlin](../graph/cli-samples.md), [CLI Samples for Table](../table/cli-samples.md)
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](../cassandra/cli-samples.md), [CLI Samples for API for MongoDB](../mongodb/cli-samples.md), [CLI Samples for Gremlin](../graph/cli-samples.md), [CLI Samples for Table](../table/cli-samples.md)
 
 > [!IMPORTANT]
 > Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
-## Azure Cosmos Accounts
+## Azure Cosmos DBAccounts
 
-The following sections demonstrate how to manage the Azure Cosmos account, including:
+The following sections demonstrate how to manage the Azure Cosmos DB account, including:
 
-- [Create an Azure Cosmos account](#create-an-azure-cosmos-db-account)
+- [Create an Azure Cosmos DB account](#create-an-azure-cosmos-db-account)
 - [Add or remove regions](#add-or-remove-regions)
 - [Enable multi-region writes](#enable-multiple-write-regions)
 - [Set regional failover priority](#set-failover-priority)
@@ -42,10 +42,10 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 ### Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with SQL API, Session consistency in West US and East US regions:
+Create an Azure Cosmos DB account with API for NoSQL, Session consistency in West US and East US regions:
 
 > [!IMPORTANT]
-> The Azure Cosmos account name must be lowercase and less than 44 characters.
+> The Azure Cosmos DB account name must be lowercase and less than 44 characters.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -61,10 +61,10 @@ az cosmosdb create \
 
 ### Add or remove regions
 
-Create an Azure Cosmos account with two regions, add a region, and remove a region.
+Create an Azure Cosmos DB account with two regions, add a region, and remove a region.
 
 > [!NOTE]
-> You cannot simultaneously add or remove regions `locations` and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation than any other change to the account resource.
+> You cannot simultaneously add or remove regions `locations` and change other properties for an Azure Cosmos DB account. Modifying regions must be performed as a separate operation than any other change to the account resource.
 > [!NOTE]
 > This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Set failover priority](#set-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
 > [!TIP]
@@ -93,10 +93,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### Enable multiple write regions
 
-Enable multi-region writes for a Cosmos account
+Enable multi-region writes for an Azure Cosmos DB account
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single write region to multiple write regions
+# Update an Azure Cosmos DB account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -108,7 +108,7 @@ az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 
 ### Set failover priority
 
-Set the failover priority for an Azure Cosmos account configured for service-managed failover
+Set the failover priority for an Azure Cosmos DB account configured for service-managed failover
 
 ```azurecli-interactive
 # Assume region order is initially 'West US'=0 'East US'=1 'South Central US'=2 for account
@@ -139,7 +139,7 @@ az cosmosdb update --ids $accountId --enable-automatic-failover true
 ### Trigger manual failover
 
 > [!CAUTION]
-> Changing region with priority = 0 will trigger a manual failover for an Azure Cosmos account. Any other priority change will not trigger a failover.
+> Changing region with priority = 0 will trigger a manual failover for an Azure Cosmos DB account. Any other priority change will not trigger a failover.
 
 > [!NOTE]
 > If you perform a manual failover operation while an [asynchronous throughput scaling operation](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.
@@ -159,7 +159,7 @@ az cosmosdb failover-priority-change --ids $accountId \
 
 ### <a id="list-account-keys"></a> List all account keys
 
-Get all keys for a Cosmos account.
+Get all keys for an Azure Cosmos DB account.
 
 ```azurecli-interactive
 # List all account keys
@@ -173,7 +173,7 @@ az cosmosdb keys list \
 
 ### List read-only account keys
 
-Get read-only keys for a Cosmos account.
+Get read-only keys for an Azure Cosmos DB account.
 
 ```azurecli-interactive
 # List read-only account keys
@@ -188,7 +188,7 @@ az cosmosdb keys list \
 
 ### List connection strings
 
-Get the connection strings for a Cosmos account.
+Get the connection strings for an Azure Cosmos DB account.
 
 ```azurecli-interactive
 # List connection strings
@@ -203,7 +203,7 @@ az cosmosdb keys list \
 
 ### Regenerate account key
 
-Regenerate a new key for a Cosmos account.
+Regenerate a new key for an Azure Cosmos DB account.
 
 ```azurecli-interactive
 # Regenerate secondary account keys
@@ -226,7 +226,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB database, i
 
 ### Create a database
 
-Create a Cosmos database.
+Create an Azure Cosmos DB database.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -241,7 +241,7 @@ az cosmosdb sql database create \
 
 ### Create a database with shared throughput
 
-Create a Cosmos database with shared throughput.
+Create an Azure Cosmos DB database with shared throughput.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -281,7 +281,7 @@ az cosmosdb sql database throughput show \
 
 ### Change database throughput
 
-Increase the throughput of a Cosmos database by 1000 RU/s.
+Increase the throughput of an Azure Cosmos DB database by 1000 RU/s.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -307,7 +307,7 @@ az cosmosdb sql database throughput update \
 
 ### Prevent a database from being deleted
 
-Put an Azure resource delete lock on a database to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos database, it can be used to prevent throughput from being changed.
+Put an Azure resource delete lock on a database to prevent it from being deleted. This feature requires locking the Azure Cosmos DB account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For an Azure Cosmos DB database, it can be used to prevent throughput from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -350,10 +350,10 @@ The following sections demonstrate how to manage the Azure Cosmos DB container, 
 
 ### Create a container
 
-Create a Cosmos container with default index policy, partition key and RU/s of 400.
+Create an Azure Cosmos DB container with default index policy, partition key and RU/s of 400.
 
 ```azurecli-interactive
-# Create a SQL API container
+# Create a API for NoSQL container
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
@@ -369,10 +369,10 @@ az cosmosdb sql container create \
 
 ### Create a container with autoscale
 
-Create a Cosmos container with default index policy, partition key and autoscale RU/s of 4000.
+Create an Azure Cosmos DB container with default index policy, partition key and autoscale RU/s of 4000.
 
 ```azurecli-interactive
-# Create a SQL API container
+# Create a API for NoSQL container
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
@@ -388,10 +388,10 @@ az cosmosdb sql container create \
 
 ### Create a container with TTL
 
-Create a Cosmos container with TTL enabled.
+Create an Azure Cosmos DB container with TTL enabled.
 
 ```azurecli-interactive
-# Create an Azure Cosmos container with TTL of one day
+# Create an Azure Cosmos DB container with TTL of one day
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
@@ -407,10 +407,10 @@ az cosmosdb sql container update \
 
 ### Create a container with a custom index policy
 
-Create a Cosmos container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
+Create an Azure Cosmos DB container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
 
 ```azurecli-interactive
-# Create a SQL API container
+# Create a API for NoSQL container
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 databaseName='database1'
@@ -459,7 +459,7 @@ rm -f "idxpolicy-$uniqueId.json"
 
 ### Change container throughput
 
-Increase the throughput of a Cosmos container by 1000 RU/s.
+Increase the throughput of an Azure Cosmos DB container by 1000 RU/s.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -513,7 +513,7 @@ az cosmosdb sql container throughput show \
 
 ### Prevent a container from being deleted
 
-Put an Azure resource delete lock on a container to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos container, locks can be used to prevent throughput or any other property from being changed.
+Put an Azure resource delete lock on a container to prevent it from being deleted. This feature requires locking the Azure Cosmos DB account from being changed by data plane SDKs. To learn more, see [preventing changes from SDKs](../role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For an Azure Cosmos DB container, locks can be used to prevent throughput or any other property from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

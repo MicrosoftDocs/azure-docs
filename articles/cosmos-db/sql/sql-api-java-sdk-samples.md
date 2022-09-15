@@ -1,10 +1,10 @@
 ---
 
-title: 'Azure Cosmos DB SQL API: Java SDK v4 examples'
-description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
+title: 'Azure Cosmos DB for NoSQL: Java SDK v4 examples'
+description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB for NoSQL, including CRUD operations.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.devlang: java
@@ -13,7 +13,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 
 ---
-# Azure Cosmos DB SQL API: Java SDK v4 examples
+# Azure Cosmos DB for NoSQL: Java SDK v4 examples
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -102,7 +102,7 @@ where *sample.synchronicity.MainClass* can be
 > 
 
 ## Database examples
-The Database CRUD Sample files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/databasecrud/async/DatabaseCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article. 
+The Database CRUD Sample files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/databasecrud/async/DatabaseCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article. 
 
 | Task | API reference |
 | --- | --- |
@@ -112,7 +112,7 @@ The Database CRUD Sample files for [sync](https://github.com/Azure-Samples/azure
 | Delete a database | [CosmosDatabase.delete](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java#L114-L122)  <br> [CosmosAsyncDatabase.delete](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/databasecrud/async/DatabaseCRUDQuickstartAsync.java#L127-L135)  |
 
 ## Collection examples
-The Collection CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/containercrud/async/ContainerCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The Collection CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/containercrud/async/ContainerCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -143,14 +143,14 @@ The autoscale collection samples files for [sync](https://github.com/Azure-Sampl
 
 ## Analytical storage collection examples
 
-The Analytical storage Collection CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/async/AnalyticalContainerCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos collections before running the following samples, read about Azure Cosmos DB Synapse and Analytical Store.
+The Analytical storage Collection CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/async/AnalyticalContainerCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos DB collections before running the following samples, read about Azure Cosmos DB Synapse and Analytical Store.
 
 | Task | API reference | 
 | --- | --- | 
 | Create a collection | [CosmosDatabase.createContainerIfNotExists](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java#L91-L106) <br> [CosmosAsyncDatabase.createContainerIfNotExists](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/0ead4ca33dac72c223285e1db866c9dc06f5fb47/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/async/AnalyticalContainerCRUDQuickstartAsync.java#L91-L106) |
 
 ## Document examples
-The Document CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/async/DocumentCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The Document CRUD Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/async/DocumentCRUDQuickstartAsync.java) show how to perform the following tasks. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |

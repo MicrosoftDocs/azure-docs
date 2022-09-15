@@ -1,9 +1,9 @@
 ---
 title: Performance tips for Azure Cosmos DB Java SDK v4
-description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
+description: Learn client configuration options to improve Azure Cosmos DB database performance for Java SDK v4
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 04/22/2022
@@ -70,7 +70,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 * **Collocate clients in same Azure region for performance**
 <a id="same-region"></a>
 
-When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
 :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
 
@@ -134,7 +134,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 * **Tuning ConnectionPolicy**
 
-By default, Direct mode Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance.
+By default, Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance.
 
 In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
 
@@ -143,7 +143,7 @@ In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve databa
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
 
-The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
+The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Azure Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
 
 * ***Configuration options for Direct mode***
 
@@ -187,7 +187,7 @@ After result is received if you want to do CPU intensive work on the result you 
 Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
 [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
-For more information on Azure Cosmos DB Java SDK v4, please look at the [Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
+For more information on Azure Cosmos DB Java SDK v4, please look at the [Azure Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
 * **Optimize logging settings in your application**
 

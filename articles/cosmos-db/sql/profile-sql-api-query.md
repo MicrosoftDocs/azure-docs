@@ -3,7 +3,7 @@ title: Get SQL query performance & execution metrics
 description: Learn how to retrieve SQL query execution metrics and profile SQL query performance of Azure Cosmos DB requests.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
@@ -19,7 +19,7 @@ This article presents how to profile SQL query performance on Azure Cosmos DB. T
 
 All the overloads for [DocumentClient.CreateDocumentQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) take in an optional [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) parameter. This option is what allows query execution to be tuned and parameterized. 
 
-To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
+To collect the NoSQL query execution metrics, you must set the parameter [PopulateQueryMetrics](/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
 
 ## Get query metrics with AsDocumentQuery()
 The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) method:

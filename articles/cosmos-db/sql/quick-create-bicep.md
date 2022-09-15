@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create an Azure Cosmos DB and a container using Bicep
-description: Quickstart showing how to an Azure Cosmos database and a container using Bicep
+description: Quickstart showing how to an Azure Cosmos DB database and a container using Bicep
 author: rothja
 ms.author: jroth
 tags: azure-resource-manager, bicep
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 04/18/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). This quickstart focuses on the process of deploying a Bicep file to create an Azure Cosmos database and a container within that database. You can later store data in this container.
+Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). This quickstart focuses on the process of deploying a Bicep file to create an Azure Cosmos DB database and a container within that database. You can later store data in this container.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -34,11 +34,11 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 Three Azure resources are defined in the Bicep file:
 
-- [Microsoft.DocumentDB/databaseAccounts](/azure/templates/microsoft.documentdb/databaseaccounts): Create an Azure Cosmos account.
+- [Microsoft.DocumentDB/databaseAccounts](/azure/templates/microsoft.documentdb/databaseaccounts): Create an Azure Cosmos DB account.
 
-- [Microsoft.DocumentDB/databaseAccounts/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Create an Azure Cosmos database.
+- [Microsoft.DocumentDB/databaseAccounts/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Create an Azure Cosmos DB database.
 
-- [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos container.
+- [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos DB container.
 
 ## Deploy the Bicep file
 
@@ -62,7 +62,7 @@ Three Azure resources are defined in the Bicep file:
     ---
 
    > [!NOTE]
-   > Replace **\<primary-region\>** with the primary replica region for the Cosmos DB account, such as **WestUS**. Replace **\<secondary-region\>** with the secondary replica region for the Cosmos DB account, such as **EastUS**.
+   > Replace **\<primary-region\>** with the primary replica region for the Azure Cosmos DB account, such as **WestUS**. Replace **\<secondary-region\>** with the secondary replica region for the Azure Cosmos DB account, such as **EastUS**.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -105,7 +105,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created an Azure Cosmos account, a database and a container by using a Bicep file and validated the deployment. To learn more about Azure Cosmos DB and Bicep, continue on to the articles below.
+In this quickstart, you created an Azure Cosmos DB account, a database and a container by using a Bicep file and validated the deployment. To learn more about Azure Cosmos DB and Bicep, continue on to the articles below.
 
 - Read an [Overview of Azure Cosmos DB](../introduction.md).
 - Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md).

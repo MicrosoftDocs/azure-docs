@@ -4,7 +4,7 @@ description:  ASP.NET Core MVC tutorial to create an MVC web application using A
 author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/02/2020
@@ -30,7 +30,7 @@ This tutorial covers:
 
 > [!div class="checklist"]
 >
-> * Creating an Azure Cosmos account
+> * Creating an Azure Cosmos DB account
 > * Creating an ASP.NET Core MVC app
 > * Connecting the app to Azure Cosmos DB
 > * Performing create, read, update, and delete (CRUD) operations on the data
@@ -50,9 +50,9 @@ Before following the instructions in this article, make sure that you have the f
 
 All the screenshots in this article are from Microsoft Visual Studio Community 2019. If you use a different version, your screens and options may not match entirely. The solution should work if you meet the prerequisites.
 
-## Step 1: Create an Azure Cosmos account
+## Step 1: Create an Azure Cosmos DB account
 
-Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#step-2-create-a-new-aspnet-core-mvc-application).
+Let's start by creating an Azure Cosmos DB account. If you already have an Azure Cosmos DB for NoSQL account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#step-2-create-a-new-aspnet-core-mvc-application).
 
 [!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -289,7 +289,7 @@ To test the application on your local computer, use the following steps:
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Screenshot of the Index view with the Completed box checked":::
 
-1. Verify the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
+1. Verify the state of the data in the Azure Cosmos DB service using [Azure Cosmos DB Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
 
 1. Once you've tested the app, select Ctrl+F5 to stop debugging the app. You're ready to deploy!
 

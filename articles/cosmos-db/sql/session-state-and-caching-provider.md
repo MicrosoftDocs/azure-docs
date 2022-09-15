@@ -25,7 +25,7 @@ There are many external storage providers available, that can store the session 
 
 ## Session state scenarios
 
-Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) uses the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-standard.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
+Azure Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) uses the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-standard.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
 
 Once the package is added, you can use `AddCosmosCache` as part of your Startup process (services.AddSession and app.UseSession are [common initialization](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#configure-session-stat&preserve-view=true) steps required for any session state provider):
 
@@ -67,7 +67,7 @@ Where you specify the database and container you want the session state to be st
 > [!IMPORTANT]
 > If you provide an existing container instead of using `CreateIfNotExists`, make sure it has [time to live enabled](how-to-time-to-live.md).
 
-You can customize your SDK client configuration by using the `CosmosClientBuilder` or if your application is already using a `CosmosClient` for other operations with Cosmos DB, you can also inject it into the provider:
+You can customize your SDK client configuration by using the `CosmosClientBuilder` or if your application is already using a `CosmosClient` for other operations with Azure Cosmos DB, you can also inject it into the provider:
 
 ```csharp
 services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
@@ -84,14 +84,14 @@ After this, you can use ASP.NET Core sessions like with any other provider and u
 
 ##  Distributed cache scenarios
 
-Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web applications that require a performant and distributed session state provider.
+Given that the Azure Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web applications that require a performant and distributed session state provider.
 
-Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Cosmos DB provider, you can:
+Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Azure Cosmos DB provider, you can:
 
-- Use your Cosmos DB account in **Session consistency** if you can enable [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) and make requests sticky to a particular instance.
-- Use your Cosmos DB account in **Bounded Staleness or Strong consistency** without requiring request stickiness. This provides the greatest scale in terms of load distribution across your instances.
+- Use your Azure Cosmos DB account in **Session consistency** if you can enable [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) and make requests sticky to a particular instance.
+- Use your Azure Cosmos DB account in **Bounded Staleness or Strong consistency** without requiring request stickiness. This provides the greatest scale in terms of load distribution across your instances.
 
-To use the Cosmos DB provider as a distributed cache, it needs to be registered in `ConfiguredService`s with the `services.AddCosmosCache` call. Once that is done, any constructor in the application can ask for the cache by referencing `IDistributedCache` and it will receive the instance injected by [dependency injection](/dotnet/core/extensions/dependency-injection) to be used:
+To use the Azure Cosmos DB provider as a distributed cache, it needs to be registered in `ConfiguredService`s with the `services.AddCosmosCache` call. Once that is done, any constructor in the application can ask for the cache by referencing `IDistributedCache` and it will receive the instance injected by [dependency injection](/dotnet/core/extensions/dependency-injection) to be used:
 
 ```csharp
 public class MyBusinessClass
@@ -114,7 +114,7 @@ public class MyBusinessClass
 ## Troubleshooting and diagnosing
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Since the Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3-sql.md) and [troubleshooting guides](troubleshoot-dot-net-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
+Since the Azure Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3-sql.md) and [troubleshooting guides](troubleshoot-dot-net-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Azure Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
 
 Registering the optional diagnostics delegate will allow you to capture and conditionally log any diagnostics to troubleshoot any cases like high latency:
 

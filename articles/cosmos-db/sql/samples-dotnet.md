@@ -1,17 +1,17 @@
 ---
-title: Examples for Azure Cosmos DB SQL API SDK for .NET
-description: Find .NET SDK examples on GitHub for common tasks using the Azure Cosmos DB SQL API.
+title: Examples for Azure Cosmos DB for NoSQL SDK for .NET
+description: Find .NET SDK examples on GitHub for common tasks using the Azure Cosmos DB for NoSQL.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
-# Examples for Azure Cosmos DB SQL API SDK for .NET
+# Examples for Azure Cosmos DB for NoSQL SDK for .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
@@ -20,12 +20,12 @@ ms.custom: devx-track-csharp
 > * [.NET](samples-dotnet.md)
 >
 
-The [cosmos-db-sql-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB SQL API resources.
+The [cosmos-db-sql-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples) GitHub repository includes multiple sample projects. These projects illustrate how to perform common operations on Azure Cosmos DB for NoSQL resources.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
-* Azure Cosmos DB SQL API account. [Create a SQL API account](how-to-create-account.md).
+* Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
 * [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
@@ -64,7 +64,7 @@ The sample projects are all self-contained and are designed to be ran individual
 
 ## Next steps
 
-Dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
+Dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB for NoSQL resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
+> [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md)

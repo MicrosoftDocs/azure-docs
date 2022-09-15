@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the SQL API'
-description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the SQL API to store and access data from a Java application hosted on Azure Websites.'
+title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the API for NoSQL'
+description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the API for NoSQL to store and access data from a Java application hosted on Azure Websites.'
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 03/29/2022
@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
+# Tutorial: Build a Java web application using Azure Cosmos DB and the API for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -220,7 +220,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Import Projects** screen, unselect the **DocumentDB** project, and then select **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
 
-1. In **Project Explorer**, navigate to azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
+1. In **Project Explorer**, navigate to azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos DB database account](#CreateDB).
 
 1. In **Project Explorer**, right-click the **azure-cosmos-java-sample**, select **Build Path**, and then select **Configure Build Path**.
 

@@ -3,7 +3,7 @@ title: Publish notebooks to the Azure Cosmos DB notebook gallery
 description: Learn how to download notebooks from the public gallery, edit them, and publish your own notebooks to the gallery.
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
@@ -12,7 +12,7 @@ ms.author: dech
 # Publish notebooks to the Azure Cosmos DB notebook gallery
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Cosmos account](create-cosmosdb-resources-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
+Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Azure Cosmos DB account](create-cosmosdb-resources-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
 
 The notebook environment in the Azure portal has some samples published by the Azure Cosmos DB team. It also has a public gallery where you can publish and share your own notebooks. After a notebook is published to the gallery, it's available for all the Azure Cosmos DB users to view and use. In this article, you will learn how to use notebooks from the public gallery and publish your notebook to the gallery.
 
@@ -73,7 +73,7 @@ Use the following steps to publish a notebook:
 
 1. After the notebook is published to the gallery, you can see it within the **My published work** tab. You can also remove or delete notebooks you’ve published from the public gallery.
 
-1. You can also report a notebook that violates the code of conduct. If a violation is found, Cosmos DB automatically removes the notebook from gallery. If a notebook is removed, users can see it under the **My published work** tab with the removed note. To report a notebook, go to the **Data Explorer** > **Notebooks** > **Gallery** > **Public gallery** tab. Open the notebook you want to report, hover on the **Help** button on the right-hand corner and select **Report Abuse**.
+1. You can also report a notebook that violates the code of conduct. If a violation is found, Azure Cosmos DB automatically removes the notebook from gallery. If a notebook is removed, users can see it under the **My published work** tab with the removed note. To report a notebook, go to the **Data Explorer** > **Notebooks** > **Gallery** > **Public gallery** tab. Open the notebook you want to report, hover on the **Help** button on the right-hand corner and select **Report Abuse**.
 
    :::image type="content" source="./media/publish-notebook-gallery/report-notebook-violation.png" alt-text="Report a notebook that violates the code of conduct.":::
 
