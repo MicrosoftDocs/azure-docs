@@ -396,7 +396,7 @@ The same discrete and continuous distribution options that are available for gen
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-```json
+```yaml
 limits: 
   timeout_minutes: 120  
   max_trials: 4 
@@ -494,7 +494,7 @@ AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in 
  [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 
-```JSON
+```yaml
 limits: 
   timeout_minutes: 60 
   trial_timeout_minutes: 20 
