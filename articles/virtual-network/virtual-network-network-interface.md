@@ -905,21 +905,36 @@ az network nic update \
 
 ## Delete a network interface
 
-You can delete a network interface as long as it's not attached to a virtual machine. If a network interface is attached to a virtual machine, you must first place the virtual machine in the stopped (deallocated) state, then detach the network interface from the virtual machine. To detach a network interface from a virtual machine, complete the steps in [Detach a network interface from a virtual machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). You cannot detach a network interface from a virtual machine if it's the only network interface attached to the virtual machine however. A virtual machine must always have at least one network interface attached to it. Deleting a virtual machine detaches all network interfaces attached to it, but does not delete the network interfaces.
+You can delete a network interface if it't not attached to a virtual machine. If a network interface is attached to a virtual machine, you must first place the virtual machine in the stopped (deallocated) state, then detach the network interface from the virtual machine. 
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
-2. Select the network interface in the list that you want to delete.
-3. Under **Overview** Select **Delete**.
-4. Select **Yes** to confirm deletion of the network interface.
+To detach a network interface from a virtual machine, complete the steps in [Detach a network interface from a virtual machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). You cannot detach a network interface from a virtual machine if it's the only network interface attached to the virtual machine however. A virtual machine must always have at least one network interface attached to it. 
 
-When you delete a network interface, any MAC or IP addresses assigned to it are released.
+# [**Portal**](#tab/network-interface-portal)
 
-**Commands**
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic delete](/cli/azure/network/nic)|
-|PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+
+3. Select the network interface you want to view or change settings for from the list.
+
+4. In **Overview**, select **Delete**.
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+Use [Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface) to delete the network interface.
+
+```azurepowershell
+Remove-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+```
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic delete](/cli/azure/network/nic#az-network-nic-delete) to delete the network interface.
+
+```azurecli
+az network nic delete --name myNIC --resource-group myResourceGroup
+```
+---
 
 ## Resolve connectivity issues
 
@@ -928,6 +943,13 @@ If you are unable to communicate to or from a virtual machine, network security 
 ### View effective security rules
 
 The effective security rules for each network interface attached to a virtual machine are a combination of the rules you've created in a network security group and [default security rules](./network-security-groups-overview.md#default-security-rules). Understanding the effective security rules for a network interface may help you determine why you're unable to communicate to or from a virtual machine. You can view the effective rules for any network interface that is attached to a running virtual machine.
+
+
+
+
+
+
+
 
 1. In the search box at the top of the portal, enter the name of a virtual machine you want to view effective security rules for. If you don't know the name of a virtual machine, enter *virtual machines* in the search box. When **Virtual machines** appear in the search results, select it, and then select a virtual machine from the list.
 2. Select **Networking** under **SETTINGS**.
