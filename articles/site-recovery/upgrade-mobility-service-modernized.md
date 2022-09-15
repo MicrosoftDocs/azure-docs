@@ -73,6 +73,80 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 3. Confirm the availability of new version, download the latest agent version’s package on the source machine and update the agent version. 
 
+### Update mobility agent on Windows machines
+
+1.	Open command prompt and navigate to the folder where the update package has been placed.
+
+   `cd C:\Azure Site Recovery\Agent`
+
+2.	Run the following command to extract the update package:
+
+   `.\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent`
+
+3.	To proceed with the update, run the following command:
+
+   `.\UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
+
+4.	Once the agent has been updated, registration will be triggered automatically. To manually check the status of registration, run the following command:
+
+   `"C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime`
+
+#### Upgrade settings
+
+|Setting|Details|
+|---|---|
+|Syntax|	`.\UnifiedAgent.exe /Role "MS" /Platform vmware /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Azure Site Recovery\Agent"`|
+|`/Role`|Mandatory update parameter. Specifies that the Mobility service (MS) will be updated.|
+|`/InstallLocation`|Optional. Specifies the Mobility service installation location.|
+|`/Platform`|Mandatory. Specifies the platform on which the Mobility service is updated:</br>VmWare for VMware VMs/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure VMs as physical machines, specify VmWare.|
+|`/Silent`|Optional. Specifies whether to run the installer in silent mode.|
+|`/CSType`|Mandatory. Used to define preview or legacy architecture. (Use CSPrime)|
+
+#### Registration settings
+
+|Setting|Details|
+|---|---|
+|Syntax|`"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`|
+|`/SourceConfigFilePath`|Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.|
+|`/CSType`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
+
+### Update mobility agent on Linux machines
+
+1.	From a terminal session, copy the update package to a local folder such as `/tmp` on the server for which the agent is being updated. Then run the below command:
+
+   `cd /tmp ;`
+   `tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz`
+
+2.	To update, use the below command:
+
+   `./install -q -r MS -v VmWare -a Upgrade -c CSPrime`
+
+3.	Once the agent has been updated, registration will be triggered automatically. To manually check the status of registration, run the following command:
+
+   `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`
+
+#### Installation settings
+
+|Setting|Details|
+|---|---|
+|Syntax|`./install -q -r MS -v VmWare -a Upgrade -c CSPrime`|
+|`-r`|Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.|
+|`-d`|Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.|
+|`-v`|Mandatory. Specifies the platform on which Mobility service is installed.</br>VMware for VMware VMs/physical servers. </br>Azure for Azure VMs.|
+|`-q`|Optional. Specifies whether to run the installer in silent mode.|
+|`-c`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
+|`-a`|Mandatory. Specifies that the mobility agent needs to be upgraded and not installed.|
+
+#### Registration settings
+
+|Setting|Details|
+|---|---|
+|Syntax|`<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`|
+|`-S`|Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.|
+|`-c`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
+|`-q`|Optional. Specifies whether to run the installer in silent mode.|
+
+
 ## Mobility agent on latest version
 
 After Mobility agent is updated to the latest version or has been updated automatically to the latest version,  the status displays as **Up to date**.
@@ -141,7 +215,7 @@ To delete the registry key:
 
 1. On the server running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
 
 ### Update appliance components when private endpoint is enabled
 
@@ -149,6 +223,31 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 1.	Navigate to this page and check if a new version for the components has been released for a particular version.  
 2.	Download packages of all the versions for which an update is available on the appliance and update all the components. 
+
+#### Update Process server
+
+1.	To update the process server, find the latest version from here. 
+2.	Download the update package to the ASR replication appliance. 
+3.	Open command prompt and navigate to the folder where the update package has been placed.
+   `cd C:\Downloads`
+4.	Run the below command to update the process server: 
+   `msiexec.exe /i ProcessServer.msi ALLUSERS=1 REINSTALL=ALL REINSTALLMODE=vomus /l*v msi.log`
+
+#### Update Recovery Services agent
+
+To update the Recovery Service agent, find the latest version from here. 
+
+1.	Download the update package to the ASR replication appliance. 
+2.	Open command prompt and navigate to the folder where the update package has been placed.
+   `cd C:\Downloads`
+3.	Run the below command to update the Recovery Service agent: 
+   `MARSAgentInstaller.exe /q /nu - for mars agent`
+
+#### Update remaining components of appliance
+
+1.	To update the remaining components of the ASR replication appliance, download the latest version from here.
+2.	Once the .msi file has been downloaded, open the file by double-clicking on it. 
+3.	This will automatically trigger the update. The latest version can be checked from the ‘Add or remove program’ in Windows settings.
 
 ### Resolve issues with component upgrade
 

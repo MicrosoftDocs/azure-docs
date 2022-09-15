@@ -284,7 +284,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
     Ensure you do not close the browser while configuration is in progress.
 
     >[!NOTE]
-    > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
+    > Appliance cloning is not supported with the modernized architecture. If you attempt to clone, it might disrupt the recovery flow.
 
 
 ## View Azure Site Recovery replication appliance in Azure portal

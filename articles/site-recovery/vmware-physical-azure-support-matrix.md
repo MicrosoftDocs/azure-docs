@@ -296,14 +296,14 @@ Soft delete | Not supported.
 
 **Feature** | **Supported**
 --- | ---
-Availability sets | No 
+Availability sets | Yes. Not supported for modernized experience.
 Availability zones | No
 HUB | Yes
 Managed disks | Yes
 
 ## Azure VM requirements
 
-On-premises VMs replicated to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs a prerequisites check for replication, the check will fail if some of the requirements aren't met.
+On-premises VMs replicated to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs prerequisites check for replication, the check will fail if some of the requirements aren't met.
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
