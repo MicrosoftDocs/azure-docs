@@ -174,7 +174,7 @@ Once you enable the soft delete policy and perform actions such as untag a manif
 :::image type="content" source="./media/container-registry-soft-delete/06-manage-delete-repositories.png" alt-text="Screenshot of manage delete repositories.":::
 
 1. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
-1. 
+
 :::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-repositories.png" alt-text="Screenshot of soft delete repositories.":::
 
 1. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
