@@ -253,7 +253,7 @@ sections:
 
       - question: Can I use Enhanced policy for Cross Subscription Restore?
         answer: |
-          No, [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is currently enabled only in [standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
+          Yes, it's supported for [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options).
 
   - name: Manage VM backups
     questions:
