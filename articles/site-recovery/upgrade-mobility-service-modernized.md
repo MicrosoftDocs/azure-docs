@@ -233,8 +233,11 @@ When you enable private endpoints, automatic updates will not be available. To u
 1.	To update the process server, download the latest version [here](/azure/site-recovery/site-recovery-whats-new#supported-updates). 
 2.	Download the update package to the ASR replication appliance. 
 3.	Open command prompt and navigate to the folder where the update package has been placed.
+    
     `cd C:\Downloads`
+
 4.	To update the process server, run the below command: 
+    
     `msiexec.exe /i ProcessServer.msi ALLUSERS=1 REINSTALL=ALL REINSTALLMODE=vomus /l*v msi.log`
 
 #### Update Recovery Services agent
@@ -243,8 +246,11 @@ To update the Recovery Service agent, download the latest version [here](/azure/
 
 1.	Download the update package to the ASR replication appliance. 
 2.	Open command prompt and navigate to the folder where the update package has been placed.
+    
     `cd C:\Downloads`
+
 3.	To update the Recovery Service agent, run the below command: 
+    
     `MARSAgentInstaller.exe /q /nu - for mars agent`
 
 #### Update remaining components of appliance
