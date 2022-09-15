@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create an Azure Cosmos DB and a container using Bicep
 description: Quickstart showing how to an Azure Cosmos DB database and a container using Bicep
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
 tags: azure-resource-manager, bicep
 ms.service: cosmos-db
 ms.subservice: nosql

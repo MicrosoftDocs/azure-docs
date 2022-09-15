@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Cosmos DB service unavailable exceptions
 description: Learn how to diagnose and fix Azure Cosmos DB service unavailable exceptions.
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.date: 08/31/2022
-ms.author: jroth
+ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
 ---

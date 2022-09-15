@@ -6,8 +6,8 @@ ms.subservice: table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 07/23/2020
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
 # How to use Azure Table Storage and the Azure Cosmos DB for Table with Ruby
