@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Azure Cosmos DB for NoSQL client SDKs](sql-api-dotnet-samples.md). 
+Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Azure Cosmos DB for NoSQL client SDKs](samples-dotnet.md). 
 
 To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -52,7 +52,7 @@ When you create an item by using stored procedure, the item is inserted into the
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container and returns the count of the items inserted. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](create-sql-api-dotnet.md)
+The following example stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container and returns the count of the items inserted. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md)
 
 ```javascript
 function createToDoItems(items) {
@@ -285,7 +285,7 @@ Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are execut
 
 ### <a id="pre-triggers"></a>Pre-triggers
 
-The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos DB item that is being created. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](create-sql-api-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
+The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos DB item that is being created. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
 
 ```javascript
 function validateToDoItemTimestamp() {

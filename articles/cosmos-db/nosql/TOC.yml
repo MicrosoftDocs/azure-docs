@@ -201,7 +201,7 @@
       items:
         - name: Getting started with SQL query
           displayName: sql query, query basics
-          href: sql-query-getting-started.md
+          href: query/getting-started.md
         - name: Indexing overview
           displayName: range, spatial
           href: ../index-overview.md

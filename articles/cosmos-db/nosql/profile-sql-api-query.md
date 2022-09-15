@@ -232,7 +232,7 @@ To learn more about tuning query performance, see the [Tune Query Performance](.
 
 ## <a id="References"></a>References
 
-- [Azure Cosmos DB SQL specification](./sql-query-getting-started.md)
+- [Azure Cosmos DB SQL specification](query/getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 

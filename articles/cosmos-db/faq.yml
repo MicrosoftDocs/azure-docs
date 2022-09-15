@@ -156,7 +156,7 @@ sections:
       - question: |
           Can I access some ready-made samples to get a head start?
         answer: |
-          Samples for the API for NoSQL [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), and [Python](sql-api-python-samples.md) SDKs are available on GitHub.
+          Samples for the API for NoSQL [.NET](nosql/samples-dotnet.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), and [Python](sql-api-python-samples.md) SDKs are available on GitHub.
           
       - question: |
           Does the API for NoSQL database support schema-free data?
@@ -198,7 +198,7 @@ sections:
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
-          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-query-aggregate-functions.md).
+          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](nosql/query/aggregate-functions.md).
           
       - question: |
           How does the API for NoSQL provide concurrency?
@@ -242,7 +242,7 @@ sections:
           Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
           
           [azure-portal]: https://portal.azure.com
-          [query]: ./sql-query-getting-started.md
+          [query]: query/getting-started.md
           
 additionalContent: |
 

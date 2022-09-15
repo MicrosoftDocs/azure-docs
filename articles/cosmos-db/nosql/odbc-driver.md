@@ -165,7 +165,7 @@ Follow these steps to create a view for your data:
 
 1. In the **View Definitions** window, select **New**. Enter a name for the view, for example *EmployeesfromSeattleView*, and then select **OK**.
 
-1. In the **Edit view** window, enter an [Azure Cosmos DB query](./sql-query-getting-started.md), for example:
+1. In the **Edit view** window, enter an [Azure Cosmos DB query](query/getting-started.md), for example:
 
    `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`
 

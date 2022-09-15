@@ -337,7 +337,7 @@ Congratulations! You've successfully created two Azure Cosmos DB items.
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](./sql-query-getting-started.md). The following sample code shows how to run a query against the items we inserted in the previous step.
+Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](query/getting-started.md). The following sample code shows how to run a query against the items we inserted in the previous step.
 
 1. Copy and paste the `QueryItemsAsync` method after your `AddItemsToContainerAsync` method.
 

@@ -185,7 +185,7 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 For more information about indexing, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
 ## Query examples
-The Query Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java) show how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](./sql-query-getting-started.md). 
+The Query Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) and [async](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java) show how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](query/getting-started.md). 
 
 | Task | API reference |
 | --- | --- |

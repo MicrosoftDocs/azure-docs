@@ -328,7 +328,7 @@ In a few seconds, Visual Studio publishes your web application and launches a br
 In this tutorial, you've learned how to build an ASP.NET Core MVC web application. Your application can access data stored in Azure Cosmos DB. You can now continue with these resources:
 
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
-* [Getting started with SQL queries](./sql-query-getting-started.md)
+* [Getting started with SQL queries](query/getting-started.md)
 * [How to model and partition data on Azure Cosmos DB using a real-world example](./how-to-model-partition-example.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

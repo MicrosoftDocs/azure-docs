@@ -14,7 +14,7 @@ ms.custom: mode-ui
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET](quickstart-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)

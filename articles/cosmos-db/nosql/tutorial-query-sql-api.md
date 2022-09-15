@@ -59,7 +59,7 @@ The SQL queries in this article use the following sample document.
 You can run queries using the Data Explorer in the Azure portal and via the [REST API and SDKs](sql-api-sdk-dotnet.md).
 
 For more information about SQL queries, see:
-* [SQL query and SQL syntax](sql-query-getting-started.md)
+* [SQL query and SQL syntax](query/getting-started.md)
 
 ## Prerequisites
 

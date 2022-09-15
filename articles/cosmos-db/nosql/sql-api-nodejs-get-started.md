@@ -258,4 +258,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 > [!div class="nextstepaction"]
 > [Monitor an Azure Cosmos DB account](../monitor-cosmos-db.md)
 
-[create-account]: create-sql-api-dotnet.md#create-account
+[create-account]: quickstart-dotnet.md#create-account

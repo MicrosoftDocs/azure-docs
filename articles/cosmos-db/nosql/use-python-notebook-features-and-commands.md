@@ -30,7 +30,7 @@ This package will be available to use from any notebook in the Azure Cosmos DB a
 
 ## Run a SQL query
 
-You can use the ``%%sql`` magic command to run a [SQL query](sql-query-getting-started.md) against any container in your account. Use the syntax:
+You can use the ``%%sql`` magic command to run a [SQL query](query/getting-started.md) against any container in your account. Use the syntax:
 
 ```python
 %%sql --database {database_id} --container {container_id}

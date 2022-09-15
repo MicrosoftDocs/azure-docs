@@ -33,7 +33,7 @@ Jupyter Notebooks were originally developed for data science applications writte
 
 **Documentation of code samples and outcomes of data exploration:** If you have a piece of code and you want to explain line-by-line how it works, you can embed it in a Jupyter Notebook. You can add interactivity along with the documentation at the same time.
 
-**Built-in commands for Azure Cosmos DB:** Azure Cosmos DB's built-in magic commands make it easy to interact with your account. You can use commands like %%upload and %%sql to upload data into a container and query it using [API for NoSQL syntax](sql-query-getting-started.md). You don't need to write additional custom code.
+**Built-in commands for Azure Cosmos DB:** Azure Cosmos DB's built-in magic commands make it easy to interact with your account. You can use commands like %%upload and %%sql to upload data into a container and query it using [API for NoSQL syntax](query/getting-started.md). You don't need to write additional custom code.
 
 **All in one place environment:** Jupyter Notebooks combine code, rich text, images, videos, animations, mathematical equations, plots, maps, interactive figures, widgets, and graphical user interfaces into a single document.
 

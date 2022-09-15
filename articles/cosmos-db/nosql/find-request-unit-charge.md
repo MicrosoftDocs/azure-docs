@@ -28,7 +28,7 @@ Currently, you can measure consumption only by using the Azure portal or by insp
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
+1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
@@ -83,7 +83,7 @@ Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
-For more information, see [Quickstart: Build a .NET web app by using a API for NoSQL account in Azure Cosmos DB](create-sql-api-dotnet.md).
+For more information, see [Quickstart: Build a .NET web app by using a API for NoSQL account in Azure Cosmos DB](quickstart-dotnet.md).
 
 ---
 

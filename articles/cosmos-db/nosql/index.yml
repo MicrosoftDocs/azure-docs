@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:       
           - text: Getting started with SQL queries
-            url: sql-query-getting-started.md  
+            url: query/getting-started.md  
           - text: What is change feed? 
             url: ../change-feed.md       
       - linkListType: tutorial
