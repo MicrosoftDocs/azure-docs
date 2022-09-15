@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 12/12/2017
+ms.date: 09/15/2022
 
 ---
 # Azure Functions C# script (.csx) developer reference
@@ -12,13 +12,19 @@ ms.date: 12/12/2017
 
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
-Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in a Visual Studio class library project](functions-develop-vs.md), see [C# developer reference](functions-dotnet-class-library.md).
+Azure Functions lets you develop functions using C# in one of the following ways:
+
+| Type | Execution process | Code extension | Development environment | Reference |
+| --- | ---- | --- | --- | --- | 
+| C# script | in-process | .csx | Portal<br/>Core Tools | This article | 
+| C# class library | in-process | .cs | Visual Studio<br/>Visual Studio Code<br />Core Tools | [In-process C# class library functions](functions-dotnet-class-library.md) |
+| C# class library (isolated process)| out-of-process | .cs | Visual Studio<br/>Visual Studio Code<br />Core Tools | [.NET isolated process functions](dotnet-isolated-process-guide.md) | 
 
 This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
 ## How .csx works
 
-The C# script experience for Azure Functions is based on the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Data flows into your C# function via method arguments. Argument names are specified in a `function.json` file, and there are predefined names for accessing things like the function logger and cancellation tokens.
+Data flows into your C# function via method arguments. Argument names are specified in a `function.json` file, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
 The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
 
@@ -350,18 +356,28 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`
 
-The following assemblies may be referenced by simple-name (for example, `#r "AssemblyName"`):
+The following assemblies may be referenced by simple-name, by runtime version:
 
-Functions V2 and V3:
+# [Version 2.x+](#tab/v2)
+
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
 
-Functions V1:
+# [Version 1.x](#tab/v1)
+
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNet.WebHooks.Common`
+
+---
+
+In code, assemblies are referenced like the following:
+
+```csharp
+#r "AssemblyName"
+```
 
 ## Referencing custom assemblies
 
