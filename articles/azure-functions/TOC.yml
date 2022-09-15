@@ -80,6 +80,8 @@
           href: functions-add-output-binding-storage-queue-cli.md
 - name: Tutorials
   items:
+    - name: Functions with Quarkus
+      href: functions-quarkus-tutorial.md
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
