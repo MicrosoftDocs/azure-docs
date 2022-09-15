@@ -4,12 +4,12 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: references_regions
 ms.service: azure-vmware
-ms.date: 08/26/2022
+ms.date: 09/15/2022
 ---
 
 # Platform updates for Azure VMware Solution
 
-Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## July 8, 2022
 
