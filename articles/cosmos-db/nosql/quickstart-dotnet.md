@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for .NET
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 >

@@ -11,7 +11,7 @@ metadata:
   ms.date: 05/09/2022
 title: Frequently asked questions on distributing throughput across partitions in Azure Cosmos DB (preview)
 summary: |
-  [!INCLUDE[appliesto-sql-mongodb-api](../includes/appliesto-sql-mongodb-api.md)]
+  [!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
   
   The throughput redistribution feature of Azure Cosmos DB gives you the ability to redistribute your provisioned throughput across physical partitions. This article answers commonly asked questions about Azure Cosmos DB throughput redistribution across partitions.
 

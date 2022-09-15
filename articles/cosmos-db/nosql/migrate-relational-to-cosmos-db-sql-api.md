@@ -11,7 +11,7 @@ ms.devlang: python, scala
 ---
 
 # Migrate one-to-few relational data into Azure Cosmos DB for NoSQL account
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In order to migrate from a relational database to Azure Cosmos DB for NoSQL, it can be necessary to make changes to the data model for optimization.
 

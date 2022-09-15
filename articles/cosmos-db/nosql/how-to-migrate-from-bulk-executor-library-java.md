@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Migrate from the bulk executor library to the bulk support in Azure Cosmos DB Java V4 SDK
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article describes the required steps to migrate an existing application's code that uses the [Java bulk executor library](sql-api-sdk-bulk-executor-java.md) to the [bulk support](bulk-executor-java.md) feature in the latest version of the Java SDK.
 

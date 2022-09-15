@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 ---
 
 # Tutorial: Build a Node.js web app using the JavaScript SDK to manage a API for NoSQL account in Azure Cosmos DB 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

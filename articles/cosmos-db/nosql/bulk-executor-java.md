@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Perform bulk operations on Azure Cosmos DB data
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you're using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
 

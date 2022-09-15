@@ -11,7 +11,7 @@ ms.author: kuthapar
 ---
 
 # Best practices for Azure Cosmos DB Java SDK
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article walks through the best practices for using the Azure Cosmos DB Java SDK. Following these practices, will help improve your latency, availability, and boost overall performance. 
 

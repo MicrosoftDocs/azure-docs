@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request timeout exceptions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB returned an HTTP 408 request timeout.
 

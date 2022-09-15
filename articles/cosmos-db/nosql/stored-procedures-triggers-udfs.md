@@ -11,7 +11,7 @@ ms.reviewer: jucocchi
 ---
 
 # Stored procedures, triggers, and user-defined functions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript. When using the API for NoSQL in Azure Cosmos DB, you can write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** in the JavaScript language. You can write your logic in JavaScript that executed inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) or the [Azure Cosmos DB for NoSQL client SDKs](how-to-use-stored-procedures-triggers-udfs.md).
 

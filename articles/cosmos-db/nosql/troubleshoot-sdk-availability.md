@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.reviewer: mjbrown
 ---
 # Diagnose and troubleshoot the availability of Azure Cosmos DB SDKs in multiregional environments
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article describes the behavior of the latest version of Azure Cosmos DB SDKs when you see a connectivity issue to a particular region or when a region failover occurs.
 

@@ -13,7 +13,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 ---
 
 # Quickstart: Build a Spring Datan Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 >

@@ -11,7 +11,7 @@ ms.date: 05/09/2022
 ---
 
 # Redistribute throughput across partitions (preview)
-[!INCLUDE[appliesto-sql-mongodb-api](../includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
 
 By default, Azure Cosmos DB distributes the provisioned throughput of a database or container equally across all physical partitions. However, scenarios may arise where due to a skew in the workload or choice of partition key, certain logical (and thus physical) partitions need more throughput than others. For these scenarios, Azure Cosmos DB gives you the ability to redistribute your provisioned throughput across physical partitions. Redistributing throughput across partitions helps you achieve better performance without having to configure your overall throughput based on the hottest partition. 
 

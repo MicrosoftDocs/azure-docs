@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use the Azure Cosmos DB ODBC driver to connect to BI and data analytics tools
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article walks you through installing and using the Azure Cosmos DB ODBC driver to create normalized tables and views for your Azure Cosmos DB data. You can query the normalized data with SQL queries, or import the data into Power BI or other BI and analytics software to create reports and visualizations.
 

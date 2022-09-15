@@ -11,7 +11,7 @@ ms.date: 04/03/2022
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the API for NoSQL.
 

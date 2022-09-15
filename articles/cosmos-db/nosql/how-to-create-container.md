@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article explains the different ways to create an container in Azure Cosmos DB for NoSQL. It shows how to create a container using the Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 

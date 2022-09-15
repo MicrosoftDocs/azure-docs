@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the API for NoSQL
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

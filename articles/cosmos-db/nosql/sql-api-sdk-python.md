@@ -11,7 +11,7 @@ ms.author: rosouz
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for API for NoSQL: Release notes and resources
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 

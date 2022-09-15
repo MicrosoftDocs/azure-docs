@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](../modeling-data.md), [partitioning](../partitioning-overview.md), and [provisioned throughput](../request-units.md) to demonstrate how to tackle a real-world data design exercise.
 

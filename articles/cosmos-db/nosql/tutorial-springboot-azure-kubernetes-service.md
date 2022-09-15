@@ -13,7 +13,7 @@ ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (API for NoSQL account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
 

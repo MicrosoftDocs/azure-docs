@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Java SDK for API for NoSQL (legacy): Release notes and resources
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 

@@ -10,7 +10,7 @@ author: seesharprun
 ---
 
 # Microsoft Defender for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Microsoft Defender for Azure Cosmos DB provides an extra layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
 

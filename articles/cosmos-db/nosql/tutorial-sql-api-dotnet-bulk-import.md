@@ -12,7 +12,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, cosmos-db-video
 ---
 # Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET SDK
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 

@@ -11,6 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Migrate data from Apache HBase to Azure Cosmos DB for NoSQL account
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article guides how to migrate your data from HBase to Azure Cosmos DB for NoSQL account.
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Use the change feed estimator
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article describes how you can monitor the progress of your [change feed processor](./change-feed-processor.md) instances as they read the change feed.
 

@@ -14,7 +14,7 @@ keywords: cosmos-db, azure cli samples, azure cli code samples, azure cli script
 
 # Azure CLI samples for Azure Cosmos DB for NoSQL
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB for NoSQL and to sample Azure CLI scripts that apply to all Azure Cosmos DB APIs. Common samples are the same across all APIs.
 

@@ -10,7 +10,7 @@ ms.date: 08/26/2021
 ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)

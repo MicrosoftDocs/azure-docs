@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Create multiple Azure Functions triggers for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article describes how you can configure multiple Azure Functions triggers for Azure Cosmos DB to work in parallel and independently react to changes.
 

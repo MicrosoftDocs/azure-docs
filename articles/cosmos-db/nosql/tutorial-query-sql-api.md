@@ -12,7 +12,7 @@ ms.date: 08/26/2021
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the API for NoSQL
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB [API for NoSQL](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 

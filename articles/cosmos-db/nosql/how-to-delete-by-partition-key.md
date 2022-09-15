@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Delete items by partition key value - API for NoSQL (preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article explains how to use the Azure Cosmos DB SDKs to delete all items by logical partition key value. 
 

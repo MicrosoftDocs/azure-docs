@@ -12,7 +12,7 @@ ms.custom: cosmos-db-video
 ---
 
 # Serverless database computing using Azure Cosmos DB and Azure Functions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Serverless computing is all about the ability to focus on individual pieces of logic that are repeatable and stateless. These pieces require no infrastructure management and they consume resources only for the seconds, or milliseconds, they run for. At the core of the serverless computing movement are functions, which are made available in the Azure ecosystem by [Azure Functions](https://azure.microsoft.com/services/functions). To learn about other serverless execution environments in Azure see [serverless in Azure](https://azure.microsoft.com/solutions/serverless/) page. 
 

@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Diagnose and troubleshoot slow requests in Azure Cosmos DB .NET SDK
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In Azure Cosmos DB, you might notice slow requests. Delays can happen for multiple reasons, such as request throttling or the way your application is designed. This article explains the different root causes for this problem. 
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azure
 ---
 
 # Manage indexing policies in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
 

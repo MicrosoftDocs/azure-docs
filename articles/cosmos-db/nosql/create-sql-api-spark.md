@@ -13,7 +13,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 ---
 
 # Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 >

@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB .NET Core SDK v2 for API for NoSQL: Release notes and resources (Legacy)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 

@@ -12,7 +12,7 @@ ms.custom: cosmos-db-video
 ---
 
 # Best practices for Azure Cosmos DB .NET SDK
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article walks through the best practices for using the Azure Cosmos DB .NET SDK. Following these practices, will help improve your latency, availability, and boost overall performance.
 

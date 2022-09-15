@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB forbidden exceptions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The HTTP status code 403 represents the request is forbidden to complete.
 

@@ -11,7 +11,7 @@ ms.devlang: python
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in Python notebooks.
 

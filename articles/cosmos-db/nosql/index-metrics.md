@@ -10,7 +10,7 @@ ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
 # Indexing metrics in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../index-policy.md)).
 

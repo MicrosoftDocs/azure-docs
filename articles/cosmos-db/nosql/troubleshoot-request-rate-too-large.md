@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article contains known causes and solutions for various 429 status code errors for the API for NoSQL. If you're using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
 

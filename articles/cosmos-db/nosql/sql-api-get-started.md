@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build a .NET console app to manage data in Azure Cosmos DB for NoSQL account
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)

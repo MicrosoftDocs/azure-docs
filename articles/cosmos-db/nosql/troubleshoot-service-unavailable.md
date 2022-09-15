@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB service unavailable exceptions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The SDK wasn't able to connect to Azure Cosmos DB. This scenario can be transient or permanent depending on the network conditions.
 

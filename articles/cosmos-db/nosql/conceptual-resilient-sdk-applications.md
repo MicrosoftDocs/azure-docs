@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ---
 # Designing resilient applications with Azure Cosmos DB SDKs
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 When authoring client applications that interact with Azure Cosmos DB through any of the SDKs, it's important to understand a few key fundamentals. This article is a design guide to help you understand these fundamentals and design resilient applications.
 

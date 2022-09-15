@@ -11,7 +11,7 @@ ms.author: thvankra
 ---
 
 # Azure Cosmos DB Spark Connector - throughput control
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The [Spark Connector](create-sql-api-spark.md) allows you to communicate with Azure Cosmos DB using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
 

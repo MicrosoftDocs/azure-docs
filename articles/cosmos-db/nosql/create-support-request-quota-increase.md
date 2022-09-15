@@ -10,7 +10,7 @@ ms.date: 04/27/2022
 ---
 
 # How to request quota increase for Azure Cosmos DB resources
-[!INCLUDE[appliesto-all-apis](../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The resources in Azure Cosmos DB have [default quotas/limits](../concepts-limits.md). However, there may be a case where your workload needs more quota than the default value. In such case, you must reach out to the Azure Cosmos DB team to request a quota increase. This article explains how to request a quota increase for Azure Cosmos DB resources. You will also learn how to enable a subscription to access a region.
 

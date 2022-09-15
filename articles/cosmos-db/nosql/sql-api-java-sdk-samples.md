@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 
 ---
 # Azure Cosmos DB for NoSQL: Java SDK v4 examples
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)

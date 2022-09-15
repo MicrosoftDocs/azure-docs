@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Examples for Azure Cosmos DB for NoSQL SDK for .NET
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 >

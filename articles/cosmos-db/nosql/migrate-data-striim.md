@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Migrate data to Azure Cosmos DB for NoSQL account using Striim
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
  
 The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB for NoSQL. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 

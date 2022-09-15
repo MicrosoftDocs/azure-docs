@@ -11,7 +11,7 @@ ms.date: 02/22/2021
 ---
 
 # Import notebooks from a GitHub repo into Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 After you [enable notebook support](enable-notebooks.md) for your Azure Cosmos DB accounts, you can create new notebooks, upload new notebooks from your local computer, or import the existing notebooks from your GitHub accounts. This article shows how to connect your notebooks workspace to GitHub and import the notebooks from a GitHub repo to your Azure Cosmos DB account. After importing, you can run them, make changes, and save the changes back to GitHub.
 

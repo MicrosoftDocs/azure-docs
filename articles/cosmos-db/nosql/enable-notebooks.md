@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 
 # Enable notebooks for Azure Cosmos DB accounts (preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
 > Currently the notebook feature is temporarily disabled. Azure Cosmos DB team is working on a fix.  

@@ -11,7 +11,7 @@ ms.date: 10/14/2021
 ---
 
 # Serverless event-based architectures with Azure Cosmos DB and Azure Functions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Azure Functions provides the simplest way to connect to the [change feed](../change-feed.md). You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos DB container's change feed.
 

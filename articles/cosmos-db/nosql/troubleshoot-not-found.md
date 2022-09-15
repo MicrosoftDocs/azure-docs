@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB not found exceptions
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The HTTP status code 404 represents that the resource no longer exists.
 

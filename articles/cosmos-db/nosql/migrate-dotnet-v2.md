@@ -10,7 +10,7 @@ ms.devlang: csharp
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v2
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
 > It is important to note that the v3 of the .NET SDK is currently available and a migration plan from v2 to v3 is available [here](migrate-dotnet-v3.md). To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sql-api-sdk-dotnet.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).

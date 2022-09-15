@@ -9,7 +9,7 @@ ms.date: 07/06/2022
 ---
 
 # Use Azure Cosmos DB as an ASP.NET session state and caching provider
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB session and cache provider allows you to use Azure Cosmos DB and leverage its low latency and global scale capabilities for storing session state data and as a distributed cache within your application.
 
@@ -112,7 +112,7 @@ public class MyBusinessClass
 ```
 
 ## Troubleshooting and diagnosing
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 Since the Azure Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3-sql.md) and [troubleshooting guides](troubleshoot-dot-net-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Azure Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
 

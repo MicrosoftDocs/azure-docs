@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with API for NoSQL accounts
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)

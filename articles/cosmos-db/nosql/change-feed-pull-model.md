@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Change feed pull model in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can already do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 

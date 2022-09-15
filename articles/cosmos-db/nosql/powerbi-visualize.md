@@ -10,7 +10,7 @@ ms.author: rosouz
 ---
 
 # Visualize Azure Cosmos DB data using Power BI
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article describes the steps required to connect Azure Cosmos DB data to [Power BI](https://powerbi.microsoft.com/) Desktop. 
 

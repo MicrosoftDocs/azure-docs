@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Convert session token formats in .NET SDK
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article explains how to convert between different session token formats to ensure compatibility between SDK versions.
 

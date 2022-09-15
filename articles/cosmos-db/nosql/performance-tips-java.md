@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Sync Java SDK v2
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)

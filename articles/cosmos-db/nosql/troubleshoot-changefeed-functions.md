@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot issues when using Azure Functions trigger for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Functions trigger for Azure Cosmos DB](change-feed-functions.md).
 
