@@ -1,5 +1,5 @@
 ---
-title: Batch Job Pool Lifetime Statistics Migration Guide
+title: Batch job pool lifetime statistics migration guide
 description: Describes the migration steps for the batch job pool lifetime statistics and the end of support details.
 author: harperche
 ms.author: harpercheng
@@ -7,7 +7,7 @@ ms.service: batch
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/15/2022
 ---
-# Batch Job Pool Lifetime Statics Migration Guide
+# Batch Job Pool Lifetime Statistics Migration Guide
 
 The Azure Batch service currently supports API for Job/Pool to retrieve lifetime statistics. The API is used to get lifetime statistics for all the Pools/Jobs in the specified batch account or for a specified Pool/Job. The API collects the statistical data from when the Batch account was created until the last time updated or entire lifetime of the specified Job/Pool. Job/Pool lifetime statistics API is helpful for customers to analyze and evaluate their usage.
 
