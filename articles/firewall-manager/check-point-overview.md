@@ -21,6 +21,8 @@ Check Point unifies multiple security services under one umbrella. Integrated se
 
 Threat Emulation (sandboxing) protects users from unknown and zero-day threats. Check Point SandBlast Zero-Day Protection is a cloud-hosted sand-boxing technology where files are quickly quarantined and inspected. It runs in a virtual sandbox to discover malicious behavior before it enters your network. It prevents threats before the damage is done to save staff valuable time responding to threats. 
 
+>[!NOTE]
+> This offering provides limited features compared to the [Check Point NVA integration with Virtual WAN](../virtual-wan/about-nva-hub.md#partners). We strongly recommend using this NVA integration to secure your network traffic.
 ## Deployment example
 
 Watch the following video to see how to deploy Check Point CloudGuard Connect as a trusted Azure security partner.

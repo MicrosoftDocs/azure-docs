@@ -1030,22 +1030,6 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
-  - name: Office 365
-    href: insights/solution-office-365.md
-  - name: Service Map solution
-    href: vm/service-map.md
-  - name: Service Map and Operations Manager
-    href: vm/service-map-scom.md
-  - name: Azure SQL
-    href: insights/sql-assessment.md
-  - name: Surface Hub
-    href: insights/surface-hubs.md
-  - name: VMware Analytics solution
-    href: insights/vmware.md
-  - name: Wire Data solution
-    href: insights/wire-data.md
-  - name: Alert Management solution
-    href: insights/alert-management-solution.md
   - name: Activity logs
     href: essentials/activity-log-insights.md
   - name: Azure Cache for Redis
@@ -1596,7 +1580,7 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
-  - name: Feature and API Retirement
+  - name: Legacy and retired features
     items:
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
@@ -1633,6 +1617,22 @@ items:
           href: insights/capacity-performance.md
         - name: Docker and Windows Container monitoring
           href: containers/containers.md
+        - name: Office 365
+          href: insights/solution-office-365.md
+        - name: Service Map solution
+          href: vm/service-map.md
+        - name: Service Map and Operations Manager
+          href: vm/service-map-scom.md
+        - name: Azure SQL
+          href: insights/sql-assessment.md
+        - name: Surface Hub
+          href: insights/surface-hubs.md
+        - name: VMware Analytics solution
+          href: insights/vmware.md
+        - name: Wire Data solution
+          href: insights/wire-data.md
+        - name: Alert Management solution
+          href: insights/alert-management-solution.md
         - name: Networks
           items:
           - name: Networking Analytics
