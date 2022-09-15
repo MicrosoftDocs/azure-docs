@@ -34,14 +34,14 @@ In this tutorial, you'll use the sample repository of Playwrights tests. You'll 
 
 ## Run tests
 
-This tutorial will use the Playwright tests from the sample repository, that you configured to run in your Microsoft Playwright Testing workspace. You can use the existing tools and commands to run and debug Playwright tests.
+This tutorial uses the Playwright tests from the sample repository, which you configured to [run in the cloud in the quickstart article](./quickstart-run-end-to-end-tests.md). You can use the existing tools and commands to run and debug Playwright tests.
 
 You can run the tests in either of two ways:
 
 - Use Visual Studio Code and the Playwright Test extension.
 - Use the Playwright command-line interface (CLI).
 
-Learn more about [running Playwright tests](https://playwright.dev/docs/intro).
+Learn more about [running Playwright tests locally](https://playwright.dev/docs/intro).
 
 ### Run tests in Visual Studio Code
 
