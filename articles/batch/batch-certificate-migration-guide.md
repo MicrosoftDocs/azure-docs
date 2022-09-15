@@ -9,11 +9,11 @@ ms.date: 08/15/2022
 ---
 # Batch Certificate Migration Guide
 
-Securing the application and critical information has become essential in today's needs. With growing customers and increasing demand for security, managing key information plays a significant role in securing data. Many customers need to store secure data in the application, and it needs to be managed to avoid any leakage. In addition, only legitimate administrators or authorized users should access it. Azure Batch offers Certificates created and managed by the Batch service. Azure Batch also provides a Key Vault option, and it is considered an azure-standard method for delivering more controlled secure access management.
+Securing the application and critical information has become essential in today's needs. With growing customers and increasing demand for security, managing key information plays a significant role in securing data. Many customers need to store secure data in the application, and it needs to be managed to avoid any leakage. In addition, only legitimate administrators or authorized users should access it. Azure Batch offers Certificates created and managed by the Batch service. Azure Batch also provides a Key Vault option, and it's considered an azure-standard method for delivering more controlled secure access management.
 
 Azure Batch provides certificates feature at the account level. Customers must generate the Certificate and upload it manually to the Azure Batch via the portal. To access the Certificate, it must be associated and installed for the 'Current User.' The Certificate is usually valid for one year and must follow a similar procedure every year.
 
-For Azure Batch customers, a secure way of access should be provided in a more standardized way, reducing any manual interruption and reducing the readability of key generated. Therefore, we will retire the certificate feature on **29 February 2024** to reduce the maintenance effort and better guide customers to use Azure Key Vault as a standard and more modern method with advanced security. After it is retired, the Certificate functionality may cease working properly. Additionally, pool creation with certificates will be rejected and possibly resize up.
+For Azure Batch customers, a secure way of access should be provided in a more standardized way, reducing any manual interruption and reducing the readability of key generated. Therefore, we'll retire the certificate feature on **29 February 2024** to reduce the maintenance effort and better guide customers to use Azure Key Vault as a standard and more modern method with advanced security. After it's retired, the Certificate functionality may cease working properly. Additionally, pool creation with certificates will be rejected and possibly resize up.
 
 ## Retirement alternatives
 
@@ -81,7 +81,7 @@ __Prerequisite__: Valid Azure subscription and owner/contributor access on Key V
    Azure Key Vault is recommended and essential to protect the data in the cloud.
 
    2. Does user subscription mode support Azure Key Vault?   
-   Yes, it is mandatory to create Key Vault while creating the Batch account in user subscription mode.
+   Yes, it's mandatory to create Key Vault while creating the Batch account in user subscription mode.
 
    3. Are there best practices to use Azure Key Vault?   
    Best practices are covered [here](../key-vault/general/best-practices.md).
