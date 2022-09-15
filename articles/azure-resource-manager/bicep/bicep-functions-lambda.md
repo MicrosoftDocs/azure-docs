@@ -12,7 +12,7 @@ ms.date: 09/13/2022
 This article describes the lambda functions to use in Bicep. Lambda expressions (or lambda functions) are essentially blocks of code that can be passed as an argument. In Bicep, lambda expression is in this format:
 
 ```bicep
-<variable> => <expression>
+<lambda variable> => <expression>
 ```
 
 ## Limitations
@@ -75,7 +75,7 @@ var itemForLoop = [for item in range(0, 10): item]
 output filteredLoop array = filter(itemForLoop, i => i > 5)
 output isEven array = filter(range(0, 10), i => 0 == i % 2)
 
-output oldBois array = filter(dogs, dog => dog.age >=5)
+output oldDogs array = filter(dogs, dog => dog.age >=5)
 ```
 
 The output from the preceding example shows the dogs that are five or older:
@@ -84,7 +84,7 @@ The output from the preceding example shows the dogs that are five or older:
 | ---- | ---- | ----- |
 | filteredLoop | Array | [6, 7, 8, 9] |
 | isEven | Array | [0, 2, 4, 6, 8] |
-| oldBois | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+| oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
 
 ## map
 
@@ -214,7 +214,9 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | totalAge | int | 18 |
 | totalAgeAdd1 | int | 19 |
-| reduceObjectUnion | object | {"bar": 456, "baz": 789, "foo": 123} |
+| reduceObjectUnion | object | {"foo":123,"bar":456,"baz":789} |
+
+In the last output, the [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the object.
 
 ## sort
 
