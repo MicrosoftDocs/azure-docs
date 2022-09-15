@@ -237,7 +237,7 @@ sections:
 
       - question: Can I restore an Azure Virtual Machine in a different subscription?
         answer: |
-          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
