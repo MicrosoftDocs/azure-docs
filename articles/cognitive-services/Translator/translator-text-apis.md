@@ -804,12 +804,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1080,12 +1080,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1359,12 +1359,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1644,12 +1644,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1920,12 +1920,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2203,12 +2203,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2471,12 +2471,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2894,12 +2894,12 @@ public class TranslatorText {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<YOUR-TRANSLATOR-KEY>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
