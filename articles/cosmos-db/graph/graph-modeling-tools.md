@@ -24,7 +24,7 @@ Hackolade is a data modeling and schema design tool for NoSQL databases. It has 
 
 ### How it works
 This tool provides the data modeling of vertices / edges and their respective properties.  It supports several use cases, some of them are:
--	Start from a blank page and think through different options to graphically build your Cosmos DB Gremlin model.  Then forward-engineer the model to your Azure instance to evaluate the result and continue the evolution.  All such goodies without writing single line of code.
+-	Start from a blank page and think through different options to graphically build your Azure Cosmos DB Gremlin model.  Then forward-engineer the model to your Azure instance to evaluate the result and continue the evolution.  All such goodies without writing single line of code.
 -	Reverse-engineer an existing graph on Azure to clearly understand its structure, so you could effectively query your graph too.  Then enrich the data model with descriptions, metadata, and constraints to produce documentation. It supports HTML, Markdown or PDF format, and feeds to corporate data governance or dictionary systems.
 -	Migrate from relational database to NoSQL through the de-normalization of data structures.
 -	Integrate with a CI/CD pipeline via a Command-Line Interface
@@ -41,7 +41,7 @@ Sample DDL for source as SQL Server available at [here](https://github.com/Azure
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graph Diagram":::
 **Figure-1:** Graph Diagram (extracted the graph data model)
 
-After modification of data model, the tool can generate the gremlin script, which may include custom Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
+After modification of data model, the tool can generate the gremlin script, which may include custom Azure Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
 
 The following image demonstrates reverse engineering from RDBMS & Hackolade in action:
 :::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::

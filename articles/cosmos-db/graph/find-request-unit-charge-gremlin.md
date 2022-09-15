@@ -1,8 +1,8 @@
 ---
-title: Find request unit (RU) charge for Gremlin API queries in Azure Cosmos DB
-description: Learn how to find the request unit (RU) charge for Gremlin queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java drivers to find the RU charge. 
+title: Find request unit (RU) charge for API for Gremlin queries in Azure Cosmos DB
+description: Learn how to find the request unit (RU) charge for Gremlin queries executed against an Azure Cosmos DB container. You can use the Azure portal, .NET, Java drivers to find the RU charge. 
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 10/14/2020
 author: manishmsfte
@@ -10,22 +10,22 @@ ms.author: mansha
 ms.devlang: csharp, java
 ms.custom: devx-track-csharp, devx-track-java
 ---
-# Find the request unit charge for operations executed in Azure Cosmos DB Gremlin API
+# Find the request unit charge for operations executed in Azure Cosmso DB for Gremlin
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos DB container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
 
-This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [Cassandra API](../cassandra/find-request-unit-charge-cassandra.md), [SQL API](../find-request-unit-charge.md), and [Table API](../table/find-request-unit-charge.md) articles to find the RU/s charge.
+This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmso DB for Gremlin. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [API for Cassandra](../cassandra/find-request-unit-charge-cassandra.md), [API for NoSQL](../find-request-unit-charge.md), and [API for Table](../table/find-request-unit-charge.md) articles to find the RU/s charge.
 
-Headers returned by the Gremlin API are mapped to custom status attributes, which currently are surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key. When you use the Gremlin API, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos container.
+Headers returned by the API for Gremlin are mapped to custom status attributes, which currently are surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key. When you use the API for Gremlin, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos DB container.
 
 ## Use the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-graph-console.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
+1. [Create a new Azure Cosmos DB account](create-graph-console.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
@@ -44,7 +44,7 @@ ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-For more information, see [Quickstart: Build a .NET Framework or Core application by using an Azure Cosmos DB Gremlin API account](create-graph-dotnet.md).
+For more information, see [Quickstart: Build a .NET Framework or Core application by using an Azure Cosmso DB for Gremlin account](create-graph-dotnet.md).
 
 ## Use the Java SDK driver
 

@@ -1,35 +1,35 @@
 ---
-title: 'Introduction to Azure Cosmos DB Gremlin API'
+title: 'Introduction to Azure Cosmso DB for Gremlin'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: overview
 ms.date: 07/26/2021
 author: manishmsfte
 ms.author: mansha
 ---
-# Introduction to Gremlin API in Azure Cosmos DB
+# Introduction to API for Gremlin in Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-[Azure Cosmos DB](../introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
+[Azure Cosmos DB](../introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB provides a graph database service via the API for Gremlin on a fully managed database service designed for any scale.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
 
-This article provides an overview of the Azure Cosmos DB Gremlin API and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
+This article provides an overview of the Azure Cosmso DB for Gremlin and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's API for Gremlin is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The API for Gremlin in Azure Cosmos DB uses the Gremlin query language.
 
-Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
+Azure Cosmos DB's API for Gremlin combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
 
 > [!NOTE]
 > Azure Cosmos DB graph engine closely follows Apache TinkerPop specification. However, there are some differences in the implementation details that are specific for Azure Cosmos DB. Some features supported by Apache TinkerPop are not available in Azure Cosmos DB, to learn more about the unsupported features, see [compatibility with Apache TinkerPop](gremlin-support.md) article.
 
-## Features of Azure Cosmos DB's Gremlin API
+## Features of Azure Cosmos DB's API for Gremlin
 
 Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.
 
 > [!NOTE]
-> The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Gremlin API.
+> The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's API for Gremlin.
 
-The following are the differentiated features that Azure Cosmos DB Gremlin API offers:
+The following are the differentiated features that Azure Cosmso DB for Gremlin offers:
 
 * **Elastically scalable throughput and storage**
 
@@ -49,7 +49,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
   Azure Cosmos DB eliminates the need to manage database and machine resources. Most existing graph database platforms are bound to the limitations of their infrastructure and often require a high degree of maintenance to ensure its operation. 
   
-  As a fully managed service, Cosmos DB removes the need to manage virtual machines, update runtime software, manage sharding or replication, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. This allows developers to focus on delivering application value instead of operating and managing their graph databases. 
+  As a fully managed service, Azure Cosmos DB removes the need to manage virtual machines, update runtime software, manage sharding or replication, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. This allows developers to focus on delivering application value instead of operating and managing their graph databases. 
 
 * **Automatic indexing**
 
@@ -57,13 +57,13 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Compatibility with Apache TinkerPop**
 
-  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](https://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's Gremlin API.
+  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](https://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's API for Gremlin.
 
 * **Tunable consistency levels**
 
   Azure Cosmos DB provides five well-defined consistency levels to achieve the right tradeoff between consistency and performance for your application. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs among consistency, availability, and latency. Learn more in [Tunable data consistency levels in Azure Cosmos DB](../consistency-levels.md).
 
-## Scenarios that use Gremlin API
+## Scenarios that use API for Gremlin
 
 Here are some scenarios where graph support of Azure Cosmos DB can be useful:
 
@@ -87,7 +87,7 @@ Here are some scenarios where graph support of Azure Cosmos DB can be useful:
 
 Data as it appears in the real world is naturally connected. Traditional data modeling focuses on defining entities separately and computing their relationships at runtime. While this model has its advantages, highly connected data can be challenging to manage under its constraints.  
 
-A graph database approach relies on persisting relationships in the storage layer instead, which leads to highly efficient graph retrieval operations. Azure Cosmos DB's Gremlin API supports the [property graph model](https://tinkerpop.apache.org/docs/current/reference/#intro).
+A graph database approach relies on persisting relationships in the storage layer instead, which leads to highly efficient graph retrieval operations. Azure Cosmos DB's API for Gremlin supports the [property graph model](https://tinkerpop.apache.org/docs/current/reference/#intro).
 
 ### Property graph objects
 

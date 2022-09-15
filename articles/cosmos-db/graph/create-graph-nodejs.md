@@ -1,8 +1,8 @@
 ---
-title: Build an Azure Cosmos DB Node.js application by using Gremlin API
+title: Build an Azure Cosmos DB Node.js application by using API for Gremlin
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 06/05/2019
@@ -10,7 +10,7 @@ author: manishmsfte
 ms.author: mansha
 ms.custom: devx-track-js, mode-api
 ---
-# Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
+# Quickstart: Build a Node.js application by using Azure Cosmso DB for Gremlin account
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Clone the sample application
 
-Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a API for Gremlin app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -146,13 +146,13 @@ This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/pa
 
 1. Open the *config.js* file. 
 
-2. In *config.js*, fill in the `config.endpoint` key with the **Gremlin Endpoint** value from the **Overview** page of your Cosmos DB account in the Azure portal. 
+2. In *config.js*, fill in the `config.endpoint` key with the **Gremlin Endpoint** value from the **Overview** page of your Azure Cosmos DB account in the Azure portal. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="View and copy an access key in the Azure portal, Overview page":::
 
-3. In *config.js*, fill in the config.primaryKey value with the **Primary Key** value from the **Keys** page of your Cosmos DB account in the Azure portal. 
+3. In *config.js*, fill in the config.primaryKey value with the **Primary Key** value from the **Keys** page of your Azure Cosmos DB account in the Azure portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 

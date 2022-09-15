@@ -1,8 +1,8 @@
 ---
-title: Ingest data in bulk in the Azure Cosmos DB Gremlin API by using a bulk executor library
-description: Learn how to use a bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
+title: Ingest data in bulk in the Azure Cosmso DB for Gremlin by using a bulk executor library
+description: Learn how to use a bulk executor library to massively import graph data into an Azure Cosmso DB for Gremlin container.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 05/10/2022
 author: manishmsfte
@@ -11,13 +11,13 @@ ms.devlang: csharp, java
 
 ---
 
-# Ingest data in bulk in the Azure Cosmos DB Gremlin API by using a bulk executor library
+# Ingest data in bulk in the Azure Cosmso DB for Gremlin by using a bulk executor library
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-Graph databases often need to ingest data in bulk to refresh an entire graph or update a portion of it. Azure Cosmos DB, a distributed database and the backbone of the Azure Cosmos DB Gremlin API, is meant to perform best when the loads are well distributed. Bulk executor libraries in Azure Cosmos DB are designed to exploit this unique capability of Azure Cosmos DB and provide optimal performance. For more information, see [Introducing bulk support in the .NET SDK](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
+Graph databases often need to ingest data in bulk to refresh an entire graph or update a portion of it. Azure Cosmos DB, a distributed database and the backbone of the Azure Cosmso DB for Gremlin, is meant to perform best when the loads are well distributed. Bulk executor libraries in Azure Cosmos DB are designed to exploit this unique capability of Azure Cosmos DB and provide optimal performance. For more information, see [Introducing bulk support in the .NET SDK](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
-In this tutorial, you learn how to use the Azure Cosmos DB bulk executor library to import and update *graph* objects into an Azure Cosmos DB Gremlin API container. During this process, you use the library to create *vertex* and *edge* objects programmatically and then insert multiple objects per network request.
+In this tutorial, you learn how to use the Azure Cosmos DB bulk executor library to import and update *graph* objects into an Azure Cosmso DB for Gremlin container. During this process, you use the library to create *vertex* and *edge* objects programmatically and then insert multiple objects per network request.
 
 Instead of sending Gremlin queries to a database, where the commands are evaluated and then executed one at a time, you use the bulk executor library to create and validate the objects locally. After the library initializes the graph objects, it allows you to send them to the database service sequentially. 
 
@@ -36,7 +36,7 @@ Before you begin, make sure that you have the following:
 
    Alternatively, you can [create a free Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 
-* An Azure Cosmos DB Gremlin API database with an *unlimited collection*. To get started, go to [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
+* An Azure Cosmso DB for Gremlin database with an *unlimited collection*. To get started, go to [Azure Cosmso DB for Gremlin in .NET](./create-graph-dotnet.md).
 
 * Git. To begin, go to the [git downloads](https://git-scm.com/downloads) page.
 
@@ -70,7 +70,7 @@ Modify the parameters, as described in the following table:
 
 | Parameter|Description |
 |---|---|
-|`ConnectionString`| Your .NET SDK endpoint, which you'll find in the **Overview** section of your Azure Cosmos DB Gremlin API database account. It's formatted as `https://your-graph-database-account.documents.azure.com:443/`.
+|`ConnectionString`| Your .NET SDK endpoint, which you'll find in the **Overview** section of your Azure Cosmso DB for Gremlin database account. It's formatted as `https://your-graph-database-account.documents.azure.com:443/`.
 `DatabaseName`, `ContainerName`|The names of the target database and container.| 
 |`DocumentsToInsert`| The number of documents to be generated (relevant only to synthetic data).|
 |`PartitionKey` | Ensures that a partition key is specified with each document during data ingestion.|
@@ -99,7 +99,7 @@ To run this sample, you need to have the following software:
 
 * OpenJDK 11
 * Maven
-* An Azure Cosmos DB account that's configured to use the Gremlin API
+* An Azure Cosmos DB account that's configured to use the API for Gremlin
 
 ### Sample
 
@@ -220,4 +220,4 @@ Each state contains the following values:
 ## Next steps
 
 * For more information about the classes and methods that are defined in this namespace, review the [BulkExecutor Java open source documentation](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/java/src/main/java/com/azure/graph/bulk/impl).
-* See [Bulk import data to the Azure Cosmos DB SQL API account by using the .NET SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md) article. This bulk mode documentation is part of the .NET V3 SDK.
+* See [Bulk import data to the Azure Cosmso DB for NoSQL account by using the .NET SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md) article. This bulk mode documentation is part of the .NET V3 SDK.

@@ -1,8 +1,8 @@
 ---
-title: Access system document properties via Azure Cosmos DB Graph
-description: Learn how read and write Cosmos DB system document properties via Gremlin API
+title: Access system document properties vian Azure Cosmos DB Graph
+description: Learn how read and write Azure Cosmos DB system document properties via API for Gremlin
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 09/16/2021
 author: manishmsfte
@@ -57,5 +57,5 @@ If collection has document expiration enabled and documents have `ttl` property 
 You can set TTL on the container to -1 or set it to **On (no default)** from Azure portal, then the TTL is infinite for any item unless the item has TTL value explicitly set.
 
 ## Next steps
-* [Cosmos DB Optimistic Concurrency](../faq.yml#how-does-the-sql-api-provide-concurrency-)
+* [Azure Cosmos DB Optimistic Concurrency](../faq.yml#how-does-the-sql-api-provide-concurrency-)
 * [Time to Live (TTL)](../time-to-live.md) in Azure Cosmos DB

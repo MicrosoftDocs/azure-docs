@@ -1,16 +1,16 @@
 ---
-title: Build an Azure Cosmos DB .NET Framework, Core application using the Gremlin API
+title: Build an Azure Cosmos DB .NET Framework, Core application using the API for Gremlin
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 05/02/2020
 ms.custom: devx-track-dotnet, mode-api
 ---
-# Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account
+# Quickstart: Build a .NET Framework or Core application using the Azure Cosmso DB for Gremlin account
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.custom: devx-track-dotnet, mode-api
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases. All of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+This quickstart demonstrates how to create an Azure Cosmos DB [API for Gremlin](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.m
 
 ## Clone the sample application
 
-Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it's to work with data programmatically. 
+Now let's clone a API for Gremlin app from GitHub, set the connection string, and run it. You'll see how easy it's to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -73,7 +73,7 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
     ```
     
 > [!NOTE]
-> The supported Gremlin.NET driver version for Gremlin API  is available [here](gremlin-support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
+> The supported Gremlin.NET driver version for API for Gremlin  is available [here](gremlin-support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
 
 ## Review the code
 

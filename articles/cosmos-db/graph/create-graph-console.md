@@ -1,8 +1,8 @@
 ---
-title: 'Query with Azure Cosmos DB Gremlin API using TinkerPop Gremlin Console: Tutorial'
-description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Gremlin API.
+title: 'Query with Azure Cosmso DB for Gremlin using TinkerPop Gremlin Console: Tutorial'
+description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmso DB for Gremlin.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
@@ -23,7 +23,7 @@ ms.custom: mode-api
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quickstart demonstrates how to create an Azure Cosmos DB [API for Gremlin](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with API for Gremlin data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 :::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
@@ -305,7 +305,7 @@ g.E().drop()
 g.V().drop()
 ```
 
-Congratulations! You've completed this Azure Cosmos DB: Gremlin API tutorial!
+Congratulations! You've completed this Azure Cosmos DB: API for Gremlin tutorial!
 
 ## Review SLAs in the Azure portal
 

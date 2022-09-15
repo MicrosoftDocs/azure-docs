@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB'
-description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and Python
+title: 'Quickstart: API for Gremlin with Python - Azure Cosmos DB'
+description: This quickstart shows how to use the Azure Cosmso DB for Gremlin to create a console application with the Azure portal and Python
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/29/2021
@@ -41,11 +41,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 > This quickstart requires a graph database account created after December 20, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 > [!NOTE]
-> We currently recommend using gremlinpython==3.4.13 with Gremlin (Graph) API as we haven't fully tested all language-specific libraries of version 3.5.* for use with the service.
+> We currently recommend using gremlinpython==3.4.13 with API for Gremlin as we haven't fully tested all language-specific libraries of version 3.5.* for use with the service.
 
 ## Create a database account
 
-Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
+Before you can create a graph database, you need to create a API for Gremlin database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -55,7 +55,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
+Now let's switch to working with code. Let's clone a API for Gremlin app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -177,7 +177,7 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the API with the option to Apply Filter.":::
 
 2. In the **Results** list, notice three new users are added to the graph. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
