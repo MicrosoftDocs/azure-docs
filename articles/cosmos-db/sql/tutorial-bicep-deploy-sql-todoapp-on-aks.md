@@ -35,7 +35,7 @@ The  following are required to compile the ASP.NET Core MVC application and crea
 
 ## Overview
 
-This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](https://docs.microsoft.com/azure/templates/#bicep)**, which is a new language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
+This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](..//..//azure-resource-manager/bicep/overview.md)**, which is a new language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
 
 The Bicep modules will deploy the following Azure resources under subscription scope.
 
@@ -46,7 +46,7 @@ The Bicep modules will deploy the following Azure resources under subscription s
 5. A [VNet](..//..//virtual-network/network-overview.md) required for configuring the AKS
 6. A [Cosmos DB SQL API Account](../introduction.md)) along with a Database, Container, and [SQL Role](https://docs.microsoft.com/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
 7. A [Key Vault](..//../key-vault/general/overview.md) to store secure keys
-8. A [Log Analytics Workspace](..//../azure-monitor/logs/log-analytics-overview.md/) (optional)
+8. A [Log Analytics Workspace](..//../azure-monitor/logs/log-analytics-overview.md) (optional)
 
 This quickstart uses the following best practices to enhance security
 
