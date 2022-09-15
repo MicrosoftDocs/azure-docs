@@ -3,7 +3,7 @@ title: How to configure the Azure Cosmos DB integrated cache
 description: Learn how to configure the Azure Cosmos DB integrated cache
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews
@@ -19,7 +19,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 - If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - An existing application that uses Azure Cosmos DB. If you don't have one, [here are some examples](https://github.com/AzureCosmosDB/labs).
-- An existing [Azure Cosmos DB SQL (core) API account](create-cosmosdb-resources-portal.md).
+- An existing [Azure Cosmos DB API for NoSQL account](create-cosmosdb-resources-portal.md).
 
 ## Provision the dedicated gateway
 
