@@ -143,51 +143,41 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID.
 
-1. Sign in to your device, and install the `tpm2-tools` package.
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
+   1. Sign in to your device, and install the `tpm2-tools` package.
 
-# [Ubuntu](#tab/ubuntu)
+      ```bash
+      sudo apt-get install tpm2-tools
+      ```
 
+   1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
 
-   ```bash
-   sudo apt-get install tpm2-tools
+      ```bash
+      tpm2_readpublic -Q -c 0x81010001 -o ek.pub
+      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1) $(base64 -w0 ek.pub)
+      ```
 
-   ```
-
-# [Debian](#tab/debian)
-
-
-   ```bash
-   sudo apt-get install tpm2-tools
-
-   ```
-
-# [Raspberry Pi OS](#tab/rpios)
-
-
-   ```bash
-   sudo apt-get install tpm2-tools
-
-   ```
+   1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
+   1. Sign in to your device, and install the `tpm2-tools` package.
 
-   ```bash
-   sudo yum install tpm2-tools
+      ```bash
+      sudo yum install tpm2-tools
+      ```
 
-   ```
+   1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
+
+      ```bash
+      tpm2_readpublic -Q -c 0x81010001 -o ek.pub
+      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1) $(base64 -w0 ek.pub)
+      ```
+
+   1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 ---
-
-1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
-
-   ```bash
-   tpm2_readpublic -Q -c 0x81010001 -o ek.pub
-   printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1) $(base64 -w0 ek.pub)
-   ```
-
-1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 > [!TIP]
 > If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
