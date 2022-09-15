@@ -98,7 +98,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 |Syntax|	`.\UnifiedAgent.exe /Role "MS" /Platform vmware /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Azure Site Recovery\Agent"`|
 |`/Role`|Mandatory update parameter. Specifies that the Mobility service (MS) will be updated.|
 |`/InstallLocation`|Optional. Specifies the Mobility service installation location.|
-|`/Platform`|Mandatory. Specifies the platform on which the Mobility service is updated:</br>VmWare for VMware VMs/physical servers.</br>Azure for Azure VMs.</br></br>If you're treating Azure VMs as physical machines, specify VmWare.|
+|`/Platform`|Mandatory. Specifies the platform on which the Mobility service is updated:</br>VmWare for VMware VMs/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure VMs as physical machines, specify VmWare.|
 |`/Silent`|Optional. Specifies whether to run the installer in silent mode.|
 |`/CSType`|Mandatory. Used to define preview or legacy architecture. (Use CSPrime)|
 
@@ -132,7 +132,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 |Syntax|`./install -q -r MS -v VmWare -a Upgrade -c CSPrime`|
 |`-r`|Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.|
 |`-d`|Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.|
-|`-v`|Mandatory. Specifies the platform on which Mobility service is installed.</br>VMware for VMware VMs/physical servers.</br>Azure for Azure VMs.|
+|`-v`|Mandatory. Specifies the platform on which Mobility service is installed.</br>VMware for VMware VMs/physical servers. </br>Azure for Azure VMs.|
 |`-q`|Optional. Specifies whether to run the installer in silent mode.|
 |`-c`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
 |`-a`|Mandatory. Specifies that the mobility agent needs to be upgraded and not installed.|
@@ -215,7 +215,7 @@ To delete the registry key:
 
 1. On the server running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
 
 ### Update appliance components when private endpoint is enabled
 
