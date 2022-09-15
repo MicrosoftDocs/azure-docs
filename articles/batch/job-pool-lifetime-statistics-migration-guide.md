@@ -1,9 +1,13 @@
 ---
-author: Harper Cheng
-ms.author: harperche
+title: Batch Job Pool Lifetime Statics Migration Guide
+description: Describes the migration steps for the batch job pool lifetime statistics and the end of support details.
+author: harperche
+ms.author: harpercheng
+ms.service: batch
+ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/15/2022
 ---
-### Executive Summary
+# Batch Job Pool Lifetime Statics Migration Guide
 
 The Azure Batch service currently supports API for Job/Pool to retrieve lifetime statistics. The API is used to get lifetime statistics for all the Pools/Jobs in the specified batch account or for a specified Pool/Job. The API collects the statistical data from when the Batch account was created until the last time updated or entire lifetime of the specified Job/Pool. Job/Pool lifetime statistics API is helpful for customers to analyze and evaluate their usage.
 
@@ -15,13 +19,16 @@ The purpose of the API is designed and maintained to serve the customer in case 
 
 We will retire the Job/Pool Lifetime Statistics API on **30 April 2023**. Once that is complete, we will stop supporting the API. The API will cease to work and will return an appropriate HTTP response error code back to the client.
 
-### FAQ
+## FAQ
 
 1. Is there an alternate way to view logs of Pool/Jobs?
 
-    Azure portal has various options to enable the logs, namely system logs, diagnostic logs. Refer [Monitor Batch Solutions](https://docs.microsoft.com/en-us/azure/batch/monitoring-overview) for more information.
+   Azure portal has various options to enable the logs, namely system logs, diagnostic logs. Refer [Monitor Batch Solutions](./monitoring-overview.md) for more information.
 
 2. Can customers extract logs to their system if the API doesn't exist? 
 
-    Azure portal log feature allows every customer to extract the output and error logs to their workspace.Refer [Monitor with Application Insights](https://docs.microsoft.com/en-us/azure/batch/monitor-application-insights) for more information.
+   Azure portal log feature allows every customer to extract the output and error logs to their workspace. Refer [Monitor with Application Insights](./monitor-application-insights.md) for more information.
 
+## Next steps
+
+For more information, refer to [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
