@@ -3,7 +3,7 @@ title: GetCurrentTicks in Azure Cosmos DB query language
 description: Learn about SQL system function GetCurrentTicks in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: sidandrews

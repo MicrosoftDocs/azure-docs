@@ -3,7 +3,7 @@ title: Querying geospatial data with Azure Cosmos DB
 description: Querying spatial data with Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: sidandrews
@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Querying geospatial data with Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article will cover how to query geospatial data in Azure Cosmos DB using SQL and LINQ. Currently storing and accessing geospatial data is supported by Azure Cosmos DB SQL API accounts only. Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query System Functions in Azure Cosmos DB](sql-query-system-functions.md).
+This article will cover how to query geospatial data in Azure Cosmos DB using SQL and LINQ. Currently storing and accessing geospatial data is supported by Azure Cosmos DB for NoSQL accounts only. Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query System Functions in Azure Cosmos DB](sql-query-system-functions.md).
 
 ## Spatial SQL built-in functions
 
@@ -138,7 +138,7 @@ These functions can also be used to validate Polygons. For example, here we use 
 
 The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively).
 
-Here's an example of a LINQ query that finds all documents in the Azure Cosmos container whose `location` value is within a radius of 30 km of the specified point using LINQ.
+Here's an example of a LINQ query that finds all documents in the Azure Cosmos DB container whose `location` value is within a radius of 30 km of the specified point using LINQ.
 
 **LINQ query for Distance**
 

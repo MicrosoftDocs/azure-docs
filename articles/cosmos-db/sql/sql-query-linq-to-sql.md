@@ -3,7 +3,7 @@ title: LINQ to SQL translation in Azure Cosmos DB
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: sidandrews
@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # LINQ to SQL translation
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with SQL API.
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with API for NoSQL.
 
 > [!NOTE]
 > We recommend using the latest [.NET SDK version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
@@ -210,7 +210,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
 
 ## Composite SQL queries
 
-You can compose the preceding operators to form more powerful queries. Since Cosmos DB supports nested containers, you can concatenate or nest the composition.
+You can compose the preceding operators to form more powerful queries. Since Azure Cosmos DB supports nested containers, you can concatenate or nest the composition.
 
 ### Concatenation
 

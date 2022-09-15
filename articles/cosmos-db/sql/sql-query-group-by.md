@@ -3,7 +3,7 @@ title: GROUP BY clause in Azure Cosmos DB
 description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/12/2022
 ms.author: sidandrews

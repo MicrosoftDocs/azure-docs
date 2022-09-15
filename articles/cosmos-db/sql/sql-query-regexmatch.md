@@ -3,7 +3,7 @@ title: RegexMatch in Azure Cosmos DB query language
 description: Learn about the RegexMatch SQL system function in Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/12/2021
 ms.author: sidandrews

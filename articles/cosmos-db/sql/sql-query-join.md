@@ -3,7 +3,7 @@ title: SQL JOIN queries for Azure Cosmos DB
 description: Learn how to JOIN multiple tables in Azure Cosmos DB to query the data
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: sidandrews
@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Joins in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
+In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the API for NoSQL uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
 > [!NOTE]
 > In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](../modeling-data.md) can help avoid the need for cross-item and cross-container joins.

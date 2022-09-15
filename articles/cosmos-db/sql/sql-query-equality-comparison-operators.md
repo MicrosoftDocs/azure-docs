@@ -3,7 +3,7 @@ title: Equality and comparison operators in Azure Cosmos DB
 description: Learn about SQL equality and comparison operators supported by Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 01/07/2022
 ms.author: sidandrews
@@ -17,7 +17,7 @@ This article details the equality and comparison operators supported by Azure Co
 
 ## Understanding equality comparisons
 
-The following table shows the result of equality comparisons in the SQL API between any two JSON types.
+The following table shows the result of equality comparisons in the API for NoSQL between any two JSON types.
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|

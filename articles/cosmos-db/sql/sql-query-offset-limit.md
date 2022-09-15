@@ -3,7 +3,7 @@ title: OFFSET LIMIT clause in Azure Cosmos DB
 description: Learn how to use the OFFSET LIMIT clause to skip and take some certain values when querying in Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: sidandrews

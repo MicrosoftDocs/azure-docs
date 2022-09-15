@@ -3,7 +3,7 @@ title: LOG in Azure Cosmos DB query language
 description: Learn about the LOG SQL system function in Azure Cosmos DB to return the natural logarithm of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
@@ -34,13 +34,13 @@ LOG (<numeric_expr> [, <base>])
   
 ## Remarks
   
-  By default, LOG() returns the natural logarithm. You can change the base of the logarithm to another value by using the optional base parameter.  
+  By default, `LOG()` returns the natural logarithm. You can change the base of the logarithm to another value by using the optional base parameter.  
   
-  The natural logarithm is the logarithm to the base **e**, where **e** is an irrational constant approximately equal to 2.718281828.  
+  The natural logarithm is the logarithm to the base **e**, where **e** is an irrational constant approximately equal to *2.718281828*.  
   
-  The natural logarithm of the exponential of a number is the number itself: LOG( EXP( n ) ) = n. And the exponential of the natural logarithm of a number is the number itself: EXP( LOG( n ) ) = n.
+  The natural logarithm of the exponential of a number is the number itself: `LOG( EXP( n ) ) = n`. And the exponential of the natural logarithm of a number is the number itself: `EXP( LOG( n ) ) = n`.
 
-  This system function will not utilize the index.
+  This system function won't utilize the index.
   
 ## Examples
   
@@ -50,7 +50,7 @@ LOG (<numeric_expr> [, <base>])
 SELECT LOG(10) AS log  
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{log: 2.3025850929940459}]  
@@ -62,7 +62,7 @@ SELECT LOG(10) AS log
 SELECT EXP(LOG(10)) AS expLog  
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [{expLog: 10.000000000000002}]  

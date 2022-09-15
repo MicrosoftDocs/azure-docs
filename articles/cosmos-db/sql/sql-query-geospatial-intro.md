@@ -1,9 +1,9 @@
 ---
 title: Geospatial and GeoJSON location data in Azure Cosmos DB
-description: Understand how to create spatial objects with Azure Cosmos DB and the SQL API.
+description: Understand how to create spatial objects with Azure Cosmos DB and the API for NoSQL.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/17/2022
 ms.author: sidandrews
@@ -33,7 +33,7 @@ Geospatial data often involve proximity queries, for example, "find all coffee s
 
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake.
 
-Azure Cosmos DB's SQL API supports two spatial data types: the **geometry** data type and the **geography** data type.
+Azure Cosmos DB's API for NoSQL supports two spatial data types: the **geometry** data type and the **geography** data type.
 
 - The **geometry** type represents data in a Euclidean (flat) coordinate system
 - The **geography** type represents data in a round-earth coordinate system.
@@ -185,7 +185,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-If you're working with the SQL APIs, you can use the `Point`, `LineString`, `Polygon`, and `MultiPolygon` classes within the `Microsoft.Azure.Cosmos.Spatial` namespace to embed location information within your application objects. These classes help simplify the serialization and deserialization of spatial data into GeoJSON.
+If you're working with the API for NoSQLs, you can use the `Point`, `LineString`, `Polygon`, and `MultiPolygon` classes within the `Microsoft.Azure.Cosmos.Spatial` namespace to embed location information within your application objects. These classes help simplify the serialization and deserialization of spatial data into GeoJSON.
 
 **Create Document with Geospatial data in .NET**
 

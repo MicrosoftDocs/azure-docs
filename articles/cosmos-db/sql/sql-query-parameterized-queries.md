@@ -3,7 +3,7 @@ title: Parameterized queries in Azure Cosmos DB
 description: Learn how SQL parameterized queries provide robust handling and escaping of user input, and prevent accidental exposure of data through SQL injection.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: sidandrews
