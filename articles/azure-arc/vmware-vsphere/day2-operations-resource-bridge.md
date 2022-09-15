@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform day 2 administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 08/25/2022
+ms.date: 09/15/2022
 
 ---
 
