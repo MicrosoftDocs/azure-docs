@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 09/15/2022
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 When installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
 
-## Error installing the Dapr extension
+## Installation failure without an error message
 
 If the extension fails to create or update without an error message, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
 
@@ -36,22 +36,38 @@ The below JSON is returned, and the error message is captured in the `message` p
 ],
 ```
 
-If you run into a general error with no specific message during Dapr extension install, you can also try the following steps:
+You can also try the following steps:
 
 - [Restart your AKS or Arc for Kubernetes cluster](./start-stop-cluster.md).
 - Make sure you've [registered the `KubernetesConfiguration` service provider](./dapr.md#register-the-kubernetesconfiguration-service-provider).
+- See if you're encountering an error [installing the `microsoft.flux` extension](../azure-arc/kubernetes/troubleshooting.md#flux-v2---error-installing-the-microsoftflux-extension).
 
 See below for examples of error messages you may encounter during Dapr extension install or update.
 
-### Error: Dapr version doesn't exist
+## Error: Dapr version doesn't exist
 
-You're installing the Dapr extension and [targeting a specific version](./dapr.md#targeting-a-specific-dapr-version), but run into an error message saying the Dapr version doesn't exist. Try installing again, making sure to use a [supported version of Dapr](./dapr.md#dapr-versions). 
+You're installing the Dapr extension and [targeting a specific version](./dapr.md#targeting-a-specific-dapr-version), but run into an error message saying the Dapr version doesn't exist. 
 
-### Error: Dapr version exists, but not in the mentioned region
+```
+(ExtensionOperationFailed) The extension operation failed with the following error:  Failed to resolve the extension version from the given values.
+Code: ExtensionOperationFailed
+Message: The extension operation failed with the following error:  Failed to resolve the extension version from the given values.
+```
 
-Some versions of Dapr aren't available in all regions. If you receive this error message, try installing in an [available region](./dapr.md#cloudsregions) where your Dapr version is supported.
 
-### Error: dapr-system already exists
+Try installing again, making sure to use a [supported version of Dapr](./dapr.md#dapr-versions). 
+
+## Error: Dapr version exists, but not in the mentioned region
+
+Some versions of Dapr aren't available in all regions. If you receive an error message like the following, try installing in an [available region](./dapr.md#cloudsregions) where your Dapr version is supported.
+
+```
+(ExtensionTypeRegistrationGetFailed) Extension type microsoft.dapr is not registered in region <regionname>.
+Code: ExtensionTypeRegistrationGetFailed
+Message: Extension type microsoft.dapr is not registered in region <regionname>
+```
+
+## Error: `dapr-system` already exists
 
 You're installing the Dapr extension for AKS or Arc for Kubernetes, but receive an error message indicating that Dapr already exists. This error message may look like:
 
