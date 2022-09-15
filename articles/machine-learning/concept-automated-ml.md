@@ -15,7 +15,7 @@ ms.custom: automl, event-tier1-build-2022
 # What is automated machine learning (AutoML)?
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-	> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 	> * [v1](v1/concept-automated-ml-v1.md)
 > * [v2 (current version)](concept-automated-ml.md)
 
