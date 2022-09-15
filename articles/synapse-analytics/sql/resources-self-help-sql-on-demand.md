@@ -897,12 +897,12 @@ Tables that are created might not be immediately available in serverless SQL poo
 
 ### Operation isn't allowed for a replicated database
 
-This error is returned if you are trying to create external tables, external data sources, database scoped credentials or other objects in your Lake databases. These objects can be created only on SQL databases.
+This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
 
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md) and trying to create external tables, external data sources, database scoped credentials, or other objects in your Lake databases. These objects can be created only on SQL databases. The Lake databases are replicated from the Apache Spark pool and managed by Synapse. Therefore, you cannot create objects like in SQL Databases by using T-SQL.  
+The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you cannot create objects like in SQL Databases by using T-SQL language.  
 
 Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. 
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
 - Creating and dropping the database users from Azure Active Directory.
 - Adding or removing database users from `db_datareader` schema.
 
