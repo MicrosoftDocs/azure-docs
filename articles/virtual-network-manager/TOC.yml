@@ -39,7 +39,11 @@
     - name: Connectivity
       href: concept-connectivity-configuration.md
     - name: Security admin rules
-      href: concept-security-admins.md
+      items: 
+      - name: Security admin rule concepts
+        href: concept-security-admins.md
+      - name: Security admin rule enforcement
+        href: concept-enforcement.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
