@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2022
+ms.date: 09/15/2022
 ms.author: helohr
 manager: femila
 ---
@@ -18,43 +18,7 @@ manager: femila
 >
 >Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the Windows Desktop client, version 1.2.2999 or later.
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media content from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on sites in the "Known Sites" list. To test sites on the list within your organization's deployment, you'll need to [enable an extension](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
-
-## Websites that work with MMR 
-
-The following list shows websites that are known to work with MMR. MMR is supposed to work on these sites by default, when you haven't selected the **Enable on all sites** check box.
-
-- YouTube 
-- Facebook
-- Fox Sports
-- IMDB
-- [Microsoft Learn](/learn)
-- LinkedIn Learning
-- Fox Weather
-- Yammer
-- The Guardian
-- Fidelity
-- Udemy
-- BBC
-- Pluralsight
-- Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
-- Teams Live Events (on web)
-  - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
-  - MMR supports Enterprise Content Delivery Network (ECDN) for Teams live events.
-
-### How to use MMR for Teams live events 
-
-To use MMR for Teams live events:
-
-1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
-
-2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
-
-3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
-
-The following screenshot highlights the areas described in the previous steps:
-
-:::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
+This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop (preview) in your Microsoft Edge or Google Chrome browser. For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
 
 ## Requirements
 
@@ -75,6 +39,7 @@ to do these things:
    To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
 4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE55eRq) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM.
+<!--This is where the actual installation of the extension happens, according to Chi.-->
 
 ## Managing group policies for the multimedia redirection browser extension
 
@@ -97,6 +62,7 @@ The following code is an example of a Microsoft Edge group policy that doesn't r
 ```cmd
 { "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } } 
 ```
+<!--What code do I use for policies?-->
 
 This next example group policy makes the browser install the multimedia redirection extension, but only lets multimedia redirection load on YouTube: 
 
@@ -115,8 +81,10 @@ The following example is much like the code example in [Configure Microsoft Edge
 ```cmd
 { "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "toolbar_pin": "force_pinned", "update_url": "https://clients2.google.com/service/update2/crx" } }
 ```
+<!--What code should I use for this? The team never specified-->
 
-Additional information on configuring [Google Chrome group policy](https://support.google.com/chrome/a/answer/187202#zippy=%2Cwindows).
+For more information about configuring Google Chrome policies, see [Google Chrome group policy](https://support.google.com/chrome/a/answer/187202#zippy=%2Cwindows).
+<!--Wait, where did this Google link come from?!-->
 
 ## Run the multimedia redirection extension manually on a browser
 
@@ -124,53 +92,40 @@ MMR uses remote apps and the session desktop for Microsoft Edge and Google Chrom
 
 ### Microsoft Edge
 
-To run the extension on Microsoft Edge manually, look for the yellow exclamation mark on the overflow menu. You should see a prompt to enable the Azure Virtual Desktop Multimedia Redirection extension. Select **Enable extension**.
+To run the extension on Microsoft Edge manually:
+
+1. Look for the yellow exclamation mark on the overflow menu. You should see a prompt to enable the Azure Virtual Desktop Multimedia Redirection extension.
+2. Select **Enable extension**.
 
 ### Google Chrome
 
-To run the extension on Google Chrome manually, look for the notification message that says the new extension was installed, as shown in the following screenshot. 
+To run the extension on Google Chrome manually:
 
-![A screenshot of the Google Chrome taskbar. There's a notification tab that says "New Extension Added."](media/chrome-notification.png)
+1. Look for the notification message that says the new extension was installed, as shown in the following screenshot. 
 
-Select the notification to allow your users to enable the extension. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
+   ![A screenshot of the Google Chrome taskbar. There's a notification tab that says "New Extension Added."](media/chrome-notification.png)
 
-### The multimedia redirection status icon
+2. Select the notification to allow your users to enable the extension.
+3. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
 
-To quickly tell if multimedia redirection is active in your browser, we've added the following icon states:
+### How to use MMR for Teams live events 
 
-| Icon State  | Definition  |
-|-----------------|-----------------|
-| ![The default Azure Virtual Desktop program icon with no status applied.](./media/icon-default.png) | The default icon appearance with no status applied. |
-| ![The Azure Virtual Desktop program icon with a red square with an x that indicates multimedia redirection isn't working.](./media/icon-disconnect.png) | The red square with an "X" inside of it means that the client couldn't connect to multimedia redirection. |
-| ![The Azure Virtual Desktop program icon with a green square with a check mark inside of it, indicating that multimedia redirection is working.](./media/icon-connect.png) | The green square with a check mark inside of it means that the client successfully connected to multimedia redirection. |
+To use MMR for Teams live events:
 
-Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
+1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
 
-## Support during public preview
+2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
 
-If you run into issues while using the public preview version of multimedia redirection, we recommend contacting Microsoft Support.
+3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
 
-### Known issues and limitations
+The following screenshot highlights the areas described in the previous steps:
 
-The following issues are ones we're already aware of, so you won't need to report them:
-
-- Multimedia redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client.
-
-- Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
-
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](#websites-that-work-with-mmr). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
-
-- There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
-
-    - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
-    - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
-
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
-
-- When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
-
-- When the display scale factor of the screen isn't at 100% and you've set the video window to a certain size, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
+:::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
 ## Next steps
+
+For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
+
+To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
 
 If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).
