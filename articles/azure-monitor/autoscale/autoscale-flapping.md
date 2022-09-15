@@ -36,7 +36,6 @@ T1|2|56%|28%|Scale in|1|
 T2|1|56%|56%|Scale out|2|
 T3|2|56%|28%|Scale in|1|
 
-
 If left uncontrolled, there would be an ongoing series of scale events. However, in this situation, the autoscale engine will defer the scale-in event at *T1* and reevaluate during the next autoscale run. The scale-in will only happen once the average CPU usage is below 30%.
 
 Flapping is often caused by:
@@ -54,7 +53,7 @@ For example, the following rules where there's no margin between thresholds, cau
 * Scale out when thread count >=600
 * Scale in when thread count < 600
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example A screenshot showing autoscale rules configured for the example with scale out when thread count >=600 and scale in when thread count < 600":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-2.png" alt-text="A screenshot showing autoscale rules with scale out when thread count is greater than or equal to 600 and scale in when thread count less than 600":::
 
 The table below shows a potential outcome of these autoscale rules:
 
@@ -63,21 +62,21 @@ The table below shows a potential outcome of these autoscale rules:
 T0|2|1250|625|Scale out|3|
 T1|3|1250|417|Scale in|2|
 
-1. At time T0, there are two instances handling 1250 threads, or 625 treads per instance. Autoscale scales out to three instances.
-1. Following the scale-out, at T1, we have the same 1250 threads, but with three instances, only 417 threads per instance. A scale-in event is triggered.
-1. Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in. If it scaled out again, the process would repeat, leading to flapping loop.
-1. To avoid this situation, autoscale doesn't scale in. Autoscale skips the current scale event and reevaluates the rule in the next execution cycle.
+* At time T0, there are two instances handling 1250 threads, or 625 treads per instance. Autoscale scales out to three instances.
+* Following the scale-out, at T1, we have the same 1250 threads, but with three instances, only 417 threads per instance. A scale-in event is triggered.
+* Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in. If it scaled out again, the process would repeat, leading to flapping loop.
+* To avoid this situation, autoscale doesn't scale in. Autoscale skips the current scale event and reevaluates the rule in the next execution cycle.
 
 In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there's any flapping.
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-run-history.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping." lightbox="./media/autoscale-flapping/autoscale-flapping-run-history.png":::
 
 Setting an adequate margin between thresholds avoids the above scenario. For example,
 
 * Scale out when thread count >=600
 * Scale in when thread count < 400
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example with scale out when thread count >=600 and scale in when thread count < 400" lightbox:::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-3.png" alt-text="A screenshot showing autoscale rules with scale out when thread count greater than or equal to 600 and scale in when thread count less than 400" lightbox:::
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -98,7 +97,7 @@ For example, the following rules can cause flapping:
 * OR when CPU > 70% per instance.
 * Scale in by 10 when the request count <=50 per instance.
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example" :::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example-1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example." :::
 
 The table below shows a potential outcome of these autoscale rules:
 
@@ -113,9 +112,9 @@ At T1, when the request count drops to 1500 requests, or 50 requests per instanc
 
 To avoid flapping, the autoscale engine estimates the CPU usage for instance counts above 20 until it finds an instance count where all metrics are with in the defined thresholds:
 
-  1. Keep the CPU below 70%.
-  1. Keep the number of requests per instance is above 50.
-  1. Reduce the number of instances below 30.
+* Keep the CPU below 70%.
+* Keep the number of requests per instance is above 50.
+* Reduce the number of instances below 30.
 
 In this situation, autoscale may scale in by 3, from 30 to 27 instances in order to satisfy the rules, even though the rule specifies a decrease of 10. A log message is written to the activity log with a description that includes *Scale down will occur with updated instance count to avoid flapping*
 
@@ -138,7 +137,7 @@ AzureActivity
 
 Below is an example of an activity log record for flapping:
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screen shot showing a log record form a flapping event" lightbox="./media/autoscale-flapping/autoscale-flapping-log.png":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screenshot showing a log record from a flapping event." lightbox="./media/autoscale-flapping/autoscale-flapping-log.png":::
 
 ````JSON
 {
