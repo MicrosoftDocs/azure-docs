@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 08/30/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -20,7 +20,7 @@ B2B collaboration is a capability of Azure AD External Identities that lets you 
 
 The following table describes B2B collaboration users based on how they authenticate (internally or externally) and their relationship to your organization (guest or member).
 
-![Diagram showing B2B collaboration users](media/user-properties/table-user-properties.png)
+![Diagram showing B2B collaboration users.](media/user-properties/table-user-properties.png)
 
 - **External guest**: Most users who are commonly considered external users or guests fall into this category. This B2B collaboration user has an account in an external Azure AD organization or an external identity provider (such as a social identity), and they have guest-level permissions in the resource organization. The user object created in the resource Azure AD directory has a UserType of Guest.
 - **External member**: This B2B collaboration user has an account in an external Azure AD organization or an external identity provider (such as a social identity) and member-level access to resources in your organization. This scenario is common in organizations consisting of multiple tenants, where users are considered part of the larger organization and need member-level access to resources in the organization’s other tenants. The user object created in the resource Azure AD directory has a UserType of Member.
@@ -28,7 +28,7 @@ The following table describes B2B collaboration users based on how they authenti
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
 
 > [!IMPORTANT]
-> The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. Learn more about [configuring email one-time passcode](one-time-passcode.md) and [plans for other fallback authentication methods](one-time-passcode.md#disable-email-one-time-passcode), such as unmanaged ("viral") accounts and Microsoft accounts.
+> The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## Invitation redemption
 
@@ -38,7 +38,7 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Issuer** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the **Invitation accepted** property in the invited user’s Azure AD portal profile will be set to **No** and querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
 
-![Screenshot of user profile before redemption](media/user-properties/before-redemption.png)
+![Screenshot of user profile before redemption.](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
@@ -46,11 +46,11 @@ After the B2B collaboration user accepts the invitation, the **Issuer** property
 
 If the B2B collaboration user is using credentials from another Azure AD organization, the **Issuer** is **External Azure AD**.
 
-![Screenshot of user profile after redemption](media/user-properties/after-redemption-state-1.png)
+![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
 
 If the B2B collaboration user is using a Microsoft account or credentials from another external identity provider, the **Issuer** reflects the identity provider, for example **Microsoft Account**, **google.com**, or **facebook.com**.
 
-![Screenshot of user profile showing an external identity provider](media/user-properties/after-redemption-state-2.png)
+![Screenshot of user profile showing an external identity provider.](media/user-properties/after-redemption-state-2.png)
 
 For external users who are using internal credentials, the **Issuer** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
 
@@ -99,7 +99,7 @@ Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azu
 
 ## Filter for guest users in the directory
 
-![Screenshot showing the filter for guest users](media/user-properties/filter-guest-users.png)
+![Screenshot showing the filter for guest users.](media/user-properties/filter-guest-users.png)
 
 ## Convert UserType
 
@@ -111,7 +111,7 @@ Guest users have [default restricted directory permissions](../fundamentals/user
 
 There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
 
-![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
+![Screenshot showing the External users option in the user settings.](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
 

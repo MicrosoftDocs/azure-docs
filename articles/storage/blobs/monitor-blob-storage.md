@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure Blob Storage
-
+recommendations: false
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage

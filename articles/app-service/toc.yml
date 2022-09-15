@@ -259,6 +259,8 @@
       items:
         - name: Configure common settings
           href: configure-common.md
+        - name: Reference settings from App Configuration (preview)
+          href: app-service-configuration-references.md
         - name: Configure ASP.NET
           href: configure-language-dotnet-framework.md
         - name: Configure ASP.NET Core
@@ -295,6 +297,8 @@
               href: deploy-ci-cd-custom-container.md
             - name: Deploy from local Git
               href: deploy-local-git.md
+            - name: Azure Pipelines
+              href: deploy-azure-pipelines.md
             - name: GitHub Actions
               href: deploy-github-actions.md
             - name: GitHub Actions for Containers

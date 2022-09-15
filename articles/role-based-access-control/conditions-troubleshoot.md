@@ -156,11 +156,11 @@ The previously selected attribute no longer applies to the currently selected ac
 
 **Solution 1**
 
-In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md).
 
 **Solution 2**
 
-In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md).
 
 ### Symptom - Attribute does not apply in this context warning
 

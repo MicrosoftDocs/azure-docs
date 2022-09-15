@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 09/06/2022
 ---
 
 # Parameters in Bicep
@@ -14,6 +14,10 @@ This article describes how to define and use parameters in a Bicep file. By prov
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used, Resource Manager replaces it with the resolved value.
 
 Each parameter must be set to one of the [data types](data-types.md).
+
+You are limited to 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
@@ -185,7 +189,7 @@ You might use this decorator to track information about the parameter that doesn
   source: 'database'
   contact: 'Web team'
 })
-param settings object 
+param settings object
 ```
 
 ## Use parameter

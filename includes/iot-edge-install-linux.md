@@ -114,10 +114,10 @@ Install the Moby engine.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
-Install the Moby engine.
+Install the Moby engine and CLI.
 
    ```bash
-   sudo yum install moby-engine
+   sudo yum install moby-engine moby-cli
    ```
 ---
 
