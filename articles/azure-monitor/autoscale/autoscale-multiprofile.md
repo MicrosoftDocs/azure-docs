@@ -7,7 +7,10 @@ ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/15/2022
-ms.reviewer: 
+ms.reviewer: akkumari
+
+
+# Customer intent: As a user or dev ops administrator, I want to understand how set up autoscale with more than one profile so I can scale my resources with more flexibility.
 ---
 
 # Autoscale with multiple profiles
