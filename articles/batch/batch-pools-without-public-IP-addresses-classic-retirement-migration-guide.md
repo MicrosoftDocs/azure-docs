@@ -45,27 +45,27 @@ Batch pool without public IP addresses (classic) will retire on **31/2023 and wi
 
 ## FAQ
 
-1. How can I migrate my Batch pool without public IP addresses (classic) to simplified compute node communication pools without public IPs?
+* How can I migrate my Batch pool without public IP addresses (classic) to simplified compute node communication pools without public IPs?
 
     You can only migrate your pool to simplified compute node communication pools if it was created in a virtual network. Otherwise, you’d need to create a new simplified compute node communication pool without public IPs.
 
-2. What differences will I see in billing?
+* What differences will I see in billing?
 
     Compared with Batch pools without public IP addresses (classic), the simplified compute node communication pools without public IPs support will reduce costs because it won’t need to create network resources the following: load balancer, network security groups, and private link service with the Batch pool deployments. However, there will be a [cost associated with  private link](https://azure.microsoft.com/pricing/details/private-link/) or other outbound network connectivity used by pools, as controlled by the user, to allow communication with the Batch service without public IP addresses.
 
-3. Will there be any performance changes?
+* Will there be any performance changes?
 
     No known performance differences compared to Batch pools without public IP addresses (classic).
 
-4. How can I connect to my pool nodes for troubleshooting?
+* How can I connect to my pool nodes for troubleshooting?
 
     Similar to Batch pools without public IP addresses (classic). As there is no public IP address for the Batch pool, users will need to connect their pool nodes from within the virtual network. You can create a jump box VM in the virtual network or use other remote connectivity solutions like [Azure Bastion](../bastion/bastion-overview.md).
 
-5. Will there be any change to how my workloads are downloaded from Azure Storage?
+* Will there be any change to how my workloads are downloaded from Azure Storage?
 
     Similar to Batch pools without public IP addresses (classic), users will need to provide their own internet outbound connectivity if their workloads need access to other resources like Azure Storage.
 
-6. What if I don’t migrate to simplified compute node communication pools without public IPs?
+* What if I don’t migrate to simplified compute node communication pools without public IPs?
 
     After **31 March 2023**, we will stop supporting Batch pool without public IP addresses. The functionality of the existing pool in that configuration may break, such as scale out operations, or may be actively scaled down to zero at any point in time after that date.
 
