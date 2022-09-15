@@ -551,24 +551,84 @@ azureuser@Azure:~$ az network nic show --name myNIC --resource-group myResourceG
 
 ## Change DNS servers
 
-The DNS server is assigned by the Azure DHCP server to the network interface within the virtual machine operating system. The DNS server assigned is whatever the DNS server setting is for a network interface. To learn more about name resolution settings for a network interface, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md). The network interface can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network.
+The DNS server is assigned by the Azure DHCP server to the network interface within the virtual machine operating system. To learn more about name resolution settings for a network interface, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md). The network interface can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
-2. Select the network interface that you want to change a DNS server for from the list.
-3. Select **DNS servers** under **SETTINGS**.
-4. Select either:
-   - **Inherit from virtual network**: Choose this option to inherit the DNS server setting defined for the virtual network the network interface is assigned to. At the virtual network level, either a custom DNS server or the Azure-provided DNS server is defined. The Azure-provided DNS server can resolve hostnames for resources assigned to the same virtual network. FQDN must be used to resolve for resources assigned to different virtual networks.
-   - **Custom**: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this network interface and overrides any DNS setting for the virtual network the network interface is assigned to.
-     >[!Note]
-     >If the VM uses a NIC that's part of an availability set, all the DNS servers that are specified for each of the VMs from all NICs that are part of the availability set will be inherited.
+# [**Portal**](#tab/network-interface-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+
+3. Select the network interface you want to view or change settings for from the list.
+
+4. In **Settings**, select **DNS servers**.
+
+5. Select either:
+   
+    - **Inherit from virtual network**: Choose this option to inherit the DNS server setting defined for the virtual network the network interface is assigned to. At the virtual network level, either a custom DNS server or the Azure-provided DNS server is defined. The Azure-provided DNS server can resolve hostnames for resources assigned to the same virtual network. FQDN must be used to resolve for resources assigned to different virtual networks.
+   
+    - **Custom**: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this network interface and overrides any DNS setting for the virtual network the network interface is assigned to.
+     
+    >[!NPTE]
+    >If the VM uses a NIC that's part of an availability set, all the DNS servers that are specified for each of the VMs from all NICs that are part of the availability set are inherited.
+
 5. Select **Save**.
 
-**Commands**
+# [**PowerShell**](#tab/network-interface-powershell)
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.
+
+```azurepowershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Add the DNS servers to the configuration. ##
+$nic.DnsSettings.DnsServers.Add("192.168.1.100")
+
+## Add a secondary DNS server if needed, otherwise set the configuration. ##
+$nic.DnsSettings.DnsServers.Add("192.168.1.101")
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+```
+
+To remove the DNS servers and change the setting to inherited, use the following command. Replace the DNS server IP addresses with your custom IP addresses.
+
+```azurepowershell
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Add the DNS servers to the configuration. ##
+$nic.DnsSettings.DnsServers.Remove("192.168.1.100")
+
+## Add a secondary DNS server if needed, otherwise set the configuration. ##
+$nic.DnsSettings.DnsServers.Remove("192.168.1.101")
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+```
+
+# [**CLI**](#tab/network-interface-CLI)
+
+Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.
+
+```azurecli
+az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --dns-servers 192.168.1.100 192.168.1.101
+```
+
+To remove the DNS servers and change the setting to inherited, use the following command.
+
+```azurecli
+az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --dns-servers ""
+```
+
+---
 
 ## Enable or disable IP forwarding
 
