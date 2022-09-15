@@ -46,7 +46,7 @@ The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSam
 
 The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos DB account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you'll review the code in each of these sample apps.
 
-## Bulk import data to an Azure Cosmos DB account
+## <a id="bulk-import-data-to-an-azure-cosmos-account"></a>Bulk import data to an Azure Cosmos DB account
 
 1. Navigate to the "BulkImportSample" folder and open the "BulkImportSample.sln" file.  
 
