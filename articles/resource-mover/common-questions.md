@@ -35,7 +35,7 @@ Metadata support |  Supported regions for storing metadata about machines to be 
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks
+- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
 - NICs
 - Availability sets 
 - Azure virtual networks 
