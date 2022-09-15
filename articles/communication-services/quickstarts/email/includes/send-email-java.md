@@ -261,4 +261,4 @@ EmailMessage emailMessage = new EmailMessage("<donotreply@xxxxxxxx-xxxx-xxxx-xxx
     .setAttachments(attachmentList);
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-attachments)
