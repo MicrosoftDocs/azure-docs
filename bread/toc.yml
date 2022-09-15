@@ -511,21 +511,27 @@
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
     items:
-    - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb
-      topicHref: /azure/cosmos-db/mongodb
-    - name: Table API
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
+    - name: Table
       tocHref: /azure/cosmos-db/table/
       topicHref: /azure/cosmos-db/table/
-    - name: Cassandra API
+    - name: Apache Cassandra
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
-    - name: Gremlin API
+    - name: Apache Gremlin
       tocHref: /azure/cosmos-db/graph/
       topicHref: /azure/cosmos-db/graph/
-    - name: SQL API
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/gremlin/
+      topicHref: /azure/cosmos-db/gremlin/
+    - name: NoSQL
       tocHref: /azure/cosmos-db/sql/
       topicHref: /azure/cosmos-db/sql/
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/nosql/
+      topicHref: /azure/cosmos-db/nosql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
