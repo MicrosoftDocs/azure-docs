@@ -67,7 +67,7 @@ Learn about the [error messages and exception codes](designer-error-codes.md) th
 
 All built-in components in the designer will be executed in a fixed environment provided by Microsoft. 
 
-Previously this environment was based on Python 3.6, and now it is upgraded to Python 3.8 now. This upgrading is transparent - the components will be automatically run in Python 3.8 environment. This may have following impacts.
+Previously this environment was based on Python 3.6, and now it is upgraded to Python 3.8. This upgrading is transparent - the components will be automatically run in Python 3.8 environment. This may have following impacts.
 
 ### Components outputs are different from previous results
 
