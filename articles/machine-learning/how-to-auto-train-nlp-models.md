@@ -350,7 +350,7 @@ AutoML NLP allows you to provide a list of models and combinations of hyperparam
 All the pre-trained text DNN models currently available in AutoML NLP for fine-tuning are listed below: 
 
 * bert_base_cased 
-* bert_base_uncased 
+* bert_large_uncased 
 * bert_base_multilingual_cased 
 * bert_base_german_cased 
 * bert_large_cased 
