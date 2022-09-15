@@ -71,80 +71,84 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 2. In VM's **Overview** blade, under **Agent version**, you can view the current version of the mobility agent. If a new update is available, the status is updated as **New update available**. 
 
-3. Confirm the availability of new version, download the latest agent version’s package on the source machine and update the agent version. 
+3. Confirm the availability of new version, download the latest agent version’s package from [here](/azure/site-recovery/site-recovery-whats-new#supported-updates) on the source machine and update the agent version. 
 
 ### Update mobility agent on Windows machines
 
+To update mobility agent on Windows machines, follow these steps:
+
 1.	Open command prompt and navigate to the folder where the update package has been placed.
 
-   `cd C:\Azure Site Recovery\Agent`
+    `cd C:\Azure Site Recovery\Agent`
 
-2.	Run the following command to extract the update package:
+2.	To extract the update package, run the below command:
 
-   `.\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent`
+    `.\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent`
 
-3.	To proceed with the update, run the following command:
+3.	To proceed with the update, run the below command:
 
-   `.\UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
+    `.\UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
 
-4.	Once the agent has been updated, registration will be triggered automatically. To manually check the status of registration, run the following command:
+4.	Registration will be triggered automatically after the agent has been updated. To manually check the status of registration, run the below command:
 
-   `"C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime`
+    `"C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime`
 
 #### Upgrade settings
 
 |Setting|Details|
 |---|---|
 |Syntax|	`.\UnifiedAgent.exe /Role "MS" /Platform vmware /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Azure Site Recovery\Agent"`|
-|`/Role`|Mandatory update parameter. Specifies that the Mobility service (MS) will be updated.|
-|`/InstallLocation`|Optional. Specifies the Mobility service installation location.|
-|`/Platform`|Mandatory. Specifies the platform on which the Mobility service is updated:</br>VmWare for VMware VMs/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure VMs as physical machines, specify VmWare.|
-|`/Silent`|Optional. Specifies whether to run the installer in silent mode.|
-|`/CSType`|Mandatory. Used to define preview or legacy architecture. (Use CSPrime)|
+|`/Role`|Mandatory update parameter. </br>Specifies that the Mobility service (MS) will be updated.|
+|`/InstallLocation`|Optional. </br>Specifies the Mobility service installation location.|
+|`/Platform`|Mandatory. </br>Specifies the platform on which the Mobility service is updated:</br>VmWare for VMware VMs/physical servers. </br>Azure for Azure VMs. </br></br>If you're treating Azure VMs as physical machines, specify VmWare.|
+|`/Silent`|Optional. </br>Specifies whether to run the installer in silent mode.|
+|`/CSType`|Mandatory. </br>Defines modernized or legacy architecture. (Use CSPrime)|
 
 #### Registration settings
 
 |Setting|Details|
 |---|---|
 |Syntax|`"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`|
-|`/SourceConfigFilePath`|Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.|
-|`/CSType`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
+|`/SourceConfigFilePath`|Mandatory. </br>Full file path of the Mobility Service configuration file. Use any valid folder.|
+|`/CSType`|Mandatory. </br>Defines modernized or legacy architecture. (CSPrime or CSLegacy).|
 
 ### Update mobility agent on Linux machines
 
-1.	From a terminal session, copy the update package to a local folder such as `/tmp` on the server for which the agent is being updated. Then run the below command:
+To update mobility agent on Linux machines, follow these steps:
 
-   `cd /tmp ;`
-   `tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz`
+1.	From a terminal session, copy the update package to a local folder such as `/tmp` on the server for which the agent is being updated and run the below command:
 
-2.	To update, use the below command:
+    `cd /tmp ;`
+    `tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz`
 
-   `./install -q -r MS -v VmWare -a Upgrade -c CSPrime`
+2.	To update, run the below command:
 
-3.	Once the agent has been updated, registration will be triggered automatically. To manually check the status of registration, run the following command:
+    `./install -q -r MS -v VmWare -a Upgrade -c CSPrime`
 
-   `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`
+3.	Registration will be triggered automatically after the agent has been updated. To manually check the status of registration, run the below command:
+
+    `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`
 
 #### Installation settings
 
 |Setting|Details|
 |---|---|
 |Syntax|`./install -q -r MS -v VmWare -a Upgrade -c CSPrime`|
-|`-r`|Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.|
-|`-d`|Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.|
-|`-v`|Mandatory. Specifies the platform on which Mobility service is installed.</br>VMware for VMware VMs/physical servers. </br>Azure for Azure VMs.|
-|`-q`|Optional. Specifies whether to run the installer in silent mode.|
-|`-c`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
-|`-a`|Mandatory. Specifies that the mobility agent needs to be upgraded and not installed.|
+|`-r`|Mandatory. </br>Installation parameter. </br>Specifies whether the Mobility service (MS) should be installed.|
+|`-d`|Optional. </br>Specifies the Mobility service installation location: `/usr/local/ASR`.|
+|`-v`|Mandatory. </br>Specifies the platform on which Mobility service is installed. </br>VMware for VMware VMs/physical servers. </br>Azure for Azure VMs.|
+|`-q`|Optional. </br>Specifies whether to run the installer in silent mode.|
+|`-c`|Mandatory. </br>Defines modernized or legacy architecture. (CSPrime or CSLegacy).|
+|`-a`|Mandatory. </br>Specifies that the mobility agent needs to be upgraded and not installed.|
 
 #### Registration settings
 
 |Setting|Details|
 |---|---|
 |Syntax|`<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`|
-|`-S`|Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.|
-|`-c`|Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).|
-|`-q`|Optional. Specifies whether to run the installer in silent mode.|
+|`-S`|Mandatory. </br>Full file path of the Mobility Service configuration file. Use any valid folder.|
+|`-c`|Mandatory. </br>Defines modernized or legacy architecture. (CSPrime or CSLegacy).|
+|`-q`|Optional. </br>Specifies whether to run the installer in silent mode.|
 
 
 ## Mobility agent on latest version
@@ -226,28 +230,28 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 #### Update Process server
 
-1.	To update the process server, find the latest version from here. 
+1.	To update the process server, download the latest version [here](/azure/site-recovery/site-recovery-whats-new#supported-updates). 
 2.	Download the update package to the ASR replication appliance. 
 3.	Open command prompt and navigate to the folder where the update package has been placed.
-   `cd C:\Downloads`
-4.	Run the below command to update the process server: 
-   `msiexec.exe /i ProcessServer.msi ALLUSERS=1 REINSTALL=ALL REINSTALLMODE=vomus /l*v msi.log`
+    `cd C:\Downloads`
+4.	To update the process server, run the below command: 
+    `msiexec.exe /i ProcessServer.msi ALLUSERS=1 REINSTALL=ALL REINSTALLMODE=vomus /l*v msi.log`
 
 #### Update Recovery Services agent
 
-To update the Recovery Service agent, find the latest version from here. 
+To update the Recovery Service agent, download the latest version [here](/azure/site-recovery/site-recovery-whats-new#supported-updates).
 
 1.	Download the update package to the ASR replication appliance. 
 2.	Open command prompt and navigate to the folder where the update package has been placed.
-   `cd C:\Downloads`
-3.	Run the below command to update the Recovery Service agent: 
-   `MARSAgentInstaller.exe /q /nu - for mars agent`
+    `cd C:\Downloads`
+3.	To update the Recovery Service agent, run the below command: 
+    `MARSAgentInstaller.exe /q /nu - for mars agent`
 
 #### Update remaining components of appliance
 
-1.	To update the remaining components of the ASR replication appliance, download the latest version from here.
-2.	Once the .msi file has been downloaded, open the file by double-clicking on it. 
-3.	This will automatically trigger the update. The latest version can be checked from the ‘Add or remove program’ in Windows settings.
+1.	To update the remaining components of the ASR replication appliance, download the latest version  [here](/azure/site-recovery/site-recovery-whats-new#supported-updates).
+2.	Open the downloaded `.msi` file which triggers the update automatically.
+3.	Check the latest version in Windows settings > **Add or remove program**.
 
 ### Resolve issues with component upgrade
 
