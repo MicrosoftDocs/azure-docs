@@ -106,7 +106,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | String |
-> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](../blobs\storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'` |
 
 ### Queue name
 

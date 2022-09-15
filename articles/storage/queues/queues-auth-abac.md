@@ -32,8 +32,8 @@ Azure ABAC builds on Azure RBAC by adding [role assignment conditions](../../rol
 - Environment from which the request originates
 
 The benefits of using role assignment conditions are:
-- **Enable finer-grained access to resources** - For example, if you want to grant a user read access to blobs in your storage accounts only if the blobs are tagged as Project=Sierra, you can use conditions on the read action using tags as an attribute.
-- **Reduce the number of role assignments you have to create and manage** - You can do this by using a generalized role assignment for a security group, and then restricting the access for individual members of the group using a condition that matches attributes of a principal with attributes of a specific resource being accessed (such as a blob or a container).
+- **Enable finer-grained access to resources** - For example, if you want to grant a user access to peek messages in a specific queue, you can use peek messages DataAction and the queue name storage attribute.
+- **Reduce the number of role assignments you have to create and manage** - You can do this by using a generalized role assignment for a security group, and then restricting the access for individual members of the group using a condition that matches attributes of a principal with attributes of a specific resource being accessed (such as a queue).
 - **Express access control rules in terms of attributes with business meaning** - For example, you can express your conditions using attributes that represent a project name, business application, organization function, or classification level.
 
 The tradeoff of using conditions is that you need a structured and consistent taxonomy when using attributes across your organization. Attributes must be protected to prevent access from being compromised. Also, conditions must be carefully designed and reviewed for their effect.
