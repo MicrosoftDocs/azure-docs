@@ -50,9 +50,6 @@ Currently, cross-tenant virtual networks can only be [added to network groups ma
 
  
 Deleting a cross-tenant connections has the follow impact:
- 
-## Helpful Tips 
-
 
 ## Next Steps 
 
