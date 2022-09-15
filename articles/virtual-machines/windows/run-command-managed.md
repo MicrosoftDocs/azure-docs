@@ -248,7 +248,7 @@ In this example, **secondRunCommand** will execute after **firstRunCommand**.
          ],
          "properties":{
             "source":{
-               "scriptUrl":"http://github.com/myscript.ps1"
+               "scriptUri":"http://github.com/myscript.ps1"
             },
             "timeoutInSeconds":60
          }
