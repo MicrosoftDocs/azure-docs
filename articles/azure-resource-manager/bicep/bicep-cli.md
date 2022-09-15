@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/14/2022
 ---
 
 # Bicep CLI commands
@@ -71,6 +71,16 @@ az bicep decompile --file main.json
 The command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
 
 For more information about using this command, see [Decompiling ARM template JSON to Bicep](decompile.md).
+
+## generate-params
+
+The `generate-params` command builds *.parameters.json* file from the given bicep file, updates if there is an existing parameters.json file.
+
+```azurecli
+az bicep generate-params --file main.bicep
+```
+
+The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
 
 ## install
 
