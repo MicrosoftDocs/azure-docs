@@ -167,6 +167,7 @@ When you set the `isSessionsEnabled` property or attribute on [the trigger](func
 
 Note that `clientRetryOptions' refers to interactions with the Service Bus service. It does not refer to retrying the function execution.
 
+
 |Property  |Default | Description |
 |---------|---------|---------|
 |**mode**|`Exponential`|The approach to use for calculating retry delays. The default exponential mode retries attempts with a delay based on a back-off strategy where each attempt increases the wait duration before retrying. The `Fixed` mode retries attempts at fixed intervals with each delay having a consistent duration.|
