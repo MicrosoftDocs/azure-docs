@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory security operations for Privileged Identity Management
-description: Establish baselines and use Azure AD Privileged Identity Management (PIM) to monitor and alert on issues with accounts tgoverned by PIM.
+description: Establish baselines and use Azure AD Privileged Identity Management (PIM) to monitor and alert on issues with accounts governed by PIM.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -90,13 +90,13 @@ The following are recommended baseline settings:
 | What to monitor| Risk level| Recommendation| Roles| Notes |
 | - |- |- |- |- |
 | Azure AD roles assignment| High| Require justification for activation.Require approval to activate. Set two-level approver process. On activation, require Azure AD Multi-Factor Authentication (MFA). Set maximum elevation duration to 8 hrs.| Privileged Role Administration, Global Administrator| A privileged role administrator can customize PIM in their Azure AD organization, including changing the experience for users activating an eligible role assignment. |
-| Azure Resource Role Configuration| High| Require justification for activation. Require approval to activate. Set two-level approver process. On activation, require Azure MFA. Set maximum elevation duration to 8 hrs.| Owner, Resource Administrator, User Access, Administrator, Global Administrator, Security Administrator| Investigate immediately if not a planned change. This setting might enable attacker access to Azure subscriptions in your environment. |
+| Azure Resource Role Configuration| High| Require justification for activation. Require approval to activate. Set two-level approver process. On activation, require Azure AD Multi-Factor Authentication. Set maximum elevation duration to 8 hrs.| Owner, Resource Administrator, User Access, Administrator, Global Administrator, Security Administrator| Investigate immediately if not a planned change. This setting might enable attacker access to Azure subscriptions in your environment. |
 
 ## Azure AD roles assignment
 
 A privileged role administrator can customize PIM in their Azure AD organization, which includes changing the user experience of activating an eligible role assignment:
 
-* Prevent bad actor to remove Azure MFA requirements to activate privileged access.
+* Prevent bad actor to remove Azure AD Multi-Factor Authentication requirements to activate privileged access.
 
 * Prevent malicious users bypass justification and approval of activating privileged access.
 
@@ -106,7 +106,7 @@ A privileged role administrator can customize PIM in their Azure AD organization
 | Alert on bulk deletion changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Remove eligible member (permanent) <br>-and-<br>Activity Type – Remove eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/BulkChangestoPrivilegedAccountPermissions.yaml)<br><br>[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Changes to PIM settings| High| Azure AD Audit Log| Service = PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Update role setting in PIM<br>-and-<br>Status Reason = MFA on activation disabled (example)| Monitor and always alert for any changes to Privileged Role Administrator and Global Administrator. This can be an indication an attacker hass access able to modify role assignment settings. One of these actions could reduce the security of the PIM elevation and make it easier for attackers to acquire a privileged account.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoPIMSettings.yaml)<br><br>[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Approvals and deny elevation| High| Azure AD Audit Log| Service = Access Review<br>-and-<br>Category = UserManagement<br>-and-<br>Activity Type = Request Approved/Denied<br>-and-<br>Initiated actor = UPN| All elevations should be monitored. Log all elevations to give a clear indication of timeline for an attack.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/PIMElevationRequestRejected.yaml)<br><br>[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. Helps detect bad actor removing alerts associated with Azure MFA requirements to activate privileged access. Helps detect suspicious or unsafe activity.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/DetectPIMAlertDisablingActivity.yaml)<br><br>[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. Helps detect bad actor removing alerts associated with Azure AD Multi-Factor Authentication requirements to activate privileged access. Helps detect suspicious or unsafe activity.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/DetectPIMAlertDisablingActivity.yaml)<br><br>[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 For more information on identifying role setting changes in the Azure AD Audit log, see [View audit history for Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-use-audit-log.md).
 
