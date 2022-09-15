@@ -129,7 +129,7 @@ There are some additional restrictions on queries with an aggregate system funct
 Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
 
 > [!NOTE]
-> Because `LIKE` can utilize an index, you should [create a range index](./../index-policy.md) for properties you are comparing using `LIKE`.
+> Because `LIKE` can utilize an index, you should [create a range index](../../index-policy.md) for properties you are comparing using `LIKE`.
 
 You can use the following wildcard characters with LIKE:
 
