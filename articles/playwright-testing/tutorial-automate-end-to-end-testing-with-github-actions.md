@@ -157,7 +157,7 @@ After the tests finish, you notice that the GitHub Actions workflow failed becau
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
 
-    For more information about using the Microsoft Playwright Testing portal, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+    For more information about using the Microsoft Playwright Testing portal, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
 
 1. To get detailed results of all tests, open the GitHub Actions log.
 
