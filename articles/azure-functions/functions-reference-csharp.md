@@ -16,9 +16,9 @@ Azure Functions lets you develop functions using C# in one of the following ways
 
 | Type | Execution process | Code extension | Development environment | Reference |
 | --- | ---- | --- | --- | --- | 
-| C# script | in-process | .csx | Portal<br/>Core Tools | This article | 
-| C# class library | in-process | .cs | Visual Studio<br/>Visual Studio Code<br />Core Tools | [In-process C# class library functions](functions-dotnet-class-library.md) |
-| C# class library (isolated process)| out-of-process | .cs | Visual Studio<br/>Visual Studio Code<br />Core Tools | [.NET isolated process functions](dotnet-isolated-process-guide.md) | 
+| C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
+| C# class library | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)s | [In-process C# class library functions](functions-dotnet-class-library.md) |
+| C# class library (isolated process)| out-of-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated process functions](dotnet-isolated-process-guide.md) | 
 
 This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
