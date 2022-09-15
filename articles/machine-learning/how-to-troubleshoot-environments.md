@@ -12,7 +12,9 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022
 ---
 
-# Troubleshooting Environment Image Builds using Troubleshooting Log Error Messages
+# Troubleshooting environment image builds using troubleshooting log error messages
+
+In this article, learn how to troubleshoot common problems you may encounter with environment image builds.
 
 ## Azure Machine Learning environments
 
@@ -75,9 +77,9 @@ Not all the vulnerabilities are exploitable, so you need to use your judgment wh
 - **[Conda Issues During Build](#conda-issues-during-build)**<br>
 - **[Pip Issues During Build](#pip-issues-during-build)** <br>
 
-## *Environment Definition Problems*
+## *Environment definition problems*
 
-### Environment Name Issues
+### Environment name issues
 #### **"Curated prefix not allowed"**
 Terminology:  
 
@@ -94,7 +96,7 @@ Terminology:
 - Environment names can be up to 255 characters in length
 - Consider renaming and shortening your environment name
 
-### Docker Issues
+### Docker issues
 To create a new environment, you must use one of the following approaches:
 1. Base image
     - Provide base image name, repository from which to pull it, credentials if needed
@@ -175,7 +177,7 @@ do this, see [set_connection](https://aka.ms/azureml/environment/set-connection-
 - The specified Dockerfile can't exceed the maximum Dockerfile size of 100KB
 - Consider shortening your Dockerfile to get it under this limit
 
-### Docker Build Context Issues
+### Docker build context issues
 #### **"Missing Dockerfile path"**
 - In the Docker build context, a Dockerfile path must be specified
 - This is the path to the Dockerfile relative to the root of Docker build context directory
@@ -203,7 +205,7 @@ environment definition:
 - If the build context is stored in a storage account, the path of the build context must be specified as 
     - `https://storage-account.blob.core.windows.net/container/path/`
 
-### Base Image Issues
+### Base image issues
 #### **"Base image is deprecated"**
 - The following base images are deprecated:
     - `azureml/base`
@@ -229,12 +231,12 @@ It's best to use newer, non-deprecated versions.
     - Digest
 - See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
 
-### Environment Variable Issues
+### Environment variable issues
 #### **"Misplaced runtime variables"**
 - An environment definition shouldn't contain runtime variables
 - Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
-### Python Issues
+### Python issues
 #### **"Python section missing"**
 *V1*
 
@@ -289,7 +291,7 @@ conda_dep.add_conda_package("python==3.8")
 - The provided Python version may have been formatted improperly or specified with incorrect syntax
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-### Conda Issues
+### Conda issues
 #### **"Missing conda dependencies"**
 - The [environment definition](https://aka.ms/azureml/environment/environment-class-v1)
 has a [PythonSection](https://aka.ms/azureml/environment/environment-python-section)
@@ -328,7 +330,7 @@ environment definition
 version of a package on subsequent builds of an environment. This can lead to unexpected errors and incorrect behavior
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-### Pip Issues
+### Pip issues
 #### **"Pip not specified"**
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
 - See [how to set a conda dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
@@ -342,7 +344,7 @@ image builds on the environment
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 - See [how to set pip as a dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
 
-### Deprecated Environment Property Issues
+### Deprecated environment property issues
 #### **"R section is deprecated"**
 - The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
 experience using Azure Machine Learning CLI 2.0
@@ -350,7 +352,7 @@ experience using Azure Machine Learning CLI 2.0
 
 ## *Image Build Problems*
 
-### Miscellaneous Issues
+### Miscellaneous issues
 #### **"Build log unavailable"**
 - Build logs are optional and not available for all environments since the image might already exist
 
@@ -359,7 +361,7 @@ experience using Azure Machine Learning CLI 2.0
 - If your scenario involves a VNet, you may need to build images using a compute cluster
 - See [secure a workspace using virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
 
-### Docker Pull Issues
+### Docker pull issues
 #### **"Failed to pull Docker image"**
 - Possible issues:
     - The path name to the container registry might not be resolving correctly
@@ -376,7 +378,7 @@ experience using Azure Machine Learning CLI 2.0
     - You haven't provided credentials for a private registry you're trying to pull the image from, or the provided credentials are incorrect 
         - Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
-### Conda Issues During Build
+### Conda issues during build
 #### **"Bad spec"**
 - Failed to create or update the conda environment due to an invalid package specification
     - See [package match specifications](https://aka.ms/azureml/environment/conda-package-match-specifications)
@@ -448,7 +450,7 @@ from the provided conda specification
 - Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
 without using quotes. Consider adding quotes around the package specification
 
-### Pip Issues During Build
+### Pip issues during build
 #### **"Failed to install packages"**
 - Failed to install Python packages
 - Review the image build log for more information on this error
