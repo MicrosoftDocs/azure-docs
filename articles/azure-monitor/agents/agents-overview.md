@@ -193,6 +193,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
+| OpenSUSE 15                                              | X |   |  |
 | OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
