@@ -153,6 +153,12 @@ Yes, see [Associate or add an Azure subscription to your Azure Active Directory 
 **Can an Azure Government subscription be associated with a directory in Azure AD Public?** </br>
 No, the ability to manage Azure Government subscriptions requires identities sourced from a directory in Azure AD Government.
 
+
+**Can Azure B2B Cross Tenant be used with the Azure Government Portal?** </br>
+As a relatively new feature, at this time the Cross Tenant Enabled Commercial or GCC Moderate directory user story that will allow the guest AAD Government user to access the Azure Government Portal is not enabled.  
+
+
+
 ## Next steps
 
 - [Azure Government developer guide](./documentation-government-developer-guide.md)
@@ -161,3 +167,4 @@ No, the ability to manage Azure Government subscriptions requires identities sou
 - [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
 - [Multi-tenant user management](../active-directory/fundamentals/multi-tenant-user-management-introduction.md)
 - [Azure Active Directory fundamentals documentation](../active-directory/fundamentals/index.yml)
+- https://docs.microsoft.com/en-us/azure/active-directory/external-identities/cross-tenant-access-overview#microsoft-cloud-settings
