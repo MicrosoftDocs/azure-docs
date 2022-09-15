@@ -3,7 +3,7 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you'll learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 11/10/2021
+ms.date: 09/05/2022
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---
@@ -35,7 +35,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 - A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 2,500 virtual machines (VMs). If your vCenter Server instance has more than 2,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 9,500 virtual machines (VMs). If your vCenter Server instance has more than 9,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
 
 ### vSphere account
 
