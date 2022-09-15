@@ -244,7 +244,7 @@ To configure a legal hold on a container with the Azure portal, follow these ste
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-legal-hold-overview.md#allow-protected-append-blobs-writes).
 
-    :::image type="content" source="media/immutable-policy-configure-container-scope/configure-retention-policy-container-scope-legal-hold.png" alt-text="Screenshot showing how to configure legal hold policy scoped to container":::
+    :::image type="content" source="media/immutable-policy-configure-container-scope/configure-retention-policy-container-scope-legal-hold.png" alt-text="Screenshot showing how to configure legal hold policy scoped to container.":::
 
 After you've configured the immutability policy, you will see that it is scoped to the container:
 
