@@ -216,7 +216,7 @@ The output from the preceding example is:
 | totalAgeAdd1 | int | 19 |
 | reduceObjectUnion | object | {"foo":123,"bar":456,"baz":789} |
 
-In the last output, the [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the object.
+In the last output, the [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the objects.
 
 ## sort
 
