@@ -65,6 +65,7 @@ To configure and test Azure AD SSO with Sketch, perform the following steps:
 
 Follow these steps to choose a shortname and gather information to continue the setup process in Azure AD.
 
+>[!Note]
 > Before starting this process, make sure SSO is available in your Workspace, check there is an SSO tab in your Workspace Admin panel.
 > If you don't see the SSO tab, please reach out to customer support.
 1. [Sign in to your Workspace](https://www.sketch.com/signin/) as an Admin.
