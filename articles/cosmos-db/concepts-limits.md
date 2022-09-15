@@ -167,7 +167,7 @@ An Azure Cosmos DB item can represent either a document in a collection, a row i
 | Maximum TTL value |2147483647 |
 | Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
-<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
+<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmso DB for MongoDB only. Sign-up for the feature “Azure Cosmso DB for MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 
 There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Azure Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
@@ -289,11 +289,11 @@ Read more about Azure Cosmos DB's core concepts [global distribution](distribute
 
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB API for NoSQL](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB API for Cassandra](cassandra/manage-data-dotnet.md)
-* [Get started with Azure Cosmos DB API for Gremlin](create-graph-dotnet.md)
-* [Get started with Azure Cosmos DB API for Table](table/create-table-dotnet.md)
+* [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+* [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
+* [Get started with Azure Cosmos DB for Gremlin](create-graph-dotnet.md)
+* [Get started with Azure Cosmos DB for Table](table/create-table-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

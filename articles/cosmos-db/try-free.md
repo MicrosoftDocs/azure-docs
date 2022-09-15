@@ -122,11 +122,11 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
-    * [Get started with Azure Cosmos DB API for NoSQL](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
-    * [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
-    * [Get started with Azure Cosmos DB API for Cassandra](cassandra/cassandra-adoption.md)
-    * [Get started with Azure Cosmos DB API for Gremlin](graph/create-graph-console.md#add-a-graph)
-    * [Get started with Azure Cosmos DB API for Table](table/create-table-dotnet.md)
+    * [Get started with Azure Cosmos DB for NoSQL](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
+    * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
+    * [Get started with Azure Cosmos DB for Cassandra](cassandra/cassandra-adoption.md)
+    * [Get started with Azure Cosmos DB for Gremlin](graph/create-graph-console.md#add-a-graph)
+    * [Get started with Azure Cosmos DB for Table](table/create-table-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
 * If you know typical request rates for your current database workload, see [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).

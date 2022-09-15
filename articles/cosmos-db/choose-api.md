@@ -75,7 +75,7 @@ Applications written for Azure Table storage can migrate to the API for Table wi
 
 ## Capacity planning when migrating data
 
-Trying to do capacity planning for a migration to Azure Cosmos DB API for NoSQL or MongoDB from an existing database cluster? You can use information about your existing database cluster for capacity planning.
+Trying to do capacity planning for a migration to Azure Cosmos DB for NoSQL or MongoDB from an existing database cluster? You can use information about your existing database cluster for capacity planning.
 
 * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
 
@@ -83,11 +83,11 @@ Trying to do capacity planning for a migration to Azure Cosmos DB API for NoSQL 
 
 ## Next steps
 
-* [Get started with Azure Cosmos DB API for NoSQL](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB API for Cassandra](cassandra/manage-data-dotnet.md)
-* [Get started with Azure Cosmos DB API for Gremlin](create-graph-dotnet.md)
-* [Get started with Azure Cosmos DB API for Table](create-table-dotnet.md)
+* [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+* [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
+* [Get started with Azure Cosmos DB for Gremlin](create-graph-dotnet.md)
+* [Get started with Azure Cosmos DB for Table](create-table-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./sql/estimate-ru-with-capacity-planner.md)

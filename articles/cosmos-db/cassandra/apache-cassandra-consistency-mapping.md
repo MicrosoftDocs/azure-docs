@@ -4,18 +4,18 @@ description: Apache Cassandra and Azure Cosmos DB consistency levels.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.reviewer: mjbrown
 ---
 
-# Apache Cassandra and Azure Cosmos DB Cassandra API consistency levels
+# Apache Cassandra and Azure Cosmos DB for Apache Cassandra consistency levels
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees. Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB's Cassandra API:
+Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees. Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB's API for Cassandra:
 
-* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. Consistency for a write operation (CL) can't be changed on a per-request basis.
+* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos DB account. Consistency for a write operation (CL) can't be changed on a per-request basis.
 
 * Azure Cosmos DB will dynamically map the read consistency level specified by the Cassandra client driver to one of the Azure Cosmos DB consistency levels configured dynamically on a read request.
 
@@ -29,7 +29,7 @@ With single-region writes, you can maintain strong consistency, while still main
 
 The Azure Cosmos DB platform provides a set of five well-defined, business use-case oriented consistency settings with respect to replication and the tradeoffs defined by the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) and [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). As this approach differs significantly from Apache Cassandra, we would recommend that you take time to review and understand [Azure Cosmos DB consistency](../consistency-levels.md), or watch this short [video guide to understanding consistency settings](https://aka.ms/docs.consistency-levels) in the Azure Cosmos DB platform.
 
-The following table illustrates the possible mappings between Apache Cassandra and Azure Cosmos DB consistency levels when using Cassandra API. This shows configurations for single region, multi-region reads with single-region writes, and multi-region writes.
+The following table illustrates the possible mappings between Apache Cassandra and Azure Cosmos DB consistency levels when using API for Cassandra. This shows configurations for single region, multi-region reads with single-region writes, and multi-region writes.
 
 > [!NOTE]
 > These are not exact mappings. Rather, we have provided the closest analogues to Apache Cassandra, and disambiguated any qualitative differences in the rightmost column. As mentioned above, we recommend reviewing Azure Cosmos DB's [consistency settings](../consistency-levels.md). 
@@ -38,9 +38,9 @@ The following table illustrates the possible mappings between Apache Cassandra a
 
 :::image type="content" source="./media/apache-cassandra-consistency-mapping/dynamic.png" alt-text="Cassandra consistency dynamic mapping" lightbox="./media/apache-cassandra-consistency-mapping/dynamic.png" :::
 
-If your Azure Cosmos account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the *Probabilistically Bounded Staleness* (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](../how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+If your Azure Cosmos DB account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the *Probabilistically Bounded Staleness* (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](../how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you have currently configured on your Azure Cosmos account. In other words, you can see the probability (measured in milliseconds) of getting strongly consistent reads for a combination of write and read regions.
+Probabilistic bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you have currently configured on your Azure Cosmos DB account. In other words, you can see the probability (measured in milliseconds) of getting strongly consistent reads for a combination of write and read regions.
 
 ## Next steps
 

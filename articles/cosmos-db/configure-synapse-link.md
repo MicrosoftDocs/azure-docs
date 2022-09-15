@@ -14,7 +14,7 @@ ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
-Azure Synapse Link is available for Azure Cosmos DB API for NoSQL or MongoDB accounts. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
+Azure Synapse Link is available for Azure Cosmos DB for NoSQL or MongoDB accounts. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
 * [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
 * [Create an analytical store enabled container](#create-analytical-ttl)
@@ -282,15 +282,15 @@ Currently not supported.
 
 The following links show how to update containers analytical TTL by using Azure CLI:
 
-* [Azure Cosmos DB API for MongoDB](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-update)
-* [Azure Cosmos DB API for NoSQL](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update)
+* [Azure Cosmos DB for MongoDB](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-update)
+* [Azure Cosmos DB for NoSQL](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update)
 
 ### PowerShell
 
 The following links show how to update containers analytical TTL by using PowerShell:
 
-* [Azure Cosmos DB API for MongoDB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
-* [Azure Cosmos DB API for NoSQL](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
+* [Azure Cosmos DB for MongoDB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
+* [Azure Cosmos DB for NoSQL](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
 ## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a API for NoSQL container
 
@@ -342,7 +342,7 @@ The [Azure Resource Manager template](./manage-with-templates.md#azure-cosmos-ac
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synapse Link - Samples
 
-You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and retail scenarios. You can also find the samples corresponding to Azure Cosmos DB API for MongoDB in the same repo under the [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) folder. 
+You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and retail scenarios. You can also find the samples corresponding to Azure Cosmso DB for MongoDB in the same repo under the [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) folder. 
 
 ## Next steps
 

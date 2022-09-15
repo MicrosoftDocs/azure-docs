@@ -1,29 +1,29 @@
 ---
-title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
-description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
+title: Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra
+description: Learn about the Apache Cassandra feature support in Azure Cosmos DB for Apache Cassandra
 author: IriaOsara
 ms.author: iriaosara
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
 ---
 
-# Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
+# Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the Cassandra Query Language (CQL) Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB for Apache Cassandra through the Cassandra Query Language (CQL) Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
 
-By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs and the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of the Apache Cassandra APIs and the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Cassandra protocol 
 
-The Azure Cosmos DB Cassandra API is compatible with Cassandra Query Language (CQL) v3.11 API (backward-compatible with version 2.x). The supported CQL commands, tools, limitations, and exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB Cassandra API.
+The Azure Cosmos DB for Apache Cassandra is compatible with Cassandra Query Language (CQL) v3.11 API (backward-compatible with version 2.x). The supported CQL commands, tools, limitations, and exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for Apache Cassandra.
 
 ## Cassandra driver
 
-The following versions of Cassandra drivers are supported by Azure Cosmos DB Cassandra API:
+The following versions of Cassandra drivers are supported by Azure Cosmos DB for Apache Cassandra:
 
 * [Java 3.5+](https://github.com/datastax/java-driver)  
 * [C# 3.5+](https://github.com/datastax/csharp-driver)  
@@ -36,7 +36,7 @@ The following versions of Cassandra drivers are supported by Azure Cosmos DB Cas
 
 ## CQL data types 
 
-Azure Cosmos DB Cassandra API supports the following CQL data types:
+Azure Cosmos DB for Apache Cassandra supports the following CQL data types:
 
 |Type  |Supported |
 |---------|---------|
@@ -72,7 +72,7 @@ Static is supported for data type declaration.
 
 ## CQL functions
 
-Azure Cosmos DB Cassandra API supports the following CQL functions:
+Azure Cosmos DB for Apache Cassandra supports the following CQL functions:
 
 |Command  |Supported |
 |---------|---------|
@@ -82,8 +82,8 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 | `cast` ** | Yes |
 
 > [!NOTE] 
-> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
-> \*\* The `cast()` function is not nestable in Cassandra API. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.    
+> \* API for Cassandra supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
+> \*\* The `cast()` function is not nestable in API for Cassandra. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.    
 > \*\*\* Custom timestamps and TTL specified with the `USING` option are applied at a row level (and not per cell).
 
 
@@ -130,7 +130,7 @@ UUID and timeuuid functions:
   
 ## CQL commands
 
-Azure Cosmos DB supports the following database commands on Cassandra API accounts.
+Azure Cosmos DB supports the following database commands on API for Cassandra accounts.
 
 |Command  |Supported |
 |---------|---------|
@@ -193,7 +193,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 
 ## CQL Shell commands
 
-Azure Cosmos DB supports the following database commands on Cassandra API accounts.
+Azure Cosmos DB supports the following database commands on API for Cassandra accounts.
 
 |Command  |Supported |
 |---------|---------|
@@ -209,7 +209,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | `SERIAL CONSISTENCY` * | N/A |
 | `SHOW` | Yes |
 | `SOURCE` | Yes |
-| `TRACING` | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+| `TRACING` | N/A (API for Cassandra is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
 
 > [!NOTE] 
 > Consistency works differently in Azure Cosmos DB, see [here](apache-cassandra-consistency-mapping.md) for more information.  
@@ -224,13 +224,13 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | `toJson()` | No |
 
 
-## Cassandra API limits
+## API for Cassandra limits
 
-Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 20 GB as in all other APIs.
+Azure Cosmos DB for Apache Cassandra does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 20 GB as in all other APIs.
 
 ## Tools 
 
-Azure Cosmos DB Cassandra API is a managed service platform. The platform does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. Tools such as cqlsh that utilizes Binary CQLv4 compatibility are supported. 
+Azure Cosmos DB for Apache Cassandra is a managed service platform. The platform does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. Tools such as cqlsh that utilizes Binary CQLv4 compatibility are supported. 
 
 * Azure portal's data explorer, metrics, log diagnostics, PowerShell, and CLI are other supported mechanisms to manage the account.
 
@@ -240,10 +240,10 @@ Azure Cosmos DB Cassandra API is a managed service platform. The platform does n
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH"::: -->
 
-You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.11 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to Cassandra API in Azure Cosmos DB, on Windows or Linux using CQLSH.
+You can connect to the API for Cassandra in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.11 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to API for Cassandra in Azure Cosmos DB, on Windows or Linux using CQLSH.
 
 > [!WARNING]
-> Connections to Azure Cosmos DB Cassandra API will not work with DataStax Enterprise (DSE) or Cassandra 4.0 versions of CQLSH. Please ensure you use only v3.11 open source Apache Cassandra versions of CQLSH when connecting to Cassandra API. 
+> Connections to Azure Cosmos DB for Apache Cassandra will not work with DataStax Enterprise (DSE) or Cassandra 4.0 versions of CQLSH. Please ensure you use only v3.11 open source Apache Cassandra versions of CQLSH when connecting to API for Cassandra. 
 
 **Windows:**
 
@@ -297,7 +297,7 @@ sudo apt-get install cassandra
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
-# Connect to Azure Cosmos DB API for Cassandra:
+# Connect to Azure Cosmos DB for Apache Cassandra:
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl --protocol-version=4
 ```
 **Connect with Docker:**
@@ -323,7 +323,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](apache-cassandra-consistency-mapping.md#mapping-consistency-levels).
+Azure Cosmos DB for Apache Cassandra provides choice of consistency for read operations.  The consistency mapping is detailed [here](apache-cassandra-consistency-mapping.md#mapping-consistency-levels).
 
 ## Permission and role management
 
@@ -345,12 +345,12 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
 ## Secondary Index
-Cassandra API supports secondary indexes on all data types except frozen collection types, decimal, and variant types. 
+API for Cassandra supports secondary indexes on all data types except frozen collection types, decimal, and variant types. 
 
 ## Usage of Cassandra retry connection policy
 
-Azure Cosmos DB is a resource governed system. You can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to Cassandra API in Azure Cosmos DB. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a retry policy to retry on these exceptions. Alternatively, [enable server-side retries](prevent-rate-limiting-errors.md) for Cassandra API. 
+Azure Cosmos DB is a resource governed system. You can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The API for Cassandra in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to API for Cassandra in Azure Cosmos DB. If you use other SDKs to access API for Cassandra in Azure Cosmos DB, create a retry policy to retry on these exceptions. Alternatively, [enable server-side retries](prevent-rate-limiting-errors.md) for API for Cassandra. 
 
 ## Next steps
 
-- Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application
+- Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application

@@ -1,25 +1,25 @@
 ---
-title: Find request unit (RU) charge for a Cassandra API query in Azure Cosmos DB
-description: Learn how to find the request unit (RU) charge for Cassandra queries executed against an Azure Cosmos container. You can use the Azure portal, .NET and Java drivers to find the RU charge. 
+title: Find request unit (RU) charge for a API for Cassandra query in Azure Cosmos DB
+description: Learn how to find the request unit (RU) charge for Cassandra queries executed against an Azure Cosmos DB container. You can use the Azure portal, .NET and Java drivers to find the RU charge. 
 author: IriaOsara
 ms.author: iriaosara
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.devlang: csharp, java, golang
 ms.custom: devx-track-csharp, devx-track-java, devx-track-golang
 ---
-# Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API
+# Find the request unit charge for operations executed in Azure Cosmos DB for Apache Cassandra
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos DB container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
 
-This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB Cassandra API. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [SQL API](../find-request-unit-charge.md), [Gremlin API](../find-request-unit-charge-gremlin.md), and [Table API](../table/find-request-unit-charge.md) articles to find the RU/s charge.
+This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB for Apache Cassandra. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [API for NoSQL](../find-request-unit-charge.md), [API for Gremlin](../find-request-unit-charge-gremlin.md), and [API for Table](../table/find-request-unit-charge.md) articles to find the RU/s charge.
 
-When you perform operations against the Azure Cosmos DB Cassandra API, the RU charge is returned in the incoming payload as a field named `RequestCharge`. You have multiple options for retrieving the RU charge.
+When you perform operations against the Azure Cosmos DB for Apache Cassandra, the RU charge is returned in the incoming payload as a field named `RequestCharge`. You have multiple options for retrieving the RU charge.
 
 ## Use a Cassandra Driver
 

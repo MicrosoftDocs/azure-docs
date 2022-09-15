@@ -20,7 +20,7 @@ Learn more about [change feed design patterns](change-feed-design-patterns.md).
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **NoSQL** | **Cassandra** | **MongoDB** | **Gremlin** | **Table** |
+| **Client drivers** | **NoSQL** | **Apache Cassandra** | **MongoDB** | **Apache Gremlin** | **Table** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Yes | Yes | Yes | Yes | No |
 |Java|Yes|Yes|Yes|Yes|No|
@@ -88,7 +88,7 @@ Change feed is available for each logical partition key within the container, an
 
 Change feed functionality is surfaced as change stream in API for MongoDB and Query with predicate in API for Cassandra. To learn more about the implementation details for API for MongoDB, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb/change-streams.md).
 
-Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra/cassandra-change-feed.md).
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB for Apache Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB for Apache Cassandra](cassandra/cassandra-change-feed.md).
 
 ## Next steps
 

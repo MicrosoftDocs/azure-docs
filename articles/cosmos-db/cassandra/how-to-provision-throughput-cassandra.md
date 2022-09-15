@@ -1,28 +1,28 @@
 ---
-title: Provision throughput on Azure Cosmos DB Cassandra API resources
-description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB Cassandra API resources. You will use Azure portal, CLI, PowerShell and various other SDKs. 
+title: Provision throughput on Azure Cosmos DB for Apache Cassandra resources
+description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB for Apache Cassandra resources. You will use Azure portal, CLI, PowerShell and various other SDKs. 
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
 
-# Provision database, container or autoscale throughput on Azure Cosmos DB Cassandra API resources
+# Provision database, container or autoscale throughput on Azure Cosmos DB for Apache Cassandra resources
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-This article explains how to provision throughput in Azure Cosmos DB Cassandra API. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
+This article explains how to provision throughput in Azure Cosmos DB for Apache Cassandra. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [SQL API](../how-to-provision-container-throughput.md), [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Gremlin API](../how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for NoSQL](../how-to-provision-container-throughput.md), [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [API for Gremlin](../how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## <a id="portal-cassandra"></a> Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](../mongodb/create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos DB account](../mongodb/create-mongodb-dotnet.md#create-an-azure-cosmos-db-account), or select an existing Azure Cosmos DB account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 
@@ -35,7 +35,7 @@ If you are using a different API, see [SQL API](../how-to-provision-container-th
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="Screenshot of Data Explorer, when creating a new collection with database level throughput":::
 
 > [!Note]
-> If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
+> If you are provisioning throughput on a container in an Azure Cosmos DB account configured with API for Cassandra, use `/myPrimaryKey` for the partition key path.
 
 ## <a id="dotnet-cassandra"></a> .NET SDK
 

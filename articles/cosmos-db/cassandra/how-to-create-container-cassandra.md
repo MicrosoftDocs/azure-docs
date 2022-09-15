@@ -1,22 +1,22 @@
 ---
-title: Create a container in Azure Cosmos DB Cassandra API
-description: Learn how to create a container in Azure Cosmos DB Cassandra API by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
+title: Create a container in Azure Cosmos DB for Apache Cassandra
+description: Learn how to create a container in Azure Cosmos DB for Apache Cassandra by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
-# Create a container in Azure Cosmos DB Cassandra API
+# Create a container in Azure Cosmos DB for Apache Cassandra
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
+This article explains the different ways to create a container in Azure Cosmos DB for Apache Cassandra. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Gremlin API](../how-to-create-container-gremlin.md), [Table API](../table/how-to-create-container.md), and [SQL API](../how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB for Apache Cassandra. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [API for Gremlin](../how-to-create-container-gremlin.md), [API for Table](../table/how-to-create-container.md), and [API for NoSQL](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -25,7 +25,7 @@ This article explains the different ways to create a container in Azure Cosmos D
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](manage-data-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](manage-data-dotnet.md#create-a-database-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 
@@ -35,10 +35,10 @@ This article explains the different ways to create a container in Azure Cosmos D
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot of Cassandra API, Add Table dialog box":::
+    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot of API for Cassandra, Add Table dialog box":::
 
 > [!NOTE]
-> For Cassandra API, the primary key is used as the partition key.
+> For API for Cassandra, the primary key is used as the partition key.
 
 ## <a id="dotnet-cassandra"></a>Create using .NET SDK
 
@@ -65,4 +65,4 @@ If you encounter timeout exception when creating a collection, do a read operati
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)

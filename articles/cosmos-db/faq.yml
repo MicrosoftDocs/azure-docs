@@ -250,7 +250,7 @@ additionalContent: |
   
   To learn about frequently asked questions in other APIs, see:
 
-  * Frequently asked questions about [Azure Cosmos DB API for MongoDB](mongodb/mongodb-faq.yml)
-  * Frequently asked questions about [API for Gremlin in Azure Cosmos DB](gremlin-api-faq.yml)
-  * Frequently asked questions about [API for Cassandra in Azure Cosmos DB](cassandra/cassandra-faq.yml)
-  * Frequently asked questions about [API for Table in Azure Cosmos DB](table/table-api-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB for MongoDB](mongodb/mongodb-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB for Apache Gremlin](gremlin-api-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB for Apache Cassandra](cassandra/cassandra-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB for Table](table/table-api-faq.yml)

@@ -22,15 +22,15 @@ Provisioned RU/s = C*T/R
 * *T*: Total vCores and/or vCPUs in your existing database **data-bearing** replica set(s). 
 * *R*: Replication factor of your existing **data-bearing** replica set(s). 
 * *C*: Recommended provisioned RU/s per vCore or vCPU. This value derives from the architecture of Azure Cosmos DB:
-    * *C* = 600 RU/s/vCore* for Azure Cosmos DB API for NoSQL
-    * *C* = 1000 RU/s/vCore* for Azure Cosmos DB API for MongoDB v4.0
+    * *C* = 600 RU/s/vCore* for Azure Cosmos DB for NoSQL
+    * *C* = 1000 RU/s/vCore* for Azure Cosmos DB for MongoDB v4.0
     * *C* estimates for API for Cassandra, Gremlin, or other APIs are not currently available
 
 Values for *C* are provided above. ***T* must be determined by examining the number of vCores or vCPUs in each data-bearing replica set of your existing database, and summing to get the total**; if you cannot estimate *T* then consider following our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) instead of this guide. *T* should not include *vCores* or *vCPUs* associated with your existing database's routing server or configuration cluster, if it has those components. 
 
 For *R*, we recommend plugging in the average replication factor of your database replica sets; if this information is not available then *R=3* is a good rule of thumb. 
 
-Azure Cosmos DB interop APIs run on top of the API for NoSQL and implement their own unique architectures; thus Azure Cosmos DB API for MongoDB v4.0 has a different *C*-value than Azure Cosmos DB API for NoSQL.
+Azure Cosmos DB interop APIs run on top of the API for NoSQL and implement their own unique architectures; thus Azure Cosmos DB for MongoDB v4.0 has a different *C*-value than Azure Cosmos DB API for NoSQL.
 
 ## Worked example: estimate RU/s for single replica set migration
 
@@ -46,7 +46,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (12 vCores) / (3) = 2,400 RU/s
 `
 
-And the recommended request units for Azure Cosmos DB API for MongoDB are
+And the recommended request units for Azure Cosmso DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (12 vCores) / (3) = 4,000 RU/s
@@ -66,7 +66,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmos DB API for MongoDB are
+And the recommended request units for Azure Cosmso DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
@@ -86,7 +86,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmos DB API for MongoDB are
+And the recommended request units for Azure Cosmso DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
@@ -120,7 +120,7 @@ The table below summarizes the relationship between *vCores* and *vCPUs* for Azu
 * [Learn about Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Learn how to plan and manage costs for Azure Cosmos DB](plan-manage-costs.md)
 * [Review options for migrating to Azure Cosmos DB](cosmosdb-migrationchoices.md)
-* [Migrate to Azure Cosmos DB API for NoSQL](import-data.md)
-* [Plan your migration to Azure Cosmos DB API for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
+* [Migrate to Azure Cosmos DB for NoSQL](import-data.md)
+* [Plan your migration to Azure Cosmos DB for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
 
 [regions]: https://azure.microsoft.com/regions/
