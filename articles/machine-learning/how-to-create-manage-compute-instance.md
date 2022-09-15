@@ -211,7 +211,7 @@ This setting can be configured during CI creation or for existing CIs via the fo
     ```
 
 ### Azure policy support
-Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a give subsription/resource-group. 
+Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a give subscription/resource-group. 
 
 1. Navigate to Azure Policy in the Azure Portal
 2. Under "Definitions", look for the idle shutdown policy
