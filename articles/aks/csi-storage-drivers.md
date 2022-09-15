@@ -28,8 +28,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* You also need the Azure CLI version 2.40 installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.40 installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Disable CSI storage drivers on a new cluster
 
@@ -51,7 +50,7 @@ az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable
 
 ## Enable CSI storage drivers on an existing cluster
 
-`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller]. 
+`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
 
 To enable CSI storage drivers on an existing cluster with CSI storage drivers disabled, use `--enable-disk-driver`, `--enable-file-driver`, and `--enable-snapshot-controller`.
 
