@@ -16,7 +16,7 @@ ms.reviewer: arvinh
 
 # Tutorial: Validate a SCIM endpoint
 
-This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client. The tutorial is intended for developers who want to build a SCIM compatible server to manage their identities.  
+This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client. The tutorial is intended for developers who want to build a SCIM compatible server to manage their identities with the Azure AD provisioning service.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Active Directory account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A SCIM endpoint that conforms to the SCIM 2.0 standard and meets the provision service requirements. To learn more, see [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 
@@ -76,18 +76,15 @@ Finally, you need to test and validate your endpoint.
 
 ## Clean up resources
 
-Don't forget to delete any Azure resources that you no longer need.
+If you created any Azure resources in your testing that are no longer needed, don't forget to delete.
 
 ## Known issues 
 
-- Deletes aren't yet supported.
+- Soft deletes (disables) aren’t yet supported.
 - The time zone format is randomly generated and will fail for systems that try to validate it.
 - The preferred language format is randomly generated and will fail for systems that try to validate it.
 - The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
 
 
 ## Next steps
-
-Learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
-> [!div class="nextstepaction"]
-> [Learn how to customize application attributes](customize-application-attributes.md)
+- [Learn how to add an app that is not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)
