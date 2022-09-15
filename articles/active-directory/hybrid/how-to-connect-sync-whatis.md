@@ -25,7 +25,7 @@ This topic is the home for **Azure AD Connect sync** (also called **sync engine*
 
 The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**.
 >[!IMPORTANT]
->Azure AD Connect Cloud Sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD. It accomplishes this by using the Azure AD Cloud provisioning agent instead of the Azure AD Connect application. Azure AD Cloud Sync is replacing Azure AD Connect sync, which will be retired after Cloud Sync has full functional parity with Connect sync. This remainder of this article is about AADConnect sync, but we encourage customers to review the features and advantages of Cloud Sync before deploying AADConnect sync. 
+>Azure AD Connect Cloud Sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD. It accomplishes this by using the Azure AD Cloud provisioning agent instead of the Azure AD Connect application. Azure AD Cloud Sync is replacing Azure AD Connect sync, which will be retired after Cloud Sync has full functional parity with Connect sync. The remainder of this article is about AADConnect sync, but we encourage customers to review the features and advantages of Cloud Sync before deploying AADConnect sync. 
 >
 >To find out if you are already eligible for Cloud Sync, please verify your requirements in [this wizard](https://admin.microsoft.com/adminportal/home?Q=setupguidance#/modernonboarding/identitywizard).
 >
