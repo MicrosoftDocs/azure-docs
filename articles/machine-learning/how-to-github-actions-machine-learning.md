@@ -21,11 +21,9 @@ This article will teach you how to create a GitHub Actions workflow that builds 
 GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
 
-## Prerequisites 
+## Prerequisites
 
-[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)].
-
-* A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 
 ## Step 1. Get the code
 
