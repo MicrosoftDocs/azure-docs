@@ -116,7 +116,7 @@ That's it! You can now run the **Postman** collection to test the SCIM endpoint 
 
 ## Clean up resources
 
-If you created any Azure resources in your testing that are no longer needed, don't forget to delete.
+If you created any Azure resources in your testing that are no longer needed, don't forget to delete them.
 
 ## Known issues 
 
