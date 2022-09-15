@@ -123,7 +123,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
     * [Get started with Azure Cosmos DB SQL API](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
-    * [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
+    * [Get started with Azure Cosmso DB for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
     * [Get started with Azure Cosmos DB Cassandra API](cassandra/cassandra-adoption.md)
     * [Get started with Azure Cosmos DB Gremlin API](graph/create-graph-console.md#add-a-graph)
     * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)

@@ -221,7 +221,7 @@ df = spark.read\
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
 * Well-defined schema representation, default option for SQL (CORE) API accounts. 
-* Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
+* Full fidelity schema representation, default option for Azure Cosmso DB for MongoDB accounts.
 
 #### Well-defined schema representation
 
@@ -359,7 +359,7 @@ It's possible to use full fidelity Schema for SQL (Core) API accounts, instead o
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
  * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
  * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.

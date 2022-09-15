@@ -131,7 +131,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
-# [Azure Cosmos DB API for MongoDB](#tab/mongo-api)
+# [Azure Cosmso DB for MongoDB](#tab/mongo-api)
 
 #### If your application is currently using the primary key
 

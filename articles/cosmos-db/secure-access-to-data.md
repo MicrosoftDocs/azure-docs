@@ -29,7 +29,7 @@ Primary/secondary keys provide access to all the administrative resources for th
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
 > [!NOTE]
-> The following section describes the steps to rotate and regenerate keys for the SQL API. If you're using a different API, see the [Azure Cosmos DB API for Mongo DB](database-security.md?tabs=mongo-api#key-rotation), [Cassandra API](database-security.md?tabs=cassandra-api#key-rotation), [Gremlin API](database-security.md?tabs=gremlin-api#key-rotation), or [Table API](database-security.md?tabs=table-api#key-rotation) sections.
+> The following section describes the steps to rotate and regenerate keys for the SQL API. If you're using a different API, see the [Azure Cosmso DB for Mongo DB](database-security.md?tabs=mongo-api#key-rotation), [Cassandra API](database-security.md?tabs=cassandra-api#key-rotation), [Gremlin API](database-security.md?tabs=gremlin-api#key-rotation), or [Table API](database-security.md?tabs=table-api#key-rotation) sections.
 >
 > To monitor your account for key updates and key regeneration, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
@@ -100,7 +100,7 @@ Azure Cosmos DB RBAC is the ideal access control method in situations where:
 
 See [Configure role-based access control for your Azure Cosmos DB account](how-to-setup-rbac.md) to learn more about Azure Cosmos DB RBAC.
 
-For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md).
+For information and sample code to configure RBAC for the Azure Cosmso DB for MongoDB, see [Configure role-based access control for your Azure Cosmso DB for MongoDB](mongodb/how-to-setup-rbac.md).
 
 ## <a id="resource-tokens"></a> Resource tokens
 
@@ -232,4 +232,4 @@ As a database service, Azure Cosmos DB enables you to search, select, modify and
 - To learn more about Cosmos database security, see [Cosmos DB Database security](database-security.md).
 - To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
 - For user management samples with users and permissions, see [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
-- For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md)
+- For information and sample code to configure RBAC for the Azure Cosmso DB for MongoDB, see [Configure role-based access control for your Azure Cosmso DB for MongoDB](mongodb/how-to-setup-rbac.md)

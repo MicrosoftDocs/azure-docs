@@ -1,24 +1,24 @@
 ---
-title: Troubleshoot issues with advanced diagnostics queries for Cassandra API
+title: Troubleshoot issues with advanced diagnostics queries for API for Cassandra
 titleSuffix: Azure Cosmos DB
-description: Learn how to use Azure Log Analytics to improve the performance and health of your Azure Cosmos DB Cassandra API account.
+description: Learn how to use Azure Log Analytics to improve the performance and health of your Azure Cosmos DB for Apache Cassandra account.
 author: StefArroyo
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 06/12/2021
 ms.author: esarroyo 
 ---
 
-# Troubleshoot issues with advanced diagnostics queries for the Cassandra API
+# Troubleshoot issues with advanced diagnostics queries for the API for Cassandra
 
 [!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](../cosmos-db-advanced-queries.md)
-> * [MongoDB API](../mongodb/diagnostic-queries-mongodb.md)
-> * [Cassandra API](diagnostic-queries-cassandra.md)
-> * [Gremlin API](../queries-gremlin.md)
+> * [API for NoSQL](../cosmos-db-advanced-queries.md)
+> * [API for MongoDB](../mongodb/diagnostic-queries-mongodb.md)
+> * [API for Cassandra](diagnostic-queries-cassandra.md)
+> * [API for Gremlin](../queries-gremlin.md)
 
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB Cassansra API account by using diagnostics logs sent to **resource-specific** tables.
@@ -34,12 +34,12 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 
 ## Prerequisites
 
-- Create [Cassandra API account](create-account-java.md)
+- Create [API for Cassandra account](create-account-java.md)
 - Create a [Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md).
 - Create [Diagnostic Settings](../cosmosdb-monitor-resource-logs.md).
 
 > [!WARNING]
-> When creating a Diagnostic Setting for the Cassandra API account, ensure that "DataPlaneRequests" remain unselected. In addition, for the Destination table, ensure "Resource specific" is chosen as it offers significant cost savings over "Azure diagnostics.
+> When creating a Diagnostic Setting for the API for Cassandra account, ensure that "DataPlaneRequests" remain unselected. In addition, for the Destination table, ensure "Resource specific" is chosen as it offers significant cost savings over "Azure diagnostics.
 
 > [!NOTE]
 > Note that enabling full text diagnostics, the queries returned will contain PII data.
@@ -48,7 +48,7 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 
 ## Log Analytics queries with different scenarios
 
-:::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Cosmos DB":::
+:::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Azure Cosmos DB":::
 
 ### RU consumption
 - Cassandra operations that are consuming high RU/s.
@@ -203,5 +203,5 @@ CDBCassandraRequests
 
 
 ## Next steps
-- Enable [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
+- Enable [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your API for Cassandra account.
 - Overview [error code definition](error-codes-solution.md).

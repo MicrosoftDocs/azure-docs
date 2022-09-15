@@ -1,33 +1,33 @@
 ---
-title: Monitor and debug with insights in Azure Cosmos DB Cassandra API
-description: Learn how to debug and monitor your Azure Cosmos DB Cassandra API account using insights
+title: Monitor and debug with insights in Azure Cosmos DB for Apache Cassandra
+description: Learn how to debug and monitor your Azure Cosmos DB for Apache Cassandra account using insights
 author: iriaosara
 ms.author: iriaosara
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 05/02/2022
 ms.custom: template-how-to 
 ---
 
-# Monitor and debug with insights in Azure Cosmos DB Cassandra API
+# Monitor and debug with insights in Azure Cosmos DB for Apache Cassandra
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB helps provide insights into your application’s performance using the Azure Monitor API.  Azure Monitor for Azure Cosmos DB provides metrics view to monitor your Cassandra API Account and create dashboards.
+Azure Cosmos DB helps provide insights into your application’s performance using the Azure Monitor API.  Azure Monitor for Azure Cosmos DB provides metrics view to monitor your API for Cassandra Account and create dashboards.
 
-This article walks through some common use cases  and how best to use Azure Cosmos DB insights to analyze and debug your Cassandra API account.
+This article walks through some common use cases  and how best to use Azure Cosmos DB insights to analyze and debug your API for Cassandra account.
 > [!NOTE]
 > The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything.
 
 
 ## Availability
-The availability shows the percentage of successful requests over the total requests per hour. Monitor service availability for a specified Cassandra API account. 
+The availability shows the percentage of successful requests over the total requests per hour. Monitor service availability for a specified API for Cassandra account. 
 
-:::image type="content" source="./media/cassandra-monitor-insights/service-availability-min.png" alt-text=" Screenshot for service availability for an Azure Cosmos DB Cassandra API account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/service-availability-min.png" alt-text=" Screenshot for service availability for an Azure Cosmos DB for Apache Cassandra account.":::
 
 
 ## Latency
-These charts below show the read and write latency observed by your Cassandra API account in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. This metric doesn't represent the end-to-end request latency. Use diagnostic log for cases where you experience high latency for query operations.
+These charts below show the read and write latency observed by your API for Cassandra account in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. This metric doesn't represent the end-to-end request latency. Use diagnostic log for cases where you experience high latency for query operations.
 
 The server side latency (Avg) by region also displays a sudden latency spike on the server. It can help a customer differentiate between a client side latency spike and a server-side latency spike.
 
@@ -55,20 +55,20 @@ The system view helps show metadata requests count by primary partition. It also
 
 - Metric chart for account diagnostic, network and replication settings over a specified period and filtered based on a Keyspace.
 
-:::image type="content" source="./media/cassandra-monitor-insights/diagnostic-network-replication.png" alt-text="Screenshot of diagnostic network replication for a Cassandra API account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/diagnostic-network-replication.png" alt-text="Screenshot of diagnostic network replication for a API for Cassandra account.":::
 
 
 - Metric chart to view account key rotation.
 
-You can view changes to primary or secondary password for your Cassandra API account.
+You can view changes to primary or secondary password for your API for Cassandra account.
 
-:::image type="content" source="./media/cassandra-monitor-insights/cosmos-db-account-key.png" alt-text="Screenshot showing Cosmos DB rotation key for a Cassandra API account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/cosmos-db-account-key.png" alt-text="Screenshot showing Azure Cosmos DB rotation key for a API for Cassandra account.":::
 
 
 ## Storage
-Storage distribution for raw and index storage. Also a count of documents in the Cassandra API account.
+Storage distribution for raw and index storage. Also a count of documents in the API for Cassandra account.
 
-:::image type="content" source="./media/cassandra-monitor-insights/data-index-usage.png" alt-text="Diagram showing the document count within a Cassandra API account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/data-index-usage.png" alt-text="Diagram showing the document count within a API for Cassandra account.":::
 
 Maximum request units consumption for an account over a defined time period.
 
@@ -89,7 +89,7 @@ The chart below shows if your application’s high RU consumption is because of 
 
 :::image type="content" source="./media/cassandra-monitor-insights/normalized-ru-pk-rangeid.png" alt-text="Screenshot showing normalized request unit consumption by partition key range ID.":::
 
-The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for your  [Cassandra API codes](./error-codes-solution.md).
+The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for your  [API for Cassandra codes](./error-codes-solution.md).
 
 :::image type="content" source="./media/cassandra-monitor-insights/total-request-by-status-code.png" alt-text="Screenshot image of a graph showing the total request by status code for a cassandra api account.":::
 

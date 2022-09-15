@@ -17,7 +17,7 @@ Apart from Azure Monitor, you can use third party monitoring solutions to monito
 > Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then select most suitable to you.
 
 ## Datadog
-{Supports: SQL API, Azure Cosmos DB API for MongoDB, Gremlin API, Cassandra API & Table API}
+{Supports: SQL API, Azure Cosmso DB for MongoDB, Gremlin API, Cassandra API & Table API}
 
 [Datadog](https://www.datadoghq.com/) is a fully unified platform encompassing infrastructure monitoring, application performance monitoring, log management, user-experience monitoring, and more. By bringing together data from every tool and service in your company’s stack, Datadog provides a single source of truth for troubleshooting, optimizing performance, and cross-team collaboration.
 Everything in Datadog is organized under the same set of tags, so all the data relevant to a particular issue is automatically correlated. By eliminating the blind spots, Datadog reduces the risk of overlooked errors, mitigates the burden of ongoing service maintenance, and accelerates digital transformations.
@@ -42,7 +42,7 @@ Useful links:
 
 
 ## Dynatrace
-{Supports: SQL API & Azure Cosmos DB API for MongoDB}
+{Supports: SQL API & Azure Cosmso DB for MongoDB}
 
 [Dynatrace](https://www.dynatrace.com/platform/) delivers software intelligence for the cloud to tame cloud complexity and accelerate digital transformation. With automatic and intelligent observability at scale, the Dynatrace all-in-one Software Intelligence Platform delivers precise answers about the performance and security of applications, the underlying infrastructure, and the experience of all users, so teams can automate cloud operations, release better software faster, and deliver unrivaled digital experiences.  
 Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which includes the numbers of calls and response times—all visualized according to aggregation, commands, read-, and write operations.  It also tells you exact database statements executed in your environment.  Lastly with the power of [Davis AI Engine](https://www.dynatrace.com/davis), it can detect exactly which database statement is the root cause of degradation and can see the database identified as the root cause.

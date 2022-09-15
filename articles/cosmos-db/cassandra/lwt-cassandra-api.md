@@ -1,22 +1,22 @@
 ---
-title: Lightweight Transactions in Azure Cosmos DB Cassandra API
-description: Learn about Lightweight Transaction support in Azure Cosmos DB Cassandra API
+title: Lightweight Transactions in Azure Cosmos DB for Apache Cassandra
+description: Learn about Lightweight Transaction support in Azure Cosmos DB for Apache Cassandra
 author: IriaOsara
 ms.author: IriaOsara
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.custom: template-how-to
 ---
 
-# Azure Cosmos DB Cassandra API Lightweight Transactions with Conditions
+# Azure Cosmos DB for Apache Cassandra Lightweight Transactions with Conditions
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Apache Cassandra as most NoSQL database platforms gives precedence to availability and partition-tolerance above consistency as it does not support ACID transactions as in relational database. For details on how consistency level works with LWT see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md). Cassandra supports lightweight transactions(LWT) which borders on ACID. It helps perform a read before write, for operations that require the data insert or update must be unique. 
+Apache Cassandra as most NoSQL database platforms gives precedence to availability and partition-tolerance above consistency as it does not support ACID transactions as in relational database. For details on how consistency level works with LWT see [Azure Cosmos DB for Apache Cassandra consistency levels](apache-cassandra-consistency-mapping.md). Cassandra supports lightweight transactions(LWT) which borders on ACID. It helps perform a read before write, for operations that require the data insert or update must be unique. 
 
-## LWT support within Azure Cosmos DB Cassandra API
-To use LWT within Azure Cosmos DB Cassandra API, we advise that the following flags are set at the create table level. 
+## LWT support within Azure Cosmos DB for Apache Cassandra
+To use LWT within Azure Cosmos DB for Apache Cassandra, we advise that the following flags are set at the create table level. 
 
 ```sql
 with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
@@ -92,6 +92,6 @@ WHERE name= 'Sara' AND userID = 103 IF vendor = 'vendor21';
 ```
 
 ## Next steps
-In this tutorial, you've learned how Lightweight Transaction works within Azure Cosmos DB Cassandra API. You can proceed to the next article:
-- [Migrate your data to a Cassandra API account](migrate-data.md)
-- [Run Glowroot on Azure Cosmos DB Cassandra API](glowroot-cassandra.md)
+In this tutorial, you've learned how Lightweight Transaction works within Azure Cosmos DB for Apache Cassandra. You can proceed to the next article:
+- [Migrate your data to a API for Cassandra account](migrate-data.md)
+- [Run Glowroot on Azure Cosmos DB for Apache Cassandra](glowroot-cassandra.md)

@@ -167,7 +167,7 @@ An Azure Cosmos item can represent either a document in a collection, a row in a
 | Maximum TTL value |2147483647 |
 | Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
-<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
+<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmso DB for MongoDB only. Sign-up for the feature “Azure Cosmso DB for MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 
 There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
@@ -290,7 +290,7 @@ Read more about Cosmos DB's core concepts [global distribution](distribute-data-
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmso DB for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
