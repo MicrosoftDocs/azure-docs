@@ -29,12 +29,15 @@ You need to decide the following information carefully before proceeding to crea
 
 Consider the following factors before picking a name.
 * Registries are meant to facilitate sharing of ML assets across teams within your orgnization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or orgnization. 
-* Registry names are globally unique. Its recommended to prefix your team or orgnization name and avoid generic names. 
-* Registry names cannot be changed once created because they are using in asset IDs. Since registry name is part of asset IDs, spaces are not allowed. You can use alphanumeric characters along with a '-'. The minimum length is <todo> and maximum length is <todo>.
+* Registry unique with your orgnization (Azure Active Directory tenant). Its recommended to prefix your team or orgnization name and avoid generic names. 
+* Registry names cannot be changed once created because they are used in IDs of models, environments and components which are referneced in code. 
+  * Length can be 2-32 characters. 
+  * Alphanumerics, underscore, hyphen are allowed. No other pecial charaters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
+  * Name can contain underscore or hyphen but cannot start with a underscore or hyphen. Needs to start with an alphanumeric. 
 
-### Choosing Azure locations 
+### Choosing Azure regions 
 
-Registies enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure locations using Azure resources such as [Azure Container Registry replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication) and Blob storage accounts. You need to define the list of locations that a registry needs to support when creating a registry. A master list of all locations in which you have workspaces today and plan to add in near future is a good set of locations to start with. You define a primary region which cannot be changed and set of an additional locations that can be updated at a later point.
+Registies enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions using Azure resources such as [Azure Container Registry replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication) and Blob storage accounts. You need to define the list of regions that a registry needs to support when creating a registry. A master list of all regions in which you have workspaces today and plan to add in near future is a good set of regions to start with. You define a primary region which cannot be changed and set of an additional regions that can be updated at a later point.
 
 ### Checking for Permissions
 
@@ -57,7 +60,7 @@ locations:
 ```
 
 > [TIP]
-> You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. fUse `az account list-locations -o table` to find the mapping of region display names to the name of the location that can be specified in YAML.
+> You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
 
 Run the registry create command.
 
@@ -95,7 +98,6 @@ Permission | Description
 --|--
 Microsoft.MachineLearningServices/registries/read | Allows the user to list registries and get registry metadata
 Microsoft.MachineLearningServices/registries/assets/read | Allows the user to browse assets and use the assets in a workspace
-Microsoft.MachineLearningServices/registries/checkNameAvailability/read | todo
 
 ### Allow users to create and use assets from registry
 
