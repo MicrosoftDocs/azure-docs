@@ -219,7 +219,7 @@ Administrators can use a built-in [Azure Policy](./../governance/policy/overview
 
 3. Assign policy to the necessary scope
 
-You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 30 minute inactivity period. 
+You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60 minute inactivity period. 
 ```json
 {
   "mode": "All",
