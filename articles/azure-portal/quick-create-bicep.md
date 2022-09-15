@@ -3,7 +3,7 @@ title: Create an Azure portal dashboard by using a Bicep file
 description: Learn how to create an Azure portal dashboard by using a Bicep file.
 ms.topic: quickstart
 ms.custom: subject-bicepqs,
-ms.date: 09/07/2022
+ms.date: 09/15/2022
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using a Bicep file
@@ -17,37 +17,6 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
-## Create a virtual machine
-
-The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
-
-1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
-
-    :::image type="content" source="media/quick-create-template/cloud-shell.png" alt-text="Screenshot showing the Cloud Shell option in the Azure portal.":::
-
-1. In the **Cloud Shell** window, select **PowerShell**.
-
-    :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the PowerShell option in Cloud Shell.":::
-
-1. Copy the following command and enter it at the command prompt to create a resource group.
-
-    ```powershell
-    New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
-    ```
-
-1. Next, copy the following command and enter it at the command prompt to create a VM in your new resource group.
-
-    ```powershell
-    New-AzVm `
-        -ResourceGroupName "SimpleWinVmResourceGroup" `
-        -Name "myVM1" `
-        -Location "East US"
-    ```
-
-1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-
-    After the VM has been created, move on to the next section.
-
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). The Bicep file for this article is too long to show here. To view the Bicep file, see [main.bicep](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/main.bicep). The Bicep file defines one Azure resource, a dashboard that displays data about the VM you created:
@@ -56,25 +25,45 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 ## Deploy the Bicep file
 
-This example uses the Azure portal to deploy the template. You can also use other methods to deploy ARM templates, such as [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or [REST API](../azure-resource-manager/templates/deploy-rest.md).
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+    # [CLI](#tab/CLI)
 
-1. Select the following image to sign in to Azure and open a template.
+    ```azurecli
+    $resourceGroupName = '<resource-group-name>'
+    $location = 'eastus'
+    $adminUserName = '<admin-user-name>'
+    $adminPassword = '<admin-password>'
+    $dnsLabelPrefix = '<dns-label-prefix>'
+    $virtualMachineName = 'SimpleWinVM'
+    $vmTemplateUri = 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json'
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.portal%2Fazure-portal-dashboard%2Fazuredeploy.json)
+    az group create --name $resourceGroupName --location $location
+    az deployment group create --resource-group $resourceGroupName --template-uri $vmTemplateUri --parameters adminUsername=$adminUserName adminPassword=$adminPassword dnsLabelPrefix=$dnsLabelPrefix
+    az deployment group create --resource-group $resourceGroupName --template-file main.bicep --parameters virtualMachineName=$virtualMachineName virtualMachineResourceGroup=$resourceGroupName
+    ```
 
-1. Select or enter the following values, then select **Review + create**.
+    # [PowerShell](#tab/PowerShell)
 
-    :::image type="content" source="media/quick-create-template/create-dashboard-using-template-portal.png" alt-text="Screenshot of the dashboard template deployment screen in the Azure portal.":::
+    ```azurepowershell
+    $resourceGroupName = '<resource-group-name>'
+    $location = 'eastus'
+    $adminUserName = '<admin-user-name>'
+    $adminPassword = '<admin-password>'
+    $dnsLabelPrefix = '<dns-label-prefix>'
+    $virtualMachineName = 'SimpleWinVM'
+    $vmTemplateUri = 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json'
 
-    Unless it's specified, use the default values to create the dashboard.
+    $encrypted = ConvertTo-SecureString -string $adminPassword -AsPlainText
 
-    - **Subscription**: select the Azure subscription.
-    - **Resource group**: select **SimpleWinVmResourceGroup**.
-    - **Location**: If not automatically selected, choose **East US**.
-    - **Virtual Machine Name**: enter **myVM1**.
-    - **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $vmTemplateUri -adminUsername $adminUserName -adminPassword $encrypted -dnsLabelPrefix $dnsLabelPrefix
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile ./main.bicep -virtualMachineName $virtualMachineName -virtualMachineResourceGroup $resourceGroupName
+    ```
 
-1. Select **Create**. You'll see a notification confirming when the dashboard has been deployed successfully.
+    ---
+
+When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
