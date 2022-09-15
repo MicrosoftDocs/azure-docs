@@ -35,7 +35,7 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
 1. Navigate to Azure Active Directory and open *App registration* in the left-hand pane.
 
-1. Select *+ New application*.
+1. Select *+ New Registration*.
 
 1. Add a redirect URI.
 
