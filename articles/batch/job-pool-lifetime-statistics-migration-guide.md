@@ -1,5 +1,5 @@
 ---
-title: Batch Job Pool Lifetime Statics Migration Guide
+title: Batch Job Pool Lifetime Statistics Migration Guide
 description: Describes the migration steps for the batch job pool lifetime statistics and the end of support details.
 author: harperche
 ms.author: harpercheng
@@ -21,11 +21,11 @@ Job/Pool Lifetime Statistics API will be retired on **30 April 2023**. Once comp
 
 ## FAQ
 
-1. Is there an alternate way to view logs of Pool/Jobs?
+* Is there an alternate way to view logs of Pool/Jobs?
 
    Azure portal has various options to enable the logs, namely system logs, diagnostic logs. Refer [Monitor Batch Solutions](./monitoring-overview.md) for more information.
 
-2. Can customers extract logs to their system if the API doesn't exist? 
+* Can customers extract logs to their system if the API doesn't exist? 
 
    Azure portal log feature allows every customer to extract the output and error logs to their workspace. Refer [Monitor with Application Insights](./monitor-application-insights.md) for more information.
 
