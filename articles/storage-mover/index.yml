@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Storage Mover documentation
-summary: Azure Storage Mover includes object, file, disk, queue, and table storage. There are also services for hybrid storage solutions, and services to transfer, share, and back up data.
+summary: Azure Storage Mover is a fully managed, hybrid migration service that can help move your on-premises file shares to Azure.
 brand: azure
 
 metadata:
@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: stevenmatthew
   ms.author: shaas
-  ms.date: 06/08/2022
+  ms.date: 09/14/2022
 
 
 highlightedContent:
@@ -20,10 +20,10 @@ highlightedContent:
     # Card
     - title: What is Azure Storage Mover?
       itemType: concept
-      url: /azure/storage-mover/service-overview.md
+      url: service-overview.md
     - title: Understanding the Storage Mover resource hierarchy
       itemType: concept
-      url: /azure/storage-mover/resource-hierarchy.md
+      url: resource-hierarchy.md
     - title: Download the Storage Mover agent
       itemType: download
       url: https://aka.ms/StorageMover/agent
@@ -39,49 +39,39 @@ additionalContent:
         # Card
         - title: Service
           links:
-          - url: /azure/storage-mover/deployment-planning.md
+          - url: deployment-planning.md
             text: Planning for a storage mover deployment
-          - url: /azure/storage-mover/storage-mover-create.md
+          - url: storage-mover-create.md
             text: Deploying a storage mover resource
         # Card
         - title: Agent
           links:
           - url: https://aka.ms/StorageMover/agent
             text: Download the latest migration agent image
-          - url: /azure/storage-mover/agent-deploy.md
+          - url: agent-deploy.md
             text: Deploy a Storage Mover agent VM
-          - url: /azure/storage-mover/agent-register.md
+          - url: agent-register.md
             text: Register an agent VM
         # Card
         - title: Authentication & Authorization
           links:
-          - url: /azure/storage-mover/agent-register.md#authentication-and-authorization
+          - url: agent-register.md#authentication-and-authorization
             text: Overview
-          - url: /azure/storage-mover/agent-register.md#just-in-time-authorization
+          - url: agent-register.md#just-in-time-authorization
             text: Just-in-time agent authorization
-          - url: /azure/storage-mover/deployment-planning.md#permissions
+          - url: deployment-planning.md#permissions
             text: Required admin permissions (RBAC)
-        # Card
-        - title: Section 1 Card 4
-          links:
-          - url: /azure/storage-mover/service-overview.md
-            text: Text for section 1 card 4
-          - url: /azure/storage-mover/service-overview.md
-            text: Additional text for section 1 card 4
-          - url: /azure/storage-mover/service-overview
-            text: See some outrageously cool stuff >
-
     - title: Manage
       items:
         # Card
         - title: Structure a migration
           links:
-          - url: /azure/storage-mover/migration-basics.md
+          - url: migration-basics.md
             text: Cloud migration basics
-          - url: /azure/storage-mover/projects-manage.md
-            text: Create a project
+          - url: project-manage.md
+            text: Manage a project
         # Card
         - title: Migration costs
           links:
-          - url: /azure/storage-mover/billing.md
+          - url: billing.md
             text: Understanding cost components

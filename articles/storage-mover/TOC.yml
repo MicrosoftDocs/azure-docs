@@ -5,17 +5,17 @@ items:
   items:
   - name: What is Azure Storage Mover?
     href: service-overview.md
+  - name: Cloud migration basics
+    href: migration-basics.md
   expanded: true
 - name: Concepts
   items: 
   - name: Planning for a deployment
     href: deployment-planning.md
-  - name: Resource Hierarchy
+  - name: Resource hierarchy
     href: resource-hierarchy.md
   - name: Migration costs
     href: billing.md
-  - name: Cloud migration basics
-    href: migration-basics.md
   - name: Performance targets
     href: performance-targets.md
 - name: How-To
@@ -31,11 +31,11 @@ items:
       - name: Register or unregister an agent
         href: agent-register.md
       - name: Manage projects
-        href: projects-manage.md
+        href: project-manage.md
   - name: Decommission
     items:
       - name: Unregister an agent
-        href: agent-register.md
+        href: agent-deploy#decommissioning-an-agent
   expanded: true
 - name: Resources
   items:

@@ -112,4 +112,4 @@ Advance to one of the next articles to learn how to deploy a Storage Mover agent
 > [Deploy a migration agent](agent-deploy.md)
 
 > [!div class="nextstepaction"]
-> [Create a migration project](projects-manage.md)
+> [Create a migration project](project-manage.md)

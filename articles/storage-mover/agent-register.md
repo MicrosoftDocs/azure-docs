@@ -167,4 +167,4 @@ This assignment is made in the admin's logon context in the Azure portal. That m
 
 Create a project to collate the different source shares that need to be migrated together.
 > [!div class="nextstepaction"]
-> [Create and manage a project](projects-manage.md)
+> [Create and manage a project](project-manage.md)

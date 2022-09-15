@@ -40,20 +40,20 @@ After you complete the steps within this article, you'll be able to create and m
 The first step in defining a migration job is the creation of a project resource. After the project has been created, you can add source and target endpoints for your data source. In this example, you'll intentionally leave the **description** field blank. You'll then add it in the [View and edit a project's properties](#view-and-edit-a-projects-properties) section later in this article.
 
 > [!IMPORTANT]
-> If you have not yet deployed a resource using the resource provider, you'll need to fight a bear (insert the "initial use of the service" instructions here).
+> If you have not yet deployed a resource using the resource provider, you'll need to create your top level resource.
 
 > [!CAUTION]
-> Renaming Project resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned.
+> Renaming project resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned.
 
 ### [Azure portal](#tab/portal)
 
    1. Navigate to the **Project Explorer** page in the [Azure portal](https://portal.azure.com) to access your projects. The default **All projects** view displays the names of any provisioned projects and a summary of the jobs they contain.
 
-       :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal showing " lightbox="media/projects-manage/project-explorer-lrg.png":::
+       :::image type="content" source="media/project-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal showing " lightbox="media/project-manage/project-explorer-lrg.png":::
 
    1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
 
-       :::image type="content" source="media/projects-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/projects-manage/project-explorer-create-lrg.png":::
+       :::image type="content" source="media/project-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/project-manage/project-explorer-create-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
    
@@ -144,25 +144,25 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
 1. Navigate to the **Project explorer** page within the [Azure portal](https://portal.azure.com) to view a list of available projects. You can create and apply filters to limit or shape your view. To narrow the scope of the results, you can continue to add more filters.
 
-    :::image type="content" source="media/projects-manage/project-explorer-filtered-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/projects-manage/project-explorer-filtered-lrg.png":::
+    :::image type="content" source="media/project-manage/project-explorer-filtered-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/project-manage/project-explorer-filtered-lrg.png":::
 
     Filters may also be edited or removed as needed as shown in the example below. Currently, only filtering projects by name is supported.
 
-    :::image type="content" source="media/projects-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal illustrating the use of filters." lightbox="media/projects-manage/project-explorer-filter-added-lrg.png":::
+    :::image type="content" source="media/project-manage/project-explorer-filter-added-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal illustrating the use of filters." lightbox="media/project-manage/project-explorer-filter-added-lrg.png":::
 
 1. From within the project explorer pane or the results list, select the name of the project created in the previous section. The project's properties and job summary data are displayed in the **details** pane.
 
     If the project lacks a valid description, select **Add description** to display the **Edit description** pane.
 
-    :::image type="content" source="media/projects-manage/project-explorer-description-new-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal illustrating the modification of filters." lightbox="media/projects-manage/project-explorer-description-new-lrg.png":::
+    :::image type="content" source="media/project-manage/project-explorer-description-new-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal illustrating the modification of filters." lightbox="media/project-manage/project-explorer-description-new-lrg.png":::
 
     If a description exists, it will be displayed below the **Description** heading. Select either the **Edit** icon next to the description or the **Edit description** icon to display the editing pane. The image below shows the location of the two icons.
 
-    :::image type="content" source="media/projects-manage/project-explorer-description-edit-sml.png" alt-text="Image of the Project Explorer's Project properties tab within the Azure portal. It illustrates the location of the edit controls." lightbox="media/projects-manage/project-explorer-description-edit-lrg.png":::
+    :::image type="content" source="media/project-manage/project-explorer-description-edit-sml.png" alt-text="Image of the Project Explorer's Project properties tab within the Azure portal. It illustrates the location of the edit controls." lightbox="media/project-manage/project-explorer-description-edit-lrg.png":::
 
 1. In the editing pane, modify your project's description. At the bottom of the pane, select **Save** to commit your changes.
 
-      :::image type="content" source="media/projects-manage/project-explorer-edit-sml.png" alt-text="Image of the Edit Description pane within the Project Explorer" lightbox="media/projects-manage/project-explorer-edit-lrg.png":::
+      :::image type="content" source="media/project-manage/project-explorer-edit-sml.png" alt-text="Image of the Edit Description pane within the Project Explorer" lightbox="media/project-manage/project-explorer-edit-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -244,11 +244,11 @@ The removal of a project resource should be a relatively rare occurrence in your
 
 1. Navigate to the **Project Explorer** page in the [Azure portal](https://portal.azure.com) to view your projects and a summary of the jobs they contain.
 
-   :::image type="content" source="media/projects-manage/project-explorer-sml.png" alt-text="An image of list of Project resources displayed within the Project Explorer" lightbox="media/projects-manage/project-explorer-lrg.png":::
+   :::image type="content" source="media/project-manage/project-explorer-sml.png" alt-text="An image of list of Project resources displayed within the Project Explorer" lightbox="media/project-manage/project-explorer-lrg.png":::
 
 1. First, within either the **Project explorer** pane or the results list, select the name of the project you want to delete. Next, select **Delete project** from within the **Project details** pane. Finally, within the **Confirm project deletion** dialog, select **Delete** to permanently remove your project. Refer to the highlighted selections within the following image if needed.
 
-   :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="An image showing the steps to permanently remove a project resource from within the Portal Explorer." lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
+   :::image type="content" source="media/project-manage/project-explorer-delete-sml.png" alt-text="An image showing the steps to permanently remove a project resource from within the Portal Explorer." lightbox="media/project-manage/project-explorer-delete-lrg.png":::
 
 > [!WARNING]
 > Deleting a project will delete all contained job definitions, their run history and results. Deleting any of these resources is permanent and cannot be undone. Storage endpoints are not affected.

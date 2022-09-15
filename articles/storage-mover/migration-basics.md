@@ -25,31 +25,32 @@ EDIT PASS: not started
 
 Every migration starts with a business need. A certain workload will be transformed by a cloud migration of the files and folders it depends on. A workload can be either an application or direct user access. In either case, the workload has a dependency on storage that you'll move to the cloud. The workload might also move to the cloud, or remain where it is and will need to be instructed to point to the new cloud storage location. These details are recorded in your *cloud solution design* that has a storage section.
 
-The purpose of this article is not a discussion about how to achieve the optimal cloud solution design for your workload. It'll rather provide insight into how you can achieve a storage migration to Azure, such that you can realize your cloud solution design for storage.
+The purpose of this article is to provide insight into how you can achieve a storage migration to Azure, such that you can realize your cloud solution design for storage.
 
 :::image type="content" source="media/migration-basics/migration-phases.png" alt-text="Summary illustration showing migration phases: Discover, Assess, Plan, Deploy, Migrate, Post-Migrate to illustrate the sections to come in this article." lightbox="media/migration-basics/migration-phases-large.png":::
 
-Migrating files and folders (unstructured storage) to the cloud requires careful planning and many considerations along the way to achieve an optimal result. Azure Storage Mover provides a growing list of features and migration scenarios that support you on your journey. In this article we'll break common tasks of a migration into phases that each have their own section.
+Migrating files and folders to the cloud requires careful planning and many considerations along the way to achieve an optimal result. Azure Storage Mover provides a growing list of features and migration scenarios that support you on your journey. In this article we'll break common tasks of a migration into phases that each have their own section.
 
 ## Phase 1: Discovery
 
-In the discovery phase, you decide which source locations are part of your migration project. This article and Azure Storage Mover, handle source locations in form of file shares. These could live on a NAS (Network Attached Storage), a server, or even on a workstation. Common protocols for file shares are SMB and NFS.
+In the discovery phase, you decide which source locations are part of your migration project. Azure Storage Mover handles source locations in form of file shares. These could live on Network Attached Storage (NAS), a server, or even on a workstation. Common protocols for file shares are SMB and NFS.
 
-If your workload uses DAS (Direct Attached Storage), like a local folder path vs. a share path, then most likely Azure Storage Mover can still assist with your cloud migration. You may be able to create a file share on the local folder path and thus share out the location over the local network. With proper permissions and networking considerations, you'll now be able to migrate this location to Azure, even if your application uses the local path.
+If your workload uses Direct Attached Storage (DAS), then most likely Azure Storage Mover can still assist with your cloud migration. You may be able to create a file share on the local folder path and then share out the location over the local network. With proper permissions and networking considerations, you'll now be able to migrate this location to Azure, even if your application uses the local path.
 
-Start by making a list of all the shares your workload depends on. Refer to your cloud solution design to see which shares remain where they are and which are in scope of the cloud migration. Narrow the scope of your migration project as much as possible. Ultimately, your workload will need to fail over to the cloud locations. The smaller the number of source locations, the easier the fail-over of your workload will be.
+Start by making a list of all the shares your workload depends on. Refer to your cloud solution design to see which shares remain where they are and which are in scope of the cloud migration. Narrow the scope of your migration project as much as possible. Ultimately, your workload will need to fail over to the cloud locations. The smaller the number of source locations, the easier the failover of your workload will be.
 
-If you require to migrate the storage for multiple workloads at roughly the same time, still split them into individual migration projects.
+If you need to migrate storage for multiple workloads at roughly the same time, you should split them into individual migration projects.
 
 > [!IMPORTANT]
-> *Workload A*, *Workload B*, etc. should have their individual migration projects, rather than "All 58 shares from the sales NAS.". This will significantly simply migration management and workload fail-over at the end.
+> Including multiple workloads in a single migration project is not recommended. Each workload should have its own migration project. Structuring the project in this way will significantly simply migration management and workload failover.
 
 The result of the discovery phase is a list of file shares that you need to migrate to Azure. You should have distinct lists per workload.
-Azure Storage Mover offers [migration projects](resource-hierarchy.md#migration-project) that you can create and store each individual list. A common practice is to name the migration project after the workload you are migrating. This practice simplifies oversight of your planning steps and your migration progress.
+
+Azure Storage Mover offers [migration projects](resource-hierarchy.md#migration-project) for creating and storing individual lists. A common practice is to name the migration project after the workload you are migrating. This practice simplifies oversight of your planning steps and your migration progress.
 
 ## Phase 2: Assessment
 
-Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data. The number of files and folders, their directory structure, file fidelity and other aspects are important inputs into a complete cloud solution design. 
+Azure offers various types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data. The number of files and folders, their directory structure, file fidelity and other aspects are important inputs into a complete cloud solution design. 
 
 In the assessment phase, you'll investigate your discovered and short-listed shares to ensure you have picked the right Azure target storage for your cloud solution design.
 
