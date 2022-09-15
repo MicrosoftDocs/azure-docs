@@ -593,7 +593,7 @@ productDirectory:
         - compute
       url: ./virtual-machines/index.yml
     # Card
-    - title: Azure Container Apps (Preview)
+    - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
       imageSrc: ./media/index/container-apps.svg
       azureCategories:
