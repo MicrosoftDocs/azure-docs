@@ -166,7 +166,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speech_config.speech_recognition_language="de-DE"
 ```
 
-[`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
+[`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Use a custom endpoint
 

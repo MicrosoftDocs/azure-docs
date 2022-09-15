@@ -55,6 +55,8 @@
         href: costs/reporting-get-started.md
       - name: Use built-in views in Cost analysis
         href: costs/cost-analysis-built-in-views.md
+      - name: Customize views in cost analysis
+        href: costs/customize-cost-analysis-views.md
       - name: Group and filter options
         href: costs/group-filter.md
     - name: Plan to manage costs
@@ -434,11 +436,11 @@
       - name: SAP HANA Large Instances
         href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: SQL Database
-        href: /azure/azure-sql/database/reserved-capacity-overview?toc=%2fazure%2fcost-management-billing%2ftoc.json
+        href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/toc.json
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
-        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
+        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
     - name: View, Manage and Optimize after purchase
       items:
       - name: View reservations and utilization

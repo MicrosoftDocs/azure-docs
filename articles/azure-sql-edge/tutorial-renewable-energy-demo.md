@@ -1,14 +1,13 @@
 ---
 title: Deploying Azure SQL Edge on turbines in a Contoso wind farm
 description: In this tutorial, you'll use Azure SQL Edge for wake-detection on the turbines in a Contoso wind farm.
-keywords: 
-services: sql-edge
+author: kendalvandyke
+ms.author: kendalv
+ms.reviewer: randolphwest
+ms.date: 12/18/2020
 ms.service: sql-edge
 ms.topic: tutorial
-author: kendalvandyke
-ms.author: kendalv 
-ms.reviewer: jroth
-ms.date: 12/18/2020
+services: sql-edge
 ---
 # Using Azure SQL Edge to build smarter renewable resources
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 09/12/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -57,7 +57,6 @@ This section provides references for solutions for Linux OSS applications and da
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
 *	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
-*   [How to use Azure Machine Learning with Azure NetApp Files](https://github.com/csiebler/azureml-with-azure-netapp-files)
 
 ### Education
 
@@ -118,7 +117,7 @@ This section provides references to SAP on Azure solutions.
 ### SAP AnyDB
 
 * [SAP System on Oracle Database on Azure - Azure Architecture Center](/azure/architecture/example-scenario/apps/sap-production)
-* [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
+* [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
@@ -218,6 +217,12 @@ This section provides solutions for Azure platform services.
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
 * [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
 * [Providing Disaster Recovery to CloudBees-Jenkins in AKS with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/providing-disaster-recovery-to-cloudbees-jenkins-in-aks-with/ba-p/3553412)
+* [Develop and test easily on AKS with NetApp® Astra Control Service® and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/develop-and-test-easily-on-aks-with-netapp-astra-control-service/ba-p/3604225)
+
+### Azure Machine Learning
+
+* [High-performance storage for AI Model Training tasks using Azure ML studio with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/high-performance-storage-for-ai-model-training-tasks-using-azure/ba-p/3609189#_Toc112321755)
+* [How to use Azure Machine Learning with Azure NetApp Files](https://github.com/csiebler/azureml-with-azure-netapp-files)
 
 ### Azure Red Hat Openshift   
 

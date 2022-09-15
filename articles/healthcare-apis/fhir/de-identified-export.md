@@ -1,12 +1,12 @@
 ---
 title: Using the FHIR service to export de-identified data
 description: This article describes how to set up and use de-identified export
-author: ranvijaykumar
+author: judegnan
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/15/2022
-ms.author: ranku
+ms.date: 08/30/2022
+ms.author: mikaelw
 ---
 # Exporting de-identified data
 
@@ -48,26 +48,31 @@ Here's a sample configuration file for FHIR R4:
 
 For detailed information on the settings within the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
 
-## Using the `$export` endpoint for de-identifying data 
-
-The API call below demonstrates how to form a request for de-id on export from the FHIR service.
-
-```
-GET https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>
-```
-
-You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
-
+## Manage Configuration File in storage account
+You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see below). 
 > [!Note] 
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
+## Manage Configuration File in ACR
+It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](convert-data.md#host-your-own-templates).  
+1. Push the configuration files to your Azure Container Registry.
+2. Enable Managed Identity on your FHIR service instance.
+3. Provide access of the ACR to the FHIR service Managed Identity.
+4. Register the ACR servers in the FHIR service. You can use the portal to open "Artifacts" blade under "Transform and transfer data" section to add the ACR server.
+5. Optionally configure ACR firewall for secure access.
+
+## Using the `$export` endpoint for de-identifying data
+ `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
 
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|
-| `anonymizationConfig`   |`anonymizationConfig.json`|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named `anonymization` within the configured ADLS Gen2 account. |
-| `anonymizationConfigEtag`|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag from the blob property using Azure Storage Explorer.|
+| _\_container_|exportContainer|Required|Name of container within the configured storage account where the data will be exported. |
+| _\_anonymizationConfigCollectionReference_|"myacr.azurecr.io/deidconfigs:default"|Optional|Reference to an OCI image on ACR containing de-id configuration files for de-id export (such as stu3-config.json, r4-config.json). The ACR server of the image should be registered within the FHIR service. (Format: `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>`) |
+| _\_anonymizationConfig_   |`anonymizationConfig.json`|Required|Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). If _\_anonymizationConfigCollectionReference_ is provided, we will search and use this file from the specified image.  Otherwise, we will search and use this file inside a container named **anonymization** within the configured ADLS Gen2 account.|
+| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional|Etag of the configuration file which can be obtained from the blob property in Azure Storage Explorer. Specify this parameter only if the configuration file is stored in Azure storage account. If you use ACR to host the configuration file, you should not include this parameter.|
+
 
 > [!IMPORTANT]
 > Both the raw export and de-identified export operations write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple de-identification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.

@@ -24,7 +24,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 * Design for high availability of your solution.
 * Initiate a failover to another region.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Azure Machine Learning itself does not provide automatic failover or disaster recovery. Backup and restore of workspace metadata such as run history is unavailable.
 
 In case you have accidentally deleted your workspace or corresponding components, this article also provides you with currently supported recovery options.
@@ -202,4 +202,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 
 ## Next steps
 
-To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](https://docs.microsoft.com/azure/machine-learning/tutorial-create-secure-workspace-template).
+To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](/azure/machine-learning/tutorial-create-secure-workspace-template).

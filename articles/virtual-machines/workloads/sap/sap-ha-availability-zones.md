@@ -1,22 +1,16 @@
 ---
 title: SAP workload configurations with Azure Availability Zones  | Microsoft Docs
 description: High-availability architecture and scenarios for SAP NetWeaver using Azure Availability Zones
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP workload configurations with Azure Availability Zones

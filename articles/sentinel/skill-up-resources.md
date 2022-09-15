@@ -15,7 +15,7 @@ This article walks you through a level 400 training to help you skill up on Micr
 The modules listed here are split into five parts following the life cycle of a Security Operation Center (SOC):
 
 [Part 1: Overview](#part-1-overview)
-- [Module 0: Other learning and support options ](#module-0-other-learning-and-support-options)
+- [Module 0: Other learning and support options](#module-0-other-learning-and-support-options)
 - [Module 1: Get started with Microsoft Sentinel](#module-1-get-started-with-microsoft-sentinel)
 - [Module 2: How is Microsoft Sentinel used?](#module-2-how-is-microsoft-sentinel-used)
 
