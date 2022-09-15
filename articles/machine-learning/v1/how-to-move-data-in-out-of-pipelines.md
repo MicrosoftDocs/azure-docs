@@ -235,9 +235,14 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
-* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/lifecycle-management-overview)) 
-* Regularly review and delete no-longer-needed data
+* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed. Data should be deleted after a 30 day period, deleting the data earlier could cause the pipeline to fail.
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/lifecycle-management-overview)). This policy can only be set to a workspace's non-default datastore. Use `OutputFileDatasetConfig` to export intermediate data to another datastore that isn't the default.
+  ```Python
+  # Get adls gen 2 datastore already registered with the workspace
+  datastore = workspace.datastores['my_adlsgen2']
+  step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=(datastore, "mypath/{run-id}/{output-name}")).as_upload()
+  ```
+* Regularly review and delete no-longer-needed data.
 
 For more information, see [Plan and manage costs for Azure Machine Learning](../concept-plan-manage-cost.md).
 
