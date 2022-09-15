@@ -58,7 +58,7 @@ Learn more about [Boost Azure MySQL Business Critical flexible server performanc
 
   - When you try to connect to the server, you receive error "ERROR 9107 (HY000): Only Azure Active Directory accounts are allowed to connect to server".
 
-    Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. We're currently working on additional configurations required for Azure Active Directory (AAD) authentication to be fully functional, and the feature will be available in the upcoming deployments. Don't enable the aad_auth_only parameter until then.
+    Server parameter aad_auth_only was exposed in this month's deployment. Enabling server parameter aad_auth_only will block all non Azure Active Directory MySQL connections to your Azure Database for MySQL Flexible server. We're currently working on additional configurations required for Azure Active Directory authentication to be fully functional, and the feature will be available in the upcoming deployments. Don't enable the aad_auth_only parameter until then.
 
 ## June 2022
 
