@@ -21,7 +21,7 @@ In this tutorial, learn how to integrate Azure Active Directory (AD) B2C authent
 Use Grit's B2BB2C solution for:
 
 - Authentication, authorization, profile and role management, and delegated B2B SaaS application administration.
-- Role-based access control for B2C applications.
+- Role-based access control for Azure AD B2C applications.
 
 ## Prerequisites
 
