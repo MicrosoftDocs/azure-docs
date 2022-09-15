@@ -11,7 +11,7 @@ ms.author: mansha
 ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-console.md)

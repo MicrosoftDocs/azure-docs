@@ -10,7 +10,7 @@ metadata:
   ms.author: mansha
 title: Frequently asked questions about the API for Gremlin in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+  [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
   
   This article explains answers to some frequently asked questions about API for Gremlin in Azure Cosmos DB.
 

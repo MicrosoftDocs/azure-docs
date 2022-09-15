@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 Azure Cosmos DB Graph database is [globally distributed](../distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-region writes](../how-to-multi-master.md) capability.
 

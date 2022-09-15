@@ -12,7 +12,7 @@ ms.author: mansha
 ---
 
 # How to use the execution profile step to evaluate your Gremlin queries
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 This article provides an overview of how to use the execution profile step for Azure Cosmos DB for Gremlin graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
 

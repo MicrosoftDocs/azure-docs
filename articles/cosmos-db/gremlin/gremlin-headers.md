@@ -10,7 +10,7 @@ ms.author: mansha
 ---
 
 # Azure Cosmos DB for Gremlin server response headers
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 This article covers headers that Azure Cosmos DB for Gremlin server returns to the caller upon request execution. These headers are useful for troubleshooting request performance, building application that integrates natively with Azure Cosmos DB service and simplifying customer support.
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB for Gremlin by using Gremlin
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 The Azure Cosmos DB [API for Gremlin](graph-introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
 

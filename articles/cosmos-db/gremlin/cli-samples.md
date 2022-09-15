@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Azure CLI samples for Azure Cosmos DB for Gremlin
 
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB for Gremlin and to sample Azure CLI scripts that apply to all Cosmos DB APIs. Common samples are the same across all APIs.
 

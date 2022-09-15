@@ -10,7 +10,7 @@ ms.date: 07/22/2021
 ---
 
 # Visualize graph data stored in Azure Cosmos DB for Gremlin with data visualization solutions
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 You can visualize data stored in Azure Cosmos DB for Gremlin by using various data visualization solutions.
 
