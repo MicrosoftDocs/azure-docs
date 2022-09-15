@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 09/15/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -13,18 +13,20 @@ ms.collection: M365-identity-device-management
 ---
 # How to use additional context in Microsoft Authenticator notifications - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications.  
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator passwordless and push notifications.  
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
+- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure Portal or Microsoft Graph API. 
 
 >[!NOTE]
->Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
+>The [policy schema changes](#policy-schema-changes) have been improved. The policy schema for preview is deprecated. Make sure you use the new schema to help prevent errors.
+
+- Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication method policy.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
+When a user receives a passwordless phone sign-in or MFA push notification in Microsoft Authenticator, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
@@ -45,7 +47,9 @@ You can enable and disable application name and geographic location separately. 
 
 Identify your single target group for each of the features. Then use the following API endpoint to change the displayAppInformationRequiredState or displayLocationInformationRequiredState properties under featureSettings to **enabled** and include or exclude the groups you want::
 
+```http
 https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+```
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 
@@ -210,9 +214,12 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
  
-To verify, RUN GET again and verify the ObjectID
+To verify, run GET again and verify the ObjectID:
+
+```http
 GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
- 
+```
+
 #### Example of how to disable application name and only enable geographic location 
  
 In **featureSettings**, change the state of **displayAppInformationRequiredState** to **default** or **disabled** and **displayLocationInformationRequiredState** to **enabled.** 

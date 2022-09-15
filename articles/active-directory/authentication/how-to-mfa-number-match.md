@@ -4,14 +4,14 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 09/15/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications - Authentication Methods Policy
+# How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
@@ -21,11 +21,14 @@ This topic covers how to enable number matching in Microsoft Authenticator push 
 
 ## Prerequisites
 
-Your organization will need to enable Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
+- Your organization needs to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure Portal or Microsoft Graph API. 
+
+  >[!NOTE]
+  >The [policy schema changes](#policy-schema-changes) have been improved. The policy schema for preview is deprecated. Make sure you use the new schema to help prevent errors.
+
+- If your organization is using ADFS adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
-
-<!---check below with Mayur. The bit about the policy came from the number match FAQ at the end.--->
 
 Number matching can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy. 
 
@@ -205,10 +208,12 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
  
 ```
  
-To confirm this has applied, please run the GET request below using the endpoint below.
-GET - https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
- 
- 
+To confirm this has applied, please run the GET request by using the following endpoint: 
+
+```http
+GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+```
+
 #### Example of how to enable number matching for a single group
  
 In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
@@ -249,9 +254,12 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 }
 ```
  
-To verify, RUN GET again and verify the ObjectID
+To verify, run GET again and verify the ObjectID:
+
+```http
 GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
- 
+```
+
 #### Example of removing the excluded group from number matching
 
 In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
