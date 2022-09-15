@@ -31,22 +31,16 @@ Azure Storage Mover is a new service, currently in public preview.
 
 ## Supported sources and targets
 
-:::row:::
-  :::column:::
-    :::image type="content" source="media/overview/nfs-to-flat-blob.png" alt-text="An image illustrating a source NFS share migrated through an Azure Storage Mover agent VM to an Azure Storage blob container." lightbox="media/overview/nfs-to-flat-blob-large.png":::
-  :::column-end:::
-  :::column:::
+The current Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container.
 
-  The current Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container.
+> [!IMPORTANT]
+> Storage accounts with the [hierarchical namespace service (HNS)](../storage/blobs/data-lake-storage-namespace.md) feature enabled are not supported at this time.
 
-  > [!IMPORTANT]
-  > Storage accounts with the [hierarchical namespace service (HNS)](../storage/blobs/data-lake-storage-namespace.md) feature enabled are not supported at this time.
+An Azure blob container without the hierarchical namespace service feature doesn’t have a traditional file system. A standard blob container supports “virtual” folders. Files in folders on the source will get their path prepended to their name and placed in a flat list in the target blob container.
 
-  An Azure blob container without the hierarchical namespace service feature doesn’t have a traditional file system. A standard blob container supports “virtual” folders. Files in folders on the source will get their path prepended to their name and placed in a flat list in the target blob container.  
+Empty folders will be represented by the Storage Mover service as an empty blob in the target. The metadata of the source folder will be persisted in the custom metadata field of this blob, just as they are with files.
 
-  Empty folders will be represented by the Storage Mover service as an empty blob in the target. The metadata of the source folder will be persisted in the custom metadata field of this blob, just as they are with files.
-  :::column-end:::
-:::row-end:::
+:::image type="content" source="media/overview/nfs-to-flat-blob.png" alt-text="An image illustrating a source NFS share migrated through an Azure Storage Mover agent VM to an Azure Storage blob container." lightbox="media/overview/nfs-to-flat-blob-large.png" :::
 
 ## Fully managed migrations
 

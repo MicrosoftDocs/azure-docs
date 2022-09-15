@@ -34,28 +34,28 @@ Azure Storage Mover is a hybrid cloud service. Hybrid services have a cloud serv
 
 Only the agent is a relevant part of the service for performance testing. To omit privacy and performance concerns, data travels directly from the Storage Mover agent to the target storage in Azure. Only control and telemetry messages are sent to the cloud service.
 
-:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="Illustrating the previous paragraph by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
 The following table describes the characteristics of the test environment that produced the performance test results shared later in this article.
 
 |Test               | Result                                                                                                                        |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|
 |Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders                        |
-|Test source device | Linux server VM <br />16 virtual CPU cores<br />64 GiB RAM                                                                    |
-|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios add disk recall times.          |
+|Test source device | Linux server VM <br />16 virtual CPU cores<br />64-GiB RAM                                                                    |
+|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios, add disk recall times.          |
 |Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.) |
 
 ## Performance baselines
 
-These test results are created under ideal conditions. They are meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections are not considered in this test. Real-world performance will vary. 
+These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance will vary. 
 
 Different agent resource configurations are tested:
 
-### [4 CPU / 8 GiB RAM](#tab/minspec)
+### [4 CPU / 8-GiB RAM](#tab/minspec)
 
 4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
 
-|Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
+|Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
 |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
 |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 Hours, 28 Min                                  |
 |Items* per Second         | -                 | 3548                                                 | 2860                                             |
@@ -68,7 +68,7 @@ Different agent resource configurations are tested:
 
 8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-|Test                      | Single file, 1 TiB| &tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB  |
+|Test                      | Single file, 1 TiB| &tilde;3.3M files, &tilde;200 K folders, &tilde;45 GiB  |
 |--------------------------|-------------------|--------------------------------------------------------|
 |Elapsed time              | 14 Min, 36 Sec    | 8 Min, 30 Sec                                          |
 |Items* per Second         | -                 | 6298                                                   |
@@ -87,10 +87,10 @@ Fundamentally, network quality and the ability to process files, folders and the
 
 Across the two core areas of network and compute, several aspects have an impact:
 
-- **Migration scenario** <br />Copy into an empty target is generally faster as compared to a target with content. This is because the migration engine must evaluate not only the source but also the target to make copy decisions.
+- **Migration scenario** <br />Copy into an empty target is faster as compared to a target with content. This is because the migration engine must evaluate not only the source but also the target to make copy decisions.
 - **Namespace item count** <br />Migrating 1 GiB of small files will take more time than migrating 1 GiB of larger files.
 - **Namespace shape** <br />A wide folder hierarchy lends itself to more parallel processing than a narrow or deep directory structure. The file to folder ratio also plays a roll.
-- **Namespace churn**  <br />How many files, folders, and metadata has changed between two copy runs from the same source to the same target. 
+- **Namespace churn**  <br />How many files, folders, and metadata have changed between two copy runs from the same source to the same target. 
 - **Network**
     - bandwidth and latency between source and migration agent
     - bandwidth and latency between migration agent and the target in Azure
@@ -98,11 +98,11 @@ Across the two core areas of network and compute, several aspects have an impact
 
 For example, a traditional migration requires a strategy to minimize downtime of the workload that depends on the storage that is to be migrated. Azure Storage Mover supports such a strategy. It's called convergent, n-pass migration.
 
-In this strategy, you copy from source to target several times. During these copy iterations, the source remains available for read and write to the workload. Just before the final copy iteration, you take the source offline. It is expected that the final copy finishes faster than say the very first copy you've ever made and takes about as long as the one immediately preceding it. After the final copy, the workload is failed over to use the new target storage in Azure and available for use again.
+In this strategy, you copy from source to target several times. During these copy iterations, the source remains available for read and write to the workload. Just before the final copy iteration, you take the source offline. It's expected that the final copy finishes faster than say the first copy you've ever made and takes about as long as the one immediately preceding it. After the final copy, the workload is failed over to use the new target storage in Azure and available for use again.
 
-During the very first copy from source to target, the target is likely empty and all the source content must travel to the target. As a result, the first copy is likely most constrained by the available network resources. 
+During the first copy from source to target, the target is likely empty and all the source content must travel to the target. As a result, the first copy is likely most constrained by the available network resources. 
 
-Towards the end of a migration, when you've copied the source to the target several times already, only a small number of files, folders, and metadata has changed since the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes more and more important.
+Towards the end of a migration, when you've copied the source to the target several times already, only a few files, folders, and metadata has changed since the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute-constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes more and more important.
 
 ## Next steps
 

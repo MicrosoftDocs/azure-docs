@@ -24,7 +24,7 @@ REVIEW Engineering: not reviewed
 
 # Release notes for the Azure Storage Mover service
 
-Azure Storage Mover is a hybrid service which continuously introduces new features and improvements to its cloud service and the agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
+Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements to its cloud service and the agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
 
 ## Supported agent versions
 
@@ -36,7 +36,7 @@ The following Azure Storage Mover agent versions are supported:
 
 ### Azure Storage Mover update policy
 
-The Azure Storage Mover agents are not automatically updated to new versions at this time. New functionality and fixes to any issues will require the [download](https://aka.ms/StorageMover/agent), [deployment](agent-deploy.md) and [registration](agent-register.md) of a new Storage Mover agent.
+The Azure Storage Mover agents aren't automatically updated to new versions at this time. New functionality and fixes to any issues will require the [download](https://aka.ms/StorageMover/agent), [deployment](agent-deploy.md) and [registration](agent-register.md) of a new Storage Mover agent.
 
 > [!TIP]
 > Switching to the latest agent version can be done safely. Follow the section Upgrading to a newer agent version in the agent deployment article.
@@ -50,10 +50,10 @@ New agent versions will be released on Microsoft Download Center. [https://aka.m
 
 #### Lifecycle and change management guarantees
 
-Azure Storage Mover is a hybrid service which continuously introduces new features and improvements. This means that a specific Azure Storage Mover agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
+Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. This means that a specific Azure Storage Mover agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time, and notification to accommodate agent updates/upgrades in your change management process:
 
 - Major versions are supported for at least six months from the date of initial release.
-- We guarantee there is an overlap of at least three months between the support of major agent versions.
+- We guarantee there's an overlap of at least three months between the support of major agent versions.
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent in the registered agents section of a storage mover resource.
 
 ## 2022, September 15
@@ -79,7 +79,7 @@ Supports merging content from the source to the target:
 
 - The storage mover agent appliance VM is currently only tested and supported as a Version 1 Windows Hyper-V VM.
 - Re-registration of a previously registered agent is currently not supported.
-- Copy logs are not configurable to be emitted to Azure and must be accessed locally.
+- Copy logs aren't configurable to be emitted to Azure and must be accessed locally.
 
 To access copy logs on the agent:
 
@@ -87,5 +87,5 @@ To access copy logs on the agent:
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 1. Select option `3) Service and job status`
 1. Select option `2) Job summary`
-1. A list of jobs that have run on the agent is shown. Copy the ID in the format *Job definition id:Job run id* that represents the job you want to retrieve the copy logs for. You can confirm you'cve selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
+1. A list of jobs that have run on the agent is shown. Copy the ID in the format `Job definition id: Job run id` that represents the job you want to retrieve the copy logs for. You can confirm you've selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
 1. Retrieve the copy logs by selecting option `4) Job copylogs` and providing the same ID from the previous step.
