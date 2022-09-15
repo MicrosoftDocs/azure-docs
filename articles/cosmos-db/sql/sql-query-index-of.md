@@ -3,7 +3,7 @@ title: INDEX_OF in Azure Cosmos DB query language
 description: Learn about SQL system function INDEX_OF in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/30/2022
 ms.author: girobins

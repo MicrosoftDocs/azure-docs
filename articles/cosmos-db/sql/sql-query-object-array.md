@@ -3,7 +3,7 @@ title: Working with arrays and objects in Azure Cosmos DB
 description: Learn the SQL syntax to create arrays and objects in Azure Cosmos DB. This article also provides some examples to perform operations on array objects 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: sidandrews
@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Working with arrays and objects in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-A key feature of the Azure Cosmos DB SQL API is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
+A key feature of the Azure Cosmos DB for NoSQL is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
 
 Here's an example item in this dataset:
 
@@ -94,7 +94,7 @@ The results are:
 
 ## <a id="Iteration"></a>Iteration
 
-The SQL API provides support for iterating over JSON arrays, with the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
+The API for NoSQL provides support for iterating over JSON arrays, with the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
 
 ```sql
 SELECT *

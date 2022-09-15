@@ -3,7 +3,7 @@ title: Getting started with SQL queries in Azure Cosmos DB
 description: Learn how to use SQL queries to query data from Azure Cosmos DB. You can upload sample data to a container in Azure Cosmos DB and query it. 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: sidandrews
@@ -13,7 +13,7 @@ ms.reviewer: jucocchi
 # Getting started with SQL queries
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In Azure Cosmos DB SQL API accounts, there are two ways to read data:
+In Azure Cosmos DB for NoSQL accounts, there are two ways to read data:
 
 **Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single whole item, not a partial item or a specific field.
 
@@ -39,7 +39,7 @@ The remainder of this doc shows how to get started writing SQL queries in Azure 
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](../data-explorer.md) to create a container called `Families`. After the container is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
+In your API for NoSQL Azure Cosmos DB account, open the [Data Explorer](../data-explorer.md) to create a container called `Families`. After the container is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 
@@ -175,15 +175,15 @@ The results are:
 
 ## Remarks
 
-The preceding examples show several aspects of the Cosmos DB query language:  
+The preceding examples show several aspects of the Azure Cosmos DB query language:  
 
-* Since SQL API works on JSON values, it deals with tree-shaped entities instead of rows and columns. You can refer to the tree nodes at any arbitrary depth, like `Node1.Node2.Node3…..Nodem`, similar to the two-part reference of `<table>.<column>` in ANSI SQL.
+* Since API for NoSQL works on JSON values, it deals with tree-shaped entities instead of rows and columns. You can refer to the tree nodes at any arbitrary depth, like `Node1.Node2.Node3…..Nodem`, similar to the two-part reference of `<table>.<column>` in ANSI SQL.
 
 * Because the query language works with schemaless data, the type system must be bound dynamically. The same expression could yield different types on different items. The result of a query is a valid JSON value, but isn't guaranteed to be of a fixed schema.  
 
 * Azure Cosmos DB supports strict JSON items only. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).  
 
-* A Cosmos container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins that are described in [Joins in Azure Cosmos DB](sql-query-join.md).
+* An Azure Cosmos DB container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins that are described in [Joins in Azure Cosmos DB](sql-query-join.md).
 
 ## Next steps
 

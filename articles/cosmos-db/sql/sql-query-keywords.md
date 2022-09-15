@@ -3,7 +3,7 @@ title: SQL keywords for Azure Cosmos DB
 description: Learn about SQL keywords for Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 10/05/2021
 ms.author: sidandrews
@@ -32,7 +32,7 @@ You can also use the `BETWEEN` keyword in the `SELECT` clause, as in the followi
     FROM Families.children[0] c
 ```
 
-In SQL API, unlike ANSI SQL, you can express range queries against properties of mixed types. For example, `grade` might be a number like `5` in some items and a string  like `grade4` in others. In these cases, as in JavaScript, the comparison between the two different types results in `Undefined`, so the item is skipped.
+In API for NoSQL, unlike ANSI SQL, you can express range queries against properties of mixed types. For example, `grade` might be a number like `5` in some items and a string  like `grade4` in others. In these cases, as in JavaScript, the comparison between the two different types results in `Undefined`, so the item is skipped.
 
 ## DISTINCT
 
@@ -209,7 +209,7 @@ The following example returns all items where the state is any of the specified 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-The SQL API provides support for [iterating over JSON arrays](sql-query-object-array.md#Iteration), with a new construct added via the in keyword in the FROM source.
+The API for NoSQL provides support for [iterating over JSON arrays](sql-query-object-array.md#Iteration), with a new construct added via the in keyword in the FROM source.
 
 If you include your partition key in the `IN` filter, your query will automatically filter to only the relevant partitions.
 

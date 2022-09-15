@@ -3,7 +3,7 @@ title: RAND in Azure Cosmos DB query language
 description: Learn about SQL system function RAND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
