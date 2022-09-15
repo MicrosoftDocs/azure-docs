@@ -1,5 +1,5 @@
 ---
-title: Columnar table storage - Azure PostgreSQL Hyperscale (Citus)
+title: Columnar table storage - Azure Cosmos DB for PostgreSQL
 description: Learn how to compress data using columnar storage.
 ms.author: jonels
 author: jonels-msft
@@ -10,11 +10,11 @@ ms.date: 05/23/2022
 ms.custom: kr2b-contr-experiment
 ---
 
-# Compress data with columnar tables in Hyperscale (Citus)
+# Compress data with columnar tables
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) supports append-only
+Azure Cosmos DB for PostgreSQL supports append-only
 columnar table storage for analytic and data warehousing workloads. When
 columns (rather than rows) are stored contiguously on disk, data becomes more
 compressible, and queries can request a subset of columns more quickly.
@@ -34,7 +34,7 @@ CREATE TABLE contestant (
 ) USING columnar;
 ```
 
-Hyperscale (Citus) converts rows to columnar storage in "stripes" during
+Azure Cosmos DB for PostgreSQL converts rows to columnar storage in "stripes" during
 insertion. Each stripe holds one transaction's worth of data, or 150000 rows,
 whichever is less.  (The stripe size and other parameters of a columnar table
 can be changed with the
@@ -55,7 +55,7 @@ INSERT INTO contestant VALUES
   ('e','1995-05-05',2236,98.2,'XC','{a}');
 ```
 
-It's best to make large stripes when possible, because Hyperscale (Citus)
+It's best to make large stripes when possible, because Azure Cosmos DB for PostgreSQL
 compresses columnar data separately per stripe. We can see facts about our
 columnar table like compression rate, number of stripes, and average rows per
 stripe by using `VACUUM VERBOSE`:
@@ -72,7 +72,7 @@ total row count: 5, stripe count: 1, average rows per stripe: 5
 chunk count: 6, containing data for dropped columns: 0, zstd compressed: 6
 ```
 
-The output shows that Hyperscale (Citus) used the zstd compression algorithm to
+The output shows that Azure Cosmos DB for PostgreSQL used the zstd compression algorithm to
 obtain 1.31x data compression. The compression rate compares a) the size of
 inserted data as it was staged in memory against b) the size of that data
 compressed in its eventual stripe.
@@ -194,8 +194,8 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-This feature still has significant limitations. See [Hyperscale
-(Citus) limits and limitations](reference-limits.md#columnar-storage).
+This feature still has significant limitations. See [limits and
+limitations](reference-limits.md#columnar-storage).
 
 ## Next steps
 

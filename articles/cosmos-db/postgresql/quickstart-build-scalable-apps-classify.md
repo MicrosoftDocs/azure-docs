@@ -1,5 +1,5 @@
 ---
-title: Classify application workload - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Classify application workload - Azure Cosmos DB for PostgreSQL
 description: Classify workload for scalable application
 ms.author: jonels
 author: jonels-msft
@@ -15,7 +15,7 @@ ms.date: 08/11/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Here are common characteristics of the workloads that are the best fit for
-Hyperscale (Citus).
+Azure Cosmos DB for PostgreSQL.
 
 ## Prerequisites
 

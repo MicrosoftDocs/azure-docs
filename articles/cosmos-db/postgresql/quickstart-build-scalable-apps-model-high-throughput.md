@@ -1,5 +1,5 @@
 ---
-title: Model high throughput apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Model high throughput apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable high-throughput transactional apps
 ms.author: jonels
 author: jonels-msft
@@ -35,7 +35,7 @@ telemetry (time series data) from devices. There are two tables for capturing
 telemetry: `devices` and `events`. There could be other tables, but they're not
 covered in this example.
 
-![Diagram of events and devices tables, and partitions of events.](media/howto-hyperscale-build-scalable-apps/high-throughput-data-model.png)
+![Diagram of events and devices tables, and partitions of events.](media/howto-build-scalable-apps/high-throughput-data-model.png)
 
 When building a high-throughput app, keep some optimization in mind.
 
@@ -45,7 +45,7 @@ When building a high-throughput app, keep some optimization in mind.
   tables.
 * The rest of the small tables can be reference tables.
 * As IOT apps have a time dimension, partition your distributed tables based on
-  time. You can use native Hyperscale (Citus) time series capabilities to
+  time. You can use native Azure Cosmos DB for PostgreSQL time series capabilities to
   create and maintain partitions.
   * Partitioning helps efficiently filter data for queries with time filters.
   * Expiring old data is also fast, using the DROP vs DELETE command.
@@ -54,7 +54,7 @@ When building a high-throughput app, keep some optimization in mind.
   data is typically not structured, every device has its own metrics.
   * In our example,  the events table has a `detail` column, which is JSONB.
 * If your IoT app requires geospatial features, you can use the PostGIS
-  extension, which Hyperscale (Citus) supports natively.
+  extension, which Azure Cosmos DB for PostgreSQL supports natively.
 
 ## Next steps
 

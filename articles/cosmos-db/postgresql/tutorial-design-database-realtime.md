@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Design a real-time dashboard - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: This tutorial shows how to parallelize real-time dashboard queries with Azure Database for PostgreSQL Hyperscale (Citus).
+title: 'Tutorial: Design a real-time dashboard - Azure Cosmos DB for PostgreSQL'
+description: This tutorial shows how to parallelize real-time dashboard queries with Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -11,14 +11,14 @@ ms.date: 06/29/2022
 #Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 
-# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Tutorial: Design a real-time analytics dashboard by using Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
+In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
-> * Create a Hyperscale (Citus) server group
+> * Create a cluster
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Generate sample data
@@ -28,11 +28,11 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Prerequisites
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [create-db](includes/create-db.md)]
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
+Once connected to the Azure Cosmos DB for PostgreSQL using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
 
 Let's create a table that will consume all of our raw web traffic data. Run the following commands in the psql terminal:
 
@@ -82,7 +82,7 @@ You can see the newly created tables in the list of tables now with this psql co
 
 ## Shard tables across nodes
 
-A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks how data is sharded across nodes.
+A Azure Cosmos DB for PostgreSQL deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks how data is sharded across nodes.
 
 Let's set the distribution column to be site\_id, the shard
 key. In psql, run these functions:
@@ -92,11 +92,11 @@ SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [dist-alert](includes/dist-alert.md)]
 
 ## Generate sample data
 
-Now our server group should be ready to ingest some data. We can run the
+Now our cluster should be ready to ingest some data. We can run the
 following locally from our `psql` connection to continuously insert data.
 
 ```sql
@@ -133,7 +133,7 @@ The query inserts approximately eight rows every second. The rows are stored on 
 
 ## Query
 
-The hyperscale hosting option allows multiple nodes to process queries in
+Azure Cosmos DB for PostgreSQL allows multiple nodes to process queries in
 parallel for speed. For instance, the database calculates aggregates like SUM
 and COUNT on worker nodes, and combines the results into a final answer.
 
@@ -226,12 +226,12 @@ In production, you could wrap these queries in a function and call it every minu
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a cluster. If you don't expect to need these resources in the future, delete the cluster. Press the *Delete* button in the *Overview* page for your cluster. When prompted on a pop-up page, confirm the name of the cluster and click the final *Delete* button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
-- Learn about server group [node types](./concepts-nodes.md)
+- Learn about cluster [node types](./concepts-nodes.md)
 - Determine the best [initial
-  size](howto-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your cluster

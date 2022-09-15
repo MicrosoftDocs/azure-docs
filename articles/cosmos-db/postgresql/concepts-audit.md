@@ -1,6 +1,6 @@
 ---
-title: Audit logging - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Audit logging - Azure Cosmos DB for PostgreSQL
+description: Concepts for pgAudit audit logging in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,31 +9,30 @@ ms.topic: conceptual
 ms.date: 08/03/2021
 ---
 
-# Audit logging in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Audit logging in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT]
-> The pgAudit extension in Hyperscale (Citus) is currently in preview. This
+> The pgAudit extension in Azure Cosmos DB for PostgreSQL is currently in preview. This
 > preview version is provided without a service level agreement, and it's not
 > recommended for production workloads. Certain features might not be supported
 > or might have constrained capabilities.
 >
-> You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](product-updates.md).
+> You can see a complete list of other new features in [preview features](product-updates.md).
 
-Audit logging of database activities in Azure Database for PostgreSQL - Hyperscale (Citus) is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session or object audit logging.
+Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session or object audit logging.
 
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Usage considerations
-By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL - Hyperscale (Citus), you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, or Azure Monitor logs, depending on your choice.
+By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Cosmos DB for PostgreSQL, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, or Azure Monitor logs, depending on your choice.
 
 ## Enabling pgAudit
 
 The pgAudit extension is pre-installed and enabled on a limited number of
-Hyperscale (Citus) server groups at this time. It may or may not be available
-for preview yet on your server group.
+clusters at this time. It may or may not be available
+for preview yet on your cluster.
 
 ## pgAudit settings
 
@@ -42,7 +41,7 @@ pgAudit allows you to configure session or object audit logging. [Session audit 
 > [!NOTE]
 > pgAudit settings are specified globally and cannot be specified at a database or role level.
 >
-> Also, pgAudit settings are specified per-node in a server group. To make a change on all nodes, you must apply it to each node individually.
+> Also, pgAudit settings are specified per-node in a cluster. To make a change on all nodes, you must apply it to each node individually.
 
 You must configure pgAudit parameters to start logging. The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you're getting the expected behavior.
 
@@ -51,7 +50,7 @@ You must configure pgAudit parameters to start logging. The [pgAudit documentati
 > `pgaudit.log_level` is only enabled when `pgaudit.log_client` is on.
 
 > [!NOTE]
-> In Azure Database for PostgreSQL - Hyperscale (Citus), `pgaudit.log` cannot be set using a `-` (minus) sign shortcut as described in the pgAudit documentation. All required statement classes (READ, WRITE, etc.) should be individually specified.
+> In Azure Cosmos DB for PostgreSQL, `pgaudit.log` cannot be set using a `-` (minus) sign shortcut as described in the pgAudit documentation. All required statement classes (READ, WRITE, etc.) should be individually specified.
 
 ## Audit log format
 Each audit entry is indicated by `AUDIT:` near the beginning of the log line. The format of the rest of the entry is detailed in the [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
@@ -76,4 +75,4 @@ AzureDiagnostics
 
 ## Next steps
 
-- [Learn how to setup logging in Azure Database for PostgreSQL - Hyperscale (Citus) and how to access logs](howto-logging.md)
+- [Learn how to setup logging in Azure Cosmos DB for PostgreSQL and how to access logs](howto-logging.md)

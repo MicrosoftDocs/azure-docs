@@ -1,6 +1,6 @@
 ---
-title: Scheduled maintenance - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Scheduled maintenance - Azure Cosmos DB for PostgreSQL
+description: This article describes the scheduled maintenance feature in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 02/14/2022
 ---
 
-# Scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Scheduled maintenance in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) does periodic maintenance to
+Azure Cosmos DB for PostgreSQL does periodic maintenance to
 keep your managed database secure, stable, and up-to-date.  During maintenance,
-all nodes in the server group get new features, updates, and patches.
+all nodes in the cluster get new features, updates, and patches.
 
-The key features of scheduled maintenance for Hyperscale (Citus) are:
+The key features of scheduled maintenance for Azure Cosmos DB for PostgreSQL are:
 
-* Updates are applied at the same time on all nodes in the server group
+* Updates are applied at the same time on all nodes in the cluster
 * Notifications about upcoming maintenance are posted to Azure Service Health
   five days in advance
 * Usually there are at least 30 days between successful maintenance events for
-  a server group
+  a cluster
 * Preferred day of the week and time window within that day for maintenance
-  start can be defined for each server group individually
+  start can be defined for each cluster individually
 
 ## Selecting a maintenance window and notification about upcoming maintenance
 
@@ -46,13 +46,13 @@ Health and can be:
 
 When specifying preferences for the maintenance schedule, you can pick a day of
 the week and a time window. If you don't specify, the system will pick times
-between 11pm and 7am in your server group's region time. You can define
-different schedules for each Hyperscale (Citus) server group in your Azure
+between 11pm and 7am in your cluster's region time. You can define
+different schedules for each cluster in your Azure
 subscription.
 
 > [!IMPORTANT]
 > Normally there are at least 30 days between successful scheduled maintenance
-> events for a server group.
+> events for a cluster.
 >
 > However, in case of a critical emergency update such as a severe
 > vulnerability, the notification window could be shorter than five days. The
@@ -60,7 +60,7 @@ subscription.
 > maintenance was performed in the last 30 days.
 
 You can update scheduling settings at any time. If there's maintenance
-scheduled for your Hyperscale (Citus) server group and you update the schedule,
+scheduled for your cluster and you update the schedule,
 the pre-existing events will be rescheduled.
 
 If maintenance fails or gets canceled, the system will create a notification.

@@ -1,5 +1,5 @@
 ---
-title: Connection pooling – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Connection pooling – Azure Cosmos DB for PostgreSQL
 description: Scaling client database connections
 ms.author: jonels
 author: jonels-msft
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/31/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling
+# Azure Cosmos DB for PostgreSQL connection pooling
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -31,14 +31,14 @@ When clients connect through PgBouncer, the number of connections that can
 actively run in the database doesn't change. Instead, PgBouncer queues excess
 connections and runs them when the database is ready.
 
-Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
-groups. It supports up to 2,000 simultaneous client connections. Additionally,
-if a server group has [high availability](concepts-high-availability.md) (HA)
+Azure Cosmos DB for PostgreSQL is now offering a managed instance of PgBouncer for clusters.
+It supports up to 2,000 simultaneous client connections. Additionally,
+if a cluster has [high availability](concepts-high-availability.md) (HA)
 enabled, then so does its managed PgBouncer.
 
 To connect through PgBouncer, follow these steps:
 
-1. Go to the **Connection strings** page for your server group in the Azure
+1. Go to the **Connection strings** page for your cluster in the Azure
    portal.
 2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
    strings will change.)
@@ -47,4 +47,4 @@ To connect through PgBouncer, follow these steps:
 ## Next steps
 
 Discover more about the [limits and limitations](reference-limits.md)
-of Hyperscale (Citus).
+of Azure Cosmos DB for PostgreSQL.

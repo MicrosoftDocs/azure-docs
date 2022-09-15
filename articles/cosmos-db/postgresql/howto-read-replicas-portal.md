@@ -1,6 +1,6 @@
 ---
-title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: Learn how to manage read replicas Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal.
+title: Manage read replicas - Azure portal - Azure Cosmos DB for PostgreSQL
+description: Learn how to manage read replicas Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,28 +9,27 @@ ms.topic: how-to
 ms.date: 06/17/2022
 ---
 
-# Create and manage read replicas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
+# Create and manage read replicas
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this article, you learn how to create and manage read replicas in Hyperscale
-(Citus) from the Azure portal. To learn more about read replicas, see the
-[overview](concepts-read-replicas.md).
-
+In this article, you learn how to create and manage read replicas in Azure
+Cosmos DB for PostgreSQL from the Azure portal. To learn more about read
+replicas, see the [overview](concepts-read-replicas.md).
 
 ## Prerequisites
 
-A [Hyperscale (Citus) server group](quickstart-create-portal.md) to
+A [cluster](quickstart-create-portal.md) to
 be the primary.
 
 ## Create a read replica
 
 To create a read replica, follow these steps:
 
-1. Select an existing Azure Database for PostgreSQL server group to use as the
+1. Select an existing Azure Cosmos DB for PostgreSQL cluster to use as the
    primary. 
 
-2. On the server group sidebar, under **Server group management**, select
+2. On the cluster sidebar, under **Cluster management**, select
    **Replication**.
 
 3. Select **Add Replica**.
@@ -48,29 +47,28 @@ After the read replica is created, it can be viewed from the **Replication** win
 > Review the [considerations section of the Read Replica
 > overview](concepts-read-replicas.md#considerations).
 >
-> Before a primary server group setting is updated to a new value, update the
+> Before a primary cluster setting is updated to a new value, update the
 > replica setting to an equal or greater value. This action helps the replica
 > keep up with any changes made to the master.
 
-## Delete a primary server group
+## Delete a primary cluster
 
-To delete a primary server group, you use the same steps as to delete a
-standalone Hyperscale (Citus) server group. From the Azure portal, follow these
+To delete a primary cluster, you use the same steps as to delete a
+standalone cluster. From the Azure portal, follow these
 steps:
 
-1. In the Azure portal, select your primary Azure Database for PostgreSQL
-   server group.
+1. In the Azure portal, select your primary Azure Cosmos DB for PostgreSQL
+   cluster.
 
-2. Open the **Overview** page for the server group. Select **Delete**.
+2. Open the **Overview** page for the cluster. Select **Delete**.
  
-3. Enter the name of the primary server group to delete. Select **Delete** to
-   confirm deletion of the primary server group.
+3. Enter the name of the primary cluster to delete. Select **Delete** to
+   confirm deletion of the primary cluster.
  
 
 ## Delete a replica
 
-You can delete a read replica similarly to how you delete a primary server
-group.
+You can delete a read replica similarly to how you delete a primary cluster.
 
 - In the Azure portal, open the **Overview** page for the read replica. Select
   **Delete**.
@@ -78,9 +76,9 @@ group.
 You can also delete the read replica from the **Replication** window by
 following these steps:
 
-1. In the Azure portal, select your primary Hyperscale (Citus) server group.
+1. In the Azure portal, select your primary cluster.
 
-2. On the server group menu, under **Server group management**, select
+2. On the cluster menu, under **Cluster management**, select
    **Replication**.
 
 3. Select the read replica to delete.
@@ -92,5 +90,4 @@ following these steps:
 
 ## Next steps
 
-* Learn more about [read replicas in Azure Database for
-  PostgreSQL - Hyperscale (Citus)](concepts-read-replicas.md).
+* Learn more about [read replicas](concepts-read-replicas.md).

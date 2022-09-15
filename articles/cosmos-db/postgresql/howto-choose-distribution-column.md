@@ -1,6 +1,6 @@
 ---
-title: Choose distribution columns – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to choose distribution columns in common scenarios in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Choose distribution columns – Azure Cosmos DB for PostgreSQL
+description: Learn how to choose distribution columns in common scenarios in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/28/2022
 ---
 
-# Choose distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Choose distribution columns in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Choosing each table's distribution column is one of the most important modeling
-decisions you'll make. Azure Database for PostgreSQL – Hyperscale (Citus)
+decisions you'll make. Azure Cosmos DB for PostgreSQL
 stores rows in shards based on the value of the rows' distribution column.
 
 The correct choice groups related data together on the same physical nodes,
@@ -84,11 +84,11 @@ how they apply to common use cases.
 ### Multi-tenant apps
 
 The multi-tenant architecture uses a form of hierarchical database modeling to
-distribute queries across nodes in the server group. The top of the data
+distribute queries across nodes in the cluster. The top of the data
 hierarchy is known as the *tenant ID* and needs to be stored in a column on
 each table.
 
-Hyperscale (Citus) inspects queries to see which tenant ID they involve and
+Azure Cosmos DB for PostgreSQL inspects queries to see which tenant ID they involve and
 finds the matching table shard. It routes the query to a single worker node
 that contains the shard. Running a query with all relevant data placed on the
 same node is called colocation.
@@ -100,7 +100,7 @@ worker node, and blue shards are stored on another worker node. Notice how a
 join query between Accounts and Campaigns has all the necessary data together
 on one node when both tables are restricted to the same account\_id.
 
-![Multi-tenantcolocation](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+![Multi-tenantcolocation](media/concepts-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema, identify what constitutes a tenant in
 your application. Common instances include company, account, organization, or
@@ -136,7 +136,7 @@ We use "entity ID" as a term for distribution columns in the real-time model.
 Typical entities are users, hosts, or devices.
 
 Real-time queries typically ask for numeric aggregates grouped by date or
-category. Hyperscale (Citus) sends these queries to each shard for partial
+category. Azure Cosmos DB for PostgreSQL sends these queries to each shard for partial
 results and assembles the final answer on the coordinator node. Queries run
 fastest when as many nodes contribute as possible, and when no single node must
 do a disproportionate amount of work.
@@ -172,8 +172,8 @@ for an example of how to build this kind of application.
 In a time-series workload, applications query recent information while they 
 archive old information.
 
-The most common mistake in modeling time-series information in Hyperscale
-(Citus) is to use the timestamp itself as a distribution column. A hash
+The most common mistake in modeling time-series information in Azure Cosmos DB
+for PostgreSQL is to use the timestamp itself as a distribution column. A hash
 distribution based on time distributes times seemingly at random into different
 shards rather than keeping ranges of time together in shards. Queries that
 involve time generally reference ranges of time, for example, the most recent
@@ -187,7 +187,7 @@ data. This type of hash distribution leads to network overhead.
 -   **Use PostgreSQL table partitioning for time instead.** Use table
     partitioning to break a large table of time-ordered data into
     multiple inherited tables with each table containing different time
-    ranges. Distributing a Postgres-partitioned table in Hyperscale (Citus) 
+    ranges. Distributing a Postgres-partitioned table
     creates shards for the inherited tables.
 
 ## Next steps

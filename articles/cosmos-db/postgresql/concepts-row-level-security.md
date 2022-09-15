@@ -1,5 +1,5 @@
 ---
-title: Row level security – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Row level security – Azure Cosmos DB for PostgreSQL
 description: Multi-tenant security through database roles
 ms.author: jonels
 author: jonels-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/30/2022
 ---
 
-# Row-level security in Hyperscale (Citus)
+# Row-level security
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 PostgreSQL [row-level security
 policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)
 restrict which users can modify or access which table rows. Row-level security
-can be especially useful in a multi-tenant Hyperscale (Citus) server group. It
+can be especially useful in a multi-tenant cluster. It
 allows individual tenants to have full SQL access to the database while hiding
 each tenant’s information from other tenants.
 
@@ -25,7 +25,7 @@ each tenant’s information from other tenants.
 We can implement the separation of tenant data by using a naming convention for
 database roles that ties into table row-level security policies. We’ll assign
 each tenant a database role in a numbered sequence: `tenant1`, `tenant2`,
-etc. Tenants will connect to Citus using these separate roles. Row-level
+etc. Tenants will connect to Azure Cosmos DB for PostgreSQL using these separate roles. Row-level
 security policies can compare the role name to values in the `tenant_id`
 distribution column to decide whether to allow access.
 
@@ -113,5 +113,5 @@ ERROR:  new row violates row-level security policy for table "events_102055"
 
 ## Next steps
 
-Learn how to [create roles](howto-create-users.md) in a Hyperscale (Citus)
-server group.
+Learn how to [create roles](howto-create-users.md) in a
+cluster.

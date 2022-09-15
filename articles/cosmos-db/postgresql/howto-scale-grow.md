@@ -1,6 +1,6 @@
 ---
-title: Scale server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Adjust server group memory, disk, and CPU resources to deal with increased load
+title: Scale cluster - Azure Cosmos DB for PostgreSQL
+description: Adjust cluster memory, disk, and CPU resources to deal with increased load
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Scale a Hyperscale (Citus) server group
+# Scale a cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
+Azure Cosmos DB for PostgreSQL provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
 worker nodes, and to increase the vCores of existing nodes. Adding nodes causes
 no downtime, and even moving shards to the new nodes (called [shard
@@ -22,18 +22,10 @@ queries.
 
 ## Add worker nodes
 
-To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) server
-group.  Dragging the slider for **Worker node count** changes the value.
+To add nodes, go to the **Compute + storage** tab in your cluster.
+Dragging the slider for **Worker node count** changes the value.
 
-> [!NOTE]
->
-> A Hyperscale (Citus) server group created with the [basic
-> tier](concepts-server-group.md) has no workers. Increasing the worker
-> count automatically graduates the server group to the standard tier.  After
-> graduating a server group to the standard tier, you can't downgrade it back
-> to the basic tier.
-
-:::image type="content" source="media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
+:::image type="content" source="media/howto-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.
 
@@ -61,7 +53,7 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 
 > [!NOTE]
 > There is a vCore quota per Azure subscription per region.  The default quota
-> should be more than enough to experiment with Hyperscale (Citus).  If you
+> should be more than enough to experiment with Azure Cosmos DB for PostgreSQL.  If you
 > need more vCores for a region in your subscription, see how to [adjust
 > compute quotas](howto-compute-quota.md).
 
@@ -82,7 +74,7 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
 
 ## Next steps
 
-- Learn more about server group [performance options](resources-compute.md).
+- Learn more about cluster [performance options](resources-compute.md).
 - [Rebalance distributed table shards](howto-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
 - See the sizes of distributed tables, and other [useful diagnostic

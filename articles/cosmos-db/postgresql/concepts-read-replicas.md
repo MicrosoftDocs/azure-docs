@@ -1,6 +1,6 @@
 ---
-title: Read replicas - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: This article describes the read replica feature in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Read replicas - Azure Cosmos DB for PostgreSQL
+description: This article describes the read replica feature in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 06/17/2022
 ---
 
-# Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Read replicas in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The read replica feature allows you to replicate data from a Hyperscale (Citus)
-server group to a read-only server group. Replicas are updated
+The read replica feature allows you to replicate data from a
+cluster to a read-only cluster. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
 run to up to five replicas from the primary server.
 
-Replicas are new server groups that you manage similar to regular Hyperscale
-(Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GiB/month. Compute and storage costs for
-replica server groups are the same as for regular server groups.
+Replicas are new clusters that you manage similar to regular clusters. For each
+read replica, you're billed for the provisioned compute in vCores and storage
+in GiB/month. Compute and storage costs for replica clusters are the same as
+for regular clusters.
 
 Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 
@@ -50,9 +50,9 @@ delay.
 
 ## Create a replica
 
-When you start the create replica workflow, a blank Hyperscale (Citus) server
-group is created. The new group is filled with the data that was on the primary
-server group. The creation time depends on the amount of data on the primary
+When you start the create replica workflow, a blank cluster
+is created. The new cluster is filled with the data that was on the primary
+cluster. The creation time depends on the amount of data on the primary
 and the time since the last weekly full backup. The time can range from a few
 minutes to several hours.
 
@@ -66,15 +66,15 @@ portal](howto-read-replicas-portal.md).
 ## Connect to a replica
 
 When you create a replica, it doesn't inherit firewall rules the primary
-server group. These rules must be set up independently for the replica.
+cluster. These rules must be set up independently for the replica.
 
-The replica inherits the admin (`citus`) account from the primary server group.
+The replica inherits the admin (`citus`) account from the primary cluster.
 All user accounts are replicated to the read replicas. You can only connect to
 a read replica by using the user accounts that are available on the primary
 server.
 
 You can connect to the replica's coordinator node by using its hostname and a
-valid user account, as you would on a regular Hyperscale (Citus) server group.
+valid user account, as you would on a regular cluster.
 For instance, given a server named **my replica** with the admin username
 **citus**, you can connect to the coordinator node of the replica by using
 psql:
@@ -91,8 +91,8 @@ This section summarizes considerations about the read replica feature.
 
 ### New replicas
 
-A read replica is created as a new Hyperscale (Citus) server group. An existing
-server group can't be made into a replica. You can't create a replica of
+A read replica is created as a new cluster. An existing
+cluster can't be made into a replica. You can't create a replica of
 another read replica.
 
 ### Replica configuration
@@ -112,9 +112,9 @@ to the replica when the replica is created or afterwards.
 
 ### Cross-region replication (preview)
 
-Read replicas can be created in the region of the primary server group, or in
-any other [region supported by Hyperscale (Citus)](resources-regions.md). The
-limit of five replicas per server group counts across all regions, meaning five
+Read replicas can be created in the region of the primary cluster, or in
+any other [region supported by Azure Cosmos DB for PostgreSQL](resources-regions.md). The
+limit of five replicas per cluster counts across all regions, meaning five
 total, not five per region.
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Model multi-tenant apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Model multi-tenant apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable multi-tenant SaaS apps
 ms.author: jonels
 author: jonels-msft
@@ -20,7 +20,7 @@ The tenant ID is the column at the root of the workload, or the top of the
 hierarchy in your data-model. For example, in this SaaS e-commerce schema,
 it would be the store ID:
 
-![Diagram of tables, with the store_id column highlighted.](media/howto-hyperscale-build-scalable-apps/multi-tenant-id.png)
+![Diagram of tables, with the store_id column highlighted.](media/howto-build-scalable-apps/multi-tenant-id.png)
 
 This data model would be typical for a business such as Shopify. It hosts sites
 for multiple online stores, where each store interacts with its own data.
@@ -48,14 +48,14 @@ Colocating tables by store has advantages:
   the tenants to new nodes, or even isolate large tenants to their own nodes.
   Tenant isolation allows you to provide dedicated resources.
 
-![Diagram of tables colocated to the same nodes.](media/howto-hyperscale-build-scalable-apps/multi-tenant-colocation.png)
+![Diagram of tables colocated to the same nodes.](media/howto-build-scalable-apps/multi-tenant-colocation.png)
 
 ## Optimal data model for multi-tenant apps
 
 In this example, we should distribute the store-specific tables by store ID,
 and make `countries` a reference table.
 
-![Diagram of tables with store_id more universally highlighted.](media/howto-hyperscale-build-scalable-apps/multi-tenant-data-model.png)
+![Diagram of tables with store_id more universally highlighted.](media/howto-build-scalable-apps/multi-tenant-data-model.png)
 
 Notice that tenant-specific tables have the tenant ID and are distributed. In
 our example, stores, products and line\_items are distributed. The rest of the
@@ -76,10 +76,10 @@ SELECT create_reference_table('countries');
 
 Large tables should all have the tenant ID.
 
-* If you're **migrating an existing** multi-tenant app to Hyperscale (Citus),
+* If you're **migrating an existing** multi-tenant app to Azure Cosmos DB for PostgreSQL,
   you may need to denormalize a little and add the tenant ID column to large
   tables if it's missing, then backfill the missing values of the column.
-* For **new apps** on Hyperscale (Citus), make sure the tenant ID is present
+* For **new apps** on Azure Cosmos DB for PostgreSQL, make sure the tenant ID is present
   on all tenant-specific tables.
 
 Ensure to include the tenant ID on primary, unique, and foreign key constraints
@@ -102,7 +102,7 @@ SELECT *
 
 It's necessary to add the tenant ID filter even if the original filter
 conditions unambiguously identify the rows you want. The tenant ID filter,
-while seemingly redundant, tells Hyperscale (Citus) how to route the query to a
+while seemingly redundant, tells Azure Cosmos DB for PostgreSQL how to route the query to a
 single worker node.
 
 Similarly, when you're joining two distributed tables, ensure that both the

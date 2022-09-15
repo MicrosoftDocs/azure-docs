@@ -1,5 +1,5 @@
 ---
-title: Real-time data ingestion with Azure Stream Analytics - Hyperscale (Citus) - Azure DB for PostgreSQL
+title: Real-time data ingestion with Azure Stream Analytics - Azure Cosmos DB for PostgreSQL
 description: How to transform and ingest streaming data
 ms.author: sasriram
 author: saimicrosoft
@@ -19,15 +19,15 @@ process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data
 processing on IoT devices.
 
-:::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Hyperscale (Citus)." border="true":::
+:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Azure Cosmos DB for PostgreSQL." border="true":::
 
-Hyperscale (Citus) shines at real-time workloads such as
+Azure Cosmos DB for PostgreSQL shines at real-time workloads such as
 [IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
 Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
 alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
-Blob Storage into Hyperscale (Citus).
+Blob Storage into Azure Cosmos DB for PostgreSQL.
 
-## Steps to set up ASA with Hyperscale (Citus)
+## Steps to set up ASA
 
 > [!NOTE]
 >
@@ -49,11 +49,11 @@ Blob Storage into Hyperscale (Citus).
    * **Hosting environment** - **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.
 1. Select **Create**. You should see a **Deployment in progress...** notification displayed in the top right of your browser window.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-02-create.png" alt-text="Create Azure Stream Analytics form." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-02-create.png" alt-text="Create Azure Stream Analytics form." border="true":::
 
 1. Configure job input.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-03-input.png" alt-text="Configure job input in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-03-input.png" alt-text="Configure job input in Azure Stream Analytics." border="true":::
 
    1. Once the resource deployment is complete, navigate to your Stream Analytics
       job. Select **Inputs** > **Add Stream input** > **IoT Hub**.
@@ -87,7 +87,7 @@ Blob Storage into Hyperscale (Citus).
 
 1. Configure Job Output.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
    1. Select **Outputs** > **Add** > **Azure PostgreSQL**.
@@ -98,15 +98,15 @@ Blob Storage into Hyperscale (Citus).
    1. Select **Save** to save the settings.
 
       > [!NOTE]
-      > The **Test Connection** feature for Hyperscale (Citus) is currently not
+      > The **Test Connection** feature for Azure Cosmos DB for PostgreSQL is currently not
       > supported and might throw an error, even when the connection works fine.
 
 1. Define transformation query.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
-   1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
+   1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Azure Cosmos DB for PostgreSQL to reduce the overall data size.
 
       ```sql
       select
@@ -132,7 +132,7 @@ Blob Storage into Hyperscale (Citus).
 
    1. Return to the job overview page and select Start.
    1. Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
-   1. After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
+   1. After few minutes, you can query the cluster to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
 
       ```
       citus=> SELECT * FROM public.device_data LIMIT 10;
@@ -155,4 +155,4 @@ Blob Storage into Hyperscale (Citus).
 ## Next steps
 
 Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
+dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.

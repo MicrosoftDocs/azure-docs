@@ -1,6 +1,6 @@
 ---
-title: Connect to server - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to connect to and query a Hyperscale (Citus) server group
+title: Connect to server - Azure Cosmos DB for PostgreSQL
+description: Learn how to connect to and query a cluster
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/11/2022
 ---
 
-# Connect to a server group
+# Connect to a cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Choose your database client below to learn how to configure it to connect to
-Hyperscale (Citus).
+the cluster.
 
 # [pgAdmin](#tab/pgadmin)
 
@@ -26,20 +26,20 @@ administration and development platform for PostgreSQL.
 2. Open the pgAdmin application on your client computer. From the Dashboard,
    select **Add New Server**.
 
-   ![pgAdmin dashboard](media/howto-hyperscale-connect/pgadmin-dashboard.png)
+   ![pgAdmin dashboard](media/howto-connect/pgadmin-dashboard.png)
 
 3. Choose a **Name** in the General tab. Any name will work.
 
-   ![pgAdmin general connection settings](media/howto-hyperscale-connect/pgadmin-general.png)
+   ![pgAdmin general connection settings](media/howto-connect/pgadmin-general.png)
 
 4. Enter connection details in the Connection tab.
 
-   ![pgAdmin db connection settings](media/howto-hyperscale-connect/pgadmin-connection.png)
+   ![pgAdmin db connection settings](media/howto-connect/pgadmin-connection.png)
 
    Customize the following fields:
 
    * **Host name/address**: Obtain this value from the **Overview** page for your
-     server group in the Azure portal. It's listed there as **Coordinator name**.
+     cluster in the Azure portal. It's listed there as **Coordinator name**.
      It will be of the form, `c.myservergroup.postgres.database.azure.com`.
    * **Maintenance database**: use the value `citus`.
    * **Username**: use the value `citus`.
@@ -48,7 +48,7 @@ administration and development platform for PostgreSQL.
 
 5. In the SSL tab, set **SSL mode** to **Require**.
 
-   ![pgAdmin ssl settings](media/howto-hyperscale-connect/pgadmin-ssl.png)
+   ![pgAdmin ssl settings](media/howto-connect/pgadmin-ssl.png)
 
 6. Select **Save** to save and connect to the database.
 
@@ -62,7 +62,7 @@ interactively, issue them to PostgreSQL, and see the query results.
    installation](https://www.postgresql.org/docs/current/tutorial-install.html),
    or available separately in package managers for several operating systems.
 
-2. Obtain the connection string. In the server group page, select the
+2. Obtain the connection string. In the cluster page, select the
    **Connection strings** menu item.
 
    ![get connection string](media/quickstart-connect-psql/get-connection-string.png)
@@ -75,7 +75,7 @@ interactively, issue them to PostgreSQL, and see the query results.
    * Replace "{your\_password}" with the administrative password you chose earlier.
    * Notice the hostname starts with a `c.`, for instance
      `c.demo.postgres.database.azure.com`. This prefix indicates the
-     coordinator node of the server group.
+     coordinator node of the cluster.
    * The default dbname and username is `citus` and can't be changed.
 
 3. In a local terminal prompt, paste the psql connection string, *substituting

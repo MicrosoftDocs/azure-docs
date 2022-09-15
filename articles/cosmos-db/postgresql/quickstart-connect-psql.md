@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: connect to a server group with psql - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: Quickstart to connect psql to Azure Database for PostgreSQL - Hyperscale (Citus).
+title: 'Quickstart: connect to a cluster with psql - Azure Cosmos DB for PostgreSQL'
+description: Quickstart to connect psql to Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 recommendations: false
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/05/2022
 ---
 
-# Connect to a Hyperscale (Citus) server group with psql
+# Connect to a cluster with psql
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -19,13 +19,13 @@ ms.date: 05/05/2022
 
 To follow this quickstart, you'll first need to:
 
-* [Create a server group](quickstart-create-portal.md) in the Azure portal.
+* [Create a cluster](quickstart-create-portal.md) in the Azure portal.
 
 ## Connect
 
-When you create your Hyperscale (Citus) server group, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
+When you create your cluster, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 
-1. Obtain the connection string. In the server group page, select the
+1. Obtain the connection string. In the cluster page, select the
    **Connection strings** menu item.
 
    ![get connection string](media/quickstart-connect-psql/get-connection-string.png)
@@ -38,7 +38,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
    * Replace "{your\_password}" with the administrative password you chose earlier.
    * Notice the hostname starts with a `c.`, for instance
      `c.demo.postgres.database.azure.com`. This prefix indicates the
-     coordinator node of the server group.
+     coordinator node of the cluster.
    * The default dbname and username is `citus` and can't be changed.
 
 2. Open the Azure Cloud Shell. Select the **Cloud Shell** icon in the Azure portal.
@@ -71,7 +71,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
    ```
 
    You should see a result matching the PostgreSQL version you selected
-   during server group creation. For instance:
+   during cluster creation. For instance:
 
    ```
     server_version
@@ -82,7 +82,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
 
 ## Next steps
 
-Now that you've connected to the server group, the next step is to create
+Now that you've connected to the cluster, the next step is to create
 tables and shard them for horizontal scaling.
 
 > [!div class="nextstepaction"]

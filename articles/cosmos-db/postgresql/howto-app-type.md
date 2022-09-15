@@ -1,5 +1,5 @@
 ---
-title: Determine application type - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Determine application type - Azure Cosmos DB for PostgreSQL
 description: Identify your application for effective distributed data modeling
 ms.author: jonels
 author: jonels-msft
@@ -13,13 +13,13 @@ ms.date: 07/17/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Running efficient queries on a Hyperscale (Citus) server group requires that
+Running efficient queries on a cluster requires that
 tables be properly distributed across servers. The recommended distribution
 varies by the type of application and its query patterns.
 
-There are broadly two kinds of applications that work well on Hyperscale
-(Citus). The first step in data modeling is to identify which of them more
-closely resembles your application.
+There are broadly two kinds of applications that work well on Azure Cosmos DB
+for PostgreSQL. The first step in data modeling is to identify which of them
+more closely resembles your application.
 
 ## At a Glance
 
@@ -39,7 +39,7 @@ closely resembles your application.
 > relational. They have a natural dimension on which to distribute data
 > across nodes: just shard by tenant\_id.
 >
-> Hyperscale (Citus) enables you to scale out your database to millions of
+> Azure Cosmos DB for PostgreSQL enables you to scale out your database to millions of
 > tenants without having to re-architect your application. You can keep the
 > relational semantics you need, like joins, foreign key constraints,
 > transactions, ACID, and consistency.
@@ -54,7 +54,7 @@ closely resembles your application.
 >     in your database schema is also an indicator for the multi-tenant
 >     data model.
 >
-> Scaling a multi-tenant app with Hyperscale (Citus) also requires minimal
+> Scaling a multi-tenant app with Azure Cosmos DB for PostgreSQL also requires minimal
 > changes to application code. We have support for popular frameworks like Ruby
 > on Rails and Django.
 
@@ -62,7 +62,7 @@ closely resembles your application.
 
 > Applications needing massive parallelism, coordinating hundreds of cores for
 > fast results to numerical, statistical, or counting queries.  By sharding and
-> parallelizing SQL queries across multiple nodes, Hyperscale (Citus) makes it
+> parallelizing SQL queries across multiple nodes, Azure Cosmos DB for PostgreSQL makes it
 > possible to perform real-time queries across billions of records in under a
 > second.
 >
@@ -78,7 +78,7 @@ closely resembles your application.
 >     aggregations and GROUP BYs.
 
 If your situation resembles either case above, then the next step is to decide
-how to shard your data in the server group. The database administrator\'s
+how to shard your data in the cluster. The database administrator\'s
 choice of distribution columns needs to match the access patterns of typical
 queries to ensure performance.
 

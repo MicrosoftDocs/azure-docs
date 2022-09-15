@@ -1,15 +1,15 @@
 ---
 author: jonels-msft
 ms.author: jonels
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: include
 ms.date: 08/11/2022
 ---
 
-* See how the [Hyperscale (Citus) API](../reference-overview.md) extends
+* See how the [Azure Cosmos DB for PostgreSQL API](../reference-overview.md) extends
   PostgreSQL, and try [useful diagnostic
   queries](../howto-useful-diagnostic-queries.md)
-* Pick the best [server group size](../howto-scale-initial.md) for your
+* Pick the best [cluster size](../howto-scale-initial.md) for your
   workload
-* [Monitor](../howto-monitoring.md) server group performance
+* [Monitor](../howto-monitoring.md) cluster performance

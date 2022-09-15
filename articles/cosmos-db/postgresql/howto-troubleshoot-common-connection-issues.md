@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot connections - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Troubleshoot connections - Azure Cosmos DB for PostgreSQL
+description: Learn how to troubleshoot connection issues to Azure Cosmos DB for PostgreSQL
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 ms.author: jonels
 author: jonels-msft
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/17/2021
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+# Troubleshoot connection issues to Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -19,12 +19,12 @@ Connection problems may be caused by several things, such as:
 * Firewall settings
 * Connection time-out
 * Incorrect sign in information
-* Connection limit reached for server group
+* Connection limit reached for cluster
 * Issues with the infrastructure of the service
 * Service maintenance
 * The coordinator node failing over to new hardware
 
-Generally, connection issues to Hyperscale (Citus) can be classified as follows:
+Generally, connection issues to Azure Cosmos DB for PostgreSQL can be classified as follows:
 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
@@ -35,7 +35,7 @@ Transient errors occur for a number of reasons. The most common include system
 Maintenance, error with hardware or software, and coordinator node vCore
 upgrades.
 
-Enabling high availability for Hyperscale (Citus) server group nodes can mitigate these
+Enabling high availability for cluster nodes can mitigate these
 types of problems automatically. However, your application should still be
 prepared to lose its connection briefly. Also other events can take longer to
 mitigate, such as when a large transaction causes a long-running recovery.
@@ -45,11 +45,11 @@ mitigate, such as when a large transaction causes a long-running recovery.
 1. Check the [Microsoft Azure Service
    Dashboard](https://azure.microsoft.com/status) for any known outages that
    occurred during the time in which the application was reporting errors.
-2. Applications that connect to a cloud service such as Hyperscale (Citus)
+2. Applications that connect to a cloud service such as Azure Cosmos DB for PostgreSQL
    should expect transient errors and react gracefully. For instance,
    applications should implement retry logic to handle these errors instead of
    surfacing them as application errors to users.
-3. As the server group approaches its resource limits, errors can seem like
+3. As the cluster approaches its resource limits, errors can seem like
    transient connectivity issues. Increasing node RAM, or adding worker nodes
    and rebalancing data may help.
 4. If connectivity problems continue, or last longer than 60 seconds, or happen
@@ -59,10 +59,10 @@ mitigate, such as when a large transaction causes a long-running recovery.
 
 ## Troubleshoot persistent errors
 
-If the application persistently fails to connect to Hyperscale (Citus), the
+If the application persistently fails to connect to Azure Cosmos DB for PostgreSQL, the
 most common causes are firewall misconfiguration or user error.
 
-* Coordinator node firewall configuration: Make sure that the Hyperscale (Citus) server
+* Coordinator node firewall configuration: Make sure that the server
   firewall is configured to allow connections from your client, including proxy
   servers and gateways.
 * Client firewall configuration: The firewall on your client must allow
@@ -71,8 +71,8 @@ most common causes are firewall misconfiguration or user error.
 * User error: Double-check the connection string. You might have mistyped
   parameters like the server name. You can find connection strings for various
   language frameworks and psql in the Azure portal. Go to the **Connection
-  strings** page in your Hyperscale (Citus) server group. Also keep in mind that
-  Hyperscale (Citus) clusters have only one database and its predefined name is
+  strings** page in your cluster. Also keep in mind that
+  clusters have only one database and its predefined name is
   **citus**.
 
 ### Steps to resolve persistent connectivity issues
@@ -92,5 +92,5 @@ most common causes are firewall misconfiguration or user error.
 
 ## Next steps
 
-* Learn the concepts of [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-firewall-rules.md)
-* See how to [Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)](howto-manage-firewall-using-portal.md)
+* Learn the concepts of [Firewall rules in Azure Cosmos DB for PostgreSQL](concepts-firewall-rules.md)
+* See how to [Manage firewall rules for Azure Cosmos DB for PostgreSQL](howto-manage-firewall-using-portal.md)

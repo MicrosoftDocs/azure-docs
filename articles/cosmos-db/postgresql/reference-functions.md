@@ -1,6 +1,6 @@
 ---
-title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Functions in the Hyperscale (Citus) SQL API
+title: SQL functions – Azure Cosmos DB for PostgreSQL
+description: Functions in the Azure Cosmos DB for PostgreSQL SQL API
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: reference
 ms.date: 02/24/2022
 ---
 
-# Functions in the Hyperscale (Citus) SQL API
+# Functions in the Azure Cosmos DB for PostgreSQL SQL API
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This section contains reference information for the user-defined functions
-provided by Hyperscale (Citus). These functions help in providing
-distributed functionality to Hyperscale (Citus).
+provided by Azure Cosmos DB for PostgreSQL. These functions help in providing
+distributed functionality to Azure Cosmos DB for PostgreSQL.
 
 > [!NOTE]
 >
-> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the functions listed below.
 
 ## Table and Shard DDL
@@ -185,7 +185,7 @@ SELECT alter_distributed_table('github_events', colocate_with:='another_table');
 
 The update_distributed_table_colocation() function is used to update colocation
 of a distributed table. This function can also be used to break colocation of a
-distributed table. Citus will implicitly colocate two tables if the
+distributed table. Azure Cosmos DB for PostgreSQL will implicitly colocate two tables if the
 distribution column is the same type, this can be useful if the tables are
 related and will do some joins. If tables A and B are colocated, and table A
 gets rebalanced, table B will also be rebalanced. If table B doesn't have a
@@ -246,7 +246,7 @@ or create_reference_table. Undistributing moves all data from shards back into
 a local table on the coordinator node (assuming the data can fit), then deletes
 the shards.
 
-Citus won't undistribute tables that have--or are referenced by--foreign
+Azure Cosmos DB for PostgreSQL won't undistribute tables that have--or are referenced by--foreign
 keys, unless the cascade_via_foreign_keys argument is set to true. If this
 argument is false (or omitted), then you must manually drop the offending
 foreign key constraints before undistributing.
@@ -280,7 +280,7 @@ SELECT undistribute_table('github_events');
 
 Propagates a function from the coordinator node to workers, and marks it for
 distributed execution. When a distributed function is called on the
-coordinator, Hyperscale (Citus) uses the value of the \"distribution argument\"
+coordinator, Azure Cosmos DB for PostgreSQL uses the value of the \"distribution argument\"
 to pick a worker node to run the function. Executing the function on workers
 increases parallelism, and can bring the code closer to data in shards for
 lower latency.
@@ -511,7 +511,7 @@ CALL alter_old_partitions_set_access_method(
 
 ### get\_shard\_id\_for\_distribution\_column
 
-Hyperscale (Citus) assigns every row of a distributed table to a shard based on
+Azure Cosmos DB for PostgreSQL assigns every row of a distributed table to a shard based on
 the value of the row's distribution column and the table's method of
 distribution. In most cases, the precise mapping is a low-level detail that the
 database administrator can ignore. However it can be useful to determine a
@@ -528,7 +528,7 @@ doesn't work for the append distribution.
 
 #### Return Value
 
-The shard ID Hyperscale (Citus) associates with the distribution column value
+The shard ID Azure Cosmos DB for PostgreSQL associates with the distribution column value
 for the given table.
 
 #### Example
@@ -704,7 +704,7 @@ SELECT * from citus_get_active_worker_nodes();
 (3 rows)
 ```
 
-## Server group management and repair
+## Cluster management and repair
 
 ### master\_copy\_shard\_placement
 
@@ -810,7 +810,7 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 The rebalance\_table\_shards() function moves shards of the given table to
 distribute them evenly among the workers. The function first calculates the
-list of moves it needs to make in order to ensure that the server group is
+list of moves it needs to make in order to ensure that the cluster is
 balanced within the given threshold. Then, it moves shard placements one by one
 from the source node to the destination node and updates the corresponding
 shard metadata to reflect the move.
@@ -905,7 +905,7 @@ Output the planned shard movements of
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
 arguments will do. They aren't executed at the same time, so facts about the
-server group \-- for example, disk space \-- might differ between the calls.
+cluster \-- for example, disk space \-- might differ between the calls.
 
 #### Arguments
 
@@ -1045,8 +1045,8 @@ SELECT * from citus_remote_connection_stats();
 ### isolate\_tenant\_to\_new\_shard
 
 This function creates a new shard to hold rows with a specific single value in
-the distribution column. It's especially handy for the multi-tenant Hyperscale
-(Citus) use case, where a large tenant can be placed alone on its own shard and
+the distribution column. It's especially handy for the multi-tenant
+use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
 
 #### Arguments

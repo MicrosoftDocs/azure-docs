@@ -1,6 +1,6 @@
 ---
-title: Supported versions – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: PostgreSQL versions available in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Supported versions – Azure Cosmos DB for PostgreSQL
+description: PostgreSQL versions available in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/28/2021
 ---
 
-# Supported database versions in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Supported database versions in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## PostgreSQL versions
 
-The version of PostgreSQL running in a Hyperscale (Citus) server group is
-customizable during creation. Hyperscale (Citus) currently supports the
+The version of PostgreSQL running in a cluster is
+customizable during creation. Azure Cosmos DB for PostgreSQL currently supports the
 following major [PostgreSQL
 versions](https://www.postgresql.org/docs/release/):
 
@@ -46,12 +46,11 @@ learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older
 
-We don't support PostgreSQL version 10 and older for Azure Database for
-PostgreSQL - Hyperscale (Citus).
+We don't support PostgreSQL version 10 and older for Azure Cosmos DB for PostgreSQL.
 
 ## Citus and other extension versions
 
-Depending on which version of PostgreSQL is running in a server group,
+Depending on which version of PostgreSQL is running in a cluster,
 different [versions of PostgreSQL extensions](reference-extensions.md)
 will be installed as well. In particular, PostgreSQL 14 comes with Citus 11, PostgreSQL versions 12 and 13 come with
 Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
@@ -60,5 +59,4 @@ Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 * See which [extensions](reference-extensions.md) are installed in
   which versions.
-* Learn to [create a Hyperscale (Citus) server
-  group](quickstart-create-portal.md).
+* Learn to [create a cluster](quickstart-create-portal.md).

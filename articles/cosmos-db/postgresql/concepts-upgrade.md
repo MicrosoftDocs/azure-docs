@@ -1,5 +1,5 @@
 ---
-title: Server group upgrades - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Cluster upgrades - Azure Cosmos DB for PostgreSQL
 description: Types of upgrades, and their precautions
 ms.author: jonels
 author: jonels-msft
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2022
 ---
 
-# Hyperscale (Citus) server group upgrades
+# Cluster upgrades
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The Hyperscale (Citus) managed service can handle upgrades of both the
+The Azure Cosmos DB for PostgreSQL managed service can handle upgrades of both the
 PostgreSQL server, and the Citus extension. You can choose these versions
 mostly independently of one another, except Citus 11 requires PostgreSQL 13 or
 higher.

@@ -1,6 +1,6 @@
 ---
-title: Logs - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to access database logs for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Logs - Azure Cosmos DB for PostgreSQL
+description: How to access database logs for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,39 +9,39 @@ ms.topic: how-to
 ms.date: 9/13/2021
 ---
 
-# Logs in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Logs in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-PostgreSQL database server logs are available for every node of a Hyperscale
-(Citus) server group. You can ship logs to a storage server, or to an analytics
+PostgreSQL database server logs are available for every node of a
+cluster. You can ship logs to a storage server, or to an analytics
 service. The logs can be used to identify, troubleshoot, and repair
 configuration errors and suboptimal performance.
 
 ## Capturing logs
 
-To access PostgreSQL logs for a Hyperscale (Citus) coordinator or worker node,
+To access PostgreSQL logs for a coordinator or worker node,
 you have to enable the PostgreSQLLogs diagnostic setting. In the Azure
 portal, open **Diagnostic settings**, and select **+ Add diagnostic setting**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
+:::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
 
 Pick a name for the new diagnostics settings, check the **PostgreSQLLogs** box,
 and check the **Send to Log Analytics workspace** box.  Then select **Save**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
+:::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
 
 ## Viewing logs
 
 To view and filter the logs, we'll use Kusto queries. Open **Logs** in the
-Azure portal for your Hyperscale (Citus) server group. If a query selection
+Azure portal for your cluster. If a query selection
 dialog appears, close it:
 
-:::image type="content" source="media/howto-hyperscale-logging/logs-dialog.png" alt-text="Logs page with dialog box open":::
+:::image type="content" source="media/howto-logging/logs-dialog.png" alt-text="Logs page with dialog box open":::
 
 You'll then see an input box to enter queries.
 
-:::image type="content" source="media/howto-hyperscale-logging/logs-query.png" alt-text="Input box to query logs":::
+:::image type="content" source="media/howto-logging/logs-query.png" alt-text="Input box to query logs":::
 
 Enter the following query and select the **Run** button.
 
@@ -58,7 +58,7 @@ name like this:
 ```kusto
 AzureDiagnostics
 | project TimeGenerated, Message, errorLevel_s, LogicalServerName_s
-| where LogicalServerName_s == 'example-server-group-c'
+| where LogicalServerName_s == 'example-cluster-c'
 | where errorLevel_s == 'ERROR'
 ```
 

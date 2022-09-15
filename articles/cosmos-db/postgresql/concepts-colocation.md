@@ -1,5 +1,5 @@
 ---
-title: Table colocation - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Table colocation - Azure Cosmos DB for PostgreSQL
 description: How to store related information together for faster queries
 ms.author: jonels
 author: jonels-msft
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
-# Table colocation in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Table colocation in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -17,9 +17,9 @@ Colocation means storing related information together on the same nodes. Queries
 
 ## Data colocation for hash-distributed tables
 
-In Azure Database for PostgreSQL – Hyperscale (Citus), a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
+In Azure Cosmos DB for PostgreSQL, a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Diagram shows shards with the same hash range placed on the same node for events shards and page shards." border="false":::
+:::image type="content" source="media/concepts-colocation/colocation-shards.png" alt-text="Diagram shows shards with the same hash range placed on the same node for events shards and page shards." border="false":::
 
 ## A practical example of colocation
 
@@ -47,7 +47,7 @@ Now we want to answer queries that might be issued by a customer-facing
 dashboard. An example query is "Return the number of visits in the past week for
 all pages starting with '/blog' in tenant six."
 
-If our data was in the Single-Server deployment option, we could easily express
+If our data was in a single PostgreSQL server, we could easily express
 our query by using the rich set of relational operations offered by SQL:
 
 ```sql
@@ -63,13 +63,13 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-As long as the [working set](https://en.wikipedia.org/wiki/Working_set) for this query fits in memory, a single-server table is an appropriate solution. Let's consider the opportunities of scaling the data model with the Hyperscale (Citus) deployment option.
+As long as the [working set](https://en.wikipedia.org/wiki/Working_set) for this query fits in memory, a single-server table is an appropriate solution. Let's consider the opportunities of scaling the data model with Azure Cosmos DB for PostgreSQL.
 
 ### Distribute tables by ID
 
 Single-server queries start slowing down as the number of tenants and the data stored for each tenant grows. The working set stops fitting in memory and CPU becomes a bottleneck.
 
-In this case, we can shard the data across many nodes by using Hyperscale (Citus). The
+In this case, we can shard the data across many nodes by using Azure Cosmos DB for PostgreSQL. The
 first and most important choice we need to make when we decide to shard is the
 distribution column. Let's start with a naive choice of using `event_id` for
 the event table and `page_id` for the `page` table:
@@ -101,7 +101,7 @@ application.
 
 Running the queries must consult data in shards scattered across nodes.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Diagram shows an inefficient approach that uses multiple queries against the event and page tables in two nodes." border="false":::
+:::image type="content" source="media/concepts-colocation/colocation-inefficient-queries.png" alt-text="Diagram shows an inefficient approach that uses multiple queries against the event and page tables in two nodes." border="false":::
 
 In this case, the data distribution creates substantial drawbacks:
 
@@ -116,7 +116,7 @@ greater than the overhead of querying many shards.
 
 ### Distribute tables by tenant
 
-In Hyperscale (Citus), rows with the same distribution column value are guaranteed to
+In Azure Cosmos DB for PostgreSQL, rows with the same distribution column value are guaranteed to
 be on the same node. Starting over, we can create our tables with `tenant_id`
 as the distribution column.
 
@@ -126,7 +126,7 @@ SELECT create_distributed_table('event', 'tenant_id');
 SELECT create_distributed_table('page', 'tenant_id', colocate_with => 'event');
 ```
 
-Now Hyperscale (Citus) can answer the original single-server query without modification (Q1):
+Now Azure Cosmos DB for PostgreSQL can answer the original single-server query without modification (Q1):
 
 ```sql
 SELECT page_id, count(event_id)
@@ -141,12 +141,12 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Because of filter and join on tenant_id, Hyperscale (Citus) knows that the entire
+Because of filter and join on tenant_id, Azure Cosmos DB for PostgreSQL knows that the entire
 query can be answered by using the set of colocated shards that contain the data
 for that particular tenant. A single PostgreSQL node can answer the query in
 a single step.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Diagram shows a single query to one node, which is a more efficient approach." border="false":::
+:::image type="content" source="media/concepts-colocation/colocation-better-query.png" alt-text="Diagram shows a single query to one node, which is a more efficient approach." border="false":::
 
 In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. This change is usually straightforward.
 

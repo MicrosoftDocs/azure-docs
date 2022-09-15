@@ -1,15 +1,15 @@
 ---
-title: Performance tuning - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Performance tuning - Azure Cosmos DB for PostgreSQL
 description: Improving query performance in the distributed database
 ms.author: jonels
 author: jonels-msft
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 08/30/2022
 ---
 
-# Hyperscale (Citus) performance tuning
+# Performance tuning
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -27,15 +27,14 @@ application releases the connection back to the pool rather than closing it.
 
 Adding a client-side connection pool is an easy way to boost application
 performance with minimal code changes. In our measurements, running single-row
-insert statements goes about **24x faster** on a Hyperscale (Citus) server
-group with pooling enabled.
+insert statements goes about **24x faster** on a cluster with pooling enabled.
 
 For language-specific examples of adding pooling in application code, see the
 [app stacks guide](quickstart-app-stacks-overview.md).
 
 > [!NOTE]
 >
-> Hyperscale (Citus) also provides [server-side connection
+> Azure Cosmos DB for PostgreSQL also provides [server-side connection
 > pooling](concepts-connection-pool.md) using pgbouncer, but it mainly serves
 > to increase the client connection limit. An individual application's
 > performance benefits more from client- rather than server-side pooling.
@@ -66,8 +65,8 @@ UPDATE ads
  WHERE id = 42; -- missing filter on distribution column
 ```
 
-Although the query uniquely identifies a row and updates it, Hyperscale (Citus)
-doesn't know, at planning time, which shard the query will update. Citus takes a
+Although the query uniquely identifies a row and updates it, Azure Cosmos DB for PostgreSQL
+doesn't know, at planning time, which shard the query will update. The Citus extension takes a
 ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
 trying to update the table.
 
@@ -83,7 +82,7 @@ UPDATE ads
    AND company_id = 1; -- the distribution column
 ```
 
-The Hyperscale (Citus) query planner sees a direct filter on the distribution
+The Azure Cosmos DB for PostgreSQL query planner sees a direct filter on the distribution
 column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
@@ -280,7 +279,7 @@ setting to automate idle session termination.
 
 #### Deadlocks
 
-Citus detects distributed deadlocks and cancels their queries, but the
+Azure Cosmos DB for PostgreSQL detects distributed deadlocks and cancels their queries, but the
 situation is less performant than avoiding deadlocks in the first place. A
 common source of deadlocks comes from updating the same set of rows in a
 different order from multiple transactions at once.
@@ -314,12 +313,12 @@ In our measurement, bulk updating a set of rows with many transactions went
 
 ## I/O during ingestion
 
-I/O bottlenecking is typically less of a problem for Hyperscale (Citus) than
+I/O bottlenecking is typically less of a problem for Azure Cosmos DB for PostgreSQL than
 for single-node PostgreSQL because of sharding. The shards are individually
 smaller tables, with better index and cache hit rates, yielding better
 performance.
 
-However, even with Hyperscale (Citus), as tables and indices grow larger, disk
+However, even with Azure Cosmos DB for PostgreSQL, as tables and indices grow larger, disk
 I/O can become a problem for data ingestion.  Things to look out for are an
 increasing number of 'IO' `wait_event_type` entries appearing in
 `citus_stat_activity`:
@@ -342,7 +341,7 @@ Tips:
 - If your data is naturally ordered, such as in a time series, use PostgreSQL
    table partitioning. See [this
    guide](https://docs.citusdata.com/en/stable/use_cases/timeseries.html) to learn
-   how to partition distributed tables in Hyperscale (Citus).
+   how to partition distributed tables.
 
 - Remove unused indices. Index maintenance causes I/O amplification during
    ingestion.  To find which indices are unused, use [this

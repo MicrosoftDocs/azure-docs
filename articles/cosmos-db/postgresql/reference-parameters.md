@@ -1,6 +1,6 @@
 ---
-title: Server parameters – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Parameters in the Hyperscale (Citus) SQL API
+title: Server parameters – Azure Cosmos DB for PostgreSQL
+description: Parameters in the Azure Cosmos DB for PostgreSQL SQL API
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -13,18 +13,18 @@ ms.date: 08/02/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-There are various server parameters that affect the behavior of Hyperscale
-(Citus), both from standard PostgreSQL, and specific to Hyperscale (Citus).
-These parameters can be set in the Azure portal for a Hyperscale (Citus) server
-group. Under the **Settings** category, choose **Worker node parameters** or
+There are various server parameters that affect the behavior of Azure Cosmos DB for PostgreSQL,
+both from standard PostgreSQL, and specific to Azure Cosmos DB for PostgreSQL.
+These parameters can be set in the Azure portal for a cluster.
+Under the **Settings** category, choose **Worker node parameters** or
 **Coordinator node parameters**. These pages allow you to set parameters for
 all worker nodes, or just for the coordinator node.
 
-## Hyperscale (Citus) parameters
+## Azure Cosmos DB for PostgreSQL parameters
 
 > [!NOTE]
 >
-> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the parameters listed below.
 
 ### General configuration
@@ -49,10 +49,10 @@ cluster alone.
 
 #### citus.enable\_version\_checks (boolean)
 
-Upgrading Hyperscale (Citus) version requires a server restart (to pick up the
+Upgrading Azure Cosmos DB for PostgreSQL version requires a server restart (to pick up the
 new shared-library), followed by the ALTER EXTENSION UPDATE command.  The
 failure to execute both steps could potentially cause errors or crashes.
-Hyperscale (Citus) thus validates the version of the code and that of the
+Azure Cosmos DB for PostgreSQL thus validates the version of the code and that of the
 extension match, and errors out if they don\'t.
 
 This value defaults to true, and is effective on the coordinator. In
@@ -75,7 +75,7 @@ deadlock detection.
 #### citus.node\_connection\_timeout (integer)
 
 The `citus.node_connection_timeout` GUC sets the maximum duration (in
-milliseconds) to wait for connection establishment. Hyperscale (Citus) raises
+milliseconds) to wait for connection establishment. Azure Cosmos DB for PostgreSQL raises
 an error if the timeout elapses before at least one worker connection is
 established. This GUC affects connections from the coordinator to workers, and
 workers to each other.
@@ -117,7 +117,7 @@ DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connect
 
 #### citus.show\_shards\_for\_app\_name\_prefixes (text)
 
-By default, Citus hides shards from the list of tables PostgreSQL gives to SQL
+By default, Azure Cosmos DB for PostgreSQL hides shards from the list of tables PostgreSQL gives to SQL
 clients. It does this because there are multiple shards per distributed table,
 and the shards can be distracting to the SQL client.
 
@@ -224,28 +224,28 @@ failures on a more frequent basis.
 
 #### citus.local_table_join_policy (enum)
 
-This GUC determines how Hyperscale (Citus) moves data when doing a join between
+This GUC determines how Azure Cosmos DB for PostgreSQL moves data when doing a join between
 local and distributed tables. Customizing the join policy can help reduce the
 amount of data sent between worker nodes.
 
-Hyperscale (Citus) will send either the local or distributed tables to nodes as
+Azure Cosmos DB for PostgreSQL will send either the local or distributed tables to nodes as
 necessary to support the join. Copying table data is referred to as a
 “conversion.” If a local table is converted, then it will be sent to any
 workers that need its data to perform the join. If a distributed table is
 converted, then it will be collected in the coordinator to support the join.
-The Citus planner will send only the necessary rows doing a conversion.
+The Azure Cosmos DB for PostgreSQL planner will send only the necessary rows doing a conversion.
 
 There are four modes available to express conversion preference:
 
-* **auto:** (Default) Citus will convert either all local or all distributed
-  tables to support local and distributed table joins. Citus decides which to
+* **auto:** (Default) Azure Cosmos DB for PostgreSQL will convert either all local or all distributed
+  tables to support local and distributed table joins. Azure Cosmos DB for PostgreSQL decides which to
   convert using a heuristic. It will convert distributed tables if they're
   joined using a constant filter on a unique index (such as a primary key). The
   conversion ensures less data gets moved between workers.
-* **never:** Citus won't allow joins between local and distributed tables.
-* **prefer-local:** Citus will prefer converting local tables to support local
+* **never:** Azure Cosmos DB for PostgreSQL won't allow joins between local and distributed tables.
+* **prefer-local:** Azure Cosmos DB for PostgreSQL will prefer converting local tables to support local
   and distributed table joins.
-* **prefer-distributed:** Citus will prefer converting distributed tables to
+* **prefer-distributed:** Azure Cosmos DB for PostgreSQL will prefer converting distributed tables to
   support local and distributed table joins. If the distributed tables are
   huge, using this option might result in moving lots of data between workers.
 
@@ -289,7 +289,7 @@ be set at run-time and is effective on the coordinator.
 
 #### citus.count\_distinct\_error\_rate (floating point)
 
-Hyperscale (Citus) can calculate count(distinct) approximates using the
+Azure Cosmos DB for PostgreSQL can calculate count(distinct) approximates using the
 postgresql-hll extension. This configuration entry sets the desired
 error rate when calculating count(distinct). 0.0, which is the default,
 disables approximations for count(distinct); and 1.0 provides no
@@ -342,13 +342,13 @@ message.
 
 ##### citus.all\_modifications\_commutative
 
-Hyperscale (Citus) enforces commutativity rules and acquires appropriate locks
+Azure Cosmos DB for PostgreSQL enforces commutativity rules and acquires appropriate locks
 for modify operations in order to guarantee correctness of behavior. For
 example, it assumes that an INSERT statement commutes with another INSERT
 statement, but not with an UPDATE or DELETE statement. Similarly, it assumes
 that an UPDATE or DELETE statement doesn't commute with another UPDATE or
 DELETE statement. This precaution means that UPDATEs and DELETEs require
-Hyperscale (Citus) to acquire stronger locks.
+Azure Cosmos DB for PostgreSQL to acquire stronger locks.
 
 If you have UPDATE statements that are commutative with your INSERTs or
 other UPDATEs, then you can relax these commutativity assumptions by
@@ -359,7 +359,7 @@ effective on the coordinator.
 
 ##### citus.remote\_task\_check\_interval (integer)
 
-Sets the frequency at which Hyperscale (Citus) checks for statuses of jobs
+Sets the frequency at which Azure Cosmos DB for PostgreSQL checks for statuses of jobs
 managed by the task tracker executor. It defaults to 10 ms. The coordinator
 assigns tasks to workers, and then regularly checks with them about each
 task\'s progress. This configuration value sets the time interval between two
@@ -368,7 +368,7 @@ set at runtime.
 
 ##### citus.task\_executor\_type (enum)
 
-Hyperscale (Citus) has three executor types for running distributed SELECT
+Azure Cosmos DB for PostgreSQL has three executor types for running distributed SELECT
 queries.  The desired executor can be selected by setting this configuration
 parameter. The accepted values for this parameter are:
 
@@ -430,7 +430,7 @@ The supported values are:
 Controls the behavior of CREATE statements in transactions for supported
 objects.
 
-When objects are created in a multi-statement transaction block, Citus switches
+When objects are created in a multi-statement transaction block, Azure Cosmos DB for PostgreSQL switches
 sequential mode to ensure created objects are visible to later statements on
 shards. However, the switch to sequential mode is not always desirable. By
 overriding this behavior, the user can trade off performance for full
@@ -456,7 +456,7 @@ propagation](howto-modify-distributed-tables.md#types-and-functions).
 
 Ordinarily, attempting to perform repartition joins with the adaptive executor
 will fail with an error message.  However setting
-`citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
+`citus.enable_repartition_joins` to true allows Azure Cosmos DB for PostgreSQL to
 temporarily switch into the task-tracker executor to perform the join.  The
 default value is false.
 
@@ -528,7 +528,7 @@ further (for example, 16 would be too high).
 Simulates the deprecated and now nonexistent real-time executor. This is used
 to open as many connections as possible to maximize query parallelization.
 
-When this GUC is enabled, Citus will force the adaptive executor to use as many
+When this GUC is enabled, Azure Cosmos DB for PostgreSQL will force the adaptive executor to use as many
 connections as possible while executing a parallel distributed query. If not
 enabled, the executor might choose to use fewer connections to optimize overall
 query execution throughput. Internally, setting this true will end up using one
@@ -536,7 +536,7 @@ connection per task.
 
 One place where this is useful is in a transaction whose first query is
 lightweight and requires few connections, while a subsequent query would
-benefit from more connections. Citus decides how many connections to use in a
+benefit from more connections. Azure Cosmos DB for PostgreSQL decides how many connections to use in a
 transaction based on the first statement, which can throttle other queries
 unless we use the GUC to provide a hint.
 
@@ -597,7 +597,7 @@ much concern.
 ##### citus.partition\_buffer\_size (integer)
 
 Sets the buffer size to use for partition operations and defaults to 8 MB.
-Hyperscale (Citus) allows for table data to be repartitioned into multiple
+Azure Cosmos DB for PostgreSQL allows for table data to be repartitioned into multiple
 files when two large tables are being joined. After this partition buffer fills
 up, the repartitioned data is flushed into files on disk.  This configuration
 entry can be set at run-time and is effective on the workers.
@@ -606,7 +606,7 @@ entry can be set at run-time and is effective on the workers.
 
 ##### citus.explain\_all\_tasks (boolean)
 
-By default, Hyperscale (Citus) shows the output of a single, arbitrary task
+By default, Azure Cosmos DB for PostgreSQL shows the output of a single, arbitrary task
 when running
 [EXPLAIN](http://www.postgresql.org/docs/current/static/sql-explain.html) on a
 distributed query. In most cases, the explain output will be similar across
@@ -777,5 +777,5 @@ The supported values are:
 
 ## Next steps
 
-* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a Hyperscale (Citus) server group.
+* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a cluster.
 * The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).

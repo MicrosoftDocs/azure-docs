@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Run queries - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: Quickstart to run queries on table data in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: 'Quickstart: Run queries - Azure Cosmos DB for PostgreSQL'
+description: Quickstart to run queries on table data in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 recommendations: false
@@ -19,8 +19,8 @@ ms.date: 08/11/2022
 
 To follow this quickstart, you'll first need to:
 
-1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
-2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+1. [Create a cluster](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the cluster](quickstart-connect-psql.md) with psql to
    run SQL commands.
 3. [Create and distribute tables](quickstart-distribute-tables.md) with our
    example dataset.
@@ -45,7 +45,7 @@ SELECT count(*) FROM github_users;
 ```
 
 Recall that `github_users` is a distributed table, meaning its data is divided
-between multiple shards. Hyperscale (Citus) automatically runs the count on all
+between multiple shards. Azure Cosmos DB for PostgreSQL automatically runs the count on all
 shards in parallel, and combines the results.
 
 Let's continue looking at a few more query examples:
@@ -99,10 +99,10 @@ ORDER BY hour;
 (4 rows)
 ```
 
-Hyperscale (Citus) combines the power of SQL and NoSQL datastores
+Azure Cosmos DB for PostgreSQL combines the power of SQL and NoSQL datastores
 with structured and semi-structured data.
 
-In addition to running queries, Hyperscale (Citus) also applies data definition
+In addition to running queries, Azure Cosmos DB for PostgreSQL also applies data definition
 changes across the shards of a distributed table:
 
 ```sql
@@ -113,10 +113,10 @@ ALTER TABLE github_users ADD COLUMN dummy_column integer;
 
 ## Next steps
 
-You've successfully created a scalable Hyperscale (Citus) server group, created
+You've successfully created a scalable cluster, created
 tables, distributed them, loaded data, and run distributed queries.
 
-Now you're ready to learn to build applications with Hyperscale (Citus).
+Now you're ready to learn to build applications with Azure Cosmos DB for PostgreSQL.
 
 > [!div class="nextstepaction"]
 > [Build scalable applications >](quickstart-build-scalable-apps-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Modify distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: SQL commands to create and modify distributed tables - Hyperscale (Citus) using the Azure portal
+title: Modify distributed tables - Azure Cosmos DB for PostgreSQL
+description: SQL commands to create and modify distributed tables
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -42,7 +42,7 @@ the table distribution column and create the worker shards.
 SELECT create_distributed_table('github_events', 'repo_id');
 ```
 
-The function call informs Hyperscale (Citus) that the github\_events table
+The function call informs Azure Cosmos DB for PostgreSQL that the github\_events table
 should be distributed on the repo\_id column (by hashing the column value).
 
 It creates a total of 32 shards by default, where each shard owns a portion of
@@ -104,9 +104,10 @@ Now queries such as one calculating tax for a shopping cart can join on the
 code for better validation.
 
 In addition to distributing a table as a single replicated shard, the
-`create_reference_table` UDF marks it as a reference table in the Hyperscale
-(Citus) metadata tables. Hyperscale (Citus) automatically performs two-phase
-commits ([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
+`create_reference_table` UDF marks it as a reference table in the Azure Cosmos
+DB for PostgreSQL metadata tables. Azure Cosmos DB for PostgreSQL automatically performs
+two-phase commits
+([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
 modifications to tables marked this way, which provides strong consistency
 guarantees.
 
@@ -116,7 +117,7 @@ tutorial](tutorial-design-database-multi-tenant.md).
 ### Distributing Coordinator Data
 
 If an existing PostgreSQL database is converted into the coordinator node for a
-Hyperscale (Citus) cluster, the data in its tables can be distributed
+cluster, the data in its tables can be distributed
 efficiently and with minimal interruption to an application.
 
 The `create_distributed_table` function described earlier works on both empty
@@ -152,7 +153,7 @@ If it's not possible to distribute in the correct order, then drop the foreign
 keys, distribute the tables, and recreate the foreign keys.
 
 When migrating data from an external database, such as from Amazon RDS to
-Hyperscale (Citus) Cloud, first create the Hyperscale (Citus) distributed
+Azure Cosmos DB for PostgreSQL, first create the Azure Cosmos DB for PostgreSQL distributed
 tables via `create_distributed_table`, then copy the data into the table.
 Copying into distributed tables avoids running out of space on the coordinator
 node.
@@ -230,7 +231,7 @@ DROP TABLE github_events;
 
 ## Modifying tables
 
-Hyperscale (Citus) automatically propagates many kinds of DDL statements.
+Azure Cosmos DB for PostgreSQL automatically propagates many kinds of DDL statements.
 Modifying a distributed table on the coordinator node will update shards on the
 workers too. Other DDL statements require manual propagation, and certain
 others are prohibited such as any which would modify a distribution column.
@@ -241,7 +242,7 @@ Here is a reference of the categories of DDL statements that propagate.
 
 ### Adding/Modifying Columns
 
-Hyperscale (Citus) propagates most [ALTER
+Azure Cosmos DB for PostgreSQL propagates most [ALTER
 TABLE](https://www.postgresql.org/docs/current/static/ddl-alter.html) commands
 automatically. Adding columns or changing their default values work as they
 would in a single-machine PostgreSQL database:
@@ -259,8 +260,8 @@ ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
 Significant changes to an existing column like renaming it or changing its data
 type are fine too. However the data type of the [distribution
 column](concepts-nodes.md#distribution-column) cannot be altered.
-This column determines how table data distributes through the Hyperscale
-(Citus) cluster, and modifying its data type would require moving the data.
+This column determines how table data distributes through the cluster,
+and modifying its data type would require moving the data.
 
 Attempting to do so causes an error:
 
@@ -279,10 +280,10 @@ LOCATION:  ErrorIfUnsupportedAlterTableStmt, multi_utility.c:2150
 
 ### Adding/Removing Constraints
 
-Using Hyperscale (Citus) allows you to continue to enjoy the safety of a
+Using Azure Cosmos DB for PostgreSQL allows you to continue to enjoy the safety of a
 relational database, including database constraints (see the PostgreSQL
 [docs](https://www.postgresql.org/docs/current/static/ddl-constraints.html)).
-Due to the nature of distributed systems, Hyperscale (Citus) will not
+Due to the nature of distributed systems, Azure Cosmos DB for PostgreSQL will not
 cross-reference uniqueness constraints or referential integrity between worker
 nodes.
 
@@ -362,7 +363,7 @@ ALTER TABLE ads ALTER COLUMN image_url SET NOT NULL;
 ### Using NOT VALID Constraints
 
 In some situations it can be useful to enforce constraints for new rows, while
-allowing existing non-conforming rows to remain unchanged. Hyperscale (Citus)
+allowing existing non-conforming rows to remain unchanged. Azure Cosmos DB for PostgreSQL
 supports this feature for CHECK constraints and foreign keys, using
 PostgreSQL\'s \"NOT VALID\" constraint designation.
 
@@ -425,7 +426,7 @@ section.
 
 ### Adding/Removing Indices
 
-Hyperscale (Citus) supports adding and removing
+Azure Cosmos DB for PostgreSQL supports adding and removing
 [indices](https://www.postgresql.org/docs/current/static/sql-createindex.html):
 
 ```postgresql
@@ -458,9 +459,9 @@ Creating custom SQL types and user-defined functions propogates to worker
 nodes. However, creating such database objects in a transaction with
 distributed operations involves tradeoffs.
 
-Hyperscale (Citus) parallelizes operations such as `create_distributed_table()`
+Azure Cosmos DB for PostgreSQL parallelizes operations such as `create_distributed_table()`
 across shards using multiple connections per worker. Whereas, when creating a
-database object, Citus propagates it to worker nodes using a single connection
+database object, Azure Cosmos DB for PostgreSQL propagates it to worker nodes using a single connection
 per worker. Combining the two operations in a single transaction may cause
 issues, because the parallel connections will not be able to see the object
 that was created over a single connection but not yet committed.

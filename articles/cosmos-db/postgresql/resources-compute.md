@@ -1,6 +1,6 @@
 ---
-title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Options for a Hyperscale (Citus) server group, including node compute and storage
+title: Compute and storage – Azure Cosmos DB for PostgreSQL
+description: Options for a cluster, including node compute and storage
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.date: 07/08/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
+# Azure Cosmos DB for PostgreSQL compute and storage
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
  
 You can select the compute and storage settings independently for
-worker nodes and the coordinator node in a Hyperscale (Citus) server
-group.  Compute resources are provided as vCores, which represent
+worker nodes and the coordinator node in a cluster.
+Compute resources are provided as vCores, which represent
 the logical CPU of the underlying hardware. The storage size for
 provisioning refers to the capacity available to the coordinator
-and worker nodes in your Hyperscale (Citus) server group. The storage
+and worker nodes in your cluster. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
-
-## Standard tier
  
 | Resource              | Worker node                    | Coordinator node         |
 |-----------------------|--------------------------------|--------------------------|
@@ -32,7 +30,7 @@ the Postgres server logs.
 | Storage type          | General purpose (SSD)          | General purpose (SSD)    |
 | IOPS                  | Up to 3 IOPS/GiB               | Up to 3 IOPS/GiB         |
 
-The total amount of RAM in a single Hyperscale (Citus) node is based on the
+The total amount of RAM in a single node is based on the
 selected number of vCores.
 
 | vCores | One worker node, GiB RAM | Coordinator node, GiB RAM |
@@ -54,7 +52,7 @@ available to each worker and coordinator node.
 | 1                 | 3,072        |
 | 2                 | 6,148        |
 
-For the entire Hyperscale (Citus) cluster, the aggregated IOPS work out to the
+For the entire cluster, the aggregated IOPS work out to the
 following values:
 
 | Worker nodes | 0.5 TiB, total IOPS | 1 TiB, total IOPS | 2 TiB, total IOPS |
@@ -79,43 +77,7 @@ following values:
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
-## Basic tier
+**Next steps**
 
-The Hyperscale (Citus) [basic tier](concepts-server-group.md) is a server
-group with just one node.  Because there isn't a distinction between
-coordinator and worker nodes, it's less complicated to choose compute and
-storage resources.
-
-| Resource              | Available options     |
-|-----------------------|-----------------------|
-| Compute, vCores       | 2, 4, 8, 16, 32, 64   |
-| Memory per vCore, GiB | 4                     |
-| Storage size, GiB     | 128, 256, 512         |
-| Storage type          | General purpose (SSD) |
-| IOPS                  | Up to 3 IOPS/GiB      |
-
-The total amount of RAM in a single Hyperscale (Citus) node is based on the
-selected number of vCores.
-
-| vCores | GiB RAM |
-|--------|---------|
-| 2      | 8       |
-| 4      | 16      |
-| 8      | 32      |
-| 16     | 64      |
-| 32     | 128     |
-| 64     | 256     |
-
-The total amount of storage you provision also defines the I/O capacity
-available to the basic tier node.
-
-| Storage size, GiB | Maximum IOPS |
-|-------------------|--------------|
-| 128               | 384          |
-| 256               | 768          |
-| 512               | 1,536        |
-
-## Next steps
-
-* Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-portal.md)
+* Learn how to [create a cluster in the portal](quickstart-create-portal.md)
 * Change [compute quotas](howto-compute-quota.md) for a subscription and region

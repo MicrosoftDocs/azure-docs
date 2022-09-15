@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: distribute tables - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: Quickstart to distribute table data across nodes in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: 'Quickstart: distribute tables - Azure Cosmos DB for PostgreSQL'
+description: Quickstart to distribute table data across nodes in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 recommendations: false
@@ -15,15 +15,15 @@ ms.date: 08/11/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this example, we'll use Hyperscale (Citus) distributed tables to store and
+In this example, we'll use Azure Cosmos DB for PostgreSQL distributed tables to store and
 query events recorded from GitHub open source contributors.
 
 ## Prerequisites
 
 To follow this quickstart, you'll first need to:
 
-1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
-2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+1. [Create a cluster](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the cluster](quickstart-connect-psql.md) with psql to
    run SQL commands.
 
 ## Create tables
@@ -60,21 +60,16 @@ CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
 Notice the GIN index on `payload` in `github_events`. The index allows fast
-querying in the JSONB column. Since Citus is a PostgreSQL extension, Hyperscale
-(Citus) supports advanced PostgreSQL features like the JSONB datatype for
-storing semi-structured data.
+querying in the JSONB column. Since Citus is a PostgreSQL extension, Azure
+Cosmos DB for PostgreSQL supports advanced PostgreSQL features like the JSONB
+datatype for storing semi-structured data.
 
 ## Distribute tables
 
-`create_distributed_table()` is the magic function that Hyperscale (Citus)
+`create_distributed_table()` is the magic function that Azure Cosmos DB for PostgreSQL
 provides to distribute tables and use resources across multiple machines.  The
 function decomposes tables into shards, which can be spread across nodes for
 increased storage and compute performance.
-
-The server group in this quickstart uses the Basic Tier, so the shards will be
-stored on just one node. However, if you later decide to graduate to the
-Standard Tier, then the shards can be spread across more nodes. With Hyperscale
-(Citus), you can start small and scale seamlessly.
 
 Let's distribute the tables:
 
@@ -83,7 +78,7 @@ SELECT create_distributed_table('github_users', 'user_id');
 SELECT create_distributed_table('github_events', 'user_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [dist-alert](includes/dist-alert.md)]
 
 ## Load data into distributed tables
 

@@ -1,6 +1,6 @@
 ---
-title: Determine table size - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to find the true size of distributed tables in a Hyperscale (Citus) server group
+title: Determine table size - Azure Cosmos DB for PostgreSQL
+description: How to find the true size of distributed tables in a cluster
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -14,12 +14,12 @@ ms.date: 12/06/2021
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The usual way to find table sizes in PostgreSQL, `pg_total_relation_size`,
-drastically under-reports the size of distributed tables on Hyperscale (Citus).
-All this function does on a Hyperscale (Citus) server group is to reveal the size
+drastically under-reports the size of distributed tables on Azure Cosmos DB for PostgreSQL.
+All this function does on a cluster is to reveal the size
 of tables on the coordinator node.  In reality, the data in distributed tables
 lives on the worker nodes (in shards), not on the coordinator. A true measure
-of distributed table size is obtained as a sum of shard sizes. Hyperscale
-(Citus) provides helper functions to query this information.
+of distributed table size is obtained as a sum of shard sizes. Azure Cosmos DB for PostgreSQL
+provides helper functions to query this information.
 
 <table>
 <colgroup>
@@ -93,6 +93,6 @@ Output:
 
 ## Next steps
 
-* Learn to [scale a server group](howto-scale-grow.md) to hold more data.
-* Distinguish [table types](concepts-nodes.md) in a Hyperscale (Citus) server group.
+* Learn to [scale a cluster](howto-scale-grow.md) to hold more data.
+* Distinguish [table types](concepts-nodes.md) in a cluster.
 * See other [useful diagnostic queries](howto-useful-diagnostic-queries.md).

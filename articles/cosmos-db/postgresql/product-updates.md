@@ -1,5 +1,5 @@
 ---
-title: Product updates for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Product updates for Azure Cosmos DB for PostgreSQL
 description: New features and features in preview
 ms.author: jonels
 author: jonels-msft
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 07/11/2022
 ---
 
-# Product updates for PostgreSQL - Hyperscale (Citus)
+# Product updates for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Updates feed
 
 The Microsoft Azure website lists newly available features per product, plus
-features in preview and development. Check the [Hyperscale (Citus)
-updates](https://azure.microsoft.com/updates/?category=databases&query=citus)
+features in preview and development. Check the [Azure Cosmos DB for PostgreSQL
+updates](https://azure.microsoft.com/updates/?category=databases&query=%22Cosmos%20DB%20for%20PostgreSQL%22)
 section for the latest. An RSS feed is also available on that page.
 
 ## Features in preview
 
-Azure Database for PostgreSQL - Hyperscale (Citus) offers
+Azure Cosmos DB for PostgreSQL offers
 previews for unreleased features. Preview versions are provided
 without a service level agreement, and aren't recommended for
 production workloads. Certain features might not be supported or
@@ -39,7 +39,7 @@ Here are the features currently available for preview:
   certain government, financial, or ISO certification audits.
 * **[Cross-region
   replication](concepts-read-replicas.md#cross-region-replication-preview)**.
-  Create asynchronous read replicas for a server group in different regions.
+  Create asynchronous read replicas for a cluster in different regions.
 
 ## Contact us
 

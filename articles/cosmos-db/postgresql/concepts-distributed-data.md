@@ -1,6 +1,6 @@
 ---
-title: Distributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
+title: Distributed data – Azure Cosmos DB for PostgreSQL
+description: Learn about distributed tables, reference tables, local tables, and shards.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
-# Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Distributed data in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article outlines the three table types in Azure Database for PostgreSQL – Hyperscale (Citus).
+This article outlines the three table types in Azure Cosmos DB for PostgreSQL.
 It shows how distributed tables are stored as shards, and the way that shards are placed on nodes.
 
 ## Table types
 
-There are three types of tables in a Hyperscale (Citus) server group, each
+There are three types of tables in a cluster, each
 used for different purposes.
 
 ### Type 1: Distributed tables
@@ -29,13 +29,13 @@ partitioned across worker nodes. What this means is that the rows
 of the table are stored on different nodes, in fragment tables called
 shards.
 
-Hyperscale (Citus) runs not only SQL but DDL statements throughout a cluster.
+Azure Cosmos DB for PostgreSQL runs not only SQL but DDL statements throughout a cluster.
 Changing the schema of a distributed table cascades to update
 all the table's shards across workers.
 
 #### Distribution column
 
-Hyperscale (Citus) uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
+Azure Cosmos DB for PostgreSQL uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
 of a table column called the distribution column. The cluster
 administrator must designate this column when distributing a table.
 Making the right choice is important for performance and functionality.
@@ -55,7 +55,7 @@ values like order statuses or product categories.
 
 ### Type 3: Local tables
 
-When you use Hyperscale (Citus), the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
+When you use Azure Cosmos DB for PostgreSQL, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
 
 A good candidate for local tables would be small administrative tables that don't participate in join queries. An example is a users table for application sign-in and authentication.
 

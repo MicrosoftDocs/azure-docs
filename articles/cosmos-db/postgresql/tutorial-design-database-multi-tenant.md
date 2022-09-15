@@ -1,6 +1,6 @@
 ---
-title: Multi-tenant database - Azure PostgreSQL Hyperscale (Citus)
-description: Learn how to design a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
+title: Multi-tenant database - Azure Cosmos DB for PostgreSQL
+description: Learn how to design a scalable multi-tenant application with Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.custom: mvc, kr2b-contr-experiment
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/29/2022
-#Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
+#Customer intent: As an developer, I want to design a Azure Cosmos DB for PostgreSQL database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Design a multi-tenant database using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Design a multi-tenant database using Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
+In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
-> * Create a Hyperscale (Citus) server group
+> * Create a cluster
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Ingest sample data
@@ -29,11 +29,11 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Prerequisites
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [create-db](includes/create-db.md)]
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
+Once connected to the Azure Cosmos DB for PostgreSQL using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
 Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns. In the psql console, run these commands:
 
@@ -127,7 +127,7 @@ which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
-A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks which tenant owns which rows.
+A Azure Cosmos DB for PostgreSQL deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks which tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
 identifier. In psql, run these functions:
@@ -140,7 +140,7 @@ SELECT create_distributed_table('clicks',      'company_id');
 SELECT create_distributed_table('impressions', 'company_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [dist-alert](includes/dist-alert.md)]
 
 ## Ingest sample data
 
@@ -287,12 +287,12 @@ SELECT id
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Select the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
+In the preceding steps, you created Azure resources in a cluster. If you don't expect to need these resources in the future, delete the cluster. Select the *Delete* button in the *Overview* page for your cluster. When prompted on a pop-up page, confirm the name of the cluster and select the final *Delete* button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
+In this tutorial, you learned how to provision a cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
-- Learn about server group [node types](./concepts-nodes.md)
+- Learn about cluster [node types](./concepts-nodes.md)
 - Determine the best [initial
-  size](howto-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your cluster

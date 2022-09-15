@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory
-description: Step-by-step guide for using Azure Data Factory for ingestion on Hyperscale Citus
+description: Step-by-step guide for using Azure Data Factory for ingestion on Azure Cosmos DB for PostgreSQL
 ms.author: suvishod
 author: suvishodcitus
 ms.service: cosmos-db
@@ -22,43 +22,43 @@ Using Azure Data Factory, you can create and schedule data-driven workflows
 run on-premises, in Azure, or on other cloud providers for analytics and
 reporting.
 
-ADF has a data sink for Hyperscale (Citus). The data sink allows you to bring
-your data (relational, NoSQL, data lake files) into Hyperscale (Citus) tables
+ADF has a data sink for Azure Cosmos DB for PostgreSQL. The data sink allows you to bring
+your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreSQL tables
 for storage, processing, and reporting.
 
-![Dataflow diagram for Azure Data Factory.](media/howto-hyperscale-ingestion/azure-data-factory-architecture.png)
+![Dataflow diagram for Azure Data Factory.](media/howto-ingestion/azure-data-factory-architecture.png)
 
-## ADF for real-time ingestion to Hyperscale (Citus)
+## ADF for real-time ingestion
 
 Here are key reasons to choose Azure Data Factory for ingesting data into
-Hyperscale (Citus):
+Azure Cosmos DB for PostgreSQL:
 
 * **Easy-to-use** - Offers a code-free visual environment for orchestrating and automating data movement.
 * **Powerful** - Uses the full capacity of underlying network bandwidth, up to 5 GiB/s throughput.
 * **Built-in Connectors** - Integrates all your data sources, with more than 90 built-in connectors.
 * **Cost Effective** - Supports a pay-as-you-go, fully managed serverless cloud service that scales on demand.
 
-## Steps to use ADF with Hyperscale (Citus)
+## Steps to use ADF
 
 In this article, we'll create a data pipeline by using the Azure Data Factory
 user interface (UI). The pipeline in this data factory copies data from Azure
-Blob storage to a database in Hyperscale (Citus). For a list of data stores
+Blob storage to a database. For a list of data stores
 supported as sources and sinks, see the [supported data
 stores](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)
 table.
 
 In Azure Data Factory, you can use the **Copy** activity to copy data among
-data stores located on-premises and in the cloud to Hyperscale Citus. If you're
+data stores located on-premises and in the cloud to Azure Cosmos DB for PostgreSQL. If you're
 new to Azure Data Factory, here's a quick guide on how to get started:
 
 1. Once ADF is provisioned, go to your data factory. You'll see the Data
    Factory home page as shown in the following image:
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-home.png" alt-text="Landing page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-home.png" alt-text="Landing page of Azure Data Factory." border="true":::
 
 2. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-orchestrate.png" alt-text="Orchestrate page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Orchestrate page of Azure Data Factory." border="true":::
 
 3. In the General panel under **Properties**, specify the desired pipeline name.
 
@@ -66,11 +66,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
    and drag and drop the **Copy Data** activity to the pipeline designer
    surface. Specify the activity name.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Pipeline in Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Pipeline in Azure Data Factory." border="true":::
 
 5. Configure **Source**
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-configure-source.png" alt-text="Configuring Source in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-source.png" alt-text="Configuring Source in of Azure Data Factory." border="true":::
 
    1. Go to the Source tab. Select** + New **to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
@@ -82,16 +82,16 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 6. Configure **Sink**
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-configure-sink.png" alt-text="Configuring Sink in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Configuring Sink in of Azure Data Factory." border="true":::
 
    1. Go to the Sink tab. Select **+ New** to create a source dataset.
-   2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
+   2. In the **New Dataset** dialog box, select **Azure Cosmos DB for PostgreSQL**, and then select **Continue**.
    3. Under the **Linked service** text box, select **+ New**. 
-   4. Specify Linked Service name and select your server group from the list for Hyperscale (Citus) server groups. Add connection details and test the connection
+   4. Specify Linked Service name and select your cluster from the list for clusters. Add connection details and test the connection
 
       > [!NOTE]
       >
-      > If your server group is not present in the drop down, use the **Enter
+      > If your cluster is not present in the drop down, use the **Enter
       > manually** option to add server details.
 
    5. Select the table name where you want to ingest the data.
@@ -104,7 +104,7 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 8. Select Debug from the toolbar execute the pipeline.
 
-   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
 
 9. Once the pipeline can run successfully, in the top toolbar, select **Publish
    all**. This action publishes entities (datasets, and pipelines) you created
@@ -118,9 +118,9 @@ doesn't offer Stored Procedure activity for Azure Database for Postgres, but as
 a workaround we can use Lookup Activity with query to call a stored procedure
 as shown below:
 
-:::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-call-procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
+:::image type="content" source="media/howto-ingestion/azure-data-factory-call-procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
 
 ## Next steps
 
 Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
+dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.

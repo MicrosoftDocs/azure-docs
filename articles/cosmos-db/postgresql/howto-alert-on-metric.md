@@ -1,6 +1,6 @@
 ---
-title: Configure alerts - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Configure alerts - Azure Cosmos DB for PostgreSQL
+description: This article describes how to configure and access metric alerts for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 3/16/2020
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
+# Use the Azure portal to set up alerts on metrics for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
+This article shows you how to set up Azure Cosmos DB for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
 
 We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
@@ -28,23 +28,23 @@ You can configure and get information about alert rules using:
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
-1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for PostgreSQL server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com/), select the Azure Cosmos DB for PostgreSQL server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 
-   :::image type="content" source="media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
+   :::image type="content" source="media/howto-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
 
 3. Select **New alert rule** (+ icon).
 
 4. The **Create rule** page opens as shown below. Fill in the required information:
 
-   :::image type="content" source="media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
+   :::image type="content" source="media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
 
 5. Within the **Condition** section, select **Add**.
 
 6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
    
-   :::image type="content" source="media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Screenshot shows the Configure signal logic page where you can view several signals.":::
+   :::image type="content" source="media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Screenshot shows the Configure signal logic page where you can view several signals.":::
 
 7. Configure the alert logic:
 
@@ -55,13 +55,13 @@ You can configure and get information about alert rules using:
    
    Select **Done** when complete.
 
-   :::image type="content" source="media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot shows the pane where you can configure Alert logic.":::
+   :::image type="content" source="media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot shows the pane where you can configure Alert logic.":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
-    :::image type="content" source="media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Screenshot shows the Add action group form where you can enter the described values.":::
+    :::image type="content" source="media/howto-alert-on-metric/9-add-action-group.png" alt-text="Screenshot shows the Add action group form where you can enter the described values.":::
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
@@ -69,11 +69,11 @@ You can configure and get information about alert rules using:
    
     Select **OK** when completed.
 
-    :::image type="content" source="media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Screenshot shows the Email/S M S/Push/Voice pane.":::
+    :::image type="content" source="media/howto-alert-on-metric/10-action-group-type.png" alt-text="Screenshot shows the Email/S M S/Push/Voice pane.":::
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    :::image type="content" source="media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Screenshot shows the Alert Details pane."::: 
+    :::image type="content" source="media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Screenshot shows the Alert Details pane."::: 
 
 12. Select **Create alert rule** to create the alert.
 
@@ -91,14 +91,14 @@ Once you've created an alert, you can select it and do the following actions:
 
 ### Disk space
 
-Monitoring and alerting is important for every production Hyperscale (Citus) server group. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
+Monitoring and alerting is important for every production cluster. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
 
-We recommend setting disk space alerts on every node in every server group, even for non-production usage. Disk space usage alerts provide the advance warning needed to intervene and keep nodes healthy. For best results, try a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
+We recommend setting disk space alerts on every node in every cluster, even for non-production usage. Disk space usage alerts provide the advance warning needed to intervene and keep nodes healthy. For best results, try a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
 
 As the disk approaches its space limit, try these techniques to get more free space:
 
 * Review data retention policy. Move older data to cold storage if feasible.
-* Consider [adding nodes](howto-scale-grow.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [adding nodes](howto-scale-grow.md#add-worker-nodes) to the cluster and rebalancing shards. Rebalancing distributes the data across more computers.
 * Consider [growing the capacity](howto-scale-grow.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage

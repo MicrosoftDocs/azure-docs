@@ -1,5 +1,5 @@
 ---
-title: System tables – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: System tables – Azure Cosmos DB for PostgreSQL
 description: Metadata for distributed query execution
 ms.author: jonels
 author: jonels-msft
@@ -13,13 +13,13 @@ ms.date: 02/18/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Hyperscale (Citus) creates and maintains special tables that contain
-information about distributed data in the server group. The coordinator node
+Azure Cosmos DB for PostgreSQL creates and maintains special tables that contain
+information about distributed data in the cluster. The coordinator node
 consults these tables when planning how to run queries across the worker nodes.
 
 ## Coordinator Metadata
 
-Hyperscale (Citus) divides each distributed table into multiple logical shards
+Azure Cosmos DB for PostgreSQL divides each distributed table into multiple logical shards
 based on the distribution column. The coordinator then maintains metadata
 tables to track statistics and information about the health and location of
 these shards.
@@ -30,7 +30,7 @@ coordinator node.
 
 > [!NOTE]
 >
-> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the tables listed below.
 
 ### Partition table
@@ -100,8 +100,8 @@ and their representation is below.
 
 ### Shard information view
 
-In addition to the low-level shard metadata table described above, Hyperscale
-(Citus) provides a `citus_shards` view to easily check:
+In addition to the low-level shard metadata table described above, Azure Cosmos
+DB for PostgreSQL provides a `citus_shards` view to easily check:
 
 * Where each shard is (node, and port),
 * What kind of table it belongs to, and
@@ -159,15 +159,15 @@ SELECT * from pg_dist_placement;
 
 #### Shard Placement States
 
-Hyperscale (Citus) manages shard health on a per-placement basis. If a placement
-puts the system in an inconsistent state, Citus automatically marks it as unavailable. Placement state is recorded in the pg_dist_shard_placement table,
+Azure Cosmos DB for PostgreSQL manages shard health on a per-placement basis. If a placement
+puts the system in an inconsistent state, Azure Cosmos DB for PostgreSQL automatically marks it as unavailable. Placement state is recorded in the pg_dist_shard_placement table,
 within the shardstate column. Here's a brief overview of different shard placement states:
 
 | State name | Shardstate value | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FINALIZED  | 1                | The state new shards are created in. Shard placements in this state are considered up to date and are used in query planning and execution.                                                                                                                                                                                                                                                                                 |
 | INACTIVE   | 3                | Shard placements in this state are considered inactive due to being out-of-sync with other replicas of the same shard. The state can occur when an append, modification (INSERT, UPDATE, DELETE), or a DDL operation fails for this placement. The query planner will ignore placements in this state during planning and execution. Users can synchronize the data in these shards with a finalized replica as a background activity. |
-| TO_DELETE  | 4                | If Citus attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
+| TO_DELETE  | 4                | If Azure Cosmos DB for PostgreSQL attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
 
 ### Worker node table
 
@@ -202,7 +202,7 @@ SELECT * from pg_dist_node;
 The citus.pg\_dist\_object table contains a list of objects such as
 types and functions that have been created on the coordinator node and
 propagated to worker nodes. When an administrator adds new worker nodes
-to the cluster, Hyperscale (Citus) automatically creates copies of the distributed
+to the cluster, Azure Cosmos DB for PostgreSQL automatically creates copies of the distributed
 objects on the new nodes (in the correct order to satisfy object
 dependencies).
 
@@ -218,7 +218,7 @@ dependencies).
 | colocationid                | integer | Only valid for distributed functions/procedures      |
 
 \"Stable addresses\" uniquely identify objects independently of a
-specific server. Hyperscale (Citus) tracks objects during a PostgreSQL upgrade using
+specific server. Azure Cosmos DB for PostgreSQL tracks objects during a PostgreSQL upgrade using
 stable addresses created with the
 [pg\_identify\_object\_as\_address()](https://www.postgresql.org/docs/current/functions-info.html#FUNCTIONS-INFO-OBJECT-TABLE)
 function.
@@ -270,10 +270,10 @@ colocationid                |
 
 ### Distributed tables view
 
-The `citus_tables` view shows a summary of all tables managed by Hyperscale
-(Citus) (distributed and reference tables). The view combines information from
-Hyperscale (Citus) metadata tables for an easy, human-readable overview of
-these table properties:
+The `citus_tables` view shows a summary of all tables managed by Azure Cosmos
+DB for PostgreSQL (distributed and reference tables). The view combines
+information from Azure Cosmos DB for PostgreSQL metadata tables for an easy,
+human-readable overview of these table properties:
 
 * Table type
 * Distribution column
@@ -298,7 +298,7 @@ SELECT * FROM citus_tables;
 
 ### Time partitions view
 
-Hyperscale (Citus) provides UDFs to manage partitions for the Timeseries Data
+Azure Cosmos DB for PostgreSQL provides UDFs to manage partitions for the Timeseries Data
 use case. It also maintains a `time_partitions` view to inspect the partitions
 it manages.
 
@@ -328,7 +328,7 @@ SELECT * FROM time_partitions;
 
 The pg\_dist\_colocation table contains information about which tables\' shards
 should be placed together, or [colocated](concepts-colocation.md).  When two
-tables are in the same colocation group, Hyperscale (Citus) ensures shards with
+tables are in the same colocation group, Azure Cosmos DB for PostgreSQL ensures shards with
 the same distribution column values will be placed on the same worker nodes.
 Colocation enables join optimizations, certain distributed rollups, and foreign
 key support. Shard colocation is inferred when the shard counts, replication
@@ -362,11 +362,11 @@ can use to determine where to move shards.
 | default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
 | shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
 | node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
-| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Citus may store the shard on the node |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL may store the shard on the node |
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
-A Hyperscale (Citus) installation ships with these strategies in the table:
+By default Cosmos DB for PostgreSQL ships with these strategies in the table:
 
 ```postgresql
 SELECT * FROM pg_dist_rebalance_strategy;
@@ -464,7 +464,7 @@ function.
 
 ### Query statistics table
 
-Hyperscale (Citus) provides `citus_stat_statements` for stats about how queries are
+Azure Cosmos DB for PostgreSQL provides `citus_stat_statements` for stats about how queries are
 being executed, and for whom. It\'s analogous to (and can be joined
 with) the
 [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html)
@@ -539,7 +539,7 @@ Caveats:
 
 ### Distributed Query Activity
 
-Hyperscale (Citus) provides special views to watch queries and locks throughout the
+Azure Cosmos DB for PostgreSQL provides special views to watch queries and locks throughout the
 cluster, including shard-specific queries used internally to build
 results for distributed queries.
 
@@ -661,13 +661,13 @@ SELECT wait_event, wait_event_type, count(*)
  GROUP BY wait_event, wait_event_type
  ORDER BY count(*) desc;
 
--- total internal connections generated per node by Citus
+-- total internal connections generated per node by Azure Cosmos DB for PostgreSQL
 
 SELECT query_hostname, count(*)
   FROM citus_worker_stat_activity
  GROUP BY query_hostname;
 
--- total internal active connections generated per node by Citus
+-- total internal active connections generated per node by Azure Cosmos DB for PostgreSQL
 
 SELECT query_hostname, count(*)
   FROM citus_worker_stat_activity
@@ -718,9 +718,9 @@ blocking_node_port                    | 5432
 
 In this example the queries originated on the coordinator, but the view
 can also list locks between queries originating on workers (executed
-with Hyperscale (Citus) MX for instance).
+with Azure Cosmos DB for PostgreSQL MX for instance).
 
 ## Next steps
 
-* Learn how some [Hyperscale (Citus) functions](reference-functions.md) alter system tables
+* Learn how some [Azure Cosmos DB for PostgreSQL functions](reference-functions.md) alter system tables
 * Review the concepts of [nodes and tables](concepts-nodes.md)

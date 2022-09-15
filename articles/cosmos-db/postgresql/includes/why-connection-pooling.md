@@ -1,8 +1,8 @@
 ---
 author: jonels-msft
 ms.author: jonels
-ms.service: postgresql
-ms.subservice: hyperscale-citus
+ms.service: cosmos-db
+ms.subservice: postgresql
 ms.topic: include
 ms.date: 07/26/2022
 ---

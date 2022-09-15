@@ -1,6 +1,6 @@
 ---
-title: Python app to connect and query Hyperscale (Citus)
-description: Learn to query Hyperscale (Citus) using Python
+title: Python app to connect and query Azure Cosmos DB for PostgreSQL
+description: Learn to query Azure Cosmos DB for PostgreSQL using Python
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,15 +10,15 @@ recommendations: false
 ms.date: 08/24/2022
 ---
 
-# Python app to connect and query Hyperscale (Citus)
+# Python app to connect and query Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this article, you'll learn how to connect to the database on Hyperscale (Citus) and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows.
+In this article, you'll learn how to connect to the database on Azure Cosmos DB for PostgreSQL and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows.
 
 > [!TIP]
 >
-> The process of creating a Python app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
+> The process of creating a Python app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to connect to the database on Hyperscale (Citu
 For this article you need:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Create a Hyperscale (Citus) server group using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md).
+* Create a cluster using this link [Create cluster](quickstart-create-portal.md).
 * [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 * The latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 * Install [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) using pip in a terminal or command prompt window. For more information, see [how to install psycopg2](https://www.psycopg.org/docs/install.html).
@@ -57,7 +57,7 @@ the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library. **pool.getc
 import psycopg2
 from psycopg2 import pool
 
-# NOTE: fill in these variables for your own server group
+# NOTE: fill in these variables for your own cluster
 host = "<host>"
 dbname = "citus"
 user = "citus"
@@ -111,11 +111,11 @@ Inserted 2 rows of data
 
 ## Step 2: Use the super power of distributed tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
+> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
 
 ```python
 # Create distribute table
@@ -162,7 +162,7 @@ print("Deleted 1 row of data")
 
 ## COPY command for super fast ingestion
 
-The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
