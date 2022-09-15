@@ -345,8 +345,9 @@ When a virtual machine is running network applications, the virtual machine is o
 
 4. In **Settings**, select **IP configurations**.
 
-4. Select **Enabled** or **Disabled** (default setting) to change the setting.
-5. Select **Save**.
+5. Select **Enabled** or **Disabled** (default setting) to change the setting.
+
+6. Select **Save**.
 
 # [**PowerShell**](#tab/network-interface-powershell)
 
@@ -380,7 +381,7 @@ $nic | Set-AzNetworkInterface
 
 ```
 
-# [**Azure CLI**](#tab/network-interface-cli)
+# [**Azure CLI**](#tab/network-interface-CLI)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to enable or disable the IP forwarding setting.
 
