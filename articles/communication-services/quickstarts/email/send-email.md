@@ -24,7 +24,15 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send Email with JavaScript client library](./includes/send-email-js.md)]
+[!INCLUDE [Send Email with JavaScript SDK](./includes/send-email-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send email with Java SDK](./includes/send-email-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Send Email with Python SDK](./includes/send-email-python.md)]
 ::: zone-end
 
 ## Troubleshooting
