@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Bulk executor Java API, SDK & resources'
 description: Learn all about the bulk executor Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor Java SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: reference
 ms.date: 04/06/2021
@@ -32,7 +32,7 @@ ms.custom: devx-track-java
 
 | | Link/notes |
 |---|---|
-|**Description**|The bulk executor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. bulk executor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches.|
+|**Description**|The bulk executor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. bulk executor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches.|
 |**SDK download**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Bulk executor library in GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API documentation**| [Java API reference documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
@@ -50,7 +50,7 @@ ms.custom: devx-track-java
 
 ### <a name="2.12.1"></a>2.12.1
 
-* Upgrade to use latest Cosmos Core SDK version.
+* Upgrade to use latest Azure Cosmos DB Core SDK version.
 
 ### <a name="2.12.0"></a>2.12.0
 
@@ -71,7 +71,7 @@ ms.custom: devx-track-java
 
 ### <a name="2.9.3"></a>2.9.3
 
-* Update for Cosmos SDK version 2.4.7.
+* Update for Azure Cosmos DB SDK version 2.4.7.
 
 ### <a name="2.9.2"></a>2.9.2
 

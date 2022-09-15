@@ -3,7 +3,7 @@ title: Azure Cosmos DB .NET change feed Processor API, SDK release notes
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
@@ -32,7 +32,7 @@ ms.reviewer: mjbrown
 
 ### <a id="2.4.0"></a>2.4.0
 * Added support for lease collections that can be partitioned with partition key defined as /partitionKey. Prior to this change lease collection's partition key would have to be defined as /id.
-* This release allows using lease collections with Gremlin API, as Gremlin collections cannot have partition key defined as /id.
+* This release allows using lease collections with API for Gremlin, as Gremlin collections cannot have partition key defined as /id.
 
 ### <a id="2.3.2"></a>2.3.2
 * Added lease store compatibility with [V3 SDK that enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
@@ -174,7 +174,7 @@ ms.reviewer: mjbrown
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x of the Azure Cosmos DB .NET or .NET Core SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x of the SDK will continue to be served by the Azure Cosmos DB service.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x of the Azure Cosmos DB .NET or .NET Core SDK for API for NoSQL. If you prefer not to upgrade, requests sent from version 1.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 <br/>
 
@@ -206,4 +206,4 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## See also
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

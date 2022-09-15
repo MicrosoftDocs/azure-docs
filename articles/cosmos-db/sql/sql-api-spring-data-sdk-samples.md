@@ -1,9 +1,9 @@
 ---
-title: 'Azure Cosmos DB SQL API: Spring Data v3 examples'
-description: Find Spring Data v3 examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
+title: 'Azure Cosmos DB for NoSQL: Spring Data v3 examples'
+description: Find Spring Data v3 examples on GitHub for common tasks using the Azure Cosmos DB for NoSQL, including CRUD operations.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.custom: devx-track-java
@@ -11,7 +11,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 
 ---
-# Azure Cosmos DB SQL API: Spring Data Azure Cosmos DB v3 examples
+# Azure Cosmos DB for NoSQL: Spring Datan Azure Cosmos DB v3 examples
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.reviewer: mjbrown
 > 
 
 > [!IMPORTANT]  
-> These release notes are for version 3 of Spring Data Azure Cosmos DB. You can find [release notes for version 2 here](sql-api-sdk-java-spring-v2.md). 
+> These release notes are for version 3 of Spring Datan Azure Cosmos DB. You can find [release notes for version 2 here](sql-api-sdk-java-spring-v2.md). 
 >
-> Spring Data Azure Cosmos DB supports only the SQL API.
+> Spring Datan Azure Cosmos DB supports only the API for NoSQL.
 >
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
@@ -45,7 +45,7 @@ ms.reviewer: mjbrown
 
 The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-spring-data-cosmos-java-sql-api-samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples) GitHub repository. This article provides:
 
-* Links to the tasks in each of the example Spring Data Azure Cosmos DB project files. 
+* Links to the tasks in each of the example Spring Datan Azure Cosmos DB project files. 
 * Links to the related API reference content.
 
 **Prerequisites**
@@ -53,9 +53,9 @@ The latest sample applications that perform CRUD operations and other common ope
 You need the following to run this sample application:
 
 * Java Development Kit 8
-* Spring Data Azure Cosmos DB v3
+* Spring Datan Azure Cosmos DB v3
 
-You can optionally use Maven to get the latest Spring Data Azure Cosmos DB v3 binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the **pom.xml** file and add them to your build path.
+You can optionally use Maven to get the latest Spring Datan Azure Cosmos DB v3 binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the **pom.xml** file and add them to your build path.
 
 ```bash
 <dependency>
@@ -97,7 +97,7 @@ mvn spring-boot:run
 ```
 
 ## Document CRUD examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |

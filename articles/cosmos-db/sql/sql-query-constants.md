@@ -3,7 +3,7 @@ title: SQL constants in Azure Cosmos DB
 description: Learn about how the SQL query constants in Azure Cosmos DB are used to represent a specific data value
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: sidandrews

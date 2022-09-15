@@ -1,9 +1,9 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Standard API, SDK & resources'
-description: Learn all about the SQL API and .NET SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
+description: Learn all about the API for NoSQL and .NET SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 03/22/2022
@@ -13,7 +13,7 @@ ms.custom: devx-track-dotnet
 
 
 ---
-# Azure Cosmos DB .NET SDK v3 for SQL API: Download and release notes
+# Azure Cosmos DB .NET SDK v3 for API for NoSQL: Download and release notes
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
@@ -46,4 +46,4 @@ For a list of known issues with the recommended minimum version of the SDK, see 
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
+To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

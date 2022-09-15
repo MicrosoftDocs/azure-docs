@@ -1,9 +1,9 @@
 ---
-title: 'Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API release notes and resources'
-description: Learn about the Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
+title: 'Azure Cosmos DB Apache Spark 2 OLTP Connector for API for NoSQL release notes and resources'
+description: Learn about the Azure Cosmos DB Apache Spark 2 OLTP Connector for API for NoSQL, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: reference
 ms.date: 04/06/2021
@@ -12,12 +12,12 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 
-# Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL) API: Release notes and resources
+# Azure Cosmos DB Apache Spark 2 OLTP Connector for API for NoSQL: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
-You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL). The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
+You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark 2 OLTP Connector for NoSQL. The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
 
 You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), which provide managed Spark clusters on Azure. The following table shows supported versions:
 
@@ -28,9 +28,9 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 | Azure Databricks (runtime version) | Later than 3.4 |
 
 > [!WARNING]
-> This connector supports the core (SQL) API of Azure Cosmos DB.
-> For the Cosmos DB API for MongoDB, use the [MongoDB Connector for Spark](https://docs.mongodb.com/spark-connector/master/).
-> For the Cosmos DB Cassandra API, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
+> This connector supports the API for NoSQL of Azure Cosmos DB.
+> For the Azure Cosmos DB for MongoDB, use the [MongoDB Connector for Spark](https://docs.mongodb.com/spark-connector/master/).
+> For the Azure Cosmos DB for Apache Cassandra, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
 >
 
 ## Resources

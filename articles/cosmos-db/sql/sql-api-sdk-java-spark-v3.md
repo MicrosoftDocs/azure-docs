@@ -1,9 +1,9 @@
 ---
-title: 'Azure Cosmos DB Apache Spark 3 OLTP Connector for SQL API (Preview) release notes and resources'
-description: Learn about the Azure Cosmos DB Apache Spark 3 OLTP Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
+title: 'Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL (Preview) release notes and resources'
+description: Learn about the Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/12/2021
@@ -12,12 +12,12 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 
-# Azure Cosmos DB Apache Spark 3 OLTP Connector for Core (SQL) API: Release notes and resources
+# Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 [!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
-**Azure Cosmos DB OLTP Spark connector** provides Apache Spark support for Azure Cosmos DB using the SQL API. Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+**Azure Cosmos DB OLTP Spark connector** provides Apache Spark support for Azure Cosmos DB using the API for NoSQL. Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
 If you have any feedback or ideas on how to improve your experience create an issue in our [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/issues/new)
 
@@ -38,8 +38,8 @@ If you have any feedback or ideas on how to improve your experience create an is
 * [Release notes for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-changelog)
 
 ## Download
-* [Download of Cosmos DB Spark connector for Spark 3.1](https://aka.ms/azure-cosmos-spark-3-1-download)
-* [Download of Cosmos DB Spark connector for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-download)
+* [Download of Azure Cosmos DB Spark connector for Spark 3.1](https://aka.ms/azure-cosmos-spark-3-1-download)
+* [Download of Azure Cosmos DB Spark connector for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-download)
 
 Azure Cosmos DB Spark connector is available on [Maven Central Repo](https://search.maven.org/search?q=g:com.azure.cosmos.spark).
 
