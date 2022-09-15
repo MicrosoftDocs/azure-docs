@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Azure Cosmos DB SQL API client library for .NET
-description: Learn how to build a .NET app to manage Azure Cosmos DB SQL API account resources in this quickstart.
+title: Quickstart - Azure Cosmos DB for NoSQL client library for .NET
+description: Learn how to build a .NET app to manage Azure Cosmos DB for NoSQL account resources in this quickstart.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/26/2022
 ms.custom: devx-track-csharp
 ---
 
-# Quickstart: Azure Cosmos DB SQL API client library for .NET
+# Quickstart: Azure Cosmos DB for NoSQL client library for .NET
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
@@ -46,11 +46,11 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources.
+This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
 
 ### Create an Azure Cosmos DB account
 
-This quickstart will create a single Azure Cosmos DB account using the SQL API.
+This quickstart will create a single Azure Cosmos DB account using the API for NoSQL.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -76,7 +76,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --location $location
     ```
 
-1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB SQL API account with default settings.
+1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB for NoSQL account with default settings.
 
     ```azurecli-interactive
     az cosmosdb create \
@@ -85,7 +85,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --locations regionName=$location
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
 
     ```azurecli-interactive
     az cosmosdb show \
@@ -132,7 +132,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB SQL API account with default settings.
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB for NoSQL account with default settings.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -143,7 +143,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     New-AzCosmosDBAccount @parameters
     ```
 
-1. Get the SQL API endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
+1. Get the API for NoSQL endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -179,17 +179,17 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
+1. On the **Select API option** page, select the **Create** option within the **NoSQL - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the API for NoSQL](../index.yml).
 
-   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos DB.":::
+   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
    | Setting | Value | Description |
    | --- | --- | --- |
-   | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos account. |
+   | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB account. |
    | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   | Account Name | A unique name | Enter a name to identify your Azure Cosmos account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
+   | Account Name | A unique name | Enter a name to identify your Azure Cosmos DB account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data. |
    | Capacity mode |Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode. |
    | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** |With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
@@ -197,7 +197,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="media/create-account-portal/new-cosmos-account-page.png" lightbox="media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
+   :::image type="content" source="media/create-account-portal/new-cosmos-account-page.png" lightbox="media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB DB SQL API.":::
 
 1. Select **Review + create**.
 
@@ -205,15 +205,15 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL A P I resource.":::
+   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL API resource.":::
 
-1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
+1. From the Azure Cosmos DB for NoSQL account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL API account.":::
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
@@ -368,7 +368,7 @@ Define a new instance of the ``CosmosClient`` class using the constructor, and [
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="client_credentials" highlight="3-4":::
 
-For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
+For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
 
 ### Create a database
 
@@ -376,7 +376,7 @@ Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_database" highlight="3":::
 
-For more information on creating a database, see [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md).
+For more information on creating a database, see [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md).
 
 ### Create a container
 
@@ -384,7 +384,7 @@ The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.c
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
 
-For more information on creating a container, see [Create a container in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-container.md).
+For more information on creating a container, see [Create a container in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-container.md).
 
 ### Create an item
 
@@ -396,7 +396,7 @@ Create an item in the container by calling [``Container.UpsertItemAsync``](/dotn
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
 
-For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-item.md).
+For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-item.md).
 
 ### Get an item
 
@@ -404,7 +404,7 @@ In Azure Cosmos DB, you can perform a point read operation by using both the uni
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
 
-For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-read-item.md).
+For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-read-item.md).
 
 ### Query items
 
@@ -414,7 +414,7 @@ After you insert an item, you can run a query to get all items that match a spec
 
 ## Run the code
 
-This app creates an Azure Cosmos DB SQL API database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos DB for NoSQL database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
@@ -432,7 +432,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB for NoSQL account, you can delete the corresponding resource group.
 
 ### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
 
@@ -471,7 +471,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB SQL API account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
+In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB for NoSQL resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
+> [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md)

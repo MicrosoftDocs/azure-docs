@@ -1,6 +1,6 @@
 ---
 title: Migrate your application to use the Azure Cosmos DB .NET SDK 2.0 (Microsoft.Azure.Cosmos)
-description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 for Core (SQL) API.
+description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 for API for NoSQL.
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -16,10 +16,10 @@ ms.devlang: csharp
 > It is important to note that the v3 of the .NET SDK is currently available and a migration plan from v2 to v3 is available [here](migrate-dotnet-v3.md). To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sql-api-sdk-dotnet.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
-This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for Core (SQL) API. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms to use the v2 SDK `Microsoft.Azure.Cosmos`:
+This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for API for NoSQL. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms to use the v2 SDK `Microsoft.Azure.Cosmos`:
 
-* Azure Cosmos DB .NET Framework v1 SDK for SQL API
-* Azure Cosmos DB .NET Core SDK v1 for SQL API
+* Azure Cosmos DB .NET Framework v1 SDK for API for NoSQL
+* Azure Cosmos DB .NET Core SDK v1 for API for NoSQL
 
 ## What's available in the .NET v2 SDK
 
@@ -77,7 +77,7 @@ For more information, see the [Azure Cosmos DB bulk executor library overview](.
 
 ## Next steps
 
-* Read about [additional performance tips](sql-api-get-started.md) using Azure Cosmos DB for SQL API v2 for optimization your application to achieve max performance
+* Read about [additional performance tips](sql-api-get-started.md) using Azure Cosmos DB for API for NoSQL v2 for optimization your application to achieve max performance
 * Learn more about [what you can do with the v2 SDK](sql-api-dotnet-samples.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

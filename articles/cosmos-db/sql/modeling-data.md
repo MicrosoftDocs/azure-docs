@@ -6,7 +6,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
@@ -29,7 +29,7 @@ After reading this article, you'll be able to answer the following questions:
 * When do I embed data and when do I link to data?
 
 ## Numbers in JSON
-Cosmos DB saves documents in JSON. Which means it is necessary to carefully determine whether it is necessary to convert numbers into strings before storing them in json or not.  All numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice in JSON due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
+Azure Cosmos DB saves documents in JSON. Which means it is necessary to carefully determine whether it is necessary to convert numbers into strings before storing them in json or not.  All numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice in JSON due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
 
 ## <a id="embedding-data"></a>Embed data
 
@@ -477,7 +477,7 @@ Another challenge is that not all characters are accepted by Azure Synapse Spark
 
 ### Data flattening
 
-All properties in the root level of your Cosmos DB data will be represented in analytical store as a column and everything else that is in deeper levels of your document data model will be represented as JSON, also in nested structures. Nested structures demand extra processing from Azure Synapse runtimes to flatten the data in structured format, what may be a challenge in big data scenarios.
+All properties in the root level of your Azure Cosmos DB data will be represented in analytical store as a column and everything else that is in deeper levels of your document data model will be represented as JSON, also in nested structures. Nested structures demand extra processing from Azure Synapse runtimes to flatten the data in structured format, what may be a challenge in big data scenarios.
 
 
 The document below will have only two columns in analytical store, `id` and `contactDetails`. All other data, `email` and `phone`, will require extra processing through SQL functions to be individually read.

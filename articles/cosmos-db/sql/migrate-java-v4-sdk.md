@@ -1,13 +1,13 @@
 ---
 title: Migrate your application to use the Azure Cosmos DB Java SDK v4 (com.azure.cosmos)
-description: Learn how to upgrade your existing Java application from using the older Azure Cosmos DB Java SDKs to the newer Java SDK 4.0 (com.azure.cosmos package)for Core (SQL) API.
+description: Learn how to upgrade your existing Java application from using the older Azure Cosmos DB Java SDKs to the newer Java SDK 4.0 (com.azure.cosmos package)for API for NoSQL.
 author: seesharprun
 ms.devlang: java
 ms.custom: devx-track-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/26/2021
 ---
@@ -23,7 +23,7 @@ ms.date: 08/26/2021
 > Because Azure Cosmos DB Java SDK v4 has up to 20% enhanced throughput, TCP-based direct mode, and support for the latest backend service features, we recommend you upgrade to v4 at the next opportunity. Continue reading below to learn more.
 >
 
-Update to the latest Azure Cosmos DB Java SDK to get the best of what Azure Cosmos DB has to offer - a managed non-relational database service with competitive performance, five-nines availability, one-of-a-kind resource governance, and more. This article explains how to upgrade your existing Java application that is using an older Azure Cosmos DB Java SDK to the newer Azure Cosmos DB Java SDK 4.0 for Core (SQL) API. Azure Cosmos DB Java SDK v4 corresponds to the `com.azure.cosmos` package. You can use the instructions in this doc if you are migrating your application from any of the following Azure Cosmos DB Java SDKs: 
+Update to the latest Azure Cosmos DB Java SDK to get the best of what Azure Cosmos DB has to offer - a managed non-relational database service with competitive performance, five-nines availability, one-of-a-kind resource governance, and more. This article explains how to upgrade your existing Java application that is using an older Azure Cosmos DB Java SDK to the newer Azure Cosmos DB Java SDK 4.0 for API for NoSQL. Azure Cosmos DB Java SDK v4 corresponds to the `com.azure.cosmos` package. You can use the instructions in this doc if you are migrating your application from any of the following Azure Cosmos DB Java SDKs: 
 
 * Sync Java SDK 2.x.x
 * Async Java SDK 2.x.x
@@ -125,7 +125,7 @@ The following code snippet shows the differences in how resources are created be
 
 ```java
 ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPolicy();
-//  Setting the preferred location to Cosmos DB Account region
+//  Setting the preferred location to Azure Cosmos DB Account region
 defaultPolicy.preferredLocations(Lists.newArrayList("Your Account Location"));
 
 //  Create async client
@@ -156,7 +156,7 @@ client.createDatabaseIfNotExists("YourDatabaseName")
 
 ```java
 ConnectionPolicy defaultPolicy = ConnectionPolicy.GetDefault();
-//  Setting the preferred location to Cosmos DB Account region
+//  Setting the preferred location to Azure Cosmos DB Account region
 defaultPolicy.setPreferredLocations(Lists.newArrayList("Your Account Location"));
 
 //  Create document client
@@ -641,7 +641,7 @@ Document responseDocument = documentResourceResponse.getResource();
 
 ## Next steps
 
-* [Build a Java app](create-sql-api-java.md) to manage Azure Cosmos DB SQL API data using the V4 SDK
+* [Build a Java app](create-sql-api-java.md) to manage Azure Cosmos DB for NoSQL data using the V4 SDK
 * Learn about the [Reactor-based Java SDKs](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
 * Learn about converting RxJava async code to Reactor async code with the [Reactor vs RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?

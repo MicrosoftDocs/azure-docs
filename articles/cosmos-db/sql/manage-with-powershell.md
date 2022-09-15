@@ -1,9 +1,9 @@
 ---
-title: Manage Azure Cosmos DB Core (SQL) API resources using using PowerShell
-description: Manage Azure Cosmos DB Core (SQL) API resources using using PowerShell. 
+title: Manage Azure Cosmos DB for NoSQL resources using using PowerShell
+description: Manage Azure Cosmos DB for NoSQL resources using using PowerShell. 
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
@@ -11,10 +11,10 @@ ms.reviewer: mjbrown
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 
-# Manage Azure Cosmos DB Core (SQL) API resources using PowerShell
+# Manage Azure Cosmos DB for NoSQL resources using PowerShell
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB Core (SQL) API resources, including the Cosmos account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](../cassandra/powershell-samples.md), [PowerShell Samples for MongoDB API](../mongodb/powershell-samples.md), [PowerShell Samples for Gremlin](../graph/powershell-samples.md), [PowerShell Samples for Table](../table/powershell-samples.md)
+The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB for NoSQL resources, including the Azure Cosmos DB account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](../cassandra/powershell-samples.md), [PowerShell Samples for API for MongoDB](../mongodb/powershell-samples.md), [PowerShell Samples for Gremlin](../graph/powershell-samples.md), [PowerShell Samples for Table](../table/powershell-samples.md)
 
 > [!NOTE]
 > Samples in this article use [Az.CosmosDB](/powershell/module/az.cosmosdb) management cmdlets. See the [Az.CosmosDB](/powershell/module/az.cosmosdb) API reference page for the latest changes.
@@ -30,24 +30,24 @@ Follow the instructions in [How to install and configure Azure PowerShell][power
 > [!IMPORTANT]
 > Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
-## Azure Cosmos accounts
+## Azure Cosmos DB accounts
 
-The following sections demonstrate how to manage the Azure Cosmos account, including:
+The following sections demonstrate how to manage the Azure Cosmos DB account, including:
 
-* [Create an Azure Cosmos account](#create-account)
-* [Update an Azure Cosmos account](#update-account)
-* [List all Azure Cosmos accounts in a subscription](#list-accounts)
-* [Get an Azure Cosmos account](#get-account)
-* [Delete an Azure Cosmos account](#delete-account)
-* [Update tags for an Azure Cosmos account](#update-tags)
-* [List keys for an Azure Cosmos account](#list-keys)
-* [Regenerate keys for an Azure Cosmos account](#regenerate-keys)
-* [List connection strings for an Azure Cosmos account](#list-connection-strings)
-* [Modify failover priority for an Azure Cosmos account](#modify-failover-priority)
-* [Trigger a manual failover for an Azure Cosmos account](#trigger-manual-failover)
+* [Create an Azure Cosmos DB account](#create-account)
+* [Update an Azure Cosmos DB account](#update-account)
+* [List all Azure Cosmos DB accounts in a subscription](#list-accounts)
+* [Get an Azure Cosmos DB account](#get-account)
+* [Delete an Azure Cosmos DB account](#delete-account)
+* [Update tags for an Azure Cosmos DB account](#update-tags)
+* [List keys for an Azure Cosmos DB account](#list-keys)
+* [Regenerate keys for an Azure Cosmos DB account](#regenerate-keys)
+* [List connection strings for an Azure Cosmos DB account](#list-connection-strings)
+* [Modify failover priority for an Azure Cosmos DB account](#modify-failover-priority)
+* [Trigger a manual failover for an Azure Cosmos DB account](#trigger-manual-failover)
 * [List resource locks on an Azure Cosmos DB account](#list-account-locks)
 
-### <a id="create-account"></a> Create an Azure Cosmos account
+### <a id="create-account"></a> Create an Azure Cosmos DB account
 
 This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
 
@@ -73,17 +73,17 @@ New-AzCosmosDBAccount `
     -MaxStalenessPrefix $maxStalenessPrefix
 ```
 
-* `$resourceGroupName` The Azure resource group into which to deploy the Cosmos account. It must already exist.
+* `$resourceGroupName` The Azure resource group into which to deploy the Azure Cosmos DB account. It must already exist.
 * `$locations` The regions for the database account, the region with `FailoverPriority 0` is the write region.
-* `$accountName` The name for the Azure Cosmos account. Must be unique, lowercase, include only alphanumeric and '-' characters, and between 3 and 31 characters in length.
-* `$apiKind` The type of Cosmos account to create. For more information, see [APIs in Cosmos DB](../introduction.md#simplified-application-development).
-* `$consistencyPolicy`, `$maxStalenessInterval`, and `$maxStalenessPrefix` The default consistency level and settings of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](../consistency-levels.md).
+* `$accountName` The name for the Azure Cosmos DB account. Must be unique, lowercase, include only alphanumeric and '-' characters, and between 3 and 31 characters in length.
+* `$apiKind` The type of Azure Cosmos DB account to create. For more information, see [APIs in Azure Cosmos DB](../introduction.md#simplified-application-development).
+* `$consistencyPolicy`, `$maxStalenessInterval`, and `$maxStalenessPrefix` The default consistency level and settings of the Azure Cosmos DB account. For more information, see [Consistency Levels in Azure Cosmos DB](../consistency-levels.md).
 
-Azure Cosmos accounts can be configured with IP Firewall, Virtual Network service endpoints, and private endpoints. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](../how-to-configure-firewall.md). For information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](../how-to-configure-vnet-service-endpoint.md). For information on how to enable private endpoints for Azure Cosmos DB, see [Configure access from private endpoints](../how-to-configure-private-endpoints.md).
+Azure Cosmos DB accounts can be configured with IP Firewall, Virtual Network service endpoints, and private endpoints. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](../how-to-configure-firewall.md). For information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](../how-to-configure-vnet-service-endpoint.md). For information on how to enable private endpoints for Azure Cosmos DB, see [Configure access from private endpoints](../how-to-configure-private-endpoints.md).
 
-### <a id="list-accounts"></a> List all Azure Cosmos accounts in a Resource Group
+### <a id="list-accounts"></a> List all Azure Cosmos DB accounts in a Resource Group
 
-This command lists all Azure Cosmos accounts in a Resource Group.
+This command lists all Azure Cosmos DB accounts in a Resource Group.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -91,9 +91,9 @@ $resourceGroupName = "myResourceGroup"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName
 ```
 
-### <a id="get-account"></a> Get the properties of an Azure Cosmos account
+### <a id="get-account"></a> Get the properties of an Azure Cosmos DB account
 
-This command allows you to get the properties of an existing Azure Cosmos account.
+This command allows you to get the properties of an existing Azure Cosmos DB account.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -102,7 +102,7 @@ $accountName = "mycosmosaccount"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 ```
 
-### <a id="update-account"></a> Update an Azure Cosmos account
+### <a id="update-account"></a> Update an Azure Cosmos DB account
 
 This command allows you to update your Azure Cosmos DB database account properties. Properties that can be updated include the following:
 
@@ -113,7 +113,7 @@ This command allows you to update your Azure Cosmos DB database account properti
 * Enabling multi-region writes
 
 > [!NOTE]
-> You cannot simultaneously add or remove regions (`locations`) and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation from any other change to the account.
+> You cannot simultaneously add or remove regions (`locations`) and change other properties for an Azure Cosmos DB account. Modifying regions must be performed as a separate operation from any other change to the account.
 > [!NOTE]
 > This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Modify failover priority](#modify-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
 > [!TIP]
@@ -130,7 +130,7 @@ $locations = @()
 $locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
 $locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
-# Create the Cosmos DB account
+# Create the Azure Cosmos DB account
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -LocationObject $locations `
@@ -170,7 +170,7 @@ Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is c
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
 
-### <a id="multi-region-writes"></a> Enable multiple write regions for an Azure Cosmos account
+### <a id="multi-region-writes"></a> Enable multiple write regions for an Azure Cosmos DB account
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -192,9 +192,9 @@ Update-AzCosmosDBAccount `
     -EnableMultipleWriteLocations:$enableMultiMaster
 ```
 
-### <a id="delete-account"></a> Delete an Azure Cosmos account
+### <a id="delete-account"></a> Delete an Azure Cosmos DB account
 
-This command deletes an existing Azure Cosmos account.
+This command deletes an existing Azure Cosmos DB account.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -206,9 +206,9 @@ Remove-AzCosmosDBAccount `
     -PassThru:$true
 ```
 
-### <a id="update-tags"></a> Update Tags of an Azure Cosmos account
+### <a id="update-tags"></a> Update Tags of an Azure Cosmos DB account
 
-This command sets the [Azure resource tags][azure-resource-tags] for an Azure Cosmos account. Tags can be set both at account creation using `New-AzCosmosDBAccount` as well as on account update using `Update-AzCosmosDBAccount`.
+This command sets the [Azure resource tags][azure-resource-tags] for an Azure Cosmos DB account. Tags can be set both at account creation using `New-AzCosmosDBAccount` as well as on account update using `Update-AzCosmosDBAccount`.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -223,9 +223,9 @@ Update-AzCosmosDBAccount `
 
 ### <a id="list-keys"></a> List Account Keys
 
-When you create an Azure Cosmos account, the service generates two primary access keys that can be used for authentication when the Azure Cosmos account is accessed. Read-only keys for authenticating read-only operations are also generated.
-By providing two access keys, Azure Cosmos DB enables you to regenerate and rotate one key at a time with no interruption to your Azure Cosmos account.
-Cosmos DB accounts have two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
+When you create an Azure Cosmos DB account, the service generates two primary access keys that can be used for authentication when the Azure Cosmos DB account is accessed. Read-only keys for authenticating read-only operations are also generated.
+By providing two access keys, Azure Cosmos DB enables you to regenerate and rotate one key at a time with no interruption to your Azure Cosmos DB account.
+Azure Cosmos DB accounts have two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -239,7 +239,7 @@ Get-AzCosmosDBAccountKey `
 
 ### <a id="list-connection-strings"></a> List Connection Strings
 
-The following command retrieves connection strings to connect apps to the Cosmos DB account.
+The following command retrieves connection strings to connect apps to the Azure Cosmos DB account.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -253,8 +253,8 @@ Get-AzCosmosDBAccountKey `
 
 ### <a id="regenerate-keys"></a> Regenerate Account Keys
 
-Access keys to an Azure Cosmos account should be periodically regenerated to help keep connections secure. A primary and secondary access keys are assigned to the account. This allows clients to maintain access while one key at a time is regenerated.
-There are four types of keys for an Azure Cosmos account (Primary, Secondary, PrimaryReadonly, and SecondaryReadonly)
+Access keys to an Azure Cosmos DB account should be periodically regenerated to help keep connections secure. A primary and secondary access keys are assigned to the account. This allows clients to maintain access while one key at a time is regenerated.
+There are four types of keys for an Azure Cosmos DB account (Primary, Secondary, PrimaryReadonly, and SecondaryReadonly)
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup" # Resource Group must already exist
@@ -269,7 +269,7 @@ New-AzCosmosDBAccountKey `
 
 ### <a id="enable-automatic-failover"></a> Enable service-managed failover
 
-The following command sets a Cosmos DB account to fail over automatically to its secondary region should the primary region become unavailable.
+The following command sets an Azure Cosmos DB account to fail over automatically to its secondary region should the primary region become unavailable.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -293,12 +293,12 @@ Update-AzCosmosDBAccount `
 
 ### <a id="modify-failover-priority"></a> Modify Failover Priority
 
-For accounts configured with Service-Managed Failover, you can change the order in which Cosmos will promote secondary replicas to primary should the primary become unavailable.
+For accounts configured with Service-Managed Failover, you can change the order in which Azure Cosmos DB will promote secondary replicas to primary should the primary become unavailable.
 
 For the example below, assume the current failover priority is `West US = 0`, `East US = 1`, `South Central US = 2`. The command will change this to `West US = 0`, `South Central US = 1`, `East US = 2`.
 
 > [!CAUTION]
-> Changing the location for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos account. Any other priority changes will not trigger a failover.
+> Changing the location for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos DB account. Any other priority changes will not trigger a failover.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -318,7 +318,7 @@ For accounts configured with Manual Failover, you can fail over and promote any 
 For the example below, assume the account has a current failover priority of `West US = 0` and `East US = 1` and flip the regions.
 
 > [!CAUTION]
-> Changing `locationName` for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos account. Any other priority change will not trigger a failover.
+> Changing `locationName` for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos DB account. Any other priority change will not trigger a failover.
 
 > [!NOTE]
 > If you perform a manual failover operation while an [asynchronous throughput scaling operation](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.
@@ -827,7 +827,7 @@ Remove-AzResourceLock `
 ## Next steps
 
 * [All PowerShell Samples](powershell-samples.md)
-* [How to manage Azure Cosmos account](../how-to-manage-database-account.md)
+* [How to manage Azure Cosmos DB account](../how-to-manage-database-account.md)
 * [Create an Azure Cosmos DB container](how-to-create-container.md)
 * [Configure time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
 

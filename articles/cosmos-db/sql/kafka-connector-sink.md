@@ -3,7 +3,7 @@ title: Kafka Connect for Azure Cosmos DB - Sink connector
 description: The Azure Cosmos DB sink connector allows you to export data from Apache Kafka topics to an Azure Cosmos DB database. The connector polls data from Kafka to write to containers in the database based on the topics subscription. 
 author: kushagrathapar
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/13/2022
 ms.author: kuthapar
@@ -121,7 +121,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ```
 
-## Confirm data written to Cosmos DB
+## Confirm data written to Azure Cosmos DB
 
 Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
 
@@ -148,9 +148,9 @@ The following settings are used to configure an Azure Cosmos DB Kafka sink conne
 | :--- | :--- | :--- | :--- |
 | Topics | list | A list of Kafka topics to watch. | Required |
 | connector.class | string | Class name of the Azure Cosmos DB sink. It should be set to `com.azure.cosmos.kafka.connect.sink.CosmosDBSinkConnector`. | Required |
-| connect.cosmos.connection.endpoint | uri | Azure Cosmos endpoint URI string. | Required |
+| connect.cosmos.connection.endpoint | uri | Azure Cosmos DB endpoint URI string. | Required |
 | connect.cosmos.master.key | string | The Azure Cosmos DB primary key that the sink connects with. | Required |
-| connect.cosmos.databasename | string | The name of the Azure Cosmos database the sink writes to. | Required |
+| connect.cosmos.databasename | string | The name of the Azure Cosmos DB database the sink writes to. | Required |
 | connect.cosmos.containers.topicmap | string | Mapping between Kafka topics and Azure Cosmos DB containers, formatted using CSV as shown: `topic#container,topic2#container2`. | Required |
 | key.converter | string | Serialization format for the key data written into Kafka topic. | Required |
 | value.converter | string | Serialization format for the value data written into the Kafka topic. | Required |

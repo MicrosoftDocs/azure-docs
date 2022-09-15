@@ -1,17 +1,17 @@
 ---
-title: Node.js tutorial for the SQL API for Azure Cosmos DB
-description: A Node.js tutorial that demonstrates how to connect to and query Azure Cosmos DB using the SQL API
+title: Node.js tutorial for the API for NoSQL for Azure Cosmos DB
+description: A Node.js tutorial that demonstrates how to connect to and query Azure Cosmos DB using the API for NoSQL
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 05/02/2022
 ms.custom: devx-track-js
 ---
 
-# Tutorial: Build a Node.js console app with the JavaScript SDK to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a Node.js console app with the JavaScript SDK to manage Azure Cosmos DB for NoSQL data
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
@@ -23,7 +23,7 @@ ms.custom: devx-track-js
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This tutorial shows you how to build a Node.js console application to create Azure Cosmos DB resources and query them. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+As a developer, you might have applications that use NoSQL document data. You can use a API for NoSQL account in Azure Cosmos DB to store and access this document data. This tutorial shows you how to build a Node.js console application to create Azure Cosmos DB resources and query them. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
 In this tutorial, you will:
 
@@ -115,11 +115,11 @@ The JavaScript SDK uses the generic terms *container* and *item*. A container ca
 
 1. Open the *databaseContext.js* file in your favorite text editor.
 
-1. Copy and paste the following code to the *databaseContext.js* file. This code defines a function that creates the "Tasks", "Items" database and the container if they don't already exist in your Azure Cosmos account:
+1. Copy and paste the following code to the *databaseContext.js* file. This code defines a function that creates the "Tasks", "Items" database and the container if they don't already exist in your Azure Cosmos DB account:
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/data/databaseContext.js" id="createDatabaseAndContainer":::
 
-   A database is the logical container of items partitioned across containers. You create a database by using either the `createIfNotExists` or create function of the **Databases** class. A container consists of items, which, in the SQL API, are actually JSON documents. You create a container by using either the `createIfNotExists` or create function from the **Containers** class. After creating a container, you can store and query the data.
+   A database is the logical container of items partitioned across containers. You create a database by using either the `createIfNotExists` or create function of the **Databases** class. A container consists of items, which, in the API for NoSQL, are actually JSON documents. You create a container by using either the `createIfNotExists` or create function from the **Containers** class. After creating a container, you can store and query the data.
 
    > [!WARNING]
    > Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
@@ -138,14 +138,14 @@ In the *app.js* file, copy and paste the following code to create an asynchronou
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" range="18-19,89-91":::
 
-## Connect to the Azure Cosmos account
+## Connect to the Azure Cosmos DB account
 
 Within the **main** method, copy and paste the following code to use the previously saved endpoint and key to create a new CosmosClient object.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> If connecting to the **Cosmos DB Emulator**, disable TLS verification for your node process:
+> If connecting to the **Azure Cosmos DB Emulator**, disable TLS verification for your node process:
 >
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -163,13 +163,13 @@ Let's take a look at how to work with Azure Cosmos DB resources.
 
 Azure Cosmos DB supports rich queries against JSON items stored in each container. The following sample code shows a query that you can run against the items in your container. You can query the items by using the query function of the `Items` class.
 
-Add the following code to the **try** block to query the items from your Azure Cosmos account:
+Add the following code to the **try** block to query the items from your Azure Cosmos DB account:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="QueryItems":::
 
 ## Create an item
 
-An item can be created by using the create function of the `Items` class. When you're using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. In this tutorial, you create a new item within the tasks database.
+An item can be created by using the create function of the `Items` class. When you're using the API for NoSQL, items are projected as documents, which are user-defined (arbitrary) JSON content. In this tutorial, you create a new item within the tasks database.
 
 1. In the *app.js* file, outside of the **main** method, define the item definition:
 
@@ -215,9 +215,9 @@ Items
 Querying container: Items
 1 - Pick up apples and strawberries.
 
-Created new item: 3 - Complete Cosmos DB Node.js Quickstart ⚡
+Created new item: 3 - Complete Azure Cosmos DB Node.js Quickstart ⚡
 
-Updated item: 3 - Complete Cosmos DB Node.js Quickstart ⚡
+Updated item: 3 - Complete Azure Cosmos DB Node.js Quickstart ⚡
 Updated isComplete to true
 
 Deleted item with id: 3

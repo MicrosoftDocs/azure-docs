@@ -3,7 +3,7 @@ title: Azure Cosmos DB performance tips for queries using the Azure Cosmos DB SD
 description: Learn query configuration options to help improve performance using the Azure Cosmos DB SDK.
 author: ealsur
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/11/2022
 ms.author: maquaran
@@ -248,7 +248,7 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 ### Use Query Plan caching
 
-The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for Java SDK version 4.20.0 and above** and **for Spring Data Cosmos SDK version 3.13.0 and above**.
+The query plan, for a query scoped to a single partition, is cached on the client. This eliminates the need to make a call to the gateway to retrieve the query plan after the first call. The key for the cached query plan is the SQL query string. You need to **make sure the query is [parametrized](sql-query-parameterized-queries.md)**. If not, the query plan cache lookup will often be a cache miss as the query string is unlikely to be identical across calls. Query plan caching is **enabled by default for Java SDK version 4.20.0 and above** and **for Spring Datan Azure Cosmos DB SDK version 3.13.0 and above**.
 
 ### Use parametrized single partition queries
 

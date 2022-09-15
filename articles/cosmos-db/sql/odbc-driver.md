@@ -5,7 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/21/2022
 ms.custom: kr2b-contr-experiment
@@ -17,7 +17,7 @@ ms.custom: kr2b-contr-experiment
 
 This article walks you through installing and using the Azure Cosmos DB ODBC driver to create normalized tables and views for your Azure Cosmos DB data. You can query the normalized data with SQL queries, or import the data into Power BI or other BI and analytics software to create reports and visualizations.
 
-Azure Cosmos DB is a schemaless database, which enables rapid application development and lets you iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. To analyze or report on this data, you might need to flatten the data to fit into a schema.
+Azure Cosmos DB is a schemaless database, which enables rapid application development and lets you iterate on data models without being confined to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. To analyze or report on this data, you might need to flatten the data to fit into a schema.
 
 The ODBC driver normalizes Azure Cosmos DB data into tables and views that fit your data analytics and reporting needs. The normalized schemas let you use ODBC-compliant tools to access the data. The schemas have no impact on the underlying data, and don't require developers to adhere to them. The ODBC driver helps make Azure Cosmos DB databases useful for data analysts as well as development teams.
 
@@ -26,9 +26,9 @@ You can do SQL operations against the normalized tables and views, including gro
 You can also connect the normalized Azure Cosmos DB data to other software solutions, such as SQL Server Integration Services (SSIS), Alteryx, QlikSense, Tableau and other analytics software, BI, and data integration tools. You can use those solutions to analyze, move, transform, and create visualizations with your Azure Cosmos DB data.
 
 > [!IMPORTANT]
-> - Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB Core (SQL) API only.
+> - Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB for NoSQL only.
 > - The current ODBC driver doesn't support aggregate pushdowns, and has known issues with some analytics tools. Until a new version is released, you can use one of the following alternatives:
->   - [Azure Synapse Link](../synapse-link.md) is the preferred analytics solution for Azure Cosmos DB. With Azure Synapse Link and Azure Synapse SQL serverless pools, you can use any BI tool to extract near real-time insights from Azure Cosmos DB SQL or MongoDB API data.
+>   - [Azure Synapse Link](../synapse-link.md) is the preferred analytics solution for Azure Cosmos DB. With Azure Synapse Link and Azure Synapse SQL serverless pools, you can use any BI tool to extract near real-time insights from Azure Cosmos DB SQL or API for MongoDB data.
 >   - For Power BI, you can use the [Azure Cosmos DB connector for Power BI](powerbi-visualize.md).
 >   - For Qlik Sense, see [Connect Qlik Sense to Azure Cosmos DB](../visualize-qlik-sense.md).
 
@@ -51,7 +51,7 @@ You can also connect the normalized Azure Cosmos DB data to other software solut
 
 1. Make sure that the **Microsoft Azure DocumentDB ODBC Driver** is listed on the **Drivers** tab.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Screenshot of the O D B C Data Source Administrator window.":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Screenshot of the ODBC Data Source Administrator window.":::
 
    <a id="connect"></a>
 1. Select the **User DSN** tab, and then select **Add** to create a new data source name (DSN). You can also create a System DSN.
@@ -69,7 +69,7 @@ You can also connect the normalized Azure Cosmos DB data to other software solut
    
      To avoid an authentication error, use the copy buttons to copy the URI and key from the Azure portal.
    
-     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Screenshot of the Azure Cosmos D B Keys page.":::
+     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Screenshot of the Azure Cosmos DB DB Keys page.":::
    
    - **Encrypt Access Key for**: Select the best choice, based on who uses the machine.
     
@@ -228,7 +228,7 @@ You can use your DSN to connect to Azure Cosmos DB with any ODBC-compliant tools
 
 1. In the **Get Data** window, select **Other** > **ODBC**, and then select **Connect**.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Screenshot that shows choosing O D B C data source in Power B I Get Data.":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Screenshot that shows choosing ODBC data source in Power B I Get Data.":::
 
 1. In the **From ODBC** window, select the DSN you created, and then select **OK**.
 
