@@ -12,8 +12,7 @@ ms.date: 09/08/2022
 
 # Upgrading a Basic Public IP to Standard Public IP - Guidance
 
-On September 30, 2025, Basic public IP addresses will be retired. For more information, see the official announcement. If you use Basic SKU public IP addresses, make sure to upgrade to Standard SKU public IP addresses prior to that date. This article will help guide you with the upgrade. 
-
+In this article, we'll discuss guidance for upgrading your Basic Public IPs to Standard Public IPs. Standard Public IPs are recommended for all production instances and provide many [key differences](#basic-sku-vs-standard-sku) to your infrastructure.
 ## Steps to complete the upgrade 
 
 We recommend the following approach to upgrade to Standard SKU Public IP addresses. 

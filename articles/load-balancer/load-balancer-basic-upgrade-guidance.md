@@ -5,15 +5,14 @@ author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
-ms.date: 09/08/2022
+ms.date: 09/15/2022
 #customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
 # Upgrading from Basic Load Balancer - Guidance
 
-On September 30, 2025, Basic Load Balancer will be retired. For more information, see the official announcement. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
-
-## Steps to complete the upgrade 
+In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommend for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
+## Load balancer upgrade steps
 
 We recommend the following approach to upgrade to Standard Load Balancer:
 
