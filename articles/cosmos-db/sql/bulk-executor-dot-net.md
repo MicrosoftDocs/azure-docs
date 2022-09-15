@@ -4,7 +4,7 @@ description: Bulk import and update the Azure Cosmos DB documents using the bulk
 author: abinav2307
 ms.author: abramees
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/02/2020
@@ -20,9 +20,9 @@ ms.custom: devx-track-csharp
 
 > If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, use the steps in the [Migration guide](how-to-migrate-from-bulk-executor-library.md) to migrate your application.
 
-This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos container. To learn about the bulk executor library and how it helps you use massive throughput and storage, see the [bulk executor library overview](../bulk-executor-overview.md) article. In this tutorial, you'll see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos container. After importing the data, the library shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos DB container. To learn about the bulk executor library and how it helps you use massive throughput and storage, see the [bulk executor library overview](../bulk-executor-overview.md) article. In this tutorial, you'll see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing the data, the library shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
-Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use the bulk executor .NET library with SQL API accounts. To learn about using the bulk executor .NET library with Gremlin API accounts, see [perform bulk operations in the Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md).
+Currently, bulk executor library is supported by the Azure Cosmos DB for NoSQL and API for Gremlin accounts only. This article describes how to use the bulk executor .NET library with API for NoSQL accounts. To learn about using the bulk executor .NET library with API for Gremlin accounts, see [perform bulk operations in the Azure Cosmos DB for Gremlin](../graph/bulk-executor-graph-dotnet.md).
 
 ## Prerequisites
 
@@ -32,11 +32,11 @@ Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../local-emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in the [create a database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article.
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create a database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article.
 
 ## Clone the sample application
 
-Now let's switch to working with code by downloading a sample .NET application from GitHub. This application performs bulk operations on the data stored in your Azure Cosmos account. To clone the application, open a command prompt, navigate to the directory where you want to copy it and run the following command:
+Now let's switch to working with code by downloading a sample .NET application from GitHub. This application performs bulk operations on the data stored in your Azure Cosmos DB account. To clone the application, open a command prompt, navigate to the directory where you want to copy it and run the following command:
 
 ```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
@@ -44,9 +44,9 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample". You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account's connection strings, build the solution, and run it.
 
-The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you'll review the code in each of these sample apps.
+The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos DB account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you'll review the code in each of these sample apps.
 
-## Bulk import data to an Azure Cosmos account
+## Bulk import data to an Azure Cosmos DB account
 
 1. Navigate to the "BulkImportSample" folder and open the "BulkImportSample.sln" file.  
 
@@ -120,7 +120,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete the execution.      |
    |BadInputDocuments (List\<object>)   |     The list of bad-format documents that weren't successfully imported in the bulk import API call. Fix the documents returned and retry import. Bad-formatted documents include documents whose ID value isn't a string (null or any other datatype is considered invalid).    |
 
-## Bulk update data in your Azure Cosmos account
+## Bulk update data in your Azure Cosmos DB account
 
 You can update existing documents by using the BulkUpdateAsync API. In this example, you'll set the `Name` field to a new value and remove the `Description` field from the existing documents. For the full set of supported update operations, refer to the [API documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
 
@@ -173,13 +173,13 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 Consider the following points for better performance when using the bulk executor library:
 
-* For best performance, run your application from an Azure virtual machine that is in the same region as your Azure Cosmos account's write region.  
+* For best performance, run your application from an Azure virtual machine that is in the same region as your Azure Cosmos DB account's write region.  
 
-* It's recommended that you instantiate a single `BulkExecutor` object for the whole application within a single virtual machine that corresponds to a specific Azure Cosmos container.  
+* It's recommended that you instantiate a single `BulkExecutor` object for the whole application within a single virtual machine that corresponds to a specific Azure Cosmos DB container.  
 
 * A single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO (This happens by spawning multiple tasks internally). Avoid spawning multiple concurrent tasks within your application process that execute bulk operation API calls. If a single bulk operation API call that is running on a single virtual machine is unable to consume the entire container's throughput (if your container's throughput > 1 million RU/s), it's preferred to create separate virtual machines to concurrently execute the bulk operation API calls.  
 
-* Ensure the `InitializeAsync()` method is invoked after instantiating a BulkExecutor object to fetch the target Cosmos container's partition map.  
+* Ensure the `InitializeAsync()` method is invoked after instantiating a BulkExecutor object to fetch the target Azure Cosmos DB container's partition map.  
 
 * In your application's App.Config, ensure **gcServer** is enabled for better performance
   ```xml  

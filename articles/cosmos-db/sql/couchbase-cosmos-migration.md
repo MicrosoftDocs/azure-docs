@@ -1,8 +1,8 @@
 ---
-title: 'Migrate from CouchBase to Azure Cosmos DB SQL API'
-description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB SQL API
+title: 'Migrate from CouchBase to Azure Cosmos DB for NoSQL'
+description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB for NoSQL
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
@@ -10,10 +10,10 @@ author: manishmsfte
 ms.custom: devx-track-java
 ---
 
-# Migrate from CouchBase to Azure Cosmos DB SQL API
+# Migrate from CouchBase to Azure Cosmos DB for NoSQL
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to a SQL API account in Azure Cosmos DB.
+Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to a API for NoSQL account in Azure Cosmos DB.
 
 ## Differences in nomenclature
 
@@ -429,7 +429,7 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 
 There are two ways to migrate data.
 
-* **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB SQL API, see the Azure [Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
+* **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
 
 * **Use the Azure Cosmos DB data import tool:** This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](../import-data.md) article.
 

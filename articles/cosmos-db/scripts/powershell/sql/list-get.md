@@ -1,9 +1,9 @@
 ---
-title: PowerShell script to list and get Azure Cosmos DB SQL API resources
-description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL API
+title: PowerShell script to list and get Azure Cosmos DB for NoSQL resources
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for API for NoSQL
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: sample
 ms.date: 03/17/2020
 ms.author: sidandrews
@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell
 ---
 
-# List and get databases and containers for Azure Cosmos DB - SQL (Core) API
+# List and get databases and containers for Azure Cosmos DB - API for NoSQL
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
@@ -23,7 +23,7 @@ Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for API for NoSQL")]
 
 ## Clean up deployment
 
@@ -40,9 +40,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
-| [Get-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Lists Cosmos DB Databases in an Account, or gets a specified Cosmos DB Database in an Account. |
-| [Get-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Lists Cosmos DB Containers in a Database, or gets a specified Cosmos DB Container in a Database. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Azure Cosmos DB Accounts, or gets a specified Azure Cosmos DB Account. |
+| [Get-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Lists Azure Cosmos DB Databases in an Account, or gets a specified Azure Cosmos DB Database in an Account. |
+| [Get-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Lists Azure Cosmos DB Containers in a Database, or gets a specified Azure Cosmos DB Container in a Database. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
