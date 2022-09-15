@@ -201,9 +201,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list devices API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.2-preview`
-
 ### $top
 
 Use the **$top** to set the result size, the maximum returned result size is 100, the default size is 25.
@@ -211,7 +208,7 @@ Use the **$top** to set the result size, the maximum returned result size is 100
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -239,7 +236,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.2-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=2022-07-31&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
 }
 ```
 
@@ -254,10 +251,10 @@ Use **$filter** to create expressions that filter the list of devices. The follo
 | -------------------- | ------ | --------------------------------------- |
 | Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
 | Not Equals           | ne     | Enabled ne true                         |
-| Less than or equals       | le     | indexof(displayName, 'device1') le -1   |
-| Less than            | lt     | indexof(displayName, 'device1') lt 0    |
-| Greater than or equals      | ge     | indexof(displayName, 'device1') ge 0    |
-| Greater than           | gt     | indexof(displayName, 'device1') gt 0    |
+| Less than or equals       | le     | contains(displayName, 'device1') le -1   |
+| Less than            | lt     | contains(displayName, 'device1') lt 0    |
+| Greater than or equals      | ge     | contains(displayName, 'device1') ge 0    |
+| Greater than           | gt     | contains(displayName, 'device1') gt 0    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
@@ -280,16 +277,16 @@ Currently, *$filter* works with the following device fields:
 
 **$filter supported functions:**
 
-Currently, the only supported filter function for device lists is the `indexof` function:
+Currently, the only supported filter function for device lists is the `contains` function:
 
 ```
-$filter=indexof(displayName, 'device1') ge 0
+$filter=contains(displayName, 'device1') ge 0
 ```
 
-The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
+The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=index(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -331,7 +328,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -366,7 +363,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:
@@ -547,6 +544,398 @@ The response to this request looks like the following example:
       "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model3\""
     }
   ]
+}
+```
+
+## Enrollment groups
+
+Enrollment groups are used to manage the device authentication options in your IoT Central application. To learn more, see [Device authentication concepts in IoT Central](concepts-device-authentication.md).
+
+To learn how to create and manage enrollment groups in the UI, see [How to connect devices with X.509 certificates to IoT Central Application](how-to-connect-devices-x509.md).
+
+## Create an enrollment group
+
+### [X509](#tab/X509)
+
+When you create an enrollment group for devices that use X.509 certificates, you first need to upload the root or intermediate certificate to your IoT Central application.
+
+### Generate root and device certificates
+
+In this section, you generate the X.509 certificates you need to connect a device to IoT Central.
+
+> [!WARNING]
+> This way of generating X.509 certs is for testing only. For a production environment you should use your official, secure mechanism for certificate generation.
+
+1. Navigate to the certificate generator script in the Microsoft Azure IoT SDK for Node.js you downloaded. Install the required packages:
+
+    ```cmd/sh
+    cd azure-iot-sdk-node/provisioning/tools
+    npm install
+    ```
+
+1. Create a root certificate and then derive a device certificate by running the script:
+
+    ```cmd/sh
+    node create_test_cert.js root mytestrootcert
+    node create_test_cert.js device sample-device-01 mytestrootcert
+    ```
+
+    > [!TIP]
+    > A device ID can contain letters, numbers, and the `-` character.
+
+These commands produce the following root and the device certificate
+
+| filename | contents |
+| -------- | -------- |
+| mytestrootcert_cert.pem | The public portion of the root X.509 certificate |
+| mytestrootcert_key.pem | The private key for the root X.509 certificate |
+| mytestrootcert_fullchain.pem | The entire keychain for the root X.509 certificate. |
+| mytestrootcert.pfx | The PFX file for the root X.509 certificate. |
+| sampleDevice01_cert.pem | The public portion of the device X.509 certificate |
+| sampleDevice01_key.pem | The private key for the device X.509 certificate |
+| sampleDevice01_fullchain.pem | The entire keychain for the device X.509 certificate. |
+| sampleDevice01.pfx | The PFX file for the device X.509 certificate. |
+
+Make a note of the location of these files. You need it later.
+
+### Generate the base-64 encoded version of the root certificate
+
+In the folder on your local machine that contains the certificates you generated, create a file called convert.js and add the following JavaScript content:
+
+```javascript
+const fs = require('fs')
+const fileContents = fs.readFileSync(process.argv[2]).toString('base64');
+console.log(fileContents);
+```
+
+Run the following command to generate a base-64 encode version of the certificate:
+
+```cmd/sh
+node convert.js mytestrootcert_cert.pem
+```
+
+Make a note of the base-64 encoded version of the certificate. You need it later.
+
+### Add an X.509 enrollment group
+
+Use the following request to create a new enrollment group with `myx509eg` as the ID:
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
+```
+
+The following example shows a request body that adds a new X.509 enrollment group:
+
+```json
+{
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "x509"
+  }
+}
+
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the enrollment group.
+* `@enabled`: Whether the devices using the group are allowed to connect to IoT Central.
+* `@type`: Type of devices that connect through the group, either `iot` or `iotEdge`.
+* `attestation`: The attestation mechanism for the enrollment group, either `symmetricKey` or `x509`.
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "myEnrollmentGroupId",
+    "displayName": "My group",
+    "enabled": true,
+    "type": "iot",
+    "attestation": {
+        "type": "x509",
+        "x509": {
+            "signingCertificates": {}
+        }
+    },
+    "etag": "IjdiMDcxZWQ5LTAwMDAtMDcwMC0wMDAwLTYzMWI3MWQ4MDAwMCI="
+}
+```
+
+### Add an X.509 certificate to an enrollment group
+
+Use the following request to set the primary X.509 certificate of the myx509eg enrollment group:
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
+```
+
+entry - Entry of certificate, either `primary` or `secondary`
+
+Use this request to add either a primary or secondary X.509 certificate to the enrollment group.
+
+The following example shows a request body that adds an X.509 certificate to an enrollment group:
+
+```json
+{
+  "verified": false,
+  "certificate": "<base64-certificate>"
+}
+```
+
+* certificate - The base-64 version of the certificate you made a note of previously.
+* verified - `true` if you attest that the certificate is valid, `false` if you need to prove the validity of the certificate.
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verified": false,
+  "info": {
+    "sha1Thumbprint": "644543467786B60C14DFE6B7C968A1990CF63EAC"
+  },
+  "etag": "IjE3MDAwODNhLTAwMDAtMDcwMC0wMDAwLTYyNjFmNzk0MDAwMCI="
+}
+```
+
+### Generate verification code for an X.509 certificate
+
+Use the following request to generate a verification code for the primary or secondary X.509 certificate of an enrollment group.
+
+If you set `verified` to `false` in the previous request, use the following request to generate a verification code for the primary X.509 certificate in the `myx509eg` enrollment group:
+
+```http
+POST https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary/generateVerificationCode?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verificationCode": "<certificate-verification-code>"
+}
+```
+
+Make a note of the verification code, you need it in the next step.
+
+### Generate the verification certificate
+
+Use the following command to generate a verification certificate from the verification code in the previous step:
+
+  ```cmd/sh
+  node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
+  ```
+
+Run the following command to generate a base-64 encoded version of the certificate:
+
+```cmd/sh
+node convert.js verification_cert.pem
+```
+
+Make a note of the base-64 encoded version of the certificate. You need it later.
+
+### Verify X.509 certificate of an enrollment group
+
+Use the following request to verify the primary X.509 certificate of the `myx509eg` enrollment group by providing the certificate with the signed verification code:
+
+```http
+POST PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary/verify?api-version=2022-07-31
+```
+
+The following example shows a request body that verifies an X.509 certificate:
+
+```json
+{
+  "certificate": "base64-verification-certificate"
+}
+```
+
+### Get X.509 certificate of an enrollment group
+
+Use the following request to retrieve details of X.509 certificate of an enrollment group from your application:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verified": true,
+  "info": {
+    "sha1Thumbprint": "644543467786B60C14DFE6B7C968A1990CF63EAC"
+  },
+  "etag": "IjE3MDAwODNhLTAwMDAtMDcwMC0wMDAwLTYyNjFmNzk0MDAwMCI="
+}
+```
+
+### Delete an X.509 certificate from an enrollment group
+
+Use the following request to delete the primary X.509 certificate from an enrollment group with ID `myx509eg`:
+
+```http
+DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
+```
+
+### [Symmetric key](#tab/symmetric-key)
+
+### Add a symmetric key enrollment group
+
+Use the following request to create a new enrollment group with `mysymmetric` as the ID:
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mysymmetric?api-version=2022-07-31
+```
+
+The following example shows a request body that adds a new enrollment group:
+
+```json
+{
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey"
+  }
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "mysymmetric",
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+IoT Central generates the primary and secondary symmetric keys when you make this API call.
+
+---
+
+### Get an enrollment group
+
+Use the following request to retrieve details of an enrollment group with `mysymmetric` as the ID:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mysymmetric?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "mysymmetric",
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+### Update an enrollment group
+
+Use the following request to update an enrollment group.
+
+```http
+PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
+```
+
+The following example shows a request body that updates the display name of a  enrollment group:
+
+```json
+{
+  "displayName": "My new group name",
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "myEnrollmentGroupId",
+  "displayName": "My new group name",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+### Delete an enrollment group
+
+Use the following request to delete an enrollment group with ID `myx509eg`:
+
+```http
+DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
+```
+
+### List enrollment groups
+
+Use the following request to retrieve a list of enrollment groups from your application:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "id": "myEnrollmentGroupId",
+            "displayName": "My group",
+            "enabled": true,
+            "type": "iot",
+            "attestation": {
+                "type": "symmetricKey",
+                "symmetricKey": {
+                    "primaryKey": "primaryKey",
+                    "secondaryKey": "secondarykey"
+                }
+            },
+            "etag": "IjZkMDc1YTgzLTAwMDAtMDcwMC0wMDAwLTYzMTc5ZjA4MDAwMCI="
+        },
+        {
+            "id": "enrollmentGroupId2",
+            "displayName": "My group",
+            "enabled": true,
+            "type": "iot",
+            "attestation": {
+                "type": "x509",
+                "x509": {
+                    "signingCertificates": {}
+                }
+            },
+            "etag": "IjZkMDdjNjkyLTAwMDAtMDcwMC0wMDAwLTYzMTdhMDY1MDAwMCI="
+        }
+    ]
 }
 ```
 

@@ -11,6 +11,9 @@ ms.service: iot-hub-device-update
 
 # Understand support for disconnected device updates
 
+> [!NOTE]
+> This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
+
 In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to Azure IoT Hub. In these cases, the child devices may not have internet connectivity or may not be allowed to download content from the internet. The Microsoft Connected Cache preview IoT Edge module provides Device Update for IoT Hub customers with the capability of an intelligent in-network cache. The cache enables image-based and package-based updates of Linux OS-based devices behind an IoT Edge gateway (also called *downstream* IoT devices), and also helps reduce the bandwidth used for updates.
 
 ## Microsoft Connected Cache preview for Device Update for IoT Hub

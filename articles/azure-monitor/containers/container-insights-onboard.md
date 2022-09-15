@@ -3,8 +3,8 @@
 title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 05/24/2022
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Enable Container insights
@@ -17,8 +17,7 @@ Container insights supports the following environments:
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
    - [AKS engine](https://github.com/Azure/aks-engine)
-   - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
-   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
+   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x
 
 ## Supported Kubernetes versions
 The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
@@ -146,8 +145,6 @@ To enable Container insights, use one of the methods that's described in the fol
 |------------------|--------|
 | New Kubernetes cluster | [Enable monitoring for a new AKS cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md) |
 | | [Enable for a new AKS cluster by using the open-source tool Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)|
-| | [Enable for a new OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) |
-| | [Enable for a new OpenShift cluster by using the Azure CLI](/azure/openshift/#az-openshift-create) |
 | Existing AKS cluster | [Enable monitoring for an existing AKS cluster using the Azure CLI](container-insights-enable-existing-clusters.md?tabs=azure-powershell) | 
 | | [Enable for an existing AKS cluster using Terraform](container-insights-enable-existing-clusters.md?tabs=terraform) |
 | | [Enable for an existing AKS cluster from Azure Monitor portal](container-insights-enable-existing-clusters.md?tabs=portal-azure-monitor)| 
