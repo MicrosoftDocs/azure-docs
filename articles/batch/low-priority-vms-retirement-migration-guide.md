@@ -1,5 +1,5 @@
 ---
-title: Low Priority VMs Retirement Migration Guide
+title: Low priority vms retirement migration guide
 description: Describes the migration steps for the low priority vms retirement and the end of support details.
 author: harperche
 ms.author: harpercheng
@@ -43,7 +43,7 @@ Customers in User Subscription mode have the option to include Spot VMs using th
 1. In the Azure portal, select the Batch account and view the existing pool or create a new pool.
 2. Under **Scale**, users can choose 'Target dedicated nodes' or 'Target Spot/low-priority nodes.'
 
-  ![Scale-TargetNodes](../batch/media/certificates/lowpriorityvms-scale-targetnodes.png)
+  ![Scale Target Nodes](../batch/media/certificates/lowpriorityvms-scale-target-nodes.png)
 
 3. Navigate to the existing Pool and select 'Scale' to update the number of Spot nodes required based on the job scheduled. 
 4. Click **Save**.
@@ -52,15 +52,15 @@ Customers in Batch Managed mode must recreate the Batch account, pool, and jobs 
 
 ## FAQ
 
-1. How to create a new Batch account /job/pool?
+* How to create a new Batch account /job/pool?
 
     Refer to the quick start [link](./batch-account-create-portal.md) on creating a new Batch account/pool/task.
 
-2. Are Spot VMs available in Batch Managed mode?
+* Are Spot VMs available in Batch Managed mode?
 
     No, Spot VMs are available in User Subscription mode - Batch accounts only.
 
-3. What is the pricing and eviction policy of Spot VMs? Can I view pricing history and eviction rates?
+* What is the pricing and eviction policy of Spot VMs? Can I view pricing history and eviction rates?
 
     Refer to [Spot VMs](../virtual-machines/spot-vms.md) for more information on using Spot VMs. Yes, you can see historical pricing and eviction rates per size in a region in the portal.
 
