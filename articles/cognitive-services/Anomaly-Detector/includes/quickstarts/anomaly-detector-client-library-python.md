@@ -11,7 +11,7 @@ ms.author: mbullwin
 recommendations: false
 ---
 
-Get started with the Anomaly Detector client library for Python. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for Python. Follow these steps to install the package and start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
 Use the Anomaly Detector client library for Python to:
 
@@ -89,17 +89,18 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and time series data path:
+2. Replace the contents of quickstart.py with the following code. Modify the code to add the environment variable names for your key, endpoint, and the time series data path:
 
     ```python
     from azure.ai.anomalydetector import AnomalyDetectorClient
     from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
     from azure.core.credentials import AzureKeyCredential
-    import pandas as pd  
+    import pandas as pd
+    import os  
 
-    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
-    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
-    TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE" 
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY'] 
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT'] 
+    TIME_SERIES_DATA_PATH = "c:\\test\\request-data.csv" 
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
@@ -176,11 +177,11 @@ To visualize the anomalies and change points in relation to the sample data seri
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
 
-    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
-    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY_ENVIRONMENT_VARIABLE_NAME']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT_ENVIRONMENT_VARIABLE_NAME']
     TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE"
 
-    client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DETECTOR_ENDPOINT)
+    client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
     series = []
     data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
@@ -217,7 +218,7 @@ To visualize the anomalies and change points in relation to the sample data seri
 
 ### Output
 
-In this code example, we've added the `matplotlib` library to allow us to visualize and easily distinguish normal data points from change points and anomalies. Change points are represented by blue squares, anomalies are red triangles, and normal data points are green circles.
+In this code example, we've added the `matplotlib` library to allow us to visualize and easily distinguish normal data points from change points and anomalies. Change points are represented by blue squares, anomalies are red triangles, and normal data points are green circles. Dates are converted to numbers using `matplotlib`'s `date2num` method to provide graph friendly values for the charts y-axis.
 
 :::image type="content" source="../../media/quickstart/output.png" alt-text="Screenshot of anomaly detection results with indexes of anomalies and change points on a scatter plot. Anomalies are represented as red triangles, change points are represented as blue squares, and normal data is represented as green circles." lightbox="../../media/quickstart/output.png":::
 
