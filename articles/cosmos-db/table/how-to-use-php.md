@@ -1,8 +1,8 @@
 ---
 title: Use Azure Storage Table service or Azure Cosmos DB for Table from PHP
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB for Table from PHP.
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: php

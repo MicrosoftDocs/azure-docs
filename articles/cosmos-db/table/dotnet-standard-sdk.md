@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB for Table .NET Standard SDK & Resources
 description: Learn all about the Azure Cosmos DB for Table and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: csharp
