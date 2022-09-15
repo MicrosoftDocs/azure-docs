@@ -341,7 +341,7 @@ https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-j
 
 ---
 
-# Model Sweeping and Hyperparameter Tuning (Preview) 
+## Model Sweeping and Hyperparameter Tuning (Preview) 
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config, that will get sampled and swept over during training by HyperDrive.  
 
