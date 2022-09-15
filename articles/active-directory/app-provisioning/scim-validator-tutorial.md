@@ -74,6 +74,46 @@ Finally, you need to test and validate your endpoint.
 
 :::image type="content" source="./media/scim-validator-tutorial/scim-validator-results.png" alt-text="SCIM Validator Results Page" lightbox="./media/scim-validator-tutorial/scim-validator-results.png":::
 
+### Use Postman to test endpoints
+
+In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman that validate CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
+
+The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
+
+> [!NOTE]
+> You can only use HTTP endpoints for local tests. The Azure AD provisioning service requires that your endpoint support HTTPS.
+
+1. Download [Postman](https://www.getpostman.com/downloads/) and start the application.
+1. Copy and paste this link into Postman to import the test collection: `https://aka.ms/ProvisioningPostman`.
+
+    ![Screenshot that shows importing the test collection in Postman.](media/scim-validator-tutorial/postman-collection.png)
+
+1. Create a test environment that has these variables:
+
+   |Environment|Variable|Value|
+   |-|-|-|
+   |Run the project locally by using IIS Express|||
+   ||**Server**|`localhost`|
+   ||**Port**|`:44359` *(don't forget the **`:`**)*|
+   ||**Api**|`scim`|
+   |Run the project locally by using Kestrel|||
+   ||**Server**|`localhost`|
+   ||**Port**|`:5001` *(don't forget the **`:`**)*|
+   ||**Api**|`scim`|
+   |Host the endpoint in Azure|||
+   ||**Server**|*(input your SCIM URL)*|
+   ||**Port**|*(leave blank)*|
+   ||**Api**|`scim`|
+
+1. Use **Get Key** from the Postman collection to send a **GET** request to the token endpoint and retrieve a security token to be stored in the **token** variable for subsequent requests.
+
+   ![Screenshot that shows the Postman Get Key folder.](media/scim-validator-tutorial/postman-get-key.png)
+
+   > [!NOTE]
+   > To make a SCIM endpoint secure, you need a security token before you connect. The tutorial uses the `{host}/scim/token` endpoint to generate a self-signed token.
+
+That's it! You can now run the **Postman** collection to test the SCIM endpoint functionality.
+
 ## Clean up resources
 
 If you created any Azure resources in your testing that are no longer needed, don't forget to delete.
