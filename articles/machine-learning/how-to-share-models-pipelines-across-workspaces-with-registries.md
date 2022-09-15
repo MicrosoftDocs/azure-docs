@@ -328,7 +328,7 @@ Below screenshot shows a model in a registry in AzureML Studio UI. If you create
 
 In the last section, you will deploy a model from registry to an online endpoint in a workspace. You can choose to deploy any workspace you have access to in your orgnization, provided the location of the workspace is one of the locations supported by the registry. This capability is helpful if you trained a model in a `dev` workspace and now need to deploy the model to `test` or `prod` workspace, while preserving the lineage information around the code, environment and data used to train the model.
 
-Online endpoints let you deploy model and submit inference requests through the REST APIs. Review [managed endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-managed-online-endpoints) to learn more. 
+Online endpoints let you deploy model and submit inference requests through the REST APIs. Review [managed endpoints](how-to-deploy-managed-online-endpoints.md) to learn more. 
 
 Create a online endpoint. 
 
