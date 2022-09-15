@@ -16,7 +16,7 @@ items:
   expanded: true
   items: 
     - name: Identify app issues with web UI tests
-      href: tutorial-identify-issues-with-end-to-end-web-tests.md
+      href: tutorial-identify-issues-with-end-to-end-tests.md
     - name: Set up continuous testing with GitHub Actions
       href: tutorial-automate-end-to-end-testing-with-github-actions.md
 - name: How-to guides
