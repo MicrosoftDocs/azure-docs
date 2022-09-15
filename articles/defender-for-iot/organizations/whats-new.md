@@ -1,23 +1,19 @@
 ---
 title: What's new in Microsoft Defender for IoT
-description: This article lets you know what's new in the latest release of Defender for IoT.
+description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 09/15/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, both on-premises and in the Azure portal, and for versions released in the last nine months.
 
-This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
+Features released earlier than nine months ago are described in the [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md). For more information specific to OT monitoring software versions, see [OT monitoring software release notes](release-notes.md).
 
-Content listed below includes updates for both OT networks and Enterprise IoT networks, and both on-premises and cloud-only features.
-
-Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
-
-Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-For more information specific to OT monitoring software versions, see [OT monitoring software release notes](release-notes.md).
+> [!NOTE]
+> Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## August 2022
 

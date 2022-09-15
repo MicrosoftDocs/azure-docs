@@ -1,6 +1,6 @@
 ---
-title: What's new in Microsoft Defender for IoT
-description: This article lets you know what's new in the latest release of Defender for IoT.
+title: OT monitoring software release notes - Microsoft Defender for IoT
+description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and new features.
 ms.topic: overview
 ms.date: 09/15/2022
 ---
@@ -34,17 +34,16 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 > [!TIP]
 > - Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
 >
-> - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+> - When updating your sensor software version, make sure to also update your on-premises management console to the same version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ## Versions 22.2.x
 
 
 |Version  |Release date  |Supported until  |Updates  |
 |---------|---------|---------|---------|
-|**22.2.6**     |   09/2022      |   04/2023      |   TBD      |
-|**22.2.5**     |  08/2022       |    04/2023     |   - Minor stability improvements.      |
-|**22.2.4**     |     07/2022    |   04/2023      | - [Device inventory enhancements](whats-new.md#device-inventory-enhancements) <br>- [Enhancements for the ServiceNow integration API](whats-new.md#enhancements-for-the-servicenow-integration-api)<br>- [New alert columns with timestamp data](whats-new.md#new-alert-columns-with-timestamp-data)        |
-|**22.2.3**     |   07/2022      |  04/2023       |  - [OT appliance hardware profile updates](whats-new.md#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](whats-new.md#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](whats-new.md#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](whats-new.md#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](whats-new.md#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](whats-new.md#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](whats-new.md#sensor-names-shown-in-browser-tabs)       |
+|**22.2.5**     |  08/2022       |    04/2023     |   Minor stability improvements      |
+|**22.2.4**     |     07/2022    |   04/2023      |  New features   |
+|**22.2.3**     |   07/2022      |  04/2023       | New features      |
 
 To update to 22.2.x versions:
 
@@ -220,12 +219,12 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [PLC operating mode detections (Public Preview)](whats-new.md#plc-operating-mode-detections-public-preview)
-- [PCAP API](whats-new.md#pcap-api)
-- [On-premises Management Console Audit](whats-new.md#on-premises-management-console-audit)
-- [Webhook Extended](whats-new.md#webhook-extended)
-- [Unicode support for certificate passphrases](whats-new.md#unicode-support-for-certificate-passphrases)
+- [PLC operating mode detections (Public Preview)](release-notes-archive.md#plc-operating-mode-detections-public-preview)
+- [PCAP API](release-notes-archive.md#pcap-api)
+- [On-premises Management Console Audit](release-notes-archive.md#on-premises-management-console-audit)
+- [Webhook Extended](release-notes-archive.md#webhook-extended)
+- [Unicode support for certificate passphrases](release-notes-archive.md#unicode-support-for-certificate-passphrases)
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](what's-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
