@@ -4396,11 +4396,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/graph/TOC.yml",
-      "redirect_url": "/azure/cosmos-db/gremlin/TOC",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/graph/tutorial-query-graph.md",
       "redirect_url": "/azure/cosmos-db/gremlin/tutorial-query-graph",
       "redirect_document_id": true
