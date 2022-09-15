@@ -94,7 +94,7 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
-    - name: Multi-instance GPU Node pool (preview)
+    - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
       href: servicemesh-about.md

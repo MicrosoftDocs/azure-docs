@@ -34,6 +34,8 @@
     items:
     - name: API Management
       href: migrate-api-mgt.md
+    - name: App Configuration
+      href: migrate-app-configuration.md
     - name: App Service Environment
       href: migrate-app-service-environment.md
     - name: App Service
