@@ -85,14 +85,14 @@ items:
       - name: Use table tags to train your custom model
         displayName: FOTT, migration, dynamic
         href: supervised-table-tags.md
-  - name: Composed models
-    items:
-     - name: Compose models v3.0
-       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-       href: compose-custom-models-v3.md
-     - name: Compose models v2.1
-       displayName: FOTT, label, ocr, confidence, bounding box
-       href: compose-custom-models-v2-1.md
+    - name: Compose custom models
+      items:
+        - name: Compose models v3.0
+          displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+          href: compose-custom-models-v3.md
+        - name: Compose models v2.1
+          displayName: FOTT, label, ocr, confidence, bounding box
+          href: compose-custom-models-v2-1.md
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
