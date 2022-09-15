@@ -12,12 +12,12 @@ Azure Container Registry automatically encrypts images and other artifacts that 
   
 This overview tutorial is part one in a four-part series. The other tutorials cover enabling, rotating and revoking, and troubleshooting customer-managed keys.
 
-In this tutorial, you'll learn:
+In this tutorial, you will:
 
 > [!div class="checklist"]
-> * What a customer-managed key is.
-> * What to know before you enable a customer-managed key.
-> * How to update a customer-managed key.
+> * Learn what a customer-managed key is.
+> * Get important facts before you enable a customer-managed key.
+> * Learn the options for updating a customer-managed key.
 
 ## About customer-managed keys 
 
