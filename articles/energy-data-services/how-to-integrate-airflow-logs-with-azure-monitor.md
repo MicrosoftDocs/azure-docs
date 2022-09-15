@@ -16,16 +16,16 @@ This article describes how you can start collecting Airflow Logs for your Micros
 
 ## Prerequisites
 
-* An existing **Log Analytics Workspace**. 
+* An existing **Log Analytics Workspace**:
     This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](/articles/azure-monitor/logs/quick-create-workspace.md).
 
 
-* An existing **storage account**. 
+* An existing **storage account**:
     It will be used to store JSON dumps of Airflow logs. The storage account doesn’t have to be in the same subscription as your Log Analytics Workspace. 
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Microsoft Energy Data instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Microsoft Energy Data Services instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics Workspace
@@ -82,7 +82,6 @@ You can integrate Airflow logs with Log Analytics Workspace by using **Diagnosti
 
 Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started. Visit: [Sample Kusto Queries](/articles/data-explorer/kusto/query/samples?pivots=azuredataexplorer.md)
 
-Browse through the available queries. Identify one to run and select Run. The query is added to the query window and the results returned.
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)
 
