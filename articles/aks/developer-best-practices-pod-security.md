@@ -78,7 +78,7 @@ The following [associated AKS open source projects][aks-associated-projects] let
 
 #### Use an Azure AD workload identity (preview)
 
-A workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
+A workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the [Azure SDK][azure-sdk-download] or the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL).
 
 For more information about workload identities, see [Configure an AKS cluster to use Azure AD workload identities with your applications][aad-workload-identity]
 
@@ -92,7 +92,6 @@ When applications need a credential, they communicate with the digital vault, re
 
 With Key Vault, you store and regularly rotate secrets such as credentials, storage account keys, or certificates. You can integrate Azure Key Vault with an AKS cluster using the [Azure Key Vault provider for the Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). The Secrets Store CSI driver enables the AKS cluster to natively retrieve secret contents from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Secrets Store CSI Driver onto AKS worker nodes. You can use a pod managed identity to request access to Key Vault and retrieve the secret contents needed through the Secrets Store CSI Driver.
 
-
 ## Next steps
 
 This article focused on how to secure your pods. To implement some of these areas, see the following articles:
@@ -105,9 +104,11 @@ This article focused on how to secure your pods. To implement some of these area
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#selinuxoptions-v1-core
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
+[azure-sdk-download]: https://azure.microsoft.com/downloads/
 
 <!-- INTERNAL LINKS -->
 [aad-workload-identity]: workload-identity-overview.md
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources
+[microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
