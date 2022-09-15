@@ -44,7 +44,7 @@ To configure the CMK for an Azure Database for MySQL flexible server, you need t
 
 When you configure a flexible server to use a CMK stored in the key vault, the server sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the flexible server will send the protected DEK to the key vault for decryption.
 
-:::image type="content" source="media/customer-managed-key-mysql-flexible-server/mysql-customer-managed-key.jpg" alt-text="Diagram of how data encryption with a customer-managed key works.":::
+:::image type="content" source="media/concepts-customer-managed-key-mysql-flexible-server/mysql-customer-managed-key.jpg" alt-text="Diagram of how data encryption with a customer-managed key works.":::
 
 After logging is enabled, auditors can use Azure Monitor to review Key Vault audit event logs. To enable logging of [Key Vault auditing events](../../key-vault/key-vault-insights-overview.md), see Monitoring your key vault service with Key Vault insights.
 
