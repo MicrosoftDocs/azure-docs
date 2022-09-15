@@ -21,7 +21,7 @@ This article shows you how to start or stop your Azure Spring Apps service insta
 > [!NOTE]
 > Stop and start is currently under preview and we do not recommend this feature for production.
 
-Your applications running in Azure Spring Apps may not need to run continuously - for example, if you have a service instance that's used only during business hours. At these times, Azure Spring Apps may be idle, and running only the system components.
+Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not need to run continuously if you have a service instance that's used only during business hours. There may be times when Azure Spring Apps is idle and running only the system components.
 
 You can reduce the active footprint of Azure Spring Apps by reducing the running instances and ensuring costs for compute resources are reduced.
 
@@ -100,4 +100,4 @@ az spring show \
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Monitor usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md)
+- [Azure Monitor cost and usage](../azure-monitor/usage-estimated-costs.md)
