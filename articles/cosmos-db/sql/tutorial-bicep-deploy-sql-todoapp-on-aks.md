@@ -16,7 +16,7 @@ ms.date: 09/15/2022
 
 In this quickstart, you deploy a web reference ASP.NET Core MVC application on Azure Kubernetes Service (AKS) cluster.
 
- **[Azure Cosmos DB](../introduction.md)**  is a fully managed NoSQL database for modern app development. **[AKS](..//..//aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
+ **[Azure Cosmos DB](../introduction.md)**  is a fully managed NoSQL database for modern application development. **[AKS](..//..//aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
 
 - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -35,7 +35,7 @@ The  following are required to compile the ASP.NET Core MVC application and crea
 
 ## Overview
 
-This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](..//..//azure-resource-manager/bicep/overview.md)**, which is a new language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
+This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](..//..//azure-resource-manager/bicep/overview.md)**, which is a new declarative language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
 
 The Bicep modules will deploy the following Azure resources under subscription scope.
 
@@ -48,7 +48,7 @@ The Bicep modules will deploy the following Azure resources under subscription s
 7. A [Key Vault](..//../key-vault/general/overview.md) to store secure keys
 8. A [Log Analytics Workspace](..//../azure-monitor/logs/log-analytics-overview.md) (optional)
 
-This quickstart uses the following best practices to enhance security
+This quickstart uses the following best practices to enhance security of Cosmos DB.
 
 1. Implements access control using [RBAC](..//../role-based-access-control/overview.md) and [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to eliminate the need for developers to manage secrets, credentials, certificates, and keys used to secure communication between services.
 2. Limits Cosmos DB access to the AKS subnet by [configuring a virtual network service endpoint](../how-to-configure-vnet-service-endpoint.md).
@@ -121,7 +121,7 @@ You can also see the deployment status in the Resource Group
 
 ## Link the Azure Container Registry with AKS
 
-Replace the {ACR Instance Name}, {Resource Group Name}, and {AKS Cluster Name} placeholders with your own values. Run the below command to integrate the ACR with the AKS cluster 
+Replace the {ACR Instance Name}, {Resource Group Name}, and {AKS Cluster Name} placeholders with your own values. Run the below command to integrate the ACR with the AKS cluster.
 
 ```azurecli-interactive
 
@@ -180,26 +180,25 @@ Use the below command to install the Secrets Store CSI Driver using the YAML.
 kubectl apply -f secretproviderclass.yml
 ```
 
-## Build the MVC Web Application 
+## Build the MVC Web Application
 
 Download or clone the application source code from the [GitHub](https://github.com/Azure-Samples/cosmos-aks-samples/tree/main/Application) repository.
 
-Open the Application folder in VS code. Select Yes to the warning message to add the missing build and debug assets. Pressing the F5 button to run the application.
-
+Open the Application folder in VS code. Select Yes to the warning message to add the missing build and debug assets. Press the F5 button to run the application.
 
 ## Push the Container Image to Azure Container Registry
 
-1. To create a container image from the Explorer tab on VS Code, right click on the Dokcerfile and select BuildImage. You'll then get a prompt asking for the name and version to tag the image. Type todo:latest.
+1. To create a container image from the Explorer tab on VS Code, right click on the Dokcerfile and select BuildImage. You'll then get a prompt asking for the name and version to tag the image. Enter the name todo:latest.
 
     :::image type="content" source="./media/tutorial-aks-bicep-sql-todo/build_image.png" alt-text="Build Image VS Code":::
 
-2. To push the built image to ACR open the Docker tab. You'll find the built image under the Images node. Open the todo node, right-click on latest and select "Push...". 
+2. To push the built image to ACR open the Docker tab. You'll find the built image under the Images node. Open the todo node, right-click on latest and select "Push...".
+
 3. You'll then get prompts to select your Azure Subscription, ACR, and Image tag. Image tag format should be {acrname}.azurecr.io/todo:latest.
 
     :::image type="content" source="./media/tutorial-aks-bicep-sql-todo/image_push.png" alt-text="Push Image to ACR":::
 
 4. Wait for VS Code  to push the  image to ACR.
-
 
 ## Prepare Deployment YAML
 
