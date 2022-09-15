@@ -493,7 +493,6 @@ AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in 
 
  [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-
 ```yaml
 limits: 
   timeout_minutes: 60 
