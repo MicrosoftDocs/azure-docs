@@ -47,7 +47,7 @@ Learn more about [alert suppression rules](alerts-suppression-rules.md).
 
 File integrity monitoring (FIM) examines operating system files and registries for changes that might indicate an attack.
 
-FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can deploy through Defender for Cloud.
+FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can [deploy through Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
 
 Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
 
