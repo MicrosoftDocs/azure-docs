@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/15/2022
 ms.author: alkohli
 ---
 
@@ -47,7 +47,7 @@ You must download and install the following hotfixes to the specified folders in
 
 ## Download hotfixes
 
-To download the hotfixes, follow the steps to [download software updates from the Microsoft Update Catalog](/azure/storsimple/storsimple-8000-install-update-5.md#to-download-hotfixes) and search for KB articles listed in the table above.
+To download the hotfixes, follow the steps to [download software updates from the Microsoft Update Catalog](/azure/storsimple/storsimple-8000-install-update-5#to-download-hotfixes) and search for KB articles listed in the table above.
 
 ## Verify the updates
 
