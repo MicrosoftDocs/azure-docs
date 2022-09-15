@@ -464,12 +464,10 @@ builder.Services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((mo
         });
 
 // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
-builder.Services.ConfigureTelemetryModule<EventCounterCollectionModule>(
-        (module, o) =>
+builder.Services.ConfigureTelemetryModule<EventCounterCollectionModule>((module, o) =>
         {
             module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
-        }
-    );
+        });
 
 // The following removes PerformanceCollectorModule to disable perf-counter collection.
 // Similarly, any other default modules can be removed.
