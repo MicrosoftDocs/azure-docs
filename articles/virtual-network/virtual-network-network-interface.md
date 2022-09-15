@@ -687,7 +687,6 @@ $nic | Set-AzNetworkInterface
 
 ```
 
-
 # [**CLI**](#tab/network-interface-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to enable or disable the IP forwarding setting.
@@ -703,10 +702,12 @@ az network nic update \
 
 To disable IP forwarding, use the following command:
 
+```azurecli
 az network nic update \
     --name myNIC \
     --resource-group myResourceGroup \
     --ip-forwarding false
+```
 
 ---
 
@@ -784,26 +785,100 @@ az network nic ip-config update \
 
 ## Add to or remove from application security groups
 
-You can only add a network interface to, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. You can use PowerShell or the Azure CLI to add a network interface to, or remove a network interface from an application security group regardless of virtual machine configuration. Learn more about [Application security groups](./network-security-groups-overview.md#application-security-groups) and how to [create an application security group](manage-network-security-group.md).
+You can only add a network interface to, or remove a network interface from an application security group using the portal if the network interface is attached to a virtual machine. 
 
+You can use PowerShell or the Azure CLI to add a network interface to, or remove a network interface from an application security group regardless of virtual machine configuration. Learn more about [Application security groups](./network-security-groups-overview.md#application-security-groups) and how to [create an application security group](manage-network-security-group.md).
 
+# [**Portal**](#tab/network-interface-portal)
 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
+2. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
 
+3. Select the virtual machine you want to view or change settings for from the list.
 
+4. In **Settings**, select **Networking**.
 
+5. Select the **Application security groups** tab.
 
-1. In the *Search resources, services, and docs* box at the top of the portal, begin typing the name of a virtual machine that has a network interface that you want to add to, or remove from, an application security group. When the name of your VM appears in the search results, select it.
-2. Under **SETTINGS**, select **Networking**.  Select **Application Security Groups** then **Configure the application security groups**elect the application security groups that you want to add the network interface to, or unselect the application security groups that you want to remove the network interface from, and then select **Save**. Only network interfaces that exist in the same virtual network can be added to the same application security group. The application security group must exist in the same location as the network interface.
+6. Select **Configure the application security groups**.
 
-**Commands**
+7. Select the application security groups that you want to add the network interface to, or unselect the application security groups that you want to remove the network interface from.
 
-|Tool|Command|
-|---|---|
-|CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+8. Select **Save**.
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to set the application security group.
+
+```azurepowershell
+## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the subnet configuration into a variable. ##
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet
+
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Place the application security group configuration into a variable. ##
+$asg = Get-AzApplicationSecurityGroup -Name myASG -ResourceGroupName myResourceGroup
+
+## Add the application security group to the IP configuration. ##
+$IP = @{
+    Name = 'ipv4config'
+    Subnet = $subnet
+    ApplicationSecurityGroup = $asg
+}
+$nic | Set-AzNetworkInterfaceIpConfig @IP
+
+$nic | Set-AzNetworkInterface
+```
+
+# [**CLI**](#tab/network-interface-cli)
+
+Use [az network nic ip-config update](/cli/azure/network/nic#az-network-nic-ip-config-update) to set the application security group.
+
+```azurecli
+az network nic ip-config update \
+    --name ipv4config \
+    --nic-name myNIC \
+    --resource-group myResourceGroup \
+    --application-security-groups myASG
+```
+
+---
+
+Only network interfaces that exist in the same virtual network can be added to the same application security group. The application security group must exist in the same location as the network interface.
 
 ## Associate or dissociate a network security group
+
+# [**Portal**](#tab/network-interface-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal enter **Network interface**. Select **Network interfaces** in the search results.
+
+3. Select the network interface you want to view or change settings for from the list.
+
+4. In **Settings**, select **IP configurations**.
+
+
+
+
+
+# [**PowerShell**](#tab/network-interface-powershell)
+
+# [**CLI**](#tab/network-interface-cli)
+
+---
+
+
+
 
 1. In the search box at the top of the portal, enter *network interfaces* in the search box. When **network interfaces** appear in the search results, select it.
 2. Select the network interface in the list that you want to associate a network security group to, or dissociate a network security group from.
