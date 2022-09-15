@@ -26,7 +26,7 @@ ms.custom: devx-track-js, mode-api
 > * [Go](create-sql-api-go.md)
 >
 
-Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the Azure Cosmos DB client library for JavaScript to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples) are available on GitHub as a Node.js project.
@@ -44,7 +44,7 @@ Watch this video for a complete walk-through of the content in this article.
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources.
+This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for JavaScript to manage resources.
 
 ### Create an Azure Cosmos DB account
 
@@ -77,6 +77,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
     
 
 1. Add the [dotenv](https://www.npmjs.com/package/dotenv) npm package to read environment variables from a `.env` file. 
+1. 
     ```bash
     npm install dotenv
     ```
@@ -90,7 +91,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
     COSMOS_KEY=
     ```
 
-1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. 
+1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. This ensures that only the secure and relevant information can be checked into source code.
 
     ```text
     .env
