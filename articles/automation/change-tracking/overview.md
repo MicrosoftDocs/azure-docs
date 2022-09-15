@@ -67,7 +67,7 @@ To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation
 
 ### Python requirement
 
-Change Tracking and Inventory now supports Python 2 and Python 3. If your machine is using a distro that doesn't include Python 2 or Python 3 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Change Tracking and Inventory now supports Python 2 and Python 3. If your machine is using a distro that doesn't include Python 2 or Python 3 by default then you must install it. The following sample commands will install Python 2 add python 3 on different distros.
 
 > [!NOTE]
 > To install and upgrade to Python 3, you must first uninstall Python 2; otherwise, the previously installed version will function as a default application.
