@@ -9,6 +9,12 @@ ms.author: yelevin
 
 # Create and use Microsoft Sentinel automation rules to manage response
 
+> [!IMPORTANT]
+>
+> Some features of automation rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> Features in preview will be so indicated when they are mentioned throughout this article.
+
 This article explains how to create and use automation rules in Microsoft Sentinel to manage and orchestrate threat response, in order to maximize your SOC's efficiency and effectiveness.
 
 In this article you'll learn how to define the triggers and conditions that will determine when your automation rule will run, the various actions that you can have the rule perform, and the remaining features and functionalities.
@@ -92,8 +98,8 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
     | Property | Operator set |
     | -------- | -------- |
     | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
-    | - Severity<br>- Status<br>- Incident provider | - Equals/Does not equal |
-    | - Tactics<br>- Alert product names | - Contains/Does not contain |
+    | - Severity<br>- Status<br>- Incident provider<br>- Custom details key (Preview) | - Equals/Does not equal |
+    | - Tactics<br>- Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
 
     #### Conditions available with the update trigger
 
@@ -103,15 +109,44 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
     | - Tag (in addition to above)<br>- Alerts<br>- Comments | - Added |
     | - Severity<br>- Status | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
     | - Owner | - Changed |
-    | - Incident provider<br>- Updated by | - Equals/Does not equal |
+    | - Incident provider<br>- Updated by<br>- Custom details key (Preview) | - Equals/Does not equal |
     | - Tactics | - Contains/Does not contain<br>- Added |
-    | - Alert product names | - Contains/Does not contain |
+    | - Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
 
 1. Enter a value in the text box on the right. Depending on the property you chose, this might be a drop-down list from which you would select the values you choose. You might also be able to add several values by selecting the icon to the right of the text box (highlighted by the red arrow below).
 
     :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
 
 Again, for setting complex **Or** conditions with different fields, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+
+#### Conditions based on custom details (Preview)
+
+You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
+
+To add a condition based on a custom detail, take the following steps:
+
+1. Create a new automation rule as described above.
+
+1. Add a condition or a condition group.
+
+1. Select **Custom details key (Preview)** from the properties drop-down list. Select **Equals** or **Does not equal** from the operators drop-down list.
+
+    For the custom details condition, the values in the last drop-down list come from the custom details that were surfaced in all the analytics rules listed in the first condition. Select the custom detail you want to use as a condition.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/custom-detail-key-condition.png" alt-text="Screenshot of adding a custom detail key as a condition.":::
+
+1. You've now chosen the field you want to evaluate for this condition. Now you have to specify the value appearing in that field that will make this condition evaluate to *true*.<br>Select **+ Add item condition**.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/add-item-condition.png" alt-text="Screenshot of selecting add item condition for automation rules.":::
+
+    The value condition line appears below.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/custom-details-value.png" alt-text="Screenshot of the custom detail value field appearing.":::
+
+1. Select **Contains** or **Does not contain** from the operators drop-down list. In the text box to the right, enter the value for which you want the condition to evaluate to *true*.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/custom-detail-key-condition.png" alt-text="Screenshot of adding a custom detail key as a condition.":::
+
 
 ### Add actions
 
