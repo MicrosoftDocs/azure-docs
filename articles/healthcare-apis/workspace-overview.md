@@ -5,8 +5,8 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/06/2022
-ms.author: ginle
+ms.date: 09/15/2022
+ms.author: chrupa
 ---
 
 # What is Azure Health Data Services workspace?
