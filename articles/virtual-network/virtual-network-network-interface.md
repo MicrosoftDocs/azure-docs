@@ -149,7 +149,7 @@ $nic = @{
 New-AzNetworkInterface @nic
 ```
 
-# [**Azure CLI**](#tab/network-interface-CLI)
+# [**Azure CLI**](#tab/network-interface-cli)
 
 In this example, you'll create an Azure Public IP address and associate it with the network interface. 
 
@@ -226,7 +226,7 @@ Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterfac
 Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
 ```
 
-# [**Azure CLI**](#tab/network-interface-CLI)
+# [**Azure CLI**](#tab/network-interface-cli)
 
 Use [az network nic list](/cli/azure/network/nic#az-network-nic-list) to view network interfaces in the subscription.
 
@@ -301,7 +301,7 @@ $nic.DnsSettings.DnsServers.Remove("192.168.1.101")
 $nic | Set-AzNetworkInterface
 ```
 
-# [**Azure CLI**](#tab/network-interface-CLI)
+# [**Azure CLI**](#tab/network-interface-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.
 
@@ -381,7 +381,7 @@ $nic | Set-AzNetworkInterface
 
 ```
 
-# [**Azure CLI**](#tab/network-interface-CLI)
+# [**Azure CLI**](#tab/network-interface-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to enable or disable the IP forwarding setting.
 
