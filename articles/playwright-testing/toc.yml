@@ -10,12 +10,12 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Run end-to-end web tests at scale
+    - name: Run end-to-end tests at scale
       href: quickstart-run-end-to-end-tests.md
 - name: Tutorials
   expanded: true
   items: 
-    - name: Identify app issues with web UI tests
+    - name: Identify app issues with end-to-end tests
       href: tutorial-identify-issues-with-end-to-end-tests.md
     - name: Set up continuous testing with GitHub Actions
       href: tutorial-automate-end-to-end-testing-with-github-actions.md
@@ -24,7 +24,7 @@ items:
   items:
     - name: Manage workspaces in Azure portal
       href: how-to-manage-workspace-in-azure-portal.md
-    - name: Run Playwright tests in the cloud
+    - name: Run existing Playwright tests in the cloud
       href: how-to-run-with-playwright-testing.md
     - name: Run tests across multiple operating systems
       href: how-to-cross-platform-tests.md

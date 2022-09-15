@@ -34,7 +34,7 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
       - linkListType: tutorial
         links:
-          - text: Identify app issues with web UI tests
+          - text: Identify app issues with end-to-end tests
             url: tutorial-identify-issues-with-end-to-end-tests.md
           - text: Set up continuous testing with GitHub Actions
             url: tutorial-automate-end-to-end-testing-with-github-actions.md
@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Run tests across multiple operating systems
             url: how-to-cross-platform-tests.md
-          - text: Run Playwright tests in the cloud
+          - text: Run existing Playwright tests in the cloud
             url: how-to-run-with-playwright-testing.md
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md
