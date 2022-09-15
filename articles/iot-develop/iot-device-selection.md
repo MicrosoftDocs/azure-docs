@@ -161,7 +161,7 @@ Terminology and acronyms are listed in alphabetical order.
 Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it isn't intended to be exhaustive.
 
 >[!NOTE]
->This list is for educational purposes only, it is not intended to endorse any products.
+>This list is for educational purposes only, it is not intended to endorse any products. Prices shown represent the average across multiple distributors and are for illustrative purposes only.
 
 | Board Name | Price Range (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Stated Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
