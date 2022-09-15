@@ -181,12 +181,12 @@ Once you enable the soft delete policy and perform actions such as untag a manif
 1. Select the artifact, and Click on the **Restore** in the right column.
 1.  A **Restore Artifact** window pops up.
 
-:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-repository-artifacts.png.png" alt-text="Screenshot to restore soft delete repositories.":::
+:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-repository-artifacts.png" alt-text="Screenshot to restore soft delete repositories.":::
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
-:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="Screenshot of restore window for soft delete repositories.":::
+:::image type="content" source="./media/container-registry-soft-delete/09-soft-delete-restore.png" alt-text="Screenshot of restore window for soft delete repositories.":::
 
 
 > [!IMPORTANT]
