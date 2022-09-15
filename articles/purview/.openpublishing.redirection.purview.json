@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
     {
         "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-database",
@@ -179,6 +179,51 @@
         "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
         "redirect_document_id": true
-      }     
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-dotnet.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-dotnet",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-portal-faq.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal-faq",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-python.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-python",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-powershell.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-powershell",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-portal.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-ARM-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-ARM-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/use-azure-purview-studio.md",
+        "redirect_url": "/azure/purview/use-microsoft-purview-governance-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-bicep-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-bicep-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/reference-azure-purview-glossary.md",
+        "redirect_url": "/azure/purview/reference-microsoft-purview-glossary",
+        "redirect_document_id": true
+      }
 ]
 }
