@@ -149,7 +149,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. Click on the **Manage deleted artifacts** to see all the soft deleted artifacts.
 
 > [!NOTE]
-Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
+> Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
 
 :::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="Screenshot of manage deleted artifacts.":::
 
