@@ -37,7 +37,7 @@ Consider the following factors before picking a name.
 
 ### Choosing Azure regions 
 
-Registies enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions using Azure resources such as [Azure Container Registry replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication) and Blob storage accounts. You need to define the list of regions that a registry needs to support when creating a registry. A master list of all regions in which you have workspaces today and plan to add in near future is a good set of regions to start with. You define a primary region which cannot be changed and set of an additional regions that can be updated at a later point.
+Registies enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions using Azure resources such as [Azure Container Registry replication](/azure/container-registry/container-registry-geo-replication) and Blob storage accounts. You need to define the list of regions that a registry needs to support when creating a registry. A master list of all regions in which you have workspaces today and plan to add in near future is a good set of regions to start with. You define a primary region which cannot be changed and set of an additional regions that can be updated at a later point.
 
 ### Checking for Permissions
 
