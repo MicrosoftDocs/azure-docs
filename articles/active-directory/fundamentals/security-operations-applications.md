@@ -33,7 +33,7 @@ If you're unfamiliar with how applications work in Azure Active Directory (Azure
 
 ## What to look for
 
-As you monitor your application logs for security incidents, review the following list to help differentiate normal activity from malicious activity. The following events might indicate security concerns. Each are covered in the article.
+As you monitor your application logs for security incidents, review the following list to help differentiate normal activity from malicious activity. The following events might indicate security concerns. Each is covered in the article.
 
 * Any changes occurring outside normal business processes and schedules
 
@@ -91,11 +91,11 @@ The remainder of this article is what we recommend you monitor and alert on. It'
 
 ## Application credentials
 
-Many applications use credentials to authenticate in Azure AD. Any other credentials added outside expected processes could be a malicious actor using those credentials. We recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note that application and service principal updates are logged as two entries in the audit log.
+Many applications use credentials to authenticate in Azure AD. Any other credentials added outside expected processes could be a malicious actor using those credentials. We recommend using X509 certificates issued by trusted authorities or Managed Identities instead of using client secrets. However, if you need to use client secrets, follow good hygiene practices to keep applications safe. Note, application and service principal updates are logged as two entries in the audit log.
 
 * Monitor applications to identify long credential expiration times.
 
-* Replace long-lived credentials with credentials with a short life span. Ensure credentials don't get committed in code repositories, and are stored securely.
+* Replace long-lived credentials with a short life span. Ensure credentials don't get committed in code repositories, and are stored securely.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | -|-|-|-|-|
@@ -144,7 +144,7 @@ Use Azure Key Vault to store your tenant’s secrets. We recommend you pay atten
 |-|-|-|-|-|
 | How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)| Resource type: Key Vaults| Look for: any access to Key Vault outside regular processes and hours, any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-After you set up Azure Key Vault, [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli). This shows [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone, text, or [Event Grid](../../key-vault/general/event-grid-overview.md) notification, if health is affected. In addition, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights gives you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
+After you set up Azure Key Vault, [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli). See [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone, text, or [Event Grid](../../key-vault/general/event-grid-overview.md) notification, if health is affected. In addition, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights gives you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
 
 ### End-user consent
 
@@ -170,18 +170,18 @@ For more information on consent operations, see the following resources:
 
 ## Application authentication flows
 
-There are several flows in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, avoid resource owner password credentials (ROPC) because this requires the user to expose their current password credentials to the application. The application then uses these credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
+There are several flows in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application being built. In some cases, there's a choice of flows available to the application. For this case, some authentication flows are recommended over others. Specifically, avoid resource owner password credentials (ROPC) because these requires the user to expose their current password credentials to the application. The application then uses the credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), because this flow is recommended.
 
 The only scenario where ROPC is suggested is for automated application testing. See [Run automated integration tests](../develop/test-automate-integration-testing.md) for details.  
 
-Device code flow is another OAuth 2.0 protocol flow for input-constrained devices and isn't used in all environments. When this type of flow is seen in the environment, and is not used in an input constrained device scenario, further investigation is warranted. This can be a misconfigured application or potentially something malicious.
+Device code flow is another OAuth 2.0 protocol flow for input-constrained devices and isn't used in all environments. When device code flow appears in the environment, and isn't used in an input constrained device scenario. More investigation is warranted for a misconfigured application or potentially something malicious.
 
 Monitor application authentication using the following formation:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Applications that are using the ROPC authentication flow|Medium | Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow.This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
-|Applications using the Device code flow |Low to medium|Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows are seen without an environment need for them they should be further investigated for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| Applications that are using the ROPC authentication flow|Medium | Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow. This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+|Applications using the Device code flow |Low to medium|Azure AD Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows appear, without a need for them, investigate for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Application configuration changes
 
@@ -194,7 +194,7 @@ Monitor changes to application configuration. Specifically, configuration change
 | Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-Alert whken these changes are detected.
+Alert when these changes are detected.
 
 ### AppID URI added, modified, or removed
 
