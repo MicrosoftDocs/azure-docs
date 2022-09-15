@@ -167,44 +167,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
 ``` 
 
-```json
-{ 
-"location": "<location>", 
-"properties": { 
-    "source": { 
-        "script": "echo Hello World", 
-        "scriptUri": "< SAS URI of a storage blob with read access or public URI>",  
-        "commandId": "<Id>"  
-        }, 
-    "parameters": [ 
-        { 
-            "name": "param1",
-            "value": "value1" 
-            }, 
-        { 
-            "name": "param2", 
-            "value": "value2" 
-            } 
-        ], 
-    "protectedParameters": [ 
-        { 
-            "name": "secret1", 
-            "value": "value1" 
-            }, 
-        { 
-            "name": "secret2", 
-            "value": "value2" 
-            } 
-        ], 
-    "runAsUser": "userName",
-    "runAsPassword": "userPassword", 
-    "timeoutInSeconds": 3600, 
-    "outputBlobUri": "< SAS URI of a storage append blob with read, add, create, write access>", 
-    "errorBlobUri": "< SAS URI of a storage append blob with read, add, create, write access >"  
-    }
-}
 
-```
 
 ### Get output details for a specific Run Command deployment 
 
