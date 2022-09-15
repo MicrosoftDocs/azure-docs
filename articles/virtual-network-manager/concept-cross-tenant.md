@@ -37,8 +37,11 @@ Once both cross-tenant connections exist and the scopes are exactly the same, a 
 
 A cross-tenant connection can only be established and maintained when both objects from each party exist. When one of the connections is removed, the cross-tenant connection is broken. If you need to delete a cross-tenant connection, you'll perform the following:
 
-- Remove cross-tenant connections from management tenant
-- Remove connection from managed tenant 
+- Remove cross-tenant connection from the network manager side via Cross-tenant connections blade.
+- Remove cross-tenant connection from the tenant side via Virtual network manager hub's Cross-tenant connections blade.
+
+> [!NOTE] 
+> Once a connection is removed from either side, the network manager will no longer be able to view or manage the tenant's resources under that former connection's scope.
 ## Required Permissions 
 
 To use cross-tenant connection in Azure Virtual Network Manager, users need the following permissions: 
