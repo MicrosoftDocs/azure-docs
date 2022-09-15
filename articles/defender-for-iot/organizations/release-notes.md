@@ -65,13 +65,16 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |Service area  |Updates  |
 |---------|---------|
 |**OT networks**     |**All OT sensor software versions**:  - [Security recommendations for OT networks](#security-recommendations-for-ot-networks)|
+
 ### Security recommendations for OT networks
 
-Defender for IoT now provides the following security recommendations in the Azure portal for detected devices across your OT networks:
+Defender for IoT now provides security recommendations to help customers manage their OT/IoT network security posture. Defender for IoT recommendations help users form actionable, prioritized mitigation plans that address the unique challenges of OT/IoT networks. Use recommendations for lower your network's risk and attack surface.
 
-- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure run states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+You can see the following security recommendations from the Azure portal for detected devices across your networks:
 
-- **Set a stronger password with minimum length and complexity**. Devices with this recommendation have weak passwords, with fewer possible combinations to test before the password is compromised. We recommend that you set stronger passwords on these devices, with more characters and complexity.
+- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure operating mode states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+
+- **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
 
 Access security recommendations from one of the following locations:
 
@@ -80,10 +83,6 @@ Access security recommendations from one of the following locations:
 - The **Recommendations** tab on a device details page, which displays all current recommendations for the selected device.
 
 From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. Select device links to jump to the device details page.
-
-> [!NOTE]
-> Recommendations in the Azure portal are available for all currently supported OT monitoring software versions.
->
 
 ## August 2022
 
