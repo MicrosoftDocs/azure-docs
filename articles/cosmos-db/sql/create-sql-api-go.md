@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Build a Go app using Azure Cosmos DB for NoSQL account'
 description: Gives a Go code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
-author: Duffney
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 3/4/2021
-ms.author: jduffney
+ms.author: sidandrews
 ---
 
 # Quickstart: Build a Go application using an Azure Cosmos DB for NoSQL account
