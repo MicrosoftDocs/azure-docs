@@ -197,3 +197,51 @@ dotnet run
 
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
+
+## Advanced
+
+### Send an email message to multiple recipients
+
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+
+```csharp
+var toRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<emailalias1@emaildomain.com>"),
+    new EmailAddress("<emailalias2@emaildomain.com>"),
+};
+
+var ccRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<ccemailalias@emaildomain.com>"),
+};
+
+var bccRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<bccemailalias@emaildomain.com>"),
+};
+
+EmailRecipient emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
+
+```csharp
+byte[] bytes = File.ReadAllBytes(filePath);
+string attachmentFileInBytes = Convert.ToBase64String(bytes);
+
+var emailAttachment = new EmailAttachment(
+    "<your-attachment-name>",
+    "<your-attachment-name>",
+    attachmentFileInBytes
+);
+
+emailMessage.Add(emailAttachment);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)
