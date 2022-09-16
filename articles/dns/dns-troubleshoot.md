@@ -168,7 +168,7 @@ If VNET DNS Servers is configured with Default (Azure-Provided), Point to Site c
 
 However, if VNET DNS Server is configured with the Private Resolver Inbound IP address, P2S clients will be able to resolve Private DNS Zones (including those created from Private Endpoints). Please note the Private DNS zones must be associated with the VNET that has the Private Resolver.
 
-![image](https://user-images.githubusercontent.com/101088482/189837558-cb64dad7-8484-45d3-9ed9-156024f17f5f.png)
+![Screenshot 2022-09-16 174123](https://user-images.githubusercontent.com/101088482/190636070-3f577f86-7b44-4c3b-97ba-9276d7a06877.jpg)
 
 You can get away with settings up your local DNS to use Private Resolver Inbound IP address, but that does not scale.
 
