@@ -24,6 +24,6 @@
 > * [Go](../sql/sql-api-sdk-go.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../sql/sql-query-getting-started.md)
+> * [SQL](../nosql/query/getting-started.md)
 > * [Bulk executor - .NET  v2](../sql/sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](../sql/sql-api-sdk-bulk-executor-java.md)

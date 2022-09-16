@@ -269,7 +269,7 @@ sections:
       - question: |
           Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the API for Table?
         answer: |
-          The API for Table provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](../sql-query-getting-started.md).
+          The API for Table provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](../nosql/query/getting-started.md).
 
       - question: |
           When should I change TableThroughput for the API for Table?

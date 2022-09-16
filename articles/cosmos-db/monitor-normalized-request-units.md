@@ -30,13 +30,13 @@ This doesn't necessarily mean there's a problem with your resource. By default,
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU consumption metric reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is acceptable because the overall rate of 429s is still low. No further action is required.
 
 To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For API for Gremlin, use the **Gremlin Requests** metric.
-:::image type="content" source="sql/media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
+:::image type="content" source="nosql/media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
-If the normalized RU consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and what their peak usage is by using the [Azure monitor metrics and Azure monitor diagnostic logs](sql/troubleshoot-request-rate-too-large.md#step-3-determine-what-requests-are-returning-429-responses). Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
+If the normalized RU consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and what their peak usage is by using the [Azure monitor metrics and Azure monitor diagnostic logs](nosql/troubleshoot-request-rate-too-large.md#step-3-determine-what-requests-are-returning-429-responses). Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
 
 It isn't always the case that you'll see a 429 rate limiting error just because the normalized RU has reached 100%. That's because the normalized RU is a single value that represents the max usage over all partition key ranges. One partition key range may be busy but the other partition key ranges can serve requests without issues. For example, a single operation such as a stored procedure that consumes all the RU/s on a partition key range will lead to a short spike in the normalized RU consumption metric. In such cases, there won't be any immediate rate limiting errors if the overall request rate is low or requests are made to other partitions on different partition key ranges.
 
-Learn more about how to [interpret and debug 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
+Learn more about how to [interpret and debug 429 rate limiting errors](nosql/troubleshoot-request-rate-too-large.md).
 
 ## How to monitor for hot partitions
 The normalized RU consumption metric can be used to monitor if your workload has a hot partition. A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical partitions (which implies partition key ranges) that become "hot." Because all data for a logical partition resides on one partition key range and total RU/s is evenly distributed among all the partition key ranges, a hot partition can lead to 429s and inefficient use of throughput.
@@ -47,9 +47,9 @@ To verify if there's a hot partition, navigate to **Insights** > **Throughput** 
 
 Each PartitionKeyRangeId maps to one physical partition. If there's one PartitionKeyRangeId that has significantly higher normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition.
 
-:::image type="content" source="sql/media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
+:::image type="content" source="nosql/media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
-To identify the logical partitions that are consuming the most RU/s, as well as recommended solutions, see the article [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](sql/troubleshoot-request-rate-too-large.md#how-to-identify-the-hot-partition).
+To identify the logical partitions that are consuming the most RU/s, as well as recommended solutions, see the article [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](nosql/troubleshoot-request-rate-too-large.md#how-to-identify-the-hot-partition).
 
 ## Normalized RU Consumption and autoscale
 
@@ -108,4 +108,4 @@ The normalized request unit consumption metric for each container is displayed a
 
 * Monitor Azure Cosmos DB data by using [diagnostic settings](cosmosdb-monitor-resource-logs.md) in Azure.
 * [Audit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)
-* [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](sql/troubleshoot-request-rate-too-large.md)
+* [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](nosql/troubleshoot-request-rate-too-large.md)

@@ -210,7 +210,7 @@ sections:
           
           
           [azure-portal]: https://portal.azure.com
-          [query]: ./sql-query-getting-started.md
+          [query]: nosql/query/getting-started.md
           
 additionalContent: |
 

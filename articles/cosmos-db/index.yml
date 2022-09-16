@@ -72,13 +72,13 @@ additionalContent:
         - title: NoSQL
           links:
             - text: SQL queries
-              url: sql/sql-query-getting-started.md  
+              url: nosql/query/getting-started.md  
             - text: Stored procedures, triggers, UDFs
-              url: sql/how-to-write-stored-procedures-triggers-udfs.md  
+              url: nosql/how-to-write-stored-procedures-triggers-udfs.md  
             - text: Model document data
-              url: sql/modeling-data.md  
+              url: nosql/modeling-data.md  
             - text: See more >            
-              url: sql/index.yml
+              url: nosql/index.yml
         - title: MongoDB
           links:
             - text: Supported features and syntax
