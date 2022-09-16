@@ -23,7 +23,7 @@ In Azure Spring Apps, the existing Standard tier already supports compiling user
 
 ## Build Agent Pool
 
-Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
+Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during creating a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
 
@@ -37,7 +37,7 @@ The Build Agent Pool scale set sizes available are:
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
 
-The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size here after service instance created.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png":::
 
@@ -54,8 +54,6 @@ The following list shows the Tanzu Buildpacks available in Azure Spring Apps Ent
 - tanzu-buildpacks/go
 - tanzu-buildpacks/nodejs
 - tanzu-buildpacks/python
-
-For details about Tanzu Buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
 
 ## Build apps using a custom builder
 
@@ -89,7 +87,7 @@ If the builder isn't specified, the `default` builder will be used. The builder 
 You can also configure the build environment and build resources by using the following command:
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --name <app-name> \
     --build-env <key1=value1>, <key2=value2> \
     --build-cpu <build-cpu-size> \
@@ -136,6 +134,29 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
+Not all Tanzu Buildpacks support all kinds of Service Bindings. Here is the relational tables about Tanzu Buildpacks and Tanzu Partner Buildpacks.
+
+|      |ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
+|------|-------------------|--------|-----------|---------|----------|
+|Java  |✅|✅|✅|✅|✅|
+|Dotnet|❌|❌|❌|✅|❌|
+|Go    |❌|❌|❌|✅|❌|
+|Python|❌|❌|❌|❌|❌|
+|NodeJS|❌|✅|✅|✅|✅|
+
+These Service Bindings can work with proper configuration.
+
+Click **Edit** to edit service bindings for the builder. After bound the Service Bindings, if the app deploy with a specific builder, then the Service Bindings work for the app.
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of 'Edit Binding' for the builder pane." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
+
+> [!NOTE]
+> When configuring environment variables for APM bindings, please do use key names without prefix. For example, always use "" instead of "DT_" for Dynatrace. Tanzu APM buildpacks will help transform them to be the original environment variable names with a prefix.
+
+Here is an example of Dynatrace properties.
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of editing Dynatrace Service Binding pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
+
 ## Manage buildpack bindings
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
@@ -152,10 +173,26 @@ Follow these steps to view the current buildpack bindings:
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
+   
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of 'Edit Binding' for the builder pane." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/show-service-binding.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
+
+### Bind a buildpack binding
+
+In **Edit Bindings** page, you can click **Unbound** and fill in binding properties, then click **Save** to bind a buildpack binding.
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of editing Dynatrace Service Binding pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
 
 ### Unbind a buildpack binding
 
-There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink and then select **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
+There are two ways to unbind a buildpack binding. You can select the **Bound** hyperlink and then select **Unbind binding**.
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation1.png" alt-text="Screenshot of unbound service binding by clicking 'Unbind binding' button.":::
+
+Or you can also select **Edit Binding** and then select **Unbind**.
+
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation2.png" alt-text="Screenshot of unbound service binding by clicking 'Unbind' button.":::
 
 If you unbind a binding, the bind status will change from **Bound** to **Unbound**.
 
