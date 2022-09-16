@@ -124,8 +124,8 @@ How your files are copied from source to target matters just as much as from whe
 
 There are two copy modes:
 
-|                                                     |               |
-|-----------------------------------------------------|---------------|
+| Copy mode                                           | Migration behavior |
+|-----------------------------------------------------|--------------------|
 |**Mirror**<br/>The target will look like the source. | *- Files in the target will be deleted if they don’t exist in the source.*<br/>*- Files and folders in the target will be updated to match the source.* |
 |**Merge**<br/>The target has more content than the source, and you keep adding to it.    | *- Files will be kept in the target, even if they don’t exist in the source.*<br/>*- Files with matching names and paths will be updated to match the source.*<br/>*- Folder renames between copies may lead to duplicate content in the target.*|
 

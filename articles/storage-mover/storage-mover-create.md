@@ -41,7 +41,7 @@ To deploy a storage mover into a resource group, you must be a member of the *Co
 
 ### [Azure portal](#tab/portal)
 
-   1. Navigate to the **Create a resource** link in the [Azure Portal](https://portal.azure.com).
+   1. Navigate to the **Create a resource** link in the [Azure portal](https://portal.azure.com).
 
        :::image type="content" source="media/resource-create/portal-new-resource.png" alt-text="An image showing the Azure portal landing page with two indicators raising attention to the Create a resource links" lightbox="media/resource-create/portal-new-resource-large.png":::
 
