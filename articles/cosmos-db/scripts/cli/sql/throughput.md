@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Throughput (RU/s) operations with Azure CLI for a database or container for Azure Cosmos DB for NoSQL
 
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 The script in this article creates a API for NoSQL database with shared throughput and a API for NoSQL container with dedicated throughput, then updates the throughput for both the database and container. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 

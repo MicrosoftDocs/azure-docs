@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create an Azure Cosmos DB for NoSQL account, database and container using Azure CLI
 
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 The script in this article demonstrates creating a API for NoSQL database and container.
 

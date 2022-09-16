@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 ---
 
 # Azure Cosmos DB Partial Document Update: Getting Started
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 This article provides examples illustrating for how to use Partial Document Update with .NET, Java, and Node SDKs. This article also details common errors that you may encounter. Code samples for the following scenarios have been provided:
 

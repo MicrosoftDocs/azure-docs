@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Partial document update in Azure Cosmos DB
 
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Azure Cosmos DB Partial Document Update feature (also known as Patch API) provides a convenient way to modify a document in a container. Currently, to update a document the client needs to read it, execute Optimistic Concurrency Control checks (if necessary), update the document locally and then send it over the wire as a whole document Replace API call.
 
