@@ -149,7 +149,7 @@ You now have a server to serve the SPA. At this point, the folder structure shou
 In the next steps you'll create a new folder for the JavaScript SPA, and set up the user interface (UI).
 
 > [!TIP]
-> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization, and is primarily associated with a domain, like Microsoft.com. If you wish to learn how applications can work with multiple tenants, please refer to [**Multi-tenant apps**](./application-model.md/#multi-tenant-apps).
+> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization, and is primarily associated with a domain, like Microsoft.com. If you wish to learn how applications can work with multiple tenants, please refer to [**Multi-tenant apps**](./application-model.md).
 
 ## Create the SPA UI
 
@@ -317,7 +317,7 @@ Before proceeding further with authentication, register the application on **Azu
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. In the **Redirect URI** section, select the **Web** platform from the drop-down list. To the right, enter the value of the local host to be used. Enter either of the following options:
     1. `http://localhost:3000/`
-    1. If you wish to use a custom TCP port, use `http://localhost:<port>/` (where <port> is the custom TCP port number).
+    1. If you wish to use a custom TCP port, use `http://localhost:<port>/` (where `<port>` is the custom TCP port number).
 1. Select **Register**.
 1. This opens the **Overview** page of the application. Note the **Application (client) ID** and **Directory (tenant) ID**. Both of them are needed when the *authConfig.js* file is created in the following steps.
 1. In the left panel, under **Manage**, select **Authentication**.
@@ -335,7 +335,7 @@ Before proceeding further with authentication, register the application on **Azu
 > 4. The **Overview** page should now be showing. Select **Add a Redirect URI**.
 > 5. Under **Platform Configurations**, select **+ Add a platform**.
 > 6. A new window opens on the right of the screen, and you can enter a *redirect URI* in the first box. For example:
->     - `http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
+>     - `http://localhost:<port>/` (where `<port>` is the custom TCP port number).
 > 7. Select **Configure**. 
 
 ## Configure the JavaScript SPA
@@ -540,7 +540,7 @@ Now that the code is set up, it needs to be tested.
    npm start
    ```
 
-1. In the browser, enter `http://localhost:3000` (or `http://localhost:{port}` if a custom port was chosen). You should see the contents of the *index.html* file and a **Sign In** button on the top right of the screen.
+1. In the browser, enter `http://localhost:3000` (or `http://localhost:<port>` if a custom port was chosen). You should see the contents of the *index.html* file and a **Sign In** button on the top right of the screen.
 
 
 > [!IMPORTANT]
