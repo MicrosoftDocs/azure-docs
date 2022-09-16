@@ -257,7 +257,7 @@ func main() {
 
     // location, also known as region.
     // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
 
     // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)

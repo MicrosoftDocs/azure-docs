@@ -408,7 +408,7 @@ func main() {
 
      // location, also known as region.
     // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
 
     // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -689,7 +689,7 @@ func main() {
     // location, also known as region.
     // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
 
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -966,7 +966,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
 // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
 
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
@@ -1242,7 +1242,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
 
     uri := endpoint + "/translate?api-version=3.0"
@@ -1527,7 +1527,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
@@ -1805,7 +1805,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -2093,7 +2093,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
@@ -2359,7 +2359,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
@@ -2777,7 +2777,7 @@ func main() {
     key := "<YOUR-TRANSLATOR-KEY>"
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    location := "<YOUR-RESOURCE-LOCATION>";
+    location := "<YOUR-RESOURCE-LOCATION>"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
 
