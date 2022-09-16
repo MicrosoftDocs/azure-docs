@@ -12,7 +12,7 @@ ms.devlang: java
 
 # Troubleshoot common issues in the Azure Cosmos DB for Apache Cassandra
 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 The API for Cassandra in [Azure Cosmos DB](../introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
 

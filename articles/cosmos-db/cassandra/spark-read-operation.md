@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 
 # Read data from Azure Cosmos DB for Apache Cassandra tables using Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
  This article describes how to read data stored in Azure Cosmos DB for Apache Cassandra from Spark.
 

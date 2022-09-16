@@ -13,7 +13,7 @@ ms.custom: mode-api
 ---
 
 # Quickstart: Build a Go app with the `gocql` client to manage Azure Cosmos DB for Apache Cassandra data
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)

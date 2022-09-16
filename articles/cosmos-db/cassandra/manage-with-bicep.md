@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for Apache Cassandra resources using Bicep
 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB for Apache Cassandra accounts, keyspaces, and tables.
 

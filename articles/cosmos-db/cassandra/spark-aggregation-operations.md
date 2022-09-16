@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Aggregate operations on Azure Cosmos DB for Apache Cassandra tables from Spark 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 This article describes basic aggregation operations against Azure Cosmos DB for Apache Cassandra tables from Spark. 
 

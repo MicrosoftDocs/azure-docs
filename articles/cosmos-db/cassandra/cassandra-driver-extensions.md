@@ -11,7 +11,7 @@ ms.custom: how-to
 ---
 
 # Azure Cosmos DB for Apache Cassandra driver extension
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB offers a driver extension for DataStax Java Driver 3 and 4. These driver extensions provide developers with different features to help improve the performance and reliability of your application and optimize your workloads on Azure Cosmos DB.
 

@@ -12,7 +12,7 @@ ms.custom: template-quickstart
 
 
 # Quickstart: Build a Cassandra app with CQLSH and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)

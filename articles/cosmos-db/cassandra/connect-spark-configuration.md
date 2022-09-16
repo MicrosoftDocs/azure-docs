@@ -12,7 +12,7 @@ ms.date: 09/01/2019
 ---
 
 # Connect to Azure Cosmos DB for Apache Cassandra from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 This article is one among a series of articles on Azure Cosmos DB for Apache Cassandra integration from Spark. The articles cover connectivity, Data Definition Language(DDL) operations, basic Data Manipulation Language(DML) operations, and advanced Azure Cosmos DB for Apache Cassandra integration from Spark. 
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)

@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # How to adapt to Azure Cosmos DB for Apache Cassandra if you are coming from Apache Cassandra
 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 The Azure Cosmos DB for Apache Cassandra provides wire protocol compatibility with existing Cassandra SDKs and tools. You can run applications that are designed to connect to Apache Cassandra by using the API for Cassandra with minimal changes.
 

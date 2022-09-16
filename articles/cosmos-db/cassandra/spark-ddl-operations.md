@@ -12,7 +12,7 @@ ms.devlang: scala
 ---
 
 # DDL operations in Azure Cosmos DB for Apache Cassandra from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 This article details keyspace and table DDL operations against Azure Cosmos DB for Apache Cassandra from Spark.
 

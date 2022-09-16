@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Build an Apache Cassandra app with .NET SDK and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)

@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # List and get keyspaces and tables for Azure Cosmos DB - API for Cassandra
-[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

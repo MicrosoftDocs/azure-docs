@@ -11,7 +11,7 @@ ms.custom: template-how-to
 ---
 
 # Run Glowroot on Azure Cosmos DB for Apache Cassandra
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Glowroot is an application performance management tool used to optimize and monitor the performance of your applications. This article explains how you can now use Glowroot within Azure Cosmos DB for Apache Cassandra to monitor your application's performance.
 

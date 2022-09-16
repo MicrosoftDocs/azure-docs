@@ -10,7 +10,7 @@ ms.author: turao
 ---
 
 # Prevent rate-limiting errors for Azure Cosmos DB for Apache Cassandra operations
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (RU). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 

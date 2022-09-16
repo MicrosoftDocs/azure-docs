@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Azure CLI samples for Azure Cosmos DB for Apache Cassandra
 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB for Apache Cassandra and to sample Azure CLI scripts that apply to all Azure Cosmos DB APIs. Common samples are the same across all APIs.
 
