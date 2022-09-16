@@ -10,7 +10,7 @@ ms.author: gahllevy
 
 # Access Azure Cosmos DB Preview Features
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 ## Steps to register for a preview feature from the portal
 

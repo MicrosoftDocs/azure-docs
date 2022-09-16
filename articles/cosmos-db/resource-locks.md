@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 As an administrator, you may need to lock an Azure Cosmos DB account, database or container. Locks prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to ``CanNotDelete`` or ``ReadOnly``.
 

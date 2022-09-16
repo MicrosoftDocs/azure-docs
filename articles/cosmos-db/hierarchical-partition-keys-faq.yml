@@ -11,7 +11,7 @@ metadata:
   ms.date: 05/09/2022
 title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB (preview)
 summary: |
-  [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+  [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
   Hierarchical partition keys, or subpartitoning, allows you to configure up to a three level hierarchy for your partition keys to further optimize data distribution and enable higher scale. This article answers commonly asked questions about Azure Cosmos DB Hierarchical partition keys.
 

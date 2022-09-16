@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Best practices for scaling provisioned throughput (RU/s) 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes best practices and strategies for scaling the throughput (RU/s) of your database or container (collection, table, or graph). The concepts apply when you're increasing either the provisioned manual RU/s or the autoscale max RU/s of any resource for any of the Azure Cosmos DB APIs. 
  

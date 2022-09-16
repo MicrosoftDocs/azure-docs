@@ -10,7 +10,7 @@ metadata:
 
 title: Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+  [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
   
   With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your database or container based on usage. This article answers commonly asked questions about autoscale.
 

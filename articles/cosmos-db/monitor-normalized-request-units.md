@@ -10,7 +10,7 @@ ms.date: 03/03/2022
 ---
 
 # How to monitor normalized RU/s for an Azure Cosmos DB container or an account
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature doesn't require you to enable or configure anything explicitly.
 

@@ -9,7 +9,7 @@ ms.date: 07/28/2021
 ---
 
 # Monitoring Azure Cosmos DB using third-party solutions
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Apart from Azure Monitor, you can use third party monitoring solutions to monitor your Azure Cosmos DB instances.
 

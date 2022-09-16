@@ -11,7 +11,7 @@ ms.date: 08/03/2022
 
 # Azure Cosmos DB resource model
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, create an Azure Cosmos DB account in an Azure resource group in your subscription. You then create databases and containers within the account.
 

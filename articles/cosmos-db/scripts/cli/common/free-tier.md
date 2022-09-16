@@ -11,7 +11,7 @@ ms.date: 07/08/2022
 
 # Find an existing Azure Cosmos DB free-tier account in a subscription using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates how to locate an Azure Cosmos DB free-tier account within a subscription.
 

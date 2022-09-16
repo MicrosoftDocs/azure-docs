@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Manage an Azure Cosmos DB account using the Azure portal
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes how to manage various tasks on an Azure Cosmos DB account using the Azure portal.
 

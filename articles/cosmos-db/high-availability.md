@@ -10,7 +10,7 @@ ms.reviewer: mjbrown
 ---
 
 # Achieve high availability with Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 To build a solution with high-availability, you have to evaluate the reliability characteristics of all its components. Azure Cosmos DB is designed to provide multiple features and configuration options to achieve high availability for all solutions' availability needs.
 

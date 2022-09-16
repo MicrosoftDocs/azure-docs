@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp, contperf-fy21q1
 ---
 
 # Install and use the Azure Cosmos DB Emulator for local development and testing
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
 

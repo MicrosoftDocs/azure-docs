@@ -11,7 +11,7 @@ ms.date: 02/21/2022
 
 # Work with account keys and connection strings for an Azure Cosmos DB account using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates four operations.
 

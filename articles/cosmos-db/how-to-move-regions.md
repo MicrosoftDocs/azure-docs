@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes how to either:
 

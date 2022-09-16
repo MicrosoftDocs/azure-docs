@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Connection string and account key operations for an Azure Cosmos DB account using PowerShell
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
