@@ -42,23 +42,23 @@ The portal can be used to enable or disable built-in persistent storage.
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
 
-    >![Locate the All Resources icon](media/how-to-built-in-persistent-storage/portal-all-resources.jpg)
+   :::image type="content" source="media/how-to-built-in-persistent-storage/portal-all-resources.jpg" lightbox="media/how-to-built-in-persistent-storage/portal-all-resources.jpg" alt-text="Screenshot of the Azure portal home page showing the All Resources button.":::
 
 1. Select the Azure Spring Apps resource that needs persistent storage. In this example, the selected application is called **upspring**.
 
-    > ![Select your application](media/how-to-built-in-persistent-storage/select-service.jpg)
+   :::image type="content" source="media/how-to-built-in-persistent-storage/select-service.jpg" lightbox="media/how-to-built-in-persistent-storage/select-service.jpg" alt-text="Screenshot of the All resources page.":::
 
 1. Under the **Settings** heading, select **Apps**.
 
 1. Your Azure Spring Apps services appear in a table.  Select the service that you want to add persistent storage to. In this example, the **gateway** service is selected.
 
-    > ![Select your service](media/how-to-built-in-persistent-storage/select-gateway.jpg)
+   :::image type="content" source="media/how-to-built-in-persistent-storage/select-gateway.jpg" lightbox="media/how-to-built-in-persistent-storage/select-gateway.jpg" alt-text="Screenshot of the Apps pane.":::
 
 1. From the service's configuration page, select **Configuration**
 
 1. Select the **Persistent Storage** tab and select **Enable** to turn on persistent storage, or select **Disable** to turn off persistent storage.
 
-    > ![Enable persistent storage](media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg)
+   :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg" alt-text="Screenshot of the Persistent Storage tab.":::
 
 If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
 
