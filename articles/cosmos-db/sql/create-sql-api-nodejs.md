@@ -184,7 +184,7 @@ The partition key is specific to a container. In this Contoso Products container
 
 ### Query items
 
-Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual items.
+Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual data objects.
 
 ```sql
 SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'
