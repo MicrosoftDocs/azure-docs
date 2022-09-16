@@ -1,6 +1,6 @@
 ---
 title: Multiple frontends - Azure Load Balancer
-description: With this learning path, get started with an overview of multiple frontends on Azure Load Balancer
+description: This article describes the fundamentals of load balancing across multiple IP addresses using the same port and protocol using multiple frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: mbender-ms
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/26/2022
+ms.date: 09/19/2022
 ms.author: mbender
 ---
 
