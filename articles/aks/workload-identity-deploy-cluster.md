@@ -57,8 +57,8 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
-```azurecli
-    AKS_OIDC_ISSUER=$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)
+```bash
+export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
 ## Create a Managed Identity and grant permissions to access Azure Key Vault
@@ -100,7 +100,7 @@ Create a Kubernetes service account and annotate it with the client ID of the Ma
 az aks get-credentials -n myAKSCluster -g MyResourceGroup
 ```
 
-Copy and paste the following multi-line input in the Azure CLI, and update the values for `serviceAccountName` and `serviceAccountNamespace`.
+Copy and paste the following multi-line input in the Azure CLI, and update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
 ```bash
 cat <<EOF | kubectl apply -f -

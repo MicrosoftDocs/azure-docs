@@ -10,7 +10,7 @@ ms.date: 09/09/2022
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, you will:
 
-* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and workload identity.
+* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and workload identity (preview).
 * Create an Azure Key Vault and secret.
 * Create an Azure Active Directory (Azure AD) application and Kubernetes service account
 * Configure the Azure AD app for token federation
@@ -90,8 +90,8 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
 
-```azurecli
-    AKS_OIDC_ISSUER=$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)
+```bash
+export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
 ## Export environmental variables

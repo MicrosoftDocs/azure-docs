@@ -8,10 +8,7 @@ ms.date: 09/13/2022
 
 # Managed identity with workload identity sidecar
 
-To ensure a smooth transition using the new API and minimize downtime for your applications, there are two pod annotations you use to configure the behavior when exchanging the service account token for an Azure AD access token. They are:
-
-* `azure.workload.identity/inject-proxy-sidecar`
-* `azure.workload.identity/proxy-sidecar-port`
+If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API and minimize downtime, you can setup a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connecti (OIDC). This enables you to run pod-identity and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the workload identity.
 
 ## Create a Managed Identity and grant permissions to access Azure Key Vault
 
@@ -21,6 +18,8 @@ Before proceeding, you need the following information:
 
 * Name of the Key Vault
 * Resource group holding the Key Vault
+
+You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'.
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
@@ -42,12 +41,23 @@ Before proceeding, you need the following information:
     az keyvault set-policy --name "keyVaultName" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
 
+3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
+    
+    ```bash
+    export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
+    ```
+
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the value `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replaces the values for the cluster name and the resource group name.
 
 ```azurecli
-az aks get-credentials -n aks -g MyResourceGroup 
+az aks get-credentials -n aks -g MyResourceGroup
+```
+
+Copy and paste the following multi-line input in the Azure CLI, and update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
  kind: ServiceAccount

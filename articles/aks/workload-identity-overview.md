@@ -18,7 +18,7 @@ Today with Azure Kubernetes Service (AKS), you can assign [managed identities at
 - Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
 - Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration.
 
-Azure AD Workload Identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you are using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
+Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you are using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article reviews the options available to help you plan your migration phases and project strategy.
 
