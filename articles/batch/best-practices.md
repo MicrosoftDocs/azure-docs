@@ -55,7 +55,7 @@ Pool lifetime can vary depending upon the method of allocation and options appli
 
 - **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
-- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for Azure resources that are utilized, such as compute, storage, and networking. You're billed for every compute node in the pool, regardless of the state it is in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
+- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for Azure resources that are utilized, such as compute, storage, networking and any other resources required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it is in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
 - **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
