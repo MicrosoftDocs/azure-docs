@@ -162,6 +162,10 @@
         href: billing.md
       - name: Best practices
         href: best-practices.md
+      - name: Scenarios
+        items:
+        - name: Overview
+          href: scenarios.md
     - name: Classic
       items:
         - name: Caching
