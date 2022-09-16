@@ -184,9 +184,15 @@ The partition key is specific to a container. In this Contoso Products container
 
 ### Query items
 
-Add the following code to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to retrieve pages of results and then iterate over the individual items.
+Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual items.
+
+```sql
+SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'
+```
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-127":::
+
+If you want to use this data returned from the FeedResponse as an _item_, you need to create an [``Item``](/javascript/api/@azure/cosmos/item), using the [``Container.Items.read``](#get-an-item) method.
 
 ### Delete an item
 
