@@ -145,10 +145,9 @@ To customize the deployed solution, you can edit the `adxconfig-opcpub.json` con
 
 The configuration file run by the tool defines the Azure resources to deploy and any required configuration. The tool runs the steps in the configuration file in sequence. Some steps are dependent on previous steps.
 
-The following sections describe the resources you deployed and what they do:
+The following sections describe the resources you deployed and what they do. The order here follows the device data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer:
 
-> [!NOTE]
-> The order here follows the device data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer.
+:::image type="content" source="media/tutorial-industrial-end-to-end/data-flow.svg" alt-text="Daigram that shows the flow of data through the solution.":::
 
 ### IoT Edge
 
@@ -167,11 +166,23 @@ The IoT Edge deployment manifest defines four custom modules:
 
 You can see the deployment manifest in the tool configuration file. The manifest is part of the device template that the tool adds to your IoT Central application.
 
+To learn more about how to use the REST API to deploy and configure the IoT Edge runtime, see [Run Azure IoT Edge on Ubuntu Virtual Machines](../../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
+
 ### Simulated OPC-UA telemetry
 
 The [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) module on the IoT Edge device generates simulated OPC-UA data for the solution. This module implements an OPC-UA server with multiple nodes that generate random data and anomalies. The module also lets you configure user defined nodes.
 
 The [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
+
+### IoT Central application
+
+The IoT Central application in the solution:
+
+- Handles provides a cloud-hosted endpoint to receive OPC-UA data from the IoT Edge device.
+- Lets you manage and control the connected devices and gateways.
+- Transforms the OPC-UA data it receives and exports it to Azure Data Explorer.
+
+The configuration file uses a control plane [REST API to create and manage IoT Central applications](howto-manage-iot-central-with-rest-api.md).
 
 ### Device templates and devices
 
@@ -187,7 +198,12 @@ There are two devices registered in your IoT Central application:
 - **opc-anomaly-device**. This device isn't assigned to a device template. The device represents the OPC-UA server implemented in the **opcplc** IoT Edge module. This OPC-UA server generates simulated OPC-UA data. Because the device isn't associated with a device template, IoT Central marks the telemetry as **Unmodeled**.
 - **industrial-connect-gw**. This device is assigned to the **Manufacturing In A Box Gateway** device template. Use this device to monitor the health of the gateway and manage the downstream OPC-UA servers. The configuration file run by the tool calls the **Provision OPC Device** command to provision the downstream OPC-UA server.
 
-To check the **opc-anomaly-device** is sending data, navigate to the **Raw data** view for the device in the IoT Central application. If the device is sending telemetry, you see telemetry messages in the **Raw data** view. If there are no telemetry messages, restart the Azure virtual machine in the Azure portal.
+The configuration file uses the following data plane REST APIs to add the device templates and devices to the IoT Central application, register the devices, and retrieve the device provisioning authentication keys:
+
+- [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md).
+- [How to use the IoT Central REST API to control devices](howto-control-devices-with-rest-api.md).
+
+You can also use the IoT Central UI or CLI to manage the devices and gateways in you solution. For example, to check the **opc-anomaly-device** is sending data, navigate to the **Raw data** view for the device in the IoT Central application. If the device is sending telemetry, you see telemetry messages in the **Raw data** view. If there are no telemetry messages, restart the Azure virtual machine in the Azure portal.
 
 > [!TIP]
 > You can find the Azure virtual machine with IoT Edge runtime in the resource group created by the configuration tool.
@@ -207,6 +223,8 @@ The solution uses the IoT Central data export capability to export OPC-UA data. 
  }
 ```
 
+The configuration file uses the data plane REST API to create the data export configuration in IoT Central. To learn more, see [How to use the IoT Central REST API to manage data exports](howto-manage-data-export-with-rest-api.md).
+
 ### Azure Data Explorer
 
 The solution uses Azure Data Explore to store and analyze the OPC-UA telemetry. The solution uses two tables and a function to process the data as it arrives:
@@ -224,6 +242,8 @@ opcDeviceData
 | summarize avgValue = avg(value) by deviceId, bin(sourceTimestamp, 15m)
 | render timechart
 ```
+
+The configuration file use a control plane REST API to deploy the Azure Data Explorer cluster and data plane REST APIS to create and configure the database.
 
 ## Customize the solution
 
