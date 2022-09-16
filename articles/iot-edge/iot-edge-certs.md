@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.date: 09/14/2022
+ms.date: 09/16/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -48,7 +48,7 @@ How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub
 > [!NOTE]
 > In this example, *ContosoIoTHub*, represents the IoT Hub hostname *ContosoIotHub.azure-devices.net*.
 
-:::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange between IoT Edge device and IoT Hub.":::
+:::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Hub to IoT Edge device with certificate verification with the trusted root store on the IoT Edge device.":::
 
 <!-- ```mermaid
 sequenceDiagram
@@ -92,17 +92,17 @@ When a device checks for the *Baltimore CyberTrust Root* certificate, it's avail
 
 In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity because:
 
-- *ContosoIotHub* showed its **IoT Hub server certificate**
-- The server certificate is a trusted root CA (Baltimore CyberTrust Root) in the OS certificate store
-- By using a cryptographic algorithm, data encrypted with *ContosoIotHub's* public key can be decrypted by *ContosoIotHub*, proving its possession of the private key
+- *ContosoIotHub* presents its **IoT Hub server certificate**
+- The server certificate is trusted in the OS certificate store
+- Data encrypted with *ContosoIotHub's* public key can be decrypted by *ContosoIotHub*, proving its possession of the private key
 
-## Verify genuine message 
+## Verify IoT Edge gateway identity
 
-*Is this really from EdgeGateway?*
+How does *ContosoIotHub* verify it's communicating with *EdgeGateway*? Verification is done using **TLS client authentication**. This step this happens together with the *TLS handshake*. For simplicity, we'll skip some steps in the following diagram. For more information about the TLS protocol, see [link]().
 
-In Part 1, EdgeGateway verified the legitimacy of ContosoIotHub. Now, the counterpart happens: ContosoIotHub needs to know if EdgeGateway is really legit. Here they perform the what's known as **TLS client authentication**. For simplicity we again skip some steps (so you should get the real version from this link), and this happens together with TLS handshake from earlier. But for the sake of education let's look at this specifically.
+:::image type="content" source="./media/iot-edge-certs/verify-edge-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to IoT Hub with certificate thumbprint check verification on IoT Hub.":::
 
-```mermaid
+<!--```mermaid
 sequenceDiagram
     participant EdgeGateway
     participant ContosoIotHub
@@ -112,29 +112,28 @@ sequenceDiagram
     ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: *Cryptographic magic happens*
     ContosoIotHub->>EdgeGateway: Great, let's connect
-```
+```-->
 
-So it's pretty similar to the first question. Right? IoT Edge in this case shows its certificate, known as the **IoT Edge device identity certificate**. From ContosoIotHub perspective, it needs to check if the thumbprint of the provided certificate matches its record.
- 
-When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. That's the same string that IoT Hub checks if there's a match. Let's try to do that now.
+In this case, IoT Edge provides its **IoT Edge device identity certificate**. From ContosoIotHub perspective, it needs to check if the thumbprint of the provided certificate matches its record. When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. The thumbprint is what IoT Hub uses to verify the certificate.
 
-Get the thumbprint of the identity cert on EdgeGateway:
+For example, we we can use the following command to get the identity certificate's thumbprint on *EdgeGateway*:
 
 ```bash
-user@edgeGateway:~$ sudo openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -nocert -fingerprint -sha256
+sudo openssl x509 -in /var/lib/aziot/certd/certs/deviceid-random.cer -noout -nocert -fingerprint -sha256
+```
 
+```output
 SHA256 Fingerprint=1E:F3:1F:88:24:74:2C:4A:C1:A7:FA:EC:5D:16:C4:11:CD:85:52:D0:88:3E:39:CB:7F:17:53:40:9C:02:95:C3
 ```
 
-In ContosoIotHub:
+If we view the thumbprint value for the *EdgeGateway* device in *ContosoIotHub*, we can see it matches the thumbprint on *EdgeGateway*:
 
-![](media/edge-id-thumbprint.png)  
+:::image type="content" source="./media/iot-edge-certs/edge-id-thumbprint.png" alt-text="Screenshot from Azure portal of EdgeGateway device's thumbprint in ContosoIotHub.":::
 
-Notice that the thumbprints match. 
+In summary, *ContosoIotHub* can trust *EdgeGateway* because:
 
-### Conclusion
-
-ContosoIotHub can trust EdgeGateway because it showed a valid **IoT Edge device identity certificate** whose thumbprint matches the one uploaded to earlier. This fact along with EdgeGateway's ability to decrypt data signed with its public means that the certificate is indeed the same one as what the user intended and ALSO that EdgeGateway MUST have the correct private key. So it's legit!
+- *ContosoIotHub* presents a valid **IoT Edge device identity certificate** whose thumbprint matches the one registered in IoT Hub
+- *EdgeGateway's* ability to decrypt data signed with its public key using its private key verifies the cryptographic key pair
 
 > [!NOTE]
 > This example doesn't address DPS, which also has support for X.509 CA authentication with IoT Edge when provisioned with enrollment group. You upload the CA or an intermediate certificate to DPS. DPS then checks that the chain is legit, a proceeds with a provisioning. To learn more, see link.
