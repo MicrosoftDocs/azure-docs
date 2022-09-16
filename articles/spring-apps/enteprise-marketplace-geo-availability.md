@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 ## Supported geographic locations
 
-[Azure Marketplace offering](https://aka.ms/ascmpoffer) can be purchased in following geographies as defined by the customer's [billing address](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account). The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+[Azure Marketplace offering](https://aka.ms/ascmpoffer) can be purchased in following geographies as defined by the customer's [billing address](/cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account). The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
 | Country/Region Name  |ISO-2| 
 |----------------------|-----|
