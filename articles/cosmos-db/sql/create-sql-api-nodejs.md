@@ -162,17 +162,17 @@ Use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@
 
 The [``Database.Containers.createContainerIfNotExistsAsync``](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) will create a new container if it doesn't already exist. This method will also return a reference to the container.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" highlight="28-35":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="28-35":::
 
 ### Create an item
 
 Each _product_ has a unique ID, name, category name (used as partition key) and other fields.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  highlight="37-84":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="37-84":::
 
 Create a few items in the container by calling [``Container.Items.create``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-create) in a loop. 
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  highlight="86-91":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="86-91":::
 
 ### Get an item
 
@@ -180,19 +180,19 @@ In Azure Cosmos DB, you can perform a point read operation by using both the uni
 
 The partition key is specific to a container. In this Contoso Products container, the category name, `categoryName`, is used as the partition key.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  highlight="93-95":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="93-95":::
 
 ### Query items
 
 After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to retrieve pages of results and then iterate over the individual items.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  highlight="97-127":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-127":::
 
 ### Delete an item
 
 To delete an item you need to use the ID and partition key to get the item, then delete it. This example uses the [``Container.Item.delete``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-delete) method to delete the item.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  highlight="129-130":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="129-130":::
 
 ## Run the code
 
