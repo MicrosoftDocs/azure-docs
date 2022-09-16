@@ -389,7 +389,7 @@ All discrete hyperparameters only allow choice distributions, such as the intege
 
 You can configure all the sweep-related parameters. Multiple model subspaces can be constructed with hyperparameters conditional to the respective model, as seen below in each example.   
 
-The same discrete and continuous distribution options that are available for general HyperDrive jobs are supported here. (See all nine options in Hyperparameter tuning a model (v2) - Azure Machine Learning | Microsoft Docs.)  
+The same discrete and continuous distribution options that are available for general HyperDrive jobs are supported here. See all nine options in [Hyperparameter tuning a model](how-to-tune-hyperparameters.md#define-the-search-space)
 
 
 # [Azure CLI](#tab/cli)
