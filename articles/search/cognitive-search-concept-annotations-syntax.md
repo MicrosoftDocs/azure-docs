@@ -17,9 +17,9 @@ Paths to an annotation are specified in the "context" and "source" properties:
 
 :::image type="content" source="media/cognitive-search-annotations-syntax/content-source-annotation-path.png" alt-text="Screenshot of a skillset definition with context and source elements highlighted.":::
 
-The example in the screenshot is for an item in a Cosmos DB collection.
+The example in the screenshot illustrates annotation syntax for an item in a Cosmos DB collection.
 
-+ "context" is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field. For a document in a Cosmos DB collection, it's also the root node of the enrichment document.
++ "context" is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field.
 
 + "source" is `/document/Description` because the skill is a translation skill, and the field that you'll want the skill to translate is the `Description` field in each document.
 
@@ -37,9 +37,10 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 
 An enriched document is created in the "document cracking" stage of indexer execution, when the indexer opens a document or reads in a row from the data source. Initially, the only node in an enriched document is the [root node (`/document`)](cognitive-search-skill-annotation-language.md#document-root), and it's the node from which all other enrichments occur.
 
-The following tables shows several well-known paths:
+The following list identifies several well-known paths:
 
-+ `/document` is the root node and indicates an entire blob in Azure Storage, or a row in SQL table.
++ `/document` is the root node and indicates an entire blob in Azure Storage, or a row in a SQL table.
++ `/document/{key}` is the syntax for a document or item in a Cosmos DB collection.
 + `/document/content` is the "content" property of a JSON blob.
 + `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing.
 + `/document/normalized_images/*` is created during document cracking if the document contains images. All paths to images start with normalized_images.
