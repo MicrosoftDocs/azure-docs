@@ -35,7 +35,7 @@ The following steps describe the process to configure your container app to use 
 - A private Azure Container Registry containing an image you want to pull.
 - Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-### Create container 
+### Create a container app 
 
 Use the following steps to create a container app with the default quickstart image.
 
@@ -306,7 +306,7 @@ New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 
 ---
 
-### Create an environment
+### Create a container app environment
 
 If the environment doesn't exist, run the following command:
 
