@@ -41,7 +41,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 ### General rules of capacity pools
 
 - A capacity pool is measured by its provisioned capacity.   
-    See [QoS types](#qos_types) for additional information.  
+    For more information, see [QoS types](#qos_types).  
 - The capacity is provisioned by the fixed SKUs that you purchased (for example, a 4-TiB capacity).
 - A capacity pool can have only one service level.  
 - Each capacity pool can belong to only one NetApp account. However, you can have multiple capacity pools within a NetApp account.  
@@ -67,7 +67,7 @@ For performance considerations about QoS types, see [Performance considerations 
 
 When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type. You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. *Setting the capacity type to manual QoS is a permanent change.* You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
 
-In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool.  It is determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
+In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
 ##### Example of using manual QoS
 
@@ -79,7 +79,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Volumes contain a capacity of between 4 and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 and 500 TiB.
+- Volumes contain a capacity of between 4 TiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 TiB and 500 TiB.
 
 ## <a name="large-volumes"></a>Large volumes (Preview)
 
@@ -98,7 +98,7 @@ Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding
 * You cannot use Standard storage with cool access with large volumes.
 * You cannot create a large volume with application volume groups.
     
-* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes is based on the existing 100-TiB maximum capacity targets. You will be able to grow to 500 TiB with the throughput ceiling as per the table below. 
+* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You'll be able to grow to 500 TiB with the throughput ceiling as per the table below. 
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
 | --- | --- | --- |
