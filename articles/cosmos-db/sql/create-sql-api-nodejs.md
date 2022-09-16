@@ -96,7 +96,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 Create an `index.js` and add the following boilerplate code to the file to read environment variables:
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/package.json" range="1-3":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="1-3":::
 
 ### Add dependency to client library
 
@@ -106,7 +106,7 @@ Add the following code at the end of the `index.js` file to include the required
 
 ### Add environment variables to code file
 
-Add the following code at the end of the `index.js` file to include the required environment variables.
+Add the following code at the end of the `index.js` file to include the required environment variables. The endpoint and key were found at the end of the [account creation steps](#create-an-azure-cosmos-db-account).
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="8-11":::
 
