@@ -30,7 +30,7 @@ Optionally, you can:
 > [!NOTE]
 > To enable the registry's system-assigned identity in the portal, select **Settings** > **Identity** and set the system-assigned identity's status to **On**.
 > 
-> Ensure that the required [key vault access](tutorial-enable-customer-managed-keys.md#enable-key-vault-access-by-managed-identity) is set for the identity that you configure for key access.
+> Ensure that the required [key vault access](tutorial-enable-customer-managed-keys.md#enable-managed-identities-to-access-the-key-vault) is set for the identity that you configure for key access.
 
 ### Create or update the key version by using the Azure CLI
 
