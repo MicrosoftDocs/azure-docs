@@ -1064,55 +1064,55 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ### Error code: 2108
 
+- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime`
+
+- **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
+
+- **Recommendation**: Verify that the provided URL is accessible.
+
+<br/> 
+
 - **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
-#### More details
-
-To use **Fiddler** to create an HTTP session of the monitored web application:
-
-1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
-
-1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
-
-   1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
-
-      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
-
-1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
-
-   Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
-
-1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
-
-1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
-
-1. Create a request:
-
-1. Select the **Composer** tab.
-
-   1. Set the HTTP method and URL.
- 
-   1. If needed, add headers and a request body.
-
-   1. Select **Execute**.
-
-1. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-1. Go to: **File** > **Save** > **All Sessions**.
-
-For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
-
-### Error code: 2108
-
-- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime`
-
-- **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
-
-- **Recommendation**: Verify that the provided URL is accessible.
+    **Using Fiddler**
+    
+    To use **Fiddler** to create an HTTP session of the monitored web application:
+    
+    1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+    
+    1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+    
+       1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+    
+          :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+    
+    1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+    
+       Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+    
+    1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+    
+    1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+    
+    1. Create a request:
+    
+    1. Select the **Composer** tab.
+    
+       1. Set the HTTP method and URL.
+     
+       1. If needed, add headers and a request body.
+    
+       1. Select **Execute**.
+    
+    1. Turn on traffic capturing again, and complete the problematic transaction on your page.
+    
+    1. Go to: **File** > **Save** > **All Sessions**.
+    
+    For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ### Error Code: 2113
 
