@@ -18,17 +18,14 @@ items:
   items:
   - name: Get started with Azure Data Factory
     href: quickstart-get-started.md
-  - name: Create data factory - User interface (UI)
+  - name: Create a data factory
     href: quickstart-create-data-factory-portal.md
-  - name: Create data factory - ARM template
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-data-factory-resource-manager-template.md    
-  - name: Copy data tool
+  - name: Use the copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
     displayName: timeout
-  - name: Create data flow
+  - name: Create a data flow
     href: data-flow-create.md
-  - name: Introductory Learn Modules
+  - name: Introductory Learn modules
     href: quickstart-learn-modules.md
 - name: Tutorials
   items:
