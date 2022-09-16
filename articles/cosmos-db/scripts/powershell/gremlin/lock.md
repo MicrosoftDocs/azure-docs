@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB for Gremlin database and graph using Azure PowerShell
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create an Azure Cosmos DB for Gremlin account, database and graph using Azure CLI
 
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 The script in this article demonstrates creating a Gremlin database and graph.
 

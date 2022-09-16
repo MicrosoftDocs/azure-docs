@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or graph for Azure Cosmos DB - API for Gremlin
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

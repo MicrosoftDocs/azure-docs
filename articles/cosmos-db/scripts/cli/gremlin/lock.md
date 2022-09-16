@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create a resource lock for Azure Cosmos DB for Gremlin database and graph using Azure CLI
 
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 The script in this article demonstrates performing resource lock operations for a Gremlin database and graph.
 
