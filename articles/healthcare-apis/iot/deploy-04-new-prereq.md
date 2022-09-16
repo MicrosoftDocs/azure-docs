@@ -5,13 +5,15 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/04/2022
+ms.date: 09/15/2022
 ms.author: v-smcevoy
 ---
 
 # Prerequisites for manually deploying the MedTech service using the Azure portal
 
 Before you can configure or deploy MedTech services, you must satisfy the following prerequisites:
+
+<!-- links? -- >
 
 - You must have a valid Azure account.
 - You must have a resource group deployed in the Azure portal.
@@ -25,13 +27,9 @@ You can get a free Azure account at [Cloud Computing Services | Microsoft Azure]
 
 ## Deploy a resource group in the Azure portal
 
-((Portal screenshot.))
+From portal, select the Create a resource button. Then enter "Azure Health Data Services" in the "Search services and marketplace" box. You should be taken to the Azure Health Data Services blade.
 
-Once you have logged into Azure portal, begin creating a resource by selecting the Create a resource button. Begin by typing in "Azure Health Data Services" in the Search services and marketplace box.
-
-You should be taken to the Azure Health Data Services resource page.
-
-((Screenshot of AHDS resource page.))
+<!-- screenshot here? -->
 
 ## Deploy a workspace to contain your Azure Health Data Services resources.
 
