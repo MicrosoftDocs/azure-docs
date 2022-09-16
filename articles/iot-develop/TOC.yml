@@ -59,6 +59,8 @@
     href: concepts-iot-device-types.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
+  - name: IOT device selection table
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
