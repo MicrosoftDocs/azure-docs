@@ -41,7 +41,7 @@ Azure NetApp Files backup is supported for the following regions:
 
 ## Backup Vault
 
-Backup vaults are a new organizational 
+Azure NetApp Files supports backup vaults. Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
 
 ## Cost model for Azure NetApp Files backup
 
