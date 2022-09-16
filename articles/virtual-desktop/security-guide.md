@@ -164,7 +164,7 @@ Remote attestation is a great way to check the health of your VMs. Remote attest
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
-We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality with Azure Disk Encryption, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
 >[!NOTE]
 >BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
@@ -190,7 +190,8 @@ The following operating systems support running nested virtualization on Azure V
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
-- Windows 11
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
 
 ## Windows Defender Application Control
 
@@ -201,7 +202,8 @@ The following operating systems support using Windows Defender Application Contr
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
-- Windows 11
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
