@@ -57,7 +57,7 @@ The scenarios are divided by the direction of synchronization that is needed and
 
 As customers transition identity management to the cloud, more and more users and groups are created directly in Azure AD. However, they still need a presence on-premises in AD DS to access various resources.
 
-3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD](microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to on-premises Windows-Integrated Authentication or Kerberos-based applications.
+3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to on-premises Windows-Integrated Authentication or Kerberos-based applications.
 
 1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/how-to-connect-group-writeback-v2.md).
 
@@ -68,7 +68,7 @@ As customers transition identity management to the cloud, more and more users an
 | 1 |Users, groups| AD| Azure AD| Azure AD Connect Cloud Sync |
 | 2 |Users, groups, devices| AD| Azure AD| Azure AD Connect Sync |
 | 3 |Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
-| 4 |Guest accounts| Azure AD| AD| [MIM](microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
+| 4 |Guest accounts| Azure AD| AD| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
 The table depicts common scenarios and the technology recommended to meet the need
@@ -132,7 +132,7 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 
 Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the [reconciliation capabilities](/microsoft-identity-manager/mim-how-provision-users-adds) to detect changes made directly in a target system and roll the changes back. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
 
-# Next steps
+## Next steps
 
 1.Automate provisioning with any of your applications that are in the [Azure AD app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
 
