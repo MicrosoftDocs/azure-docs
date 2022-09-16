@@ -17,14 +17,11 @@ Delta updates allow you to generate a small update that represents only the chan
 
 ## Requirements for using delta updates in Device Update for IoT Hub
 
-- The source and target updates must:  
-  - Be SWU (SWUpdate) format 
-  - Use Ext2, Ext3, or Ext4 filesystem  
-  - Be a raw image (writeable to device)  
-  - Compressed originally with gzip or Zstandard (zstd)
+- The source and target update files must be SWU (SWUpdate) format.
+- Within each SWUpdate file, there must be a raw image that uses the Ext2, Ext3, or Ext4 filesystem. That image can be compressed with gzip or zstd.
 - The delta generation process recompresses the target SWU update using zstd compression in order to produce an optimal delta. You'll import this recompressed target SWU update to the Device Update service along with the generated delta update file.
-- Enable zstd decompression in SWUpdate on the device.  
-  - Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
+- Within SWUpdate on the device, zstd decompression must also be enabled.  
+  - This requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
 
 ## Configure a device with Device Update agent and delta processor component
 
