@@ -18,7 +18,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you believe a metric alert should have fired but it didn't fire and it isn't found in the Azure portal, try the following steps:
 
 1. **Configuration:** Review the metric alert rule configuration to make sure it's properly configured:
-    - Check that **Aggregation type** and **Aggregation granularity (Period)** are configured as expected. **Aggregation type** determines how metric values are aggregated. To learn more, see [Azure Monitor Metrics aggregation and display explained](../essentials/metrics-aggregation-explained.md#aggregation-types). **Aggregation granularity (Period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs.
+    - Check that **Aggregation type** and **Aggregation granularity (Period)** are configured as expected. **Aggregation type** determines how metric values are aggregated. To learn more, see [Azure Monitor Metrics aggregation and display explained](../essentials/metrics-aggregation-explained.md#aggregation-types). **Aggregation granularity (Period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs. 
     - Check that **Threshold value** or **Sensitivity** are configured as expected.
     - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured. **Number of violations** might filter alerts, and **Ignore data before** can affect how the thresholds are calculated.
 
