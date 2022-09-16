@@ -88,7 +88,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
-To get the OIDC Issuer URL, run the following command:
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
 
 ```azurecli
     AKS_OIDC_ISSUER=$(az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)
@@ -99,13 +99,13 @@ To get the OIDC Issuer URL, run the following command:
 To help simplify steps to configure creating Azure Key Vault and other identities required, the steps below define
 environmental variables for reference on the cluster.
 
-Run the following commands to create these variables. Replace the default values for `LOCATION`, `KEYVAULT_SECRET_NAME`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `UAID`, and `FICID`.  
+Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `KEYVAULT_SECRET_NAME`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `UAID`, and `FICID`.  
 
 ```bash
 # environment variables for the Azure Key Vault resource
-export KEYVAULT_NAME="azwi-kv-$(openssl rand -hex 2)"
+export KEYVAULT_NAME="azwi-kv-tutorial"
 export KEYVAULT_SECRET_NAME="my-secret"
-export RESOURCE_GROUP="azwi-quickstart-$(openssl rand -hex 2)"
+export RESOURCE_GROUP="resourceGroupName"
 export LOCATION="westcentralus"
 
 # environment variables for the Kubernetes Service account & federated identity credential
@@ -130,8 +130,8 @@ az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}"
 
 The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
 
-* **Vault Name**: The name you provided to the `--name` parameter above.
-* **Vault URI**: In the example, this is `https://<your-unique-keyvault-name>.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
+* **Name**: The Vault name you provided to the `--name` parameter above.
+* **vaultUri**: In the example, this is `https://<your-unique-keyvault-name>.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
@@ -168,7 +168,10 @@ az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn 
 Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli
-az aks get-credentials -n aks -g MyResourceGroup 
+az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
+```
+
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
  kind: ServiceAccount
