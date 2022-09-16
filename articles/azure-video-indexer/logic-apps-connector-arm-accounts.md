@@ -66,7 +66,7 @@ The following image shows the first flow:
     
     Select **Create**.
      
-    ![Select a trigger](./media/logic-apps-connector-arm-accounts/trigger.png)
+    ![Screenshot of the storage connection trigger.](./media/logic-apps-connector-arm-accounts/trigger.png)
     
     After setting the connection to the storage, it's required to specify the blob storage container that is being monitored for changes.
     
