@@ -197,7 +197,7 @@ This article describes how to configure your container app to use managed identi
 | Azure account | An Azure account with an active subscription. If you don't have one, you can  [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-az-ps) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
-|Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart:Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
+|Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
 
 ## Setup
 
@@ -209,8 +209,6 @@ First, sign in to Azure from the CLI or PowerShell. Run the following command, a
 ```azurecli
 az login
 ```
-
-Now that the current extension or module is installed, register the `Microsoft.App` namespace and the `Microsoft.OperationalInsights` provider if you haven't register them before.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -243,6 +241,8 @@ Install-Module -Name Az.App
 ```
 
 ---
+
+Now that the current extension or module is installed, register the `Microsoft.App` namespace and the `Microsoft.OperationalInsights` provider if you haven't register them before.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -283,7 +283,7 @@ $Location = '<YourLocation>'
 $ContainerAppsEnvironment = '<YourEnvironmentName>'
 $RegistryName = '<YourRegistryName>'
 $ContainerAppName = '<YourContainerAppName>'
-$ImageName = '<YourFullImageName>'
+$ImageName = '<YourImageName>'
 ```
 
 ---
@@ -555,7 +555,9 @@ New-AzContainerApp @AppArgs
 
 ### Update the container app
 
-Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the ACR pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.
+Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the ACR pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
+
+If you are using an image tag other than `latest`, replace the `latest` value with your value.
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -575,7 +577,7 @@ az containerapp registry set \
 az containerapp update \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image '$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest'
+  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -588,7 +590,7 @@ $CredentialArgs = @{
 $CredentialObject = New-AzContainerAppRegistryCredentialObject @CredentialArgs
 $ImageParams = @{
     Name = 'my-container-app'
-    Image = $RegistryName + ".azurecr.io/"$ImageName + ":latest"
+    Image = $RegistryName + ".azurecr.io/" + $ImageName + ":latest"
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 
@@ -596,15 +598,13 @@ $AppArgs = @{
     Name = 'my-container-app'
     Location = $Location
     ResourceGroupName = $ResourceGroupName
-    ConfigurationRegistry $CredentialObject
+    ConfigurationRegistry = $CredentialObject
     IdentityType = 'SystemAssigned'
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true
-
 }
-New-AzContainerApp @AppArgs
-
+Update-AzContainerApp @AppArgs
 ```
 
 ---

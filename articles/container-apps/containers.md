@@ -195,9 +195,7 @@ The following example shows how to configure Azure Container Registry credential
 
 You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. For more information, see [Managed identities in Azure Container Apps](managed-identity.md).
 
-#### Configure a managed identity with a template
-
-When assigning a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity. For more information about using managed identities, see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
+When assigning a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity.
 
 ```json
 {
