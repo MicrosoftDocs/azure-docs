@@ -10,7 +10,7 @@ ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: private_preview, event-tier1-build-2022
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: How to send an email using Azure Communication Service
