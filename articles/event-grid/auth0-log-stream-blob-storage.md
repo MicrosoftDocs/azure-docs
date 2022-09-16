@@ -14,53 +14,56 @@ This article shows you how to use the Log Streaming to Event Grid feature that A
 - [Get connection string to Azure Storage account](../storage/common/storage-account-keys-manage.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal#view-account-access-keys). Make sure you select the **Copy** button to copy connection string to the clipboard.
 
 ## Create an Azure function
-1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node).
-1. Select **Azure Event Grid trigger** for the function template instead of *HTTP trigger** as mentioned in the quickstart. 
-1. Continue to follow the steps, but use the following **index.js** and **function.json** files. 
+1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md).
+    1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart. 
+    1. Continue to follow the steps, but use the following **index.js** and **function.json** files. 
 
-    > [!IMPORTANT]
-    > Update the **package.json** to include `@azure/storage-blob` as a dependency.
-
-    **function.json**
-    ```json
-    {
-    	"bindings": [{
-    			"type": "eventGridTrigger",
-    			"name": "eventGridEvent",
-    			"direction": "in"
+        > [!IMPORTANT]
+        > Update the **package.json** to include `@azure/storage-blob` as a dependency.
     
-    		},
-    		{
-    			"type": "blob",
-    			"name": "outputBlob",
-    			"path": "events/{rand-guid}.json",
-    			"connection": "OUTPUT_STORAGE_ACCOUNT",
-    			"direction": "out"
+        **function.json**
+        ```json
+        {
+        	"bindings": [{
+        			"type": "eventGridTrigger",
+        			"name": "eventGridEvent",
+        			"direction": "in"
+        
+        		},
+        		{
+        			"type": "blob",
+        			"name": "outputBlob",
+        			"path": "events/{rand-guid}.json",
+        			"connection": "OUTPUT_STORAGE_ACCOUNT",
+        			"direction": "out"
+        
+        		}
+        	]
+        }
+        ```
     
-    		}
-    	]
-    }
-    ```
-
-    **index.js**
-
-    ```javascript
-    // Event Grid always sends an array of data and may send more
-    // than one event in the array. The runtime invokes this function
-    // once for each array element, so we are always dealing with one.
-    // See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
-    module.exports = async function (context, eventGridEvent) {
-        context.log(JSON.stringify(context.bindings));
-        context.log(JSON.stringify(context.bindingData));
+        **index.js**
     
-        context.bindings.outputBlob = JSON.stringify(eventGridEvent);
-    };
-    ```    
+        ```javascript
+        // Event Grid always sends an array of data and may send more
+        // than one event in the array. The runtime invokes this function
+        // once for each array element, so we are always dealing with one.
+        // See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
+        module.exports = async function (context, eventGridEvent) {
+            context.log(JSON.stringify(context.bindings));
+            context.log(JSON.stringify(context.bindingData));
+        
+            context.bindings.outputBlob = JSON.stringify(eventGridEvent);
+        };
+        ```    
+1. Create a Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
+1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
+     
 ## Configure Azure function to use your blob storage
 1. Configure your Azure function to use your storage account.
     1. Select **Configuration** under **Settings** on the left menu.
-    1. Select **+ New connection string** on the command bar. 
+    1. On the **Application settings** page, select **+ New connection string** on the command bar. 
     1. Set **Name** to **AzureWebJobsOUTPUT_STORAGE_ACCOUNT**.
     1. Set **Value** to the connection string to the storage account that you copied to the clipboard in the previous step. 
     1. Select **OK**.
@@ -97,4 +100,4 @@ This article shows you how to use the Log Streaming to Event Grid feature that A
 ## Next steps
 
 - [Auth0 Partner Topic](auth0-overview.md)
-- [](auth0-how-to.md)
+- [Subscribe to Auth0 events](auth0-how-to.md)
