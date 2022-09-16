@@ -13,7 +13,33 @@
     - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
-    
+- name: Migration from v1 to v2
+  items:
+    - name: Migration overview
+      displayName: migration
+      href: how-to-migrate-from-v1.md
+    - name: Run a script
+      displayName: migration, v1, v2
+      href: migrate-to-v2-command-job.md
+    - name: Local runs
+      displayName: migration, v1, v2
+      href: migrate-to-v2-local.md
+    - name: AutoML
+      displayName: migration, v1, v2
+      href: migrate-to-v2-execution-automl.md
+    - name: Hyperparameter tuning
+      displayName: migration, v1, v2
+      href: migrate-to-v2-assets-model.md
+    - name: Parallel run step
+      displayName: migration, v1, v2
+      href: migrate-to-v2-assets-model.md
+    - name: Data assets
+      displayName: migration, v1, v2
+      href: migrate-to-v2-assets-data.md
+    - name: Model assets
+      displayName: migration, v1, v2
+      href: migrate-to-v2-assets-model.md
+
 - name: Quickstart
   expanded: true
   items: 
@@ -642,9 +668,6 @@
         - name: Responsible AI dashboard scorecard
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
-    - name: Migrate from v1
-      displayName: migration, v1, v2
-      href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
     - name: Troubleshoot secure workspace connectivity
