@@ -101,6 +101,7 @@ For volumes with at least 4 TiB of quota, you can increase the `maxfiles` (inode
 You can increase the `maxfiles` limit to 500 million if your volume quota is at least 20 TiB. 
 
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
+
 | Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
 | - | - |
 |   > 100 TiB | 2,550,135,120 |
