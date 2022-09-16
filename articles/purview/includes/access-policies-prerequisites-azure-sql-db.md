@@ -18,10 +18,10 @@ ms.custom:
 -	Central India
 
 ### Azure SQL Database configuration
-Azure SQL Database needs an Azure Active Directory Admin to be configured to honor policies from Microsoft Purview. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Azure Active Directory on the side menu. Set an Admin name and then Save. See screenshot:
+Azure SQL Database needs an Azure Active Directory Admin to be configured to honor policies from Microsoft Purview. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Azure Active Directory on the side menu. Set an Admin name and then select **Save**. See screenshot:
 ![Screenshot shows how to assign Active Directory Admin to Azure SQL Server.](../media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
 
-Then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and save. See screenshot:
+Then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and then select **Save**. See screenshot:
 ![Screenshot shows how to assign system managed identity to Azure SQL Server.](../media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
 
 You'll also need to enable (and verify) external policy based authorization on the Azure SQL server. You can do this in PowerShell:
