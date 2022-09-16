@@ -151,10 +151,8 @@ You can download the SAP installation media required to install the SAP software
     1. For **key1**, select **Show key and connection string**.
 
     1. Copy the **Key** value.
-    
-    
-    - For `<containerBasePath>`, use the path to your `sapbits` container. To find the container path:
-
+        
+      - For `<containerBasePath>`, use the path to your `sapbits` container. To find the container path:
 
     1. Find the storage account that you created in the Azure portal.
 
