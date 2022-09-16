@@ -31,10 +31,9 @@ To purchase in the Azure Marketplace, you must meet the following prerequisites:
 - Your Azure subscription belongs to a billing account in a [Marketplace supported geographic location](./enteprise-marketplace-geo-availability).
 - Your organization allows [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 - Your organization allows acquiring any Azure Marketplace software application listed in [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management).
-- Use the following commands to register the provider and accept the legal terms and privacy statements for the Enterprise tier.
+- You need to accept the legal terms and privacy statements during provisioning enterprise tier on Azure portal or use below CLI command to do it ahead.
 
    ```azurecli
-   az provider register --namespace Microsoft.SaaS
    az term accept \
        --publisher vmware-inc \
        --product azure-spring-cloud-vmware-tanzu-2 \
