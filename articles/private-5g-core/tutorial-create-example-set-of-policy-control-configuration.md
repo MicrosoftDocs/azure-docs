@@ -20,6 +20,7 @@ In this tutorial, you'll learn how to:
 > * Create a new service that filters packets based on their protocol.
 > * Create a new service that blocks traffic labeled with specific remote IP addresses and ports.
 > * Create a new service that limits the bandwidth of traffic on matching flows.
+> * Create a network slice.
 > * Create two new SIM policies and assign services to them.
 > * Provision two new SIMs and assign them SIM policies.
 
@@ -309,6 +310,26 @@ To create the service:
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-limiting-service-complete.png" alt-text="Screenshot showing a service designed for traffic limiting. QoS characteristics and data flow policy rules are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-limiting-service-complete.png":::
+
+## Create network slice
+
+In this step, we'll create a network slice.
+
+1. Search for and select the Mobile Network resource representing your private mobile network.
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+1. In the **Resource** menu, select **Slices**.
+1. In the **Command** bar, select **Create**.
+1. On the **Basics** configuration tab, fill out the fields as follows.
+
+    |Field  |Value  |
+    |---------|---------|
+    |**Slice name**     |`slice-1`         |
+    |**Slice Service Type (SST)**     | `1`        |
+    |**Slice Differentiator (SD)**     | Leave blank |
+
+<!-- TODO -->
 
 ## Configure SIM policies
 

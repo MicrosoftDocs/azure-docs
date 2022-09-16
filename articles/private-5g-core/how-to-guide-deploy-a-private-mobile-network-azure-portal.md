@@ -62,7 +62,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     :::image type="content" source="media/pmn-deployment-complete.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful creation of a private mobile network.":::
 
-    Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** and **Slice** resources. It may also contain the following, depending on the choices you made during the procedure.
+1. Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** and **Slice** resources. It may also contain the following, depending on the choices you made during the procedure.
 
     - A **SIM group** resource (if you provisioned SIMs).
     - **Service**, **SIM Policy**, and **Data Network** resources (if you decided to use the default service and SIM policy).

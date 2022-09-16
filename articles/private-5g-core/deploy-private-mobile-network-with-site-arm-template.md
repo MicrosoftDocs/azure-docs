@@ -16,7 +16,7 @@ ms.date: 03/23/2022
 Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy the following.
 
 - A private mobile network.
-- A network slice.
+- A network slice. If the new site will support 4G technology, this slice must be configured with slice/service type (SST) value of 1 and empty slice differentiator (SD).
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
@@ -77,8 +77,8 @@ The following Azure resources are defined in the template.
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Enter the name of the network slice.        |
-    |**Slice Service Type**     |  Enter the slice/service type (SST) value.        |
-    |**Slice Differentiator**     | Enter the slice differentiator (SD) value if you collected one. Otherwise, leave this field blank.       |
+    |**Slice Service Type**     |  Enter the slice/service type (SST) value. If the site will support 4G technology, enter a value of 1.        |
+    |**Slice Differentiator**     | Enter the slice differentiator (SD) value. If the site will support 4G technology, leave this field blank.       |
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |
