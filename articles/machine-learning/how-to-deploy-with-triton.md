@@ -61,8 +61,6 @@ pip install gevent
     > [!IMPORTANT]
     > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
-
 NVIDIA Triton Inference Server requires a specific model repository structure, where there is a directory for each model and subdirectories for the model version. The contents of each model version subdirectory is determined by the type of the model and the requirements of the backend that supports the model. To see all the model repository structure [https://github.com/triton-inference-server/server/blob/main/docs/user_guide/model_repository.md#model-files](https://github.com/triton-inference-server/server/blob/main/docs/user_guide/model_repository.md#model-files)
 
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
@@ -72,7 +70,7 @@ The information in this document is based on using a model stored in ONNX format
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [basic prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 
 * A working Python 3.8 (or higher) environment.
 
@@ -101,7 +99,7 @@ The information in this article is based on the [Deploy a model to online endpoi
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples
-cd cli
+cd sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb
 ```
 
 # [Studio](#tab/azure-studio)
