@@ -183,9 +183,9 @@ Review the following guidance related to connectivity in your Batch solutions.
 
 ### Network Security Groups (NSGs) and User Defined Routes (UDRs)
 
-When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended, rather than using the underlying Batch service IP addresses. This is because the IP addresses can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
+When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you are closely following the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended; do not use underlying Batch service IP addresses as these can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools. 
 
-For User Defined Routes (UDRs), ensure that you have a process in place to update Batch service IP addresses periodically in your route table, since these addresses change over time. To learn how to obtain the list of Batch service IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md). The Batch service IP addresses will be associated with the `BatchNodeManagement` service tag (or the regional variant that matches your Batch account region).
+For User Defined Routes (UDRs), it is recommended to use `BatchNodeManagement` [service tags](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes) instead of Batch service IP addresses as these can change over time.
 
 ### Honoring DNS
 
