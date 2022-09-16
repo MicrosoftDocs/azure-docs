@@ -14,13 +14,15 @@ You can use the connectors to set up custom workflows to effectively index and e
 
 To help you get started quickly with the Azure Video Indexer connectors, the example in this article creates Logic App flows. The Logic App and Power Automate capabilities and their editors are almost identical, thus the diagrams and explanations are applicable to both. The example in this article is based on the ARM AVI account. If you're working with a classic account, see [Logic App connectors with classic-based AVI accounts](logic-apps-connector-tutorial.md).
 
-The "upload and index your video automatically" scenario covered in this article is comprised of two different flows that work together. The "two flow" approach is used to support async upload and indexing of larger files effectively. 
+The "upload and index your video automatically" scenario covered in this article is composed of two different flows that work together. The "two flow" approach is used to support async upload and indexing of larger files effectively. 
 
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes.
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. 
 
 > [!NOTE]
 > For details about the Azure Video Indexer REST ARM API and the request/response examples, see [API](https://aka.ms/avam-arm-api). For example, [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
+>
+> If you are using a classic AVI account, see [Logic Apps connector with classic-based AVI accounts]( logic-apps-connector-tutorial.md).
 
 ## Prerequisites
 
@@ -36,7 +38,7 @@ In this section you'll, you create the following flow. The first flow is tri
 
 The following image shows the first flow:
 
-![File upload flow](./media/logic-apps-connector-arm-accounts/first-flow-high-level.png)
+![Screenshot of the file upload flow.](./media/logic-apps-connector-arm-accounts/first-flow-high-level.png)
 
 1. Create the [Logic App](https://ms.portal.azure.com/#create/Microsoft.LogicApp). We create a Logic App in the same region as the Azure Video  Indexer region (recommended but not required). We call the logic app `UploadIndexVideosApp`.
 
@@ -49,7 +51,7 @@ The following image shows the first flow:
     1. Select the **Logic app designer** tab, in the pane on the left.
     1. Pick a **Blank Logic App** flow.
     1. Search for "blob".
-    1. In the **All** tab, chose the **Azure Blob Storage** component.
+    1. In the **All** tab, choose the **Azure Blob Storage** component.
     1. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
 1. Set the storage connection.
 
@@ -66,7 +68,7 @@ The following image shows the first flow:
      
     ![Select a trigger](./media/logic-apps-connector-arm-accounts/trigger.png)
     
-    After setting the connection to the storage, it's required to specify the blob storage container that is been monitored for changes.
+    After setting the connection to the storage, it's required to specify the blob storage container that is being monitored for changes.
     
     |Key| Value|
     |--|--|
@@ -75,7 +77,7 @@ The following image shows the first flow:
      
     Select **Save** -> **+New step**
      
-    ![storage container trigger](./media/logic-apps-connector-arm-accounts/storage-container-trigger.png)
+    ![Screenshot of the storage container trigger.](./media/logic-apps-connector-arm-accounts/storage-container-trigger.png)
 1. Create SAS URI by path action.
     
     1. Select the **Action** tab.  
@@ -91,7 +93,7 @@ The following image shows the first flow:
     
     Select **Save** (at the top of the page). 
     
-    ![Create SAS URI by path](./media/logic-apps-connector-arm-accounts/create-sas.png)
+    ![Screenshot of the create SAS URI by path logic.](./media/logic-apps-connector-arm-accounts/create-sas.png)
         
     Select **+New Step**.
 1. Generate an access token.
@@ -110,7 +112,7 @@ The following image shows the first flow:
     | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
     | Add new parameter | **Authentication**  |
     
-    ![HTTP access token](./media/logic-apps-connector-arm-accounts/http-with-param.png)
+    ![Screenshot of the HTTP access token.](./media/logic-apps-connector-arm-accounts/http-with-param.png)
      
     After the **Authentication** parameter is added, fill the required parameters according to the table below:
         
@@ -127,7 +129,7 @@ The following image shows the first flow:
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
 
-    ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
+    ![Screenshot of the how to enable the system assigned managed identity.](./media/logic-apps-connector-arm-accounts/enable-system.png)
     1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
 
         In the Azure portal, go to your Azure Video Indexer resource/account.
@@ -163,7 +165,7 @@ The following image shows the first flow:
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
         
-        ![upload-video](./media/logic-apps-connector-arm-accounts/uplaod-and-index.png)
+        ![Screenshot of the upload and index action.](./media/logic-apps-connector-arm-accounts/upload-and-index.png)
 
 The completion of the uploading and indexing from the first flow will send an HTTP request with the correct callback URL to trigger the second flow. Then, it will retrieve the insights generated by Azure Video Indexer. In this example, it will store the output of your indexing job in your Azure Storage. However, it's up to you what you do with the output.
 
@@ -171,13 +173,13 @@ The completion of the uploading and indexing from the first flow will send an HT
 
 Create the second flow, Logic Apps of type consumption. The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. 
 
-![high-level-flow](./media/logic-apps-connector-arm-accounts/second-flow-high-level.png)
+![Screenshot of the high level flow.](./media/logic-apps-connector-arm-accounts/second-flow-high-level.png)
 
 1. Set up the trigger
     
     Search for the **When an HTTP request is received**.
     
-    ![Set up the trigger](./media/logic-apps-connector-arm-accounts/serach-trigger.png)
+    ![Screenshot of the set up the trigger.](./media/logic-apps-connector-arm-accounts/serach-trigger.png)
     
     For the trigger, we'll see an HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you'll need the URL eventually.
 
@@ -212,7 +214,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
         \*This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of **Upload video and index** in your first trigger.
 
-        ![Upload video and index](./media/logic-apps-connector-arm-accounts/get-video-index.png)
+        ![Screenshot of the upload and index a video action.](./media/logic-apps-connector-arm-accounts/get-video-index.png)
 
          Select **Save** -> **+ New step**.
 1. Create a blob and store the insights JSON.
@@ -228,7 +230,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
         | Azure Storage Account name| <* The storage account name where insights will be stored*>. |
         | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
     
-        ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
+        ![Screenshot of the create blob action.](./media/logic-apps-connector-arm-accounts/storage-connection.png)
     1. Select **Create**.
     1. Set the folder in which insights will be stored.
         
@@ -239,7 +241,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
         | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
         | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
         
-        ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
+        ![Screenshot of the store blob content action.](./media/logic-apps-connector-arm-accounts/create-blob.png)
     1. Select **Save flow**. 
 1. Update the callback URL to get notified when an index job is finished.
 
@@ -247,7 +249,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
     1. Copy the URL from the trigger. 
 
-       ![Save URL trigger](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
+       ![Screenshot of the save URL trigger.](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
     1. Go back to the first flow and paste the URL in the **Upload video and index** action for the **Callback URL parameter**.
  
 Make sure both flows are saved.
