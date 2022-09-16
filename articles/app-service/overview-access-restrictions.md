@@ -17,19 +17,19 @@ When traffic reaches App Service, it will first evaluate if the traffic originat
 
 If the traffic is sent through the default endpoint (often a public endpoint), the traffic is first evaluated at the site access level. Here you can either enable or disable access. If site access is enabled, the traffic will be evaluated at the app access level. For any app, you'll have both the main site and the advanced tools site (also known as scm or kudu site). You have the option of configuring a set of access restriction rules for each site. You can also specify the behavior if no rules are matched. The following sections will go into details. 
 
-:::image type="content" source="media/overview-access-restrictions/access-restriction-diagram.png" alt-text="Diagram of access restrictions high-level flow":::
+:::image type="content" source="media/overview-access-restrictions/access-restriction-diagram.png" alt-text="Diagram of access restrictions high-level flow.":::
 
 ## App access
 
 App access allows you to configure if access is available thought the default (public) endpoint. If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
 
-:::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal":::
+:::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
 ## Site access
 
 Site access restrictions let you filter the incoming requests. Site access restrictions allow you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking.
 
-:::image type="content" source="media/overview-access-restrictions/site-access-portal.png" alt-text="Screenshot of site access options in Azure portal":::
+:::image type="content" source="media/overview-access-restrictions/site-access-portal.png" alt-text="Screenshot of site access options in Azure portal.":::
 
 Site access restriction has several types of rules that you can apply:
 
