@@ -3606,11 +3606,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/sql/sql-api-dotnet-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/sql/mobile-apps-with-xamarin.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
       "redirect_document_id": false
@@ -3628,21 +3623,6 @@
     {
       "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-dotnet-v4.md",
       "redirect_url": "/azure/cosmos-db/sql/quickstart-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/sql/quickstart-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root":"/articles/cosmos-db/sql/sql-api-dotnet-v2sdk-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql/samples-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root":"/articles/cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md",
-      "redirect_url": "/azure/cosmos-db/sql/samples-dotnet",
       "redirect_document_id": false
     },
     {
