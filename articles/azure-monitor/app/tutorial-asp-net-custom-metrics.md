@@ -11,7 +11,7 @@ ms.reviewer: casocha
 
 In this article, you'll learn how to capture custom metrics with Application Insights in .NET and .NET Core apps.
 
-Insert a few lines of code in your application to find out what users are doing with it or to help diagnose issues. You can send telemetry from device apps, desktop apps, web clients, and web servers. Use the [Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
+Insert a few lines of code in your application to find out what users are doing with it or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
 ## ASP.NET Core applications
 
@@ -34,9 +34,9 @@ The Application Insights .NET and .NET Core SDKs have two different methods for 
 
 #### Pre-aggregating vs non pre-aggregating API
 
-`TrackMetric()` sends raw telemetry that denotes a metric. `TrackMetric()` is inefficient because it sends a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance since every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. 
+`TrackMetric()` sends raw telemetry that denotes a metric. `TrackMetric()` is inefficient because it sends a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance because every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. 
 
-Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. If you need to closely monitor some custom metric at the second or even millisecond level, you can use `GetMetric()` to do so while only incurring the storage and network traffic cost of only monitoring every minute. This behavior also greatly reduces the risk of throttling from occurring because the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
+Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. If you need to closely monitor some custom metric at the second or even millisecond level, you can use `GetMetric()` to do so while only incurring the storage and network traffic cost of only monitoring every minute. This behavior also greatly reduces the risk of throttling occurring because the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
 
 In Application Insights, custom metrics collected via `TrackMetric()` and `GetMetric()` aren't subject to [sampling](./sampling.md). Sampling important metrics can lead to scenarios where the alerting you may have built around these metrics could become unreliable. By never sampling your custom metrics, you can generally be confident that when your alert thresholds are breached, an alert will fire. Because custom metrics aren't sampled, there are some potential concerns, which are described below.
 
@@ -249,7 +249,13 @@ By default, multi-dimensional metrics within the Metric explorer experience aren
 
 ### Enable multi-dimensional metrics
 
-To enable multi-dimensional metrics for an Application Insights resource, Select **Usage and estimated costs** > **Custom Metrics** > **Send custom metrics to Azure Metric Store (With dimensions)** > **OK**.
+This section walks through enabling multi-dimensional metrics for an Application Insights resource.
+
+1. In the [Azure portal](https://portal.azure.com), select the **Application Insights** resource.
+1. Select **Usage and estimated costs**. 
+1. Select **Custom Metrics**. 
+1. Select **Send custom metrics to Azure Metric Store (With dimensions)**.
+1. Select **OK**.
 
 After you enable multi-dimensional metrics for an Application Insights resource and send new multi-dimensional telemetry, you can split a metric by dimension.
 
@@ -344,7 +350,7 @@ After you enable multi-dimensional metrics for an Application Insights resource 
 
    The results display the rating value present in your review and the aggregated values.
 
-6. To extract the **IncludesPhoto** dimension into a separate variable (column) to better observe it, use the following query.
+6. To extract the **IncludesPhoto** dimension into a separate variable (column) to better observe the dimension, use the following query.
 
     ```kql
     customMetrics 
