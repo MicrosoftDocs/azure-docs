@@ -6,14 +6,14 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/30/2022
+ms.date: 09/16/2022
 ms.topic: how-to
 ---
 
 <!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users. -->
 
 # Manage a dev box pool
-To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pool. 
+To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
 
 ## Permissions
 To manage a dev box pool, you need the following permissions:
@@ -67,7 +67,7 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 
 
 ## Delete a dev box pool
-You can delete a dev box pool when you are no longer using it. 
+You can delete a dev box pool when you're no longer using it. 
 
 > [!CAUTION]
 > When you delete a dev box pool, all existing dev boxes within the pool will be permanently deleted.
