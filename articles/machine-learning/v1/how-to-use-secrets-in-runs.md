@@ -18,7 +18,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-use-secrets-in-runs.md)
-> * [v2 (current version)](../how-to-use-secrets.md)
+> * [v2 (current version)](../how-to-use-secrets-in-runs.md)
 
 In this article, you learn how to use secrets in training jobs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
@@ -76,4 +76,4 @@ There is also a batch version, [get_secrets()](/python/api/azureml-core/azureml.
 ## Next steps
 
  * [View example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Learn about enterprise security with Azure Machine Learning](concept-enterprise-security.md)
+ * [Learn about enterprise security with Azure Machine Learning](../concept-enterprise-security.md)
