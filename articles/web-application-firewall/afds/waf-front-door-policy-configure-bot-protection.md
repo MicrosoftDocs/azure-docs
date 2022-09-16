@@ -22,7 +22,7 @@ Create a basic WAF policy for Front Door by following the instructions described
 
 ::: zone pivot="portal"
 
-## Enable bot protection rule set
+## Enable the bot protection rule set
 
 1. In the Azure portal, navigate to your WAF policy.
 
@@ -75,6 +75,8 @@ $frontDoorWafPolicy | Update-AzFrontDoorWafPolicy
 ::: zone-end
 
 ::: zone pivot="cli"
+
+## Enable the bot protection rule set
 
 Use the [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) command to update your WAF policy to add the bot protection rule set.
 
