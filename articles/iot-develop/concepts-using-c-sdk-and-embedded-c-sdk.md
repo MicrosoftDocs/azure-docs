@@ -20,7 +20,7 @@ The following diagram shows four common scenarios in which customers connect dev
 
 ## Scenario 1 – Azure IoT C SDK (for Linux and Windows)
 
-Starting in 2015, Azure IoT C SDK was the first Azure SDK created to connect devices to IoT services. It's a stable platform that was built to provide the following capabilities for connecting devices to Azure IoT:
+Starting in 2015, [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) was the first Azure SDK created to connect devices to IoT services. It's a stable platform that was built to provide the following capabilities for connecting devices to Azure IoT:
 - IoT Hub services
 - Device Provisioning Service clients
 - Three choices of communication transport (MQTT, AMQP and HTTP), which are created and maintained by Microsoft
@@ -29,31 +29,31 @@ Starting in 2015, Azure IoT C SDK was the first Azure SDK created to connect dev
 
 Providing communication transport, TLS and socket abstraction has a performance cost. Many paths require `malloc` and `memcpy` calls between the various abstraction layers. This performance cost is small compared to a desktop or a Raspberry Pi device. Yet on a truly constrained device, the cost becomes significant overhead with the possibility of memory fragmentation. The communication transport layer also requires a `doWork` function to be called at least every 100 milliseconds. These frequent calls make it harder to optimize the SDK for battery powered devices. The existence of multiple abstraction layers also makes it hard for customers to use or change to any given library.
 
-Scenario 1 is recommended for Windows or Linux devices, which normally are less sensitive to memory usage or power consumption. However, Windows and Linux-based devices can also use the Embedded C SDK as shown in Scenario 2. Other options for windows and Linux-based devices include the other Azure IoT device SDKs: Java SDK, .NET SDK, Node SDK and Python SDK. 
+Scenario 1 is recommended for Windows or Linux devices, which normally are less sensitive to memory usage or power consumption. However, Windows and Linux-based devices can also use the Embedded C SDK as shown in Scenario 2. Other options for windows and Linux-based devices include the other Azure IoT device SDKs: [Java SDK](https://github.com/Azure/azure-iot-sdk-java), [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp), [Node SDK](https://github.com/Azure/azure-iot-sdk-node) and [Python SDK](https://github.com/Azure/azure-iot-sdk-python). 
 
 ## Scenario 2 – Embedded C SDK (for Bare Metal scenarios and micro-controllers)
 
-In 2020, Microsoft released the Azure SDK for Embedded C (also known as the Embedded C SDK).  This SDK was built based on customers feedback and a growing need to support constrained micro-controller devices.  Typically constrained micro-controllers have reduced memory and processing power. 
+In 2020, Microsoft released the [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot) (also known as the Embedded C SDK).  This SDK was built based on customers feedback and a growing need to support constrained [micro-controller devices](concepts-iot-device-types.md#microcontrollers-vs-microprocessors).  Typically, constrained micro-controllers have reduced memory and processing power. 
 
 The Embedded C SDK has the following key characteristics:
 -	No dynamic memory allocation. Customers must allocate data structures where they desire such as in global memory, a heap, or a stack.  Then they must pass the address of the allocated structure into SDK functions to initialize and perform various operations.
 -	MQTT only.  MQTT-only usage is ideal for constrained devices because it's an efficient, lightweight network protocol. Currently only MQTT v3.1.1 is supported. 
 -	Bring your own network stack. The Embedded C SDK performs no I/O operations.  This approach allows customers to select the MQTT, TLS and Socket clients that have the best fit to their target platform.
--	Similar feature set as the C SDK. The Embedded C SDK provides similar features as the Azure IoT C SDK, with the following exceptions that the Embedded C SDK doesn't provide:  
+-	Similar [feature set](concepts-iot-device-types.md#microcontrollers-vs-microprocessors) as the C SDK. The Embedded C SDK provides similar features as the Azure IoT C SDK, with the following exceptions that the Embedded C SDK doesn't provide:  
     - Upload to blob
     - The ability to run as an IoT Edge module
     - AMQP-based features like content message batching and device multiplexing
--	Smaller overall footprint. The Embedded C SDK, as see in a sample that shows how to connect to IoT Hub, can take as little as 74 KB of ROM and 8.26 KB of RAM.
+-	Smaller overall [footprint](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot#size-chart). The Embedded C SDK, as see in a sample that shows how to connect to IoT Hub, can take as little as 74 KB of ROM and 8.26 KB of RAM.
 
-The Embedded C SDK supports micro-controllers with no operating system, micro-controllers with a real-time operating system (like Azure RTOS), Linux, and Windows. Customers can implement custom platform layers to use the SDK on custom devices. The SDK also provides some platform layers such as Arduino, and Swift.  Microsoft encourages the community to submit other platform layers to increase the out-of-the-box supported platforms. 
+The Embedded C SDK supports micro-controllers with no operating system, micro-controllers with a real-time operating system (like Azure RTOS), Linux, and Windows. Customers can implement custom platform layers to use the SDK on custom devices. The SDK also provides some platform layers such as [Arduino](https://github.com/Azure/azure-sdk-for-c-arduino), and [Swift](https://github.com/Azure-Samples/azure-sdk-for-c-swift).  Microsoft encourages the community to submit other platform layers to increase the out-of-the-box supported platforms. Wind River [VxWorks](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/docs/how_to_iot_hub_samples_vxworks.md) is an example of a platform layer submitted by the community. 
 
 The Embedded C SDK adds some programming benefits because of its flexibility compared to the Azure IoT C SDK. In particular, applications that use constrained devices will benefit from enormous resource savings and greater programmatic control.  In comparison, if you use Azure RTOS or FreeRTOS, you can have these same benefits along with other features per RTOS implementation.
 
 ## Scenario 3 – Azure RTOS with Azure RTOS middleware (for Azure RTOS-based projects)
 
-Scenario 3 involves using Azure RTOS and the Azure RTOS middleware.  Azure RTOS is built on top of the Embedded C SDK, and adds MQTT and TLS Support. The middleware for Azure RTOS exposes APIs for the application that are similar to the native Azure RTOS APIs.  This approach makes it simpler for developers to use the APIs and connect their Azure RTOS-based devices to Azure IoT. Azure RTOS is a fully integrated, efficient, real time embedded platform, that provides all the networking and IoT features you need for your solution.
+Scenario 3 involves using Azure RTOS and the [Azure RTOS middleware](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot).  Azure RTOS is built on top of the Embedded C SDK, and adds MQTT and TLS Support. The middleware for Azure RTOS exposes APIs for the application that are similar to the native Azure RTOS APIs.  This approach makes it simpler for developers to use the APIs and connect their Azure RTOS-based devices to Azure IoT. Azure RTOS is a fully integrated, efficient, real time embedded platform, that provides all the networking and IoT features you need for your solution.
 
-Samples for several popular developer kits from ST, NXP, Renesas, and Microchip, are available on GitHub.  These samples work with Azure IoT Hub or Azure IoT Central, and are available as IAR Workbench or semiconductor IDE projects on GitHub.
+Samples for several popular developer kits from ST, NXP, Renesas, and Microchip, are available.  These samples work with Azure IoT Hub or Azure IoT Central, and are available as IAR Workbench or semiconductor IDE projects on [GitHub](https://github.com/azure-rtos/samples).
 
 Because it's based on the Embedded C SDK, the Azure IoT middleware for Azure RTOS is non-memory allocating. Customers must allocate SDK data structures in global memory, or a heap, or a stack. After customers allocate a data structure, they must pass the address of the structure into the SDK functions to initialize and perform various operations.
 
@@ -63,7 +63,7 @@ Scenario 4 brings the embedded C middleware to FreeRTOS.  The embedded C middlew
 
 Customers control the TLS/TCP configuration and connection to the endpoint. This approach allows for flexibility between software or hardware implementations of either stack. No background tasks are created by the Azure IoT middleware for FreeRTOS. Messages are sent and received synchronously.
 
-The core implementation is provided via this GitHub repository, and samples for several popular dev kits are available, including the NXP1060, STM32, and ESP32.  The samples work with Azure IoT Hub, Azure IoT Central, and Azure Device Provisioning Service, and are available in this GitHub repository.
+The core implementation is provided in this [GitHub repository](https://github.com/Azure/azure-iot-middleware-freertos). Samples for several popular developer kits are available, including the NXP1060, STM32, and ESP32.  The samples work with Azure IoT Hub, Azure IoT Central, and Azure Device Provisioning Service, and are available in this [GitHub repository](https://github.com/Azure-Samples/iot-middleware-freertos-samples).
 
 Because it's based on the Azure Embedded C SDK, the Azure IoT middleware for FreeRTOS is also non-memory allocating. Customers must allocate SDK data structures in global memory, or a heap, or a stack. After customers allocate a data structure, they must pass the address of the allocated structures into the SDK functions to initialize and perform various operations.
 
