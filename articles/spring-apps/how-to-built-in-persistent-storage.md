@@ -42,23 +42,23 @@ The portal can be used to enable or disable built-in persistent storage.
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
 
-    >![Locate the All Resources icon](media/portal-all-resources.jpg)
+    >![Locate the All Resources icon](media/how-to-built-in-persistent-storage/portal-all-resources.jpg)
 
 1. Select the Azure Spring Apps resource that needs persistent storage. In this example, the selected application is called **upspring**.
 
-    > ![Select your application](media/select-service.jpg)
+    > ![Select your application](media/how-to-built-in-persistent-storage/select-service.jpg)
 
 1. Under the **Settings** heading, select **Apps**.
 
 1. Your Azure Spring Apps services appear in a table.  Select the service that you want to add persistent storage to. In this example, the **gateway** service is selected.
 
-    > ![Select your service](media/select-gateway.jpg)
+    > ![Select your service](media/how-to-built-in-persistent-storage/select-gateway.jpg)
 
 1. From the service's configuration page, select **Configuration**
 
 1. Select the **Persistent Storage** tab and select **Enable** to turn on persistent storage, or select **Disable** to turn off persistent storage.
 
-    > ![Enable persistent storage](media/enable-persistent-storage.jpg)
+    > ![Enable persistent storage](media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg)
 
 If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
 
