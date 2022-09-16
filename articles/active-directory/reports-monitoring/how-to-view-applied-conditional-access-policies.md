@@ -102,7 +102,7 @@ To view the sign-in logs, use:
 
 `Get-MgAuditLogSignIn`
 
-The output of this cmdlet contains an `AppliedConditionalAccessPolicies` property that shows all the Conditional Access policies applied to the sign-in. For more information about this cmdlet, see [Get-MgAuditLogSignIn](https://docs.microsoft.com/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-1.0).
+The output of this cmdlet contains an `AppliedConditionalAccessPolicies` property that shows all the Conditional Access policies applied to the sign-in. For more information about this cmdlet, see [Get-MgAuditLogSignIn](/powershell/module/microsoft.graph.reports/get-mgauditlogsignin).
 
 The Azure AD Graph PowerShell module doesn't support viewing applied Conditional Access policies. Only the Microsoft Graph PowerShell module returns applied Conditional Access policies.  
 
@@ -114,7 +114,7 @@ To confirm that you have admin access to view applied Conditional Access policie
 
 1. Go to the Azure portal. 
 
-2. In the top-right corner, select your directory, and then select **Azure Active Directory** on the left pane. 
+2. In the upper-right corner, select your directory, and then select **Azure Active Directory** on the left pane. 
 
 3. In the **Monitoring** section, select **Sign-in logs**. 
 
