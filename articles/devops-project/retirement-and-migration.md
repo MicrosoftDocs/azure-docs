@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload:
 ms.date: 09/16/2022
 ms.author: moala
-#Customer intent: As a developer/devops resource, I want to quickly get started with CI/CD in Azure so I can automate the deployment of my application to an Azure service.
+
 ---
 # Retirement of DevOps Starter
 
-Azure DevOps Starter is scheduled to be retired in March of 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](https://docs.microsoft.com/rest/api/visualstudio/projects) resources will be retired as well. 
+Azure DevOps Starter will be retired in March of 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](https://docs.microsoft.com/rest/api/visualstudio/projects) resources will be retired as well. 
 Customers are encouraged to use [Azure Developer CLI](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs) instead. 
 
 ## Azure Developer CLI
 
-The replacement [Azure Developer CLI (azd)](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. This enables to create, provision, and deploy a new application in a single step. 
+The replacement [Azure Developer CLI (azd)](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. Hence enabling users to create, provision, and deploy a new application in a single step. 
 
 ## Comparision between Azure DevOps and Azure Developer CLI
 
@@ -60,15 +60,15 @@ For existing application deployments, **DevOps starter does not store any inform
 
 1. What is the difference between DevOps starter and Azure developer CLI?
 
-Both are tools which enable quick setting up of application deployment to Azure and configure CI/CD pipeline for the same. They enable users to quickly get started with Azure.
+Both are tools, which enable quick setting up of application deployment to Azure and configure CI/CD pipeline for the same. They enable users to quickly get started with Azure.
 
 Azure Developer CLI provides more developer friendly commands as compared to clicking through multiple pages in the UI wizard of DevOps starter experience. This also means better clarity with extensive config-as-code.
 
 2. Will I lose my application or the Azure resources if I am not able to access DevOps starter?
 
-Absolutely not. Application code, its deployments and Azure resources which host the application will still be available. DevOps starter does not store any of these.
+No. Application code, its deployments and Azure resources which host the application will still be available. DevOps starter does not store any of these.
 
-3. Will I lose the CI/CD pipeline which I created using DevOps Starter?
+3. Will I lose the CI/CD pipeline that I created using DevOps Starter?
 
 No. You can still manage such CI/CD pipelines natively in their respective products - either GitHub Actions or Azure Pipelines.
 
