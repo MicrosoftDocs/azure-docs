@@ -182,7 +182,7 @@ Automated ML's NLP capability is triggered through task specific `automl` type j
 However, there are key differences: 
 * You can ignore `primary_metric`, as it is only for reporting purposes. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks.
-* If the majority of the samples in your dataset contain more than 128 tokens, it's considered long range. 
+* If more than 10% of the samples in your dataset contain more than 128 tokens, it's considered long range. 
    * In order to use the long range text feature, you should use a NC6 or higher/better SKUs for GPU such as: [NCv3](../virtual-machines/ncv3-series.md) series or [ND](../virtual-machines/nd-series.md) series.
 
 # [Azure CLI](#tab/cli)
