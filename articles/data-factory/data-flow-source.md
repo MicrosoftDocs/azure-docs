@@ -33,6 +33,15 @@ Inline datasets are recommended when you use flexible schemas, one-off source in
 
 To use an inline dataset, select the format you want in the **Source type** selector. Instead of selecting a source dataset, you select the linked service you want to connect to.
 
+### Schema options
+
+Because an inline dataset is defined inside the data flow, there is not a defined schema associated with the inline dataset. On the Projection tab, you can import the source data schema and store that schema as your source projection. On this tab, you will find a "Schema options" button that allows you to define the behavior of ADF's schema discovery service.
+
+* Use projected schema: This option is useful when you have a large number of source files that ADF will scan as your source. ADF's default behavior is to discover the schema of every source file. But if you have a pre-defined projection already stored in your source transformation, you can set this to true and ADF will skip auto-discovery of every schema. With this option turned on, the source transformation can read all files in a much faster manner, applying the pre-defined schema to every file.
+* Allow schema drift: Turn on schema drift so that your data flow will allow new columns that are not already defined in the source schema.
+* Validate schema: Setting this option will cause data flow to fail if any column and type defined in the projection does not match the discovered schema of the source data.
+* Infer drifted column types: When new drifted columns are identified by ADF, those new columns will be cast to the appropriate data type using ADF's automatic type inference.
+
 :::image type="content" source="media/data-flow/inline-selector.png" alt-text="Screenshot that shows Inline selected.":::
 
 ## Workspace DB (Synapse workspaces only)
