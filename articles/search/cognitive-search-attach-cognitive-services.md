@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 09/16/2022
 
 ---
 
@@ -28,7 +28,7 @@ A multi-service resource references "Cognitive Services" as the offering, rather
 
 You can use the Azure portal, REST API, or an Azure SDK to attach a billable resource to a skillset.
 
-If you leave the property unspecified, execution of billable skills will stop at 20 transactions per indexer invocation and a "Time Out" message will appear in indexer execution history.
+If you leave the property unspecified, your search service will attempt to use the free enrichments available to your indexer on a daily basis. Execution of billable skills will stop at 20 transactions per indexer invocation and a "Time Out" message will appear in indexer execution history.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -120,7 +120,7 @@ Key-based billing applies when API calls to Cognitive Services resources exceed 
 
 The key is used for billing, but not connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
 
-If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
+If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
 > [!NOTE]
 > Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information on non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.
@@ -135,9 +135,9 @@ AI enrichment offers a small quantity of free processing  of billable enrichment
 
 Some enrichments are always free: 
 
-+ Utility skills that do not call Cognitive Services (namely, [Conditional](cognitive-search-skill-conditional.md), [Document Extraction](cognitive-search-skill-document-extraction.md), [Shaper](cognitive-search-skill-shaper.md), [Text Merge](cognitive-search-skill-textmerger.md), and [Text Split skills](cognitive-search-skill-textsplit.md)) are not billable.
++ Utility skills that don't call Cognitive Services (namely, [Conditional](cognitive-search-skill-conditional.md), [Document Extraction](cognitive-search-skill-document-extraction.md), [Shaper](cognitive-search-skill-shaper.md), [Text Merge](cognitive-search-skill-textmerger.md), and [Text Split skills](cognitive-search-skill-textsplit.md)) aren't billable.
 
-+ Text extraction from PDF documents and other application files is non-billable. Text extraction occurs during the [document cracking](search-indexer-overview.md#document-cracking) phase and is not an enrichment per se, but it occurs during AI enrichment and is thus noted here.
++ Text extraction from PDF documents and other application files is non-billable. Text extraction occurs during the [document cracking](search-indexer-overview.md#document-cracking) phase and isn't an enrichment in itself, but it occurs during AI enrichment and is thus noted here.
 
 ## Billable enrichments
 
