@@ -17,12 +17,12 @@ ms.author: moala
 ---
 # Retirement of DevOps Starter
 
-Azure DevOps Starter is scheduled to be retired in March of 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](https://docs.microsoft.com/en-us/rest/api/visualstudio/projects) resources will be retired as well. 
-Customers are encouraged to use [Azure Developer CLI](https://docs.microsoft.com/en-in/azure/developer/azure-developer-cli/overview?tabs=nodejs) instead. 
+Azure DevOps Starter is scheduled to be retired in March of 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](https://docs.microsoft.com/rest/api/visualstudio/projects) resources will be retired as well. 
+Customers are encouraged to use [Azure Developer CLI](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs) instead. 
 
 ## Azure Developer CLI
 
-The replacement [Azure Developer CLI (azd)](https://docs.microsoft.com/en-in/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. This enables to create, provision, and deploy a new application in a single step. 
+The replacement [Azure Developer CLI (azd)](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. This enables to create, provision, and deploy a new application in a single step. 
 
 ## Comparision between Azure DevOps and Azure Developer CLI
 
@@ -36,7 +36,7 @@ The replacement [Azure Developer CLI (azd)](https://docs.microsoft.com/en-in/azu
 
 ## Migration:
 
-There is **no migration required** as **DevOps starter does not store any information itself,** it just helps users with their Day 0 getting started experience on Azure. Moving forward the recommended way for users to get started on Azure will be [Azure Developer CLI](https://docs.microsoft.com/en-in/azure/developer/azure-developer-cli/overview?tabs=nodejs).
+There is **no migration required** as **DevOps starter does not store any information itself,** it just helps users with their Day 0 getting started experience on Azure. Moving forward the recommended way for users to get started on Azure will be [Azure Developer CLI](https://docs.microsoft.com/azure/developer/azure-developer-cli/overview?tabs=nodejs).
 
 For new application deployments to Azure, instead of creating DevOps Starter users can get the same capabilities by using Azure Developer CLI.
 
