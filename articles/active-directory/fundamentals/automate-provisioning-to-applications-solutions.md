@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 This article presents solutions that enable you to:
 
 * Connect identities with your system of record
-* Synchronize identities between Active Directory (AD) abd Azure Active Directory (Azure AD)
+* Synchronize identities between Active Directory (AD) and Azure Active Directory (Azure AD)
 * Automate provisioning of users into non-Microsoft applications  
 
 ## Connect identities with your system of record
@@ -43,25 +43,25 @@ MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms
 
 ## Synchronize identities between Active Directory and Azure AD
 
-As customers move more of their applications to the cloud and integrate with Azure AD, users often need accounts in both Azure AD and AD to access the applications they need to get their work done. Here are the five common scenarios in which objects need to be synchronized between AD and Azure AD.
+As customers move more of their applications to the cloud and integrate with Azure AD, users often need accounts in Azure AD and AD to access the applications they need to get their work done. Here are the five common scenarios in which objects need to be synchronized between AD and Azure AD.
 
-The scenarios are divided by the direction of synchronization that is needed and are listed, one through five. Use the table following the scenarios to determine what technical solution is used to provide the synchronization.
+The scenarios are divided by the direction of synchronization needed, and are listed, one through five. Use the table following the scenarios to determine what technical solution provides the synchronization.
 
 **Synchronize identities from AD into Azure AD**
 
-1. For users that exist in AD and need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management is primarily done in the cloud, minimizing your on-premises footprint. It also provides high-availability and automatic failover, ensuring that password resets and synchronization can continue, even if there is an issue with one of your on-premises servers.
+1. For users in AD and need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management are primarily done in the cloud, minimizing your on-premises footprint. It provides high-availability and automatic failover, ensuring password resets and synchronization continue, even if there's an issue with on-premises servers.
 
-1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50K and device sync, customers can use Azure AD Connect sync to meet their needs.
+1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50 K and device sync, customers can use Azure AD Connect sync to meet their needs.
 
 **Synchronize identities from Azure AD into AD**
 
-As customers transition identity management to the cloud, more and more users and groups are created directly in Azure AD. However, they still need a presence on-premises in AD DS to access various resources.
+As customers transition identity management to the cloud, more users and groups are created directly in Azure AD. However, they still need a presence on-premises in AD DS to access various resources.
 
 3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to on-premises Windows-Integrated Authentication or Kerberos-based applications.
 
 1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/how-to-connect-group-writeback-v2.md).
 
-1. When users need access to cloud apps that still rely on legacy access protocols (e.g. LDAP and Kerberos/NTLM), [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) synchronizes identities between Azure AD and a managed AD domain.
+1. When users need access to cloud apps that still rely on legacy access protocols (for example, LDAP and Kerberos/NTLM), [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) synchronizes identities between Azure AD and a managed AD domain.
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
@@ -71,31 +71,31 @@ As customers transition identity management to the cloud, more and more users an
 | 4 |Guest accounts| Azure AD| AD| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
-The table depicts common scenarios and the technology recommended to meet the need
+The table depicts common scenarios and the recommended technology.
 
 ## Automate provisioning users into non-Microsoft applications
 
-Once identities are brought into Azure AD through HR-provisioning or Azure AD Connect Could Sync / Azure AD Connect Sync, the employee can use the identity to access Teams, SharePoint, and the full suite of M365 applications. However, employees still need access to many Microsoft applications to perform their work.
+After identities are in Azure AD through HR-provisioning or Azure AD Connect Could Sync / Azure AD Connect Sync, the employee can use the identity to access Teams, SharePoint, and Microsoft 365 applications. However, employees still need access to many Microsoft applications to perform their work.
 
 ![Automation decision matrix](media/automate-user-provisioning-to-applications-solutions/automate-provisioning-decision-matrix.png)
 
 ### Automate provisioning to apps and clouds that support the SCIM standard
 
-Azure AD supports the System for Cross-Domain Identity Management ([SCIM 2.0](https://aka.ms/scimoverview)) standard and integrates with 100s of popular SaaS applications such as [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) and [Atlassian](../saas-apps/atlassian-cloud-provisioning-tutorial.md) or other clouds such as [Amazon Web Services](../saas-apps/aws-single-sign-on-provisioning-tutorial.md), [Google Cloud](../saas-apps/g-suite-provisioning-tutorial.md)). Application developers can use the System for Cross-Domain Identity Management (SCIM) user management API to automate provisioning users and groups between Azure AD and your application.
+Azure AD supports the System for Cross-Domain Identity Management ([SCIM 2.0](https://aka.ms/scimoverview)) standard and integrates with 100 s of popular SaaS applications such as [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) and [Atlassian](../saas-apps/atlassian-cloud-provisioning-tutorial.md) or other clouds such as [Amazon Web Services](../saas-apps/aws-single-sign-on-provisioning-tutorial.md), [Google Cloud](../saas-apps/g-suite-provisioning-tutorial.md)). Application developers can use the System for Cross-Domain Identity Management (SCIM) user management API to automate provisioning users and groups between Azure AD and your application.
 
 ![SCIM standard](media/automate-user-provisioning-to-applications-solutions/automate-provisioning-scim-standard.png)
 
-In addition to the pre-integrated gallery applications, Azure AD supports provisioning to SCIM enabled line of business applications, whether hosted [on-premises](../app-provisioning/on-premises-scim-provisioning.md) or in the cloud. The Azure AD provisioning service can not only create users and groups in these applications, but manage updates such as when a user is promoted or leaves the company).
+In addition to the pre-integrated gallery applications, Azure AD supports provisioning to SCIM enabled line of business applications, whether hosted [on-premises](../app-provisioning/on-premises-scim-provisioning.md) or in the cloud. The Azure AD provisioning service creates users and groups in these applications, and manages updates such as when a user is promoted or leaves the company).
 
 [Learn more about provisioning to SCIM enabled applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ### Automate provisioning to SQL and LDAP based applications
 
- Many applications do not support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors developed for MIM and provisioning users into applications that rely on an LDAP user store or a SQL database.
+ Many applications don't support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors developed for MIM and provisioning users into applications that rely on an LDAP user store or a SQL database.
 
-[Learn more about on-prem application provisioning](../app-provisioning/user-provisioning.md)
+[Learn more about on-premises application provisioning](../app-provisioning/user-provisioning.md)
 
-### Leverage integrations developed by partners
+### Use integrations developed by partners
 
 Many applications may not yet support SCIM or rely on SQL / LDAP databases. Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases.
 
@@ -105,7 +105,7 @@ Many applications may not yet support SCIM or rely on SQL / LDAP databases. Micr
 
 ### Manage local app passwords
 
-Many applications have a local authentication store and a UI that only checks the user’s supplied credentials against that store. As a result, these applications cannot support Multi Factor Authentication through Azure AD and pose a security risk. Microsoft recommends enabling single sign on and MFA for all your applications. Based on our studies, your account is more than 99.9% less likely to be compromised if you [use MFA](https://aka.ms/securitysteps). However, in cases where the application can’t externalize authentication, customers can leverage MIM to sync password changes to these applications.
+Many applications have a local authentication store and a UI that only checks the user’s supplied credentials against that store. As a result, these applications can't support Multi Factor Authentication (MFA) through Azure AD and pose a security risk. Microsoft recommends enabling single sign-on and MFA for all your applications. Based on our studies, your account is more than 99.9% less likely to be compromised if you [use MFA](https://aka.ms/securitysteps). However, in cases where the application can’t externalize authentication, customers can use MIM to sync password changes to these applications.
 
 ![Manage local app passwords](media/automate-user-provisioning-to-applications-solutions/manage-local-app-passwords.png)
 
@@ -119,9 +119,9 @@ MIM enables you to import organizational data such as job codes and locations. T
 
 ### Automate common business workflows
 
-Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) allow you to automate appropriate actions at key moments in a user’s lifecycle such as joiner, mover, and leaver. These custom workflows can be triggered by Azure AD LCW automatically or on demand to perform common task such as enabling/disabling accounts, generating Temporary Access Passes, updating Teams and/or group membership, sending automated emails, and triggering a Logic App. This can help organizations ensure:
+Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) allow you to automate appropriate actions at key moments in a user’s lifecycle such as joiner, mover, and leaver. These custom workflows can be triggered by Azure AD LCW automatically, or on demand to perform common tasks such as enabling/disabling accounts, generating Temporary Access Passes, updating Teams and/or group membership, sending automated emails, and triggering a Logic App. This can help organizations ensure:
 
-* **Joiner**: When a user joins the organization, they are ready to go on day one. They have the correct access to the information and applications they need. They have the required hardware necessary to do their job.
+* **Joiner**: When a user joins the organization, they're ready to go on day one. They have the correct access to the information and applications they need. They have the required hardware necessary to do their job.
 
 * **Leaver**: When users leave the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner.
 
@@ -130,10 +130,10 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 
 ### Reconcile changes made directly in the target system
 
-Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the [reconciliation capabilities](/microsoft-identity-manager/mim-how-provision-users-adds) to detect changes made directly in a target system and roll the changes back. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
+Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the [reconciliation capabilities](/microsoft-identity-manager/mim-how-provision-users-adds) to detect changes made directly in a target system and roll back the changes. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
 
 ### Next steps
 
 1. Automate provisioning with any of your applications that are in the [Azure AD app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
 2. Evaluate [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Azure AD
-3. Leverage the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios
+3. Use the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios
