@@ -5,7 +5,7 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 09/16/2022
 ---
  
 # Discover and assess servers for migration using Private Link
