@@ -1,14 +1,14 @@
 ---
-title: "Use Form Recognizer client library for C# / .NET"
-description: 'Use the Form Recognizer client library for C# / .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.'
+title: "Use Form Recognizer SDK for C# / .NET (REST API v2.1)"
+description: 'Use the Form Recognizer SDK for C# / .NET (REST API v2.1) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/16/2022
 ms.author: lajanuar
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 >
  > * This project targets Form Recognizer REST API  **v2.1**.
 >
->* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
+>* The code in this article uses synchronous methods and un-secured credentials storage.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 

@@ -1,13 +1,13 @@
 ---
-title: "Use Form Recognizer client library for Java"
-description: Use the Form Recognizer Java client library to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+title: "Use Form Recognizer SDK for Java (REST API v2.1)"
+description: Use the Form Recognizer Java SDK (REST API v2.1) to create a forms processing app that extracts key data from your documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/11/2022
-ms.custom: devx-track-java, ignite-fall-2021
+ms.date: 09/16/2022
+ms.custom: devx-track-java
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->

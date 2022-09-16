@@ -1,14 +1,13 @@
 ---
-title: "Use Azure Form Recognizer REST API"
-description: Use the Form Recognizer REST API to create a forms processing app that extracts key-value pairs and table data from your custom documents.
+title: "Use Azure Form Recognizer REST API v2.1"
+description: Use the Form Recognizer REST API v2.1 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/16/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

@@ -34,30 +34,30 @@ You'll use the following APIs and models to extract structured data from forms a
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK quickstart](../includes/how-to-guides/csharp-sdk.md)]
+[!INCLUDE [C# SDK quickstart](includes/v3-0/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java SDK quickstart](../includes/how-to-guides/java-sdk.md)]
+[!INCLUDE [Java SDK quickstart](includes/v3-0/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS SDK quickstart](../includes/how-to-guides/javascript-sdk.md)]
+[!INCLUDE [NodeJS SDK quickstart](includes/v3-0/javascript-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK quickstart](../includes/how-to-guides/python-sdk.md)]
+[!INCLUDE [Python SDK quickstart](includes/v3-0/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/how-to-guides/rest-api.md)]
+[!INCLUDE [REST API quickstart](includes/v3-0/rest-api.md)]
 
 ::: zone-end

@@ -23,7 +23,7 @@ The current API version is ```2022-08-31```.
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK](includes/csharp-read.md)]
+[!INCLUDE [C# SDK](how-to-guides/includes/csharp-read.md)]
 
 ::: zone-end
 
