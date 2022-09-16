@@ -241,7 +241,7 @@ Make sure you're using the right CLI commands for metric alerts:
 - If you're creating an alert rule that contains multiple criteria, note the following constraints:
    - You can only select one value per dimension within each criterion.
    - You can't use an asterisk (\*) as a dimension value.
-   - When metrics that are configured in different criterions support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics. For a Resource Manager template example, see [Create a metric alert with a Resource Manager template](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria).
+   - When metrics that are configured in different criteria support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics. For a Resource Manager template example, see [Create a metric alert with a Resource Manager template](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria).
 
 ## No permissions to create metric alert rules
 
