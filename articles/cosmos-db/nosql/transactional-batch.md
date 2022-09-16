@@ -158,4 +158,4 @@ Currently, there are two known limits:
 
 * Learn more about [what you can do with TransactionalBatch](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/TransactionalBatch)
 
-* Visit our [samples](sql-api-dotnet-v3sdk-samples.md) for more ways to use our Azure Cosmos DB .NET SDK
+* Visit our [samples](samples-dotnet.md) for more ways to use our Azure Cosmos DB .NET SDK

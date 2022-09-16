@@ -14,12 +14,11 @@ ms.custom: devx-track-js
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
+> * [.NET SDK Examples](samples-dotnet.md)
 > * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK Examples](sql-api-spring-data-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
-> * [.NET V2 SDK Examples (Legacy)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 

@@ -48,7 +48,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
 
-### Create an Azure Cosmos DB account
+### <a id="create-account"></a>Create an Azure Cosmos DB account
 
 This quickstart will create a single Azure Cosmos DB account using the API for NoSQL.
 

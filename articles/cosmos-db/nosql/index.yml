@@ -22,9 +22,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET Console app 
-            url: create-sql-api-dotnet-v4.md
-          - text: Manage your data using a Java app
-            url: create-sql-api-java.md     
+            url: quickstart-dotnet.md
+          - text: Manage your data using a JavaScript app
+            url: create-sql-api-nodejs.md     
       - linkListType: concept
         links:       
           - text: Getting started with SQL queries

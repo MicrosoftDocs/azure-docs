@@ -476,7 +476,7 @@ When these resources are no longer needed, you can delete the resource group, Az
   * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md)
+> [Build mobile applications with Xamarin and Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
 
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/

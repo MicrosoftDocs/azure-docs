@@ -31,7 +31,7 @@ Before reading this guide, it is helpful to consider common SDK issues that aren
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
-- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](sql-query-pagination.md#handling-multiple-pages-of-results)
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](query/pagination.md#handling-multiple-pages-of-results)
 
 ## Get query metrics
 
@@ -123,7 +123,7 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-The **Retrieved Document Count** (60,951) is significantly higher than the **Output Document Count** (7), implying that this query resulted in a document scan. In this case, the system function [UPPER()](sql-query-upper.md) doesn't use an index.
+The **Retrieved Document Count** (60,951) is significantly higher than the **Output Document Count** (7), implying that this query resulted in a document scan. In this case, the system function [UPPER()](query/upper.md) doesn't use an index.
 
 ### Include necessary paths in the indexing policy
 
@@ -291,7 +291,7 @@ Here are additional examples of aggregate queries that will not fully use the in
 
 #### Queries with system functions that don't use the index
 
-You should refer to the relevant [system function's page](sql-query-system-functions.md) to see if it uses the index.
+You should refer to the relevant [system function's page](query/system-functions.md) to see if it uses the index.
 
 ```sql
 SELECT MAX(c._ts)
