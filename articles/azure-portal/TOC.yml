@@ -18,6 +18,9 @@
       href: quickstart-portal-dashboard-azure-cli.md
     - name: Azure PowerShell
       href: quickstart-portal-dashboard-powershell.md
+    - name: Bicep
+      displayName: Resource Manager, ARM, template
+      href: quick-create-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-template.md
