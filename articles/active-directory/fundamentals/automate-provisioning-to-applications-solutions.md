@@ -132,10 +132,8 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 
 Organizations often need a complete audit trail of what users have access to applications containing data subject to regulation. To provide an audit trail, any access provided to a user directly must be traceable through the system of record. MIM provides the [reconciliation capabilities](/microsoft-identity-manager/mim-how-provision-users-adds) to detect changes made directly in a target system and roll the changes back. In addition to detecting changes in target applications, MIM can import identities from third party applications to Azure AD. These applications often augment the set of user records that originated in the HR system.
 
-## Next steps
+### Next steps
 
-1.Automate provisioning with any of your applications that are in the [Azure AD app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
-
-2.Evaluate [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Azure AD
-
-3.Leverage the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios
+1. Automate provisioning with any of your applications that are in the [Azure AD app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
+2. Evaluate [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Azure AD
+3. Leverage the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios
