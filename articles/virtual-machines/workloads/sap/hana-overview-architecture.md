@@ -51,7 +51,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md)
 - [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md)
-- [High availability set up in SUSE by using the STONITH](./ha-setup-with-stonith.md)
+- [High availability set up in SUSE by using a fencing device](./ha-setup-with-fencing-device.md)
 - [OS Backup](./large-instance-os-backup.md)
 - [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 

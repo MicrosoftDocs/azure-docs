@@ -238,6 +238,8 @@ To configure it programmatically, add the `additionalColumns` property in your c
     }
 ]
 ```
+>[!TIP]
+>After configuring additional columns remember to map them to you destination sink, in the Mapping tab.
 
 ## Auto create sink tables
 
