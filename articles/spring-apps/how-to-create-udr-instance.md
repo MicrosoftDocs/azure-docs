@@ -1,13 +1,13 @@
 ---
-title:  "Deploy Azure Spring Apps in a virtual network"
+title:  "Control egress traffic for an Azure Spring Apps (ASA) instance"
 description: Offer an example of creating a UDR Azure Spring Apps VNet instance
+author: YinglueZhang-MS
+ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
 ms.date: 09/25/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
-
-# Deploy Azure Spring Apps in a virtual network
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -17,6 +17,13 @@ ms.custom: devx-track-java, devx-track-azurecli
 This article provides a way that allow you to secure outbound traffic from your Azure Spring Apps (ASA). The following two articles are highly recommended to read before you start this article. 
 * [Introduction to Azure Spring Apps VNet](how-to-deploy-in-azure-virtual-network.md)
 * [Customer Responsibilities for Running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
+* [Introduction to outbound type of ASA](concept-outbound-type.md)
+
+## Prerequisites
+
+* All prerequisites of [Azure Spring Apps VNet instance](how-to-deploy-in-azure-virtual-network.md)
+* API version of `2022-09-01 preview` or greater
+* CLI version extension of 1.1.7 or greater
   
 In this article, we will provide an example(as the following image) of Azure Spring Apps VNet instance using user-defined-routing
 ![Screenshot that shows arch of the udr example](./media/how-to-create-udr-instance/udr-example-arch.png)

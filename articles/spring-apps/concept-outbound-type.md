@@ -1,6 +1,8 @@
 ---
 title:  "Customize Azure Spring Cloud egress with a User-Defined Route"
 description: Outbound type of Azure Spring Apps VNet instances and User Defined Routing.
+author: YinglueZhang-MS
+ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
 ms.date: 09/25/2021
@@ -26,7 +28,7 @@ This article walks through how to customize an instance's egress route to suppor
 
 * All prerequisites of [Azure Spring Apps VNet instance](how-to-deploy-in-azure-virtual-network.md)
 * API version of `2022-09-01 preview` or greater
-* CLI version of ... or greater
+* CLI version extension of 1.1.7 or greater
 
 ## Overview of outbound types in Azure Spring Apps
 An ASA instance can be customized with a unique `outboundType` of type `loadBalancer` or `userDefinedRouting`.
