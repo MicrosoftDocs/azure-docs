@@ -17,10 +17,15 @@ To set the environment variable for your Speech resource key, open a console win
 #### [Windows](#tab/windows)
 
 ```console
-set SPEECH_KEY your-key
+setx SPEECH_KEY your-key
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+> [!NOTE]
+> If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
+
+After you add the environment variable, you may need to restart any running consoles or other programs that will need to read the environment variable. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
+
+
 
 #### [Linux](#tab/linux)
 
