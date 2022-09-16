@@ -10,7 +10,7 @@ ms.reviewer: sidandrews
 ---
 
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
+[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
 
 [Container copy jobs](intra-account-container-copy.md) help create offline copies of containers within an Azure Cosmos DB account.
 

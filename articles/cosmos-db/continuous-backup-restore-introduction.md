@@ -12,7 +12,7 @@ ms.custom: references_regions, cosmos-db-video
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
 
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios including:
 
