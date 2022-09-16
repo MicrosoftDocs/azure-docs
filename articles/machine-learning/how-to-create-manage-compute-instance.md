@@ -213,13 +213,15 @@ This setting can be configured during CI creation or for existing CIs via the fo
 ### Azure policy support
 Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a given subscription/resource-group. 
 
-1. Navigate to Azure Policy in the Azure Portal
-2. Under "Definitions", look for the idle shutdown policy
-   :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure Portal.":::
+1. Navigate to Azure Policy in the Azure portal.
+2. Under "Definitions", look for the idle shutdown policy.
 
-3. Assign policy to the necessary scope
+      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure Portal.":::
+
+3. Assign policy to the necessary scope.
 
 You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60 minute inactivity period. 
+
 ```json
 {
   "mode": "All",
