@@ -1,7 +1,7 @@
 ---
-title: Safe rollout for managed online endpoints using Python SDK v2 (preview).
+title: Safe rollout for managed online endpoints using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Safe rollout for online endpoints using Python SDK v2 (preview).
+description: Safe rollout for online endpoints using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Safe rollout for managed online endpoints using Python SDK v2 (preview)
+# Safe rollout for managed online endpoints using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -287,9 +287,13 @@ ml_client.begin_create_or_update(endpoint)
 > [!IMPORTANT]
 > Mirroring has the following limitations:
 > * You can only mirror traffic to one deployment.
-> * A deployment can only be set to live or mirror traffic, not both.
 > * Mirrored traffic is not currently supported with K8s.
 > * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
+>
+> Also note the following behavior:
+> * A deployment can only be set to live or mirror traffic, not both.
+> * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
+> * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
 

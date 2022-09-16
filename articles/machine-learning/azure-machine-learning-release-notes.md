@@ -445,7 +445,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 
 ## 2021-05-25
 
-### Announcing the CLI (v2) (preview) for Azure Machine Learning
+### Announcing the CLI (v2) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 

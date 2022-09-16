@@ -16,7 +16,7 @@ ms.date: 09/08/2022
 
 # Frequently Asked Questions (FAQs)
 
-- **When using Azure Database Migration Service, what’s the difference between an offline and an online migration??**
+- **When using Azure Database Migration Service, what’s the difference between an offline and an online migration?**
 Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration. We suggest that you test an offline migration to determine whether the downtime is acceptable; if not, then perform an online migration.
 Online and Offline migrations are compared in the following table:
 
@@ -58,10 +58,10 @@ To support migrations of databases that are 1 TB+, raise a support ticket with A
 Azure Database Migration Service supports cross-region migrations, so you can migrate your single server to a flexible server that is deployed in a different region using DMS.  
 
 - **Is cross-subscription migration supported?**
-A. Azure Database Migration Service supports cross-subscription migrations, so you can migrate your single server to a flexible server that deployed on a different subscription using DMS.
+Azure Database Migration Service supports cross-subscription migrations, so you can migrate your single server to a flexible server that deployed on a different subscription using DMS.
 
 - **Is cross-resource group subscription supported?**
-A. Azure Database Migration Service supports cross-resource group migrations, so you can migrate your single server to a flexible server that is deployed in a different resource group using DMS.  
+Azure Database Migration Service supports cross-resource group migrations, so you can migrate your single server to a flexible server that is deployed in a different resource group using DMS.  
 
 - **Is there cross-version support?**
 Yes, migration from lower version MySQL servers (v5.6 and above) to higher versions is supported.

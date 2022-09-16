@@ -19,7 +19,7 @@ ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](v1/tutorial-1st-experiment-hello-world.md)
-> * [v2 (preview)](tutorial-1st-experiment-hello-world.md)
+> * [v2](tutorial-1st-experiment-hello-world.md)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -38,7 +38,7 @@ In this tutorial, you will:
 
 - Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
 
-- The Azure Machine Learning Python SDK v2 (preview) installed.
+- The Azure Machine Learning Python SDK v2 installed.
 
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).

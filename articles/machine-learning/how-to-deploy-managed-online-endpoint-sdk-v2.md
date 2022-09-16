@@ -1,7 +1,7 @@
 ---
-title: Deploy machine learning models to managed online endpoint using Python SDK v2 (preview).
+title: Deploy machine learning models to managed online endpoint using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model to Azure using Python SDK v2 (preview).
+description: Learn to deploy your machine learning model to Azure using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 (preview) 
+# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -26,10 +26,8 @@ In this article, you learn how to deploy your machine learning model to managed 
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-* The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
-* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it.
-* You must have an Azure Machine Learning workspace.
+[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+
 * To deploy locally, you must install [Docker Engine](https://docs.docker.com/engine/) on your local computer. We highly recommend this option, so it's easier to debug issues.
 
 ### Clone examples repository

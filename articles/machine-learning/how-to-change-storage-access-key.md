@@ -127,7 +127,9 @@ To update Azure Machine Learning to use the new key, use the following steps:
         
         ```
     
-    1. **To re-register datastores via the studio**, select **Datastores** from the left pane of the studio. 
+    1. **To re-register datastores via the studio**
+        1. In the studio, select **Data** on the left pane under **Assets**.
+        1. At the top, select **Datastores**.
         1. Select which datastore you want to update.
         1. Select the **Update credentials** button on the top left. 
         1. Use your new access key from step 1 to populate the form and click **Save**.

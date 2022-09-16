@@ -19,7 +19,7 @@ ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy2
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](v1/tutorial-1st-experiment-sdk-train.md)
-> * [v2 (preview)](tutorial-1st-experiment-sdk-train.md)
+> * [v2](tutorial-1st-experiment-sdk-train.md)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning. This tutorial is _part 2 of a three-part tutorial series_.
 
@@ -399,7 +399,7 @@ Make sure you save this file before you submit the job.
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. Make sure you've saved your changes to `pytorch-env.yml` first.
 
-This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2 minutes before the training begins.
+This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take 1 to 2 minutes before the training begins.
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 

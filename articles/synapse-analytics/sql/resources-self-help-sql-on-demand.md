@@ -897,12 +897,12 @@ Tables that are created might not be immediately available in serverless SQL poo
 
 ### Operation isn't allowed for a replicated database
 
-This error is returned if you are trying to create external tables, external data sources, database scoped credentials or other objects in your Lake databases. These objects can be created only on SQL databases.
+This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
 
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md) and trying to create external tables, external data sources, database scoped credentials, or other objects in your Lake databases. These objects can be created only on SQL databases. The Lake databases are replicated from the Apache Spark pool and managed by Synapse. Therefore, you cannot create objects like in SQL Databases by using T-SQL.  
+The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you cannot create objects like in SQL Databases by using T-SQL language.  
 
 Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. 
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
 - Creating and dropping the database users from Azure Active Directory.
 - Adding or removing database users from `db_datareader` schema.
 
@@ -913,11 +913,13 @@ Other operations are not allowed in Lake databases.
 
 ### Dataverse real-time snapshot tables are not available in serverless SQL pool
 
-If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake.md#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse.md#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
+If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
 Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
+
+Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](/sql/develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
