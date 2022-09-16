@@ -147,26 +147,26 @@ For this sample code, the container will use the category as a logical partition
 
 ### Authenticate the client
 
-In the `index.js`, use the resource **endpoint** and **key** to authenticate to Cosmos DB. Define a new instance of the [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) class.
+In the `index.js`, add the following code to use the resource **endpoint** and **key** to authenticate to Cosmos DB. Define a new instance of the [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) class.
 
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="21-22":::
 
 ### Create a database
 
-Use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
 
 :::code language="csharp" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="24-26":::
 
 ### Create a container
 
-The [``Database.Containers.createContainerIfNotExistsAsync``](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) will create a new container if it doesn't already exist. This method will also return a reference to the container.
+Add the following code to create a container with the [``Database.Containers.createContainerIfNotExistsAsync``](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) method. The method returns a reference to the container.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="28-35":::
 
 ### Create an item
 
-Each _product_ has a unique ID, name, category name (used as partition key) and other fields.
+Add the following code to provide your data set. Each _product_ has a unique ID, name, category name (used as partition key) and other fields.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="37-84":::
 
@@ -184,15 +184,15 @@ The partition key is specific to a container. In this Contoso Products container
 
 ### Query items
 
-After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to retrieve pages of results and then iterate over the individual items.
+Add the following code to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to retrieve pages of results and then iterate over the individual items.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-127":::
 
 ### Delete an item
 
-To delete an item you need to use the ID and partition key to get the item, then delete it. This example uses the [``Container.Item.delete``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-delete) method to delete the item.
+Add the following code to delete an item you need to use the ID and partition key to get the item, then delete it. This example uses the [``Container.Item.delete``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-delete) method to delete the item.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="129-130":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="129-131":::
 
 ## Run the code
 
