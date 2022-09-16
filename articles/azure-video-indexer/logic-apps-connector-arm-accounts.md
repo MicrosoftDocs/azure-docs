@@ -208,19 +208,19 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     | API key| This is your personal API key, which is available under **Profile** at the [developer portal](https://api-portal.videoindexer.ai/profile). For more information, see [Subscribe to the API](video-indexer-use-apis.md#subscribe-to-the-api).|
     1. Select **Create**.
     1. Fill out the required parameters according to the table: 
-        
-    |Key| Value|
-    |----|----|
-    |Location|  The Location of the Azure Video Indexer account.|
-    | Account ID| The Video Indexer account ID can be copied from the resource/account **Overview** page in the Azure portal.|
-    | Video ID\*| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
-    | Access Token| From the dynamic content, under the **Parse JSON** section select the **accessToken** that is the output of the parse JSON action. |
 
-    \*This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of **Upload video and index** in your first trigger.
-    
-    ![Upload video and index](./media/logic-apps-connector-arm-accounts/get-video-index.png)
-        
-     Select **Save** -> **+ New step**.
+        |Key| Value|
+        |----|----|
+        |Location|  The Location of the Azure Video Indexer account.|
+        | Account ID| The Video Indexer account ID can be copied from the resource/account **Overview** page in the Azure portal.|
+        | Video ID\*| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
+        | Access Token| From the dynamic content, under the **Parse JSON** section select the **accessToken** that is the output of the parse JSON action. |
+
+        \*This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of **Upload video and index** in your first trigger.
+
+        ![Upload video and index](./media/logic-apps-connector-arm-accounts/get-video-index.png)
+
+         Select **Save** -> **+ New step**.
 1. Create a blob and store the insights JSON.
 
     1. Search for "Azure blob", from the group of actions.
