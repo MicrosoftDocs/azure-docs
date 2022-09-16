@@ -28,7 +28,7 @@ To configure email tasks via Backup Reports, perform the following steps:
 
 ## Authorize connections to Azure Monitor Logs and Office 365
 
-The logic app uses the [azuremonitorlogs](/connectors/azuremonitorlogs/) connector for querying the LA workspace(s) and uses the [Office365 Outlook](/connectors/office365connector/) connector for sending emails. You'll need to perform a one-time authorization for these two connectors. 
+The logic app uses the [azuremonitorlogs](/connectors/azuremonitorlogs/) connector for querying the LA workspace(s) and uses the [Office365 Outlook](/connectors/office365connector/) connector for sending emails. You'll need to perform a one-time authorization for these two connectors using an account with an Exchange Online mailbox and Contributor privileges to the Azure subcription or Resource Group where the Logic App is located.
  
 To perform the authorization, follow the steps below:
 
@@ -79,6 +79,8 @@ To troubleshoot this issue:
 When attempting to authorize the O365 API connection, you might see an error of the form _Test connection failed. Error 'REST API is not yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
 
 This error can occur if the mailbox is on a dedicated Microsoft Exchange Server and isn't a valid Office 365 mailbox. [Learn more](/connectors/office365/#common-errors)
+
+This error may also occur if the Office365 connector is authorized using an account without an Exchange Online mailbox. 
 
 To get a valid Office 365 mailbox, submit a request to your Exchange or Global administrator to migrate the mailbox account. Users who don't have administrator permissions can't migrate accounts. For information on how to migrate the mailbox account, see [How to migrate mailbox data by using the Exchange Admin Center in Office 365](/exchange/troubleshoot/move-or-migrate-mailboxes/migrate-data-with-admin-center).
 
