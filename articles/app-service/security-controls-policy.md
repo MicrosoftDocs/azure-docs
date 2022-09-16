@@ -29,21 +29,13 @@ compliant with the specific standard.
   - New policy created
 - **Function app slots should have remote debugging turned off**
   - New policy created
-- **Configure Function app slots to turn off remote debugging**
-  - New policy created
 - **App Service app slots should have remote debugging turned off**
-  - New policy created
-- **Configure App Service app slots to turn off remote debugging**
   - New policy created
 - **Function app slots should use latest 'HTTP Version'**
   - New policy created
 - **Function app slots should use the latest TLS version**
   - New policy created
-- **Configure Function app slots to use the latest TLS version**
-  - New policy created
 - **App Service app slots should use the latest TLS version**
-  - New policy created
-- **Configure App Service app slots to use the latest TLS version**
   - New policy created
 - **App Service app slots should use private link**
   - New policy created
@@ -62,7 +54,19 @@ compliant with the specific standard.
 - **App Service apps should disable public network access**
   - New policy created
 - **App Service app slots should disable public network access**
-  - New policy created 
+  - New policy created
+- **Configure App Service apps to disable public network access**
+  - New policy created
+- **Configure App Service app slots to disable public network access**
+  - New policy created
+- **Function apps should disable public network access**
+  - New policy created
+- **Function app slots should disable public network access**
+  - New policy created
+- **Configure Function apps to disable public network access**
+  - New policy created
+- **Configure Function app slots to disable public network access**
+  - New policy created
 
 ### September 2022
 
