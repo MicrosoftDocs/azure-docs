@@ -309,7 +309,7 @@ A repository can have a list of manifests that are both tagged and untagged
 ```azurecli
 az acr manifest list-metadata \
   --name $REPO \
-  --repository $ACR_NAME \
+  --registry $ACR_NAME \
   --output jsonc
 ```
 
