@@ -30,15 +30,15 @@ In the code above, each service request issued from `blobServiceClient` will use
 ## Use geo-redundancy to improve app resiliency
 If your app requires high availability and greater resiliency against failures, you can leverage Azure Storage geo-redundancy options as part of your retry policy. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and asynchronously replicated to a secondary region that is hundreds of miles away.
 
-Azure Storage offers two options for geo-redundant replication: [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) and [Geo-zone-redundant storage (GZRS)](storage-redundancy.md#geo-zone-redundant-storage). To make use of geo-redundancy options in your app, make sure that your storage account is configured for read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If it's not, you can learn more about how to [change your storage account replication type](redundancy-migration.md).
+Azure Storage offers two options for geo-redundant replication: [Geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) and [Geo-zone-redundant storage](../common/storage-redundancy.md#geo-zone-redundant-storage). To make use of geo-redundancy options in your app, make sure that your storage account is configured for read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). To learn how to change this option, see [Change how a storage account is replicated](../common/redundancy-migration.md).
 
 In this example, we set the `GeoRedundantSecondaryUri` property in `BlobClientOptions`. When this property is set, read request failures in the primary region will seamlessly switch to perform retries against the secondary region endpoint. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Retry.cs" id="Snippet_RetryOptionsGRS" highlight="20":::
 
-Apps that use geo-redundant storage To learn more about design considerations when using geo-redundancy, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md).
+Apps that make use of geo-redundancy need to keep in mind some additional design considerations. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md).
 
 ## Next steps
 
-- For architectural guidance and general best practices around retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+- For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).
