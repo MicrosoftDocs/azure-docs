@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use Azure CLI to create an Azure Cosmos DB for Table account and table with autoscale
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 The script in this article creates an Azure Cosmos DB for Table account and table with autoscale.
 

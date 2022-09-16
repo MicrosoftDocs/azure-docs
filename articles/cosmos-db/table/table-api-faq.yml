@@ -10,7 +10,7 @@ metadata:
   ms.date: 08/12/2020
 title: Frequently asked questions about the API for Table in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+  [!INCLUDE[Table](../includes/appliesto-table.md)]
 
   The Azure Cosmos DB for Table is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB for Table account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB for Table](introduction.md).
 

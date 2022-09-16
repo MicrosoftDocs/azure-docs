@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for Table resources using Bicep
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 In this article, you learn how to use Bicep to help deploy and manage your Azure Cosmos DB for Table accounts and tables.
 

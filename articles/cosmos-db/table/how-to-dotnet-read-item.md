@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Read an item in Azure Cosmos DB for Table using .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 Items in Azure Cosmos DB represent a specific entity stored within a table. In the API for Table, an item consists of a set of key-value pairs uniquely identified by the composite of the row and partition keys.
 

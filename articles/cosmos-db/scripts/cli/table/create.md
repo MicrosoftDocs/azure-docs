@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create an Azure Cosmos DB Table API account and table using Azure CLI
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 The script in this article demonstrates creating a API for Table table.
 

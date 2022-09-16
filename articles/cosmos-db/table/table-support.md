@@ -12,7 +12,7 @@ ms.devlang: cpp, csharp, java, javascript, php, python, ruby
 ---
 
 # Developing with Azure Cosmos DB for Table and Azure Table storage
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 Azure Cosmos DB for Table and Azure Table storage share the same table data model and expose the same create, delete, update, and query operations through their SDKs.
 
