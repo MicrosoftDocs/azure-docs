@@ -70,7 +70,7 @@ Before proceeding, you need the following information:
 * Name of the Key Vault
 * Resource group holding the Key Vault
 
-You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'.
+You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'`.
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
@@ -94,7 +94,7 @@ You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replaces the values for the cluster name and the resource group name.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g MyResourceGroup

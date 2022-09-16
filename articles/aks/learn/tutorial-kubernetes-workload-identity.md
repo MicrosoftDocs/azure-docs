@@ -165,7 +165,7 @@ az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn 
 
 ### Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replaces the values for the cluster name and the resource group name.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
@@ -273,15 +273,10 @@ az group delete --name "${RESOURCE_GROUP}"
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple container application to
-test working with a Managed Identity.
+In this tutorial, you deployed a Kubernetes cluster and then deployed a simple container application to
+test working with an Azure AD workload identity (preview).
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
-
-> [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
-
-This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+This tutorial is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 <!-- EXTERNAL LINKS -->
 [kubelet-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

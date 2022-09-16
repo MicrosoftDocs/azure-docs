@@ -8,7 +8,9 @@ ms.date: 09/13/2022
 
 # Managed identity with workload identity sidecar
 
-If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API and minimize downtime, you can setup a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connecti (OIDC). This enables you to run pod-identity and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the workload identity.
+If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API version 1.6 and minimize downtime, you can setup a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to run pod-identity and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the workload identity.
+
+This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution. 
 
 ## Create a Managed Identity and grant permissions to access Azure Key Vault
 
@@ -19,7 +21,7 @@ Before proceeding, you need the following information:
 * Name of the Key Vault
 * Resource group holding the Key Vault
 
-You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'.
+You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'`.
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
@@ -49,13 +51,13 @@ You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replaces the values for the cluster name and the resource group name.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
-az aks get-credentials -n aks -g MyResourceGroup
+az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
 ```
 
-Copy and paste the following multi-line input in the Azure CLI, and update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+Copy and paste the following multi-line input in the Azure CLI.
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -66,8 +68,8 @@ apiVersion: v1
      azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
    labels:
      azure.workload.identity/use: "true"
-   name: serviceAccountName
-   namespace: serviceAccountNamespace
+   name: ${SERVICE_ACCOUNT_NAME}
+   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
  EOF
 ```
 
@@ -85,50 +87,40 @@ Use the [az rest][az-rest] command to invoke a custom request to establish the f
 az rest --method put --url "/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userAssignedIdentityName}/federatedIdentityCredentials/$federatedIdentityName?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:serviceAccountNamespace:serviceAccountName','audiences':['api://AzureADTokenExchange'] }}"
 ```
 
-## Update pod annotation
+## Deploy the workload
 
-Perform the following steps to update the pod annotation with the sidecare properties, and then update the pod with the annotation.
+To update or deploy the workload, you add the following annotation in the pod, and then update the pod with the annotation by performing the following steps. 
 
-1. Create a file named `azure-pod.yaml`, and copy in the following manifest.  
+Run the following to deploy a pod that references the service account created in the previous step.
 
-    ```yml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: httpbin-pod
-      labels:
-        app: httpbin
-    spec:
-      serviceAccountName: workload-identity-sa
-      initContainers:
-      - name: init-networking
-        image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
-        securityContext:
-          capabilities:
-            add:
-            - NET_ADMIN
-            drop:
-            - ALL
-          privileged: true
-          runAsUser: 0
-        env:
-        - name: PROXY_PORT
-          value: "8000"
-      containers:
-      - name: nginx
-        image: nginx:alpine
-        ports:
-        - containerPort: 80
-      - name: proxy
-        image: azure.workload.identity/proxy-sidecar-port
-        ports:
-        - containerPort: 8000
-    ```
+```azurecli
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+ kind: Pod
+ metadata:
+   name: quick-start
+   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+   annotations:
+     azure.workload.identity/inject-proxy-sidecar: true
+ spec:
+   serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+   containers:
+     - image: ghcr.io/azure/azure-workload-identity/msal-go
+       name: oidc
+       env:
+       - name: KEYVAULT_NAME
+         value: ${KEYVAULT_NAME}
+       - name: SECRET_NAME
+         value: ${KEYVAULT_SECRET_NAME}
+   nodeSelector:
+     kubernetes.io/os: linux
+ EOF
+```
 
-2. Update the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
+The following output resembles successful creation of the pod:
 
-    ```bash
-    kubectl apply -f azure-pod.yaml
-    ```
+```output
+Pod/quick-start created
+```
 
 ## Next steps
