@@ -122,6 +122,7 @@ Must be one of the following operators:
 
 - IPMatch - only used when Match Variable is *RemoteAddr*
 - Equal – input is the same as the MatchValue
+- Any – It should not have a match value. It is recommended for match variable with a valid selected value.
 - Contains
 - LessThan
 - GreaterThan
