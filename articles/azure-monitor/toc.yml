@@ -612,6 +612,8 @@ items:
       href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
+    - name: Flapping in autoscale
+      href: autoscale/autoscale-flapping.md
     - name: Common metrics
       href: autoscale/autoscale-common-metrics.md
     - name: Common patterns
