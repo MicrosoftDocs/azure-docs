@@ -55,7 +55,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli
     AKS_OIDC_ISSUER=$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)
@@ -69,7 +69,6 @@ Before proceeding, you need the following information:
 
 * Name of the Key Vault
 * Resource group holding the Key Vault
-* The Key Vault URI, which is similar to `https://<your-unique-keyvault-name>.vault.azure.net/`.
 
 You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'.
 
@@ -95,7 +94,7 @@ You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and update the values for the name of the cluster and the resource group name:
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replaces the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g MyResourceGroup
