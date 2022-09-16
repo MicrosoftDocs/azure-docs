@@ -29353,6 +29353,11 @@
             "source_path_from_root": "/articles/virtual-machines/linux/copy-files-to-linux-vm-using-scp.md",
             "redirect_url": "/azure/virtual-machines/copy-files-to-vm-using-scp",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/ha-setup-with-stonith.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/ha-setup-with-fencing-device",
+            "redirect_document_id": false
+        },
     ]
 }
