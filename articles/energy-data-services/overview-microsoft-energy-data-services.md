@@ -30,7 +30,7 @@ Microsoft will provide support for the platform to enable our customers' use-cas
 
 - Accelerated innovation with openness in mind
 
-Microsoft Energy Data Services are compatible with the OSDU Technical Standard that enables seamless integration of existing applications that have been developed in alignment with the emerging requirements of the OSDU Standard.
+Microsoft Energy Data Services is compatible with the OSDU Technical Standard that enables seamless integration of existing applications that have been developed in alignment with the emerging requirements of the OSDU Standard.
 
 The openness of the platform and integration with Microsoft Azure Marketplace brings industry-leading applications, solutions, and integration services developed and offered by our extensive partner ecosystem to our customers.
 
