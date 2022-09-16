@@ -63,13 +63,13 @@ As customers transition identity management to the cloud, more and more users an
 
 1. When users need access to cloud apps that still rely on legacy access protocols (e.g. LDAP and Kerberos/NTLM), [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) synchronizes identities between Azure AD and a managed AD domain.
 
-| What | From | To | Technology |
-| - | - | - | - |
-| 1| Users, groups| AD| Azure AD| Azure AD Connect Cloud Sync |
-| 2| Users, groups, devices| AD| Azure AD| Azure AD Connect Sync |
-| 3| Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
-| 4| Guest accounts| Azure AD| AD| [MIM](microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
-| 5| Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
+|No.| What | From | To | Technology |
+| - | - | - | - | - |
+| 1 |Users, groups| AD| Azure AD| Azure AD Connect Cloud Sync |
+| 2 |Users, groups, devices| AD| Azure AD| Azure AD Connect Sync |
+| 3 |Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
+| 4 |Guest accounts| Azure AD| AD| [MIM](microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
+| 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
 The table depicts common scenarios and the technology recommended to meet the need
 
