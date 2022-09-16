@@ -9,13 +9,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/15/2022
 ms.author: jodowns
-ms.custom:
 ---
 # Understand Azure role assignments
 
-Role assignments enable you to grant a principal (such as a user, a group, a managed identity, or a service principal) access to a specific Azure resource. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
+Role assignments enable you to grant a principal (such as a user, a group, a managed identity, or a service principal) access to a specific Azure resource. This article describes the details of role assignments.
 
-Role assignments have several components, including:
+## Role assignment
+
+Access to Azure resources is granted by creating a role assignment, and access is revoked by removing a role assignment.
+
+A Role assignment has several components, including:
 
 - The *principal*, or *who* is assigned the role.
 - The *role definition* that they're assigned.
@@ -27,6 +30,64 @@ For example, you can use Azure RBAC to assign roles like:
 - User Sally has owner access to the storage account *contoso123* in the resource group *ContosoStorage*.
 - Everybody in the Cloud Administrators group in Azure Active Directory has reader access to all resources in the resource group *ContosoStorage*.
 - The managed identity associated with an application is allowed to restart virtual machines within Contoso's subscription.
+
+The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](role-assignments-list-powershell.md):
+
+```json
+{
+  "RoleAssignmentName": "00000000-0000-0000-0000-000000000000",
+  "RoleAssignmentId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000",
+  "Scope": "/subscriptions/11111111-1111-1111-1111-111111111111",
+  "DisplayName": "User Name",
+  "SignInName": "user@contoso.com",
+  "RoleDefinitionName": "Contributor",
+  "RoleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "ObjectId": "22222222-2222-2222-2222-222222222222",
+  "ObjectType": "User",
+  "CanDelegate": false,
+  "Description": null,
+  "ConditionVersion": null,
+  "Condition": null
+}
+```
+
+The following shows an example of the properties in a role assignment when displayed using the [Azure portal](role-assignments-list-portal.md), [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
+
+```json
+{
+  "canDelegate": null,
+  "condition": null,
+  "conditionVersion": null,
+  "description": null,
+  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000",
+  "name": "00000000-0000-0000-0000-000000000000",
+  "principalId": "22222222-2222-2222-2222-222222222222",
+  "principalName": "user@contoso.com",
+  "principalType": "User",
+  "roleDefinitionId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "roleDefinitionName": "Contributor",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+```
+
+The following table describes what the role assignment properties mean.
+
+| Property | Description |
+| --- | --- |
+| `RoleAssignmentName`<br />`name` | The name of the role assignment, which is a globally unique identifier (GUID). |
+| `RoleAssignmentId`<br />`id` | The unique ID of the role assignment, which includes the name. |
+| `Scope`<br />`scope` | The Azure resource identifier that the role assignment is scoped to. |
+| `RoleDefinitionId`<br />`roleDefinitionId` | The unique ID of the role. |
+| `RoleDefinitionName`<br />``roleDefinitionName` | The name of the role. |
+| `ObjectId`<br />`principalId` | The Azure Active Directory (Azure AD) object identifier for the principal who has the role assigned. |
+| `ObjectType`<br />`principalType` | The type of Azure AD object that the principal represents. |
+| `DisplayName` | For role assignments for users, the display name of the user. |
+| `SignInName`<br />`principalName` | The unique principal name (UPN) of the user, or the name of the application associated with the service principal. |
+| `Description`<br />`description` | The description of the role assignment. |
+| `Condition`<br />`condition` | TODO |
+| `ConditionVersion`<br />`conditionVersion` | TODO |
+| `CanDelegate`<br />`canDelegate` | TODO |
 
 ## Scope
 
@@ -43,7 +104,7 @@ For more information about scope, see [Understand scope](scope-overview.md).
 
 A role assignment is associated with a role definition. The role definition specifies the permissions that the principal should have within the role assignment's scope.
 
-You can assign a built-in role definition or a custom role definition.
+You can assign a built-in role definition or a custom role definition. When you create a role assignment, some tooling requires that you use the role definition ID while other tooling allows you to provide the name of the role.
 
 For more information about role definitions, see [Understand role definitions](role-definitions.md).
 
