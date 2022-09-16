@@ -23,7 +23,7 @@ The Open Liberty Operator simplifies the deployment and management of applicatio
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operator and optionally a container image including Liberty and your application. To see the offer visit the [portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automations enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,13 +35,13 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
+* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 ## Create a Liberty on AKS deployment using the portal
 
-The steps in this section guide you to create a Liberty runtime on AKS. After completing these steps, you'll have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
+The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you'll have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
 
-1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link, [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 1. Select **Create**.
 1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
 1. Select *East US* as **Region**.
@@ -77,12 +77,12 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 ## Create an Azure SQL Database
 
-The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
+The following steps guide you through creating an Azure SQL Database single database for use with your app.
 
 1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this article after creating and configuring the database server.
 
    > [!NOTE]
-   > At the **Basics** step, write down **Resource group**, **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
+   > At the **Basics** step, write down **Resource group**, **Database name**, **_<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
    >
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
@@ -101,6 +101,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 ### Check out the application
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
+
 There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
 
 ```
@@ -128,7 +129,7 @@ In the *aks* directory, we placed two deployment files. *db-secret.xml* is used 
 
 In the *docker* directory, we placed four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an AKS deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an AKS deployment respectively, but instead work with WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Acquire necessary variables from AKS deployment
 
@@ -140,7 +141,7 @@ After the offer is successfully deployed, an AKS cluster will be generated autom
    echo <appDeploymentTemplateYamlEncoded> | base64 -d
    ```
 
-1. Save the `metadata.namespace` from this yaml output aside for later use in this article.
+1. Save aside the `metadata.namespace` from this yaml output for later use in this article.
 
 ### Build the project
 
@@ -178,10 +179,10 @@ In the sample application, we've prepared *Dockerfile-local* and *Dockerfile-wlp
    ```bash
    cd <path-to-your-repo>/java-app
    
-   # If you are running with Open Liberty
+   # If you're running with Open Liberty
    mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
   
-   # If you are running with WebSphere Liberty
+   # If you're running with WebSphere Liberty
    mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
    ```
 
@@ -221,13 +222,13 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 
 ### Deploy and test the application
 
-The steps in this section deploy and test the application.
+The following steps deploy and test the application.
 
-1. Connect to the AKS cluster
+1. Connect to the AKS cluster.
 
    Paste the value of **cmdToConnectToCluster** into a bash shell.
 
-1. Apply the DB secret
+1. Apply the DB secret.
 
    ```bash
    cd <path-to-your-repo>/java-app/target
@@ -236,13 +237,13 @@ The steps in this section deploy and test the application.
 
    You'll see the output `secret/db-secret-postgres created`.
 
-1. Apply the deployment file
+1. Apply the deployment file.
 
    ```bash
    kubectl apply -f openlibertyapplication.yaml
    ```
 
-1. Wait for the pods to be restarted
+1. Wait for the pods to be restarted.
 
    Wait until all pods are restarted successfully using the following command.
 
@@ -259,7 +260,7 @@ The steps in this section deploy and test the application.
    javaee-cafe-cluster-67cdc95bc-h47qm   1/1     Running   0          29s
    ```
 
-1. Verify the results
+1. Verify the results.
 
    1. Get endpoint of the deployed service
 
