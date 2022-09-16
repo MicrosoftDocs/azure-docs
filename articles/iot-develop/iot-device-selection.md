@@ -18,8 +18,6 @@ All boards listed support users of all experience levels.
 
 **Security advisory:** Except for the Azure Sphere, it's recommended to keep these devices behind a router and/or firewall.
 
----
-
 [^1]: *If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
 
 [^2]: *Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
@@ -194,7 +192,7 @@ Please submit an issue!
 
 Other helpful resources include:
 
-1. [Overview of Azure IoT device types](/azure/iot-develop/concepts-iot-device-types)
-2. [Overview of Azure IoT Device SDKs](/azure/iot-develop/about-iot-sdks)
-3. [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c)
-4. [AzureRTOS ThreadX Documentation](/azure/rtos/threadx/)
+- [Overview of Azure IoT device types](/azure/iot-develop/concepts-iot-device-types)
+- [Overview of Azure IoT Device SDKs](/azure/iot-develop/about-iot-sdks)
+- [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c)
+- [AzureRTOS ThreadX Documentation](/azure/rtos/threadx/)
