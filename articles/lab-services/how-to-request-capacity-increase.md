@@ -25,16 +25,18 @@ To create a support request, you must be assigned to one of the following roles 
 ### Determine the regions for your labs
 Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-### Locate and copy lab plan or lab account resource ID
-To add extra capacity to an existing lab, you must specify the lab's resource ID when you make the request. 
+### Locate and copy lab plan resource ID
+Complete this step if you want to extend a lab plan in the updated version of Lab Services (August 2022). 
 
-Use the following steps to locate and copy the resource ID so that you can paste it into your support request.   
-1.	In the [Azure portal](https://portal.azure.com), navigate to the lab plan or lab account you want to add cores to. 
+To add extra capacity to an existing lab plan, you must specify the lab plan resource ID when you make the request. 
+
+Use the following steps to locate and copy the lab plan resource ID so that you can paste it into your support request.   
+1.	In the [Azure portal](https://portal.azure.com), navigate to the lab plan to which you want to add cores. 
 
 1.	Under Settings, select Properties, and then copy the **Resource ID**.
     :::image type="content" source="./media/how-to-request-capacity-increase/resource-id.png" alt-text="Screenshot showing the lab plan properties with resource ID highlighted.":::
 
-1. Paste the Resource ID into a document for safekeeping; you'll need it to complete the support request.
+1. Paste the resource ID into a document for safekeeping; you'll need it to complete the support request.
 
 ## Start a new support request
 You can follow these steps to request a limit increase:  
@@ -60,21 +62,22 @@ You can follow these steps to request a limit increase:
 ## Make core limit increase request
 When you request core limit increase (sometimes called an increase in capacity), you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team will be able to process your request. 
 
-The information required for the lab accounts used in original version of Lab Services (May 2019) and the lab plans used in the updated version of Lab Services (August 2022) is different. Use the appropriate tab below to guide you as you complete the **Quota details**. 
-#### [Lab Accounts](#tab/LabAccounts/)
+You need to specify different information depending on the version of Azure Lab Services you are using. The information required for the lab accounts used in original version of Lab Services (May 2019) and the lab plans used in the updated version of Lab Services (August 2022) is detailed on the tabs below. Use the appropriate tab to guide you as you complete the **Quota details** for your lab account or lab plan. 
+#### [**Lab Accounts (Classic) - May 2019 version**](#tab/LabAccounts/)
 
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-account.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
+:::image type="content" source="./media/how-to-request-capacity-increase/lab-account-2.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
 
    |Name  |Value  |
    |---------|---------|
    |**Deployment Model**|Select **Lab Account (Classic)**|
    |**Requested total core limit**|Enter the total number of cores for your subscription. Add the number of existing cores to the number of cores you're requesting.|
    |**Region**|Select the regions that you would like to use. |
-   |**Is this for an existing lab or to create a new lab?**|Select **Existing lab** or **New lab**. </br> If you're adding cores to an existing lab, enter the lab's resource ID.|
+   |**Is this for an existing lab or to create a new lab?**|Select **Existing lab** or **New lab**.|
+   |**What is the lab account name?**|Only applies if you're adding cores to an existing lab. Select the lab account name.|
    |**What's the month-by-month usage plan for the requested cores?**|Enter the rate at which you want to add the extra cores.|
    |**Additional details**|Answer the questions in the additional details box. The more information you can provide here, the easier it will be for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available.   |
 
-#### [Lab Plans](#tab/Labplans/)
+#### [**Lab Plans - August 2022 version**](#tab/Labplans/)
 
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-plan.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
