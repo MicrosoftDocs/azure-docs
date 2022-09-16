@@ -10,9 +10,6 @@ ms.date: 08/04/2022
 
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic. To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
-> [!NOTE]
-> For details about the Azure Video Indexer REST ARM API and the request/response examples, see [API](https://aka.ms/avam-arm-api). For example, [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
-
 You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for the integration gives you better visibility on the health of your workflow and an easy way to debug it.
 
 To help you get started quickly with the Azure Video Indexer connectors, the example in this article creates Logic App flows. The Logic App and Power Automate capabilities and their editors are almost identical, thus the diagrams and explanations are applicable to both. The example in this article is based on the ARM AVI account. If you're working with a classic account, see [Logic App connectors with classic-based AVI accounts](logic-apps-connector-tutorial.md).
@@ -22,11 +19,8 @@ The "upload and index your video automatically" scenario covered in this article
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes.
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. 
 
-> [!TIP]
-> For your convenience: 
-> Open separate tabs in a browser for each involved account: Azure Video Indexer, Storage, Logic App.
->
-> Scan each section a bit ahead to make sure you understand what values should be set while creating the flows.
+> [!NOTE]
+> For details about the Azure Video Indexer REST ARM API and the request/response examples, see [API](https://aka.ms/avam-arm-api). For example, [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
 
 ## Prerequisites
 
@@ -133,7 +127,7 @@ The following image shows the first flow:
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
 
-      ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
+    ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
     1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
 
         In the Azure portal, go to your Azure Video Indexer resource/account.
@@ -199,14 +193,14 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
     1. Search for "Video Indexer".
     1. From **Video Indexer(V2)** chose **Get Video Index** action.
-
-    Set the connection name:
     
-    |Key| Value|
-    |----|----|
-    |Connection name| <*A name for connection*>. For example, `aviconnection`.|
-    | API key| This is your personal API key, which is available under **Profile** at the [developer portal](https://api-portal.videoindexer.ai/profile). For more information, see [Subscribe to the API](video-indexer-use-apis.md#subscribe-to-the-api).|
-    1. Select **Create**.
+        Set the connection name:
+        
+        |Key| Value|
+        |----|----|
+        |Connection name| <*A name for connection*>. For example, `aviconnection`.|
+        | API key| This is your personal API key, which is available under **Profile** at the [developer portal](https://api-portal.videoindexer.ai/profile). For more information, see [Subscribe to the API](video-indexer-use-apis.md#subscribe-to-the-api).|
+        1. Select **Create**.
     1. Fill out the required parameters according to the table: 
 
         |Key| Value|
@@ -226,26 +220,26 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     1. Search for "Azure blob", from the group of actions.
     1. Select **Create blob(V2)**.
     1. Set the connection to the blob storage that will store the JSON insights files.
-
-    |Key| Value|
-    |----|----|
-    | Connection name| <*Enter a connection name*>.|
-    | Authentication type |Access Key|
-    | Azure Storage Account name| <* The storage account name where insights will be stored*>. |
-    | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
-
-      ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
+    
+        |Key| Value|
+        |----|----|
+        | Connection name| <*Enter a connection name*>.|
+        | Authentication type |Access Key|
+        | Azure Storage Account name| <* The storage account name where insights will be stored*>. |
+        | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
+    
+        ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
     1. Select **Create**.
     1. Set the folder in which insights will be stored.
-    
-    |Key| Value|
-    |----|----|
-    |Storage account name| <*Enter the storage account name that would contain the JSON output (in this tutorial is the same as the source video).>*|
-    | Folder path | From the dropdown, select the `/insights`|
-    | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
-    | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
-    
-       ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
+        
+        |Key| Value|
+        |----|----|
+        |Storage account name| <*Enter the storage account name that would contain the JSON output (in this tutorial is the same as the source video).>*|
+        | Folder path | From the dropdown, select the `/insights`|
+        | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
+        | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
+        
+        ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
     1. Select **Save flow**. 
 1. Update the callback URL to get notified when an index job is finished.
 
