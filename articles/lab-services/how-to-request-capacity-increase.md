@@ -62,7 +62,7 @@ You can follow these steps to request a limit increase:
 ## Make core limit increase request
 When you request core limit increase (sometimes called an increase in capacity), you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team will be able to process your request. 
 
-You need to specify different information depending on the version of Azure Lab Services you are using. The information required for the lab accounts used in original version of Lab Services (May 2019) and the lab plans used in the updated version of Lab Services (August 2022) is detailed on the tabs below. Use the appropriate tab to guide you as you complete the **Quota details** for your lab account or lab plan. 
+You need to specify different information depending on the version of Azure Lab Services you're using. The information required for the lab accounts used in original version of Lab Services (May 2019) and the lab plans used in the updated version of Lab Services (August 2022) is detailed on the tabs below. Use the appropriate tab to guide you as you complete the **Quota details** for your lab account or lab plan. 
 #### [**Lab Accounts (Classic) - May 2019 version**](#tab/LabAccounts/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-account-2.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
