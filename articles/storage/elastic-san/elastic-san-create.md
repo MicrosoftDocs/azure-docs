@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal or t
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 09/13/2022
+ms.date: 09/16/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -17,6 +17,8 @@ This article explains how to deploy and configure an Elastic SAN.
 
 - Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
 - An Azure Virtual Network.
+- If you're using Azure Powershell, install the `Az.Elastic-SAN` module version `.10-preview`.
+- If you're using Azure CLI, install version `2.41.0`.
 
 ## Configure virtual network
 
@@ -168,7 +170,7 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanNa
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-
+az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
 ```
 
 
@@ -176,13 +178,11 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanNa
 
 ## Connect a volume
 
-Once your networking has been configured, you can begin connecting volumes to your clients over iSCSI.
+# [Portal](#tab/azure-portal)
 
-1. Navigate to your SAN and select **Volumes**.
-1. Select the volume you'd like to connect to and select **Connect**.
-1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your client.
+You must use either the Azure PowerShell module or the Azure CLI to connect to a volume.
 
-### Windows
+# [PowerShell](#tab/azure-powershell)
 
 You'll need to construct a command to connect to your volume from a client.
 
@@ -203,7 +203,7 @@ iscsicli LoginTarget t $storageTargetIQN $portalName $port Root\ISCSIPRT\0000_0 
 
 ```
 
-### Linux
+# [Azure CLI](#tab/azure-cli)
 
 First, get the information from the volume you'd like to connect to using the following command:
 
@@ -226,3 +226,5 @@ iscsiadm -m node --target LoginTarget **yourStorageTargetIQN** --portal **yourSt
 
 iscsiadm -m node --targetname LoginTarget **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```
+
+---
