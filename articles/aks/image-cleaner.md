@@ -5,19 +5,21 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 08/26/2022
+ms.date: 09/16/2022
 ---
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal.
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal. 
+
+ImageCleaner is a feature inherited from Eraser. For more information on Eraser, see [Eraser plugin](https://github.com/Azure/eraser)  
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` CLI extension installed.
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
 * The `EnableImageCleanerPreview` feature flag registered on your subscription:
 
 ### [Azure CLI](#tab/azure-cli)

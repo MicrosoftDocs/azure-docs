@@ -225,39 +225,38 @@ This section explains how to modify telemetry.
 
 ### Add spans
 
-You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans.
+The easiest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-extension-annotations-1.16.0.jar` to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <artifactId>opentelemetry-extension-annotations</artifactId>
+     <version>1.16.0</version>
    </dependency>
    ```
 
-1. Add spans in your code:
+1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
 
    ```java
-    import io.opentelemetry.api.trace.Tracer;
-    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.extension.annotations.WithSpan;
 
-    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
-    Span span = tracer.spanBuilder("mySpan").startSpan();
+    @WithSpan(value = "your span name")
+    public void yourMethod() {
+    }
    ```
 
-> [!TIP]
-> The tracer name ideally describes the source of the telemetry, in this case your application,
-> but currently Application Insights Java is not reporting this name to the backend.
+By default the span will end up in the dependencies table with dependency type `InProc`.
 
-> [!TIP]
-> Tracers are thread-safe, so it's generally best to store them into static fields in order to
-> avoid the performance overhead of creating lots of new tracer objects.
+If your method represents a background job that is not already captured by auto-instrumentation,
+it is recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
+so that it will end up in the Application Insights `requests` table.
 
 ### Add span events
 

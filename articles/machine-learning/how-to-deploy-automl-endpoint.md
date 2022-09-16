@@ -16,9 +16,7 @@ ms.devlang: azurecli
 
 # How to deploy an AutoML model to an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!IMPORTANT]
 > SDK v2 is currently in public preview.
@@ -96,7 +94,7 @@ To deploy using these files, you can use either the studio or the Azure CLI.
 1. Complete all the steps in wizard to create an online endpoint and deployment
 
  
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -166,7 +164,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
