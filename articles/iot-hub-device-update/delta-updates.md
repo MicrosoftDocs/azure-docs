@@ -63,15 +63,13 @@ If you instead want to directly pre-populate the source image on your device, th
 
 `[BASE_SOURCE_DOWNLOAD_CACHE_PATH]/sha256-[ENCODED HASH]`
 
-By default, `BASE_SOURCE_DOWNLOAD_CACHE_PATH` is:
+By default, `BASE_SOURCE_DOWNLOAD_CACHE_PATH` is the path listed below. The `[provider]` value is the Provider part of the [updateId](import-concepts.md#update-identity) for the source SWU file.
 
-`/var/lib/adu/sdc`
-
-If you're modifying the Device Update agent, you can change the default path to something else if desired via the compile-time configs.
+`/var/lib/adu/sdc/[provider]`
 
 `ENCODED_HASH` is the base64 hex string of the SHA256 of the binary, but after encoding to base64 hex string, it encodes the characters as follows:
 
-- `\+` encoded as `octets _2B`  
+- `+` encoded as `octets _2B`  
 - `/` encoded as `octets _2F`  
 - `=` encoded as `octets _3D`
 
@@ -176,6 +174,7 @@ The `relatedFiles` element is used to specify information about the delta update
 "properties": {
       "microsoft.sourceFileHashAlgorithm": "sha256",
       "microsoft.sourceFileHash": "[insert the source SWU image file hash]"
+}
 ```
 Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you will not actually be importing the source image. The delta components use this metadata about the source image to locate and validate it on the device once the delta has been downloaded to that device.
 
@@ -209,17 +208,14 @@ There are three possible outcomes for a delta update deployment:
 
 To determine which of the above outcomes occurred, you can view the install results with error code and extended error code by selecting any device that is in a failed state. You can also [collect logs](device-update-log-collection.md) from multiple failed devices if needed.
 
-If the delta update succeeded:
+If the delta update succeeded, it will show a "Succeeded" status.
 
-- resultCode: _[value greater than 0]_
-- extendedResultCode: 0
-
-If the delta update failed but did a successful fallback to full image:
+If the delta update failed but did a successful fallback to full image, it will show the following error status:
 
 - resultCode: _[value greater than 0]_
 - extendedResultCode: _[non-zero]_
 
-If the update was unsuccessful:
+If the update was unsuccessful, it will show an error status that can be interpreted using the instructions below:
 
 - Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/early-access/0.9/src/inc/aduc/result.h).
 
