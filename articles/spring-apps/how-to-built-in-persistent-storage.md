@@ -1,6 +1,6 @@
 ---
-title: How to use built-in persistent storage in Azure Spring Apps | Microsoft Docs
-description: How to use built-in persistent storage in Azure Spring Apps
+title: Use built-in persistent storage in Azure Spring Apps | Microsoft Docs
+description: Lean how to use built-in persistent storage in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
@@ -63,7 +63,9 @@ The portal can be used to enable or disable built-in persistent storage.
 If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
 
 #### [Azure CLI](#tab/azure-cli)
+
 ## Use the Azure CLI to enable or disable built-in persistent storage
+
 If necessary, install the Azure Spring Apps extension for the Azure CLI using this command:
 
 ```azurecli
@@ -72,19 +74,19 @@ az extension add --name spring
 
 Other operations:
 
-* To create an app with built-in persistent storage enabled:
+- To create an app with built-in persistent storage enabled:
 
     ```azurecli
     az spring app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
-* To enable built-in persistent storage for an existing app:
+- To enable built-in persistent storage for an existing app:
 
     ```azurecli
     az spring app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
-* To disable built-in persistent storage in an existing app:
+- To disable built-in persistent storage in an existing app:
 
     ```azurecli
     az spring app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
@@ -97,5 +99,5 @@ Other operations:
 
 ## Next steps
 
-* Learn about [application and service quotas](./quotas.md).
-* Learn how to [manually scale your application](./how-to-scale-manual.md).
+- Learn about [application and service quotas](./quotas.md).
+- Learn how to [manually scale your application](./how-to-scale-manual.md).
