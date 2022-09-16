@@ -18,10 +18,11 @@ In this quickstart, you deploy a web reference ASP.NET Core MVC application on A
 
  **[Azure Cosmos DB](../introduction.md)**  is a fully managed NoSQL database for modern application development. **[AKS](..//..//aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
 
-- This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
 
 > [!NOTE]
-> If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
+> - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+> - If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure to run the commands as administrator.
 
 ## Pre-requisites
 The  following are required to compile the ASP.NET Core MVC application and create its container image.
@@ -73,7 +74,7 @@ az account set -s <Subscription ID>
 
 Create a param.json file by using the following JSON, replace the {Resource Group Name}, {Cosmos DB Account Name}, and {ACR Instance Name} placeholders with your own values for Resource Group Name, Cosmos DB Account Name, and Azure Container Registry instance Name. 
 
-> [!!IMPORTANT]
+> [!IMPORTANT]
 >All resource names used in the steps below should be compliant with **[Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md)**, also ensure that the placeholders values are replaced consistently and match with values supplied in param.json.
 
 
@@ -276,8 +277,8 @@ kubectl get services --namespace "my-app"
 ```
 
 Open the IP received as output in a browser to access the application.
-```
 
+```
 ## Clean up the resources
 
 To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the below commands to delete the Resource Group and Deployment
