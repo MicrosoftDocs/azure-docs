@@ -118,7 +118,7 @@ To confirm that you have admin access to view applied Conditional Access policie
 
 3. In the **Monitoring** section, select **Sign-in logs**. 
 
-4. Select an item in the sign-in row table to open the **Activity Details: Sign-ins context** pane.  
+4. Select an item in the sign-in table to open the **Activity Details: Sign-ins context** pane.  
 
 5. Select the **Conditional Access** tab on the context pane. If your screen is small, you might need to select the ellipsis (**...**) to see all tabs on the context pane.  
 
