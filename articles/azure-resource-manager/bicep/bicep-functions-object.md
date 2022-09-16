@@ -274,7 +274,7 @@ The example returns:
 }
 ```
 
-[!INCLUDE [JSON object ordering](../../includes/resource-manager-object-ordering-bicep.md)]
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 <a id="json"></a>
 

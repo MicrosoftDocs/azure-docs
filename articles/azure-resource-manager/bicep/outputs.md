@@ -145,7 +145,7 @@ az deployment group show \
 
 ## Object sorting in outputs
 
-[!INCLUDE [JSON object ordering](../../includes/resource-manager-object-ordering-bicep.md)]
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Next steps
 

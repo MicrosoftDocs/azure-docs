@@ -149,7 +149,7 @@ You can get a property from an object with dot notation.
 }
 ```
 
-[!INCLUDE [JSON object ordering](../../includes/resource-manager-object-ordering-arm-template.md)]
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 ## Strings
 

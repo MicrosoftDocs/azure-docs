@@ -157,7 +157,7 @@ var environmentSettings = {
 output accessorResult string = environmentSettings['dev'].name
 ```
 
-[!INCLUDE [JSON object ordering](../../includes/resource-manager-object-ordering-bicep.md)]
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Strings
 

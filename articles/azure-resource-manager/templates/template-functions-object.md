@@ -301,7 +301,7 @@ The example returns:
 }
 ```
 
-[!INCLUDE [JSON object ordering](../../includes/resource-manager-object-ordering-arm-template.md)]
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 <a id="json"></a>
 
