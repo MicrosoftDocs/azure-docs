@@ -13,7 +13,7 @@ ms.date: 09/14/2022
 This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
 > [!NOTE]
-> To make sure a language is supported the Azure Video Indexer frontend (the website and widget), check [the frontend language support](#language-support-in-frontend-experiences) table below and the [Release notes](release-notes.md).
+> To make sure a language is supported the Azure Video Indexer frontend (the website and widget), check [the frontend language support](#language-support-in-frontend-experiences) table below.
 
 ## General language support
 
@@ -191,4 +191,5 @@ The following table describes language support in the Azure Video Indexer fronte
 
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+- [Overview](video-indexer-overview.md)
+- [Release notes](release-notes.md)
