@@ -22,15 +22,15 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ## Benefits of Elastic SAN
 
-### Unified provisioning and management
+### Simplified provisioning and management
 
-Elastic SAN offers a unified storage provisioning experience that simplifies deploying and managing storage at scale through grouping and policy enforcement. An elastic SAN can serve as the storage solution for multiple compute options while being managed separately from each option.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. Instead of having to configure storage for each of your compute options, an elastic SAN can serve as the storage solution for multiple compute options while being managed separately from each option.
 
 ### Performance
 
 With Elastic SAN, it's possible to scale your performance up to millions of IOPS, double-digit GB/s throughput, and have single-digit ms latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
-### Cost optimization
+### Cost optimization and consolidation
 
 Cost optimization can be achieved with Elastic SAN since you can increase your SAN storage in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership.
 

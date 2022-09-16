@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Networking title
+# Configure Elastic SAN networking
 
 Azure Elastic SAN allows you to secure and control the level of access to your SAN that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access a SAN. Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
 
