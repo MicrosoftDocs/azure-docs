@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, mode-api
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 

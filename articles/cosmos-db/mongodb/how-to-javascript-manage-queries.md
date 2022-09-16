@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Query data in Azure Cosmos DB for MongoDB using JavaScript
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Use [queries](#query-for-documents) and [aggregation pipelines](#aggregation-pipelines) to find and manipulate documents in a collection.
 

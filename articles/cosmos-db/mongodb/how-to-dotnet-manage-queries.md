@@ -13,7 +13,7 @@ ms.custom: devx-track-dotnet
 
 # Query documents in Azure Cosmos DB for MongoDB using .NET
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Use queries to find documents in a collection.
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB MongoDB API database and collection using Azure PowerShell
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -12,7 +12,7 @@ ms.custom: mode-api
 ---
 
 # Quickstart: Get started using Azure Cosmos DB for MongoDB and Python
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

@@ -11,7 +11,7 @@ ms.author: gahllevy
 ms.custom: devx-track-js
 ---
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](../sql-api-get-started.md)

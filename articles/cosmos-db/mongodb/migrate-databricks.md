@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ---
 # Migrate data from MongoDB to an Azure Cosmos DB for MongoDB account by using Azure Databricks
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 

@@ -15,7 +15,7 @@ adobe-target-content: ./connect-mongodb-account-experimental
 
 ---
 # Connect a MongoDB application to Azure Cosmos DB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos DB database as the data store for your MongoDB app.
 

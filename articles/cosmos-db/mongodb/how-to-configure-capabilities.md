@@ -9,7 +9,7 @@ ms.author: gahllevy
 ---
 
 # Configure your API for MongoDB account capabilities
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Capabilities are features that can be added or removed to your API for MongoDB account. Many of these features affect account behavior so it's important to be fully aware of the impact a capability will have before enabling or disabling it. Several capabilities are set on API for MongoDB accounts by default, and cannot be changed or removed. One example is the EnableMongo capability. This article will demonstrate how to enable and disable a capability. 
 

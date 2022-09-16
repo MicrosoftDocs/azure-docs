@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Throughput (RU/s) operations with Azure CLI for a database or graph for Azure Cosmos DB for MongoDB
 
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
 The script in this article creates a MongoDB database with shared throughput and collection with dedicated throughput, then updates the throughput for both. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 
