@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/16/2022
 ms.author: helohr
 manager: femila
 ---
@@ -36,7 +36,7 @@ Yes. Users can shut down the VM by using the Start menu within their session, ju
 
 ## How does load balancing affect Start VM on Connect?
 
-When your host pools have [load-balancing algorithms](host-pool-load-balancing.md) active, the Start VM on Connect feature will wait until all virtual machines hit their maximum session limit before turning on additional VMs.
+On host pools with [load-balancing algorithms](host-pool-load-balancing.md), Start VM on Connect will wait until all virtual machines hit their maximum session limit before turning on additional VMs.
 
 For example, let's say your deployment has a host pool that contains three VMs and has a maximum session limit of five users per machine. If you turn on two VMs, Start VM on Connect won't turn on the third machine until both VMs reach their maximum session limit of 5 users.
 
