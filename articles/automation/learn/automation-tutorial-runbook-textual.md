@@ -195,10 +195,10 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    Disable-AzContextAutosave -Scope Process
     
    # Connect to Azure with system-assigned managed identity
-   $AzureContext = (Connect-AzAccount -Identity).context
+   Connect-AzAccount -Identity
     
    # set and store context
-   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext   
+   $AzureContext = Set-AzContext –SubscriptionId “<SubscriptionID>”   
    }
    ```
 
