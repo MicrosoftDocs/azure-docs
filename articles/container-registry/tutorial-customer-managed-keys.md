@@ -35,13 +35,13 @@ Key features include:
 
 Before you configure Azure Container Registry with a customer-managed key, consider the following information:
 
->* This feature is available in the Premium service tier for a container registry. For more information, see [Azure Container Registry service tiers](container-registry-skus.md).
->* You can currently enable a customer-managed key only while creating a registry.
->* You can't disable the encryption after you enable a customer-managed key on a registry.
->* You have to configure a *user-assigned* managed identity to access the key vault. Later, if required, you can enable the registry's *system-assigned* managed identity for key vault access.
->* Azure Container Registry supports only RSA or RSA-HSM keys. Elliptic-curve keys aren't currently supported.
->* In a registry that's encrypted with a customer-managed key, you can retain logs for [Azure Container Registry tasks](container-registry-tasks-overview.md) for only 24 hours. To retain logs for a longer period, see [View and manage task run logs](container-registry-tasks-logs.md#alternative-log-storage).
->* [Content trust](container-registry-content-trust.md) is currently not supported in a registry that's encrypted with a customer-managed key.
+* This feature is available in the Premium service tier for a container registry. For more information, see [Azure Container Registry service tiers](container-registry-skus.md).
+* You can currently enable a customer-managed key only while creating a registry.
+* You can't disable the encryption after you enable a customer-managed key on a registry.
+* You have to configure a *user-assigned* managed identity to access the key vault. Later, if required, you can enable the registry's *system-assigned* managed identity for key vault access.
+* Azure Container Registry supports only RSA or RSA-HSM keys. Elliptic-curve keys aren't currently supported.
+* In a registry that's encrypted with a customer-managed key, you can retain logs for [Azure Container Registry tasks](container-registry-tasks-overview.md) for only 24 hours. To retain logs for a longer period, see [View and manage task run logs](container-registry-tasks-logs.md#alternative-log-storage).
+* [Content trust](container-registry-content-trust.md) is currently not supported in a registry that's encrypted with a customer-managed key.
 
 ## Update the customer-managed key version
 
@@ -58,7 +58,7 @@ For details, see [Key rotation](tutorial-enable-customer-managed-keys.md#key-rot
 
 ## Next steps
 
-* To enable your container registry with a customer-managed key by using the Azure CLI, the Azure portal, and an Azure Resource Manager template, advance to the next tutorial: [Encrypt Azure Container Registry with a customer-managed key](tutorial-enable-customer-managed-keys.md).
+* To enable your container registry with a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template, advance to the next tutorial: [Enable a customer-managed key](tutorial-enable-customer-managed-keys.md).
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
 * Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-features.md).
 

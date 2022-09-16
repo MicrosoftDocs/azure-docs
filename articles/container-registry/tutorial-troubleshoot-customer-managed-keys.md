@@ -15,17 +15,17 @@ This article helps you troubleshoot and resolve common problems, like authentica
 
 ## Error when you're removing a managed identity
 
-If you try to remove a user-assigned or system-assigned managed identity that you've used to configure encryption for your registry, you might see an error:
+If you try to remove a user-assigned or system-assigned managed identity that you used to configure encryption for your registry, you might see an error:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-You also won't be able to change (rotate) the encryption key. The resolution steps depend on the type of identity you've used for encryption.
+You also won't be able to change (rotate) the encryption key. The resolution steps depend on the type of identity that you used for encryption.
 
 ### Removing a user-assigned identity
 
-If this problem occurs when you try to remove a user-assigned identity, follow these steps: 
+If you get the error when you try to remove a user-assigned identity, follow these steps: 
  
 1. Reassign the user-assigned identity by using the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command. 
 2. Pass the user-assigned identity's resource ID, or use the identity's name when it's in the same resource group as the registry. 
@@ -42,7 +42,7 @@ If this problem occurs when you try to remove a user-assigned identity, follow t
 
 ### Removing a system-assigned identity
 
-If the problem occurs when you try to remove a system-assigned identity, please [create an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) for assistance in restoring the identity.
+If you get the error when you try to remove a system-assigned identity, [create an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) for assistance in restoring the identity.
 
 ## Error after you enable a key vault firewall
 

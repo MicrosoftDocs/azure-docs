@@ -43,7 +43,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-If you configure the registry to detect key version updates, the customer-managed key automatically updates within one hour.
+If you configure the registry to detect key version updates, the customer-managed key is automatically updated within one hour.
 
 If you configure the registry for manual updating for a new key version, run the [az-acr-encryption-rotate-key](/cli/azure/acr/#az-acr-encryption-rotate-key) command. Pass the new key ID and the identity that you want to configure.
 
@@ -112,9 +112,9 @@ az keyvault key delete  \
 ```
 
 > [!NOTE]
-> Revoking a customer-managed key will block access to all registry data. If you enable access to the key or restore a deleted key, the registry will pick the key, and you can regain control on access to the encrypted registry data. 
+> Revoking a customer-managed key will block access to all registry data. If you enable access to the key or restore a deleted key, the registry will pick the key, and you can regain control of access to the encrypted registry data. 
 
 ## Next steps
 
-Advance to the next tutorial to [troubleshoot](tutorial-troubleshoot-customer-managed-keys.md) common problems like removing a managed identity, 403 errors, and restoring accidental key deletions.
+Advance to the [next tutorial](tutorial-troubleshoot-customer-managed-keys.md) to troubleshoot common problems like errors when you're removing a managed identity, 403 errors, and accidental key deletions.
 
