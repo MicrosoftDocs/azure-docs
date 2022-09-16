@@ -172,7 +172,7 @@
     - name: Double encryption
       href: ../fundamentals/double-encryption.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Sunset for SHA-1 OCSP signing?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-      href: ../fundamentals/ocsp-sha-1-sunset.md
+      href: ../fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: TLS certificate changes
       href: ../fundamentals/tls-certificate-changes.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Disk encryption
