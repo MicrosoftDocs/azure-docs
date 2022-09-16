@@ -62,6 +62,10 @@ To protect the data in your Elastic SAN against data loss or corruption, all SAN
 
 ## Encryption
 
-All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis.
+All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis.
 
-Elastic SAN uses the same encryption scheme as the other Azure storage services like Azure Blob storage. To learn more about Azure storage service encryption (SSE), see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2felastic-san%2ftoc.json).
+Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
+
+Azure Storage encryption is enabled for all Elastic SANs. Azure Storage encryption can't be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption. There is no additional cost for Azure Storage encryption.
+
+For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
