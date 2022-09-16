@@ -13,156 +13,128 @@ ms.custom: devx-track-csharp
 
 # Create an IoT hub using the resource provider REST API (.NET)
 
-[!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
-
-You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
+You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using Postman. Alternatively, you can use cURL.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
-* Visual Studio
+* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps)
+* [Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman) or [cURL](https://curl.se/)
 
-[!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
+## Get an Azure access token
 
-## Prepare your Visual Studio project
+1. In the Azure PowerShell cmdlet or Azure Cloud Shell, sign in and then retrieve a token with this command:
 
-1. In Visual Studio, create a new Windows console app using the C# **Console App (.NET Framework)** project template. Name the project **CreateIoTHubREST**.
+```azurecli-interactive
+az account get-access-token --resource https://management.azure.com
+```
+You should see a response in the console similar to this (except the access token is very long):
 
-2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
+```json
+{
+  "accessToken": "eyJ ... pZA",
+  "expiresOn": "2022-09-16 20:57:52.000000",
+  "subscription": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+  "tokenType": "Bearer"
+}
+```
 
-3. In NuGet Package Manager, check **Include prerelease**, and on the **Browse** page search for **Microsoft.Azure.Management.ResourceManager**. Select the package, choose **Install**, in **Review Changes** choose **OK**, then choose**I Accept** to accept the licenses.
-
-4. In NuGet Package Manager, search for **Microsoft.Identity.Client**.  Choose **Install**, in **Review Changes** choose**OK**, then choose **I Accept** to accept the license.
-
-5. In Program.cs, replace the existing **using** statements with the following code:
-
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Identity.Client;
-    using Newtonsoft.Json;
-    using Microsoft.Rest;
-    using System.Linq;
-    using System.Threading;
-    ```
-
-6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Resource group name** is the name of the resource group you used when you created your IoT hub. You can use a pre-existing or new resource group. **IoT Hub name** is the name of the IoT Hub you created, such as **MyIoTHub**. The name of your IoT hub must be globally unique. **Deployment name** is a name for the deployment, such as **Deployment_01**.
-
-    ```csharp
-    static string applicationId = "{ApplicationId}";
-    static string subscriptionId = "{SubscriptionId}";
-    static string tenantId = "{TenantId}";
-    //static string password = "{Your application Password}";
-
-    static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT hub name}";
-    ```
-
-    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
-
-[!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
-
+Save your access token (the string without quotes) for later.
+   
 ## Use the resource provider REST API to create an IoT hub
 
-Use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
+Open Postman and follow the order of REST commands below to create your IoT hub. These commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) article. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
 
-1. Add the following method to Program.cs:
+1. In a new Postman request, from the **Auth** tab, select the **Type** dropdown list and choose **Bearer Token**.
 
-    ```csharp
-    static void CreateIoTHub(string token)
-    {
+:::image type="content" source="media/iot-hub-rm-rest/select-bearer-token.png" alt-text="Screenshot that shows how to select the Bearer Token type of authorization in Postman.":::
 
+1. Retrieve and copy the access token you saved previously and paste it into the field labeled **Token**.
+
+### Create a new IoT hub
+
+1. Select the REST command dropdown list and choose the PUT command. Copy the URL below, replacing the values in the `{}` with your own values. The `{resourceName}` value is the name you'd like for your new IoT hub. Paste the URL into the field next to the PUT command. 
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
+```
+
+:::image type="content" source="media/iot-hub-rm-rest/paste-put-command.png" alt-text="Screenshot that shows how to add a PUT command in Postman.":::
+
+For more information about the PUT command, see [Iot Hub Resource - Create Or Update](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
+
+1. From the **Body** tab, select the **raw** and **JSON** from the dropdown lists. 
+
+1. Paste this JSON into the box in Postman as shown. Make sure your IoT hub name matches the one in your PUT URL. Change the location to your location (the location assigned to your resource group).
+
+```json
+{
+    "name": "<my-iot-hub>",
+    "location": "westus2",
+    "tags": {},
+    "properties": {},
+    "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "capacity": 1
     }
-    ```
+}
+```
 
-2. Add the following code to the **CreateIoTHub** method. This code creates an **HttpClient** object with the authentication token in the headers:
+:::image type="content" source="media/iot-hub-rm-rest/add-body-for-put.png" alt-text="Screenshot that shows how to add JSON to the body of your request in Postman.":::
 
-    ```csharp
-    HttpClient client = new HttpClient();
-    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-    ```
+1. Select **Send** to send your request and create a new IoT hub. A successful request will return a **201 Created** response with a JSON printout of your IoT hub specifications. You can save your request if you're using Postman.
 
-3. Add the following code to the **CreateIoTHub** method. This code describes the IoT hub to create and generates a JSON representation. For the current list of locations that support IoT Hub see [Azure Status](https://azure.microsoft.com/status/):
+## Confirm your IoT hub is in the Azure portal
 
-    ```csharp
-    var description = new
-    {
-      name = iotHubName,
-      location = "East US",
-      sku = new
-      {
-        name = "S1",
-        tier = "Standard",
-        capacity = 1
-      }
-    };
+You can confirm your IoT hub is now in the Azure portal with the following command in your Azure CLI. Replace **my-iot-hub** with the name of the IoT hub you created. A successful response shows your IoT hub specifications in JSON.
 
-    var json = JsonConvert.SerializeObject(description, Formatting.Indented);
-    ```
+```azurecli-interactive
+az iot hub show --name my-iot-hub
+```
 
-4. Add the following code to the **CreateIoTHub** method. This code submits the REST request to Azure. The code then checks the response and retrieves the URL you can use to monitor the state of the deployment task:
+Explore more Azure CLI commands for IoT Hub in the [az iot hub](/cli/azure/iot/hub) reference.
 
-    ```csharp
-    var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
-    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2021-04-12", subscriptionId, rgName, iotHubName);
-    var result = client.PutAsync(requestUri, content).Result;
+### Update your IoT hub
 
-    if (!result.IsSuccessStatusCode)
-    {
-      Console.WriteLine("Failed {0}", result.Content.ReadAsStringAsync().Result);
-      return;
+Updating is as simple as using the same PUT request from when we created the IoT hub and editing the JSON body to contain parameters of your choosing. Try repeating the PUT request, but this time, edit the body of the request by adding a **tags** property, like this:
+
+```json
+{
+    "name": "<my-iot-hub>",
+    "location": "westus2",
+    "tags": {
+        "Animal": "Cat"
+    },
+    "properties": {},
+    "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "capacity": 1
     }
+}
+```
 
-    var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
-    ```
+The response will show the new tag added in the console. Remember, you may need to refresh your access token if too much time has passed since the last time you generated one.
 
-5. Add the following code to the end of the **CreateIoTHub** method. This code uses the **asyncStatusUri** address retrieved in the previous step to wait for the deployment to complete:
+## Show all details of your IoT hub
 
-    ```csharp
-    string body;
-    do
-    {
-      Thread.Sleep(10000);
-      HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
-      body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{\"status\":\"Running\"}");
-    ```
+To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request cannot have a body. Here's the GET request template:
 
-6. Add the following code to the end of the **CreateIoTHub** method. This code retrieves the keys of the IoT hub you created and prints them to the console:
+```rest
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
+```
 
-    ```csharp
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2021-04-12", subscriptionId, rgName, iotHubName);
-    var keysresults = client.PostAsync(listKeysUri, null).Result;
+## Remove your IoT hub from the Azure portal
 
-    Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
-    ```
+If you are only testing, you might want to clean up your resources and delete your new IoT hub. To do this, send a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourcename}` value is the name of your IoT hub.
 
-## Complete and run the application
-
-You can now complete the application by calling the **CreateIoTHub** method before you build and run it.
-
-1. Add the following code to the end of the **Main** method:
-
-    ```csharp
-    CreateIoTHub(token.AccessToken);
-    Console.ReadLine();
-    ```
-
-2. Click **Build** and then **Build Solution**. Correct any errors.
-
-3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
-
-4. To verify that your application added the new IoT hub, visit the [Azure portal](https://portal.azure.com/) and view your list of resources. Alternatively, use the **Get-AzResource** PowerShell cmdlet.
-
-> [!NOTE]
-> This example application adds an S1 Standard IoT Hub for which you are billed. When you are finished, you can delete the IoT hub through the [Azure portal](https://portal.azure.com/) or by using the **Remove-AzResource** PowerShell cmdlet when you are finished.
+```rest
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
+```
 
 ## Next steps
 
