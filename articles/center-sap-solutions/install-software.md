@@ -91,7 +91,24 @@ Before you can download the software, set up an Azure Storage account for storin
 
 You can download the SAP installation media required to install the SAP software, using a script as described in this section.
 
-1. Sign in to the Ubuntu VM that you created in the [previous section](#download-supporting-software).
+1. Create an Ubuntu 20.04 VM in Azure
+
+1. Sign in to the VM.
+
+1. Install the Azure CLI on the VM.
+
+    ```bash
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+
+1. [Update the Azure CLI](/cli/azure/update-azure-cli) to version 2.30.0 or higher.
+
+
+1. Sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
 
 1. Install Ansible 2.9.27 on the ubuntu VM 
 
@@ -120,12 +137,37 @@ You can download the SAP installation media required to install the SAP software
 
 1. Run the Ansible script **playbook_bom_download** with your own information.
 
+    - When asked if you have a storage account, enter `Y`.
     - For `<username>`, use your SAP username.
     - For `<password>`, use your SAP password. 
 	- For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-    - For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the [previous section](#download-supporting-software). 
-    - For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the [previous section](#download-supporting-software). 
+    - For `<storageAccountAccessKey>`, use your storage account's access key. To find the storage account's key:
+
+
+    1. Find the storage account in the Azure portal that you created.
+
+    1. On the storage account's sidebar menu, select **Access keys** under **Security + networking**.
+
+    1. For **key1**, select **Show key and connection string**.
+
+    1. Copy the **Key** value.
+    
+    
+    - For `<containerBasePath>`, use the path to your `sapbits` container. To find the container path:
+
+
+    1. Find the storage account that you created in the Azure portal.
+
+    1. Find the container named `sapbits`.
+
+    1. On the container's sidebar menu, select **Properties** under **Settings**.
+
+    1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
       The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
+    
+    
+    - Ansible command to run
+      
 
 
     ```azurecli
@@ -348,8 +390,9 @@ If you encounter this problem, follow these steps:
   
 - For `<username>`, use your SAP username.
 - For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
-- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the [previous section](#download-supporting-software). 
-- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the [previous section](#download-supporting-software). 
+- For `<storageAccountAccessKey>`, use your storage account's access key. You found this value in the Download SAP media section
+- For `<containerBasePath>`, use the path to your `sapbits` container. You found this value in the Download SAP media section.
+
   The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`
 
 This should resolve the problem and you can proceed with next steps as described in the section.
