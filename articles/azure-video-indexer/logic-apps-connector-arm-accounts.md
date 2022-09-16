@@ -245,7 +245,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
     | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
     
-      ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
+       ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
     1. Select **Save flow**. 
 1. Update the callback URL to get notified when an index job is finished.
 
@@ -253,7 +253,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
     1. Copy the URL from the trigger. 
 
-      ![Save URL trigger](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
+       ![Save URL trigger](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
     1. Go back to the first flow and paste the URL in the **Upload video and index** action for the **Callback URL parameter**.
  
 Make sure both flows are saved.
