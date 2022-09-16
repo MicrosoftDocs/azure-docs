@@ -187,9 +187,6 @@ Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pi
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-> [!NOTE]
-> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
-
 ## Deployment removal pipeline
 
 Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
