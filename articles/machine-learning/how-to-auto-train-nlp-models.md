@@ -383,7 +383,7 @@ The following table describes the hyperparameters that AutoML NLP supports.
 | warmup_ratio | Ratio of total training steps used for a linear warmup from 0 to learning_rate.  | Must be a float in the range [0, 1]. |
 | weight_decay | Value of weight decay when optimizer is sgd, adam, or adamw. | Must be a float in the range [0, 1]. |
 
-Note that all discrete hyperparameters only allow choice distributions, such as the integer-typed training_batch_size and the string-typed model_name hyperparameters. All continuous hyperparameters like learning_rate support all distributions. 
+All discrete hyperparameters only allow choice distributions, such as the integer-typed `training_batch_size` and the string-typed `model_name` hyperparameters. All continuous hyperparameters like `learning_rate` support all distributions. 
 
 ## Configure your sweep settings 
 
