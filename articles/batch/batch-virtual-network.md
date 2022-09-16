@@ -52,7 +52,7 @@ To ensure that the nodes in your pool work in a VNet that has forced tunneling e
 
 - The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
 
-- Ensure that outbound TCP traffic to the Azure Batch `BatchNodeManagement.<region>` service tag on destination port 443 is not blocked by your on-premises network. This is required for [Simplified Compute Node Communication](../articles/batch/simplified-compute-node-communication.md).
+- Ensure that outbound TCP traffic to the Azure Batch `BatchNodeManagement.<region>` service tag on destination port 443 is not blocked by your on-premises network. This is required for [Simplified Compute Node Communication](simplified-compute-node-communication.md).
 
 - Ensure that outbound TCP traffic to Azure Storage on destination port 443 (specifically, URLs of the form `*.table.core.windows.net`, `*.queue.core.windows.net`, and `*.blob.core.windows.net`) is not blocked by your on-premises network.
 
