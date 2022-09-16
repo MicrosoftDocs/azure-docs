@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 09/16/2022
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -40,7 +40,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Best practice
 
-* Ensure that you’re using the proper mount instructions for the volume.  See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Ensure that you’re using the proper mount instructions for the volume. See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
@@ -67,6 +67,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**. If you choose yes, ensure your understand the requirements and considerations for using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes).
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
@@ -121,7 +124,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. Click **Review + Create** to review the volume details.  Then click **Create** to create the volume.
+4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
