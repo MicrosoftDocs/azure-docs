@@ -1401,8 +1401,6 @@
         href: litmos-tutorial.md
       - name: LMS and Education Management System Leaf
         href: lms-and-education-management-system-leaf-tutorial.md
-      - name: NAVEX IRM (Lockpath/Keylight)
-        href: keylight-tutorial.md
       - name: LogicMonitor
         href: logicmonitor-tutorial.md
       - name: LoginRadius
@@ -1557,6 +1555,8 @@
         href: nature-research-tutorial.md
       - name: NAVEX One
         href: navex-one-tutorial.md
+      - name: NAVEX IRM (Lockpath/Keylight)
+        href: keylight-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
