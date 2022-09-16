@@ -56,7 +56,7 @@ To complete this tutorial, you need:
 
 Please follow the [guidance to deploy the sample application from its GitHub repository.](https://github.com/gitopsbook/sample-app-deployment).
 
-In order to provide globally unique names to some resources, a six-character suffix is assigned to some resources. Please make note of this suffix for use later on in this article.
+In order to provide globally unique names to resources, a six-character suffix is assigned to some resources. Please make note of this suffix for use later on in this article.
 
 :::image type="content" source="media/tutorial-asp-net-core/naming-suffix.png" alt-text="Screenshot of the deployed Azure resource listing in the Azure portal with the six-character suffix highlighted." lightbox="media/tutorial-asp-net-core/naming-suffix.png":::
 
@@ -92,7 +92,7 @@ In order to provide globally unique names to some resources, a six-character suf
 
     :::image type="content" source="media/tutorial-asp-net-core/application-insights-validation-passed.png" alt-text="Screenshot of the Application Insights screen in the Azure portal. The message stating validation has passed and Create button are both highlighted." lightbox="media/tutorial-asp-net-core/application-insights-validation-passed.png":::
 
-7. Once the resource is deployed, return to the `application-insights-azure-cafe` resource group, and select Application Insights resource you deployed.
+7. Once the resource is deployed, return to the `application-insights-azure-cafe` resource group, and select the Application Insights resource you deployed.
 
     :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
 
@@ -166,7 +166,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. This application has client-side components. Follow the next steps to start collecting [usage telemetry](./usage-overview.md).
+The preceding steps are enough to help you start collecting server-side telemetry. The sample application has client-side components. Follow the next steps to start collecting [usage telemetry](./usage-overview.md).
 
 1. In Visual Studio Solution Explorer, open `\Views\_ViewImports.cshtml`. 
 
@@ -178,7 +178,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
     :::image type="content" source="media/tutorial-asp-net-core/view-imports-injection.png" alt-text="Screenshot of the _ViewImports.cshtml file in Visual Studio with the preceding line of code highlighted." lightbox="media/tutorial-asp-net-core/view-imports-injection.png":::
 
-3. To properly enable client-side monitoring for your application, a JavaScript snippet must be inserted in the `<head>` section of each page of your application that you want to monitor. In Visual Studio Solution Explorer, open  `\Views\Shared\_Layout.cshtml` and insert the following code immediately before the closing `<\head>` tag.
+3. To properly enable client-side monitoring for your application, in Visual Studio Solution Explorer, open  `\Views\Shared\_Layout.cshtml` and insert the following code immediately before the closing `<\head>` tag. This JavaScript snippet must be inserted in the `<head>` section of each page of your application that you want to monitor.
 
     ```cshtml
     @Html.Raw(JavaScriptSnippet.FullScript)
@@ -200,7 +200,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
 ## Enable monitoring of database queries
 
-When investigating causes for performance degradation, it is important to include insights into database calls in your investigation. You enable monitoring of database queries by configuring the [dependency module](./asp-net-dependencies.md). Dependency monitoring, including SQL, is enabled by default. 
+When investigating causes for performance degradation, it is important to include insights into database calls. You enable monitoring by configuring the [dependency module](./asp-net-dependencies.md). Dependency monitoring, including SQL, is enabled by default. 
 
 Follow these steps to capture the full SQL query text.
 
@@ -259,7 +259,7 @@ After you deploy the web application code, telemetry will flow to Application In
 
 You can use [Live Metrics](./live-stream.md) to quickly verify if Application Insights monitoring is configured correctly. Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry such as Requests, Dependencies, and Traces. Note that it might take a few minutes for the telemetry to appear in the portal and analytics.
 
-### Application map
+### Viewing the application map
 
 The sample application makes calls to multiple Azure resources, including Azure SQL, Azure Blob Storage, and the Azure Language Service (for review sentiment analysis).
 
@@ -283,7 +283,7 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
 2. On the left menu, beneath the **Investigate** header, select **Performance**.
 
-3. The **Operations** tab contains details of the HTTP calls received by the application. You can toggle between Server and Browser (client-side) views of the data.
+3. The **Operations** tab contains details of the HTTP calls received by the application. To toggle between Server and Browser (client-side) views of the data, use the Server/Browser toggle.
 
    :::image type="complex" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with server performance data displayed." lightbox="media/tutorial-asp-net-core/server-performance.png":::
    Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted.
@@ -295,17 +295,17 @@ Application Insights introspects the incoming telemetry data and is able to gene
    Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted.
 :::image-end:::
 
-5. The end-to-end transaction displays for the selected request. In this case, a review was created, including an image, so it includes calls to Azure Storage and the Language Service (for sentiment analysis). It also includes database calls into SQL Azure to persist the review. In this example, the first selected Event displays information relative to the HTTP POST call.
+   The end-to-end transaction displays for the selected request. In this case, a review was created, including an image, so it includes calls to Azure Storage and the Language Service (for sentiment analysis). It also includes database calls into SQL Azure to persist the review. In this example, the first selected Event displays information relative to the HTTP POST call.
 
     :::image type="content" source="media/tutorial-asp-net-core/e2e-http-call.png" alt-text="Screenshot of the end-to-end transaction in the Azure portal with the HTTP Post call selected." lightbox="media/tutorial-asp-net-core/e2e-http-call.png":::
 
-6. Select a SQL item to review the SQL command text issued to the database.
+5. Select a SQL item to review the SQL command text issued to the database.
 
     :::image type="content" source="media/tutorial-asp-net-core/e2e-db-call.png" alt-text="Screenshot of the end-to-end transaction in the Azure portal with SQL command details." lightbox="media/tutorial-asp-net-core/e2e-db-call.png":::
 
-7. Optionally select Dependency (outgoing) requests to Azure Storage or the Language Service.
+6. Optionally, select the Dependency (outgoing) requests to Azure Storage or the Language Service.
 
-8. Return to the **Performance** screen and select the **Dependencies** tab to investigate calls into external resources. Notice the Operations table includes calls into Sentiment Analysis, Blob Storage, and Azure SQL.
+7. Return to the **Performance** screen and select the **Dependencies** tab to investigate calls into external resources. Notice the Operations table includes calls into Sentiment Analysis, Blob Storage, and Azure SQL.
 
     :::image type="content" source="media/tutorial-asp-net-core/performance-dependencies.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with the Dependencies tab selected and the Operations table highlighted." lightbox="/media/tutorial-asp-net-core/performance-dependencies.png":::
 
@@ -372,16 +372,20 @@ The ValuesController above is deployed with the sample application and is locate
 
     :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
 
-3. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **traces** table, located under the **Application Insights** tree. Modify the query to retrieve traces for the **Values** controller as follows, then select **Run** to filter the results.
+3. From the left menu of the Application Insights resource, under the **Monitoring** section, select **Logs**. 
+ 
+4. In the **Tables** pane, under the **Application Insights** tree, double-click on the **traces** table. 
+
+5. Modify the query to retrieve traces for the **Values** controller as follows, then select **Run** to filter the results.
 
     ```kql
     traces 
     | where operation_Name == "GET Values/Get"
     ```
 
-4. Observe the results display the logging messages present in the controller. A log severity of 2 indicates a warning level, and a log severity of 3 indicates an Error level.
+   The results display the logging messages present in the controller. A log severity of 2 indicates a warning level, and a log severity of 3 indicates an Error level.
 
-5. Alternatively, you can also write the query to retrieve results based on the category of the log. By default, the category is the fully qualified name of the class where the ILogger is injected. In this case, the category name is **ValuesController** (if there is a namespace associated with the class, the name will be prefixed with the namespace). Re-write and run the following query to retrieve results based on category.
+6. Alternatively, you can also write the query to retrieve results based on the category of the log. By default, the category is the fully qualified name of the class where the ILogger is injected. In this case, the category name is **ValuesController** (if there is a namespace associated with the class, the name will be prefixed with the namespace). Re-write and run the following query to retrieve results based on category.
 
     ```kql
     traces 
@@ -418,7 +422,7 @@ Deploying the sample application with the preceding code in *appsettings.json* w
 
 ## Turn off logging to Application Insights
 
-To disable logging using configuration, set all LogLevel values to "None".
+To disable logging by using configuration, set all LogLevel values to "None".
 
 ```json
 {
