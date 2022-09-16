@@ -262,10 +262,9 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, and Azure CLI
 
-You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview?tabs=bicep).
-
 #### [Bicep template](#tab/bicep-template)
 
+You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview?tabs=bicep).
 
 ```Bicep
 param automationAccount string
