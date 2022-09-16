@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 09/16/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -86,7 +86,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
-    * **Large volume**
+    * **Large Volume**
         If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**. If you choose yes, ensure your understand the requirements and considerations for using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes).
 
     * **Throughput (MiB/S)**   

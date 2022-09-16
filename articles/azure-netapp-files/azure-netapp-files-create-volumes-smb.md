@@ -55,7 +55,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
-    * **Large volume**
+    * **Large Volume**
         If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**. If you choose yes, ensure your understand the requirements and considerations for using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes).
 
     * **Throughput (MiB/S)**   
