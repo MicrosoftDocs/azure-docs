@@ -332,9 +332,9 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 * Contact the product team to take part in the gated public preview. In this preview, traffic between the 2 hubs traverses through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers/MSEE). To use this feature during preview, email **previewpreferh2h@microsoft.com** with the Virtual WAN IDs, Subscription ID, and the Azure region. Expect a response within 48 business hours (Monday-Friday) with confirmation that the feature is enabled.
 
-### When there's an ExpressRoute circuit connected as a bow-tie to a vWAN hub and a non-vWAN (customer-managed) VNet, what is the path for the non-vWAN VNET to reach a VNet directly connected to the vWAN hub? 
+### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a non Virtual WAN (customer-managed) VNet, what is the path for the non Virtual WAN VNet to reach the Virtual WAN hub? 
 
-The current behavior is to prefer the ExpressRoute circuit path for non-vWAN VNet to vWAN VNet connectivity. However, this isn't encouraged in a Virtual WAN setup. To resolve this, you can [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the non-vWAN VNet to the vWAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+The current behavior is to prefer the ExpressRoute circuit path for non Virtual WAN VNet to Virtual WAN connectivity. It is recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the non Virtual WAN VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
 
 ### Can hubs be created in different resource group in Virtual WAN?
 
