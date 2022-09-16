@@ -50,7 +50,7 @@ You might have requirements in your organization to redirect (force) internet-bo
 
 To ensure that the nodes in your pool work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) (UDR) for that subnet:
 
-- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the `BatchNodeManagement.<region>` [service tag](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
+- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
 
 - Ensure that outbound TCP traffic to the Azure Batch `BatchNodeManagement.<region>` service tag on destination port 443 is not blocked by your on-premises network. This is required for [Simplified Compute Node Communication](../articles/batch/simplified-compute-node-communication.md).
 
@@ -59,7 +59,7 @@ To ensure that the nodes in your pool work in a VNet that has forced tunneling e
 - If you use virtual file mounts, review the [networking requirements](virtual-file-mount.md#networking-requirements) and ensure that no required traffic is blocked.
 
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent outages due to Batch service IP address changes, do not directly specify IP addresses. Instead use the `BatchNodeManagement.<region>` [service tag](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes).
+> Batch service IP addresses can change over time. To prevent outages due to Batch service IP address changes, do not directly specify IP addresses. Instead use the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
 
 ## Next steps
 
