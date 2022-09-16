@@ -20,7 +20,7 @@ ms.date: 10/06/2022
 
 By default, the contents of all top-level searchable fields are considered. If you want to specify particular fields instead, you can use the `searchFields` parameter. 
 
-The `moreLikeThis` parameter isn't supported for [complex types](search-howto-complex-data-types.md) and the presence of complex types will impact your query logic. If your index as a complex type, you must set `searchFields` to the top-level searchable fields over which `moreLikeThis` iterates. For example, if the index has a searchable `field1` of type `Edm.String`, and `field2` that's a complex type with searchable subfields, the value of `searchFields` must be set to `field1` to exclude `field2`.
+The `moreLikeThis` parameter isn't supported for [complex types](search-howto-complex-data-types.md) and the presence of complex types will impact your query logic. If your index is a complex type, you must set `searchFields` to the top-level searchable fields over which `moreLikeThis` iterates. For example, if the index has a searchable `field1` of type `Edm.String`, and `field2` that's a complex type with searchable subfields, the value of `searchFields` must be set to `field1` to exclude `field2`.
 
 ## Examples
 
