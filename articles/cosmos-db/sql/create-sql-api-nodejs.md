@@ -207,7 +207,7 @@ This app creates an Azure Cosmos DB SQL API database and container. The example 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
 ```bash
-node indexjs
+node index.js
 ```
 
 The output of the app should be similar to this example:
