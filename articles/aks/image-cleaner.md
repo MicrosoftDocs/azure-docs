@@ -10,9 +10,9 @@ ms.date: 09/16/2022
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal. ImageCleaner is a feature inherited from Eraser. 
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which ImageCleaner can mitigate via automatic image identification and removal. 
 
-For more information on Eraser, see [Eraser plugin](https://github.com/Azure/eraser)  
+ImageCleaner is a feature inherited from Eraser. For more information on Eraser, see [Eraser plugin](https://github.com/Azure/eraser)  
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
