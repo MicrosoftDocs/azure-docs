@@ -80,8 +80,8 @@ Please make sure once the restore is completed all the above mentioned parameter
 
 Create a virtual machine in the same region,same AZ preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server.Use of Azure Virtual Machines with high-performance local SSD is recommended.Choose virtual machine with 16 or 32 vCore.For more details about the SKUs please refer
 
-[Edv4 and Edsv4-series](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series)
-[Ddv4 and Ddsv4-series](https://docs.microsoft.com/azure/virtual-machines/ddv4-ddsv4-series)
+Edv4 and Edsv4-series[https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series]
+Ddv4 and Ddsv4-series[https://docs.microsoft.com/azure/virtual-machines/ddv4-ddsv4-series]
 
 ## Next steps
 
