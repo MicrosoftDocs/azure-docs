@@ -2,13 +2,14 @@
 title: View integration information about an authorization system in Permissions Management
 description: View integration information about an authorization system in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
+author: jenniferf-skc
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
+ROBOTS: NOINDEX
 ---
 
 # View integration information about an authorization system 
