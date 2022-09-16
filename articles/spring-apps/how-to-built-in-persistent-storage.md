@@ -34,7 +34,7 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 
 You can modify the state of built-in persistent storage using the Azure portal or by using the Azure CLI.
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 ## Enable or disable built-in persistent storage with the portal
 
@@ -62,7 +62,7 @@ The portal can be used to enable or disable built-in persistent storage.
 
 If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ## Use the Azure CLI to enable or disable built-in persistent storage
 
