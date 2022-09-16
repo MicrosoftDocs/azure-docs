@@ -18,7 +18,7 @@ Managed Grafana has the following known limitations:
 
 * All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
-* Installing, uninstalling and upgrading plugins from the Grafana Catalog aren't allowed.
+* Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
 * Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
 
