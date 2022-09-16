@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 09/16/2022
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -40,7 +40,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Best practice
 
-* Ensure that you’re using the proper mount instructions for the volume.  See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Ensure that you’re using the proper mount instructions for the volume. See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
@@ -121,7 +121,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. Click **Review + Create** to review the volume details.  Then click **Create** to create the volume.
+4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
@@ -138,3 +138,4 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
+* [Manage large volumes](manage-large-volumes.md).
