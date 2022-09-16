@@ -551,6 +551,9 @@
       - name: Bulk Data Load Best Practices 
         href: flexible-server/how-to-bulkload_data.md
         displayName: Bulk Data Load Best Practices
+      - name: Best Practices For Faster Dump And Restore
+        href: flexible-server/how-to-pg_dump_restore.md
+        displayName: Best Practices For Faster Dump And Restore
   - name: How-to guides
     items:
     - name: Manage a server
