@@ -72,7 +72,7 @@ In order to provide globally unique names to resources, a six-character suffix i
 
    :::image type="complex" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
    Screenshot of the Create a resource screen in the Azure portal. The screenshot shows a search for Application Insights highlighted and Application Insights displaying in the search results, which is also highlighted.
-:::image-end:::
+   :::image-end:::
 
 4. On the Application Insights resource overview screen, select **Create**.
 
@@ -98,9 +98,9 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 8. On the Overview screen of the Application Insights resource, select the **Copy to clipboard** button to copy the connection string value to use it in the next section of this article.
 
-    :::image type="complex" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal, which includes the connection string value." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal, which includes the connection string value." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
    Screenshot of the Application Insights Overview screen in the Azure portal. The screenshot shows the connection string value highlighted and the Copy to clipboard button selected and highlighted.
-:::image-end:::
+   :::image-end:::
 
 ## Configure the Application Insights connection string application setting in the web App Service
 
@@ -112,7 +112,7 @@ In order to provide globally unique names to resources, a six-character suffix i
 
     :::image type="complex" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
    Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted.
-:::image-end:::
+    :::image-end:::
 
 3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
 
@@ -139,7 +139,9 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
 
 3. Select the **Browse** tab and then search for and select **Microsoft.ApplicationInsights.AspNetCore**. Select **Install**, and accept the license terms. It is recommended you use the latest stable version. For the full release notes for the SDK, see the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
-    :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.:::image-end:::
+    :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
+Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.
+    :::image-end:::
 
    Keep Visual Studio open for the next section of the article.
 
@@ -285,13 +287,13 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
    :::image type="complex" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with server performance data displayed." lightbox="media/tutorial-asp-net-core/server-performance.png":::
    Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted.
-:::image-end:::
+   :::image-end:::
 
 4. Select an Operation from the table, and choose to drill into a sample of the request.
 
     :::image type="complex" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
    Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted.
-:::image-end:::
+    :::image-end:::
 
    The end-to-end transaction displays for the selected request. In this case, a review was created, including an image, so it includes calls to Azure Storage and the Language Service (for sentiment analysis). It also includes database calls into SQL Azure to persist the review. In this example, the first selected Event displays information relative to the HTTP POST call.
 
