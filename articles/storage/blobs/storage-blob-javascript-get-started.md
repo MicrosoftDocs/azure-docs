@@ -18,7 +18,7 @@ ms.custom: template-how-to
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+The [sample code snippets](https://github.com/Azure-Samples/azure_storage-snippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
 [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
@@ -112,7 +112,7 @@ Once your Azure storage account and your local environment are set up, create a 
 
 Create a [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) instance. Use that object to create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
 
-:::code language="javascript" source="~/AzureStorageSnippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js":::
+:::code language="javascript" source="~/azure_storage-snippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js":::
 
 If you plan to deploy the application to servers and clients that run outside of Azure, you can obtain an OAuth token by using other classes in the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) which derive from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) class.
 
@@ -120,7 +120,7 @@ If you plan to deploy the application to servers and clients that run outside of
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
 
-:::code language="javascript" source="~/AzureStorageSnippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js":::
+:::code language="javascript" source="~/azure_storage-snippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js":::
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
@@ -128,7 +128,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 Create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) by using a connection string. 
 
-:::code language="javascript" source="~/AzureStorageSnippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-connection-string.js":::
+:::code language="javascript" source="~/azure_storage-snippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-connection-string.js":::
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
@@ -136,7 +136,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri.
 
-:::code language="javascript" source="~/AzureStorageSnippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
+:::code language="javascript" source="~/azure_storage-snippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
 
 To generate and manage SAS tokens, see any of these articles:
 
@@ -148,7 +148,7 @@ To generate and manage SAS tokens, see any of these articles:
 
 If you explicitly enable anonymous access, then you can connect to Blob Storage without authorization for your request. You can create a new BlobServiceClient object for anonymous access by providing the Blob storage endpoint for the account. This requires you to know the account and container names. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
-:::code language="javascript" source="~/AzureStorageSnippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-anonymous-credential.js":::
+:::code language="javascript" source="~/azure_storage-snippets/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-anonymous-credential.js":::
 
 Each type of resource is represented by one or more associated JavaScript clients:
 
