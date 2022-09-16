@@ -10,7 +10,7 @@ ms.author: mansha
 ---
 
 # Azure Cosmos DB for Gremlin limits
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 This article talks about the limits of Azure Cosmos DB for Gremlin engine and explains how they may impact customer traversals.
 

@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 # Third-party data modeling tools for Azure Cosmos DB graph data
 
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 It is important to design the data model and further important to maintain. Here are set of third-party visual design tools which help in designing & maintaining the graph data model.
 

@@ -521,9 +521,6 @@
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
     - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/graph/
-      topicHref: /azure/cosmos-db/graph/
-    - name: Apache Gremlin
       tocHref: /azure/cosmos-db/gremlin/
       topicHref: /azure/cosmos-db/gremlin/
     - name: NoSQL

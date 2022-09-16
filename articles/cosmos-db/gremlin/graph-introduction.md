@@ -9,7 +9,7 @@ author: manishmsfte
 ms.author: mansha
 ---
 # Introduction to Gremlin API in Azure Cosmos DB
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 [Azure Cosmos DB](../introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
 

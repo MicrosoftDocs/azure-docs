@@ -13,7 +13,7 @@ ms.devlang: csharp, java
 
 # Ingest data in bulk in the Azure Cosmos DB for Gremlin by using a bulk executor library
 
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 Graph databases often need to ingest data in bulk to refresh an entire graph or update a portion of it. Azure Cosmos DB, a distributed database and the backbone of the Azure Cosmos DB for Gremlin, is meant to perform best when the loads are well distributed. Bulk executor libraries in Azure Cosmos DB are designed to exploit this unique capability of Azure Cosmos DB and provide optimal performance. For more information, see [Introducing bulk support in the .NET SDK](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 

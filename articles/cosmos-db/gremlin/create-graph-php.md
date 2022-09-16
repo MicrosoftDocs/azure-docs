@@ -12,7 +12,7 @@ ms.custom: mode-api, kr2b-contr-experiment
 ---
 # Quickstart: Create an Azure Cosmos DB graph database with PHP and the Azure portal
 
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-console.md)

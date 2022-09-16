@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB for Gremlin resources using Azure Resource Manager templates
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and graphs.
 

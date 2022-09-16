@@ -11,7 +11,7 @@ ms.devlang: java
 ms.custom: seodec18
 ---
 # Using a partitioned graph in Azure Cosmos DB
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 One of the key features of the API for Gremlin in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scaling. The containers can scale independently in terms of storage and throughput. You can create containers in Azure Cosmos DB that can be automatically scaled to store a graph data. The data is automatically balanced based on the specified **partition key**.
 

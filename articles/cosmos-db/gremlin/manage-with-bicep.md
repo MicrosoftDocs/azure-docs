@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for Gremlin resources using Bicep
 
-[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB for Gremlin accounts, databases, and graphs.
 
