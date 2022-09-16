@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use Azure CLI to create a Gremlin serverless account, database, and graph
 
-[!INCLUDE [appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 The script in this article creates an Azure Cosmos DB for Gremlin serverless account, database, and graph.
 

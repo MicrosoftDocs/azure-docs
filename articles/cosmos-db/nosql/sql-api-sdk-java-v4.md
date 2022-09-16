@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Azure Cosmos DB Java SDK v4 for API for NoSQL: release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 The Azure Cosmos DB Java SDK v4 for NoSQL combines an Async API and a Sync API into one Maven artifact. The v4 SDK brings enhanced performance, new API features, and Async support based on Project Reactor and the [Netty library](https://netty.io/). Users can expect improved performance with Azure Cosmos DB Java SDK v4 versus the [Azure Cosmos DB Async Java SDK v2](sql-api-sdk-async-java.md) and the [Azure Cosmos DB Sync Java SDK v2](sql-api-sdk-java.md).
 

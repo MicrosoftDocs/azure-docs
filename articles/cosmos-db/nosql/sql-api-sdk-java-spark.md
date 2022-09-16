@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Azure Cosmos DB Apache Spark 2 OLTP Connector for API for NoSQL: Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark 2 OLTP Connector for NoSQL. The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
 

@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create an Azure Cosmos DB Cassandra API account, keyspace and table using Azure CLI
 
-[!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 The script in this article demonstrates creating an Azure Cosmos DB account, keyspace, and table for API for Cassandra.
 

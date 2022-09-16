@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 # .NET bulk executor library: Download information (Legacy)
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 | | Link/notes |
 |---|---|

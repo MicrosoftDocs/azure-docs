@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Azure Cosmos DB Java SDK for API for NoSQL (legacy): Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which supports synchronous operations.
 

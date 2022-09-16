@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 **Azure Cosmos DB OLTP Spark connector** provides Apache Spark support for Azure Cosmos DB using the API for NoSQL. Azure Cosmos DB is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 

@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use Azure CLI to create a API for Gremlin account, database, and graph with autoscale
 
-[!INCLUDE [appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 The script in this article creates an Azure Cosmos DB for Gremlin account, database, and graph with autoscale.
 

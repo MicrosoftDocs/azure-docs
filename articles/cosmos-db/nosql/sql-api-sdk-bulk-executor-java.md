@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Java bulk executor library: Download information
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 > [!IMPORTANT] 
 > This is *not* the latest Java Bulk Executor for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](bulk-executor-java.md) for performing bulk operations. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
