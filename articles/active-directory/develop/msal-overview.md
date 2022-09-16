@@ -19,11 +19,11 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 # Overview of the Microsoft Authentication Library (MSAL)
 The Microsoft Authentication Library (MSAL) enables developers to acquire [security tokens](developer-glossary.md#security-token) from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
-MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
+MSAL gives you many ways to get tokens, with a consistent API for many platforms. Using MSAL provides the following benefits:
 
 * No need to directly use the OAuth libraries or code against the protocol in your application.
 * Acquires tokens on behalf of a user or application (when applicable to the platform).
-* Maintains a token cache and refreshes tokens for you when they are close to expire. You don't need to handle token expiration on your own.
+* Maintains a token cache and refreshes tokens for you when they're close to expiring. You don't need to handle token expiration on your own.
 * Helps you specify which audience you want your application to sign in (your org, several orgs, work, and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign, and national clouds).
 * Helps you set up your application from configuration files.
 * Helps you troubleshoot your app by exposing actionable exceptions, logging, and telemetry.
@@ -31,7 +31,7 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 > [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
 
 ## Application types and scenarios
-Using MSAL, a token can be acquired for a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
+Using MSAL, a token can be acquired for many application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
 
 MSAL can be used in many application scenarios, including the following:
 
