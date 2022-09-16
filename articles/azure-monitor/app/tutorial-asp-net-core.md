@@ -139,7 +139,7 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
 
 3. Select the **Browse** tab and then search for and select **Microsoft.ApplicationInsights.AspNetCore**. Select **Install**, and accept the license terms. It is recommended you use the latest stable version. For the full release notes for the SDK, see the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
-    :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
    Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.
 :::image-end:::
 
@@ -241,7 +241,7 @@ After you deploy the web application code, telemetry will flow to Application In
 
 3. To generate some telemetry, follow these steps in the web application to add a review.
 
-   1. To view a cafe's menu and reviews, elect **Details** next to a cafe.
+   1. To view a cafe's menu and reviews, select **Details** next to a cafe.
 
         :::image type="content" source="media/tutorial-asp-net-core/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list in the Azure Cafe web application with the Details button highlighted." lightbox="media/tutorial-asp-net-core/cafe-details-button.png":::
 
