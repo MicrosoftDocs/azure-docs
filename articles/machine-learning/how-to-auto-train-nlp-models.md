@@ -81,7 +81,7 @@ Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2 (pr
 Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2 (preview): `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
 Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2 (preview): `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents.
 
-##Thresholding
+## Thresholding
 
 Thresholding is the multi-label feature that allows users to pick the threshold above which the predicted probabilities will lead to a positive label. Lower values allow for more labels, which is better when users care more about recall, but this option could lead to more false positives. Higher values allow fewer labels and hence better for users who care about precision, but this option could lead to more false negatives.
 
