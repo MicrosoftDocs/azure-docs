@@ -54,10 +54,14 @@ Navigate to your Microsoft Energy Data Services Preview *Overview* page on Azure
 #### 5. Find the `data-partition-id` for your group
 You have two ways to get the list of data-partitions in your Microsoft Energy Data Services Preview instance. 
 - By navigating *Data Partitions* menu-item under the Advanced section of your Microsoft Energy Data Services Preview UI.
-- By clicking on the *view* below the *data partitions* field in the essentials pane of your Microsoft Energy Data Services Preview *Overview* page. 
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance.":::
 
+- By clicking on the *view* below the *data partitions* field in the essentials pane of your Microsoft Energy Data Services Preview *Overview* page. 
+
+:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance overview page.":::
+
+:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance overview page with the data partitions.":::
 ## 2. Generate access token
 
 You need to generate access token to use entitlements API. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the pre-requisites step.
