@@ -157,9 +157,15 @@
         - name: using the API
           href: customize-language-model-with-api.md
   - name: Embed widgets into your application
-    href: video-indexer-embed-widgets.md      
-  - name: Logic Apps connector
-    href: logic-apps-connector-tutorial.md
+    href: video-indexer-embed-widgets.md  
+  - name: Logic Apps connector 
+    items:
+    - name: with ARM-based AVI accounts
+      displayName: Logic Apps connector, ARM
+      href: logic-apps-connector-arm-accounts.md    
+    - name: with classic-based AVI accounts
+      displayName: Logic Apps connector, classic
+      href: logic-apps-connector-tutorial.md
   - name: Use live stream analysis
     href: live-stream-analysis.md
   - name: Monitor Video Indexer
