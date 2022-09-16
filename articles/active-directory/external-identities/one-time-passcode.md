@@ -24,7 +24,7 @@ The email one-time passcode feature is a way to authenticate B2B collaboration u
 
 > [!IMPORTANT]
 >
-> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will be prompted to create a Microsoft account instead.
+> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#enable-or-disable-email-one-time-passcodes), in which case users will be prompted to create a Microsoft account instead.
 
 ## Sign-in endpoints
 
