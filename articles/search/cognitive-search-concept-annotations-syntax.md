@@ -41,12 +41,12 @@ Paths are specified in the "context" and "source" properties of a skillset, and 
 
 All paths start with `/document`. An enriched document is created in the "document cracking" stage of indexer execution, when the indexer opens a document or reads in a row from the data source. Initially, the only node in an enriched document is the [root node (`/document`)](cognitive-search-skill-annotation-language.md#document-root), and it's the node from which all other enrichments occur. 
 
-The following list identifies several well-known paths for context, which varies depending on the type of data source you're using:
+The following list includes several common examples:
 
 + `/document` is the root node and indicates an entire blob in Azure Storage, or a row in a SQL table.
-+ `/document/{key}` is the syntax for a document or item in a Cosmos DB collection, where `{key}` is the actual key, such as "HotelId" in the previous example.
-+ `/document/content` is the "content" property of a JSON blob. 
-+ `/document/{field}` is the syntax for an operation that's performed on a specific field, such as the "/document/Description" field in the previous example.
++ `/document/{key}` is the syntax for a document or item in a Cosmos DB collection, where `{key}` is the actual key, such as `/document/HotelId` in the previous example.
++ `/document/content` specifies the "content" property of a JSON blob. 
++ `/document/{field}` is the syntax for an operation performed on a specific field, such as translating the `/document/Description` field, seen in the previous example.
 + `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing. If "context" is `/document/pages/*`, the skill executes once over each page in the document. Because there might be more than one page or sentence, you'll append `/*` to catch them all.
 + `/document/normalized_images/*` is created during document cracking if the document contains images. All paths to images start with normalized_images. Since there are often multiple images embedded in a document, append `/*`.
 
