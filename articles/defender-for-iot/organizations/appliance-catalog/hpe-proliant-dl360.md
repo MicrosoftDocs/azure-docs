@@ -131,7 +131,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 **To configure the HPE BIOS**:
 > [!IMPORTANT]
-> Please make sure your server is using the HPE SPP (BIOS version) 2022.03.1 or later.
+> Please make sure your server is using the HPE SPP 2022.03.1 (BIOS version U32 v2.6.2) or later.
 
 1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
 
