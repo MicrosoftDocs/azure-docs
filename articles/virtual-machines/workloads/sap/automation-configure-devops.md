@@ -312,19 +312,19 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | Variable                        | Value                                                              | Notes                                                    |
 | ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
 | Agent                           | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID                   | Enter the Service principal application ID.                        |                                                          |
-| ARM_CLIENT_SECRET               | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID             | Enter the target subscription ID.                                  |                                                          |
-| ARM_TENANT_ID                   | Enter the Tenant ID for the service principal.                     |                                                          |
+| ARM_CLIENT_ID                   | 'Service principal application ID'.                                |                                                          |
+| ARM_CLIENT_SECRET               | 'Service principal password'.                                      | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID             | 'Target subscription ID'.                                          |                                                          |
+| ARM_TENANT_ID                   | 'Tenant ID' for the service principal.                             |                                                          |
 | AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
 | sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
-| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments using a service principal for fencing agent.               |
-| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments using a service principal for fencing agent.               |
-| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments using a service principal for fencing agent.               |
-| `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
-| `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
-| APP_REGISTRATION_APP_ID         | App registration application ID                                    | Required if deploying the web app                        |
-| WEB_APP_CLIENT_SECRET           | App registration password                                          | Required if deploying the web app                        |
+| FENCING_SPN_ID                  | 'Service principal application ID' for the fencing agent.          | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_PWD                 | 'Service principal password' for the fencing agent.                | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_TENANT              | 'Service principal tenant ID' for the fencing agent.               | Required for highly available deployments using a service principal for fencing agent.               |
+| PAT                             | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous step      |
+| POOL                            | `<Agent Pool name>`                                                | The Agent pool to use for this environment               |
+| APP_REGISTRATION_APP_ID         | 'App registration application ID'                                  | Required if deploying the web app                        |
+| WEB_APP_CLIENT_SECRET           | 'App registration password'                                        | Required if deploying the web app                        |
 
 Save the variables.
 
