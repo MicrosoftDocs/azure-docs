@@ -47,26 +47,32 @@ You can assign a built-in role definition or a custom role definition.
 
 For more information about role definitions, see [Understand role definitions](role-definitions.md).
 
+## Principal
+
+Principals include users, security groups, managed identities, workload identities, and service principals. Principals are created and managed in your Azure Active Directory (Azure AD) tenant. You can assign a role to any principal. Use the Azure AD *object ID* to identify the principal that you want to assign the role to.
+
+When you create a role assignment by using Azure PowerShell, the Azure CLI, Bicep, or another infrastructure as code (IaC) technology, you specify the *principal type*. Principal types include *User*, *Group*, and *ServicePrincipal*. It's important to specify the correct principal type. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
+
 ## Name
 
-TODO
+A role assignment's resource name must be a globally unique identifier (GUID).
+
+Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
 
 > [!TIP]
 > When you create a role assignment by using the Azure portal, Azure PowerShell, or the Azure CLI, the creation process gives the role assignment a unique name for you automatically.
 >
 > If you create a role assignment by using Bicep or another infrastructure as code (IaC) technology, you need to carefully plan how you name your role assignments. For more information, see [Create Azure RBAC resources by using Bicep](../azure-resource-manager/bicep/scenarios-rbac.md).
 
-## Principal
+### Resource deletion behavior
 
-TODO
+When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+
+Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment.
 
 ## Description
 
-TODO
-
-## Resource deletion behavior
-
-TODO
+You can add a text description to a role assignment. While descriptions are optional, it's a good practice to add them to your role assignments. Provide a short justification for why the principal needs the assigned role. When you or your organization audit the role assignments, descriptions can help to understand why they've been created and whether they're still applicable.
 
 ## Next steps
 
