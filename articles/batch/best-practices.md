@@ -42,7 +42,7 @@ For the purposes of isolation, if your scenario requires isolating jobs or tasks
 
 #### Node agent updates
 
-Node agents are not automatically upgraded for pools that have non-zero compute nodes in them. In order to ensure your Batch pools receive the latest security fixes and updates on the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It is recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand when new Batch node agents are released to plan for these scaling or recreate operations to update to the latest agent version.
+Node agents are not automatically upgraded for pools that have non-zero compute nodes. In order to ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It is recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions and when they were released so that you can plan to upgrade to the latest agent version.
 
 Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you are experiencing issues with your Batch pool or compute nodes, as discussed in the [Nodes](#nodes) section.
 
