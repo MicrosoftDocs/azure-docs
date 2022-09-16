@@ -26,6 +26,9 @@ In each iteration, a rolling deployment replaces instances of an application's p
 
 Using **Continuous-delivery**, you can configure rolling updates to your virtual machines within the Azure portal.
 
+[!IMPORTANT] Virtual Machine's Continuous delivery setting will be retired on March 31, 2023. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-devops-azure-pipelines-classic?source=recommendations#retirement)
+
+
 1. Sign in to [Azure portal](https://portal.azure.com/) and navigate to a virtual machine.
 
 1. Select **Continuous delivery**, and then select **Configure**.
@@ -75,3 +78,28 @@ Using **Continuous-delivery**, you can configure rolling updates to your virtual
 
 - [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 - [Configure the blue-green deployment strategy](./tutorial-azure-devops-blue-green-strategy.md)
+
+## Retirement
+
+Continuous delivery setting of Virtual Machines will be retired on March 31, 2023. Please switch to directly using Azure DevOps to create customized pipelines for deployment to Azure VMs. Release pipeline [Stage Templates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/env-templates?view=azure-devops) and [Deployments Groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) are features in Azure DevOps that provide similar experience to customers.
+
+### Migration Steps
+
+There is no migration required as VM CD experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure and Azure DevOps. Users will still be able to perform all operations from Azure DevOps portal even after the retirement of this experience. Only the ability to create and view pipelines from Azure portal will be removed. 
+
+### FAQ
+
+1. Where can I set up my CD pipeline after this experience is deprecated?  
+
+    Post retirement, you will not be able to view or create Azure DevOps pipelines from Azure portal Virtual Machine blade. However, as with the current experience, you can go to Azure DevOps portal and view/update the configured pipelines and leverage all the advanced capabilities provided by Azure DevOps. 
+
+2. Will I lose my earlier configured pipelines? 
+
+    No.  All the created pipelines will still be available and functional in Azure DevOps portal. Only the experience of creating/viewing the Azure DevOps pipeline from Azure portal will be retired. 
+
+ 
+3. How can I configure different deployment strategies? 
+
+    The current experience leverages [deployment groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) to create deployment strategies. You can use the same in Azure DevOps to create customized pipelines as per your requirements. You can also use release pipeline [Stage Templates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/env-templates?view=azure-devops) to have a templatized pipeline stage created. 
+
+
