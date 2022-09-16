@@ -20,11 +20,11 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 
 ## Explanation
 
-Given that Permissions Management is hosted on Azure and you are onboarding your Azure subscriptions to be monitored and managed, setup is simple with few moving parts to configure. Below is what is required to configure onboarding:
+The Permissions Management service is built on Azure, and given you're onboarding your Azure subscriptions to be monitored and managed, setup is simple with few moving parts to configure. Below is what is required to configure onboarding:
 
-1. When your tenant is onboarded, an application is created in the tenant.
-1. This app requires 'reader' permissions on the subscriptions
-1. For controller functionality, the app requires 'User Access Administrator' to create and implement right-size roles
+* When your tenant is onboarded, an application is created in the tenant.
+* This app requires 'reader' permissions on the subscriptions
+* For controller functionality, the app requires 'User Access Administrator' to create and implement right-size roles
 
 ## Prerequisites
 
@@ -42,11 +42,11 @@ To add Permissions Management to your Azure AD tenant:
 
 ### 1. Add Azure subscription details
 
-Choose from 3 options to manage Azure subscriptions. 
+Choose from three options to manage Azure subscriptions. 
 
 #### Option 1: Automatically manage 
 
-This option allows subscriptions to be automatically detected and monitored without extra configuration.A key benefit of automatic management is that any current or future subscriptions found get onboarded automatically. Steps to detect list of subscriptions and onboard for collection:  
+This option allows subscriptions to be automatically detected and monitored without further work required. A key benefit of automatic management is that any current or future subscriptions found will be onboarded automatically. The steps to detect a list of subscriptions and onboard for collection are as follows:  
 
 - Firstly, grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription scope. To do this:  
 
@@ -70,13 +70,13 @@ To view status of onboarding after saving the configuration:
 
 You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
-1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for this subscription. 
+1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for the subscription. 
 1. In the EPM portal, click the cog on the top right-hand side. 
 1. Navigate to data collectors tab 
 1. Ensure 'Azure' is selected
 1. Click ‘Create Configuration’ 
 1. Select ‘Enter Authorization Systems’ 
-1. Under the Subscription IDs section, enter a desired subscription ID into the input box. Click the “+” up to 9 additional times, putting a single subscription ID into each respective input box. 
+1. Under the Subscription IDs section, enter a desired subscription ID into the input box. Click the “+” up to nine extra times, putting a single subscription ID into each respective input box. 
 1. Once you have input all of the desired subscriptions, click next 
 1. Click ‘Verify Now & Save’ 
 1. Once the access to read and collect data is verified, collection will begin. 

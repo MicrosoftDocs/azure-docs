@@ -20,14 +20,14 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Pe
 
 ## Explanation
 
-There are several moving parts across AWS and Azure which are required to be configured before onboarding.
+There are several moving parts across AWS and Azure, which are required to be configured before onboarding.
 
-1. An AAD OIDC App
-1. An AWS OIDC account
-1. An (optional) AWS Master account
-1. An (optional) AWS Central logging account
-1. An AWS OIDC role
-1. An AWS Cross Account role assumed by OIDC role
+* An Azure AD OIDC App
+* An AWS OIDC account
+* An (optional) AWS Master account
+* An (optional) AWS Central logging account
+* An AWS OIDC role
+* An AWS Cross Account role assumed by OIDC role
  
 
 <!-- diagram from gargi -->
@@ -113,15 +113,15 @@ There are several moving parts across AWS and Azure which are required to be con
 
 Select **Enable AWS SSO checkbox**, if the AWS account access is configured through AWS SSO. 
 
-Choose from 3 options to manage AWS accounts. 
+Choose from three options to manage AWS accounts. 
 
 #### Option 1: Automatically manage 
 
-Choose this option to automatically detect and add to monitored account list, without additional configuration. Steps to detect list of accounts and onboard for collection: 
+Choose this option to automatically detect and add to the monitored account list, without extra configuration. Steps to detect list of accounts and onboard for collection: 
 
 - Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 
 Any current or future accounts found get onboarded automatically. 
 
@@ -173,7 +173,7 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
 - Deploy Master account CFT (Cloudformation template) which creates organization account role that grants permission to OIDC role created earlier to list accounts, OUs and SCPs. 
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
-- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. This creates a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
+- Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 - Click Verify and Save. 
 - Navigate to newly create Data Collector row under AWSdata collectors. 
 - Click on Status column when the row has “Pending” status 
