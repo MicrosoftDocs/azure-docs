@@ -3042,7 +3042,7 @@ ticks('<timestamp>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Integer | The number of ticks since the specified timestamp |
+| <*ticks-number*> | Integer | The number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001 in the Gregorian calendar since the input timestamp |
 ||||
 
 <a name="toLower"></a>
