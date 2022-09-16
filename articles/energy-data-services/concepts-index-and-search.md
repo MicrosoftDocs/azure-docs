@@ -50,6 +50,8 @@ For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; d
 Reindex API allows users to reindex a kind without reingesting the records via storage API. For detailed information, refer to 
 [Reindex OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]

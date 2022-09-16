@@ -1,11 +1,11 @@
 ---
 title: Microsoft Energy Data Services Preview - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
 description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store. #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
+author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
+ms.author: elhalper #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 12/10/2021
+ms.date: 09/09/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to learn how to use sdutil so that I can load data into the seismic store.
@@ -75,8 +75,8 @@ Install required dependencies:
 
 2. Update three values in `config.yaml`:
   ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
+    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
+    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
     - "refresh_token": "<refresh-token-for-your-env>"
   ```
   
@@ -287,10 +287,10 @@ run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Setup and Usage for Azure Project Oak Forest
+## Setup and usage for Microsoft Energy Data Services
 
 Below steps are for windows subsystem linux - ubuntu 20.04
-Project Oak is using OSDU&trade; M8 Version of sdutil
+Microsoft Energy Data Services instance is using OSDU&trade; M8 Version of sdutil
 
 - Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
 
@@ -318,8 +318,8 @@ Project Oak is using OSDU&trade; M8 Version of sdutil
 
 - You need to Update three values in `config.yaml`:
   ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
+    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
+    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
     - "refresh_token": "<refresh-token-for-your-env>"
   ```
 
@@ -374,7 +374,9 @@ Project Oak is using OSDU&trade; M8 Version of sdutil
   > [!NOTE]
   > Don't use `cp` command to download VDS files. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
+OSDU&trade; is a trademark of The Open Group.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CSV ingestion tutorial](tutorial-csv-ingestion.md)
+> [Tutorial: Steps to interact with Well Delivery DDMS](tutorial-well-delivery-ddms.md)

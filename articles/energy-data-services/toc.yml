@@ -21,6 +21,8 @@
       href: tutorial-manifest-ingestion.md
     - name: Seismic ddms sdutil tutorial
       href: tutorial-seismic-ddms-sdutil.md
+    - name: Seismic ddms tutorial
+      href: tutorial-seismic-ddms.md
     - name: Wellbore ddms tutorial
       href: tutorial-wellbore-ddms.md
     - name: Well delivery ddms tutorial
@@ -67,4 +69,8 @@
     items:
     - name: Data plane
       href: https://microsoft.github.io/meds-samples/
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq-energy-data-services.yml
 

@@ -240,6 +240,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API
@@ -368,6 +370,10 @@
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -514,6 +520,8 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks

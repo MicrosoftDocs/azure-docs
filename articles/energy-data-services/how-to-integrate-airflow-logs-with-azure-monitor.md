@@ -1,6 +1,6 @@
 ---
 title: Integrate airflow logs with Azure Monitor - Microsoft Energy Data Services Preview
-description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics Workspace.
+description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -16,27 +16,29 @@ This article describes how you can start collecting Airflow Logs for your Micros
 
 ## Prerequisites
 
+
 * An existing **Log Analytics Workspace**. 
-    This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](/articles/azure-monitor/logs/quick-create-workspace.md).
+    This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
-* An existing **storage account**. 
-    It will be used to store JSON dumps of Airflow logs. The storage account doesn’t have to be in the same subscription as your Log Analytics Workspace. 
+
+* An existing **storage account**:
+    It will be used to store JSON dumps of Airflow logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. 
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Microsoft Energy Data instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Microsoft Energy Data Services instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
-* Log Analytics Workspace
+* Log Analytics workspace
 
 To access logs via any of the above two options, you need to create a Diagnostic Setting. Each Diagnostic Setting has three basic parts:
 
 | Title | Description |
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
-| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](/articles/azure-monitor/essentials/resource-logs-categories.md) |
-| Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hub namespace or an Event Hub. |
+| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
+| Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hubs namespace or an event hub. |
 
 Follow the following steps to set up Diagnostic Settings:
 
@@ -80,9 +82,8 @@ You can integrate Airflow logs with Log Analytics Workspace by using **Diagnosti
 
 ## Working with the integrated Airflow Logs in Log Analytics Workspace
 
-Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started. Visit: [Sample Kusto Queries](/articles/data-explorer/kusto/query/samples?pivots=azuredataexplorer.md)
+Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started.
 
-Browse through the available queries. Identify one to run and select Run. The query is added to the query window and the results returned.
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)
 
@@ -98,4 +99,4 @@ Browse through the available queries. Identify one to run and select Run. The qu
 Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
 
 > [!div class="nextstepaction"]
-> [Create a log query alert for an Azure resource](/articles/azure-monitor/alerts/tutorial-log-alert.md)
+> [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)

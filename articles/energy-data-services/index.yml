@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft Energy Data Services Preview documentation # < 60 chars
-summary: Microsoft Energy Data Services is an enterprise-grade, OSDU&trade;-ready data platform developed in collaboration with Schlumberger (SLB). Customers can not only run their large-scale simulations on the cloud for the first time, but also start to connect previously disparate parts of their business from wells, subsurface, and production. Any industry ISV can leverage the offering to also bring their domain software to Microsoft. The platform will be delivered as a first-party managed Microsoft PaaS offering, adding significant new features and capabilities over the OSDU&trade; community code. As a first-party Azure service, the platform will offer all the Enterprise promises like Security, Privacy, Compliance, SLAs, and Disaster Recovery as expected by our customers. The platform will incorporate innovative scalable data ingestion capabilities, unified AI templates, domain services, etc., and bring the power of the rest of Microsoft technologies to help our customers achieve more with their data.  # < 160 chars
+title: Microsoft Energy Data Services (Preview) documentation # < 60 chars
+summary: Microsoft Energy Data Services (Preview) is an open, secure, reliable, and a fully managed cloud based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise.
 
 metadata:
   title: Microsoft Energy Data Services Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -18,15 +18,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Microsoft Energy Data Services Preview
+  - title: About Microsoft Energy Data Services (Preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Energy Data Services Preview?
+          - text: What is Microsoft Energy Data Services (Preview)?
             url: overview-microsoft-energy-data-services.md
       - linkListType: quickstart
         links:
-          - text: Create a Microsoft Energy Data Services instance
+          - text: Create a Microsoft Energy Data Services (Preview) instance
             url: quickstart-create-microsoft-energy-data-services-instance.md
       - linkListType: tutorial
         links:
@@ -56,6 +56,8 @@ landingContent:
         links:
           - text: Seismic ddms sdutil tutorial
             url: tutorial-seismic-ddms-sdutil.md
+          - text: Seismic ddms tutorial
+            url: tutorial-seismic-ddms.md
           - text: Wellbore ddms tutorial
             url: tutorial-wellbore-ddms.md
           - text: Well delivery ddms tutorial
@@ -73,7 +75,7 @@ landingContent:
           - text: How to manage users
             url: how-to-manage-users.md
           - text: How to manage legal tags
-            url: how-to-manage-users.md
+            url: how-to-manage-legal-tags.md
           - text: How to add more data partitions
             url: how-to-add-more-data-partitions.md
           - text: How to generate a refresh token

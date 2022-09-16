@@ -29,12 +29,12 @@ In this tutorial, you'll learn how to:
 ```Table
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
   | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
-  | base_uri           | URI                      | bseloak.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+  | base_uri           | URI                      | <instance>.energy.azure.com              |
+  | data-partition-id  | Data Partition(s)        | <instance>-<data-partition-name>                       |
 ```
 
 ### How to set up Postman
@@ -91,4 +91,4 @@ Completion of the above steps indicates successful creation and retrieval of wel
 ## See also
 Advance to the next tutorial to learn how to use sdutil to load seismic data into seismic store
 > [!div class="nextstepaction"]
-> [Seismic DMS sdutil tutorial](/articles/energy-data-services/tutorial-seismic-ddms-sdutil.md)
+> [Tutorial: Sample steps to interact with Wellbore ddms](tutorial-wellbore-ddms.md)
