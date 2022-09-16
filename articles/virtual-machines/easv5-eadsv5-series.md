@@ -87,7 +87,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md). <br>
-- <sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112iads_v5** results in higher IOPs and MBps than standard premium disks:
+<sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112iads_v5** results in higher IOPs and MBps than standard premium disks:
 - Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/2000 
 - Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/2000
 
