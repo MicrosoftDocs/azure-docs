@@ -39,14 +39,14 @@ All group identifiers (emails) will be of form {groupType}.{serviceName|resource
 
 The OSDU&trade; Data Ecosystem user groups provide an abstraction from permission and user management and--without a user creating their own groups--the following user groups exist by default:
 
-- **users.datalake.viewers**: viewer level authorization for OSDU&trade; Data Ecosystem services.
-- **users.datalake.editors**: editor level authorization for OSDU&trade; Data Ecosystem services and authorization to create the data using OSDU&trade; Data Ecosystem storage service.
-- **users.datalake.admins**: admin level authorization for OSDU&trade; Data Ecosystem services.
+- **users.datalake.viewers**: viewer level authorization for OSDU Data Ecosystem services.
+- **users.datalake.editors**: editor level authorization for OSDU Data Ecosystem services and authorization to create the data using OSDU&trade; Data Ecosystem storage service.
+- **users.datalake.admins**: admin level authorization for OSDU Data Ecosystem services.
 
-A full list of all API endpoints for entitlements can be found in [OSDU&trade; entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). We have provided few illustrations below. Depending on the resources you have, you need to use the entitlements service in different ways than what is shown below. [Entitlement permissions](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#permissions) on the endpoints and the corresponding minimum level of permissions required.
+A full list of all API endpoints for entitlements can be found in [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). We have provided few illustrations below. Depending on the resources you have, you need to use the entitlements service in different ways than what is shown below. [Entitlement permissions](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#permissions) on the endpoints and the corresponding minimum level of permissions required.
 
 > [!NOTE]
-> The OSDU&trade; documentation refers to V1 endpoints, but the scripts noted in this documentation refers to V2 endpoints, which work and have been successfully validated
+> The OSDU documentation refers to V1 endpoints, but the scripts noted in this documentation refers to V2 endpoints, which work and have been successfully validated
 
 OSDU&trade; is a trademark of The Open Group.
 
