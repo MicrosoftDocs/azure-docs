@@ -11,7 +11,7 @@ ms.date: 09/16/2022
 ---
 # Reference an annotation in an Azure Cognitive Search skillset
 
-In this article, you'll learn how to reference *annotations* (or an enrichment node) in skill definitions, using examples to illustrate various scenarios. Skills read inputs and write outputs to nodes in an [enriched document](cognitive-search-working-with-skillsets#enrichment-tree) tree, building the tree as the enrichments progress. Any node can be used as an input for further downstream enrichment, or mapped to an output field in an index. This article introduces the syntax and provides examples for specifying a path. For the full syntax, see [Skill context and input annotation language language](cognitive-search-skill-annotation-language.md).
+In this article, you'll learn how to reference *annotations* (or an enrichment node) in skill definitions, using examples to illustrate various scenarios. Skills read inputs and write outputs to nodes in an [enriched document](cognitive-search-working-with-skillsets.md#enrichment-tree) tree, building the tree as the enrichments progress. Any node can be used as an input for further downstream enrichment, or mapped to an output field in an index. This article introduces the syntax and provides examples for specifying a path. For the full syntax, see [Skill context and input annotation language language](cognitive-search-skill-annotation-language.md).
 
 Paths to an annotation are specified in the "context" and "source" properties:
 
