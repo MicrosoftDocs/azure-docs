@@ -82,7 +82,7 @@ You can delete a dev box pool when you're no longer using it.
  
    :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete.png" alt-text="Screenshot of the list of existing dev box pools, with the one to be deleted selected.":::
 
-1.  in the confirmation message, select **Confirm**.
+1.  In the confirmation message, select **Confirm**.
 
     :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete-confirm.png" alt-text="Screenshot of the Delete dev box pool confirmation message.":::
 
