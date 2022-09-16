@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 05/17/2022
 
 ---
+# Configure data persistence for a Premium Azure Cache for Redis instance
+
+[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data. If there's a hardware failure, you load the data. The ability to persist data is a huge advantage over the Basic or Standard tiers where all the data is stored in memory. Data loss is possible if a failure occurs where Cache nodes are down.
+
 > [!IMPORTANT]
 >
 > Check to see if your storage account has soft delete enabled before using hte data persistence feature. Using data persistence with soft delete will cause very high storage costs. For more information, see For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 > 
-# Configure data persistence for a Premium Azure Cache for Redis instance
-
-[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data. If there's a hardware failure, you load the data. The ability to persist data is a huge advantage over the Basic or Standard tiers where all the data is stored in memory. Data loss is possible if a failure occurs where Cache nodes are down.
 
 Azure Cache for Redis offers Redis persistence using the Redis database (RDB) and Append only File (AOF):
 
