@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
 
 # Use system-assigned managed identities to access Azure Cosmos DB data
 
-[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) and [data plane role-based access control](how-to-setup-rbac.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities.
 
