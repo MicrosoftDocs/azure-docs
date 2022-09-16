@@ -18,7 +18,7 @@ Role assignments enable you to grant a principal (such as a user, a group, a man
 
 Access to Azure resources is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
-A Role assignment has several components, including:
+A role assignment has several components, including:
 
 - The *principal*, or *who* is assigned the role.
 - The *role definition* that they're assigned.
@@ -79,7 +79,7 @@ The following table describes what the role assignment properties mean.
 | `RoleAssignmentId`<br />`id` | The unique ID of the role assignment, which includes the name. |
 | `Scope`<br />`scope` | The Azure resource identifier that the role assignment is scoped to. |
 | `RoleDefinitionId`<br />`roleDefinitionId` | The unique ID of the role. |
-| `RoleDefinitionName`<br />``roleDefinitionName` | The name of the role. |
+| `RoleDefinitionName`<br />`roleDefinitionName` | The name of the role. |
 | `ObjectId`<br />`principalId` | The Azure Active Directory (Azure AD) object identifier for the principal who has the role assigned. |
 | `ObjectType`<br />`principalType` | The type of Azure AD object that the principal represents. |
 | `DisplayName` | For role assignments for users, the display name of the user. |
@@ -118,7 +118,7 @@ When you create a role assignment by using Azure PowerShell, the Azure CLI, Bice
 
 A role assignment's resource name must be a globally unique identifier (GUID).
 
-Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
+Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope of the role assignment is narrower.
 
 > [!TIP]
 > When you create a role assignment by using the Azure portal, Azure PowerShell, or the Azure CLI, the creation process gives the role assignment a unique name for you automatically.
@@ -133,7 +133,7 @@ Any role assignments that refer to a deleted principal ID become invalid. If you
 
 ## Description
 
-You can add a text description to a role assignment. While descriptions are optional, it's a good practice to add them to your role assignments. Provide a short justification for why the principal needs the assigned role. When you or your organization audit the role assignments, descriptions can help to understand why they've been created and whether they're still applicable.
+You can add a text description to a role assignment. While descriptions are optional, it's a good practice to add them to your role assignments. Provide a short justification for why the principal needs the assigned role. When somebody audits the role assignments, descriptions can help to understand why they've been created and whether they're still applicable.
 
 ## Next steps
 
