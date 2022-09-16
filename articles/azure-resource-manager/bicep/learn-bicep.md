@@ -2,14 +2,14 @@
 title: Learn modules for Bicep
 description: Provides an overview of the Learn modules for Bicep.
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 09/05/2022
 ---
 # Learn modules for Bicep
 
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses.
 
 > [!TIP]
-> Want to learn Bicep live from subject matter experts? [Learn Live with our experts every Tuesday (Pacific time) beginning March 8, 2022.](/events/learntv/learnlive-iac-and-bicep/)
+> Want to learn Bicep live from subject matter experts? [Follow on-demand Learn Live sessions with our experts.](/events/learntv/learnlive-iac-and-bicep/)
 
 ## Get started
 

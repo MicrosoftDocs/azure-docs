@@ -52,13 +52,15 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
     ![Screenshot that shows how to Export HAR on the Network tab.](media/capture-browser-trace/chromium-network-export-har.png)
 
-1. Stop Steps Recorder, and save the recording.
+1. Stop the Steps Recorder and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
     ![Screenshot that shows how to save the console output.](media/capture-browser-trace/chromium-console-select.png)
 
-1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
+
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Safari
 
@@ -110,7 +112,9 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
     ![Screenshot that shows where you can view and copy the console output.](media/capture-browser-trace/safari-console-select.png)
 
-1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
+
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Firefox
 
@@ -146,13 +150,15 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
     ![Screenshot of the "Save All As HAR" command on the Network tab.](media/capture-browser-trace/firefox-network-export-har.png)
 
-1. Stop Steps Recorder on Windows or the screen recording on Mac, and save the recording.
+1. Stop the Steps Recorder on Windows or the screen recording on Mac, and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save All Messages to File**, and save the console output to a text file.
 
    :::image type="content" source="media/capture-browser-trace/firefox-console-select.png" alt-text="Screenshot of the Save All Messages to File command on the Console tab.":::
 
-1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
+
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Next steps
 

@@ -8,6 +8,8 @@
   - name: How-to guides
     expanded: true
     items:
+    - name: Trial Playbook - Microsoft Entra Permissions Management
+      href: permissions-management-trial-playbook.md  
     - name: Onboard Permissions Management on the Azure AD tenant
       expanded: true
       items:
