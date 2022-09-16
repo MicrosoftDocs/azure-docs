@@ -89,38 +89,52 @@ az rest --method put --url "/subscriptions/subscriptionID/resourceGroups/resourc
 
 ## Deploy the workload
 
-To update or deploy the workload, you add the following annotation in the pod, and then update the pod with the annotation by performing the following steps. 
+To update or deploy the workload, you add the following [annotation][pod-annotations] in the pod that injects the init container and proxy sidecar:
 
-Run the following to deploy a pod that references the service account created in the previous step.
+* `azure.workload.identity/inject-proxy-sidecar`
+* `azure.workload.identity/proxy-sidecar-port`
 
-```azurecli
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
- kind: Pod
- metadata:
-   name: quick-start
-   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
-   annotations:
-     azure.workload.identity/inject-proxy-sidecar: true
- spec:
-   serviceAccountName: ${SERVICE_ACCOUNT_NAME}
-   containers:
-     - image: ghcr.io/azure/azure-workload-identity/msal-go
-       name: oidc
-       env:
-       - name: KEYVAULT_NAME
-         value: ${KEYVAULT_NAME}
-       - name: SECRET_NAME
-         value: ${KEYVAULT_SECRET_NAME}
-   nodeSelector:
-     kubernetes.io/os: linux
- EOF
-```
+Update the pod with the annotation by performing the following steps.
 
-The following output resembles successful creation of the pod:
+1. Run the following to deploy a pod that references the service account created in the previous step.
 
-```output
-Pod/quick-start created
-```
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+     kind: Pod
+     metadata:
+       name: quick-start
+       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+       annotations:
+         azure.workload.identity/inject-proxy-sidecar: true
+         azure.workload.identity/proxy-sidecar-port: 8080
+     spec:
+       serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+       containers:
+         - image: ghcr.io/azure/azure-workload-identity/msal-go
+           name: oidc
+           env:
+           - name: KEYVAULT_NAME
+             value: ${KEYVAULT_NAME}
+           - name: SECRET_NAME
+             value: ${KEYVAULT_SECRET_NAME}
+       nodeSelector:
+         kubernetes.io/os: linux
+     EOF
+    ```
+    
+    The following output resembles successful creation of the pod:
+    
+    ```output
+    Pod/quick-start created
+    ```
 
 ## Next steps
+
+<!-- INTERNAL LINKS -->
+[pod-annotations]: workload-identity-overview.md#service-account-labels-and-annotations
+[create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-account-set]: /cli/azure/account#az-account-set
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-rest]: /cli/azure/reference-index#az-rest

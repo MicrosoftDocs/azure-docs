@@ -205,7 +205,7 @@ az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESO
 
 Run the following to deploy a pod that references the service account created in the previous step.
 
-```azurecli
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
  kind: Pod
