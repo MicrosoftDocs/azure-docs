@@ -1370,6 +1370,13 @@ productDirectory:
       azureCategories:
         - networking
       url: private-5g-core/index.yml
+      # Card
+    - title: Azure Communications Gateway
+      summary: Deliver Microsoft Teams Operator Connect and Teams Phone Mobile services with your Telecoms Network
+      imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
+      azureCategories:
+        - networking
+      url: azure-communications-gateway/index.yml
     # Card
     - title: Load Balancer
       summary: Deliver high availability and network performance to your applications
