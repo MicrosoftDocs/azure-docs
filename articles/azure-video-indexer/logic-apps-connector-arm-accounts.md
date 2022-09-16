@@ -133,8 +133,7 @@ The following image shows the first flow:
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
 
-    ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
-
+      ![Enable the system assigned managed identity](./media/logic-apps-connector-arm-accounts/enable-system.png)
     1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
 
         In the Azure portal, go to your Azure Video Indexer resource/account.
@@ -221,7 +220,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     
     ![Upload video and index](./media/logic-apps-connector-arm-accounts/get-video-index.png)
         
-    Select **Save** -> **+ New step**.
+     Select **Save** -> **+ New step**.
 1. Create a blob and store the insights JSON.
 
     1. Search for "Azure blob", from the group of actions.
@@ -235,7 +234,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     | Azure Storage Account name| <* The storage account name where insights will be stored*>. |
     | Azure Storage Account Access key| Go to Azure portal-> my-storage-> under **Security + networking** ->Access keys -> copy one of the keys. |  
 
-    ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
+      ![Create blob action](./media/logic-apps-connector-arm-accounts/storage-connection.png)
     1. Select **Create**.
     1. Set the folder in which insights will be stored.
     
@@ -246,7 +245,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     | Blob name| From the dynamic content, under the **Get Video Index** section select **Name** and add `_insights.json`, insights file name will be the video name + insights.json   |
     | Blob content| From the dynamic content, under the **Get Video Index** section, select the **Body**. |
     
-    ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
+      ![Store blob content](./media/logic-apps-connector-arm-accounts/create-blob.png)
     1. Select **Save flow**. 
 1. Update the callback URL to get notified when an index job is finished.
 
@@ -254,7 +253,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
     1. Copy the URL from the trigger. 
 
-    ![Save URL trigger](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
+      ![Save URL trigger](./media/logic-apps-connector-arm-accounts/http-callback-url.png)
     1. Go back to the first flow and paste the URL in the **Upload video and index** action for the **Callback URL parameter**.
  
 Make sure both flows are saved.
