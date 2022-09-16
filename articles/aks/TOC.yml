@@ -190,6 +190,8 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
           href: planned-maintenance.md
+        - name: Planned Maintenance for AKS Weekly Releases (preview)
+          href: aks-planned-maintenance-weekly-releases.md
         - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
