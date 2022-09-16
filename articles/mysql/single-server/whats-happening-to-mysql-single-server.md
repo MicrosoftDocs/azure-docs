@@ -15,7 +15,7 @@ ms.date: 09/15/2022
 
 Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
 
-After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to the Azure Database for MySQL - Flexible Server service. 
+After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server. 
 
 Azure Database for MySQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
 
@@ -25,21 +25,21 @@ However, we know change can be disruptive to any environment, so we want to help
 
 ## Migrate from Single Server to Flexible Server
 
-Learn how to migrate to Azure Database for MySQL Flexible Server using the Azure Database Migration Service (DMS).
+Learn how to migrate from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server using the Azure Database Migration Service (DMS).
 
-| Migration Scenario | Offline or Online | Tool(s) | Details | 
-|--------------------|-------------------|-------|---------|------------------|
-| Single to Flexible Server | Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
-| Single to Flexible Server | Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
+| Scenario | Tool(s) | Details | 
+|----------|---------|---------|
+| Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
+| Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
 
-For more information on migrating from a Single Server to a Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
+For more information on migrating from Single Server to Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
 > [!Warning]
 > This article is not for Azure Database for MySQL - Flexible Server users. It is for Azure Database for MySQL - Single Server customers who need to upgrade to MySQL - Flexible Server.
 
-Visit the **[FAQ](../../dms/faq-mysql-single-to-flex.md)** for information about using the Azure Database Migration Service (DMS) for Azure Database for MySQL single server to flexible server migrations.
+Visit the **[FAQ](../../dms/faq-mysql-single-to-flex.md)** for information about using the Azure Database Migration Service (DMS) for Azure Database for MySQL - Single Server to Flexible Server migrations.
 
-We know migrating services can be a frustrating experience, and we're sorry we're asking you to make this change. You can choose what scenario best works for you and your environment.
+We know migrating services can be a frustrating experience, and we apologize in advance for any inconvenience this might cause you. You can choose what scenario best works for you and your environment.
 
 ## Next steps
 
