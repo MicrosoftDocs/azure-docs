@@ -43,12 +43,6 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## September 2022
 
-### Azure Monitor integration enabling indexing logs 
-
-Azure Video Indexer now supports Diagnostics settings for indexing events. Users can now export Logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
-
-The new set of Logs allows users to better monitor their indexing pipeline.
-
 ### General availability of Azure Resource Management (ARM)
 
 With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
@@ -62,12 +56,6 @@ To create an ARM-based account, see [create an account](create-account-portal.md
 ### New source languages support for STT, translation, and search
 
 Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
-
-For more information, see [supported languages](language-support.md).
-
-### Expanded supported languages in LID and MLID through the API
-
-We expanded the list of the supported languages in LID (language identification) and MLID (multi language identification) using APIs. 
 
 For more information, see [supported languages](language-support.md).
 
