@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2021
+ms.date: 09/16/2022
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
@@ -17,12 +17,12 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
 
 # Overview of the Microsoft Authentication Library (MSAL)
-The Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from the Microsoft identity platform in order to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
+The Microsoft Authentication Library (MSAL) enables developers to acquire [security tokens](developer-glossary.md#security-token) from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 
 * No need to directly use the OAuth libraries or code against the protocol in your application.
-* Acquires tokens on behalf of a user or on behalf of an application (when applicable to the platform).
+* Acquires tokens on behalf of a user or application (when applicable to the platform).
 * Maintains a token cache and refreshes tokens for you when they are close to expire. You don't need to handle token expiration on your own.
 * Helps you specify which audience you want your application to sign in (your org, several orgs, work, and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign, and national clouds).
 * Helps you set up your application from configuration files.
