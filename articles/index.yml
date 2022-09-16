@@ -593,7 +593,7 @@ productDirectory:
         - compute
       url: ./virtual-machines/index.yml
     # Card
-    - title: Azure Container Apps (Preview)
+    - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
       imageSrc: ./media/index/container-apps.svg
       azureCategories:
@@ -830,7 +830,7 @@ productDirectory:
         - devops
       url: load-testing/index.yml
     # Card
-    - title: Azure Managed Grafana (Preview)
+    - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service
       imageSrc: ./media/index/managed-grafana.svg
       azureCategories:
