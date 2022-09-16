@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or container for Azure Cosmos DB for NoSQL
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

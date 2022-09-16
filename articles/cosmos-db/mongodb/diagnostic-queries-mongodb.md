@@ -12,7 +12,7 @@ author: StefArroyo
 
 # Troubleshoot issues with advanced diagnostics queries for the API for MongoDB
 
-[!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](../includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
 > [!div class="op_single_selector"]
 > * [API for NoSQL](../cosmos-db-advanced-queries.md)

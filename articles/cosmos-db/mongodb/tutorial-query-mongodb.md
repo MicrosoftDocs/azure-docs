@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Query data by using Azure Cosmos DB's API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 The [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md) supports [MongoDB queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 

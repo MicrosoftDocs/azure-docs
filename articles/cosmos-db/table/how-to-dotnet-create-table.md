@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Create a table in Azure Cosmos DB for Table using .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 Tables in Azure Cosmos DB for Table are units of management for multiple items. Before you can create or manage items, you must first create a table.
 

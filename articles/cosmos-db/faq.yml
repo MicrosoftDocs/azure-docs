@@ -11,7 +11,7 @@ metadata:
   ms.custom: seodec18
 title: Frequently asked questions about different APIs in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+  [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
   
 sections:
   - name: General FAQ

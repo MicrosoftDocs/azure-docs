@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # PowerShell script to list or get Azure Cosmos DB for Gremlin databases and graphs
 
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 This PowerShell script lists or gets specific Azure Cosmos DB accounts, API for Gremlin databases, and  API for Gremlin graphs.
 

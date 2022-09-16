@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Azure Cosmos DB Attachments
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 

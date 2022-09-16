@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use Azure CLI to create a API for Cassandra account, keyspace, and table with autoscale
 
-[!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 The script in this article creates an Azure Cosmos DB for Apache Cassandra account, keyspace, and table with autoscale.
 

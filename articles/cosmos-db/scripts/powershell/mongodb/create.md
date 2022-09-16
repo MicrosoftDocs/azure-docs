@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a database and collection for Azure Cosmos DB - API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

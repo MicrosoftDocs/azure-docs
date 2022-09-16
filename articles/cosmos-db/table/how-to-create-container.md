@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Create a container in Azure Cosmos DB for Table
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 This article explains the different ways to create a container in Azure Cosmos DB for Table. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 

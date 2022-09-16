@@ -11,7 +11,7 @@ ms.devlang: csharp, java, golang
 ms.custom: devx-track-csharp, devx-track-java, devx-track-golang
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB for Apache Cassandra
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 

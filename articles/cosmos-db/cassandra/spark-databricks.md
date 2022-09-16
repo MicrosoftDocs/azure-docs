@@ -12,7 +12,7 @@ ms.devlang: scala
 ---
 
 # Access Azure Cosmos DB for Apache Cassandra data from Azure Databricks
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 This article details how to work with Azure Cosmos DB for Apache Cassandra from Spark on [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 

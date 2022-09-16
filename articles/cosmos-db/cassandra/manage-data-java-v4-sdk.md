@@ -12,7 +12,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)

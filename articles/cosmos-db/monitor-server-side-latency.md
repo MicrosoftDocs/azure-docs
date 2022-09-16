@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ---
 
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation in two different connection modes. Use server-side latency gateway metric if your request operation is in gateway connectivity mode. Use server-side latency direct metric if your request operation is in direct connectivity mode. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about connection mode, see the [Connectivity modes](sql-sdk-connection-modes.md) article.
 

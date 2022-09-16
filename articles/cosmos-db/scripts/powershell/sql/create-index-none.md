@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a container with indexing turned off in an Azure Cosmos DB account using PowerShell
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

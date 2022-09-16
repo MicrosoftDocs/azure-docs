@@ -11,7 +11,7 @@ ms.date: 02/21/2022
 
 # Create an Azure Cosmos DB account with IP firewall using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates creating an Azure Cosmos DB account with default values and IP Firewall enabled. It uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
 

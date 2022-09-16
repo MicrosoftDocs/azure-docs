@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
+[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB for NoSQL database and container using Azure PowerShell
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

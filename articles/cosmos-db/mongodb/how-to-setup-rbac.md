@@ -9,7 +9,7 @@ ms.author: gahllevy
 ---
 
 # Configure role-based access control for your Azure Cosmos DB for MongoDB (preview)
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article is about role-based access control for data plane operations in Azure Cosmos DB for MongoDB, currently in public preview. 
 

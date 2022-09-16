@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the API for Table
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 The Azure Cosmos DB [API for Table](introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 

@@ -11,7 +11,7 @@ ms.reviewer: thweiss
 ---
 
 # Azure Cosmos DB serverless
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB serverless offering lets you use your Azure Cosmos DB account in a consumption-based fashion. With serverless, you're only charged for the Request Units (RUs) consumed by your database operations and the storage consumed by your data. Serverless containers can serve thousands of requests per second with no minimum charge and no capacity planning required.
 

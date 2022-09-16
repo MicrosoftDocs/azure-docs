@@ -11,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Optimize write performance in Azure Cosmos DB for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Optimizing write performance helps you get the most out of Azure Cosmos DB for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
 

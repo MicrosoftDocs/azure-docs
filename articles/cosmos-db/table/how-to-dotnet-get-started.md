@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Get started with Azure Cosmos DB for Table and .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 This article shows you how to connect to Azure Cosmos DB for Table using the .NET SDK. Once connected, you can perform operations on tables and items.
 

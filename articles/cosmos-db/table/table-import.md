@@ -12,7 +12,7 @@ ms.custom: seodec18
 ---
 
 # Migrate your data to an Azure Cosmos DB for Table account
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 This tutorial provides instructions on importing data for use with the Azure Cosmos DB [API for Table](introduction.md). If you have data stored in Azure Table Storage, you can use the **Data migration tool** to import your data to the Azure Cosmos DB for Table. 
 

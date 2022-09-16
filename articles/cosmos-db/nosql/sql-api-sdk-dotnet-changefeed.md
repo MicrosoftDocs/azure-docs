@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 # .NET Change Feed Processor SDK: Download and release notes (Legacy)
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 |   | Links  |
 |---|---|

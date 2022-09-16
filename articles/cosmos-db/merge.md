@@ -11,7 +11,7 @@ ms.date: 05/09/2022
 ---
 
 # Merge partitions in Azure Cosmos DB (preview)
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number of physical partitions used for your container in place. With merge, containers that are fragmented in throughput (have low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s. Minimizing partitions reduces the chance of rate limiting if a large quantity of data is removed from a container and RU/s per partition is low. Merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
 

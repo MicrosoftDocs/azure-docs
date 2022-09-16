@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create a resource lock for Azure Cosmos DB Cassandra API keyspace and table using Azure CLI
 
-[!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 The script in this article demonstrates preventing resources from being deleted with resource locks.
 

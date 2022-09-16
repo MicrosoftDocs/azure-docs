@@ -11,7 +11,7 @@ ms.custom: template-how-to
 ---
 
 # Monitor and debug with insights in Azure Cosmos DB for Apache Cassandra
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB helps provide insights into your application’s performance using the Azure Monitor API.  Azure Monitor for Azure Cosmos DB provides metrics view to monitor your API for Cassandra Account and create dashboards.
 

@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
 queries for Azure Cosmos DB. For a complete list of Azure Resource Graph samples, see

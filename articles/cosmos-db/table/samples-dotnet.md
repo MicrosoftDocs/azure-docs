@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Examples for Azure Cosmos DB for Table SDK for .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
 >

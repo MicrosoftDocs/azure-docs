@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # List and get tables for Azure Cosmos DB - API for Table
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

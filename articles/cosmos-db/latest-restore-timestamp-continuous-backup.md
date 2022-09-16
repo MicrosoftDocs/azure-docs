@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Latest restorable timestamp for Azure Cosmos DB accounts with continuous backup mode
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB offers an API to get the latest restorable timestamp of a container. This API is available for accounts that have continuous backup mode enabled. Latest restorable timestamp represents the latest timestamp in UTC format up to which your data has been successfully backed up. Using this API, you can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 

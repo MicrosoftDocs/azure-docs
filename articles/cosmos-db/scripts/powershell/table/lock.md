@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB Table API table using Azure PowerShell
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

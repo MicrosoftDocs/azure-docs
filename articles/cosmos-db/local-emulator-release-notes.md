@@ -11,7 +11,7 @@ ms.reviewer: esarroyo
 
 # Azure Cosmos DB Emulator - release notes and download information
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article shows the Azure Cosmos DB Emulator released versions and it details the latest updates. The download center only has the latest version of the emulator available to download.
 

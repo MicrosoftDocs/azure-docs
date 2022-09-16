@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for MongoDB resources using Bicep
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB accounts for API for MongoDB, databases, and collections.
 

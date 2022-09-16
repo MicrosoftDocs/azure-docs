@@ -10,7 +10,7 @@ metadata:
 
 title: Frequently asked questions about partial document update in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+  [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
   Partial Document Update allows you to modify specific properties or fields on an item without the need to perform a full document replace operation. This article answers commonly asked questions about Azure Cosmos DB Partial Document Update.
 

@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q1
 ---
 
 # Troubleshoot issues when using the Azure Cosmos DB Emulator
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the tips in this article to help troubleshoot issues you encounter when installing or using the Azure Cosmos DB Emulator. 
 

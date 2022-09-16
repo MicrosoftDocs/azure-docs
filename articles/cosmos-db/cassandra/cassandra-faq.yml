@@ -10,7 +10,7 @@ metadata:
   ms.author: thvankra
 title: Frequently asked questions about the API for Cassandra in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+  [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
   
   This article describes the functionality differences between Apache Cassandra and API for Cassandra in Azure Cosmos DB. It also provides answers to frequently asked questions about the API for Cassandra in Azure Cosmos DB.
   

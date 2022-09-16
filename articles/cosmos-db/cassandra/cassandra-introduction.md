@@ -11,7 +11,7 @@ ms.date: 11/25/2020
 ---
 
 # Introduction to the Azure Cosmos DB for Apache Cassandra
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB for Apache Cassandra can be used as the data store for apps written for [Apache Cassandra](https://cassandra.apache.org). This means that by using existing [Apache drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver) compliant with CQLv4, your existing Cassandra application can now communicate with the Azure Cosmos DB for Apache Cassandra. In many cases, you can switch from using Apache Cassandra to using Azure Cosmos DB's API for Cassandra, by just changing a connection string. 
 

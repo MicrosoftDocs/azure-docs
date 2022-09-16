@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](dotnet-sdk.md)

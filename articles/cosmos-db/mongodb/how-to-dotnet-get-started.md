@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and .NET Core
-[!INCLUDE[appliesto-mongo-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.
 

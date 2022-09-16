@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a collection in Azure Cosmos DB for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article explains the different ways to create a collection in Azure Cosmos DB for MongoDB. It shows how to create a collection using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a collection, specify the partition key, and provision throughput.
 

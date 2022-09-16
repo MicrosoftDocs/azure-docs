@@ -13,7 +13,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 
 # Quickstart: Build a API for Table app with Java SDK and Azure Cosmos DB
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

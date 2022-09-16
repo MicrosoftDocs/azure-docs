@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Use Azure CLI for resource lock operations on Azure Cosmos DB for Table tables
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 The script in this article demonstrates performing resource lock operations for a API for Table table. 
 

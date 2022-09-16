@@ -10,7 +10,7 @@ ms.date: 01/30/2020
 ms.reviewer: mjbrown
 ---
 # Set up Azure Cosmos DB global distribution using the API for Table
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 This article covers the following tasks: 
 

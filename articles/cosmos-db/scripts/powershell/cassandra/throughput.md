@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Throughput (RU/s) operations with PowerShell for a keyspace or table for Azure Cosmos DB - API for Cassandra
-[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

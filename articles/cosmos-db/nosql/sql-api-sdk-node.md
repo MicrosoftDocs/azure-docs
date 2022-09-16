@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 # Azure Cosmos DB Node.js SDK for API for NoSQL: Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 |Resource  |Link  |
 |---------|---------|

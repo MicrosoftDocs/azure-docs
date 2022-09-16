@@ -12,7 +12,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 ---
 
 # Quickstart: Create a console app with Java and the API for MongoDB in Azure Cosmos DB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

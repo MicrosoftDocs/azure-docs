@@ -10,7 +10,7 @@ ms.author: gahllevy
 ---
 
 # Prevent rate-limiting errors for Azure Cosmos DB for MongoDB operations
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB for MongoDB operations may fail with rate-limiting (16500/429) errors if they exceed a collection's throughput limit (RUs). 
 

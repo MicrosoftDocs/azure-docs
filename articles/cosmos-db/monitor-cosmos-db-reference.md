@@ -11,7 +11,7 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure Cosmos DB data reference
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See the [Monitor Azure Cosmos DB](monitor-cosmos-db.md) article for details on collecting and analyzing monitoring data for Azure Cosmos DB.
 

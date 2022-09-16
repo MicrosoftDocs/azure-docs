@@ -11,7 +11,7 @@ ms.reviewer: thvankra
 ---
 
 # Migrate data from Cassandra to an Azure Cosmos DB for Apache Cassandra account by using Azure Databricks
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 API for Cassandra in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for several reasons:
 

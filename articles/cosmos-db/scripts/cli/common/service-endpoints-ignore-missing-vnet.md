@@ -11,7 +11,7 @@ ms.date: 02/21/2022
 
 # Connect an existing Azure Cosmos DB account with virtual network service endpoints using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates connecting an existing Azure Cosmos DB account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Azure Cosmos DB account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Azure Cosmos DB account is accessible through the configured subnet.
 

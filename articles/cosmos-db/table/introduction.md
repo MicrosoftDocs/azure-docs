@@ -10,7 +10,7 @@ ms.date: 11/03/2021
 
 ---
 # Introduction to Azure Cosmos DB: API for Table
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [Azure Cosmos DB](introduction.md) provides the API for Table for applications that are written for Azure Table storage and that need premium capabilities like:
 

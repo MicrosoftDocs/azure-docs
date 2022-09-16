@@ -12,7 +12,7 @@ ms.devlang: scala
 ---
 
 # Delete data in Azure Cosmos DB for Apache Cassandra tables from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 This article describes how to delete data in Azure Cosmos DB for Apache Cassandra tables from Spark.
 

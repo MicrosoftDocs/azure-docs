@@ -11,7 +11,7 @@ ms.date: 09/14/2020
 ---
 
 # Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB for Apache Cassandra through the Cassandra Query Language (CQL) Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
 

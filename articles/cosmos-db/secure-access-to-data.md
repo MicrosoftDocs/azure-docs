@@ -10,7 +10,7 @@ ms.date: 05/26/2022
 ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 This article provides an overview of data access control in Azure Cosmos DB.
 

@@ -11,7 +11,7 @@ ms.reviewer: abhishgu
 ---
 
 # Migrate data from PostgreSQL to Azure Cosmos DB for Apache Cassandra account using Apache Kafka
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 API for Cassandra in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for various reasons such as:
 

@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 # Create resource lock for an Azure Cosmos DB for NoSQL database and container using Azure CLI
 
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 The script in this article demonstrates performing resource lock operations for a SQL database and container.
 

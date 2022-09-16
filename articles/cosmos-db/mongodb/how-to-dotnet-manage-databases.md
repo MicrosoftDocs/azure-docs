@@ -13,7 +13,7 @@ ms.custom: devx-track-dotnet
 
 # Manage a MongoDB database using .NET
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Your MongoDB server in Azure Cosmos DB is available from the [MongoDB](https://www.nuget.org/packages/MongoDB.Driver) NuGet package.
 

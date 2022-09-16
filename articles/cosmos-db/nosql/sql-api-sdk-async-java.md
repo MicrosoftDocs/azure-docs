@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Azure Cosmos DB Async Java SDK for API for NoSQL (legacy): Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
+[!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
 The API for NoSQL Async Java SDK differs from the API for NoSQL Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [API for NoSQL Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 

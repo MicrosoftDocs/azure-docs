@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Restrict user access to data operations in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Manage a collection in Azure Cosmos DB for MongoDB using JavaScript
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Manage your MongoDB collection stored in Azure Cosmos DB with the native MongoDB client driver.
 

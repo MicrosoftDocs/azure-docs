@@ -10,7 +10,7 @@ ms.author: turao
 ---
 
 # Enable materialized views for Azure Cosmos DB for Apache Cassandra operations (Preview)
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!IMPORTANT]
 > Materialized Views for Azure Cosmos DB for Apache Cassandra is currently in gated preview. Please send an email to mv-preview@microsoft.com to try this feature.

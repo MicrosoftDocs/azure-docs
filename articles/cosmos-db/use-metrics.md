@@ -11,7 +11,7 @@ ms.date: 11/08/2021
 ms.custom: devx-track-csharp
 ---
 # Monitor and debug with insights in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB provides insights for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor-cosmos-db.md) article.
 

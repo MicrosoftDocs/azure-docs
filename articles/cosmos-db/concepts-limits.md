@@ -11,7 +11,7 @@ ms.date: 05/30/2022
 
 # Azure Cosmos DB service quotas
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 

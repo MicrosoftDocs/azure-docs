@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 # Create an Azure Cosmos DB for NoSQL account, database, and container with autoscale
 
-[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
 The script in this article creates an Azure Cosmos DB for NoSQL account, database, and container with autoscale.
 
