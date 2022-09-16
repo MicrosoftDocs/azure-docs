@@ -508,7 +508,32 @@ You can automatically end poorly performing runs with an early termination polic
 
 Learn more about [how to configure the early termination policy for your hyperparameter sweep.](how-to-tune-hyperparameters.md#early-termination) 
 
-Resources for the sweep or Fixed settings [Set up AutoML for computer vision](how-to-auto-train-image-models.md#resources-for-the-sweep)
+### Resources for the sweep
+
+You can control the resources spent on your hyperparameter sweep by specifying the `max_trials` and the `max_concurrent_trials` for the sweep.
+
+Parameter | Detail
+-----|----
+`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
+
+You can configure all the sweep related parameters as shown in the example below.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+sweep:
+  limits:
+    max_trials: 10
+    max_concurrent_trials: 2
+  sampling_algorithm: random
+  early_termination:
+    type: bandit
+    evaluation_interval: 2
+    slack_factor: 0.2
+    delay_evaluation: 6
 
 
 ## Next steps
