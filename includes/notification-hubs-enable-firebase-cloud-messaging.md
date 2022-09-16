@@ -52,4 +52,10 @@
     ![Select Project Settings](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. If you haven't downloaded the google-services.json file into the **app** folder of your Android Studio project, you can do so on this page. 
 5. Switch to the **Cloud Messaging** tab at the top. 
-6. Copy and save the **Server key** for later use. You use this value to configure your hub.
+6. Copy and save the **Server key** for later use. You use this value to configure your hub. 
+7. If you do not see a **Server Key** on the firebase Cloud Messaging tab, follow these additional steps
+    1. Click on the three-dots menu of the "Cloud Messaging API (Legacy) 🚫 Disabled" Heading
+    2. Follow the offered link to manage in google cloud console, and there press the button to enable the googlecloudmessaging API
+    3. Wait a few minutes
+    4. Go back to your Firebase console Cloud Messaging Tab, and refresh.
+    5. See that the Cloud Messaging API header has changed to "Cloud Messaging API (Legacy) ✅ Enabled" and that a Server Key is now shown.
