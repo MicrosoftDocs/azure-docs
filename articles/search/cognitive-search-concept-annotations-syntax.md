@@ -47,7 +47,7 @@ The following list identifies several well-known paths for context, which varies
 + `/document/{key}` is the syntax for a document or item in a Cosmos DB collection, where `{key}` is the actual key, such as "HotelId" in the previous example.
 + `/document/content` is the "content" property of a JSON blob. 
 + `/document/{field}` is the syntax for an operation that's performed on a specific field, such as the "/document/Description" field in the previous example.
-+ `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing. Because there might be more than one, you'll append `/*` to catch them all.
++ `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing. If "context" is `/document/pages/*`, the skill executes once over each page in the document. Because there might be more than one page or sentence, you'll append `/*` to catch them all.
 + `/document/normalized_images/*` is created during document cracking if the document contains images. All paths to images start with normalized_images. Since there are often multiple images embedded in a document, append `/*`.
 
 Examples in the remainder of this article are based on the "content" field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the [document cracking](search-indexer-overview.md#document-cracking) phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the "content" field is part of the "document".
