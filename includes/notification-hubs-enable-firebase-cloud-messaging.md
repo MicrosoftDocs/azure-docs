@@ -58,4 +58,6 @@
     2. Follow the offered link to manage in google cloud console, and there press the button to enable the googlecloudmessaging API
     3. Wait a few minutes
     4. Go back to your Firebase console Cloud Messaging Tab, and refresh.
-    5. See that the Cloud Messaging API header has changed to "Cloud Messaging API (Legacy) ✅ Enabled" and that a Server Key is now shown.
+    5. See that the Cloud Messaging API header has changed to "Cloud Messaging API (Legacy) ✅ Enabled" and now shows a Server Key.
+    
+    ![Enable Cloud Messaging API (Legacy)](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-enable-firebase-cloud-messaging-legacy-api.png)
