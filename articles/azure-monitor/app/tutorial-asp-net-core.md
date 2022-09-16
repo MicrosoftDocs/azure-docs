@@ -36,7 +36,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Hosting method**: In process or out of process
 * **Deployment method**: Framework dependent or self-contained
 * **Web server**: Internet Information Server (IIS) or Kestrel
-* **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, or Azure Kubernetes Service (AKS), and so on
+* **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on
 * **.NET Core version**: All officially [supported .NET Core versions](https://dotnet.microsoft.com/download/dotnet-core) that aren't in preview
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
@@ -56,9 +56,9 @@ To complete this tutorial, you need:
 
 Please follow the [guidance to deploy the sample application from its GitHub repository.](https://github.com/gitopsbook/sample-app-deployment).
 
-In order to provide globally unique names to some resources, a six-character suffix has been assigned. Please make note of this suffix for use later on in this article.
+In order to provide globally unique names to some resources, a six-character suffix is assigned to some resources. Please make note of this suffix for use later on in this article.
 
-:::image type="content" source="media/tutorial-asp-net-core/naming-suffix.png" alt-text="Screenshot of the deployed Azure resource listing with the six-character suffix highlighted." lightbox="media/tutorial-asp-net-core/naming-suffix.png":::
+:::image type="content" source="media/tutorial-asp-net-core/naming-suffix.png" alt-text="Screenshot of the deployed Azure resource listing in the Azure portal with the six-character suffix highlighted." lightbox="media/tutorial-asp-net-core/naming-suffix.png":::
 
 ## Create an Application Insights resource
 
@@ -66,15 +66,17 @@ In order to provide globally unique names to some resources, a six-character suf
 
 2. From the top toolbar menu, select **+ Create**.
 
-    :::image type="content" source="media/tutorial-asp-net-core/create-resource-menu.png" alt-text="Screenshot of the application-insights-azure-cafe resource group with the + Create button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/create-resource-menu.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/create-resource-menu.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the + Create button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/create-resource-menu.png":::
 
 3. On the **Create a resource** screen, search for and select **Application Insights** in the marketplace search textbox.
 
-   :::image type="content" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen with a search for Application Insights highlighted and Application Insights displaying in the results." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
+   Screenshot of the Create a resource screen in the Azure portal. The screenshot shows a search for Application Insights highlighted and Application Insights displaying in the search results, which is also highlighted.
+:::image-end:::
 
 4. On the Application Insights resource overview screen, select **Create**.
 
-:::image type="content" source="media/tutorial-asp-net-core/create-application-insights-overview.png" alt-text="Screenshot of the Application Insights overview screen with the Create button highlighted." lightbox="media/tutorial-asp-net-core/create-application-insights-overview.png":::
+   :::image type="content" source="media/tutorial-asp-net-core/create-application-insights-overview.png" alt-text="Screenshot of the Application Insights overview screen in the Azure portal with the Create button highlighted." lightbox="media/tutorial-asp-net-core/create-application-insights-overview.png":::
 
 5. On the Application Insights screen, **Basics** tab, complete the form by using the following table, then select the **Review + create** button. Fields not specified in the table below may retain their default values.
 
@@ -84,29 +86,33 @@ In order to provide globally unique names to some resources, a six-character suf
     | Region | Select the same region chosen when deploying the article resources. |
     | Log Analytics Workspace | Select **azure-cafe-log-analytics-workspace**. Alternatively, you can create a new log analytics workspace. |
 
-   :::image type="content" source="media/tutorial-asp-net-core/application-insights-basics-tab.png" alt-text="Screenshot of the Basics tab of the Application Insights screen with a form populated with the preceding values." lightbox="media/tutorial-asp-net-core/application-insights-basics-tab.png":::
+   :::image type="content" source="media/tutorial-asp-net-core/application-insights-basics-tab.png" alt-text="Screenshot of the Basics tab of the Application Insights screen in the Azure portal with a form populated with the preceding values." lightbox="media/tutorial-asp-net-core/application-insights-basics-tab.png":::
 
 6. Once validation has passed, select **Create** to deploy the resource.
 
-    :::image type="content" source="media/tutorial-asp-net-core/application-insights-validation-passed.png" alt-text="Screenshot of the Application Insights screen with an indication that validation has passed and the Create button, which are both highlighted." lightbox="media/tutorial-asp-net-core/application-insights-validation-passed.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-validation-passed.png" alt-text="Screenshot of the Application Insights screen in the Azure portal. The message stating validation has passed and Create button are both highlighted." lightbox="media/tutorial-asp-net-core/application-insights-validation-passed.png":::
 
 7. Once the resource is deployed, return to the `application-insights-azure-cafe` resource group, and select Application Insights resource you deployed.
 
-    :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
 
 8. On the Overview screen of the Application Insights resource, select the **Copy to clipboard** button to copy the connection string value to use it in the next section of this article.
 
-    :::image type="content" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen with the connection string value highlighted and the Copy to clipboard button selected." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal, which includes the connection string value." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+   Screenshot of the Application Insights Overview screen in the Azure portal. The screenshot shows the connection string value highlighted and the Copy to clipboard button selected and highlighted.
+:::image-end:::
 
 ## Configure the Application Insights connection string application setting in the web App Service
 
 1. Return to the `application-insights-azure-cafe` resource group and open the **azure-cafe-web-{SUFFIX}** App Service resource.
 
-    :::image type="content" source="media/tutorial-asp-net-core/web-app-service-resource-group.png" alt-text="Screenshot of the Azure Cafe resource group with the azure-cafe-web-dOvjOo resource highlighted." lightbox="media/tutorial-asp-net-core/web-app-service-resource-group.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/web-app-service-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the azure-cafe-web-{SUFFIX} resource highlighted." lightbox="media/tutorial-asp-net-core/web-app-service-resource-group.png":::
 
-2. From the left menu, beneath the Settings header, select **Configuration**. Then, on the **Application settings** tab, select **+ New application setting** beneath the Application settings header.
+2. From the left menu, under the Settings section, select **Configuration**. Then, on the **Application settings** tab, select **+ New application setting** beneath the Application settings header.
 
-    :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen with Configuration selected from the left menu and the + New application toolbar button highlighted." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
+   Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted.
+:::image-end:::
 
 3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
 
@@ -115,11 +121,11 @@ In order to provide globally unique names to some resources, a six-character suf
     | Name  | APPLICATIONINSIGHTS_CONNECTION_STRING |
     | Value | Paste the Application Insights connection string value you copied in the preceding section. |
 
-    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
 
 4. On the App Service Configuration screen, select the **Save** button from the toolbar menu. When prompted to save the changes, select **Continue**.
 
-    :::image type="content" source="media/tutorial-asp-net-core/save-app-service-configuration.png" alt-text="Screenshot of the App Service Configuration screen with the Save button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/save-app-service-configuration.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/save-app-service-configuration.png" alt-text="Screenshot of the App Service Configuration screen in the Azure portal with the Save button highlighted on the toolbar menu." lightbox="media/tutorial-asp-net-core/save-app-service-configuration.png":::
 
 ## Install the Application Insights NuGet Package
 
@@ -137,7 +143,7 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
    Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.
 :::image-end:::
 
-4. Keep Visual Studio open for the next section of the article.
+   Keep Visual Studio open for the next section of the article.
 
 ## Enable Application Insights server-side telemetry
 
@@ -153,7 +159,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
     builder.Services.AddApplicationInsightsTelemetry();
     ```
 
-    :::image type="content" source="media/tutorial-asp-net-core/enable-server-side-telemetry.png" alt-text="Screenshot of a code window with the preceding code snippet highlighted." lightbox="media/tutorial-asp-net-core/enable-server-side-telemetry.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/enable-server-side-telemetry.png" alt-text="Screenshot of a code window in Visual Studio with the preceding code snippet highlighted." lightbox="media/tutorial-asp-net-core/enable-server-side-telemetry.png":::
 
     > [!TIP]
     > Learn more about the [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration).
@@ -162,21 +168,23 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
 The preceding steps are enough to help you start collecting server-side telemetry. This application has client-side components. Follow the next steps to start collecting [usage telemetry](./usage-overview.md).
 
-1. In Visual Studio Solution Explorer, open `\Views\_ViewImports.cshtml`. Add the following code at the end of the existing file.
+1. In Visual Studio Solution Explorer, open `\Views\_ViewImports.cshtml`. 
+
+2. Add the following code at the end of the existing file.
 
     ```cshtml
     @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
-    :::image type="content" source="media/tutorial-asp-net-core/view-imports-injection.png" alt-text="Screenshot of the _ViewImports.cshtml file with the preceding line of code highlighted." lightbox="media/tutorial-asp-net-core/view-imports-injection.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/view-imports-injection.png" alt-text="Screenshot of the _ViewImports.cshtml file in Visual Studio with the preceding line of code highlighted." lightbox="media/tutorial-asp-net-core/view-imports-injection.png":::
 
-2. To properly enable client-side monitoring for your application, the JavaScript snippet must be inserted in the `<head>` section of each page of your application that you want to monitor. In Visual Studio Solution Explorer, open  `\Views\Shared\_Layout.cshtml` and insert the following code immediately before the closing `<\head>` tag.
+3. To properly enable client-side monitoring for your application, a JavaScript snippet must be inserted in the `<head>` section of each page of your application that you want to monitor. In Visual Studio Solution Explorer, open  `\Views\Shared\_Layout.cshtml` and insert the following code immediately before the closing `<\head>` tag.
 
     ```cshtml
     @Html.Raw(JavaScriptSnippet.FullScript)
     ```
 
-    :::image type="content" source="media/tutorial-asp-net-core/layout-head-code.png" alt-text="Screenshot of the _Layout.cshtml file with the preceding line of code highlighted within the head section of the file." lightbox="media/tutorial-asp-net-core/layout-head-code.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/layout-head-code.png" alt-text="Screenshot of the _Layout.cshtml file in Visual Studio with the preceding line of code highlighted within the head section of the file." lightbox="media/tutorial-asp-net-core/layout-head-code.png":::
 
     > [!TIP]
     > An alternative to using `FullScript` is `ScriptBody`. Use `ScriptBody` if you need to control the `<script>` tag to set a Content Security Policy:
@@ -213,7 +221,7 @@ Follow these steps to capture the full SQL query text.
     builder.Services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module.EnableSqlCommandTextInstrumentation = true; });
     ```
 
-    :::image type="content" source="media/tutorial-asp-net-core/enable-sql-command-text-instrumentation.png" alt-text="Screenshot of a code window with the preceding code highlighted." lightbox="media/tutorial-asp-net-core/enable-sql-command-text-instrumentation.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/enable-sql-command-text-instrumentation.png" alt-text="Screenshot of a code window in Visual Studio with the preceding code highlighted." lightbox="media/tutorial-asp-net-core/enable-sql-command-text-instrumentation.png":::
 
 ## Run the Azure Cafe web application
 
@@ -227,23 +235,23 @@ After you deploy the web application code, telemetry will flow to Application In
 
     :::image type="content" source="media/tutorial-asp-net-core/publish-profile.png" alt-text="Screenshot of the AzureCafe publish profile with the Publish button highlighted." lightbox="media/tutorial-asp-net-core/publish-profile.png":::
 
-3. When the Azure Cafe web application is successfully published, a new browser window opens to the Azure Cafe web application.
+   When the Azure Cafe web application is successfully published, a new browser window opens to the Azure Cafe web application.
 
     :::image type="content" source="media/tutorial-asp-net-core/azure-cafe-index.png" alt-text="Screenshot of the Azure Cafe web application." lightbox="media/tutorial-asp-net-core/azure-cafe-index.png":::
 
-4. To generate some telemetry, follow these steps in the web application to add a review.
+3. To generate some telemetry, follow these steps in the web application to add a review.
 
-   1. Next to a Cafe, select **Details** to view its menu and reviews.
+   1. To view a cafe's menu and reviews, elect **Details** next to a cafe.
 
-        :::image type="content" source="media/tutorial-asp-net-core/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list with the Details button highlighted." lightbox="media/tutorial-asp-net-core/cafe-details-button.png":::
+        :::image type="content" source="media/tutorial-asp-net-core/cafe-details-button.png" alt-text="Screenshot of a portion of the Azure Cafe list in the Azure Cafe web application with the Details button highlighted." lightbox="media/tutorial-asp-net-core/cafe-details-button.png":::
 
-   2. On the Cafe screen, select the **Reviews** tab to view and add reviews. Select the **Add review** button to add a review.
+   2. To view and add reviews, on the Cafe screen, select the **Reviews** tab. Select the **Add review** button to add a review.
 
-        :::image type="content" source="media/tutorial-asp-net-core/cafe-add-review-button.png" alt-text="Screenshot of the Cafe details screen with the Add review button highlighted." lightbox="media/tutorial-asp-net-core/cafe-add-review-button.png":::
+        :::image type="content" source="media/tutorial-asp-net-core/cafe-add-review-button.png" alt-text="Screenshot of the Cafe details screen in the Azure Cafe web application with the Add review button highlighted." lightbox="media/tutorial-asp-net-core/cafe-add-review-button.png":::
 
    3. On the Create a review dialog, enter a name, rating, comments, and upload a photo for the review. When finished, select **Add review**.
 
-        :::image type="content" source="media/tutorial-asp-net-core/create-a-review-dialog.png" alt-text="Screenshot of the Create a review dialog." lightbox="media/tutorial-asp-net-core/create-a-review-dialog.png":::
+        :::image type="content" source="media/tutorial-asp-net-core/create-a-review-dialog.png" alt-text="Screenshot of the Create a review dialog in the Azure Cafe web application." lightbox="media/tutorial-asp-net-core/create-a-review-dialog.png":::
 
    4. If you need to generate additional telemetry, add additional reviews.
 
@@ -255,9 +263,9 @@ You can use [Live Metrics](./live-stream.md) to quickly verify if Application In
 
 The sample application makes calls to multiple Azure resources, including Azure SQL, Azure Blob Storage, and the Azure Language Service (for review sentiment analysis).
 
-:::image type="content" source="media/tutorial-asp-net-core/azure-cafe-app-insights.png" alt-text="Diagram that shows the architecture of the Azure Cafe sample application." lightbox="media/tutorial-asp-net-core/azure-cafe-app-insights.png":::
+:::image type="content" source="media/tutorial-asp-net-core/azure-cafe-app-insights.png" alt-text="Diagram that shows the architecture of the Azure Cafe sample web application." lightbox="media/tutorial-asp-net-core/azure-cafe-app-insights.png":::
 
-Application Insights introspects the incoming telemetry data and is able to generate a visual map of the detected system integrations.
+Application Insights introspects the incoming telemetry data and is able to generate a visual map of the system integrations it detects.
 
 1. Access and log into the [Azure portal](https://portal.azure.com).
 
@@ -267,7 +275,7 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
 4. From the left menu, beneath the **Investigate** heading, select **Application map**. Observe the generated Application map.
 
-    :::image type="content" source="media/tutorial-asp-net-core/application-map.png" alt-text="Screenshot of the Application Insights application map." lightbox="media/tutorial-asp-net-core/application-map.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/application-map.png" alt-text="Screenshot of the Application Insights application map in the Azure portal." lightbox="media/tutorial-asp-net-core/application-map.png":::
 
 ### Viewing HTTP calls and database SQL command text
 
@@ -275,33 +283,37 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
 2. On the left menu, beneath the **Investigate** header, select **Performance**.
 
-3. The **Operations** tab contains details of the HTTP calls received by the application. You can also toggle between Server and Browser (client-side) views of data.
+3. The **Operations** tab contains details of the HTTP calls received by the application. You can toggle between Server and Browser (client-side) views of the data.
 
-    :::image type="content" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Performance screen of Application Insights with the Server/Browser toggle and HTTP calls received by the application highlighted." lightbox="media/tutorial-asp-net-core/server-performance.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with server performance data displayed." lightbox="media/tutorial-asp-net-core/server-performance.png":::
+   Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted.
+:::image-end:::
 
 4. Select an Operation from the table, and choose to drill into a sample of the request.
 
-    :::image type="content" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Performance screen with a POST operation and a suggested sample operation selected and the Drill into samples button highlighted." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
+   Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted.
+:::image-end:::
 
 5. The end-to-end transaction displays for the selected request. In this case, a review was created, including an image, so it includes calls to Azure Storage and the Language Service (for sentiment analysis). It also includes database calls into SQL Azure to persist the review. In this example, the first selected Event displays information relative to the HTTP POST call.
 
-    :::image type="content" source="media/tutorial-asp-net-core/e2e-http-call.png" alt-text="Screenshot of the end-to-end transaction with the HTTP Post call selected." lightbox="media/tutorial-asp-net-core/e2e-http-call.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/e2e-http-call.png" alt-text="Screenshot of the end-to-end transaction in the Azure portal with the HTTP Post call selected." lightbox="media/tutorial-asp-net-core/e2e-http-call.png":::
 
 6. Select a SQL item to review the SQL command text issued to the database.
 
-    :::image type="content" source="media/tutorial-asp-net-core/e2e-db-call.png" alt-text="Screenshot of the end-to-end transaction with SQL command details." lightbox="media/tutorial-asp-net-core/e2e-db-call.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/e2e-db-call.png" alt-text="Screenshot of the end-to-end transaction in the Azure portal with SQL command details." lightbox="media/tutorial-asp-net-core/e2e-db-call.png":::
 
 7. Optionally select Dependency (outgoing) requests to Azure Storage or the Language Service.
 
 8. Return to the **Performance** screen and select the **Dependencies** tab to investigate calls into external resources. Notice the Operations table includes calls into Sentiment Analysis, Blob Storage, and Azure SQL.
 
-    :::image type="content" source="/media/tutorial-asp-net-core/performance-dependencies.png" alt-text="Screenshot of the Application Insights Performance screen with the Dependencies tab selected and the Operations table highlighted." lightbox="/media/tutorial-asp-net-core/performance-dependencies.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/performance-dependencies.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with the Dependencies tab selected and the Operations table highlighted." lightbox="/media/tutorial-asp-net-core/performance-dependencies.png":::
 
 ## Application logging with Application Insights
 
 ### Logging overview
 
-Application Insights is one type of [logging provider](/dotnet/core/extensions/logging-providers) available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection enabled](#enable-application-insights-server-side-telemetry). 
+Application Insights is one type of [logging provider](/dotnet/core/extensions/logging-providers) available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection is enabled](#enable-application-insights-server-side-telemetry). 
 
 As a reminder, the following code in **Program.cs** registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container.
 
@@ -358,7 +370,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 2. Wait a few moments, then return to the **Application Insights** resource in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/application-insights-resource-group.png" alt-text="Screenshot of the application-insights-azure-cafe resource group in the Azure portal with the Application Insights resource highlighted." lightbox="media/tutorial-asp-net-core/application-insights-resource-group.png":::
 
 3. From the left menu of the Application Insights resource, select **Logs** from beneath the **Monitoring** section. In the **Tables** pane, double-click on the **traces** table, located under the **Application Insights** tree. Modify the query to retrieve traces for the **Values** controller as follows, then select **Run** to filter the results.
 
@@ -378,7 +390,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 ## Control the level of logs sent to Application Insights
 
-`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](/aspnet/core/fundamentals/logging#log-level) documentation.
+`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on how to use them appropriately, see the [Log Level](/aspnet/core/fundamentals/logging#log-level) documentation.
 
 The following examples show how to apply filter rules to the `ApplicationInsightsLoggerProvider` to control the level of logs sent to Application Insights.
 
