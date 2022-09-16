@@ -84,9 +84,13 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 <sup>3</sup> [Constrained Core](constrained-vcpu.md) sizes available.<br>
 <sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
 <sup>5</sup> Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time. <br>
-<sup>6</sup> Using Ultra or Premium v2 data disks with **Standard_E104ids_v5** results in higher IOPs/ MBps than standard premium disks:
-- Uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/4000 <br>
-- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/4000
+<sup>6</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104ids_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/4000 
+- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/4000
+
+
+
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
