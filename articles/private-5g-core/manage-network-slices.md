@@ -36,27 +36,24 @@ You can view your existing network slices in the Azure portal.
     :::image type="content" source="media/manage-network-slices/network-slices-list.png" alt-text="Screenshot of the Azure portal showing a list of network slices. The Slices resource menu option is highlighted." :::
 -->
 
-## Collect the required information for your slice
+## Collect the required information for a network slice
 
 Collect the values in the following table for the slice you want to provision.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
    | The name for the slice. | **Slice name** |
-   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. </br></br>You can choose to use any of the following standard values, as specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT.</br>4 - V2X. This is a slice suitable for the handling of V2X services.</br>5 - HMTC. This is a slice suitable for the handling of high-performance machine-type communications. </br></br>You can also choose to use a non-standard value. | **Slice Service Type (SST)** |
-   | The slice differentiator value. This setting is optional and can be used to differentiate between multiple network slices that have the same slice/service type value. | **Slice Differentiator (SD)** |
+   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. Each slice in a network must have a unique SST value. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice Service Type (SST)** |
+   | The slice differentiator value. This setting is optional and can be used to ... <!-- TODO --> | **Slice Differentiator (SD)** |
 
 ## Create a network slice
 
-You must [collect the required information for your slice](#collect-the-required-information-for-your-slice) before creating it.
+You must [collect the required information for your slice](#collect-the-required-information-for-a-network-slice) before creating it.
 
-1. Search for and select the **Mobile Network** resource representing your private mobile network.
-1. Select **Create slices**.
-
-    <!-- TODO: add screenshot of PMN overview page 
-    :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the Create slices button on a Mobile Network resource."::: -->
-
-1. Use the information you collected in [Collect the required information for your slice](#collect-the-required-information-for-your-slice) to fill in the fields under ...
+1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
+1. Select **+ Create**.
+    <!-- TODO: add screenshot  -->
+1. Use the information you collected in [Collect the required information for your slice](#collect-the-required-information-for-a-network-slice) to fill in the fields under ...
 1. ...
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -68,7 +65,7 @@ You must [collect the required information for your slice](#collect-the-required
 
 ## Modify a network slice
 
-Refer to [Collect the required information for your slice](#collect-the-required-information-for-your-slice) for the slice features you can modify.
+Refer to [Collect the required information for your slice](#collect-the-required-information-for-a-network-slice) for the slice features you can modify.
 
 1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
 1. Select the checkbox next to the slice you're interested in and select **Modify the selected slice**.

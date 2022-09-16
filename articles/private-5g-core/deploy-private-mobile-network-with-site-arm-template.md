@@ -16,6 +16,7 @@ ms.date: 03/23/2022
 Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy the following.
 
 - A private mobile network.
+- A network slice.
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
@@ -75,7 +76,9 @@ The following Azure resources are defined in the template.
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
-    |**Slice Name**     | Leave this field unchanged.        |
+    |**Slice Name**     | Enter the name of the network slice.        |
+    |**Slice Service Type**     |  Enter the slice/service type (SST) value.        |
+    |**Slice Differentiator**     | Enter the slice differentiator (SD) value if you collected one. Otherwise, leave this field blank.       |
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |
@@ -113,7 +116,7 @@ The following Azure resources are defined in the template.
 1. Confirm that the following resources have been created in the resource group.
 
     - A **Mobile Network** resource representing the private mobile network as a whole.
-    - A **Slice** resource representing a network slice.
+    - A **Slice** resource representing the network slice.
     - A **Data Network** resource representing the data network.
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
