@@ -365,7 +365,7 @@ All the pre-trained text DNN models currently available in AutoML NLP for fine-t
 * xlnet_base_cased 
 * xlnet_large_cased 
 
-Note that the large models are significantly larger than their base counterparts. They are typically more performant, but they take up more memory. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
+Note that the large models are significantly larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
 
 ## Supported Hyperparameters 
 
