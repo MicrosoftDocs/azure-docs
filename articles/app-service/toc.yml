@@ -235,6 +235,8 @@
           href: networking-features.md
         - name: Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
+        - name: Access restrictions
+          href: overview-access-restrictions.md
         - name: Private endpoint
           href: networking/private-endpoint.md
         - name: Hybrid connections
