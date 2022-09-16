@@ -214,7 +214,7 @@ Alert when these changes are detected outside approved change management procedu
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to log-out URL| Low| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) |
+| Changes to log-out URL| Low| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Resources
 
