@@ -54,7 +54,7 @@ The answer is returned in a JSON object:
       "questions": [
         "How can I create a bot with QnA Maker?"
       ],
-      "answer": "Follow the instructions in [this](https://learn.microsoft.com/azure/cognitive-services/qnamaker/tutorials/create-qna-bot)documentation to create your Bot with Azure Bot Service.",
+      "answer": "Follow the instructions in [this](https://learn.microsoft.com/azure/cognitive-services/qnamaker/tutorials/create-qna-bot) documentation to create your Bot with Azure Bot Service.",
       "score": 43.25,
       "id": 15,
       "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/faqs",
