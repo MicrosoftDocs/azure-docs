@@ -71,7 +71,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * A new version of the Language API (`2022-07-01-preview`) has been released. It provides:
     * [Automatic language detection](./concepts/use-asynchronously.md#automatic-language-detection) for asynchronous tasks.
-    * For Text Analytics for health, confidence score are now returned in relations.
+    * Text Analytics for health confidence scores are now returned in relations.
 
     To use this version in your REST API calls, use the following URL:
 
