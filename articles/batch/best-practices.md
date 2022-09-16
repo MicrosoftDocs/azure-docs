@@ -34,15 +34,28 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 - **Business continuity during pool maintenance and failure:** There are many reasons why a pool may not grow to the size you desire, such as internal errors or capacity constraints. Make sure you can retarget jobs at a different pool (possibly with a different VM size; Batch supports this via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) if necessary. Avoid relying on a static pool ID with the expectation that it will never be deleted and never change.
 
+### Pool security
+
+#### Isolation boundary
+
+For the purposes of isolation, if your scenario requires isolating jobs or tasks from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of security isolation unless the larger environment from which the Batch account operates in requires isolation.
+
+#### Node agent updates
+
+Node agents are not automatically upgraded for pools that have non-zero compute nodes in them. In order to ensure your Batch pools receive the latest security fixes and updates on the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It is recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand when new Batch node agents are released to plan for these scaling or recreate operations to update to the latest agent version.
+
+Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you are experiencing issues with your Batch pool or compute nodes, as discussed in the [Nodes](#nodes) section.
+
+[!NOTE]
+> For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
 ### Pool lifetime and billing
 
 Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service ([autoscale](nodes-and-pools.md#automatic-scaling-policy) or [autopool](nodes-and-pools.md#autopools)).
 
-- **Pool freshness:** Resize your pools to zero every few months to ensure you get the [latest node agent updates and bug fixes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Your pool won't receive node agent updates unless it's recreated (or if it's resized to 0 compute nodes). Before you recreate or resize your pool, you should download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
+- **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
-- **Pool recreation:** On a similar note, avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
-
-- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
+- **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for Azure resources that are utilized, such as compute, storage, and networking. You're billed for every compute node in the pool, regardless of the state it is in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
 - **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
@@ -163,10 +176,6 @@ If you notice a problem involving the behavior of a node or tasks running on a n
 For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times when tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
-
-## Isolation security
-
-For the purposes of isolation, if your scenario requires isolating jobs from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of isolation.
 
 ## Connectivity
 
