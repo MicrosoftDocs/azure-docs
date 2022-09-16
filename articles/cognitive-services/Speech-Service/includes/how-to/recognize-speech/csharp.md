@@ -320,11 +320,11 @@ speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "2000")
 **Example:** a recorded presenter's speech is fast enough that several sentences in a row get combined, with big recognition results only arriving once or twice per minute. In this case, setting the segmentation silence timeout to a lower value like 300ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
+speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
 ```
 
 **Example:** a single-shot recognition asking a speaker to find and read a serial number ends too quickly while the number is being found. In this case, a longer initial silence timeout like 10000ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
+speechConfig.SetProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
 ```

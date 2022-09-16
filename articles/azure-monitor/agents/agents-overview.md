@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 8/17/2022
+ms.date: 9/15/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -17,17 +17,17 @@ Azure Monitor Agent (AMA) collects monitoring data from the guest operating syst
 
 Here's a short **introduction to Azure Monitor video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Can I deploy Azure Monitor Agent?
+## Consolidating legacy agents
 
-Deploy Azure Monitor Agent on all new virtual machines to collect data for [supported services and features](#supported-services-and-features).
+Deploy Azure Monitor Agent on all new virtual machines, scale sets and on premise servers to collect data for [supported services and features](#supported-services-and-features).
 
-If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#compare-to-legacy-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
+If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
 
 Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions.  
-- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
-- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions. This is fully consolidated into Azure Monitor agent. 
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only). Only basic Telegraf plugins are supported today in Azure Monitor agent.
+- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage. This is not consolidated yet.
 
 ## Install the agent and configure data collection  
 
@@ -72,9 +72,9 @@ In addition to the generally available data collection listed above, Azure Monit
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
 |	:---	|	:---	|	:---	|	:---	|
-| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Sign-up link](https://aka.ms/AMAgent)	|
-| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows DNS logs: Preview</li><li>Linux Syslog CEF: Preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Windows DNS logs](https://aka.ms/AMAgent)</li><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/AMAgent)</li><li>No sign-up needed for Windows Forwarding Event (WEF) and Windows Security Events</li></ul> |
-|	 [Change Tracking](../../automation/change-tracking/overview.md) (part of Defender)	|	 Supported as File Integrity Monitoring in the Microsoft Defender for Cloud: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/AMAgent)	|
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](/azure/defender-for-cloud/auto-deploy-azure-monitoring-agent)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](/azure/sentinel/connect-dns-ama)</li><li>Linux Syslog CEF: Preview</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/amadcr-privatepreviews)</li><li>No sign-up needed for Windows Forwarding Event (WEF), Windows Security Events and Windows DNS events</li></ul> |
+|	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Change Tracking: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 
@@ -164,55 +164,61 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Windows Server 2008 R2 SP1                               | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X |
 | Windows Server 2008 SP2                                  |   | X |   |
-| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 11 Client Enterprise and Pro                     | X<sup>2</sup>, <sup>3</sup> |  |  |
 | Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
 | Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
 | Azure Stack HCI                                          |   | X |   |
 
-<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md)
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md).<br>
+<sup>3</sup> Also supported on Arm64-based machines.
 
 #### Linux
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
+| AlmaLinux 8.5                                               | X<sup>3</sup> |   |   |
 | AlmaLinux 8                                                 | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X | X |   |
-| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
-| Debian 11                                                   | X |   |   |
+| CBL-Mariner 2.0                                             | X |   |   |
+| Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
+| OpenSUSE 15                                              | X |   |  |
 | OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> |   |   |
 | Red Hat Enterprise Linux Server 8                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
 | Rocky Linux 8                                               | X | X |   |
+| SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X |
 | Ubuntu 22.04 LTS                                            | X |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X |
-| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 20.04 LTS                                            | X<sup>3</sup> | X | X |
+| Ubuntu 18.04 LTS                                            | X<sup>3</sup> | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
-
+<sup>3</sup> Also supported on Arm64-based machines.
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
