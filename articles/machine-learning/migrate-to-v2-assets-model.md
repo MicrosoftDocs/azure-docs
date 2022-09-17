@@ -82,8 +82,8 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 For further details refer to the documentation here:
 
-* [Create a model in v1](https://docs.microsoft.com/azure/machine-learning/v1/how-to-deploy-and-where?tabs=python#register-a-model-from-a-local-file)
-* [Deploy a model in v1](https://docs.microsoft.com/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli#workflow-for-deploying-a-model)
-* [Create a model in v2](https://docs.microsoft.com/azure/machine-learning/how-to-manage-models)
-* [Deploy a model in v2](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+* [Create a model in v1](v1/how-to-deploy-and-where.md?tabs=python#register-a-model-from-a-local-file)
+* [Deploy a model in v1](v1/how-to-deploy-and-where.md?tabs=azcli#workflow-for-deploying-a-model)
+* [Create a model in v2](how-to-manage-models.md)
+* [Deploy a model in v2](how-to-deploy-managed-online-endpoints.md)
 

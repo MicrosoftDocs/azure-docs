@@ -24,7 +24,7 @@ In SDK v2, "Parallel run step" is consolidated into job concept as `parallel job
 To migrate your current sdk v1 parallel run step to v2, you'll need to 
 
 - Use `parallel_run_function` to create parallel job by replacing `ParallelRunConfig` and `ParallelRunStep` in v1.
-- Migrate your v1 pipeline to v2. Then invoke your v2 parallel job as a step in your v2 pipeline. See [how to migrate pipeline from v1 to v2](./execution-pipeline-interop.md) for the details about pipeline migration.
+- Migrate your v1 pipeline to v2. Then invoke your v2 parallel job as a step in your v2 pipeline. See [how to migrate pipeline from v1 to v2](migrate-to-v2-execution-pipeline.md) for the details about pipeline migration.
 
 > Note: User __entry script__ is compatible between v1 parallel run step and v2 parallel job. So you can keep using the same entry_script.py when you migrate your parallel run job.
 
@@ -33,7 +33,7 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2. In the fol
 ## Prerequisites
 
  - Prepare your SDK v2 environment: [Install the Azure ML SDK v2 for Python](/python/api/overview/azure/ml/installv2)
- - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with python SDK v2](https://review.docs.microsoft.com/azure/machine-learning/how-to-create-component-pipeline-python?branch=main)
+ - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with python SDK v2](how-to-create-component-pipeline-python.md)
 
 
 ## Create parallel step

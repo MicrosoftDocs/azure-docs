@@ -23,7 +23,7 @@
       href: migrate-to-v2-command-job.md
     - name: Local runs
       displayName: migration, v1, v2
-      href: migrate-to-v2-local.md
+      href: migrate-to-v2-local-runs.md
     - name: AutoML
       displayName: migration, v1, v2
       href: migrate-to-v2-execution-automl.md

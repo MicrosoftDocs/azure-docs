@@ -94,4 +94,4 @@ For further details refer to the documentation here:
 
 * [V1 - Experiment](/python/api/azureml-core/azureml.core.experiment)
 * [V2 - Command Job](/python/api/azure-ai-ml/azure.ai.ml.md#azure-ai-ml-command)
-* [Train models with the Azure ML Python SDK v2](how-to-train-sdk)
+* [Train models with the Azure ML Python SDK v2](how-to-train-sdk.md)
