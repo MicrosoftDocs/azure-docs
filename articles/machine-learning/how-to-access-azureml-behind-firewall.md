@@ -264,7 +264,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | AutoML NLP, Vision | aka.ms | TCP | 443 |
 
 > [!NOTE]
-> AutoML NLP, Vision is currently only supported in Azure public regions.
+> AutoML NLP, Vision are currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 
