@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/16/2022
-ms.author: v-chrupa
+ms.author: chrupa
 ---
 
 # DICOM Conformance Statement
