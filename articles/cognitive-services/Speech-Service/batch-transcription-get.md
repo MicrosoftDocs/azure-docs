@@ -340,7 +340,7 @@ Depending in part on the request parameters set when you created the transcripti
 
 |Property|Description|
 |--------|-----------|
-|`channel`|The channel number of the results. For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel.|
+|`channel`|The channel number of the results. For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each input audio file.|
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|

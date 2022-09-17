@@ -372,7 +372,7 @@ items:
       items:
         - name: Neural voice migration
           items:
-            - name: Migration to neural voice
+            - name: Migration overview
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
               href: how-to-migrate-to-custom-neural-voice.md  

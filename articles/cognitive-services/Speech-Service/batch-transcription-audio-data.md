@@ -28,7 +28,7 @@ The batch transcription API supports the following formats:
 | MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 | OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 
-For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel. To create an ordered final transcript, use the timestamps that are generated per utterance.
+For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each input audio file. To create an ordered final transcript, use the timestamps that are generated per utterance.
 
 ## Azure Storage for audio files
 

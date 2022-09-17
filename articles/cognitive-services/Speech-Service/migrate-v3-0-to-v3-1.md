@@ -105,13 +105,15 @@ The name of each `operationId` in version 3.1 is prefixed with the object name. 
 |`/webhooks/{id}`|PATCH|[WebHooks_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_Update)|[UpdateHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateHook)|
 
 <sup>1</sup> The `/models/{id}/copyto` operation (includes '/') in version 3.0 is replaced by the `/models/{id}:copyto` operation (includes ':') in version 3.1.
+
 <sup>2</sup> The `/webhooks/{id}/ping` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:ping` operation (includes ':') in version 3.1.
+
 <sup>3</sup> The `/webhooks/{id}/test` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:test` operation (includes ':') in version 3.1.
 
 ## Batch transcription
 
 > [!WARNING]
-> Once you migrate, don't use Speech-to-text REST API v3.0 to retrieve a transcription created via Speech-to-text REST API v3.1. You'll see an error message such as the following: "The API version cannot be used to access this transcription. Please use API version v3.1 or higher."
+> Don't use Speech-to-text REST API v3.0 to retrieve a transcription created via Speech-to-text REST API v3.1. You'll see an error message such as the following: "The API version cannot be used to access this transcription. Please use API version v3.1 or higher."
 
 In the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_Create) operation the following three properties are added:
 - The `displayFormWordLevelTimestampsEnabled` property can be used to enable the reporting of word-level timestamps on the display form of the transcription results. The results are returned in the `displayPhraseElements` property of the transcription file. 
