@@ -26,7 +26,7 @@ The following steps show how to set up authentication for your app to register w
    Get-AzSubscription
    ```
 
-   Select the subscription you want to use. You can use either the subscription name or ID from the output of the previous command.
+   Select the subscription you want to use. You can use either the subscription name or Id from the output of the previous command.
 
    ```powershell
    Select-AzSubscription -SubscriptionName "{your-subscription-name}"
@@ -37,7 +37,7 @@ The following steps show how to set up authentication for your app to register w
 1. Create a new Azure Active Directory application using the following command, replacing these placeholders with your own values:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (your ID can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
+   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (your Id can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
 
    :::image type="content" source="/includes/media/iot-hub-prepare-resource-manager/find-domain.png" alt-text="Screenshot showing location of your Primary domain in the Azure portal.":::
      

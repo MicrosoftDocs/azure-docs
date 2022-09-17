@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Create an IoT hub using the resource provider REST API (.NET)
 
-You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using Postman. Alternatively, you can use cURL.
+You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using **Postman**. Alternatively, you can use cURL.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,7 +30,7 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
 ```azurecli-interactive
 az account get-access-token --resource https://management.azure.com
 ```
-You should see a response in the console similar to this (except the access token is very long):
+You should see a response in the console similar to this JSON (except the access token is long):
 
 ```json
 {
@@ -46,11 +46,11 @@ Save your access token (the string without quotes) for later.
    
 ## Use the resource provider REST API to create an IoT hub
 
-Open Postman and follow the order of REST commands below to create your IoT hub. These commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) article. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
+Open **Postman** and follow the order of REST commands below to create your IoT hub. These commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) article. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
 
-1. In a new Postman request, from the **Auth** tab, select the **Type** dropdown list and choose **Bearer Token**.
+1. In a new **Postman** request, from the **Auth** tab, select the **Type** dropdown list and choose **Bearer Token**.
 
-:::image type="content" source="media/iot-hub-rm-rest/select-bearer-token.png" alt-text="Screenshot that shows how to select the Bearer Token type of authorization in Postman.":::
+:::image type="content" source="media/iot-hub-rm-rest/select-bearer-token.png" alt-text="Screenshot that shows how to select the Bearer Token type of authorization in **Postman**.":::
 
 1. Retrieve and copy the access token you saved previously and paste it into the field labeled **Token**.
 
@@ -68,7 +68,7 @@ For more information about the PUT command, see [Iot Hub Resource - Create Or Up
 
 1. From the **Body** tab, select the **raw** and **JSON** from the dropdown lists. 
 
-1. Paste this JSON into the box in Postman as shown. Make sure your IoT hub name matches the one in your PUT URL. Change the location to your location (the location assigned to your resource group).
+1. Paste this JSON into the box in **Postman** as shown. Make sure your IoT hub name matches the one in your PUT URL. Change the location to your location (the location assigned to your resource group).
 
 ```json
 {
@@ -86,7 +86,7 @@ For more information about the PUT command, see [Iot Hub Resource - Create Or Up
 
 :::image type="content" source="media/iot-hub-rm-rest/add-body-for-put.png" alt-text="Screenshot that shows how to add JSON to the body of your request in Postman.":::
 
-1. Select **Send** to send your request and create a new IoT hub. A successful request will return a **201 Created** response with a JSON printout of your IoT hub specifications. You can save your request if you're using Postman.
+1. Select **Send** to send your request and create a new IoT hub. A successful request will return a **201 Created** response with a JSON printout of your IoT hub specifications. You can save your request if you're using **Postman**.
 
 ## Confirm your IoT hub is in the Azure portal
 
@@ -122,7 +122,7 @@ The response will show the new tag added in the console. Remember, you may need 
 
 ## Show all details of your IoT hub
 
-To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request cannot have a body. Here's the GET request template:
+To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request can't have a body. Here's the GET request template:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
@@ -130,7 +130,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Remove your IoT hub from the Azure portal
 
-If you are only testing, you might want to clean up your resources and delete your new IoT hub. To do this, send a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourcename}` value is the name of your IoT hub.
+If you're only testing, you might want to clean up your resources and delete your new IoT hub, by sending a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourcename}` value is the name of your IoT hub.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
