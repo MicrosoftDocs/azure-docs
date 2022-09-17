@@ -190,7 +190,7 @@ Param
 )
 ```
 
-The format of the allowed parameters depends upon the calling service. If your runbook does take parameters from the caller, then you will need to add validation logic to your runbook to ensure that the parameter values supplied are appropriate for how the runbook could be started.  For example, if your runbook is started by a [webhook](../../automation/automation-webhooks.md), Azure Automation doesn't perform any authentication on an a webhook request as long as it's made to the correct URL, so you will need an alternate means of validating the request.
+The format of the allowed parameters depends upon the calling service. If your runbook does take parameters from the caller, then you will need to add validation logic to your runbook to ensure that the parameter values supplied are appropriate for how the runbook could be started.  For example, if your runbook is started by a [webhook](../../automation/automation-webhooks.md), Azure Automation doesn't perform any authentication on a webhook request as long as it's made to the correct URL, so you will need an alternate means of validating the request.
 
 Once you [configure runbook input parameters](../../automation/runbook-input-parameters.md), then when you test your runbook you can provide values through the Test page. Later, when the runbook is published, you can provide parameters when starting the runbook from PowerShell, the REST API, or a Logic App.
 
@@ -208,7 +208,7 @@ If you wish to send the output of your runbook to another service, then you may 
 
 1. Select **New step** and add the operation **Get job output**.  Select the same Subscription, Resource Group, Automation Account as the previous step, and select the Dynamic value of the **Job ID** from the previous step.
 
-1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](../../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), that use the **Content** returned when the runbook completes.  (If you're auto-generating the **Parse JSON** schema from a sample payload, be sure to account for PowerShell script potentially returning null; you might need to change some of the `"type": ​"string"` to `"type": [​"string",​ "null"​]` in the schema.)
+1. You can then add more operations to the Logic App, such as the [**Parse JSON** action](../../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) that uses the **Content** returned when the runbook completes.  (If you're auto-generating the **Parse JSON** schema from a sample payload, be sure to account for PowerShell script potentially returning null; you might need to change some of the `"type": ​"string"` to `"type": [​"string",​ "null"​]` in the schema.)
 
 Note that in Azure Automation, a PowerShell runbook can fail to complete if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed by the Logic App, such as by using the `Select-Object -Property` cmdlet to exclude unneeded properties.
 
