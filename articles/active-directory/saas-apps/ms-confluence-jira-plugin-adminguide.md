@@ -64,7 +64,7 @@ The plug-in supports the following versions of Jira and Confluence:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1 to 6.15.9
-* Confluence: 7.0.1 to 7.17.0
+* Confluence: 7.0.1 to 7.19.0
 
 ## Installation
 
@@ -171,7 +171,7 @@ The plug-in supports these versions:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1 to 6.15.9
-* Confluence: 7.0.1 to 7.17.0
+* Confluence: 7.0.1 to 7.19.0
 
 ### Is the plug-in free or paid?
 
