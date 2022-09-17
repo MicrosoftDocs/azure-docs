@@ -25,22 +25,22 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
 
 ## Get an Azure access token
 
-1. In the Azure PowerShell cmdlet or Azure Cloud Shell, sign in and then retrieve a token with this command:
+In the Azure PowerShell cmdlet or Azure Cloud Shell, sign in and then retrieve a token with this command:
 
-   ```azurecli-interactive
-   az account get-access-token --resource https://management.azure.com
-   ```
-   You should see a response in the console similar to this JSON (except the access token is long):
+```azurecli-interactive
+az account get-access-token --resource https://management.azure.com
+```
+You should see a response in the console similar to this JSON (except the access token is long):
 
-    ```json
-    {
-      "accessToken": "eyJ ... pZA",
-      "expiresOn": "2022-09-16 20:57:52.000000",
-      "subscription": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "tokenType": "Bearer"
-    }
-    ```
+```json
+{
+    "accessToken": "eyJ ... pZA",
+    "expiresOn": "2022-09-16 20:57:52.000000",
+    "subscription": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "tokenType": "Bearer"
+}
+```
 
 Save your access token (the string without quotes) for later.
    
