@@ -12,7 +12,7 @@ There are three primary patterns for creating outbound access to the Internet fr
 
 - [Internet Service hosted in Azure](#internet-service-hosted-in-azure) 
 - [Azure VMware Solution Managed SNAT](#azure-vmware-solution-managed-snat) 
-- [Public IP to NSX edge](#public-ip-to-nsx-edge) 
+- [Azure Public IPv4 address to NSX-T Data Center Edge](#azure-public-ipv4-address-to-nsx-t-data-center-edge) 
 
 Your requirements for security controls, visibility, capacity, and operations drive the selection of the appropriate method for delivery of Internet access to the Azure VMware Solution private cloud.  
 
@@ -41,7 +41,7 @@ A Managed SNAT service provides a simple method for outbound internet access fro
 - Two Public IPs are used and rotated to support up to 128k simultaneous outbound connections.
 - No inbound DNAT capability is available with the  Azure VMware Solution Managed SNAT. 
 
-## Public IP to NSX Edge  
+## Azure Public IPv4 address to NSX-T Data Center Edge  
 
 This option brings an allocated Azure Public IPv4 address directly to the NSX-T Data Center Edge for consumption. It allows the Azure VMware Solution private cloud to directly consume and apply public network addresses in NSX-T Data Center as required. These addresses are used for the following types of connections:
 - Outbound SNAT
