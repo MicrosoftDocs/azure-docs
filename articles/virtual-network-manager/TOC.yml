@@ -34,7 +34,7 @@
     - name: Azure Policy integration with network groups
       href: concept-azure-policy-integration.md
     - name: Cross-tenant connection support
-    href: concept-cross-tenant.md
+      href: concept-cross-tenant.md
   - name: Configuration types
     items:
     - name: Connectivity
