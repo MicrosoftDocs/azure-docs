@@ -6,12 +6,12 @@ services: database-migration
 author: aditivgupta
 ms.author: adig
 manager: pariks
-ms.reviewer: pariks
+ms.reviewer: maghan
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: faq
-ms.date: 09/08/2022
+ms.date: 09/17/2022
 ---
 
 # Frequently Asked Questions (FAQs)
