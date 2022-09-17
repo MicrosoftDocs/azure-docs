@@ -41,7 +41,7 @@ A Managed SNAT service provides a simple method for outbound internet access fro
 - Two Public IPs are used and rotated to support up to 128k simultaneous outbound connections.
 - No inbound DNAT capability is available with the  Azure VMware Solution Managed SNAT. 
 
-## Azure Public IPv4 address to NSX-T Data Center Edge 
+## Public IP to NSX Edge  
 
 This option brings an allocated Azure Public IPv4 address directly to the NSX-T Data Center Edge for consumption. It allows the Azure VMware Solution private cloud to directly consume and apply public network addresses in NSX-T Data Center as required. These addresses are used for the following types of connections:
 - Outbound SNAT
