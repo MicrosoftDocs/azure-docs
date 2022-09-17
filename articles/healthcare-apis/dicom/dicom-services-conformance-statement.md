@@ -706,7 +706,7 @@ The following `Accept` header(s) are supported for searching:
 
 The following parameters for each query are supported:
 
-|Key	|Support| Value(s)|	Allowed| Count	|Description|
+|Key	|Support| Values|	Allowed| Count	|Description|
 |:---|:---|:---|:---|:---|:---|
 |`{attributeID}=`|	`{value}`	|`0...N`	|Search for attribute/ value matching in query.
 |`includefield=`	|`{attributeID} all`|	`0...N`	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported.
