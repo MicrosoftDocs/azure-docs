@@ -177,7 +177,7 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ### Any special considerations using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IP address prefix - IPv6](create-custom-ip-prefix-ipv6.md) for more details.
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IP address prefix - IPv6](create-custom-ip-address-prefix-ipv6.md) for more details.
 
 ### Status messages
 

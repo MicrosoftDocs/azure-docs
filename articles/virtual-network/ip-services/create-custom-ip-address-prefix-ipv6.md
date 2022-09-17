@@ -13,7 +13,7 @@ ms.author: allensu
 
 A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
-# Differences between using BYOIPv4 and BYOIPv6
+## Differences between using BYOIPv4 and BYOIPv6
 
 > [!IMPORTANT]
 > Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
