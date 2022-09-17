@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb - Standard APIs with Azure Health Data Services DICOM service 
 description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM service. 
-author: stevewohl
+author: judegnan
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 03/22/2022
-ms.author: aersoy
+ms.date: 09/16/2022
+ms.author: chrupa@microsoft.com
 ---
 
 # Using DICOMweb&trade;Standard APIs with DICOM services
@@ -18,6 +18,27 @@ The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
 * Store (STOW-RS)
 * Retrieve (WADO-RS)
 * Search (QIDO-RS)
+* Manage (UPS-RS)
+
+## Modality Worklist (UPS-RS)
+
+The DICOM service's Modality Worklist (UPS-RS) enables clients to manage work items. It also describes how notifications (including subscriptions) work.
+
+Available UPS-RS endpoints include:
+
+|Verb|	Path |	Description |
+|:--- |:--- |:--- |
+|POST|	{s}/workitems{?AffectedSOPInstanceUID}|	Create a work item|
+|POST|	{s}/workitems/{instance}{?transaction}|	Update a work item
+|GET|	{s}/workitems{?query*}	|Search for work items
+|GET|	{s}/workitems/{instance}|	Retrieve a work item
+|PUT|	{s}/workitems/{instance}/state|	Change work item state
+|POST|	{s}/workitems/{instance}/cancelrequest	|Cancel work item|
+|POST	|{s}/workitems/{instance}/subscribers/{AETitle}{?deletionlock}	|Create subscription|
+|POST|	{s}/workitems/1.2.840.10008.5.1.4.34.5/	Suspend subscription|
+|DELETE	|{s}/workitems/{instance}/subscribers/{AETitle}	|Delete subscription
+|GET |	{s}/subscribers/{AETitle}|	Open subscription channel|
+|
 
 Additionally, the following non-standard API(s) are supported:
 
