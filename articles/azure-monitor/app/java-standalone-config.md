@@ -140,10 +140,12 @@ Furthermore, sampling is trace ID based, to help ensure consistent sampling deci
 
 ### Rate-Limited Sampling
 
-Starting from 3.4.0-BETA, rate-limited sampling is available, and is now the default.
+Starting from 3.4.0, rate-limited sampling is available, and is now the default.
 
 If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
-(approximately) 5 requests per second. This replaces the prior default which was to capture all requests.
+(approximately) 5 requests per second, along with all the dependencies and logs on those requests.
+
+This replaces the prior default which was to capture all requests.
 If you still wish to capture all requests, use [fixed-percentage sampling](#fixed-percentage-sampling) and set the
 sampling percentage to 100.
 
@@ -158,15 +160,15 @@ Here is an example how to set the sampling to capture at most (approximately) 1 
 ```json
 {
   "sampling": {
-    "limitPerSecond": 1.0
+    "requestsPerSecond": 1.0
   }
 }
 ```
 
-Note that `limitPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you
-wish.
+Note that `requestsPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you wish.
+For example, a value of `0.5` means capture at most 1 request every 2 seconds.
 
-You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_LIMIT_PER_SECOND`
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_REQUESTS_PER_SECOND`
 (which will then take precedence over rate limit specified in the json configuration).
 
 ### Fixed-Percentage Sampling
@@ -266,7 +268,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 
 ## Connection string overrides (preview)
 
-This feature is in preview, starting from 3.4.0-BETA.
+This feature is in preview, starting from 3.4.0.
 
 Connection string overrides allow you to override the [default connection string](#connection-string), for example:
 * Set one connection string for one http path prefix `/myapp1`.
@@ -462,12 +464,30 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 Literal values in JDBC queries are masked by default in order to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.0-BETA, this behavior can be disabled if desired, e.g.
+Starting from 3.4.0, this behavior can be disabled if desired, e.g.
 
 ```json
 {
   "instrumentation": {
     "jdbc": {
+      "masking": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+## Mongo query masking
+
+Literal values in Mongo queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.0, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "mongo": {
       "masking": {
         "enabled": false
       }
