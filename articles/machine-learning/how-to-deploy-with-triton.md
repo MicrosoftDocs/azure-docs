@@ -65,7 +65,7 @@ NVIDIA Triton Inference Server requires a specific model repository structure, w
 
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)
+[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
 # [Python](#tab/python)
 
