@@ -154,7 +154,7 @@ Usually, Speech resources use [Cognitive Services regional endpoints](../cogniti
 This is a sample request URL:
 
 ```http
-https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions
+https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
 
 > [!NOTE]

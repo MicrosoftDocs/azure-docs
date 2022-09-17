@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
 > [!IMPORTANT]
-> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech-to-text REST API v3.1. Complete the steps in this article and then see [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) for additional requirements.
+> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech-to-text REST API v3.1. Complete the steps in this article and then see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide for additional requirements.
 
 ## Forward compatibility
 
@@ -99,14 +99,14 @@ If the entity has additional functionality available through other paths, they a
 
 ```json
 {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "createdDateTime": "2019-01-07T11:34:12Z",
     "lastActionDateTime": "2019-01-07T11:36:07Z",
     "status": "Succeeded",
     "locale": "en-US", 
     "displayName": "Transcription using locale en-US",
     "links": {
-      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
+      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     }
 }
 ```
@@ -125,7 +125,7 @@ The basic shape of the response is the same for all collections:
         {     
         }
     ],
-    "@nextLink": "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.1/{collection}?skip=100&top=100"
+    "@nextLink": "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/{collection}?skip=100&top=100"
 }
 ```
 
@@ -277,9 +277,9 @@ to access the content of each file. To control the validity duration of the SAS 
 
 ```json
 {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "links": {
-      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
+      "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     } 
 }
 ```
@@ -290,7 +290,7 @@ to access the content of each file. To control the validity duration of the SAS 
 {
   "values": [
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/f23e54f5-ed74-4c31-9730-2f1a3ef83ce8",
+      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/f23e54f5-ed74-4c31-9730-2f1a3ef83ce8",
       "name": "Name",
       "kind": "Transcription",
       "properties": {
@@ -302,7 +302,7 @@ to access the content of each file. To control the validity duration of the SAS 
       }
     },
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/28bc946b-c251-4a86-84f6-ea0f0a2373ef",
+      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files/28bc946b-c251-4a86-84f6-ea0f0a2373ef",
       "name": "Name",
       "kind": "TranscriptionReport",
       "properties": {
@@ -314,7 +314,7 @@ to access the content of each file. To control the validity duration of the SAS 
       }
     }
   ],
-  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files?skip=2&top=2"
+  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files?skip=2&top=2"
 }
 ```
 
@@ -406,9 +406,9 @@ In v2, referenced entities were always inlined, for example the used models of a
 
 ```json
 {
-  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
+  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
   "model": {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/models/021a72d0-54c4-43d3-8254-27336ead9037"
+    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/models/021a72d0-54c4-43d3-8254-27336ead9037"
   }
 }
 ```
@@ -427,9 +427,9 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
 
 ```json
 {
-  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
+  "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
   "links": {
-    "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs" 
+    "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs" 
   }
 }
 ```
@@ -440,7 +440,7 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
 {
   "values": [
     {
-      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/6d72ad7e-f286-4a6f-b81b-a0532ca6bcaa/files/logs/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
+      "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/6d72ad7e-f286-4a6f-b81b-a0532ca6bcaa/files/logs/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
       "name": "2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav",
       "kind": "Audio",
       "properties": {
@@ -452,7 +452,7 @@ Version v2 of the service supported logging endpoint results. To retrieve the re
       }
     }    
   ],
-  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
+  "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
 }
 ```
 
@@ -510,7 +510,7 @@ Because the new API version is now managed by Azure API management (APIM), the t
 
 ### Accuracy tests
 
-Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The new paths are: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations`.
+Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The new paths are: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations`.
 
 >[!IMPORTANT]
 >Rename the path segment `accuracytests` to `evaluations` in your client code.

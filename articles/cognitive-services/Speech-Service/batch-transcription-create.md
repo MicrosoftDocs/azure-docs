@@ -38,12 +38,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -76,13 +76,13 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
+To create a transcription, use the [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
 
 - You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
 
-Make an HTTP POST request using the URI as shown in the following [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP POST request using the URI as shown in the following [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -96,7 +96,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
 ```
 
 
@@ -104,12 +104,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -130,11 +130,11 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the transcription's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) details such as the URI of the transcriptions and transcription report files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) a transcription.
+The top-level `self` property in the response body is the transcription's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscription) details such as the URI of the transcriptions and transcription report files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateTranscription) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) a transcription.
 
-You can query the status of your transcriptions with the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation. 
+You can query the status of your transcriptions with the [GetTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscription) operation. 
 
-Call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
+Call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 ::: zone-end
@@ -153,7 +153,7 @@ spx help batch transcription create advanced
 
 ::: zone pivot="rest-api"
 
-Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation.
+Here are some property options that you can use to configure a transcription when you call the [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) operation.
 
 | Property | Description |
 |----------|-------------|
@@ -161,12 +161,12 @@ Here are some property options that you can use to configure a transcription whe
 |`contentContainerUrl`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).|
 |`contentUrls`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).|
 |`destinationContainerUrl`|The result can be stored in an Azure container. Specify the [ad hoc SAS](../../storage/common/storage-sas-overview.md) with write permissions. SAS with stored access policies isn't supported. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.|
-|`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` and `wordLevelTimestampsEnabled` properties to `true`. The [transcription file](batch-transcription-get.md#transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.|
-|`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`. The default value is `false`.|
+|`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` property to `true`. The [transcription file](batch-transcription-get.md#transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
+|`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. The default value is `false`.|
 |`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
 |`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.|
-|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
+|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly after you retrieve the transcription results.|
 |`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.|
 
 
@@ -183,7 +183,7 @@ Optionally, you can set the `model` property to use a specific base model or [Cu
 ::: zone pivot="speech-cli"
 
 ```azurecli-interactive
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end
@@ -195,13 +195,13 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
   "locale": "en-US",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "displayName": "My Transcription",
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
 ```
 
 ::: zone-end
