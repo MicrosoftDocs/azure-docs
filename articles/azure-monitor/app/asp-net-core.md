@@ -65,7 +65,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 6. After you add Application Insights to your project, check to confirm that you're using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages...** > **Microsoft.ApplicationInsights.AspNetCore**. If you need to, select **Update**.
 
-     ![Screenshot showing where to select the Application Insights package for update](./media/asp-net-core/update-nuget-package.png)
+     :::image type="content" source="./media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update":::
 
 7. If you added your project to source control, go to **View** > **Team Explorer** > **Changes**. You can select each file to see a diff view of the changes made by Application Insights telemetry.
 
