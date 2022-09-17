@@ -65,6 +65,7 @@ NVIDIA Triton Inference Server requires a specific model repository structure, w
 
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
+[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)
 
 # [Python](#tab/python)
 
@@ -91,8 +92,6 @@ The information in this document is based on using a model stored in ONNX format
 
     > [!IMPORTANT]
     > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
-
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-sdk-prepare.md)]
 
 The information in this article is based on the [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to the `sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb` directory in the repo:
 
