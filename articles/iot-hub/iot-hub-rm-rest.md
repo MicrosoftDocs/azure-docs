@@ -130,7 +130,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Remove your IoT hub from the Azure portal
 
-If you're only testing, you might want to clean up your resources and delete your new IoT hub, by sending a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourcename}` value is the name of your IoT hub.
+If you're only testing, you might want to clean up your resources and delete your new IoT hub, by sending a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourceName}` value is the name of your IoT hub.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
