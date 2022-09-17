@@ -36,10 +36,10 @@ If the original version of group writeback is already enabled and in use in your
    2. To do this via PowerShell, use the: [New-AzureADDirectorySetting](../enterprise-users/groups-settings-cmdlets.md) cmdlet. 
    Example:  
      ```PowerShell 
-     $TemplateId = (Get-AzureADDirectorySettingTemplate | where {$_.DisplayName -eq "Group.Unified" }).Id 
-     $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ 
-     $Setting = $Template.CreateDirectorySetting() 
-     $Setting["NewUnifiedGroupWritebackDefault"] = "False" 
+     $TemplateId = (Get-AzureADDirectorySettingTemplate | where {$_.DisplayName -eq "Group.Unified" }).Id
+     $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
+     $Setting = $Template.CreateDirectorySetting()
+     $Setting["NewUnifiedGroupWritebackDefault"] = "False"
      New-AzureADDirectorySetting -DirectorySetting $Setting 
      ``` 
    3. Via MS Graph: [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) 
@@ -61,68 +61,68 @@ If the original version of group writeback is already enabled and in use in your
  1. On your Azure AD Connect server, open a PowerShell prompt as administrator. 
  2. Disable [Azure AD Connect sync scheduler](./how-to-connect-sync-feature-scheduler.md) 
  ``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $false  
+ Set-ADSyncScheduler -SyncCycleEnabled $false
  ``` 
 3. Create a custom synchronization rule in Azure AD Connect to delete written back groups when they're disabled for writeback or soft deleted  
  ```PowerShell 
  import-module ADSync 
  $precedenceValue = Read-Host -Prompt "Enter a unique sync rule precedence value [0-99]" 
 
-  New-ADSyncRule  ` 
-  -Name 'In from AAD - Group SOAinAAD Delete WriteBackOutOfScope and SoftDelete' ` 
-  -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' ` 
-  -Description 'Delete AD groups that fall out of scope of Group Writeback or get Soft Deleted in Azure AD' ` 
-  -Direction 'Inbound' ` 
-  -Precedence $precedenceValue ` 
-  -PrecedenceAfter '00000000-0000-0000-0000-000000000000' ` 
-  -PrecedenceBefore '00000000-0000-0000-0000-000000000000' ` 
-  -SourceObjectType 'group' ` 
-  -TargetObjectType 'group' ` 
-  -Connector 'b891884f-051e-4a83-95af-2544101c9083' ` 
-  -LinkType 'Join' ` 
-  -SoftDeleteExpiryInterval 0 ` 
-  -ImmutableTag '' ` 
-  -OutVariable syncRule 
+  New-ADSyncRule  `
+  -Name 'In from AAD - Group SOAinAAD Delete WriteBackOutOfScope and SoftDelete' `
+  -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' `
+  -Description 'Delete AD groups that fall out of scope of Group Writeback or get Soft Deleted in Azure AD' `
+  -Direction 'Inbound' `
+  -Precedence $precedenceValue `
+  -PrecedenceAfter '00000000-0000-0000-0000-000000000000' `
+  -PrecedenceBefore '00000000-0000-0000-0000-000000000000' `
+  -SourceObjectType 'group' `
+  -TargetObjectType 'group' `
+  -Connector 'b891884f-051e-4a83-95af-2544101c9083' `
+  -LinkType 'Join' `
+  -SoftDeleteExpiryInterval 0 `
+  -ImmutableTag '' `
+  -OutVariable syncRule
 
-  Add-ADSyncAttributeFlowMapping  ` 
-  -SynchronizationRule $syncRule[0] ` 
-  -Destination 'reasonFiltered' ` 
-  -FlowType 'Expression' ` 
-  -ValueMergeType 'Update' ` 
-  -Expression 'IIF((IsPresent([reasonFiltered]) = True) && (InStr([reasonFiltered], "WriteBackOutOfScope") > 0 || InStr([reasonFiltered], "SoftDelete") > 0), "DeleteThisGroupInAD", [reasonFiltered])' ` 
-  -OutVariable syncRule 
+  Add-ADSyncAttributeFlowMapping  `
+  -SynchronizationRule $syncRule[0] `
+  -Destination 'reasonFiltered' `
+  -FlowType 'Expression' `
+  -ValueMergeType 'Update' `
+  -Expression 'IIF((IsPresent([reasonFiltered]) = True) && (InStr([reasonFiltered], "WriteBackOutOfScope") > 0 || InStr([reasonFiltered], "SoftDelete") > 0), "DeleteThisGroupInAD", [reasonFiltered])' `
+  -OutVariable syncRule
 
- New-Object  ` 
- -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.ScopeCondition' ` 
- -ArgumentList 'cloudMastered','true','EQUAL' ` 
- -OutVariable condition0 
+ New-Object  `
+ -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.ScopeCondition' `
+ -ArgumentList 'cloudMastered','true','EQUAL' `
+ -OutVariable condition0
 
- Add-ADSyncScopeConditionGroup  ` 
- -SynchronizationRule $syncRule[0] ` 
- -ScopeConditions @($condition0[0]) ` 
- -OutVariable syncRule 
+ Add-ADSyncScopeConditionGroup  `
+ -SynchronizationRule $syncRule[0] `
+ -ScopeConditions @($condition0[0]) `
+ -OutVariable syncRule
  
- New-Object  ` 
- -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.JoinCondition' ` 
- -ArgumentList 'cloudAnchor','cloudAnchor',$false ` 
- -OutVariable condition0 
+ New-Object  `
+ -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.JoinCondition' `
+ -ArgumentList 'cloudAnchor','cloudAnchor',$false `
+ -OutVariable condition0
 
- Add-ADSyncJoinConditionGroup  ` 
- -SynchronizationRule $syncRule[0] ` 
- -JoinConditions @($condition0[0]) ` 
- -OutVariable syncRule 
+ Add-ADSyncJoinConditionGroup  `
+ -SynchronizationRule $syncRule[0] `
+ -JoinConditions @($condition0[0]) `
+ -OutVariable syncRule
 
- Add-ADSyncRule  ` 
- -SynchronizationRule $syncRule[0] 
+ Add-ADSyncRule  `
+ -SynchronizationRule $syncRule[0]
 
- Get-ADSyncRule  ` 
- -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' 
+ Get-ADSyncRule  `
+ -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947'
  ``` 
 
 4. [Enable group writeback](how-to-connect-group-writeback-enable.md) 
 5. Enable Azure AD Connect sync scheduler 
  ``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $true  
+ Set-ADSyncScheduler -SyncCycleEnabled $true
  ``` 
 
 >[!Note] 
@@ -135,14 +135,14 @@ Since the default sync rule, that limits the group size, is created when group w
 1. On your Azure AD Connect server, open a PowerShell prompt as administrator. 
 2. Disable [Azure AD Connect sync scheduler](./how-to-connect-sync-feature-scheduler.md) 
  ``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $false  
+ Set-ADSyncScheduler -SyncCycleEnabled $false
  ``` 
 3. Open the [synchronization rule editor](./how-to-connect-create-custom-sync-rule.md) 
 4. Set the Direction to Outbound 
 5. Locate and disable the ‘Out to AD – Group Writeback Member Limit’ synchronization rule 
 6. Enable Azure AD Connect sync scheduler 
 ``` PowerShell 
- Set-ADSyncScheduler -SyncCycleEnabled $true  
+ Set-ADSyncScheduler -SyncCycleEnabled $true
 ``` 
 
 >[!Note] 
