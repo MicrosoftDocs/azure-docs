@@ -26,7 +26,7 @@ The following steps show how to set up authentication for your app to register w
    Get-AzSubscription
    ```
 
-   Select the subscription you want to use. You can use either the subscription name or Id from the output of the previous command.
+   Select the subscription you want to use. You can use either the subscription name or `Id` from the output of the previous command.
 
    ```powershell
    Select-AzSubscription -SubscriptionName "{your-subscription-name}"
