@@ -32,12 +32,12 @@ The following steps show how to set up authentication for your app to register w
    Select-AzSubscription -SubscriptionName "{your-subscription-name}"
    ```
 
-1. Save your **Id** and **TenantId** for later.
+1. Save your `Id` and `TenantId` for later.
 
 1. Create a new Azure Active Directory application using the following command, replacing these placeholders with your own values:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (your Id can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
+   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (`your-Id` can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
 
    :::image type="content" source="/includes/media/iot-hub-prepare-resource-manager/find-domain.png" alt-text="Screenshot showing location of your Primary domain in the Azure portal.":::
      
@@ -45,7 +45,7 @@ The following steps show how to set up authentication for your app to register w
      $myApp = New-AzADApplication -DisplayName "<your-display-name>" -IdentifierUris "<your-domain>/<your-id>"
      New-AzADServicePrincipal -AppId $myApp.AppId
      ```
-     A confirmation of your Display name, Id, and App Id will print to the console.
+     A confirmation of your `Display name`, `Id`, and `AppId` will print to the console.
 
 1. Save the **AppId** of the application you created for later.
 
