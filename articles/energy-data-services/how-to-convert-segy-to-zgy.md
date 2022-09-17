@@ -48,7 +48,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
                     }
     ```
 
-    You can also add the user to this group by using the entitlements API and assigning the required group ID. In order to check the entitlements groups for a user, perform the command [4. Get entitlements groups for a given user](how-to-manage-users.md#4-get-entitlements-groups-for-a-given-user). In order to get all the groups available, do the following command:
+    You can also add the user to this group by using the entitlements API and assigning the required group ID. In order to check the entitlements groups for a user, perform the command [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). In order to get all the groups available, do the following command:
 
     ```bash
     curl --location --request GET "<url>/api/entitlements/v2/groups/" \
@@ -105,7 +105,7 @@ Seismic data stored in industry standard SEG-Y format can be converted to ZGY fo
     }'
     ```
 
-5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users?](how-to-manage-users.md). If you would like to see what groups you have, use [4. Get entitlements groups for a given user](how-to-manage-users.md#4-get-entitlements-groups-for-a-given-user). Data access isolation achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
+5. Create Subproject. Use your previously created entitlements groups that you would like to add as ACLs (Access Control List) admins and viewers. If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users?](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). Data access isolation achieved with this dedicated ACL (access control list) per object within a given data partition. You may have many subprojects within a data partition, so this command allows you to provide access to a specific subproject without providing access to an entire data partition. Data partition entitlements don't necessarily translate to the subprojects within it, so it's important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
     > [!NOTE] 
     > Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to include one of each in your list of `acls` in the request below.

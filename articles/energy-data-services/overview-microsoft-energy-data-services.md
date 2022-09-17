@@ -10,33 +10,38 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services?
 
-Microsoft Energy Data Services is a cloud based data management solution that allows storage, management, standardization, liberation, search, and consumption of data for various scenarios for the energy industry. Microsoft has developed Microsoft Energy Data Services in collaboration with Schlumberger. It is a best-in-class hyperscale data ecosystem that leverages the capabilities of the OSDU&trade; Data Platform, Microsoft's secure and trustworthy Azure services and Schlumberger's extensive domain expertise.
-
-It provides an enterprise-ready, commercial-grade, Microsoft-managed first party PaaS (platform as a service) offering an efficient, standardized, easy to deploy, scalable environment for data management. Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service, so that you can focus on the value from the platform. Microsoft will continue to update the service with the most recent OSDU&trade; Standard milestone releases after testing and validation, so that you receive a recent, tested and validated, stable version of OSDU Data Platform&trade;.
-
-Microsoft Energy Data Services includes Domain Data Management Services (DDMS) to provide out-of-the-box compatibility with some of the most common applications used in the industry such as Petrel etc. DDMS allows quick time to realize value by being able to run domain workflows on the data contained in the platform, with little or no effort.
-
-Multiple Data Partitions are supported per instance of Microsoft Energy Data Services platform. Additional data partitions can also be created after the creation of an instance of the platform.
+Microsoft Energy Data Services is a secure, reliable, hyperscale, fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU&trade; Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise. This allows customers to free data from silos, provide strong data management, storage and federation strategy while ensuring compatibility with evolving community standards like OSDU&trade; and enabling value addition through interoperability with both first-party and third-party solutions.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Openness
+## Principles
 
-Microsoft Energy Data Services is compatible with the OSDU&trade; Technical Standard that enables seamless integration of existing applications that have been developed in alignment with the emerging requirements of the OSDU&trade; Data Platform.
-Microsoft Energy Data Services includes industry-leading applications, solutions, and integration services that are developed and offered by Microsoft's extensive partner ecosystem.
+- Fully managed OSDU platform
 
-## Security
+Microsoft Energy Data Services is a first-party PaaS (platform as a service) offering where Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service, so that the customers can focus on the value from the platform. Microsoft offers seamless upgrades to the latest OSDU milestone versions after testing and validation.
 
-Microsoft Energy Data Services platform provides enerprise level security including encryption for data-in-transit and encryption for data-at-rest. In addition, the platform provides support for Customer Managed Encryption Keys (CMEK). The authentication and authorization are provided by Azure Active Directory. To ensure optimum security, Microsoft assumes the responsibility of providing regular security patches and updates.
+Furthermore, Microsoft Energy Data Services provides security capabilities like encryption for data-in-transit and encryption for data-at-rest. The authentication and authorization are provided by Azure Active Directory. Microsoft also assumes the responsibility of providing regular security patches and updates.
 
-## Azure enterprise promise
+Microsoft Energy Data Services also supports multiple data partitions for every instance of the platform. More data partitions can also be created after the creation of an instance of the platform, as needed.
 
-As an Azure-based service, Microsoft Energy Data Services is highly available with support for multiple availability zones. It also provides reliability with auto-scaling to handle dynamically varying workloads. Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft's Terms of Use (TOU).
+As an Azure-based service, it also provides elasticity with auto-scaling to handle dynamically varying workload requirements. The service provides out-of-the-box compatibility and built-in integration with industry-leading applications from Schlumberger, including Petrel to provide quick time to value.
 
-OSDU&trade; is a trademark of The Open Group.
+Microsoft will provide support for the platform to enable our customers' use-cases.
+
+- Accelerated innovation with openness in mind
+
+Microsoft Energy Data Services is compatible with the OSDU Technical Standard that enables seamless integration of existing applications that have been developed in alignment with the emerging requirements of the OSDU Standard.
+
+The openness of the platform and integration with Microsoft Azure Marketplace brings industry-leading applications, solutions, and integration services developed and offered by our extensive partner ecosystem to our customers.
+
+- Extensibility with Microsoft ecosystem
+
+Most of our customers rely on ubiquitous tools and applications from Microsoft. The Microsoft Energy Data Services platform is piloting how it can seamlessly work with deeply used Microsoft apps like SharePoint for data ingestion, Synapse for data transformations and pipelines, Power BI for data visualization, and other possibilities. A Power BI connector has already been released in the community, and partners are already leveraging these tools and connectors to enhance their integrations with Microsoft apps and services.
 
 ## Next steps
 
 Follow the quickstart guide to quickly deploy Microsoft Energy Data Service in your Azure subscription
 > [!div class="nextstepaction"]
 > [Quickstart: Create Microsoft Energy Data Services instance](quickstart-create-microsoft-energy-data-services-instance.md)
+
+OSDU&trade; is a trademark of The Open Group.
