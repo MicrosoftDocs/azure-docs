@@ -84,7 +84,7 @@ By default, Azure Automation does not have any PowerShell modules preloaded for 
 
 1. If you are using the cmdlets for Azure AD identity governance features, such as entitlement management, then repeat the import process for the module **Microsoft.Graph.Identity.Governance**.
 
-1. Import other modules that your script may require.  For example, if you are using Identity Protection, then you may wish to import the **Microsoft.Graph.Identity.SignIns** module.
+1. Import other modules that your script may require, such as **Microsoft.Graph.Users**.  For example, if you are using Identity Protection, then you may wish to import the **Microsoft.Graph.Identity.SignIns** module.
 
 ## Create an app registration and assign permissions
 
@@ -179,7 +179,7 @@ $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
 
 3. If the run was successful, the output instead of the welcome message will be a JSON array. The JSON array will include the ID and display name of each access package returned from the query.
 
-## Providing parameters to the runbook (optional)
+## Provide parameters to the runbook (optional)
 
 You can also add input parameters to your runbook, by adding a `Param` section at the top of the PowerShell script. For instance,
 
