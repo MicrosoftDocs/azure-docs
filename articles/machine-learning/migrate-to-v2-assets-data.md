@@ -215,12 +215,12 @@ This articles gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1](/python/api/azureml-core/azureml.data?view=azure-ml-py)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities?view=azure-python-preview)|
+|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.datadisplayname: migration, v1, v2)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
 
 ## Next steps
 
 For further details refer to the documentation here:
-* [Data in Azure Machine Learning](concept-data?tabs=uri-file-example%2Ccli-data-create-example)
-* [Create data_assets](how-to-create-data-assets?tabs=CLI)
-* [Read and write data in a job](how-to-read-write-data-v2)
-* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations?view=azure-python-preview)
+* [Data in Azure Machine Learning](concept-data?tabs=uri-file-example%2Ccli-data-create-example.md)
+* [Create data_assets](how-to-create-data-assets.md?tabs=CLI)
+* [Read and write data in a job](how-to-read-write-data-v2.md)
+* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations)

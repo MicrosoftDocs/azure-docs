@@ -1,7 +1,7 @@
 ---
-title: 'Migrate from v1 to v2: '
+title:  Migrate model management from SDK v1 to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2 of Azure Machine Learning SDK
+description: Migrate model management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -74,9 +74,9 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Model.register](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#azureml-core-model-register)|[ml_client.models.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview#azure-ai-ml-mlclient-create-or-update)|
-|[run.register_model](/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#azureml-core-run-run-register-model)|[ml_client.models.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview#azure-ai-ml-mlclient-create-or-update)|
-|[Model.deploy](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#azureml-core-model-deploy)|[ml_client.begin_create_or_update(blue_deployment)](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview#azure-ai-ml-mlclient-begin-create-or-update)|
+|[Model.register](/python/api/azureml-core/azureml.core.model(class)#azureml-core-model-register)|[ml_client.models.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-create-or-update)|
+|[run.register_model](/python/api/azureml-core/azureml.core.run.run#azureml-core-run-run-register-model)|[ml_client.models.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-create-or-update)|
+|[Model.deploy](/python/api/azureml-core/azureml.core.model(class)#azureml-core-model-deploy)|[ml_client.begin_create_or_update(blue_deployment)](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-begin-create-or-update)|
 
 ## Next steps
 

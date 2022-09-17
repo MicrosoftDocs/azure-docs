@@ -32,7 +32,7 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2. In the fol
 
 ## Prerequisites
 
- - Prepare your SDK v2 environment: [Install the Azure ML SDK v2 for Python](/python/api/overview/azure/ml/installv2?view=azure-ml-py)
+ - Prepare your SDK v2 environment: [Install the Azure ML SDK v2 for Python](/python/api/overview/azure/ml/installv2)
  - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with python SDK v2](https://review.docs.microsoft.com/azure/machine-learning/how-to-create-component-pipeline-python?branch=main)
 
 
@@ -169,9 +169,9 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2. In the fol
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[azureml.pipeline.steps.parallelrunconfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py)<br>[azureml.pipeline.steps.parallelrunstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py)|[azure.ai.ml.parallel](/python/api/azure-ai-ml/azure.ai.ml.parallel?view=azure-python-preview)|
-|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py)|[Output](/python/api/azure-ai-ml/azure.ai.ml.output?view=azure-python-preview)|
-|[dataset as_mount](/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#azureml-data-filedataset-as-mount)|[Input](/python/api/azure-ai-ml/azure.ai.ml.input?view=azure-python-preview)|
+|[azureml.pipeline.steps.parallelrunconfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig)<br>[azureml.pipeline.steps.parallelrunstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep)|[azure.ai.ml.parallel](/python/api/azure-ai-ml/azure.ai.ml.parallel)|
+|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig)|[Output](/python/api/azure-ai-ml/azure.ai.ml.output)|
+|[dataset as_mount](/python/api/azureml-core/azureml.data.filedataset#azureml-data-filedataset-as-mount)|[Input](/python/api/azure-ai-ml/azure.ai.ml.input)|
 
 ## Parallel job configurations and settings mapping
 

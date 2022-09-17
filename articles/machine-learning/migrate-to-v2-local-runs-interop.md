@@ -81,7 +81,7 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[experiment.submit](/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#azureml-core-experiment-experiment-submit)|[MLCLient.jobs.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview#azure-ai-ml-mlclient-create-or-update)|
+|[experiment.submit](/python/api/azureml-core/azureml.core.experiment.experiment#azureml-core-experiment-experiment-submit)|[MLCLient.jobs.create_or_update](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-create-or-update)|
 
 ## Next steps
 
