@@ -55,7 +55,7 @@ The following steps show how to set up authentication for your app to register w
     New-AzRoleAssignment -RoleDefinitionName "Owner" -ApplicationId {MyAppId}
     ```
 
-   To understand roles and permissions, see [Create or update Azure custom roles using Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell).
+   To understand roles and permissions, see [Create or update Azure custom roles using Azure PowerShell](/azure/role-based-access-control/custom-roles-powershell).
 
 With your new Azure AD application, you can now authenticate from your custom C# application. 
 
