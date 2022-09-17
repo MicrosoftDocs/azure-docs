@@ -55,20 +55,19 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 1. Open your project in Visual Studio.
 
-    > [!TIP]
-    > To track all the changes that Application Insights makes, you can set up source control for your project. To set it up, select **File** > **Add to Source Control**.
-
 2. Select **Project** > **Add Application Insights Telemetry**.
 
-3. Select **Get Started**. Depending on your version of Visual Studio, the name of this button might vary. In some earlier versions, it's named the **Start Free** button.
+3. Select **Azure Application Insights**, then select **Next**.
 
-4. Select your subscription, and then select **Resource** > **Register**.
+4. Select your subscription and Application Insights instance (or create a new instance by selecting **Create new**), then select **Next**.
 
-5. After you add Application Insights to your project, check to confirm that you're using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore**. If you need to, select **Update**.
+5. Add or confirm your Application Insights connection string (this should be prepopulated based on your selection in the previous step), then select **Finish**.
+
+6. After you add Application Insights to your project, check to confirm that you're using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages...** > **Microsoft.ApplicationInsights.AspNetCore**. If you need to, select **Update**.
 
      ![Screenshot showing where to select the Application Insights package for update](./media/asp-net-core/update-nuget-package.png)
 
-6. If you added your project to source control, go to **View** > **Team Explorer** > **Changes**. You can select each file to see a diff view of the changes made by Application Insights telemetry.
+7. If you added your project to source control, go to **View** > **Team Explorer** > **Changes**. You can select each file to see a diff view of the changes made by Application Insights telemetry.
 
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
