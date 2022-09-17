@@ -225,8 +225,8 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 
 * `application/dicom; transfer-syntax=*`
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
-* `application/dicom;` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
-* `multipart/related; type="application/dicom"` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
+* `application/dicom;` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
+* `multipart/related; type="application/dicom"` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
@@ -237,9 +237,9 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 The following `Accept` headers are supported for retrieving frames:
 
 * `multipart/related; type="application/octet-stream"; transfer-syntax=*`
-* `multipart/related; type="application/octet-stream";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
+* `multipart/related; type="application/octet-stream";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
 * `multipart/related; type="application/octet-stream"; transfer-syntax=1.2.840.10008.1.2.1`
-* `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.4.90 is used as default)
+* `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 
 ### Retrieve transfer syntax
@@ -280,8 +280,8 @@ Retrieving metadata will not return attributes with the following value represen
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
-* Data hasn't changed since the last request: HTTP 304 (Not Modified) response will be sent with no response body.
-* Data has changed since the last request: HTTP 200 (OK) response will be sent with updated ETag. Required data will also be returned as part of the body.
+* Data hasn't changed since the last request: HTTP `304 (Not Modified)` response will be sent with no response body.
+* Data has changed since the last request: HTTP `200 (OK)` response will be sent with updated ETag. Required data will also be returned as part of the body.
 
 ### Retrieve response status codes
 
@@ -610,7 +610,7 @@ The `Accept` header is required and must have the value `application/dicom+json`
 #### Retrieve Workitem Response Payload
 
 * A success response has a single part payload containing the requested Workitem in the Selected Media Type.
-* The returned Workitem shall not contain the Transaction UID (`0008`,1195) Attribute of the Workitem, since that should only be known to the Owner.
+* The returned Workitem shall not contain the Transaction UID (`0008`,`1195`) attribute of the Workitem, since that should only be known to the Owner.
 
 ### Update Workitem
 
@@ -651,7 +651,7 @@ The request cannot set the value of the `Procedure Step State (0074,1000)` attri
 
 The origin server shall support header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
 
-A success response shall have either no payload #or a payload containing a Status Report document.
+A success response shall have either no payload or a payload containing a Status Report document.
 
 A failure response payload may contain a Status Report describing any failures, warnings, or other useful information.
 
