@@ -30,26 +30,6 @@ This article explains how to:
 
 For information on provisioning an IP address, see [Create a custom IP address prefix - Azure portal](create-custom-ip-address-prefix-portal.md), [Create a custom IP address prefix - Azure PowerShell](create-custom-ip-address-prefix-powershell.md), or [Create a custom IP address prefix - Azure CLI](create-custom-ip-address-prefix-cli.md).
 
-## Use the regional commissioning feature
-
-When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there is the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it is only advertised from within a single Azure region.  This allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet.
-
-Use the following example CLI and PowerShell structures to put a custom IP prefix range into this state.
-
-```azurecli-interactive
-az network custom-ip prefix update
-(other arguments)
---state {commission}
---no-internet-advertise
- ```
-
- ```azurepowershell-interactive
-Update-AzCustomIpPrefix 
-(other arguments)
--Commission
--NoInternetAdvertise
- ```
-
 ## Create a public IP prefix from a custom IP prefix
 
 When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
@@ -90,6 +70,26 @@ If the provisioned range is being advertised to the Internet by another network,
 * Create a second set of mirrored public IP prefixes and public IP addresses from the prefixes when the custom IP prefix is in a **Provisioned** state. Add the provisioned IPs to the existing infrastructure. For example, add another network interface to a virtual machine or another frontend for a load balancer. Perform a change to the desired IPs before issuing the command to move the custom IP prefix to the **Commissioned** state.
 
 * Alternatively, the ranges can be commissioned first and then changed. This process won't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
+
+### Use the regional commissioning feature
+
+When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there is the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it is only advertised from within a single Azure region.  This allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the section above.
+
+Use the following example CLI and PowerShell structures to put a custom IP prefix range into this state.
+
+```azurecli-interactive
+az network custom-ip prefix update
+(other arguments)
+--state {commission}
+--no-internet-advertise
+ ```
+
+ ```azurepowershell-interactive
+Update-AzCustomIpPrefix 
+(other arguments)
+-Commission
+-NoInternetAdvertise
+ ```
 
 ## View a custom IP prefix
 
