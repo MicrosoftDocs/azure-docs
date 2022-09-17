@@ -19,7 +19,7 @@ recommendations: false
 
 You'll use the following APIs and models to extract structured data from forms and documents:
 
-* [Authenticate the client](#authenticate-the-client)
+<!-- * [Authenticate the client](#authenticate-the-client)
 * [prebuilt-read](#read-model)
 * [prebuilt-layout](#layout-model)
 * [prebuilt-document](#general-document-model)
@@ -30,7 +30,7 @@ You'll use the following APIs and models to extract structured data from forms a
 * [prebuilt-businessCard](#business-card-model)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage custom models](#manage-custom-models)
+* [Manage custom models](#manage-custom-models) -->
 
 ::: zone pivot="programming-language-csharp"
 

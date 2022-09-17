@@ -1,7 +1,7 @@
 ---
 title: "Use Form Recognizer client library SDKs or REST API (v2.1)"
 titleSuffix: Azure Applied AI Services
- description: How to use a Form Recognizer SDKs or REST API (v2.1) to create apps that extract key data from documents.
+description: How to use a Form Recognizer SDKs or REST API (v2.1) to create apps that extract key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
