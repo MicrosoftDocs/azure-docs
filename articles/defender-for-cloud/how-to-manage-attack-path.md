@@ -2,7 +2,7 @@
 title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 09/18/2022
 ---
 
 # Identify and remediate attack paths 
@@ -23,36 +23,15 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 ## Features of the attack path overview page
 
-The attack path homepage offers you an overview of your total attack paths. From here, you can see all of your affected resources and a list of all active recommendations.
+The attack path homepage offers you an overview of your total attack paths. From here, you can see all of your affected resources and a list of all active attack paths.
 
 :::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
 
-On this page you can organize your recommendations based on name, environment, paths count, risk categories.
+On this page you can organize your attack paths based on name, environment, paths count, risk categories.
 
-For each recommendation you can see all of risk categories and any affected resources.
+For each attack path you can see all of risk categories and any affected resources.
 
 The potential risk categories include Credentials exposure, Compute abuse, Data exposure, Subscription/account takeover.
-
-The types of resources that can be infected include:
-
-| Resource icon | Name |
-|--|--|
-| :::image type="icon" source="media/concept-cloud-map/keyvault-icon.png" border="false":::  | Key Vault |
-| :::image type="icon" source="media/concept-cloud-map/managed-identity-icon.png" border="false"::: | Managed Identity |
-| :::image type="icon" source="media/concept-cloud-map/public-ip-icon.png" border="false"::: | Public IP |
-| :::image type="icon" source="media/concept-cloud-map/virtual-machine-icon.png" border="false"::: | Virtual Machine |
-| :::image type="icon" source="media/concept-cloud-map/container-icon.png" border="false"::: | Container |
-| :::image type="icon" source="media/concept-cloud-map/k8s-pods-icon.png" border="false"::: | Kubernetes pod |
-| :::image type="icon" source="media/concept-cloud-map/virtual-machine-scale-set-icon.png" border="false"::: | Virtual Machine Scale Set |
-| :::image type="icon" source="media/concept-cloud-map/k8s-namespace-icon.png" border="false"::: | Kubernetes namespace |
-| :::image type="icon" source="media/concept-cloud-map/container-image-icon.png" border="false"::: | Container image |
-| :::image type="icon" source="media/concept-cloud-map/k8s-service-icon.png" border="false"::: | Kubernetes service or ingress |
-| :::image type="icon" source="media/concept-cloud-map/managed-cluster-icon.png" border="false"::: | Managed cluster |
-| :::image type="icon" source="media/concept-cloud-map/subscription-icon.png" border="false"::: | Subscription |
-| :::image type="icon" source="media/concept-cloud-map/storage-icon.png" border="false"::: | Storage |
-| :::image type="icon" source="media/concept-cloud-map/resource-group-icon.png" border="false"::: | Resource group |
-| :::image type="icon" source="media/concept-cloud-map/sql-database-icon.png" border="false"::: | Sql Database |
-| :::image type="icon" source="media/concept-cloud-map/sql-server-icon.png" ::: | Sql Server |
 
 ## Investigate and remediate attack paths
 
@@ -117,7 +96,7 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 
 An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it's to protect.
 
-While you are [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM.
+While you are [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM if it is available and you have enabled Defender EASM to your subscription.
 
 > [!NOTE]
 > To manage your EASM, you must [deploy the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has it's own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/). 

@@ -91,7 +91,7 @@
     - name: Security posture
       href: secure-score-security-controls.md
     - name: What is the Cloud Security Graph
-      displayName: Cloud Security Graph, Attack Path Analysis, Cloud Security Explorer, CSPM
+      displayName: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
       href: concept-attack-path.md
     - name: External attack surface management (EASM)
       displayName: EASM, attack surface management
@@ -128,10 +128,12 @@
       href: windows-admin-center-integration.md
     - name: Integrate security solutions and data sources
       href: partner-integration.md
-    - name: Identify and remediate attack paths
-      href: how-to-manage-attack-path.md
-    - name: Build queries with Cloud Security Explorer
-      href: how-to-manage-cloud-security-explorer.md
+    - name: Security graph
+      items:
+      - name: Identify and remediate attack paths
+        href: how-to-manage-attack-path.md
+      - name: Build queries with Cloud Security Explorer
+        href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
     items:
     - name: Create custom security initiatives and policies

@@ -1,9 +1,9 @@
 ---
-title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer? 
+title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 09/18/2022
 ---
 
 # What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer? 
@@ -34,9 +34,9 @@ Learn how to use [Attack Path Analysis](how-to-manage-attack-path.md).
 
 The Cloud Security Explorer allows you to proactively identify security risks in your multicloud environment by running graph-based queries on the Cloud Security Graph. Your security team can use the query builder to search for and locate risks, while taking your organization's specific contextual and conventional information into account. 
 
-Cloud Security Explorer provides you with the ability to perform proactive hunting features. You can search for security risks within your organization by running graph-based path-finding queries on top the contextual security data that is already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
+Cloud Security Explorer provides you with the ability to perform proactive exploration features. You can search for security risks within your organization by running graph-based path-finding queries on top the contextual security data that is already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
 
-Learn how to use the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
+Learn how to use the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md), or check out the list of [insights and connections](attack-path-reference.md#insights-and-connections).
 
 ## Next steps
 
