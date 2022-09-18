@@ -40,13 +40,13 @@ After the PaaS deployment is completed, high-velocity and low-velocity patient m
 
 ### MedTech service
 
-When device data has been loaded into Event Hubs service, MedTech service is able to pick it up and convert it into a unified FHIR format in five stages.
+When the device data has been loaded into Event Hubs service, MedTech service can then process it in five stages to convert the data into a unified FHIR format.
 
 These stages are:
 
 1. **Ingest** - MedTech service asynchronously loads the device data from the event hub at very high speed.
 
-2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and process it into a normalized schema format.
+2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and translate it into a normalized schema format.
 
 3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
 
