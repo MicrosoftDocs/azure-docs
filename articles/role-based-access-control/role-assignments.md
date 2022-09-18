@@ -137,7 +137,9 @@ You can add a text description to a role assignment. While descriptions are opti
 
 ## Conditions
 
-Some roles support *role assignment conditions* based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object.
+Some roles support *role assignment conditions* based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
+
+For example, you can add a condition that requires an object to have a specific tag for the user to read the object.
 
 You typically build conditions using a visual condition editor, but here's what an example condition looks like in code:
 
