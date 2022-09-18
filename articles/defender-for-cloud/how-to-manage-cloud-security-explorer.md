@@ -61,22 +61,12 @@ The following information can be queried in the Cloud Security Explorer:
 
 - **Vulnerabilities** - All vulnerabilities found by Defender for Cloud.
 
-- **Insights** - Contextual data about your cloud resources.
-
-    | Insight | Description |
-    |--|--|
-    | **Exposed to the internet** | - Indicates if a resource is exposed to the internet. <br> - - Supports the following resource types: Azure virtual machine, AWS EC2, Azure storage account, Azure SQL server, Azure Cosmos DB, AWS S3, Kubernetes pod. <br> - Supports port filtering. |
-    | **Contains sensitive data** | - Indicates if a resource contains sensitive data based on Azure Purview scan and applicable only if Azure Purview is enabled. <br> - Supports the following resources: Azure SQL Server, Azure Storage Account, AWS S3 bucket. |
-    | **Has tags** | - Allows you to filter Azure and AWS resources based on resource tags. This supports all Azure and AWS resources. |
-    | **Installed software** | - Allows you to filter Azure VMs based on software that is installed on the machine. This is applicable only for VMs that have [Threat and vulnerability management integration with Defender for Cloud](deploy-vulnerability-assessment-tvm.md) enabled and are connected to Defender for Cloud. |        
+- **Insights** - Contextual data about your cloud resources.  
         
 - **Connections** - Connections that are identified between cloud resources in your environment.
 
-    | Connection | Description |
-    |--|--|
-    | **Can authenticate as** | - Indicates that an Azure resource can authenticate to an Identity and use its privileges. <br> - Supported resources: Azure VM, Azure virtual machine scale set, Azure Storage Account, Azure App Services, SQL Servers. <br> - Supported identity types: Azure AD managed identity. |
-    | **Has permission to** | - Indicating that an Identity has permissions to an Azure and AWS resource. <br> - Supporting Identities: Azure AD user or service principal, Azure AD managed identity, AWS IAM user. <br> - Supporting resources: All Azure and AWS resources. |
-    | **Contains** | - Indicating that an Azure subscription/RG or an AWS account contains an Azure and AWS resource. <br> - Supported: All resources. |
+You can review the [full list of recommendations, insights and connections](attack-path-reference.md). 
 
 ## Next steps
 
+[Create custom security initiatives and policies](custom-security-policies.md)

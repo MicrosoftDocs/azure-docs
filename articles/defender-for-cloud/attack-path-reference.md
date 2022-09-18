@@ -8,11 +8,13 @@ ms.date: 09/18/2022
 
 # Reference list of attack paths
 
-This article lists the attack paths you might see in Microsoft Defender for Cloud. The attack paths shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud. What you are shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these attack paths, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
 
-## Azure VMs
+## Attack paths
+
+### Azure VMs
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
@@ -26,7 +28,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 | VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
 | VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
 
-## AWS VMs
+### AWS VMs
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
@@ -42,7 +44,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 | EC2 instance has high severity vulnerabilities and read permission to an AWS KMS | Option 1 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to AWS Key Management Service (KMS) '\[KeyName]' <br> <br> Option 2 <br> An EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached with '\[Keypermission]' permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[Keypermission] permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' |
 | EC2 instance has high severity vulnerabilities and read permission to a data store with sensitive data | Option 1 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 2 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[permission]' permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 3 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[permission] permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data" |
 
-## Azure data
+### Azure data
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
@@ -51,20 +53,22 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 | SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM '\[SqlVirtualMachineName]' has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
 | SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM '\[SqlVirtualMachineName]' has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
 
-## AWS Data
+### AWS Data
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
 | Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | S3 bucket '\[BucketName]' with sensitive data is reachable from the internet and allows public read access without authorization required |
 
-## Azure containers
+### Azure containers
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|--|
-| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerailities allowing remote code execution |
+| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | Kubernetes pod '\[pod name]' in namespace '\[namespace]' with host network access enabled is exposed to the internet via the host network. The pod is running container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 
 ## Insights and connections
+
+### Insights
 
 | Insight | Description | Supported entities |
 |--|--|--|
@@ -86,6 +90,19 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 | vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Kubernetes image |
 | public IP metadata | List the metadata of an Public IP | Public IP |
 | identity metadata | List the metadata of an identity | AAD Identity |
+
+### Connections
+
+| Connection | Description | Source entity types | Destination entity types |
+|--|--|--|--|
+| Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | AAD Managed identity |
+| Has permission to | Indicates that an identity has permissions to a resource or a group of resources | AAD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
+| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, Github owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
+| Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
+| Is running | Indicates that the source entity is running the target entity as a process | Azure VM, Kubernetes container | SQL, Kubernetes image, Kubernetes pod |
+| Member of | Indicates that the source identity is a member of the target identities group | AAD group, AAD user | AAD group |
+| Maintains | Indicates that the source Kubernetes entity manages the life cycle of the target Kubernetes entity | Kubernetes workload controller, Kubernetes replica set, Kubernetes stateful set, Kubernetes daemon set, Kubernetes jobs, Kubernetes cron job | Kubernetes pod |
+
 
 ## Next steps
 
