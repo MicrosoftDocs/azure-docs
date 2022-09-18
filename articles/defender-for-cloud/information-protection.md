@@ -1,6 +1,8 @@
 ---
 title: Prioritize security actions by data sensitivity - Microsoft Defender for Cloud
 description: Use Microsoft Purview's data sensitivity classifications in Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: overview
 ms.date: 06/29/2022
 ---
@@ -19,7 +21,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|You'll need a Microsoft Purview account to create the data sensitivity classifications and run the scans. Viewing the scan results and using the output is free for Defender for Cloud users|
+|Pricing:|You'll need a Microsoft Purview account to create the data sensitivity classifications and run the scans. The integration between Purview and Microsoft Defender for Cloud does not incur additional costs, but the data is shown in Microsoft Defender for Cloud only for enabled plans.|
 |Required roles and permissions:|**Security admin** and **Security contributor**|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 
@@ -50,7 +52,7 @@ When you're reviewing a recommendation or investigating an alert, the informatio
 
 This vital additional layer of metadata helps solve the triage challenge and ensures your security team can focus its attention on the threats to sensitive data.
 
-
+You can also filter the list of alerts by **Data sensitivity classifications** and **Data sensitivity labels** to help you focus on the alerts that relate to sensitive data.
 
 ### Inventory filters
 The [asset inventory page](asset-inventory.md) has a collection of powerful filters to group your resources with outstanding alerts and recommendations according to the criteria relevant for any scenario. These filters include **Data sensitivity classifications** and **Data sensitivity labels**. Use these filters to evaluate the security posture of resources on which Microsoft Purview has discovered sensitive data.
@@ -62,16 +64,23 @@ When you select a single resource - whether from an alert, recommendation, or th
 
 The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of the Microsoft Defender plans, you can see outstanding security alerts for that specific resource too.
 
-When reviewing the health of a specific resource, you'll see the Microsoft Purview information on this page and can use it determine what data has been discovered on this resource alongside the Microsoft Purview account used to scan the resource.
+When reviewing the health of a specific resource, you'll see the Microsoft Purview information on this page and can use it to determine what data has been discovered on this resource. To explore more details and see the list of sensitive files, click the link to launch Microsoft Purview.
 
 :::image type="content" source="./media/information-protection/information-protection-resource-health.png" alt-text="Screenshot of Defender for Cloud's resource health page showing information protection labels and classifications from Microsoft Purview." lightbox="./media/information-protection/information-protection-resource-health.png":::
 
-### Overview tile
-The dedicated **Information protection** tile in Defender for Cloud’s [overview dashboard](overview-page.md) shows Microsoft Purview’s coverage. It also shows the resource types with the most sensitive data discovered.
+> [!NOTE]
+> - If you change the resource classifications and labels, Defender for Cloud reflects those changes only after Microsoft Purview rescans the resource.
+> - If Microsoft Purview account is deleted, the resource classifications and labels are still be available in Defender for Cloud.
+> - Defender for Cloud updates the resource classifications and labels within 24 hours of the Purview scan.
 
-A graph shows the number of recommendations and alerts by classified resource types. The tile also includes a link to Microsoft Purview to scan additional resources. Select the tile to see classified resources in Defender for Cloud’s asset inventory page.
+## Attack Path
+Some of the attack paths consider resources that contain sensitive data, such as “AWS S3 Bucket with sensitive data is publicly accessible”, based on Purview scan results.
 
-:::image type="content" source="./media/information-protection/overview-dashboard-information-protection.png" alt-text="Screenshot of the information protection tile in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/information-protection/overview-dashboard-information-protection.png":::
+## Security Explorer
+The Cloud Map shows resources that “contains sensitive data”, based on Purview scan results. You can use resources with this label to explore the map.
+
+- The inventory shows the classification name of resources.
+- Purview portal shows the list of classified files.
 
 ## Learn more
 
