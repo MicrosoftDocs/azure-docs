@@ -5,15 +5,13 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/15/2022
+ms.date: 09/17/2022
 ms.author: v-smcevoy
 ---
 
 # Prerequisites for manually deploying the MedTech service using the Azure portal
 
 Before you can configure or deploy MedTech services, you must satisfy the following prerequisites:
-
-<!-- links? -- >
 
 - You must have a valid Azure account.
 - You must have a resource group deployed in the Azure portal.
@@ -29,27 +27,19 @@ You can get a free Azure account at [Cloud Computing Services | Microsoft Azure]
 
 From portal, select the Create a resource button. Then enter "Azure Health Data Services" in the "Search services and marketplace" box. You should be taken to the Azure Health Data Services blade.
 
-<!-- screenshot here? -->
-
 ## Deploy a workspace to contain your Azure Health Data Services resources.
 
 The first resource you must create is a workspace to hold all your other important resources.
 
 From the Azure Health Data Services resource page, select Create. You will be taken to the first page of Create Azure Health Data Services workspace.
 
-((screenshot of AHDS workspace page.))
-
 Make sure the appropriate subscription appears for the subscription you want to use. Fill in the resource group you want to use or create a new one. Then give the workspace a unique name and select the region you want to use.
 
-Select the Networking button at the bottom to continue. Choose whether you want a public or private network. Create tags if you want to use them. When you are ready to move forward, select the Review + create tab.
-
-((Screenshot of the Create page.))
-
-NOTE: if you want to automate this process for further use, select the Download a template for automation link for information on how to do this.
+Select the Networking button at the bottom to continue. Choose whether you want a public or private endpoint. Create tags if you want to use them. When you are ready to move forward, select the Review + create tab.
 
 Select the Create button to deploy your workspace. After a short delay, you will see information on your new workspace. Make sure you wait until all parts of the screen are displayed.
 
-((Screenshot of the Created page.))
+If your initial deployment was successful, you should see "Your deployment is complete" displayed along with the Deployment name, Subscription, and Resource group.
 
 ## Deploy an event hub in the Azure portal using a namespace
 
@@ -57,7 +47,7 @@ The Event Hubs service plays a crucial role in the data flow from medical device
 
 The event hub is needed as a buffer because Internet propagation times are indeterminate, but the event hub can store the data for as much as 24 hours before expiring.
 
-Before you can create an event hub, you must create a namespace from Azure portal as a way to scope the one or more event hubs under your control.
+Before you can create an event hub, you must create a namespace in Azure portal as a way to scope the one or more event hubs under your control.
 
 To create a namespace and an Event Hubs instance, see [Azure Event Hubs namespace and event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md) for more information.
 
@@ -87,6 +77,9 @@ in preparation for deployment.
 
 ## Next steps
 
-In this article, you learned about prerequisites needed to deploy the MedTech service. Next you will want to learn [Configuring the MedTech service](deploy-05-new-config.md).
+In this article, you learned about prerequisites needed to deploy the MedTech service manually. To learn more about the next step for manual deployment, see
+
+>[!div class="nextstepaction"]
+>[Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
