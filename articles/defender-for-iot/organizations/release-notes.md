@@ -69,22 +69,23 @@ This month, we've released version 2.0 of the **IoT/OT Threat Monitoring with De
 **Workbook improvements**:
 
 - A new overview dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
-    TBD
+    TBD image
 
 - A new vulnerability dashboard, which shows <!--tbd-->. For example:
 
-- Improvements on the Inventory dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The Inventory dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT device inventory data.
+- Improvements on the **Inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT device inventory data.
 
 **Playbook updates**:
 
-The **IoT/OT Threat Monitoring with Defender for IoT** solution now includes the following playbooks:
+The **IoT/OT Threat Monitoring with Defender for IoT** solution now supports the following SOC automation functionality with new playbooks:
 
-- Incident with active CVEs: Auto Workflow
-The playbook automates the SOC workflow by automatically enriching incident comments with the CVEs of the involved devices based on Defender for IoT data. An automated triage is performed if the CVE is critical, and the asset owner is automatically notified by email
-b)	Triage incidents involving Crown Jewels devices automatically
-SOC and OT engineers can stream their workflows using the playbook, which automatically updates the incident severity based on the devices involved in the incident and their importance.
-c)	Send Email to IoT/OT Device Owner
-The playbooks automate the SOC workflow by automatically emailing the incident details to the right IoT/OT device owner (based on Defender for IoT dafinition) and allowing him to respond by email. The incident is automatically updated based on the email response from the devices owner.
+- **Automation with CVE details**: Use the **TBD** playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
+
+- **Automation for incidents with sensitive devices**:  Use the **TBD** playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
+
+**Automation for email notifications to device owners**. Use the **TBD** playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
+
+For more information, see [Tutorial: Advanced threat hunting with Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended).
 
 ## August 2022
 
