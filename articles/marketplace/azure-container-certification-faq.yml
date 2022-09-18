@@ -31,8 +31,10 @@ sections:
       - question: |
           Malware failure
         answer: |
-          A malware, or malicious software, is a file or program that is designed to be harmful to computer, network or servers.        
+          A malware, or malicious software, is a file or program that is designed to be harmful to computer, network or servers.  
+          
           If you're planning to publish container products, you should scan your product for malware, identify all files that contain malware and remove them before publishing the container product. 
+          
           If your existing container products have malware, you should deprecate/hide the affected offers and republish the patched product.
           
 
