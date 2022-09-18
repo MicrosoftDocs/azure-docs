@@ -50,14 +50,14 @@ If you just want to add or remove geo-replication and/or read access to the seco
 > [!NOTE]
 > Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
 
-However, to add or remove zone-redundancy requires using either [Customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [Support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
+To add or remove zone-redundancy requires using either [customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
 > [!NOTE]
 > While Microsoft handles your request for conversion promptly, there's no guarantee as to when a conversion will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
-> Generally, the more data you have in your account, the longer it takes to migrate that data.
+> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
 Performing a manual migration involves downtime, but you have more control over the timing of the process. It also involves the most manual effort.
 
@@ -205,7 +205,7 @@ When planning to change your replication settings, consider the following limita
 
 Some storage account types only support certain redundancy configurations, which affects whether they can be converted or migrated and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
 
-The following table provides an overview of redundancy options available for storage account types and whether live or manual migration are supported:
+The following table provides an overview of redundancy options available for storage account types and whether conversion or manual migration are supported:
 
 | Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
