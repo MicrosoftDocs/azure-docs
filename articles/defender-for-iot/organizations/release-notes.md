@@ -248,7 +248,7 @@ Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use t
 
 For more information, see:
 
-- [Integrate Defender for Iot and Sentinel](../../sentinel/iot-advanced-threat-monitoring.md#use-out-of-the-box-analytics-rulestabuse-out-of-the-box-analytics-rules-recommended)
+- [Integrate Defender for Iot and Sentinel](../../sentinel/iot-advanced-threat-monitoring.md)
 - [Update alert statuses playbook](../../sentinel/iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot)
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
