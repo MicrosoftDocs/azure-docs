@@ -81,13 +81,13 @@ The following table describes what the role assignment properties mean.
 | `RoleDefinitionId`<br />`roleDefinitionId` | The unique ID of the role. |
 | `RoleDefinitionName`<br />`roleDefinitionName` | The name of the role. |
 | `ObjectId`<br />`principalId` | The Azure Active Directory (Azure AD) object identifier for the principal who has the role assigned. |
-| `ObjectType`<br />`principalType` | The type of Azure AD object that the principal represents. |
+| `ObjectType`<br />`principalType` | The type of Azure AD object that the principal represents. Valid values include `User`, `Group`, and `ServicePrincipal`. |
 | `DisplayName` | For role assignments for users, the display name of the user. |
 | `SignInName`<br />`principalName` | The unique principal name (UPN) of the user, or the name of the application associated with the service principal. |
 | `Description`<br />`description` | The description of the role assignment. |
-| `Condition`<br />`condition` | TODO |
-| `ConditionVersion`<br />`conditionVersion` | TODO |
-| `CanDelegate`<br />`canDelegate` | TODO |
+| `Condition`<br />`condition` | Condition statement built using one or more actions from role definition and attributes. |
+| `ConditionVersion`<br />`conditionVersion` | The condition version number. Defaults to 2.0 and is the only supported version. |
+| `CanDelegate`<br />`canDelegate` | Not implemented. |
 
 ## Scope
 
@@ -134,6 +134,18 @@ Any role assignments that refer to a deleted principal ID become invalid. If you
 ## Description
 
 You can add a text description to a role assignment. While descriptions are optional, it's a good practice to add them to your role assignments. Provide a short justification for why the principal needs the assigned role. When somebody audits the role assignments, descriptions can help to understand why they've been created and whether they're still applicable.
+
+## Conditions
+
+Some roles support *role assignment conditions* based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object.
+
+You typically build conditions using a visual condition editor, but here's what an example condition looks like in code:
+
+```
+((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEqualsIgnoreCase 'Cascade'))
+```
+
+For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 
 ## Next steps
 
