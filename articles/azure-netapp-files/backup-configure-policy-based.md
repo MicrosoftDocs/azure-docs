@@ -47,8 +47,8 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 
     ![Screenshot that shows how to navigate to Snapshot Policy option.](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
 
-4.	Click **Add snapshot policy**.
-5.	In the Snapshot policy page that appears, specify the number of snapshots to keep and the schedule for creating snapshots for the volume. Click **Save**.  
+4.	Select **Add snapshot policy**.
+5.	In the Snapshot policy page that appears, specify the number of snapshots to keep and the schedule for creating snapshots for the volume. Select **Save**.  
 
     Currently, the backup functionality can back up only daily, weekly, and monthly snapshots. (Hourly backups are not supported).   
 
@@ -70,6 +70,8 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
     ![Screenshot that shows daily snapshot policy configuration.](../media/azure-netapp-files/backup-daily-snapshot-policy.png)
 
 6.	Apply the snapshot policy to the volume that you want to back up:  
+
+    <!-- Assign the volume to a Backup Vault -->
 
     1. Go to the **Volumes** page, right-click the volume that you want to apply the snapshot policy to, and select **Edit**.   
         ![Screenshot that shows volume edit menu.](../media/azure-netapp-files/backup-volume-edit-menu.png)   
@@ -93,13 +95,13 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.
+6. In the **Backup Policy** page, specify the backup policy name. Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Select **Save**.
 
     ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
 
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
-    * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
+    * A backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
 
         ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
  
