@@ -244,7 +244,7 @@ The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new [**AD4IoT-AutoAlertStatusSync** playbook](../../sentinel/iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot). After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md#prerequisites-for-specific-playbooks) to ensure that the new playbook works as expected. 
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new [**AD4IoT-AutoAlertStatusSync** playbook](../../sentinel/iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot). After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md#prerequisites-for-specific-playbooks) to ensure that the new playbook works as expected.
 
 For more information, see:
 

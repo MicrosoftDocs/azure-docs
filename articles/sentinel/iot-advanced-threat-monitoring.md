@@ -197,10 +197,11 @@ This playbook opens a ticket in ServiceNow each time a new Engineering Workstati
 
 **Playbook name**: AD4IoT-AutoAlertStatusSync
 
-> [!NOTE]
-> To use this playbook, make sure to complete these[prerequisites](#prerequisites-for-specific-playbooks).
+> [!IMPORTANT]
+> To use this playbook, make sure to complete these [prerequisites](#prerequisites-for-specific-playbooks).
 >
 > - Role required: **Security Admin**
+> - Trigger: **When an incident is updated**
 
 This playbook updates alert statuses in Defender for IoT whenever a related alert in Microsoft Sentinel has a **Status** update.
 
@@ -210,10 +211,11 @@ This synchronization overrides any status defined in Defender for IoT, in the Az
 
 **Playbook name**: AD4IoT-CVEAutoWorkflow
 
-> [!NOTE]
+> [!IMPORTANT]
 > To use this playbook, make sure to complete these [prerequisites](#prerequisites-for-specific-playbooks).
 >
 > - Role required: **Reader**
+> - Trigger: **When an incident is created**
 
 This playbook adds active CVEs into the incident comments of affected devices. An automated triage is performed if the CVE is critical, and an email notification is sent to the device owner, [as defined on the site level in Defender for IoT](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
@@ -223,10 +225,11 @@ To add a device owner, [edit the site owner](../defender-for-iot/organizations/h
 
 **Playbook name**: AD4IoT-SendEmailtoIoTOwner
 
-> [!NOTE]
+> [!IMPORTANT]
 > To use this playbook, make sure to complete these[prerequisites](#prerequisites-for-specific-playbooks).
 >
 > - Role required: **Reader**
+> - Trigger: **When an incident is created**
 
 This playbook sends an email with the incident details to the IoT/OT device owner ([as defined on the site level in Defender for IoT](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)) to validate the incident and initiate incident response directly from the email. The incident is automatically updated based on the email response from the device owner.
 
@@ -242,10 +245,11 @@ To add a device owner, [edit the site owner](../defender-for-iot/organizations/h
 
 **Playbook name**: AD4IoT-AutoTriageIncident
 
-> [!NOTE]
+> [!IMPORTANT]
 > To use this playbook, make sure to complete these [prerequisites](#prerequisites-for-specific-playbooks).
 >
 > - Role required: **Reader**
+> - Trigger: **When an incident is created**
 
 This playbook updates the incident severity according to the importance level of the devices involved. 
 
@@ -255,7 +259,7 @@ Some of the playbooks require the following steps in order to connect and use th
 
  - Apply the required **Role** as detailed in each playbook description
  - Ensure valid connections where required
- - Add an automation rule to connect incident triggers with the playbook.
+ - Add an automation rule to connect incident triggers with the playbook.The required trigger is indicated in each playbook description.
 
 **To add the required role to the Azure subscription where the playbook is installed**:
 
@@ -281,17 +285,21 @@ Some of the playbooks require the following steps in order to connect and use th
 
 1. Select a playbook to open it as a Logic app.
 
-1. With the playbook opened as a Logic app, select **Logic app designer**. If you have invalid connection details, you may have warning signs in both of the **Connections** steps. For example:
+1. With the playbook opened as a Logic app, select **Logic app designer**. Expand each step to check for invalid connections and add valid connections as needed. You will see a warning sign next to any invalid connections. For example:
 
-    :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default AD4IOT AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png":::
-
-1. Select a **Connections** step to expand it and add a valid connection as needed.
+    :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default AD4IOT AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png"::: 
+ 
+1. Select **Save**. 
 
 **To connect your incidents, relevant analytics rules, and the playbook**:
 
 Add a new Microsoft Sentinel analytics rule, defined as follows:
 
-- In the **Trigger** field, select **When an incident is updated**
+- In Microsoft Sentinel, go to **Automation** > **Automation rules**.
+
+-  To create a new automation rule, select **Create** > **Automation rule**.
+
+- In the **Trigger** field, select the relevant trigger as indicated in the playbook description: **When an incident is updated** or **When an incident is created**.
 
 - In the **Conditions** area, select **If > Analytic rule name > Contains**, and then select the specific analytics rules relevant for Defender for IoT in your organization.
 
@@ -299,9 +307,13 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 
 - In the **Actions** area, select **Run playbook** > *playbook name*.
 
+- Select **Run**.
+
 For example:
 
 :::image type="content" source="media/iot-solution/automate-playbook.png" alt-text="Screenshot of a Defender for IoT alert status sync automation rule." lightbox="media/iot-solution/automate-playbook.png":::
+
+You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).
 
 ## Next steps
 
