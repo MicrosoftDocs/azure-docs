@@ -46,6 +46,26 @@ When the checks are finished, the results are returned in the window. The check 
 
 The operating system check verifies if the Hybrid Runbook Worker is running one of the [supported operating systems](../update-management/operating-system-requirements.md#supported-operating-systems).
 
+:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux.png" alt-text="Screenshot of Windows Troubleshooter.":::
+
+
+**Platform**  | **Recommended Action**
+---  | --- 
+OS | The OS on the machine is currently not supported. For more information, see [supported list](../update-management/operating-system-requirements.md#supported-operating-systems).
+MA | Install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../azure-monitor/agents/agent-linux.md)</br> This task checks if the folder is present: </br> *"/etc/opt/microsoft/omsagent/conf/omsadmin.conf"*|
+MAS | To fix this issue, run the following command, you must start the OMS Agent service: </br> *sudo /opt/microsoft/omsagent/bin/service_control restart*. </br> To validate you can perform process check using the below command: </br> *process_name = "omsagent"*.  </br> *"ps aux / grep %s / grep -v grep" % (process_name)*. For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../azure/azure-monitor/agents/agent-linux-troubleshoot).
+MH | To fix this, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../azure-monitor/agents/agent-linux-troubleshoot#purge-and-re-install-the-linux-agent). Validate that there are no more multihoming by checking the directories under this path *"/var/opt/microsoft/omsagent"*. </br> As they are directories of workspaces. the number of directories equals number of workspaces onboarded to OMSAgent.|
+HRW | To fix the issue, run the following command: </br> *sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py* </br> This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. </br> Validate to check if the following two paths exists: </br> */"/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION" </br> *"/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/configuration.py"*. |
+HRW status | To fix this issue, run the following command: </br> *sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'.* </br> This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. If the issue still persists, run the [omsagent Log Collector tool](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md) |
+PE | To fix the issue, either remove the proxy or make sure that the proxy address is able to access the [prerequisite URL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) </br> You can validate the task by running the **HTTP_PROXY** command. |
+IMDS | To fix this issue, allow access to IP "169.254.169.254". For more information, see [Access Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service). </br> After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: </br> *curl -H \"Metadata: true\" http://169.254.169.254/metadata/instance?api-version=2018-02-01*
+GIC | Check can be ignored if you have blocked internet and allowed only specific URLs. CURL on any http url.|
+RE | Fix this issue by allowing the prerequisite URLs. For more information, see [Update Management and Change Tracking and Inventory](../azure/automation/automation-network-configuration#update-management-and-change-tracking-and-inventory). Post the network changes you can either re-run the troubleshooter or CURL on provided jrds endpoint.|
+LA | Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).|
+SR | Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) |
+
+ 
+
 ## Monitoring agent service health checks
 
 ### Log Analytics agent
@@ -79,6 +99,8 @@ nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfi
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
+
+
 
 ## Connectivity checks
 
