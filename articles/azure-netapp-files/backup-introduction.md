@@ -39,7 +39,7 @@ Azure NetApp Files backup is supported for the following regions:
 * West US
 * West US 2
 
-## Backup Vault
+## Backup Vault 
 
 Azure NetApp Files supports backup vaults. Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
 

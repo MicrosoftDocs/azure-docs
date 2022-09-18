@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 09/16/2022
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
@@ -36,6 +36,10 @@ The following list summarizes manual backup behaviors:
 
 * Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots will be cleaned up. You can't delete the snapshot generated for the latest manual backup. 
 
+## Requirements
+
+* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Configure a backup vault for Azure NetApp Files](backup-vault-configure.md) for more information.
+
 ## Enable backup functionality
 
 If you haven’t done so, enable the backup functionality for the volume before creating manual backups: 
@@ -43,7 +47,7 @@ If you haven’t done so, enable the backup functionality for the volume before 
 1. Go to **Volumes** and select the specific volume for which you want to enable backup.
 2. Select **Configure**.
 3. In the Configure Backup page, toggle the **Enabled** setting to **On**.   
-    The Vault field is prepopulated. 
+    The Vault field is prepopulated. <!-- If you have not migrated to Backup Vault, you will need to do so before proceeding.   -->
 4. Click **OK**.   
 
 ![Screenshot that shows the Enabled setting of Configure Backups window.](../media/azure-netapp-files/backup-configure-enabled.png)

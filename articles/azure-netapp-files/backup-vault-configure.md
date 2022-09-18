@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 09/12/2022
 ---
-# Configure Backup Vault for Azure NetApp Files
+# Configure Backup Vault for Azure NetApp Files (Preview)
 
 Azure NetApp Files supports backup vaults. Backup vaults store the backups for your Azure NetApp Files subscription in addition to containing the backup policies you use to protect your resources. 
 
@@ -30,6 +30,29 @@ If you
 
 If you have existing backups not in a backup vault, you will have to migrate them to your backup vault. 
 
+You will see both existing backups and backups of volumes that have been deleted. 
+
+
+## Delete a backup vault
+
+Deleting a backup vault...
+
+### Steps
+
+1. Navigate to the **Backup Vault** menu.
+1. Find the backup vault you want to delete and select the three dots `...` next to its name. Select **Delete**. 
+
 # Next steps
 
-* [Backup vaults overview](../backup/backup-vault-overview.md)
+* [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Configure policy-based backups](backup-configure-policy-based.md)
+* [Configure manual backups for Azure NetApp Files](backup-configure-manual.md)
+* [Manage backup policies](backup-manage-policies.md)
+* [Search backups](backup-search.md)
+* [Restore a backup to a new volume](backup-restore-new-volume.md)
+* [Disable backup functionality for a volume](backup-disable.md)
+* [Delete backups of a volume](backup-delete.md)
+* [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
