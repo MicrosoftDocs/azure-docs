@@ -15,7 +15,7 @@ You can select any element on the page to get more detailed information.
 
 ## Features of the overview page
 
-:::image type="content" source="./media/overview-page/top-bar-of-overview.png" alt-text="Screenshot of Defender for Cloud's overview page's top bar.":::
+:::image type="content" source="./media/overview-page/top-bar-of-overview.png" alt-text="Screenshot of Defender for Cloud's overview page's top bar." lightbox="media/overview-page/overview.png":::
 
 ### Metrics
 
