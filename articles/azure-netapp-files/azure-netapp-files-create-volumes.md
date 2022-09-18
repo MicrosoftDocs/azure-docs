@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 03/02/2022
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
