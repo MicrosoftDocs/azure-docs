@@ -108,7 +108,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
 
 1. Select a reason to dismiss:
 
-    - **Won't fix** - The alert isn't relevant.
+    - **Won't fix** - The alert is noted but won't be fixed.
     - **False positive** - The alert isn't valid.
     - **Used in tests** - The alert isn't in the production code.
 
@@ -140,6 +140,7 @@ By enabling pull request annotations in Azure DevOps, your developers gain the a
 1. Select **Save**.
 
 All annotations will now be displayed based on your configurations with the relevant line of code.
+**To mitigate issues**:
 
 ### Mitigate issues found by the scanner
 
@@ -155,11 +156,12 @@ To mitigate issues:
 1. Select **Active**.
 
 1. Select action to take:
-    - Active – The default status for new annotations.
-    - Pending- The finding is being worked on.
-    - Resolved - The finding has been addressed.
-    - Won’t Fix - The finding is noted but won’t be fixed.
-    - Closed – The discussion in this annotation is closed.
+
+    - **Active** - The default status for new annotations.    
+    - **Pending** - The finding is being worked on.
+    - **Resolved** - The finding has been addressed.
+    - **Won't fix** - The finding is noted but won't be fixed.
+    - **Closed** - The discussion in this annotation is closed.
 
 ## Learn more
 
@@ -170,7 +172,6 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
 
 Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
-
 
 ## Next steps
 
