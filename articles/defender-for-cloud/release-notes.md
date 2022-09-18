@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: bmansheim
 ms.author: benmansheim
 ms.topic: reference
-ms.date: 08/31/2022
+ms.date: 09/18/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -17,6 +17,22 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## October 2022
+
+Updates in October include:
+
+- [New attack path analysis and contextual security capabilities in Defender for Cloud](#new-attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
+
+### New attack path analysis and contextual security capabilities in Defender for Cloud
+
+The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
+
+One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
+
+Defender for Cloud's new cloud security graph and attack path analysis capabilities allow security teams to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
+
+Learn more about the new [Cloud Security Graph, Attack Path Analysis and the Cloud Security Explorer](concept-attack-path.md).
 
 ## September 2022
 
