@@ -75,7 +75,7 @@
         href: how-to-create-hub-and-spoke-powershell.md
   - name: Cross-tenant connection support
     items:
-    - name: Configure cross-tenant connection - portal
+    - name: Configure cross-tenant connection - Portal
       href: how-to-configure-cross-tenant-portal.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
