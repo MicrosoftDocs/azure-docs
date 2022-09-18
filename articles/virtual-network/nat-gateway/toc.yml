@@ -38,6 +38,8 @@ items:
     href: nat-metrics.md
   - name: Resource Health
     href: resource-health.md
+  - name: Availability zones
+    href: nat-availability-zones.md
   - name: Security
     items:
     - name: Virtual network NAT security baseline

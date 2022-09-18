@@ -18,7 +18,53 @@ You can use Azure Repos to store your configuration files and Azure Pipelines to
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. 
 
-## Create a new project
+## Configure Azure DevOps Services for the SAP Deployment Automation Framework
+
+You can use the following script to do a basic installation of Azure Devops Services for the SAP Deployment Automation Framework.
+
+Login to Azure Cloud Shell
+```bash
+    export ADO_ORGANIZATION=<yourOrganization>    
+    export ADO_PROJECT=SAP Deployment Automation
+    wget https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/create_devops_artifacts.sh -O devops.sh
+    chmod +x ./devops.sh
+    ./devops.sh
+    rm ./devops.sh
+
+```
+
+Validate that the project has been created by navigating to the Azure DevOps portal and selecting the project. Ensure that the Repo is populated and that the pipelines have been created.
+
+You can finalize the Azure DevOps configuration by running the following scripts on your local workstation. Open a PowerShell Console and define the environment variables. Replace the bracketed values with the actual values.
+
+
+
+
+```powershell
+$Env:ADO_ORGANIZATION="https://dev.azure.com/<yourorganization>" 
+
+$Env:ADO_PROJECT="<yourProject>"
+$Env:YourPrefix="<yourPrefix>"
+
+$Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
+$Env:DevSubscriptionID="<YourDevSubscriptionID>"
+
+```
+> [!NOTE]
+> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID.
+
+
+Once the variables are defined run the following script to create the service principals and the application registration.
+
+```powershell
+
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1 
+
+```
+
+## Manual Configuration
+
+### Create a new project
 
 You can use Azure Repos to store both the code from the sap-automation GitHub repository and the environment configuration files.
 
@@ -187,9 +233,6 @@ Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pi
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-> [!NOTE]
-> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
-
 ## Deployment removal pipeline
 
 Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
@@ -312,19 +355,19 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | Variable                        | Value                                                              | Notes                                                    |
 | ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
 | Agent                           | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID                   | Enter the Service principal application ID.                        |                                                          |
-| ARM_CLIENT_SECRET               | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID             | Enter the target subscription ID.                                  |                                                          |
-| ARM_TENANT_ID                   | Enter the Tenant ID for the service principal.                     |                                                          |
+| ARM_CLIENT_ID                   | 'Service principal application ID'.                                |                                                          |
+| ARM_CLIENT_SECRET               | 'Service principal password'.                                      | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID             | 'Target subscription ID'.                                          |                                                          |
+| ARM_TENANT_ID                   | 'Tenant ID' for the service principal.                             |                                                          |
 | AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
 | sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
-| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments using a service principal for fencing agent.               |
-| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments using a service principal for fencing agent.               |
-| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments using a service principal for fencing agent.               |
-| `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
-| `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
-| APP_REGISTRATION_APP_ID         | App registration application ID                                    | Required if deploying the web app                        |
-| WEB_APP_CLIENT_SECRET           | App registration password                                          | Required if deploying the web app                        |
+| FENCING_SPN_ID                  | 'Service principal application ID' for the fencing agent.          | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_PWD                 | 'Service principal password' for the fencing agent.                | Required for highly available deployments using a service principal for fencing agent.               |
+| FENCING_SPN_TENANT              | 'Service principal tenant ID' for the fencing agent.               | Required for highly available deployments using a service principal for fencing agent.               |
+| PAT                             | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous step      |
+| POOL                            | `<Agent Pool name>`                                                | The Agent pool to use for this environment               |
+| APP_REGISTRATION_APP_ID         | 'App registration application ID'                                  | Required if deploying the web app                        |
+| WEB_APP_CLIENT_SECRET           | 'App registration password'                                        | Required if deploying the web app                        |
 
 Save the variables.
 
