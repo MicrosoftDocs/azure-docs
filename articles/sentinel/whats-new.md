@@ -27,9 +27,62 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2022
 
+- [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table)
+- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
 - [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
+
+### Heads up: Name fields being removed from UEBA UserPeerAnalytics table
+
+As of **September 30, 2022**, the UEBA engine will no longer perform automatic lookups of user IDs and resolve them into names. This change will result in the removal of four name fields from the *UserPeerAnalytics* table: 
+
+- UserName
+- UserPrincipalName
+- PeerUserName
+- PeerUserPrincipalName 
+
+The corresponding ID fields remain part of the table, and any built-in queries and other operations will execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
+
+The only exception to this is if you’ve built custom queries or rules directly referencing any of these name fields. In this scenario, you can incorporate the following lookup queries into your own, so you can access the values that would have been in these name fields. 
+
+The following query resolves **user** and **peer identifier fields**: 
+
+```kusto
+UserPeerAnalytics 
+| where TimeGenerated > ago(24h) 
+// join to resolve user identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend UserPrincipalNameIdentityInfo = AccountUPN 
+    | extend UserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.UserId == $right.AccountObjectId 
+// join to resolve peer identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend PeerUserPrincipalNameIdentityInfo = AccountUPN 
+    | extend PeerUserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, PeerUserPrincipalNameIdentityInfo, PeerUserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.PeerUserId == $right.AccountObjectId 
+```
+If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query. 
+
+### Windows DNS Events via AMA connector (Preview)
+
+You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
+
+The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
+
+Here are some benefits of using AMA for DNS log collection:
+
+- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
+- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
+- AMA supports transformation from the incoming stream into other data tables.
+- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 ### Create and delete incidents manually (Preview)
 
@@ -53,19 +106,6 @@ When investigating an incident, you examine entities and their context as an imp
 Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
 
 Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
-
-### Windows DNS Events via AMA connector (Preview)
-
-You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
-
-The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
-
-Here are some benefits of using AMA for DNS log collection:
-
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
-- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
-- AMA supports transformation from the incoming stream into other data tables.
-- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 
 ## August 2022
