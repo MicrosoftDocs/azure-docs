@@ -19,6 +19,8 @@ This article lists the new features available in each version of the **IoT/OT Th
 
 ## Version 2.0
 
+**Date released**: September 22, 2022
+
 New features in this version include:
 
 1)	Workbook improvements:
@@ -38,16 +40,19 @@ The playbooks automate the SOC workflow by automatically emailing the incident d
 
 New features in this version include:
 
-1)	Sentinel -> Defender for IoT Alert Status Sync: Streamline the SOC workflow by updating the alert status in Defender for IoT automatically when Microsoft Sentinel updates the incident status.
-After updating the solution, make sure that you also take the required steps to ensure that the new playbook works as expected.
-2)	IoT Device Entities in Sentinel incidents: Providing IoT/OT context for SOCs by displaying IoT/OT devices inside incidents created with Sentinel's solution package.
+- [Microsoft Sentinel incident synch with Defender for IoT alerts](release-notes.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
+- IoT device entities displayed in related Microsoft Sentinel incidents. <!--did we not mention this in the main what's new? let's add more details now, with a screenshot?-->
 
 
 ## Version 1.0.13
 
 New features in this version include:
 
-1)	Bugs fix including prevents new incidents from being created in sentinel every time an alert in Defender for IoT is updated/deleted.
-2)	New SOC Workflow: New analytic rule for MDIoT alert ‘No traffic on Sensor Detected’ 
-3)	Alert 'Illegal Beckhoff AMS Command' to existing workflow use case – the 'Unauthorized PLC changes' analytic rule has been updated
-4)	Deep link to Defender for IoT alerts from Sentinel incidents: Easily navigate between Sentinel incidents created by the solution package and Defender for IoT alerts through the MDIoT alert link in Sentinel's incident page.
+- A bug fix to prevent new incidents from being created in Microsoft Sentinel each time an alert in Defender for IoT is updated or deleted.
+- A new analytics rule for the **No traffic on sensor detected** Defender for IoT alert.
+- Updates in the **Unauthorized PLC changes** analytics rule to support the **Illegal Beckhoff AMS Command** Defender for IoT alert.
+- A new, deep link to Defender for IoT alerts directly from related Microsoft Sentinel incidents.
+
+## Next steps
+
+Learn more in [What's new in Microsoft Defender for IoT?](release-notes.md) and the [Microsoft Sentinel documentation](/azure/sentinel/)
