@@ -1,5 +1,5 @@
 ---
-title: Create a custom IP address prefix - Azure CLI
+title: Create a custom IPv4 address prefix - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn about how to create a custom IP address prefix using the Azure CLI
 author: asudbring
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
-# Create a custom IP address prefix using the Azure CLI
+# Create a custom IPv4 address prefix using the Azure CLI
 
-A custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
 The steps in this article detail the process to:
 

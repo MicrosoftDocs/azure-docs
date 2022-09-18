@@ -1,5 +1,5 @@
 ---
-title: Create a custom IP address prefix - IPv6
+title: Create a custom IPv6 address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about how to create a custom IPv6 address prefix
 author: asudbring
