@@ -25,18 +25,18 @@ sections:
           
           To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
           
-          ```powershell
-          "actions": [
-          "Microsoft.Resources/deployments/operations/read",
-          "Microsoft.Resources/tags/read",
-          "Microsoft.Authorization/roleAssignments/read",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-          "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
-          ],
-          "notActions": [],
-          "dataActions": [],
-          "notDataActions": []
+          ```json
+              "actions": [
+                  "Microsoft.Resources/deployments/operations/read",
+                  "Microsoft.Resources/tags/read",
+                  "Microsoft.Authorization/roleAssignments/read",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+                  "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+              ],
+              "notActions": [],
+              "dataActions": [],
+              "notDataActions": []
           }
           ```
           
@@ -181,3 +181,8 @@ sections:
          When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
         answer: |
           Yes. You can have both deployments within the same Azure Active Directory tenant.
+
+      - question: |
+         Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
+        answer: |
+          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported with Azure Virtual Desktop.
