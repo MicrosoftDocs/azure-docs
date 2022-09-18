@@ -138,4 +138,3 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
-* [Manage large volumes](manage-large-volumes.md).
