@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/02/2022
+ms.date: 09/18/2022
 ms.author: eur
 ---
 
@@ -32,4 +32,4 @@ Language options include:
 Output options include:
 
 - `--help`: Show the usage help and stop
-- `--output FILE`: Output the conversation summary to a text file. The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a concise version of the results is written to the file. 
+- `--output FILE`: Output the conversation summary to a text file. 

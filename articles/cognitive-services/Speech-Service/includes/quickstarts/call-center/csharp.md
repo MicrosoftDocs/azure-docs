@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/02/2022
+ms.date: 09/18/2022
 ms.author: eur
 ---
 
@@ -18,7 +18,7 @@ ms.author: eur
 
 Follow these steps to run post-call transcription analysis:
 
-1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnetcore/call-center/"  title="Copy the samples"  target="_blank">scenarios/csharp/dotnetcore/call-center/</a> sample files from GitHub. If you have [Git installed](https://git-scm.com/downloads), you can download the entire repository. Open a command prompt and run the `git clone` clone command with the Speech SDK samples repository URL.
+1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnetcore/call-center/"  title="Copy the samples"  target="_blank">scenarios/csharp/dotnetcore/call-center/</a> sample files from GitHub. If you have [Git installed](https://git-scm.com/downloads), open a command prompt and run the `git clone` command to download the Speech SDK samples repository.
     ```dotnetcli
     git clone https://github.com/Azure-Samples/cognitive-services-speech-sdk.git
     ```
@@ -39,7 +39,50 @@ Follow these steps to run post-call transcription analysis:
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file. 
+## Check results
+
+The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. 
+
+The `transcription` property contains a JSON object with the results of sentiment analysis merged with batch transcription. Here's an example, with redactions for brevity:
+```json
+{
+    "source": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/master/scenarios/call-center/sampledata/Call3_separated_16k_pharmacy_call.wav",
+// Example results redacted for brevity
+        "nBest": [
+          {
+            "confidence": 0.8270893,
+            "lexical": "hi thank you for calling contoso pharmacy who am i speaking with today",
+            "itn": "hi thank you for calling contoso pharmacy who am i speaking with today",
+            "maskedITN": "hi thank you for calling contoso pharmacy who am i speaking with today",
+            "display": "Hi, thank you for calling Contoso pharmacy. Who am I speaking with today?",
+            "sentiment": {
+              "positive": 0.7,
+              "neutral": 0.29,
+              "negative": 0.01
+            }
+          },
+        ]
+// Example results redacted for brevity
+}   
+```
+
+The `conversationAnalyticsResults` property contains a JSON object with the results of the conversation summarization analysis. Here's an example, with redactions for brevity:
+```json
+{
+    "conversationSummaryResults": {
+    }
+// Example results redacted for brevity
+}
+```
+
+If you specify `--output FILE`, a concise version of the results are written to the file. Here's an example, with redactions for brevity:
+
+```output
+Conversation summary:
+    Aspect: issue. Summary: Customer wants to know who is speaking with today.
+    Aspect: resolution. Summary: Asked customer to check something else.
+```
+
 
 ## Usage and arguments
 

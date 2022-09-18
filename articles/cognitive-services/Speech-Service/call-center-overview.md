@@ -8,7 +8,7 @@ ms.author: jagoerge
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 09/18/2022
 ---
 
 # Call Center Overview

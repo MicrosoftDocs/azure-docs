@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/08/2022
+ms.date: 09/18/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
