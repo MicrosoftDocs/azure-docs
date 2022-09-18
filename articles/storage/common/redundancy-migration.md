@@ -203,19 +203,19 @@ Limitations apply to some replication change scenarios depending on:
 
 When planning to change your replication settings, consider the following limitations related to the storage account type.
 
-Some storage account types only support certain redundancy configurations, which affects whether they can be converted and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
+Some storage account types only support certain redundancy configurations, which affects whether they can be converted or migrated and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
 
 The following table provides an overview of redundancy options available for storage account types and whether live or manual migration are supported:
 
-| Storage account type        | Supports LRS | Supports ZRS | Supports conversion | Supports manual migration |
-|:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
-| Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
-| Premium file shares         | Yes          | Yes          | Yes <sup>1</sup>        | Yes                       |
-| Premium block blob          | Yes          | Yes          | No                      | Yes                       |
-| Premium page blob           | Yes          | No           | No                      | No                        |
-| Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
-| Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
-| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
+| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the portal) | Supports conversion<br>(by support request) | Supports manual migration |
+|:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
+| Standard general purpose v2 | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705;                  | &#x2705;                  |
+| Premium file shares         | &#x2705;     | &#x2705;     |                         | &#x2705; <sup>1</sup>     | &#x2705;                  |
+| Premium block blob          | &#x2705;     | &#x2705;     |                         |                           | &#x2705;                  |
+| Premium page blob           | &#x2705;     |              |                         |                           |                           |
+| Managed disks<sup>2</sup>   | &#x2705;     |              |                         |                           |                           |
+| Standard general purpose v1 | &#x2705;     |              |    <sup>3</sup>         |                           | &#x2705;                  |
+| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |
 
 <sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion (preview)](#customer-initiated-conversion-preview) is not currently supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
