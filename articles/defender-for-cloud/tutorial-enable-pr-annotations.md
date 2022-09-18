@@ -40,7 +40,7 @@ Before you can follow the steps in this tutorial, you must:
 
 ## Enable pull request annotations in GitHub
 
-By enabling pull request annotations (commonly referred to as Checks) in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+By enabling pull request annotations in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
 **To enable pull request annotations in GitHub**:
 
@@ -103,7 +103,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
 
 1. Select a reason to dismiss:
 
-    - **Won't fix** - The alert isn't relevant.
+    - **Won't fix** - The alert is noted but won't be fixed.
     - **False positive** - The alert isn't valid.
     - **Used in tests** - The alert isn't in the production code.
 
@@ -132,7 +132,20 @@ By enabling pull request annotations (commonly refereed to as Checks) in GitHub 
 1. Select **Save**.
 
 All annotations will now be displayed based on your configurations with the relevant line of code.
+**To mitigate issues**:
 
+1. Navigate through the page and locate an affected file with an annotation.
+
+1. Select **Active**.
+
+1. Select a reason to dismiss:
+
+    - **Active** - The default status for new annotations.
+    - **Pending** - The finding is being worked on.
+    - **Resolved** - The finding has been addressed.
+    - **Won't fix** - The finding is noted but won't be fixed.
+    - **Closed** - The discussion in this annotation is closed.
+    
 ## Learn more
 
 In this tutorial, you learned how to enable pull request annotations in GitHub and Azure DevOps.
