@@ -155,28 +155,28 @@ Follow these steps to create tags:
 
 2. Once you've entered your tag(s), you are ready to go on.
 
-## Create the MedTech service
+## Validate the MedTech service
 
-The final step for creating the MedTech service is to select the **Review + create** button.
+The final step for creating the MedTech service is to proceed to the **Review + create** button. You have not deployed yet, but this is a good time to make sure you want to actually deploy.
 
 If there were no errors, you should see a final screen that displays a **Validation success** message. You should see below that the values for the following values:
 
-### Basics
-
+- **Basics** 
 - MedTech service name
 - Event Hubs name
 - Consumer group
 - Event Hubs namespace
 
-### Destination
+---
 
+- **Destination**
 - FHIR server
 - Destination name
 - Resolution type
 
-Your screen should look something like this:
+Your validation screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success and a red box around the Create button." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
+   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
 
    > [!NOTE]
    >

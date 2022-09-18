@@ -9,17 +9,26 @@ ms.date: 08/22/2022
 ms.author: v-smcevoy
 ---
 
-# Manually creating a deployment of the MedTech service using the Azure portal
-
 ## Create your MedTech service
+
+If you are satisfied with everything you've configured, do the following:
 
 1. Select the **Create** button to begin the deployment of your MedTech service.
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\create-medtech-service.png" alt-text="Screenshot of a red box around the Create button for the MedTech service." lightbox="media\iot-deploy-manual-in-portal\create-medtech-service.png":::
+2. The deployment status of your MedTech service will be displayed. Be patient because the deployment may take several minutes. You will see a message saying that your Deployment is in progress.
 
-2. The deployment status of your MedTech service will be displayed.
+3. When Azure has finished, you will see a message that tells you "Your Deployment is complete".
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png" alt-text="Screenshot of the MedTech service deployment status and a red box around deployment information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png":::
+You will also receive the following information:
+
+- Deployment name
+- Subscription
+- Resource group
+- Deployment details
+
+Your screen should look something like this:
+
+   :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::
 
 ## Next steps
 
