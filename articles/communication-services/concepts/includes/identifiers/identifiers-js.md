@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: domessin
 ---
 
-### Communication User identifier
+### Communication user
 
 The `CommunicationUserIdentifier` interface represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
@@ -33,7 +33,7 @@ const sameUser = { communicationUserId: newUserId };
 
 [CommunicationUserIdentifier](/javascript/api/@azure/communication-common/communicationuseridentifier)
 
-### Microsoft Teams User identifier
+### Microsoft Teams user
 
 The `MicrosoftTeamsUserIdentifier` interface represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
@@ -54,7 +54,7 @@ const gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };
 
 [MicrosoftTeamsUserIdentifier](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier)
 
-### Phone Number identifier
+### Phone number
 
 The `PhoneNumberIdentifier` interface represents a phone number. The service assumes that phone numbers are formatted in E.164 format.
 
@@ -69,7 +69,7 @@ const phoneNumber = { phoneNumber: "+112345556789" };
 
 [PhoneNumberIdentifier](/javascript/api/@azure/communication-common/phonenumberidentifier)
 
-### Unknown identifier
+### Unknown
 
 The `UnknownIdentifier` interface exists for future-proofing and you might encounter it when you are on an old version of the SDK and a new identifier type has been introduced recently. Any unknown identifier from the service will be deserialized to the `UnknownIdentifier` in the SDK.
 
