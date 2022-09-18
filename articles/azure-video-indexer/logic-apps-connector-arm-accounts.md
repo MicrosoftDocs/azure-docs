@@ -160,7 +160,7 @@ The following image shows the first flow:
         |----|----|
         |Location| Location of the associated the Azure Video Indexer account.|	
         | Account ID| Account ID of the associated Azure Video Indexer account. You can find the **Account ID** in the **Overview** page of your account, in the Azure portal. Or, the **Account settings** tab, left of the [Azure Video Indexer website](https://www.videoindexer.ai/).|
-        |Access Token| Select **accessToken** from the **dynamic content** of the **Parse JSON** action.|
+        |Access Token| Use the `body('HTTP')['accessToken']` expression to extract the access token  in the right format from the previous HTTP call.|
         | Video Name| Select **List of Files Name** from the dynamic content of **When a blob is added or modified** action. |
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
