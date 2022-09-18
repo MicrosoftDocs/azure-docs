@@ -168,6 +168,8 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-10-01-prev
 
 ---
 
+For more information, see [Create Azure RBAC resources by using Bicep](../azure-resource-manager/bicep/scenarios-rbac.md).
+
 ### Symptom - Role assignments with identity not found
 
 In the list of role assignments for the Azure portal, you notice that the security principal (user, group, service principal, or managed identity) is listed as **Identity not found** with an **Unknown** type.
