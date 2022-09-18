@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 09/18/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -15,44 +15,34 @@ ms.custom: devx-track-azurepowershell
 
 # Change how a storage account is replicated
 
-In this article, you will learn how to change the replication setting for an existing storage account.
+In this article, you will learn how to change the replication setting(s) for an existing storage account.
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
-Azure Storage offers the following types of replication:
+A combination of three factors determine how your storage account is replicated and accessible:
 
-- Locally redundant storage (LRS)
-- Zone-redundant storage (ZRS)
-- Geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS)
-- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS)
+- **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
+- **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
+- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
 
-For an overview of each of these options, see [Azure Storage redundancy](storage-redundancy.md).
+For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
 ## Before you make any changes
 
 Before you change any of your replication settings, be sure to review all of these topics to ensure you understand your options and the implications of making a change:
 
 - [Options for changing the replication type](#options-for-changing-the-replication-type)
-- [Restrictions](#restrictions-for-changing-replication-types)
+- [Limitations](#limitations-for-changing-replication-types)
 - [Downtime requirements](#downtime-requirements)
 - [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated)
 
 ## Options for changing the replication type
 
-Three things determine how your storage account is replicated and accessible:
-
-- **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
-- **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
-- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
-
-> [!NOTE]
-> Read access (RA) isn't a replication setting like geo-redundancy or zone-redundancy. It simply enables read access to the secondary region in the event of a geo-redundant failover. But it is considered one aspect of the complete redundancy configuration for a storage account.
-
 You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
 
 - [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
-- [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-live-migration)
-- [Request a live migration by creating a support request with Microsoft](#support-requested-live-migration)
+- [Initiate a conversion from within the Azure portal (preview)](#customer-initiated-conversion-preview)
+- [Request a conversion by creating a support request with Microsoft](#support-requested-conversion)
 - [Perform a manual migration](#manual-migration)
 
 If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
@@ -60,21 +50,9 @@ If you just want to add or remove geo-replication and/or read access to the seco
 > [!NOTE]
 > Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
 
-However, to add or remove zone-redundancy requires [migration of the storage account data within the primary region](#storage-account-migration), either using [live migration](#live-migration) or [manual migration](#manual-migration).
+However, to add or remove zone-redundancy requires using either [a conversion](#conversion) or [a manual migration](#manual-migration).
 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
-
- The following table summarizes the options for changing the replication settings:
-
-| Redundancy property | Options for changing             | Option detail |
-|---------------------|----------------------------------|---------------|
-| Geo-redundancy      | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
-| Read access (RA)    | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
-| Zone redundancy     | Live migrate the storage account | [Initiate from the Azure portal](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) (preview) |
-| Zone redundancy     | Live migrate the storage account | [Request by creating a support request with Microsoft](#support-requested-live-migration) |
-| Zone redundancy     | [Manually migrate the storage account](#storage-account-migration) | |
-
-For the complete list of options for converting from one replication type to another, see [the replication conversion tables](#replication-conversion-tables).
 
 ## Change the replication setting using the portal, PowerShell, or the CLI
 
@@ -120,11 +98,11 @@ az storage account update \
 
 For scenarios where migration is [required and supported](#migration-feature-support-table), Microsoft supports three methods for migrating your storage account:
 
-- [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-live-migration)
-- [Request a live migration by creating a support request with Microsoft](#support-requested-live-migration)
+- [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-conversion)
+- [Request a live migration by creating a support request with Microsoft](#support-requested-conversion)
 - [Perform a manual migration](#manual-migration)
 
-### Live migration
+### Conversion
 
 During a live migration, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
@@ -134,17 +112,17 @@ Live migration is typically the best method of migrating your storage account if
 - The precise timing of the migration is not critical
 - You want to minimize the amount of manual effort required to complete the migration
 
-The live migration option is available in most scenarios where you want to change zone-redundancy. Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts. Other exceptions are those noted under [restrictions for changing replication types](#restrictions-for-changing-replication-types). The [migration feature support table](#migration-feature-support-table) summarizes the supported and unsupported scenarios as well.
+The live migration option is available in most scenarios where you want to change zone-redundancy. Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts. Other exceptions are those noted under [limitations for changing replication types](#limitations-for-changing-replication-types). The [migration feature support table](#migration-feature-support-table) summarizes the supported and unsupported scenarios as well.
 
 > [!NOTE]
 > While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
 > Generally, the more data you have in your account, the longer it takes to migrate that data.
 
-#### Customer-initiated live migration
+#### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer-initiated live migration is currently in preview, but is not available in the following regions:
+> Customer-initiated conversion is currently in preview, but is not available in the following regions:
 >
 > - (Europe) West Europe
 > - (North America) Canada Central
@@ -154,11 +132,11 @@ The live migration option is available in most scenarios where you want to chang
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Customer-initiated live migration adds a new option for customers to start a live migration. Now, instead of needing to open a support request, customers can request the migration directly from within the Azure portal. Once initiated, the migration could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a live migration. Now, instead of needing to open a support request, customers can request the migration directly from within the Azure portal. Once initiated, the migration could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
-Customer-initiated live migration is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the migration, perform the same steps used for changing other replication factors in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the migration, perform the same steps used for changing other replication factors in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-#### Support-requested live migration
+#### Support-requested conversion
 
 Customers can still request a live migration by opening a support request with Microsoft.
 
@@ -225,9 +203,9 @@ The following table summarizes the benefits and supported scenarios for each mig
 <sup>1</sup> See the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/)<br />
 <sup>2</sup> You cannot use manual migration to migrate a premium page blob account for the purpose of changing the replication setting, although you can use it to [move an account to a different region](storage-account-move.md).
 
-## Restrictions for changing replication types
+## Limitations for changing replication types
 
-Restrictions apply to some replication change scenarios depending on:
+Limitations apply to some replication change scenarios depending on:
 
 - [Storage account type](#storage-account-type)
 - [Region](#region)
@@ -237,7 +215,7 @@ Restrictions apply to some replication change scenarios depending on:
 
 ### Storage account type
 
-When planning to change your replication settings, consider the following restrictions related to the storage account type.
+When planning to change your replication settings, consider the following limitations related to the storage account type.
 
 Some storage account types only support certain redundancy configurations, which affects whether they can be converted and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
 
@@ -253,7 +231,7 @@ The following table provides an overview of redundancy options available for sto
 | Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
 
-<sup>1</sup> Live migration for premium file shares is only available by [opening a support request](#support-requested-live-migration); [Customer-initiated live migration](#customer-initiated-live-migration) is not currently supported.<br />
+<sup>1</sup> Live migration for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion (preview)](#customer-initiated-conversion) is not currently supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -304,7 +282,7 @@ To manually migrate your ZRS Classic account data to another type of replication
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-Also, the [customer-initiated live migration (preview)](#customer-initiated-live-migration) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
+Also, the [customer-initiated conversion (preview)](#customer-initiated-conversion) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
 
 - (Europe) West Europe
 - (North America) Canada Central

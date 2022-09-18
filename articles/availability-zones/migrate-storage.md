@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 09/18/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Migrate Azure Storage accounts to availability zone support
 
-This guide describes how to migrate Azure Storage accounts to add availability zone support. We'll take you through the different options for migration.
+This guide describes how to migrate or convert Azure Storage accounts to add availability zone support.
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
@@ -25,41 +25,45 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from any type of replication to any other type. Adding or removing zone-redundancy is the only scenario that requires migrating the storage account within the primary region.
+You can switch a storage account from one type of replication to any other type. This article describes two basic options for adding availability zone support to a storage account:
 
-This article describes two basic options for migrating your storage account to availability zone support:
-
-- [Live migration](#migration-option-1-live-migration)
-- [Manual migration](#migration-option-2-manual-migration)
+- [Conversion](#option-1-conversion)
+- [Manual migration](#option-2-manual-migration)
 
 > [!NOTE]
-> For details on how to switch from **any** Azure storage replication configuration to **any** other, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
+> For more details on how to change how your storage account is replicated, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 ## Prerequisites
 
-- Make sure your storage account(s) are in a region that supports ZRS. To determine whether or not the region supports ZRS, see [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage).
+Review the [limitations for changing replication types](../storage/common/storage-redundancy.md#limitations-for-changing-replication-types). Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
 
-- Confirm that your storage account(s) is a general-purpose v2 account. If your storage account is v1, you'll need to upgrade it to v2. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+- [Storage account type](../storage/common/storage-redundancy.md#storage-account-type)
+- [Region](../storage/common/storage-redundancy.md#region)
+- [Access tier](../storage/common/storage-redundancy.md#access-tier)
+- [Protocols enabled](../storage/common/storage-redundancy.md#protocol-support)
+- [Failover status](../storage/common/storage-redundancy.md#failover-and-failback)
 
 ## Downtime requirements
 
-If you choose manual migration, downtime is required but you have more control over when the migration starts. If you choose live migration, there's no downtime requirement but the migration process could take up to 72 hours to begin.
+During a conversion to ZRS, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
-## Migration option 1: Live migration
+If you choose manual migration, some downtime is required but you have more control over when the migration starts and completes.
 
-### When to perform a live migration
+## Option 1: Conversion
 
-Perform a live migration if:
+### When to perform a conversion
+
+Perform a conversion if:
 
 - You want to migrate your storage account from LRS to ZRS in the primary region with no application downtime.
+- You don't need the migration to be completed by a certain date. While Microsoft handles your request for conversion promptly, there's no guarantee as to when it will complete.  Generally, the more data you have in your account, the longer it takes to replicate that data.
+- You want to minimize the amount of manual effort required to complete the change.
 
-- You want to migrate your storage account from ZRS to GZRS or RA-GZRS.
+### Conversion considerations
 
-- You don't need the migration to be completed by a certain date. While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete.  Generally, the more data you have in your account, the longer it takes to migrate that data.
+Conversion can be used in most situations to add availability zone support, but in some cases you will need to use multiple steps or perform a manual migration. Some examples are:
 
-### Live migration considerations
-
-During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process. There's no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+- If you also want to add or remove geo-redundancy (GRS) or read access (RA) to the secondary region, you will need to perform a two-step process. Perform the conversion to ZRS as one step and the GRS and/or RA change as a separate step. These steps can be performed in any order.
 
 However, be aware of the following limitations:
 
@@ -69,23 +73,23 @@ However, be aware of the following limitations:
 
 - Only general-purpose v2 storage accounts support GZRS and RA-GZRS. GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues.
 
-- Live migration from LRS to ZRS isn't supported if the storage account contains Azure Files NFSv4.1 shares.
+- conversion from LRS to ZRS isn't supported if the storage account contains Azure Files NFSv4.1 shares.
 
-- For premium performance, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
+- For premium performance, conversion is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
 
-### How to perform a live migration
+### How to perform a conversion
 
-#### Customer-initiated live migration
+#### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer-initiated live migration is currently in preview.
+> Customer-initiated conversion is currently in preview.
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Customer-initiated live migration replaces the previous requirement to create a support request to perform a live migration. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the migration could still take up to 72 hours to begin, but delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion replaces the previous requirement to create a support request to perform a conversion. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the migration could still take up to 72 hours to begin, but delays related to opening and managing a support request are eliminated.
 
 > [!NOTE]
-> Customer-initiated live migration is only available from the Azure portal, not from PowerShell or the Azure CLI.
+> Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI.
 
 To change the redundancy option for your storage account in the Azure portal, follow these steps:
 
@@ -96,13 +100,13 @@ To change the redundancy option for your storage account in the Azure portal, fo
 
     :::image type="content" source="media/migration-guides/storage-change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/migration-guides/storage-change-replication-option.png":::
 
-#### Request a live migration by creating a support request
+#### Request a conversion by creating a support request
 
-If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the live migration for you:
+If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the conversion for you:
 
-[Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
+[Request a conversion](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
 
-## Migration option 2: Manual migration
+## Option 2: Manual migration
 
 ### When to use a manual migration
 
