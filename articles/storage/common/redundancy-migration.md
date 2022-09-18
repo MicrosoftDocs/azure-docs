@@ -50,7 +50,7 @@ If you just want to add or remove geo-replication and/or read access to the seco
 > [!NOTE]
 > Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
 
-However, to add or remove zone-redundancy requires using either [a conversion](#conversion) or [a manual migration](#manual-migration). 
+However, to add or remove zone-redundancy requires using either [Customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [Support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
@@ -168,7 +168,7 @@ Follow these steps to request a conversion from Microsoft:
 
 ### Manual migration
 
-A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is not supported for your scenario. (See [the migration feature support table](#migration-feature-support-table) for supported scenarios.) Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
+A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is not supported for your scenario. Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
 
 You must perform a manual migration if:
 
