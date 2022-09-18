@@ -22,7 +22,7 @@ The following table describes the maximum limits for Azure VMware Solution.
 | HCX site pairings | 25 (any edition) |
 | Azure VMware Solution ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
 | Azure VMware Solution ExpressRoute port speed | 10 Gbps<br />The virtual network gateway used determines the actual bandwidth. For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
-| Public IPs exposed via vWAN | 100 |
+| Public IPs down to NSX-T | 2000 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |
 | VMware Site Recovery Manager - Number of protected Virtual Machines  | 3,000  |
 | VMware Site Recovery Manager - Number of Virtual Machines per recovery plan  | 2,000  |
