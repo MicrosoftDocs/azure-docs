@@ -24,11 +24,11 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. Instead of having to configure storage for each of your compute options, an elastic SAN can serve as the storage solution for multiple compute options while being managed separately from each option.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. Rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options and manage it separately from each option.
 
 ### Performance
 
-With Elastic SAN, it's possible to scale your performance up to millions of IOPS, double-digit GB/s throughput, and have single-digit ms latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -42,25 +42,25 @@ Elastic SAN has three resources:
 - Volume groups
 - Volumes
 
-The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to those of the on-premises SAN:
+The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to those of an on-premises SAN:
 
 :::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic san is like an on-premises san appliance and is where billing and provisioning is handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises san.":::
 
 ### The SAN
 
-At the SAN-level, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
+When you configure the SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
 ### Volume groups
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
- Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). Follow these rules when naming a volume group: The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
+ Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
 ### Volumes
 
 You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
-The name of your volume is part of their iSCSI IQN. Follow these rules when naming a volume: The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
+The name of your volume is part of their iSCSI IQN. The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
 ## Support for Azure Storage features
 
@@ -68,7 +68,7 @@ The following table indicates support for Azure Storage features with Azure Elas
 
 The status of items in this table may change over time.
 
-| Storage feature | Supported for NFS shares |
+| Storage feature | Supported for Elastic SAN |
 |-----------------|---------|
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
@@ -85,9 +85,9 @@ The status of items in this table may change over time.
 
 ### iSCSI support
 
-Elastic SAN has the following limitations with iSCSI:
+Elastic SAN has some limitations with iSCSI.
 
-Currently doesn't support:
+Elastic SAN currently doesn't support the following iSCSI features:
 - CHAP authorization
 - Initiator registration
 - iSCSI recovery level
