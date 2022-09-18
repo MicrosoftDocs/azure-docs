@@ -1,13 +1,15 @@
 ---
 title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
-description: Add pull request annotations in GitHub or in Azure DevOps for your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
+description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.date: 09/12/2022
 ---
 
-# Tutorial: Enable pull request annotations in GitHub and Azure DevOps
+# Tutorial: Enable pull request annotations in GitHub and Azure Devops
 
-Defender for Cloud allows you to configure pull request annotations in GitHub or in Azure DevOps. Pull request annotations are enabled in Microsoft Defender for Cloud by security operators and are sent to the developers who can take action directly in their pull requests. This way, both security operators & developers see the same security issue information in the systems they're accustomed to working in—Defender for Cloud for security operators and source code management systems for developers. These issues can then be reviewed by developers when they submit their pull requests. This is beneficial because it helps prevent potential security vulnerabilities and misconfigurations before they enter the production stage.  
+With Microsoft Defender for Cloud, you can configure pull request annotations in Azure DevOps. Pull request annotations are enabled in Microsoft Defender for Cloud by security operators and are sent to the developers who can then take action directly in their pull requests. This allows both security operators and developers to see the same security issue information in the systems they're accustomed to working in. Security operators see unresolved findings in Defender for Cloud and developers see them in their source code management systems. These issues can then be acted upon by developers when they submit their pull requests. This helps prevent and fix potential security vulnerabilities and misconfigurations before they enter the production stage.
+
+You can get pull request annotations in GitHub if you're a customer of GitHub Advanced Security.
 
 > [!NOTE]
 > During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of pull request annotations.
@@ -15,7 +17,8 @@ Defender for Cloud allows you to configure pull request annotations in GitHub or
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
-> * Enable pull request annotations in GitHub and Azure DevOps.
+> * [Enable pull request annotations in GitHub](#enable-pull-request-annotations-in-github).
+> * [Enable pull request annotations in Azure DevOps](#enable-pull-request-annotations-in-azure-devops).
 
 ## Prerequisites
 
@@ -37,10 +40,11 @@ Before you can follow the steps in this tutorial, you must:
  - Have [enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md)
  - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
+ - [Setup secret scanning in Azure DevOps](detect-credential-leaks.md#setup-secret-scanning-in-azure-devops)
 
 ## Enable pull request annotations in GitHub
 
-By enabling pull request annotations (commonly referred to as Checks) in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+By enabling pull request annotations in GitHub, your developers gain the ability to see their security issues when they submit their pull requests directly to the main branch.
 
 **To enable pull request annotations in GitHub**:
 
@@ -79,6 +83,7 @@ By enabling pull request annotations (commonly referred to as Checks) in GitHub,
     pull_request:
       branches: [ main ]
     ```
+    
     By adding these lines to your yaml file, you'll configure the action to run when either a push or pull request event occurs on the designated repo.  
 
     (Optional) You can select which branches you want to run it on by entering the branch(es) under the trigger section. If you want to include all branches remove the lines with the branch list.  
@@ -109,7 +114,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
 
 ## Enable pull request annotations in Azure DevOps
 
-By enabling pull request annotations (commonly refereed to as Checks) in GitHub in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+By enabling pull request annotations in Azure DevOps, your developers gain the ability to see their security issues when they submit their pull requests directly to the main branch
 
 **To enable pull request annotations in Azure DevOps**:
 
@@ -121,17 +126,40 @@ By enabling pull request annotations (commonly refereed to as Checks) in GitHub 
 
 1. Select **Configure**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure on the screen.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure, on the screen.":::
 
 1. Toggle Pull request annotations to **On**.
 
-1. Select a category from the drop-down menu.
+1. Select a category from the drop-down menu. 
+
+    > [!NOTE]
+    > Only secret scan results is currently supported.
 
 1. Select a severity level from the drop-down menu.
 
 1. Select **Save**.
 
 All annotations will now be displayed based on your configurations with the relevant line of code.
+
+### Mitigate issues found by the scanner
+
+Once you've configured the scanner, you'll be able to view all issues that were detected.
+To mitigate issues:
+
+**To mitigate issues found by the scanner**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate through the page and locate an affected line with an annotation.
+
+1. Select **Active**.
+
+1. Select action to take:
+    - Active – The default status for new annotations.
+    - Pending- The finding is being worked on.
+    - Resolved - The finding has been addressed.
+    - Won’t Fix - The finding is noted but won’t be fixed.
+    - Closed – The discussion in this annotation is closed.
 
 ## Learn more
 
