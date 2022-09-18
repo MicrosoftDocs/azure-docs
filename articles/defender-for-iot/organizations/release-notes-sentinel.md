@@ -19,7 +19,9 @@ This article lists the new features available in each version of the **IoT/OT Th
 
 ## Version 2.0
 
-**Date released**: September 22, 2022
+**Released**: September 2022
+
+New features in this version include:
 
 - Workbook improvements
 - A new overview dashboard
@@ -32,6 +34,8 @@ For more information, see [Microsoft Sentinel integration enhancements](release-
 
 ## Version 1.0.14
 
+**Released**: July 2022
+
 New features in this version include:
 
 - [Microsoft Sentinel incident synch with Defender for IoT alerts](release-notes.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
@@ -40,12 +44,16 @@ New features in this version include:
 
 ## Version 1.0.13
 
+**Released**: March 2022
+
 New features in this version include:
 
 - A bug fix to prevent new incidents from being created in Microsoft Sentinel each time an alert in Defender for IoT is updated or deleted.
 - A new analytics rule for the **No traffic on sensor detected** Defender for IoT alert.
 - Updates in the **Unauthorized PLC changes** analytics rule to support the **Illegal Beckhoff AMS Command** Defender for IoT alert.
 - A new, deep link to Defender for IoT alerts directly from related Microsoft Sentinel incidents.
+
+<!--what about earlier than this? when was it first released?-->
 
 ## Next steps
 
