@@ -9,7 +9,7 @@ ms.date: 08/22/2022
 ms.author: v-smcevoy
 ---
 
-## Create your MedTech service
+# Create your MedTech service
 
 If you are satisfied with everything you've configured, do the following:
 

@@ -102,7 +102,7 @@ Select the Device mapping tab under Create MedTech service. Follow these steps:
 
 2. If the Device code looks correct, select the **Next: Destination >** button to display a new box you need to enter the destination properties associated with your MedTech service.
 
-## Configure FHIR Destination properties
+## Configure Destination properties
 
 Follow these two steps to configure the FHIR destination properties:
 
