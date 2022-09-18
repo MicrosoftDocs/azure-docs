@@ -127,9 +127,9 @@ Role assignment resource names must be unique within the Azure Active Directory 
 
 ### Resource deletion behavior
 
-When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically. Any role assignments that refer to a deleted principal ID become invalid.
 
-Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment.
+If you try to reuse a role assignment's name for another role assignment, the deployment will fail. This issue is more likely to occur when you use Bicep or an Azure Resource Manager template (ARM template) to deploy your role assignments, because you have to explicitly set the role assignment name when you use these tools. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment.
 
 ## Description
 
