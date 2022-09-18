@@ -157,7 +157,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-10-01-prev
 {
   "type": "Microsoft.Authorization/roleAssignments",
   "apiVersion": "2020-10-01-preview",
-  "name": "[guid(resourceGroup().id, variables('principalId'), variables('roleDefinitionId')]",
+  "name": "[guid(resourceGroup().id, variables('principalId'), variables('roleDefinitionId'))]",
   "properties": {
     "roleDefinitionId": "[variables('roleDefinitionId')]",
     "principalId": "[variables('principalId')]",
