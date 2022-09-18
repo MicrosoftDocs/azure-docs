@@ -35,13 +35,13 @@ You can switch a storage account from one type of replication to any other type.
 
 ## Prerequisites
 
-Review the [limitations for changing replication types](../storage/common/storage-redundancy.md#limitations-for-changing-replication-types). Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
+Review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types). Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
 
-- [Storage account type](../storage/common/storage-redundancy.md#storage-account-type)
-- [Region](../storage/common/storage-redundancy.md#region)
-- [Access tier](../storage/common/storage-redundancy.md#access-tier)
-- [Protocols enabled](../storage/common/storage-redundancy.md#protocol-support)
-- [Failover status](../storage/common/storage-redundancy.md#failover-and-failback)
+- [Storage account type](../storage/common/redundancy-migration.md#storage-account-type)
+- [Region](../storage/common/redundancy-migration.md#region)
+- [Access tier](../storage/common/redundancy-migration.md#access-tier)
+- [Protocols enabled](../storage/common/redundancy-migration.md#protocol-support)
+- [Failover status](../storage/common/redundancy-migration.md#failover-and-failback)
 
 ## Downtime requirements
 

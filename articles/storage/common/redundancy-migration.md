@@ -54,6 +54,21 @@ However, to add or remove zone-redundancy requires using either [a conversion](#
 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
+The following table provides an overview of how to switch from each type of replication to another:
+
+| Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
+|--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
+| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>5</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>3</sup> |
+| <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration<sup>3</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>3</sup> |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a live migration<sup>3</sup> <br /><br /> OR <br /><br /> Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
+| <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
+
+<sup>1</sup> Incurs a one-time egress charge.<br />
+<sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
+<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts.<br />
+<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a fail back from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [Use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary). <br />
+<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
+
 ## Change the replication setting using the portal, PowerShell, or the CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are changing zone redundancy and initiating a live migration from the Azure portal is [allowed in your scenario](#migration-feature-support-table), you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
@@ -98,7 +113,7 @@ az storage account update \
 
 For scenarios where migration is [required and supported](#migration-feature-support-table), Microsoft supports three methods for migrating your storage account:
 
-- [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-conversion)
+- [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-conversion-preview)
 - [Request a live migration by creating a support request with Microsoft](#support-requested-conversion)
 - [Perform a manual migration](#manual-migration)
 
@@ -174,7 +189,7 @@ You must perform a manual migration if:
 - Your storage account includes data in the archive tier and rehydrating the data is not desired.
 
 > [!IMPORTANT]
-> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [live migration](#live-migration) option. A live migration is an in-place migration with no downtime.
+> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a conversion](#conversion) option. A live migration is an in-place migration with no downtime.
 
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
@@ -231,7 +246,7 @@ The following table provides an overview of redundancy options available for sto
 | Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
 
-<sup>1</sup> Live migration for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion (preview)](#customer-initiated-conversion) is not currently supported.<br />
+<sup>1</sup> Live migration for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion (preview)](#customer-initiated-conversion-preview) is not currently supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -282,7 +297,7 @@ To manually migrate your ZRS Classic account data to another type of replication
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-Also, the [customer-initiated conversion (preview)](#customer-initiated-conversion) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
+Also, the [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
 
 - (Europe) West Europe
 - (North America) Canada Central
@@ -325,30 +340,6 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 
 > [!IMPORTANT]
 > If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
-
-## Replication conversion tables
-
-This section includes tables that show the paths for changing between replication types.
-
-These tables focus on adding or removing zone-redundancy, since changing geo-redundancy or read access to the secondary region can be easily changed by using the Azure portal, PowerShell, or the Azure CLI. The one exception is when you want to switch to another type after a failover operation. See [Failover and failback](#failover-and-failback) for more details.
-
-The following table shows the paths available for adding zone-redundancy to an existing storage account:
-
-| Convert         | ...to: | ZRS | GZRS | RA-GZRS |
-|-----------------|--------|-----|------|---------|
-| <b>…from:       |        | --- |  --- |  ---    |
-| <b> LRS</b>     |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to GRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to GZRS | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to RA-GRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to RA-GZRS |
-| <b> GRS</b>     |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to LRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to ZRS | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to RA-GRS using the Azure portal, PowerShell, or the Azure CLI,<br>then [live migrate](#live-migration) to RA-GZRS |
-| <b> RA-GRS</b>  |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to LRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to ZRS | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to GRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to GZRS | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) |
-
-The following table shows the paths available for removing zone-redundancy from an existing storage account:
-
-| Convert         | ...to: | LRS | GRS | RA-GRS |
-|-----------------|--------|-----|------|---------|
-| <b>…from:       |        | --- |  --- |  ---    |
-| <b> ZRS</b>     |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to GRS | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to RA-GZRS using the Azure portal, PowerShell, or the Azure CLI, <br>then [live migrate](#live-migration) to RA-GRS |
-| <b> GZRS</b>    |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to ZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to LRS | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to RA-GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to RA-GRS |
-| <b> RA-GZRS</b> |  ---   | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to ZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to LRS | [manual migration](#manual-migration) <br><b> -or- </b><br> Switch to GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then [live migrate](#live-migration) to RA-GRS | [manual migration](#manual-migration) <br><b> -or- </b><br> [live migration](#live-migration) |
 
 ## See also
 
