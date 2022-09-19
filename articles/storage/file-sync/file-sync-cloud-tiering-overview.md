@@ -96,7 +96,7 @@ In low disk space mode, the Azure File Sync agent does two things differently:
 
 - Proactive Tiering: In this mode the File Sync agent tiers files proactively to the cloud . Sync agent checks for files to be tiered every minute instead of the normal frequency of every 1 hour. Volume free space policy tiering typically does not happen during initial upload sync until the full upload is complete, but in low disk space mode, tiering is enabled during the initial upload sync and files will be considered for tiering once the individual file has been uploaded to the Azure file share.
 
-- Non-Persistent Recalls: When a user opens a tiered file, files recalled from the Azure File Share directly will not be persisted to the disk. Note that recalls initiated by the cmdlet Invoke-StorageSyncFileRecall are an exemption to this rule and will be persisted to disk.
+- Non-Persistent Recalls: When a user opens a tiered file, files recalled from the Azure File Share directly will not be persisted to the disk. Note that recalls initiated by the cmdlet Invoke-StorageSyncFileRecall are an exemption from this rule and will be persisted to disk.
 
 When the volume free space reaches above the threshold, Azure File Sync reverts to the normal state automatically. Note that low disk space mode only applies to servers with cloud tiering enabled and will always respect the volume free space policy.
 
