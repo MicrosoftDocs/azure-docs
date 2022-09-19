@@ -139,7 +139,7 @@ Run the below curl command in Azure Cloud Bash to get the legal tag associated w
     
 ```bash
     curl --location --request GET 'https://<URI>/api/legal/v1/legaltags/<legal-tag-name>' \
-    --header 'data-partition-id: <data-partition-id' \
+    --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>'
 ```
 
