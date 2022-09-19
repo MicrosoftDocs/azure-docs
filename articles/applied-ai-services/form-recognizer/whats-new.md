@@ -19,7 +19,7 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-## September 2022## September 2022
+## September 2022
 
 ### Region expansion for training custom neural models 
 
