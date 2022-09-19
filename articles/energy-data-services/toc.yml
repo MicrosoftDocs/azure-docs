@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an Microsoft Energy Data Service instance
+    - name: Create a Microsoft Energy Data Services Preview instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
@@ -19,13 +19,13 @@
       href: tutorial-csv-ingestion.md
     - name: Manifest ingestion tutorial
       href: tutorial-manifest-ingestion.md
-    - name: Seismic ddms sdutil tutorial
+    - name: Seismic DDMS sdutil tutorial
       href: tutorial-seismic-ddms-sdutil.md
-    - name: Seismic ddms tutorial
+    - name: Seismic DDMS tutorial
       href: tutorial-seismic-ddms.md
-    - name: Wellbore ddms tutorial
+    - name: Wellbore DDMS tutorial
       href: tutorial-wellbore-ddms.md
-    - name: Well delivery ddms tutorial
+    - name: Well delivery DDMS tutorial
       href: tutorial-well-delivery-ddms.md
 - name: Concepts
   items:
@@ -49,7 +49,7 @@
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
           href: how-to-add-more-data-partitions.md
-    - name: Observability
+    - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor
           href: how-to-integrate-airflow-logs-with-azure-monitor.md

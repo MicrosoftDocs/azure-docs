@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft Energy Data Services (Preview) documentation # < 60 chars
-summary: Microsoft Energy Data Services (Preview) is an open, secure, reliable, and a fully managed cloud based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise.
+title: Microsoft Energy Data Services Preview documentation # < 60 chars
+summary: Microsoft Energy Data Services Preview is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise.
 
 metadata:
   title: Microsoft Energy Data Services Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -18,15 +18,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Microsoft Energy Data Services (Preview)
+  - title: About Microsoft Energy Data Services Preview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Energy Data Services (Preview)?
+          - text: What is Microsoft Energy Data Services Preview?
             url: overview-microsoft-energy-data-services.md
       - linkListType: quickstart
         links:
-          - text: Create a Microsoft Energy Data Services (Preview) instance
+          - text: Create a Microsoft Energy Data Services Preview instance
             url: quickstart-create-microsoft-energy-data-services-instance.md
       - linkListType: tutorial
         links:
@@ -41,7 +41,7 @@ landingContent:
           - text: CSV parser concepts
             url: concepts-csv-parser-ingestion.md
           - text: Index and search workflows
-            url: concepts-index-and-search.md          
+            url: concepts-index-and-search.md
   - title: About Domain Data Management Services (DDMS)
     linkLists:
       - linkListType: overview
@@ -54,13 +54,13 @@ landingContent:
             url: concepts-ddms.md
       - linkListType: tutorial
         links:
-          - text: Seismic ddms sdutil tutorial
+          - text: Seismic DDMS sdutil tutorial
             url: tutorial-seismic-ddms-sdutil.md
-          - text: Seismic ddms tutorial
+          - text: Seismic DDMS tutorial
             url: tutorial-seismic-ddms.md
-          - text: Wellbore ddms tutorial
+          - text: Wellbore DDMS tutorial
             url: tutorial-wellbore-ddms.md
-          - text: Well delivery ddms tutorial
+          - text: Well delivery DDMS tutorial
             url: tutorial-well-delivery-ddms.md
       - linkListType: how-to-guide
         links:
@@ -84,7 +84,7 @@ landingContent:
         links:
           - text: Entitlement concepts
             url: concepts-entitlements.md
-  - title: Observability
+  - title: Monitoring
     linkLists:
       - linkListType: how-to-guide
         links:
