@@ -226,7 +226,6 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 
 1. Select **Run**.
 
-For example:
 
 :::image type="content" source="media/iot-solution/automate-playbook.png" alt-text="Screenshot of a Defender for IoT alert status sync automation rule." lightbox="media/iot-solution/automate-playbook.png":::
 
