@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb - Standard APIs with Azure Health Data Services DICOM service 
 description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM service. 
-author: judegnan
+author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 09/16/2022
-ms.author: chrupa@microsoft.com
+ms.author: v-smcevoy
 ---
 
 # Using DICOMweb&trade;Standard APIs with DICOM services
