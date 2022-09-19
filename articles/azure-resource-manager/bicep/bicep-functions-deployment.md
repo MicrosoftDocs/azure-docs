@@ -186,10 +186,10 @@ The preceding example returns the following object when deployed to global Azure
   },
   "suffixes": {
     "acrLoginServer": "azurecr.io",
-	"azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
     "azureDataLakeStoreFileSystem": "azuredatalakestore.net",    
     "azureFrontDoorEndpointSuffix": "azurefd.net",
-	"keyVaultDns": "vault.azure.net",
+    "keyVaultDns": "vault.azure.net",
     "sqlServerHostname": "database.windows.net",
     "storage": "core.windows.net"
   }
