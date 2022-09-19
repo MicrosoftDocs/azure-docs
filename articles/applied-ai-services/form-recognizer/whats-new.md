@@ -21,6 +21,18 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## September 2022
 
+### Region expansion for training custom neural models 
+
+Training custom neural models is now supported in six additional regions.
+* Australia East
+* Central US
+* East Asia
+* France Central
+* UK South
+* West US2
+
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+
 #### Form Recognizer SDK version 4.0.0 GA release
 
 * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
