@@ -161,24 +161,24 @@ For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host /
 
 # [C#](#tab/c-sharp)
 ```csharp
-var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
+var config = SpeechConfig.FromHost("azCnHost", subscriptionKey);
 ```
 # [C++](#tab/cpp)
 ```cpp
-auto config = SpeechConfig::FromHost(azCnHost, subscriptionKey);
+auto config = SpeechConfig::FromHost("azCnHost", subscriptionKey);
 ```
 # [Java](#tab/java)
 ```java
-SpeechConfig config = SpeechConfig.fromHost(azCnHost, subscriptionKey);
+SpeechConfig config = SpeechConfig.fromHost("azCnHost", subscriptionKey);
 ```
 # [Python](#tab/python)
 ```python
 import azure.cognitiveservices.speech as speechsdk
-speech_config = speechsdk.SpeechConfig(host=azCnHost, subscription=subscriptionKey)
+speech_config = speechsdk.SpeechConfig(host="azCnHost", subscription=subscriptionKey)
 ```
 # [Objective-C](#tab/objective-c)
 ```objectivec
-SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:azCnHost subscription:subscriptionKey];
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:"azCnHost" subscription:subscriptionKey];
 ```
 ***
 
