@@ -59,19 +59,24 @@ First, verify that the certificate used for LDAPS is valid.
 1. In the **Certificates snap-in** window, select **Computer account** then select **Next**.
 1. Keep the first option selected **Local computer...** , and select **Finish**, and then **OK**.
 1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to list the installed certificates.
+
     :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot showing displaying the list of certificates." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
     
 1. Double click the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that corresponds to the certificate.
+
     :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing the properties of the certificate." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
+    
 1. On the same window, select the **Certification Path** tab and verify that the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK.
+
     :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing the certificate chain." lightbox="media/run-command/ldaps-certificate-cert-path.png":::
+    
 1. Close the window.
 
 Now proceed to export the certificate
 
-1. Still on the Certificates console, right select the the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
+1. Still on the Certificates console, right select the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
 
-1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and se;ect the **Next** button.
+1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and select the **Next** button.
 1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and then select the **Next** button.
 1. In the **File to Export** section, select the **Browse...** button and select a folder location where to export the certificate, enter a name then select the **Save** button.
 
