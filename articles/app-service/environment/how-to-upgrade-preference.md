@@ -9,7 +9,7 @@ zone_pivot_groups: app-service-cli-portal
 
 # Upgrade preference for App Service Environment planned maintenance
 
-Azure App Service is regularly updated to provide new features, new runtime versions, performance improvements, and bug fixes. This is also know as planned maintenance. The upgrade happens automatically. The upgrades are applied progressively through the regions following [Azure Safe Deployment Practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Because of the isolated nature of App Service Environment, you have an opportunity to influence the upgrade process.
+Azure App Service is regularly updated to provide new features, new runtime versions, performance improvements, and bug fixes. This is also known as planned maintenance. The upgrade happens automatically. The upgrades are applied progressively through the regions following [Azure Safe Deployment Practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Because of the isolated nature of App Service Environment, you have an opportunity to influence the upgrade process.
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
