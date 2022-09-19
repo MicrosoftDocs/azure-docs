@@ -164,7 +164,17 @@ The preceding example returns the following object when deployed to global Azure
 
 ```json
 {
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
   "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
   "authentication": {
     "loginEndpoint": "https://login.microsoftonline.com/",
     "audiences": [
@@ -174,25 +184,15 @@ The preceding example returns the following object when deployed to global Azure
     "tenant": "common",
     "identityProvider": "AAD"
   },
-  "media": "https://rest.media.azure.net",
-  "graphAudience": "https://graph.windows.net/",
-  "graph": "https://graph.windows.net/",
-  "name": "AzureCloud",
   "suffixes": {
-    "azureDataLakeStoreFileSystem": "azuredatalakestore.net",
     "acrLoginServer": "azurecr.io",
+	"azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDataLakeStoreFileSystem": "azuredatalakestore.net",    
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+	"keyVaultDns": "vault.azure.net",
     "sqlServerHostname": "database.windows.net",
-    "azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
-    "keyVaultDns": "vault.azure.net",
-    "storage": "core.windows.net",
-    "azureFrontDoorEndpointSuffix": "azurefd.net"
-  },
-  "batch": "https://batch.core.windows.net/",
-  "resourceManager": "https://management.azure.com/",
-  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-  "activeDirectoryDataLake": "https://datalake.azure.net/",
-  "sqlManagement": "https://management.core.windows.net:8443/",
-  "gallery": "https://gallery.azure.com/"
+    "storage": "core.windows.net"
+  }
 }
 ```
 
