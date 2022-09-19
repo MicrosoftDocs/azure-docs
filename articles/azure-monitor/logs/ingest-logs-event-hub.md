@@ -270,7 +270,7 @@ With [user-assigned identity](../../active-directory/managed-identities-azure-re
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
-2. Select **Monitoring Metrics Publisher** and select **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
+2. Select **Azure Event Hubs Data Receiver** and select **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
 
