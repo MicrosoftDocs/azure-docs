@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
-ms.date: 09/08/2022
+ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with basic Public IP services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
@@ -24,10 +24,10 @@ We recommend the following approach to upgrade to Standard SKU Public IP address
 
     | Service using Basic Public IP | Decision path |
     | ------ | ------ |
-    |Zone Redundancy | Create a new standard IP |
-    | No Zone Redundancy | Use script to upgrade |
+    |Zone Redundancy | Create a new standard IP. |
+    | No Zone Redundancy | Use script to upgrade to standard IP. |
     | Load Balancer |  |
-    | VPN Gateway | Cannot dissociate and upgrade. You will need to create a new VPN GW |
+    | VPN Gateway | Cannot dissociate and upgrade. You will need to create a new VPN GW.|
     | App Gateway | Cannot dissociate and upgrade. You will need to create a new App Gateway. |
 1. Verify your application and workloads are receiving traffic through the Standard Load Balancer.
 
@@ -48,7 +48,7 @@ This section lists out some key differences between these two Public IP addresse
 
 ## Upgrade using Portal, PowerShell, and Azure CLI 
 
-Use these PowerShell scripts to help with upgrading from Basic to Standard SKU. 
+Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic to Standard SKU. 
 
 - [Upgrade a public IP address - Azure portal](public-ip-upgrade-portal.md)
 - [Upgrade a public IP address - Azure PowerShell](public-ip-upgrade-powershell.md)

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
