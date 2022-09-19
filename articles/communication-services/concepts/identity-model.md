@@ -57,8 +57,8 @@ The properties of an access token are:
 * Scopes.
 
 An access token is valid for a period of time between 1 and 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive.
-To generate an access token with a custom validity, specify the desired validity period when generating the access token. If no custom validity is specified, the access token will be valid for 24 hours. 
-We recommend using short lifetime access tokens for one-off meetings and longer lifetime access tokens for agents using the application for longer periods of time.
+To generate a token with a custom validity, specify the desired validity period when generating the token. If no custom validity is specified, the token will be valid for 24 hours. 
+We recommend using short lifetime tokens for one-off meetings and longer lifetime tokens for agents using the application for longer periods of time.
 
 An identity needs a way to request a new access token from a server-side service. The *scope* parameter defines a nonempty set of primitives that can be used. Azure Communication Services supports the following scopes for access tokens.
 
