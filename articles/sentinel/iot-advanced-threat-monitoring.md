@@ -216,6 +216,10 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 
 1. In the **Conditions** area, select **If > Analytic rule name > Contains**, and then select the specific analytics rules relevant for Defender for IoT in your organization.
 
+    For example:
+
+    :::image type="content" source="media/iot-solution/automate-playbook.png" alt-text="Screenshot of a Defender for IoT alert status sync automation rule." lightbox="media/iot-solution/automate-playbook.png":::
+
     You may be using out-of-the-box analytics rules, or you may have modified the out-of-the-box content, or created your own. For more information, see [Detect threats out-of-the-box with Defender for IoT data](#detect-threats-out-of-the-box-with-defender-for-iot-data).
 
 1. In the **Actions** area, select **Run playbook** > *playbook name*.
