@@ -69,5 +69,5 @@ No. Application code, deployments, and Azure resources that host the application
 
 3. Will I lose the CI/CD pipeline that I created using DevOps Starter?
 
-No. You can still manage such CI/CD pipelines natively in their respective products - either GitHub Actions or Azure Pipelines.
+No. You can still manage CI/CD pipelines in GitHub Actions or Azure Pipelines.
 
