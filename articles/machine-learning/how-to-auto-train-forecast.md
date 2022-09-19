@@ -360,7 +360,8 @@ automl_settings = {"task" : 'forecasting',
                    "iterations" : 15,
                    "experiment_timeout_hours" : 1,
                    "label_column_name" : 'Quantity',
-                   "n_cross_validations" : 'auto', # Could be customized as an integer
+                   "n_cross_validations" : "auto", # Could be customized as an integer
+                   "cv_step_size" : "auto", # Could be customized as an integer
                    "time_column_name": 'WeekStarting',
                    "max_horizon" : 6,
                    "track_child_runs": False,
