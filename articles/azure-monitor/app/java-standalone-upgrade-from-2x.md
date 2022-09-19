@@ -11,25 +11,25 @@ ms.reviewer: mmcc
 # Upgrading from Application Insights Java 2.x SDK
 
 There are typically no code changes when upgrading to 3.x. The 3.x SDK dependencies are just no-op API versions of the
-2.x SDK dependencies, but when used in conjunction with the 3.x Java agent, the 3.x Java agent provides the implementation
-for these 3.x SDK dependencies, so that any of your custom instrumentation will be correlated with all of the new
+2.x SDK dependencies, but when used along with the 3.x Java agent, the 3.x Java agent provides the implementation
+for them, and your custom instrumentation will be correlated with all the new
 auto-instrumentation which is provided by the 3.x Java agent.
 
 ## Step 1: Update dependencies
 
-| 2.x dependency | Action | Remarks |
-|----------------|--------|---------|
-| `applicationinsights-core` | Update the version to `3.4.0` or later | |
-| `applicationinsights-web` | Update the version to `3.4.0` or later, and remove the Application Insights web filter your `web.xml` file. | |
-| `applicationinsights-web-auto` | Replace with `3.4.0` or later of `applicationinsights-web` | |
-| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 1.2 is auto-instrumented in the 3.x Java agent. |
-| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 2 is auto-instrumented in the 3.x Java agent. |
-| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | This is no longer needed since Logback is auto-instrumented in the 3.x Java agent. |
+| 2.x dependency | Action | Remarks                                                                                                                                                                                     |
+|----------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `applicationinsights-core` | Update the version to `3.4.0` or later |                                                                                                                                                                                             |
+| `applicationinsights-web` | Update the version to `3.4.0` or later, and remove the Application Insights web filter your `web.xml` file. |                                                                                                                                                                                             |
+| `applicationinsights-web-auto` | Replace with `3.4.0` or later of `applicationinsights-web` |                                                                                                                                                                                             |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 1.2 is auto-instrumented in the 3.x Java agent.                                                                                                                |
+| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | No longer needed since Log4j 2 is auto-instrumented in the 3.x Java agent.                                                                                                                  |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | No longer needed since Logback is auto-instrumented in the 3.x Java agent.                                                                                                                  |
 | `applicationinsights-spring-boot-starter` | Replace with `3.4.0` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
 
 ## Step 2: Add the 3.x Java agent
 
-Add the 3.x Java agent to your JVM command-line args, e.g.
+Add the 3.x Java agent to your JVM command-line args, for example
 
 ```
 -javaagent:path/to/applicationinsights-agent-3.4.0.jar
@@ -64,12 +64,12 @@ This use case is supported in Application Insights Java 3.x using [Instrumentati
 
 ## Operation names
 
-In the Application Insights Java 2.x SDK, in some cases, the operation names contained the full path, e.g.
+In the Application Insights Java 2.x SDK, in some cases, the operation names contained the full path, for example
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Screenshot showing operation names with full path":::
 
 Operation names in Application Insights Java 3.x have changed to generally provide a better aggregated view
-in the Application Insights Portal U/X, e.g.
+in the Application Insights Portal U/X, for example
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-parameterized.png" alt-text="Screenshot showing operation names parameterized":::
 
@@ -82,7 +82,7 @@ The snippet below configures 3 telemetry processors that combine to replicate th
 The telemetry processors perform the following actions (in order):
 
 1. The first telemetry processor is an attribute processor (has type `attribute`),
-   which means it applies to all telemetry which has attributes
+   which means it applies to all telemetry that has attributes
    (currently `requests` and `dependencies`, but soon also `traces`).
 
    It will match any telemetry that has attributes named `http.method` and `http.url`.
