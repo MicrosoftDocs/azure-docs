@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 09/19/2022
 
 ms.subservice: blobs
 ms.custom: template-how-to
