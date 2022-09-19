@@ -30,7 +30,7 @@ Compared to cross-region replication, a cross-zone replication setup provides th
 * Failure domain isolation down to the availability zone level
 * With the help of availability zone volume placement feature, bring volumes into the same availability zone as the consuming compute resources
 
-# Next steps
+## Next steps
 
 * [Cross-region replication of Azure NetApp Files volumes](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-zone-replication-requirements-considerations.md)
