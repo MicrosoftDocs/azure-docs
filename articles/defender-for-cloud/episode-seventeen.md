@@ -17,9 +17,9 @@ ms.date: 09/19/2022
 
 - [00:55](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m55s) - What is Cloud Infrastructure Entitlement Management?
 
-- [02:20](/https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=02m20s) - How does the integration with MDC work?
+- [02:20](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=02m20s) - How does the integration with MDC work?
 
-- [03:58](/https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=03m58s) - Demonstration
+- [03:58](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=03m58s) - Demonstration
 
 ## Recommended resources
 
