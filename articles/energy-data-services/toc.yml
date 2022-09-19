@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Microsoft Energy Data Service instance
+    - name: Create a Microsoft Energy Data Service Preview instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
