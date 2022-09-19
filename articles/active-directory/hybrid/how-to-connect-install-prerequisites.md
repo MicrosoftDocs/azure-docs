@@ -35,7 +35,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
-* The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met. You may require [a paid support program](https://docs.microsoft.com/lifecycle/policies/fixed#extended-support) if you require support for domain controllers running Windows Server 2016 or older.
+* The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met. You might require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for domain controllers running Windows Server 2016 or older.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
