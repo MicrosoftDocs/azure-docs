@@ -1,5 +1,5 @@
 ---
-title: Migrate local runs from from SDK v1 to SDK v2
+title: Migrate local runs from SDK v1 to SDK v2
 titleSuffix: Azure Machine Learning
 description: Migrate local runs from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
@@ -15,9 +15,9 @@ ms.custom: migration
 
 # Migrate local runs from SDK v1 to SDK v2
 
-Local runs are similar in both V1 and V2. Simply use the "local" string when setting the compute target in either version.
+Local runs are similar in both V1 and V2. Use the "local" string when setting the compute target in either version.
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ### Submit a local run
 

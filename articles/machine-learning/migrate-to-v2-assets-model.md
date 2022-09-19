@@ -15,7 +15,7 @@ ms.custom: migration
 
 # Migrate model management from SDK v1 to SDK v2
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Create model
 
@@ -80,7 +80,7 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-For further details refer to the documentation here:
+For more information, see the documentation here:
 
 * [Create a model in v1](v1/how-to-deploy-and-where.md?tabs=python#register-a-model-from-a-local-file)
 * [Deploy a model in v1](v1/how-to-deploy-and-where.md?tabs=azcli#workflow-for-deploying-a-model)

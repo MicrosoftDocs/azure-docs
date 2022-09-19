@@ -19,14 +19,14 @@ In V1, an AzureML dataset can either be a `Filedataset` or a `Tabulardataset`.
 In V2, an AzureML data asset can be a `uri_folder`, `uri_file` or `mltable`.
 You can conceptually map `Filedataset` to `uri_folder` and `uri_file`, `Tabulardataset` to `mltable`.
 
-* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs.
-* MLTable - a method to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
+* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs.
+* MLTable - a method to abstract the schema definition for tabular data so that it's easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
 
-This articles gives a comparison of data scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
-## Create a filedataset/ uri type of data asset
+## Create a `filedataset`/ uri type of data asset
 
-* SDK v1 - Create a Filedataset
+* SDK v1 - Create a `Filedataset`
 
     ```python
     from azureml.core import Workspace, Datastore, Dataset
@@ -113,7 +113,7 @@ This articles gives a comparison of data scenario(s) in SDK v1 and SDK v2.
     weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
     ```
 
-* SDK v2 - Create mltable data asset via yaml definition
+* SDK v2 - Create `mltable` data asset via yaml definition
 
     ```yaml
     type: mltable
@@ -219,7 +219,7 @@ This articles gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-For further details refer to the documentation here:
+For more information, see the documentation here:
 * [Data in Azure Machine Learning](concept-data.md?tabs=uri-file-example%2Ccli-data-create-example)
 * [Create data_assets](how-to-create-data-assets.md?tabs=CLI)
 * [Read and write data in a job](how-to-read-write-data-v2.md)

@@ -15,9 +15,9 @@ ms.custom: migration
 
 # Migrate datastore management from SDK v1 to SDK v2
 
-Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concpet remain mostly unchanged compared with V1. The difference is we will not support SQL-like data sources via AzureML Datastores. We will support SQL-like data sources via AzureML data import&export functionalities.
+Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via AzureML Datastores. We'll support SQL-like data sources via AzureML data import&export functionalities.
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Create a datastore from an Azure Blob container via account_key 
 
@@ -174,7 +174,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ## Next steps
 
-For further details refer to the documentation here:
+For more information, see:
 
 * [Create datastores](how-to-datastore.md?tabs=cli-identity-based-access%2Csdk-adls-sp%2Csdk-azfiles-sas%2Csdk-adlsgen1-sp)
 * [Read and write data in a job](how-to-read-write-data-v2.md)

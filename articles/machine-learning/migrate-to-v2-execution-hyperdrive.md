@@ -21,9 +21,9 @@ A job has a type. Most jobs are command jobs that run a `command`, like `python 
 
 A sweep job is another type of job, which defines sweep settings and can be initiated by calling the sweep method of command.
 
-To migrate, you'll need to change your code for defining and submitting your hyperparameter tuning experiment to SDK v2. What you run _within_ the job does not need to be migrated to SDK v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
+To migrate, you'll need to change your code for defining and submitting your hyperparameter tuning experiment to SDK v2. What you run _within_ the job doesn't need to be migrated to SDK v2. However, it's recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more information, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Run hyperparameter tuning in an experiment
 
@@ -273,7 +273,7 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-For further details refer to the documentation here:
+For more information, see:
 
 * [SDK v1 - Tune Hyperparameters](/v1/how-to-tune-hyperparameters-v1.md)
 * [SDK v2 - Tune Hyperparameters](/python/api/azure-ai-ml/azure.ai.ml.sweep)

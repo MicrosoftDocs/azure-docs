@@ -1,5 +1,5 @@
 ---
-title: Migrate workspace management from from SDK v1 to SDK v2
+title: Migrate workspace management from SDK v1 to SDK v2
 titleSuffix: Azure Machine Learning
 description: Migrate workspace management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
@@ -13,11 +13,11 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate workspace management from from SDK v1 to SDK v2
+# Migrate workspace management from SDK v1 to SDK v2
 
 The workspace functionally remains unchanged with the V2 development platform. However, there are network-related changes to be aware of. For details, see [Network Isolation Change with Our New API Platform on Azure Resource Manager](how-to-configure-network-isolation-with-v2.md?tabs=python)
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Create a workspace
 
@@ -183,6 +183,6 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Related documents
 
-For further details refer to the documentation here:
+For more information, see:
 
 * [What is a workspace?](concept-workspace.md)

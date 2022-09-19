@@ -1,5 +1,5 @@
 ---
-title: Migrate AutoML from from SDK v1 to SDK v2
+title: Migrate AutoML from SDK v1 to SDK v2
 titleSuffix: Azure Machine Learning
 description: Migrate AutoML from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
@@ -17,9 +17,9 @@ ms.custom: migration
 
 In SDK v2, "experiments" and "runs" are consolidated into jobs.
 
-In SDK v1, AutoML was primarily configured and run through the `AutoMLConfig` class. In SDK v2, this class has been converted to an `AutoML` job. Although there are some differences in the configuration options, by and large, naming & functionality has been preserved in V2.
+In SDK v1, AutoML was primarily configured and run using the `AutoMLConfig` class. In SDK v2, this class has been converted to an `AutoML` job. Although there are some differences in the configuration options, by and large, naming & functionality has been preserved in V2.
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Submit AutoML run
 
@@ -179,6 +179,6 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-For further details refer to the documentation here:
+For more information, see:
 
 * [How to train an AutoML model with Python SDKv2](how-to-configure-auto-train.md)

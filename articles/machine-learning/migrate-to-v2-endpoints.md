@@ -1,5 +1,5 @@
 ---
-title: Migrate endpoints from from SDK v1 to SDK v2
+title: Migrate endpoints from SDK v1 to SDK v2
 titleSuffix: Azure Machine Learning
 description: Migrate deployment endpoints from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
@@ -13,9 +13,9 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate deployment endpoints from from SDK v1 to SDK v2
+# Migrate deployment endpoints from SDK v1 to SDK v2
 
-We newly introduced [online endpoints](concept-endpoints.md) as well as batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
+We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
 
 Examples in this article show how to:
 
@@ -173,7 +173,7 @@ For more information on concepts for endpoints and deployments, see [What are on
     )
     ```
 
-## Delete recources
+## Delete resources
 
 * SDK v1
 
@@ -201,7 +201,7 @@ For more information on concepts for endpoints and deployments, see [What are on
 
 ## Related documents
 
-For further details refer to
+For more information, see
 
 v2 docs:
 * [What are endpoints?](concept-endpoints.md)

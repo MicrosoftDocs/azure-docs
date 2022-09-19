@@ -28,7 +28,7 @@ To migrate your current sdk v1 parallel run step to v2, you'll need to
 
 > Note: User __entry script__ is compatible between v1 parallel run step and v2 parallel job. So you can keep using the same entry_script.py when you migrate your parallel run job.
 
-This articles gives a comparison of scenario(s) in SDK v1 and SDK v2. In the following examples, we'll build a parallel job to predict input data in a pipelines job. You'll see how to build a parallel job, and how to use it in a pipeline job for both SDK v1 and SDK v2.
+This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the following examples, we'll build a parallel job to predict input data in a pipelines job. You'll see how to build a parallel job, and how to use it in a pipeline job for both SDK v1 and SDK v2.
 
 ## Prerequisites
 
