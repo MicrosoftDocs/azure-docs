@@ -125,7 +125,7 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
 # [Portal](#tab/azure-portal)
 
 1. Create volumes by entering a name, selecting an appropriate volume group, and entering the capacity you'd like to allocate for your volume.
-    The volume name is part of your volume's iSCI Qualified Name, and can't be changed once created.
+    The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
 1. Select **Review + create** and deploy your SAN.
 
     :::image type="content" source="media/elastic-san-create/elastic-volume-partitions.png" alt-text="Screenshot of volume creation." lightbox="media/elastic-san-create/elastic-volume-partitions.png":::

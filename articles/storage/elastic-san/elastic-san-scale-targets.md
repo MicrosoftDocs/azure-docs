@@ -11,32 +11,34 @@ ms.subservice: elastic-san
 
 # Elastic SAN scale targets
 
-There are three main components to an elastic storage area network (SAN): The SAN itself, volume groups, and volumes.
+There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
 
 ## The SAN
 
-An elastic SAN has three main attributes: total capacity, IOPS, and throughput.
+An elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
 ### Capacity
 
-The total capacity of your elastic SAN is determined by two different capacities: The base capacity, and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.The maximum total capacity of your SAN is determined by the region it's in and the redundancy of the SAN. The minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The total capacity of your elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
+
+The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an elastic SAN is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
-The IOPS of a SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
+The IOPS of a SAN increases by 5,000 per base TiB. So if you have an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+The throughput of a SAN increases by 80 MB/s per base TiB. So if you have a SAN that has 6 TiB of base capacity, that SAN would have a throughput of 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
 ### Appliance scale targets
 
-The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets by the [redundancy](elastic-san-planning.md#redundancy) of the SAN and the SAN's region.
+The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets based on the SAN's [redundancy](elastic-san-planning.md#redundancy) and the region where it is located.
 
 |Resource  |West US 2  |France Central  |Southeast Asia  |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5         |
-|Maximum total capacity (TiB)     | LRS - 600, ZRS - 200         |LRS - 100, ZRS - 200         |LRS - 100         |
+|Maximum total capacity (TiB)     | LRS - 600 <br/> ZRS - 200         |LRS - 100 <br/> ZRS - 200         |LRS - 100         |
 |Maximum base capacity (TiB)    |LRS - 400, ZRS - 100         |LRS - 100, ZRS - 100         |LRS - 100         |
 |Minimum total capacity (TiB)    |64          |64         |64         |
 |Maximum total IOPS     |LRS - 2,000,000, ZRS - 500,000         |LRS/ZRS - 500,000         |LRS - 500,000         |
