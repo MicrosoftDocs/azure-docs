@@ -25,7 +25,7 @@ Before you start, make sure you have:
 
 - **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
-- Completed [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
+- **Contributor** or **Owner** permissions on the subscription you want to connect.
 
 - Completed [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
