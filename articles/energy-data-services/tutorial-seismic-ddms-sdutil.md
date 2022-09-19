@@ -324,7 +324,7 @@ Microsoft Energy Data Services instance is using OSDU&trade; M8 Version of sduti
   ```
 
   > [!NOTE] 
-  > Follow the directions in [How to Generate a Refresh Token](./how-to-generate-refresh-token.md) to obtain a token if not already present.
+  > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
 
 - Export or set below environment variables
 
