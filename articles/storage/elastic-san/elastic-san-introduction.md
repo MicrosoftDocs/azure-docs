@@ -88,9 +88,10 @@ Elastic SAN has some limitations with iSCSI.
 Elastic SAN currently doesn't support the following iSCSI features:
 - CHAP authorization
 - Initiator registration
-- iSCSI recovery level
-- EXSi iSCSI flow control
+- iSCSI Error Recovery Levels 1 and 2
+- ESXi iSCSI flow control
 - More than one LUN per iSCSI target
+- Multiple connections per session (MC/S)
 
 Only the following iSCSI commands are currently supported:
 - TEST UNIT READY
