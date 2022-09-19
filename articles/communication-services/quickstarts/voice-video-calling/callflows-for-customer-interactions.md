@@ -41,4 +41,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
 - Learn how to [manage inbound telephony calls](../telephony/manage-inbound-calls.md) with Call Automation.
 - Learn more about [Play action](../../concepts/voice-video-calling/play-action.md).
-- Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md)
+- Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md).
