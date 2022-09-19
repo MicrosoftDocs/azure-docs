@@ -23,8 +23,6 @@ compliant with the specific standard.
 
 ### October 2022
 
-- **Function app slots should have authentication enabled**
-  - New policy created
 - **App Service app slots should have authentication enabled**
   - New policy created
 - **Function app slots should have remote debugging turned off**
@@ -37,8 +35,6 @@ compliant with the specific standard.
   - New policy created
 - **App Service app slots should use the latest TLS version**
   - New policy created
-- **App Service app slots should use private link**
-  - New policy created
 - **App Service app slots should have resource logs enabled**
   - New policy created
 - **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
@@ -50,7 +46,7 @@ compliant with the specific standard.
 - Deprecation of policy **Configure App Services to disable public network access**
   - Replaced by "Configure App Service apps to disable public network access"
 - Deprecation of policy **App Services should disable public network access**
-  - Replaced by "App Service apps should disable public network access" to support _Deny_ effect
+  - Replaced by "App Service apps should disable public network access" to support *Deny* effect
 - **App Service apps should disable public network access**
   - New policy created
 - **App Service app slots should disable public network access**
