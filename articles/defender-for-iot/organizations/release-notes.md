@@ -66,12 +66,17 @@ This month, we've released version 2.0 of the **IoT/OT Threat Monitoring with De
 
 **Workbook improvements**:
 
-- A new overview dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
-    TBD image
+The **IoT OT Threat Monitoring with Defender for IoT** workbook now includes:
 
-- A new vulnerability dashboard, which shows <!--tbd-->. For example:
+- A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
 
-- Improvements on the **Inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT device inventory data.
+    :::image type="content" source="media/release-notes/sentinel-workbook-overview.png" alt-text="Screenshot of the new Overview tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-overview.png":::
+
+- A new **Vulnerabilities** dashboard with details about CVEs shown in your network and their related vulnerable devices. For example:
+
+    :::image type="content" source="media/release-notes/sentinel-workbook-vulnerabilities.png" alt-text="Screenshot of the new Vulnerability tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-vulnerabilities.png":::
+
+- Improvements on the **Device inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Device inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT [device inventory data](how-to-manage-device-inventory-for-organizations.md).
 
 **Playbook updates**:
 
