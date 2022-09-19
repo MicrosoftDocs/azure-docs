@@ -274,8 +274,8 @@ To generate a data collection rule JSON file in the Azure portal:
 
 ## Grant the event hub permission to the data collection rule
 
-With [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md), you can give any data hub permission to send events to the data collection rule and data collection endpoint you created:
-With managed identity [https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview](url), you can give any event hub 
+With [managed identity](../../active-directory/managed-identities-azure-resources/overview), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
+
 1. From the data collection rule in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
