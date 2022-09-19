@@ -41,7 +41,6 @@ This article describes requirements and considerations about [using the volume c
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)
-* [Create cross-zone replication relationships](create-cross-zone-replication.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
