@@ -18,6 +18,9 @@ zone_pivot_groups: acs-programming-languages-csharp-python
 
 In this tutorial, you'll learn how to sign an HTTP request with an HMAC signature.
 
+>[!NOTE]
+>We strongly encourage to use [Azure SDKs](https://github.com/Azure/azure-sdk). Approach described here is a fallback option for cases when Azure SDKs can't be used for any reason.
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Sign an HTTP request with C#](./includes/hmac-header-csharp.md)]
 ::: zone-end
