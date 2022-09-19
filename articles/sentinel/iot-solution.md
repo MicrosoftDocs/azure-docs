@@ -9,7 +9,7 @@ ms.author: bagol
 
 # Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT
 
-​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT and Enterprise IoT environment, whether you need to protect existing devices or build security into new innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
@@ -19,22 +19,20 @@ In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 >
-> * Connect Microsoft Sentinel to Defender for IoT
-> * Use Log Analytics to query for Defender for IoT alerts
+> * Connect Defender for IoT data to Microsoft Sentinel
+> * Use Log Analytics to query Defender for IoT alert data
 
 ## Prerequisites
 
 Before you start, make sure you have the following requirements on your workspace:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace
+- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
-- **Contributor** permissions on the subscription you want to connect
+- **Contributor** or **Owner** permissions on the subscription you want to connect to Microsoft Sentinel.
 
 - A Defender for IoT plan on your Azure subscription. For more information, see [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
 
-- An OT network sensor. For more information, see [Tutorial: Get started with Microsoft Defender for IoT for OT security](../defender-for-iot/organizations/tutorial-onboarding.md).
-
-For more information, see [Permissions in Microsoft Sentinel](roles.md).
+- An OT network sensor onboarded to Defender for IoT. For more information, see [Tutorial: Get started with Microsoft Defender for IoT for OT security](../defender-for-iot/organizations/tutorial-onboarding.md).
 
 > [!IMPORTANT]
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
@@ -58,7 +56,7 @@ For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microso
 
 ## View Defender for IoT alerts
 
-View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
+After you've connected a subscription to Microsoft Sentinel, you'll be able to view Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
 1. In Microsoft Sentinel, select  **Logs > AzureSecurityOfThings > SecurityAlert**, or search for **SecurityAlert**.
 
@@ -140,19 +138,13 @@ In Defender for IoT on the Azure portal and the sensor console, the **Last detec
 
 For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
 
-## Microsoft Defender for IoT solution
-
-The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).
-
-To install the Defender for IoT solution, see [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md)
-
 ## Next steps
 
-To install the Defender for IoT solution package, and more information on the IoT workbooks and playbooks, see: [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md).
+Install the **IoT OT Threat Monitoring with Defender for IoT** solution to your Microsoft Sentinel workspace. The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
 For more information, see:
 
+[Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
-- [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
 - [Microsoft Defender for IoT data connector](data-connectors-reference.md#microsoft-defender-for-iot)
+- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
