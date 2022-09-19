@@ -413,7 +413,8 @@ automl_settings = {"task" : "forecasting",
                    "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
                    "iteration_timeout_minutes" : 10,
                    "iterations" : 10,
-                   "n_cross_validations" : 'auto', # Could be customized as an integer
+                   "n_cross_validations" : "auto", # Could be customized as an integer
+                   "cv_step_size" : "auto", # Could be customized as an integer
                    }
 
 hts_parameters = HTSTrainParameters(
