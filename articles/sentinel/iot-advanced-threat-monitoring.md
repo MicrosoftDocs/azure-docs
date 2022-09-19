@@ -54,7 +54,7 @@ For more information, see:
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 
-**Prerequisites**: [Install the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules deployed to your workspace, built specifically for Defender for IoT data.
+**Prerequisites**: Make sure you've [installed the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules, built specifically for Defender for IoT data, deployed to your workspace.
 
 The following table describes the out-of-the-box analytics rules provided in the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
 
