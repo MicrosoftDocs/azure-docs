@@ -45,13 +45,8 @@ An ASA instance can be customized with a unique `outboundType` of type `loadBala
 If `userDefinedRouting` is set, Azure Spring Apps won't automatically configure egress paths. The egress setup must be done by yourself. (Customers could still find two load balancers in their resource group. They are only used for internal traffic and will not expose any public IP.) Customer must prepare two route tables associated with two subnets (One for service runtime and another for user app)
 > [!IMPORTANT]
 > Outbound type of UDR requires there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
-> Please carefully follow the rules in https://docs.microsoft.com/en-us/azure/spring-apps/vnet-customer-responsibilities
-The following image is one possible architecture of a UDR instance.
-![image.png](/.attachments/image-af8d8ce9-6ced-4809-935f-c81b5e23be89.png)
+> Please carefully follow the rules in (vnet-customer-responsibilities.md)
 
-
-Recommended Content
-https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview
 
 
 

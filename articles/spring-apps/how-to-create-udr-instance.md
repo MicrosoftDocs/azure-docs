@@ -145,7 +145,7 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 
 ### Adding firewall rules
 
-Add necessary rules(https://docs.microsoft.com/en-us/azure/spring-apps/vnet-customer-responsibilities) for ASA
+Add [necessary rules](vnet-customer-responsibilities.md) for ASA
 
 ```
 # Add FW Network Rules
