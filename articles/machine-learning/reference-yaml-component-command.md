@@ -109,7 +109,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 When the input is set as `optional = true`, you need to use the command line which includes this input. Command line at runtime may have different inputs.
 - If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
 
-```cli
+```azurecli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
