@@ -13,9 +13,9 @@ ms.author: kpunjabi
 
 ## Prerequisites
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
-- [Java Development Kit](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Technical Specifications
@@ -23,7 +23,7 @@ ms.author: kpunjabi
 The following parameters are available to customize the Recognize function:
 | Parameter | Type | Default (if not specified) | Description | Required or Optional |
 | ------- | -- | ------------------------ | --------- | ------------------ |
-| Prompt <br/><br/> *(for details on Play action, refer to [this quickstart](../Play-Action.md))* | FileSource | Not set | This will be the message you wish to play before recognizing input. | Optional |
+| Prompt <br/><br/> *(for details on Play action, refer to [this quickstart](../play-action.md))* | FileSource | Not set | This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSilenceTimeout | TimeSpan | 5seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1 | Number of digits a developer expects as input from the participant.| Required |
