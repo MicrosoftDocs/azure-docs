@@ -16,7 +16,7 @@ Once an application has been deployed across multiple clusters using the [Kubern
 
 ## Prerequisites
 
-* The target AKS clusters on which these workloads are deployed need to be using the [Azure CNI networking](../aks/configure-azure-cni).
+* The target AKS clusters on which these workloads are deployed need to be using the [Azure CNI networking](../aks/configure-azure-cni.md).
 
 * The target AKS clusters on which these workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
