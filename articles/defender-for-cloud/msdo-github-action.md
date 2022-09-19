@@ -90,7 +90,6 @@ Security DevOps uses the following Open Source tools:
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
-
     ```
         
     For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)`                    
