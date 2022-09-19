@@ -75,10 +75,13 @@ The following limits apply only for networking resources managed through Azure R
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
 | Load Balancers per VM <sup>1<sup>       | 2 (1 Public and 1 internal)   |
-| Backend IP configurations per frontend  | 10,000                        |
+| Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
+| Backend IP configurations across all frontends | 500,000 |
 
 <sup>1</sup> An exception to this limit is that 2 public load balancers can be in front of a VM if an IPv4 address config is used for one load balancer and IPv6 address config is used for the second.
 
+<sup>2</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
+ 
 **Gateway Load Balancer**
 
 | Resource                                | Limit        |

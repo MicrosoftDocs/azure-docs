@@ -456,13 +456,11 @@
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
-        - name: Build Jakarta EE app with PostgreSQL
-          href: howto-deploy-java-liberty-app-with-postgresql.md
+        - name: Build Java app with WebSphere Liberty or Open Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Build Jakarta EE app with Open Liberty or WebSphere Liberty
-          href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
