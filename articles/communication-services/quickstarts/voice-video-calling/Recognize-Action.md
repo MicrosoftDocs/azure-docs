@@ -25,7 +25,7 @@ This quickstart will help you get started with recognizing DTMF input provided b
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Recognize action with Java](./includes/call-automation-media/Recognize_action_quickstart_java.md)]
+[!INCLUDE [Recognize action with Java](./includes/call-automation-media/Recognize-action-quickstart-java.md)]
 ::: zone-end
 
 ## Event codes
