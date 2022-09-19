@@ -192,6 +192,17 @@ If a user is not registered for these methods, they can register a required meth
 
 <!---place holder: Auth Strength with CCS - will be documented in resilience-defaults doc-->
 
+## FAQ
+
+### Should I use authentication strengths or the unified authentication method policy?
+Authentication strength is based on the unified Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an  additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
+
+For example, the administrator of Contoso would like to allow their users to use the Microsoft Authenticator app in either push notifications or Microsoft Authenticator (phone sign-in) -  passwordless authentication. The administrator goes to the Microsoft Authenticator settings in the Unified authentication method policy, scopes the policy for the relevant users and set the “Authentication mode” to “Any”. 
+
+Then, on Contoso’s most sensitive resource, the administrator would like to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in authentication strengths “Passwordless MFA”. 
+
+As a result, users in Contoso could access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use  Microsoft Authenticator (phone sign-in).
+
 
 
 ## Prerequisites
