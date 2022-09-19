@@ -91,7 +91,7 @@ There is no migration required as VM CD experience does not store any informatio
 
 1. Where can I set up my CD pipeline after this experience is deprecated?  
 
-    Post retirement, you will not be able to view or create Azure DevOps pipelines from Azure portal Virtual Machine blade. However, as with the current experience, you can go to Azure DevOps portal and view/update the configured pipelines and leverage all the advanced capabilities provided by Azure DevOps. 
+You won't be able to view or create Azure DevOps pipelines from an Azure portal Virtual Machine blade after retirement. You still can go to Azure DevOps portal and view or update pipelines. 
 
 2. Will I lose my earlier configured pipelines? 
 
