@@ -156,7 +156,6 @@ For more information, see:
 
 ### Playbook prerequisites
 
-This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot),
 [AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves), [AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner), and [AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices) playbooks only. Details will differ for each playbook, but the main steps remain the same.
 
 **To add the required role to the Azure subscription where the playbook is installed**:
