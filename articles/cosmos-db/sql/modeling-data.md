@@ -547,7 +547,7 @@ Just as there's no single way to represent a piece of data on a screen, there's 
 * To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
 
-* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
+* See the training module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 
 * Configure and use [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md).
 

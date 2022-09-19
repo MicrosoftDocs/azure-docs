@@ -1,17 +1,60 @@
 ---
-title: Previous monthly updates in Azure Synapse Analytics 
+title: Previous monthly updates in Azure Synapse Analytics
 description: Archive of the new features and documentation improvements for Azure Synapse Analytics
 author: ryanmajidi
-ms.author: rymajidi 
+ms.author: rymajidi
+ms.date: 09/09/2022
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.date: 05/20/2022
 ---
 
 # Previous monthly updates in Azure Synapse Analytics
 
 This article describes previous month updates to Azure Synapse Analytics. For the most current month's release, check out [Azure Synapse Analytics latest updates](whats-new.md). Each update links to the Azure Synapse Analytics blog and an article that provides more information.
+
+## June 2022 update
+
+## General
+
+* **Azure Orbital analytics with Synapse Analytics** - We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](overview-what-is.md). The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models.
+
+* **Azure Synapse success by design** - Project success is no accident and requires careful planning and execution. The Synapse Analytics' Success by Design playbooks are now available. The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. These guides contain best practices from the most challenging and complex solution implementations incorporating Azure Synapse. To learn more about the Azure Synapse proof of concept playbook, read [Success by Design](./guidance/success-by-design-introduction.md).
+## SQL
+
+**Result set size limit increase** - We know that you turn to Azure Synapse Analytics to work with large amounts of data. With that in mind, the maximum size of query result sets in Serverless SQL pools has been increased from 200 GB to 400 GB. This limit is shared between concurrent queries. To learn more about this size limit increase and other constraints, read [Self-help for serverless SQL pool](./sql/resources-self-help-sql-on-demand.md?tabs=x80070002#constraints).
+
+## Synapse data explorer
+
+* **Web Explorer new homepage** - The new Synapse Web Explorer homepage makes it even easier to get started with Synapse Web Explorer. The [Web Explorer homepage](https://dataexplorer.azure.com/home) now includes the following sections:
+
+  * Get started – Sample gallery offering example queries and dashboards for popular Synapse Data Explorer use cases.  
+  * Recommended – Popular learning modules designed to help you master Synapse Web Explorer and KQL. 
+  * Documentation – Synapse Web Explorer basic and advanced documentation.
+
+* **Web Explorer sample gallery** - A great way to learn about a product is to see how it is being used by others. The Web Explorer sample gallery provides end-to-end samples of how customers leverage Synapse Data Explorer popular use cases such as Logs Data, Metrics Data, IoT data and Basic big data examples. Each sample includes the dataset, well-documented queries, and a sample dashboard. To learn more about the sample gallery, read [Azure Data Explorer in 60 minutes with the new samples gallery](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-in-60-minutes-with-the-new-samples-gallery/ba-p/3447552).
+
+* **Web Explorer dashboards drill through capabilities** - You can now add drill through capabilities to your Synapse Web Explorer dashboards. The new drill through capabilities allow you to easily jump back and forth between dashboard pages. This is made possible by using a contextual filter to connect your dashboards. Defining these contextual drill throughs is done by editing the visual interactions of the selected tile in your dashboard. To learn more about drill through capabilities, read [Use drillthroughs as dashboard parameters](/azure/data-explorer/dashboard-parameters#use-drillthroughs-as-dashboard-parameters).
+
+* **Time Zone settings for Web Explorer** - Being able to display data in different time zones is very powerful. You can now decide to view the data in UTC time, your local time zone, or the time zone of the monitored device/machine. The Time Zone settings of the Web Explorer now apply to both the Query results and to the Dashboard. By changing the time zone, the dashboards will be automatically refreshed to present the data with the selected time zone.  For more information on time zone settings, read [Change datetime to specific time zone](/azure/data-explorer/web-query-data#change-datetime-to-specific-time-zone).
+
+## Data integration
+
+* **Fuzzy Join option in Join Transformation** - Fuzzy matching with a sliding similarity score option has been added to the Join transformation in Mapping Data Flows. You can create inner and outer joins on data values that are similar rather than exact matches! Previously, you would have had to use an exact match. The sliding scale value goes from 60% to 100%, making it easy to adjust the similarity threshold of the match. For learn more about fuzzy joins, read [Join transformation in mapping data flow](../data-factory/data-flow-join.md).
+
+* **Map Data [Generally Available]** - We're excited to announce that the Map Data tool is now Generally Available. The Map Data tool is a guided process to help you create ETL mappings and mapping data flows from your source data to Synapse without writing code. To learn more about Map Data, read [Map Data in Azure Synapse Analytics](./database-designer/overview-map-data.md).
+
+* **Rerun pipeline with new parameters** - You can now change pipeline parameters when rerunning a pipeline from the Monitoring page without having to return to the pipeline editor. After running a pipeline with new parameters, you can easily monitor the new run against the old ones without having to toggle between pages.  To learn more about rerunning pipelines with new parameters, read [Rerun pipelines and activities](../data-factory/monitor-visually.md#rerun-pipelines-and-activities).
+
+* **User Defined Functions [Generally Available]** - We're excited to announce that user defined functions (UDFs) are now Generally Available. With user-defined functions, you can create customized expressions that can be reused across multiple mapping data flows. You no longer have to use the same string manipulation, math calculations, or other complex logic several times. User-defined functions will be grouped in libraries to help developers group common sets of functions.  To learn more about user defined functions, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628).
+
+## Machine learning
+
+**Distributed Deep Neural Network Training with Horovod and Petastorm [Public Preview]** - To simplify the process for creating and managing GPU-accelerated pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes.
+
+Now, Azure Synapse Analytics provides built-in support for deep learning infrastructure.  The Azure Synapse Analytics runtime for Apache Spark 3.1 and 3.2 now includes support for the most common deep learning libraries like TensorFlow and PyTorch. The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod, which are commonly used for distributed training. This feature is currently available in Public Preview.
+
+To learn more about how to leverage these libraries within your Azure Synapse Analytics GPU-accelerated pools, read the [Deep learning tutorials](./machine-learning/concept-deep-learning.md).
 
 ## May 2022 update
 
@@ -19,23 +62,23 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### General
 
-**Get connected with the new Azure Synapse Influencer program!**  [Join a community of Azure Synapse Influencers](https://aka.ms/synapseinfluencers) who are helping each other achieve more with cloud analytics! The Azure Synapse Influencer program recognizes Azure Synapse Analytics users and advocates who actively support the community by sharing Synapse-related content, announcements, and product news via social media. 
+**Get connected with the new Azure Synapse Influencer program!**  [Join a community of Azure Synapse Influencers](https://aka.ms/synapseinfluencers) who are helping each other achieve more with cloud analytics! The Azure Synapse Influencer program recognizes Azure Synapse Analytics users and advocates who actively support the community by sharing Synapse-related content, announcements, and product news via social media.
 
 ### SQL
 
-* **Data Warehouse Migration guide for Dedicated SQL Pools in Azure Synapse Analytics** - With the benefits that cloud migration offers, we hear that you often look for steps, processes, or guidelines to follow for quick and easy migrations from existing data warehouse environments. We just released a set of [Data Warehouse migration guides](./migration-guides/index.yml) to make your transition to dedicated SQL Pools in Azure Synapse Analytics easier. 
+* **Data Warehouse Migration guide for Dedicated SQL Pools in Azure Synapse Analytics** - With the benefits that cloud migration offers, we hear that you often look for steps, processes, or guidelines to follow for quick and easy migrations from existing data warehouse environments. We just released a set of [Data Warehouse migration guides](./migration-guides/index.yml) to make your transition to dedicated SQL Pools in Azure Synapse Analytics easier.
 
 * **Automatic character column length calculation** - It's no longer necessary to define character column lengths!  Serverless SQL pools let you query files in the data lake without knowing the schema upfront. The best practice was to specify the lengths of character columns to get optimal performance. Not anymore! With this new feature, you can get optimal query performance without having to define the schema. The serverless SQL pool will calculate the average column length for each inferred character column or character column defined as larger than 100 bytes. The schema will stay the same, while the serverless SQL pool will use the calculated average column lengths internally. It will also automatically calculate the cardinality estimation in case there was no previously created statistic.
 
 ### Apache Spark for Synapse
 
-* **Azure Synapse Dedicated SQL Pool Connector for Apache Spark Now Available in Python** - Previously, the Azure Synapse Dedicated SQL Pool connector was only available using Scala.  Now, it can be used with Python on Spark 3.  The only difference between the Scala and Python implementations is the optional Scala callback handle, which allows you to receive post-write metrics.  
+* **Azure Synapse Dedicated SQL Pool Connector for Apache Spark Now Available in Python** - Previously, the Azure Synapse Dedicated SQL Pool connector was only available using Scala.  Now, it can be used with Python on Spark 3.  The only difference between the Scala and Python implementations is the optional Scala callback handle, which allows you to receive post-write metrics.
 
-  The following are now supported in Python on Spark 3: 
+  The following are now supported in Python on Spark 3:
 
   * Read using Azure Active Directory (AD) Authentication or Basic Authentication 
   * Write to Internal Table using Azure AD Authentication or Basic Authentication 
-  * Write to External Table using Azure AD Authentication or Basic Authentication  
+  * Write to External Table using Azure AD Authentication or Basic Authentication
 
   To learn more about the connector in Python, read [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](./spark/synapse-spark-sql-pool-import-export.md).
 
@@ -45,47 +88,45 @@ The following updates are new to Azure Synapse Analytics this month.
 
 * **Synapse Data Explorer live query in Excel** - Using the new Data Explorer web experience Open in Excel feature, you can now provide access to live results of your query by sharing the connected Excel Workbook with colleagues and team members.  You can open the live query in an Excel Workbook and refresh it directly from Excel to get the most up to date query results. To learn more about Excel live query, read [Open live query in Excel](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/open-live-kusto-query-in-excel/ba-p/3198500).
 
-* **Use Managed Identities for External SQL Server Tables** - One of the key benefits of Azure Synapse is the ability to bring together data integration, enterprise data warehousing, and big data analytics. With Managed Identity support, Synapse Data Explorer table definition is now simpler and more secure. You can now use managed identities instead of entering in your credentials. 
-  
-  An external SQL table is a schema entity that references data stored outside the Synapse Data Explorer database. Using the Create and alter SQL Server external tables command, External SQL tables can easily be added to the Synapse Data Explorer database schema. 
+* **Use Managed Identities for External SQL Server Tables** - One of the key benefits of Azure Synapse is the ability to bring together data integration, enterprise data warehousing, and big data analytics. With Managed Identity support, Synapse Data Explorer table definition is now simpler and more secure. You can now use managed identities instead of entering in your credentials.
 
-  To learn more about managed identities, read [Managed identities overview](/azure/data-explorer/managed-identities-overview). 
+  An external SQL table is a schema entity that references data stored outside the Synapse Data Explorer database. Using the Create and alter SQL Server external tables command, External SQL tables can easily be added to the Synapse Data Explorer database schema.
 
-  To learn more about external tables, read [Create and alter SQL Server external tables](/azure/data-explorer/kusto/management/external-sql-tables). 
+  To learn more about managed identities, read [Managed identities overview](/azure/data-explorer/managed-identities-overview).
 
-* **New KQL Learn module (2 out of 3) is live!** - The power of Kusto Query Language (KQL) is its simplicity to query structured, semi-structured, and unstructured data together. To make it easier for you to learn KQL, we are releasing Learn modules. Previously, we released [Write your first query with Kusto Query Language](/learn/modules/write-first-query-kusto-query-language/). New this month is [Gain insights from your data by using Kusto Query Language](/learn/modules/gain-insights-data-kusto-query-language/). 
- 
-  KQL is the query language used to query Synapse Data Explorer big data. KQL has a fast-growing user community, with hundreds of thousands of developers, data engineers, data analysts, and students. 
+  To learn more about external tables, read [Create and alter SQL Server external tables](/azure/data-explorer/kusto/management/external-sql-tables).
 
-  Check out the newest [KQL Learn Model](/learn/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.  
+* **New KQL Learn module (2 out of 3) is live!** - The power of Kusto Query Language (KQL) is its simplicity to query structured, semi-structured, and unstructured data together. To make it easier for you to learn KQL, we are releasing Learn modules. Previously, we released [Write your first query with Kusto Query Language](/learn/modules/write-first-query-kusto-query-language/). New this month is [Gain insights from your data by using Kusto Query Language](/learn/modules/gain-insights-data-kusto-query-language/).
 
-  To learn more about KQL, read [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/). 
+  KQL is the query language used to query Synapse Data Explorer big data. KQL has a fast-growing user community, with hundreds of thousands of developers, data engineers, data analysts, and students.
 
-* **Azure Synapse Data Explorer connector for Microsoft Power Automate, Logic Apps, and Power Apps [Generally Available]** - The Azure Data Explorer connector for Power Automate enables you to orchestrate and schedule flows, send notifications, and alerts, as part of a scheduled or triggered task. To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow) and [Usage examples for Azure Data Explorer connector to Power Automate](/azure/data-explorer/flow-usage). 
+  Check out the newest [KQL Learn Model](/learn/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.
 
-* **Dynamic events routing from event hub to multiple databases** - Routing events from Event Hub/IOT Hub/Event Grid is an activity commonly performed by Azure Data Explorer (ADX) users. Previously, you could route events only to a single database per defined connection. If you wanted to route the events to multiple databases, you needed to create multiple ADX cluster connections. 
+  To learn more about KQL, read [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
-  To simplify the experience, we now support routing events data to multiple databases hosted in a single ADX cluster. To learn more about dynamic routing, read [Ingest from event hub](/azure/data-explorer/ingest-data-event-hub-overview#events-routing). 
+* **Azure Synapse Data Explorer connector for Microsoft Power Automate, Logic Apps, and Power Apps [Generally Available]** - The Azure Data Explorer connector for Power Automate enables you to orchestrate and schedule flows, send notifications, and alerts, as part of a scheduled or triggered task. To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow) and [Usage examples for Azure Data Explorer connector to Power Automate](/azure/data-explorer/flow-usage).
 
-* **Configure a database using a KQL inline script as part of JSON ARM deployment template** - Previously, Azure Data Explorer supported running a Kusto Query Language (KQL) script to configure your database during Azure Resource Management (ARM) template deployment. Now, this can be done using an inline script provided inline as a parameter to a JSON ARM template. To learn more about using a KQL inline script, read [Configure a database using a Kusto Query Language script](/azure/data-explorer/database-script).
+* **Dynamic events routing from event hub to multiple databases** - Routing events from Event Hub/IOT Hub/Event Grid is an activity commonly performed by Azure Data Explorer (ADX) users. Previously, you could route events only to a single database per defined connection. If you wanted to route the events to multiple databases, you needed to create multiple ADX cluster connections.
+
+  To simplify the experience, we now support routing events data to multiple databases hosted in a single ADX cluster. To learn more about dynamic routing, read [Ingest from event hub](/azure/data-explorer/ingest-data-event-hub-overview#events-routing).
+
+* **Configure a database using a KQL inline script as part of JSON ARM deployment template** - Previously, Azure Data Explorer supported running a Kusto Query Language (KQL) script to configure your database during Azure Resource Manager (ARM) template deployment. Now, this can be done using an inline script provided inline as a parameter to a JSON ARM template. To learn more about using a KQL inline script, read [Configure a database using a Kusto Query Language script](/azure/data-explorer/database-script).
 
 ### Data Integration
 
-* **Export pipeline monitoring as a CSV** - The ability to export pipeline monitoring to CSV has been added after receiving many community requests for the feature. Simply filter the Pipeline runs screen to the data you want and click ‘Export to CSV’. To learn more about exporting pipeline monitoring and other monitoring improvements, read [Azure Data Factory monitoring improvements](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531). 
+* **Export pipeline monitoring as a CSV** - The ability to export pipeline monitoring to CSV has been added after receiving many community requests for the feature. Simply filter the Pipeline runs screen to the data you want and select *Export to CSV**. To learn more about exporting pipeline monitoring and other monitoring improvements, read [Azure Data Factory monitoring improvements](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531).
 
-* **Incremental data loading made easy for Synapse and Azure Database for PostgreSQL and MySQL** - In a data integration solution, incrementally loading data after an initial full data load is a widely used scenario. Automatic incremental source data loading is now natively available for Synapse SQL and Azure Database for PostgreSQL and MySQL. With a simple click, users can “enable incremental extract” and only inserted or updated rows will be read by the pipeline. To learn more about incremental data loading, read [Incrementally copy data from a source data store to a destination data store](../data-factory/tutorial-incremental-copy-overview.md). 
+* **Incremental data loading made easy for Synapse and Azure Database for PostgreSQL and MySQL** - In a data integration solution, incrementally loading data after an initial full data load is a widely used scenario. Automatic incremental source data loading is now natively available for Synapse SQL and Azure Database for PostgreSQL and MySQL. Users can "enable incremental extract" and only inserted or updated rows will be read by the pipeline. To learn more about incremental data loading, read [Incrementally copy data from a source data store to a destination data store](../data-factory/tutorial-incremental-copy-overview.md).
 
-* **User-Defined Functions for Mapping Data Flows [Public Preview]** - We hear you that you can find yourself doing the same string manipulation, math calculations, or other complex logic several times. Now, with the new user-defined function feature, you can create customized expressions that can be reused across multiple mapping data flows. User-defined functions will be grouped in libraries to help developers group common sets of functions.  Once you’ve created a data flow library, you can add in your user-defined functions. You can even add in multiple arguments to make your function more reusable. To learn more about user-defined functions, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628).
+* **User-Defined Functions for Mapping Data Flows [Public Preview]** - We hear you that you can find yourself doing the same string manipulation, math calculations, or other complex logic several times. Now, with the new user-defined function feature, you can create customized expressions that can be reused across multiple mapping data flows. User-defined functions will be grouped in libraries to help developers group common sets of functions.  Once you've created a data flow library, you can add in your user-defined functions. You can even add in multiple arguments to make your function more reusable. To learn more about user-defined functions, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628).
 
 * **Assert Error Handling** - Error handling has now been added to sinks following an assert transformation. Assert transformations enable you to build custom rules for data quality and data validation. You can now choose whether to output the failed rows to the selected sink or to a separate file. To learn more about error handling, read [Assert data transformation in mapping data flow](../data-factory/data-flow-assert.md).
 
-* **Mapping data flows projection editing** - New UI updates have been made to source projection editing in mapping data flows. You can now update source projection column names and column types with the click of a button. To learn more about source projection editing, read [Source transformation in mapping data flow](../data-factory/data-flow-source.md).
+* **Mapping data flows projection editing** - New UI updates have been made to source projection editing in mapping data flows. You can now update source projection column names and column types. To learn more about source projection editing, read [Source transformation in mapping data flow](../data-factory/data-flow-source.md).
 
-### Synapse Link
+### Azure Synapse Link
 
-**Azure Synapse Link for SQL [Public Preview]** - At Microsoft Build 2022, we announced the Public Preview availability of Azure Synapse Link for SQL, for both SQL Server 2022 and Azure SQL Database. Data-driven, quality insights are critical for companies to stay competitive. The speed to achieve those insights can make all the difference. The costly and time-consuming nature of traditional ETL and ELT pipelines is no longer enough. With this release, you can now take advantage of low- and no-code, near real-time data replication from your SQL-based operational stores into Azure Synapse Analytics. This makes it easier to run BI reporting on operational data in near real-time, with minimal impact on your operational store. To learn more, read [Announcing the Public Preview of Azure Synapse Link for SQL](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-the-public-preview-of-azure-synapse-link-for-sql/ba-p/3372986) and watch our YouTube video. 
-
-> [!VIDEO https://www.youtube.com/embed/pgusZy34-Ek]
+**Azure Synapse Link for SQL [Public Preview]** - At Microsoft Build 2022, we announced the Public Preview availability of Azure Synapse Link for SQL, for both SQL Server 2022 and Azure SQL Database. Data-driven, quality insights are critical for companies to stay competitive. The speed to achieve those insights can make all the difference. The costly and time-consuming nature of traditional ETL and ELT pipelines is no longer enough. With this release, you can now take advantage of low- and no-code, near real-time data replication from your SQL-based operational stores into Azure Synapse Analytics. This makes it easier to run BI reporting on operational data in near real-time, with minimal impact on your operational store. To learn more, read [Announcing the Public Preview of Azure Synapse Link for SQL](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-the-public-preview-of-azure-synapse-link-for-sql/ba-p/3372986) and [watch our YouTube video](https://www.youtube.com/embed/pgusZy34-Ek).
 
 ## Apr 2022 update
 
@@ -101,30 +142,30 @@ The following updates are new to Azure Synapse Analytics this month.
 
 * Based on popular customer feedback, we've made significant improvements to our exploration experience when creating a lake database using an industry template.  To learn more, read [Quickstart: Create a new Lake database leveraging database templates](./database-designer/quick-start-create-lake-database.md).
 
-* We've added the option to clone a lake database.  This  unlocks additional opportunities to manage new versions of databases or support schemas that evolve in discrete steps. You can quickly clone a database using the action menu available on the lake database.  To learn more, read [How-to: Clone a lake database](./database-designer/clone-lake-database.md).
+* We've added the option to clone a lake database.  This unlocks additional opportunities to manage new versions of databases or support schemas that evolve in discrete steps. You can quickly clone a database using the action menu available on the lake database.  To learn more, read [How-to: Clone a lake database](./database-designer/clone-lake-database.md).
 
-* You can now use wildcards to specify custom folder hierarchies.  Lake databases sit on top of data that is in the lake and this data can live in nested folders that don’t fit into clean partition patterns. Previously, querying lake databases required that your data exists in a simple directory structure that you could browse using the folder icon without the ability to manually specify directory structure or use wildcard characters.  To learn more, read [How-to: Modify a datalake](./database-designer/modify-lake-database.md).
+* You can now use wildcards to specify custom folder hierarchies.  Lake databases sit on top of data that is in the lake and this data can live in nested folders that don't fit into clean partition patterns. Previously, querying lake databases required that your data exists in a simple directory structure that you could browse using the folder icon without the ability to manually specify directory structure or use wildcard characters.  To learn more, read [How-to: Modify a datalake](./database-designer/modify-lake-database.md).
 
 ### Apache Spark for Synapse
 
-* We are excited to announce the preview availability of Apache Spark™ 3.2 on Synapse Analytics. This new version incorporates user-requested enhancements and resolves 1,700+ Jira tickets. Please review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) for the complete list of fixes and features and review the [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md).  
+* We are excited to announce the preview availability of Apache Spark&trade; 3.2 on Synapse Analytics. This new version incorporates user-requested enhancements and resolves 1,700+ Jira tickets. Please review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) for the complete list of fixes and features and review the [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md).
 
 * Assigning parameters dynamically based on variables, metadata, or specifying Pipeline specific parameters has been one of your top feature requests. Now, with the release of parameterization for the Spark job definition activity, you can do just that.  For more details, read [Transform data using Apache Spark job definition](quickstart-transform-data-using-spark-job-definition.md#settings-tab).
 
-* We often receive customer requests to access the snapshot of the Notebook when there is a Pipeline Notebook run failure or there is a long-running Notebook job. With the release of the Synapse Notebook snapshot feature, you can now view the snapshot of the Notebook activity run with the original Notebook code, the cell output, and the input parameters. You can also access the snapshot of the referenced Notebook from the referencing Notebook cell output if you refer to other Notebooks through Spark utils. To learn more, read [Transform data by running a Synapse notebook](synapse-notebook-activity.md?tabs=classical#see-notebook-activity-run-history) and [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md?pivots=programming-language-scala#reference-a-notebook-1). 
+* We often receive customer requests to access the snapshot of the Notebook when there is a Pipeline Notebook run failure or there is a long-running Notebook job. With the release of the Synapse Notebook snapshot feature, you can now view the snapshot of the Notebook activity run with the original Notebook code, the cell output, and the input parameters. You can also access the snapshot of the referenced Notebook from the referencing Notebook cell output if you refer to other Notebooks through Spark utils. To learn more, read [Transform data by running a Synapse notebook](synapse-notebook-activity.md?tabs=classical#see-notebook-activity-run-history) and [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md?pivots=programming-language-scala#reference-a-notebook-1).
 
 ### Security
 
 * The Synapse Monitoring Operator RBAC role is now generally available.  Since the GA of Synapse, customers have asked for a fine-grained RBAC (role-based access control) role that allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications.  Now, customers can assign the Synapse Monitoring Operator role to such monitoring personas. This allows organizations to stay compliant while having flexibility in the delegation of tasks to individuals or teams. Learn more by reading [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md). 
 ### Data integration
 
-* Microsoft has added Dataverse as a source and sink connector to Synapse Data Flows so that you can now build low-code data transformation ETL jobs in Synapse directly accessing your Dataverse environment. For more details on how to use this new connector, read [Mapping data flow properties](../data-factory/connector-dynamics-crm-office-365.md#mapping-data-flow-properties). 
+* Microsoft has added Dataverse as a source and sink connector to Synapse Data Flows so that you can now build low-code data transformation ETL jobs in Synapse directly accessing your Dataverse environment. For more details on how to use this new connector, read [Mapping data flow properties](../data-factory/connector-dynamics-crm-office-365.md#mapping-data-flow-properties).
 
 * We heard from you that a 1-minute timeout for Web activity was not long enough, especially in cases of synchronous APIs. Now, with the response timeout property 'httpRequestTimeout', you can define timeout for the HTTP request up to 10 minutes. Learn more by reading [Web activity response timeout improvements](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307).
- 
+
 ### Developer experience
 
-* Previously, if you wanted to reference a notebook in another notebook, you could only reference published or committed content. Now, when using %run notebooks, you can enable ‘unpublished notebook reference’ which will allow you to reference unpublished notebooks. When enabled, notebook run will fetch the current contents in the notebook web cache, meaning the changes in your notebook editor can be referenced immediately by other notebooks without having to be published (Live mode) or committed (Git mode).  To learn more, read [Reference unpublished notebook](spark/apache-spark-development-using-notebooks.md#reference-unpublished-notebook). 
+* Previously, if you wanted to reference a notebook in another notebook, you could only reference published or committed content. Now, when using %run notebooks, you can enable 'unpublished notebook reference' which will allow you to reference unpublished notebooks. When enabled, notebook run will fetch the current contents in the notebook web cache, meaning the changes in your notebook editor can be referenced immediately by other notebooks without having to be published (Live mode) or committed (Git mode).  To learn more, read [Reference unpublished notebook](spark/apache-spark-development-using-notebooks.md#reference-unpublished-notebook).
 
 ## Mar 2022 update
 
@@ -212,7 +253,7 @@ Improvements to the Synapse Machine Learning library v0.9.5 (previously called M
 
 * The Azure Synapse Analytics security overview - A whitepaper that covers the five layers of security. The security layers include authentication, access control, data protection, network security, and threat protection. [Understand each security feature in detailed](./guidance/security-white-paper-introduction.md) to implement an industry-standard security baseline and protect your data on the cloud.
 
-* TLS 1.2 is now required for newly created Synapse Workspaces. To learn more, see how [TLS 1.2 provides enhanced security using this article](./security/connectivity-settings.md) or the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_6). Login attempts to a newly created Synapse workspace from connections using TLS versions lower than 1.2 will fail.
+* TLS 1.2 is now required for newly created Synapse Workspaces. To learn more, see how [TLS 1.2 provides enhanced security using this article](./security/connectivity-settings.md) or the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_6). Sign-in attempts to a newly created Synapse workspace from connections using TLS versions lower than 1.2 will fail.
 
 ### Data Integration
 
@@ -263,8 +304,8 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Integrate
 
-* Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
-* Custom partitions for Synapse link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
+* Azure Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
+* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
 * Map data tool (Public Preview), a no-code guided ETL experience [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](./database-designer/overview-map-data.md)
 * Quick reuse of spark cluster [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](../data-factory/concepts-integration-runtime-performance.md#time-to-live)
 * External Call transformation [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF9) [article](../data-factory/data-flow-external-call.md)
@@ -278,7 +319,7 @@ The following updates are new to Azure Synapse Analytics this month.
 
 * Synapse Data Explorer now available in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1022327194) [article](./data-explorer/data-explorer-overview.md)
 
-### Working with Databases and Data Lakes
+### Work with Databases and Data Lakes
 
 * Introducing Lake databases (formerly known as Spark databases) [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--795630373) [article](./database-designer/concepts-lake-database.md)
 * Lake database designer now available in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1691882460) [article](./database-designer/concepts-lake-database.md#database-designer)
@@ -317,10 +358,10 @@ The following updates are new to Azure Synapse Analytics this month.
 * Pipeline Fail activity [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1827125525) [article](../data-factory/control-flow-fail-activity.md)
 * Mapping Data Flow gets new native connectors [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-717833003) [article](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/mapping-data-flow-gets-new-native-connectors/ba-p/2866754)
 
-### Synapse Link
+### Azure Synapse Link
 
-* Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
-* Custom partitions for Synapse link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
+* Azure Synapse Link for Dataverse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1397891373) [article](/powerapps/maker/data-platform/azure-synapse-link-synapse)
+* Custom partitions for Azure Synapse Link for Azure Cosmos DB in preview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--409563090) [article](../cosmos-db/custom-partitioning-analytical-store.md)
 
 ## October 2021 update
 
@@ -333,18 +374,18 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Apache Spark for Synapse
 
-* Spark performance optimizations [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#spark-performance) 
+* Spark performance optimizations [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#spark-performance)
 
 ### Security
 
 * All Synapse RBAC roles are now generally available for use in production [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#synapse-rbac) [article](./security/synapse-workspace-synapse-rbac-roles.md)
 * Apply User-Assigned Managed Identities for Double Encryption [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#user-assigned-managed-identities) [article](./security/workspaces-encryption.md)
 * Synapse Administrators now have elevated access to dedicated SQL pools [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#elevated-access) [article](./security/synapse-workspace-access-control-overview.md)
-    
-###  Governance
+
+### Governance
 
 * Synapse workspaces can now automatically push lineage data to Microsoft Purview [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#synapse-purview-lineage) [article](../purview/how-to-lineage-azure-synapse-analytics.md)
- 
+
 ### Integrate
 
 * Use Stringify in data flows to easily transform complex data types to strings [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#stringify-transform) [article](../data-factory/data-flow-stringify.md)

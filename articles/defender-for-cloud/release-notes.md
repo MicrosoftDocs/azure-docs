@@ -1,8 +1,10 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: reference
-ms.date: 08/21/2022
+ms.date: 08/31/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -16,12 +18,47 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## September 2022
+
+- [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
+- [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
+
+### Suppress alerts based on Container and Kubernetes entities
+
+You can now suppress alerts based on these Kubernetes entities so you can use the container environment details to align your alerts your organization's policy and stop receiving unwanted alerts:
+
+- Container Image
+- Container Registry
+- Kubernetes Namespace
+- Kubernetes Pod
+- Kubernetes Service
+- Kubernetes Secret
+- Kubernetes ServiceAccount
+- Kubernetes Deployment
+- Kubernetes ReplicaSet
+- Kubernetes StatefulSet
+- Kubernetes DaemonSet
+- Kubernetes Job
+- Kubernetes CronJob
+
+Learn more about [alert suppression rules](alerts-suppression-rules.md).
+
+### Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent
+
+File integrity monitoring (FIM) examines operating system files and registries for changes that might indicate an attack.
+
+FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can [deploy through Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
+
+Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
+
 ## August 2022
 
 Updates in August include:
 
 - [Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-containers-on-your-windows-containers)
-- [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
+- [Azure Monitor Agent integration now in preview](#azure-monitor-agent-integration-now-in-preview)
+- [Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster](#deprecated-vm-alerts-regarding-suspicious-activity-related-to-a-kubernetes-cluster)
+- [Container vulnerabilities now include detailed package information](#container-vulnerabilities-now-include-detailed-package-information)
 
 ### Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers 
 
@@ -31,11 +68,32 @@ When vulnerabilities are detected, Defender for Cloud generates the following se
 
 Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
 
-### Auto-deployment of Azure Monitor Agent (Preview)
+### Azure Monitor Agent integration now in preview
+ 
+Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
+ 
+In Defender for Cloud, when you [enable auto provisioning for AMA](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
 
-The [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud.
 
-The [Azure Monitor Agent is now integrated](enable-data-collection.md?tabs=autoprovision-ama#tabpanel_1_autoprovision-ama) into Microsoft Defender for Cloud. You can [auto-provision Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) to all of your cloud and on-premises servers with Defender for Cloud. Also, Defender for Cloud protections can use data collected by the Azure Monitor Agent.
+### Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster
+
+The following table lists the alerts that were deprecated:
+
+| Alert name | Description | Tactics | Severity |
+|--|--|--|--|
+| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
+| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
+| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
+
+These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
+
+### Container vulnerabilities now include detailed package information
+
+Defender for Container's vulnerability assessment (VA) now includes detailed package information for each finding, including: package name, package type, path, installed version, and fixed version. The package information lets you find vulnerable packages so you can remediate the vulnerability or remove the package.
+
+This detailed package information is available for new scans of images.
+
+:::image type="content" source="media/release-notes/mdc-container-va-package-information.png" alt-text="Screenshot of the package information for container vulnerabilities." lightbox="media/release-notes/mdc-container-va-package-information.png":::
 
 ## July 2022
 
@@ -351,139 +409,3 @@ As part of the actions you can take to [evaluate a security alert](managing-and-
 Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
 
 The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate the identified risk.
-
-## March 2022
-
-Updates in March include:
-
-- [Global availability of Secure Score for AWS and GCP environments](#global-availability-of-secure-score-for-aws-and-gcp-environments)
-- [Deprecated the recommendations to install the network traffic data collection agent](#deprecated-the-recommendations-to-install-the-network-traffic-data-collection-agent)
-- [Defender for Containers can now scan for vulnerabilities in Windows images (preview)](#defender-for-containers-can-now-scan-for-vulnerabilities-in-windows-images-preview)
-- [New alert for Microsoft Defender for Storage (preview)](#new-alert-for-microsoft-defender-for-storage-preview)
-- [Configure email notifications settings from an alert](#configure-email-notifications-settings-from-an-alert)
-- [Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecated-preview-alert-armmcas_activityfromanonymousipaddresses)
-- [Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moved-the-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices)
-- [Deprecated the recommendation to use service principals to protect your subscriptions](#deprecated-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)
-- [Legacy implementation of ISO 27001 replaced with new ISO 27001:2013 initiative](#legacy-implementation-of-iso-27001-replaced-with-new-iso-270012013-initiative)
-- [Deprecated Microsoft Defender for IoT device recommendations](#deprecated-microsoft-defender-for-iot-device-recommendations)
-- [Deprecated Microsoft Defender for IoT device alerts](#deprecated-microsoft-defender-for-iot-device-alerts)
-- [Posture management and threat protection for AWS and GCP released for general availability (GA)](#posture-management-and-threat-protection-for-aws-and-gcp-released-for-general-availability-ga)
-- [Registry scan for Windows images in ACR added support for national clouds](#registry-scan-for-windows-images-in-acr-added-support-for-national-clouds)
-
-### Global availability of Secure Score for AWS and GCP environments
-
-The cloud security posture management capabilities provided by Microsoft Defender for Cloud, has now added support for your AWS and GCP environments within your Secure Score.
-
-Enterprises can now view their overall security posture, across various environments, such as Azure, AWS and GCP.
-
-The Secure Score page has been replaced with the Security posture dashboard. The Security posture dashboard allows you to view an overall combined score for all of your environments, or a breakdown of your security posture based on any combination of environments that you choose.
-
-The Recommendations page has also been redesigned to provide new capabilities such as: cloud environment selection, advanced filters based on content (resource group, AWS account, GCP project and more), improved user interface on low resolution, support for open query in resource graph, and more. You can learn more about your overall [security posture](secure-score-security-controls.md) and [security recommendations](review-security-recommendations.md).
-
-### Deprecated the recommendations to install the network traffic data collection agent
-
-Changes in our roadmap and priorities have removed the need for the network traffic data collection agent. The following two recommendations and their related policies were deprecated.  
-
-|Recommendation |Description |Severity |
-|---|---|---|
-| Network traffic data collection agent should be installed on Linux virtual machines|Defender for Cloud uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats. |Medium |
-| Network traffic data collection agent should be installed on Windows virtual machines |Defender for Cloud uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations, and specific network threats. |Medium |
-
-### Defender for Containers can now scan for vulnerabilities in Windows images (preview)
-
-Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
-
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
-
-### New alert for Microsoft Defender for Storage (preview)
-
-To expand the threat protections provided by Microsoft Defender for Storage, we've added a new preview alert.
-
-Threat actors use applications and tools to discover and access storage accounts. Microsoft Defender for Storage detects these applications and tools so that you can block them and remediate your posture.
-
-This preview alert is called `Access from a suspicious application`. The alert is relevant to Azure Blob Storage, and ADLS Gen2 only.
-
-| Alert (alert type) | Description | MITRE tactic | Severity |
-|--|--|--|--|
-| **PREVIEW - Access from a suspicious application**<br>(Storage.Blob_SuspiciousApp) | Indicates that a suspicious application has successfully accessed a container of a storage account with authentication.<br>This might indicate that an attacker has obtained the credentials necessary to access the account, and is exploiting it. This could also be an indication of a penetration test carried out in your organization.<br>Applies to: Azure Blob Storage, Azure Data Lake Storage Gen2 | Initial Access | Medium |
-
-### Configure email notifications settings from an alert
-
-A new section has been added to the alert User Interface (UI) which allows you to view and edit who will receive email notifications for alerts that are triggered on the current subscription.
-
-:::image type="content" source="media/release-notes/configure-email.png" alt-text="Screenshot of the new UI showing how to configure email notification.":::
-
-Learn how to [Configure email notifications for security alerts](configure-email-notifications.md).
-
-### Deprecated preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
-
-The following preview alert has been deprecated:
-
-|Alert name| Description|
-|----------------------|---------------------------|
-|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Defender for Cloud Apps license.|
-
-A new alert has been created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
-
-See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
-
-### Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices
-
-The recommendation `Vulnerabilities in container security configurations should be remediated` has been moved from the secure score section to best practices section.
-
-The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We're working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
-
-### Deprecated the recommendation to use service principals to protect your subscriptions
-
-As organizations move away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we deprecated the following Defender for Cloud recommendation and its related policy:
-
-|Recommendation |Description |Severity |
-|---|---|---|
-| Service principals should be used to protect your subscriptions instead of Management Certificates | Management certificates allow anyone who authenticates with them to manage the subscription(s) they're associated with. To manage subscriptions more securely, using service principals with Resource Manager is recommended to limit the blast radius in the case of a certificate compromise. It also automates resource management. <br />(Related policy: [Service principals should be used to protect your subscriptions instead of management certificates](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |Medium |
-
-Learn more:
-
-- [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
-- [Overview of Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
-- [Workflow of Microsoft Azure classic VM Architecture - including RDFE workflow basics](../cloud-services/cloud-services-workflow-process.md)
-
-### Legacy implementation of ISO 27001 replaced with new ISO 27001:2013 initiative
-
-The legacy implementation of ISO 27001 has been removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions.
-
-:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
-
-### Deprecated Microsoft Defender for IoT device recommendations
-
-Microsoft Defender for IoT device recommendations is no longer visible in Microsoft Defender for Cloud. These recommendations are still available on Microsoft Defender for IoT's Recommendations page.
-
-The following recommendations are deprecated:
-
-| Assessment key | Recommendations |
-|--|--|
-| 1a36f14a-8bd8-45f5-abe5-eef88d76ab5b: IoT Devices | Open Ports On Device |
-| ba975338-f956-41e7-a9f2-7614832d382d: IoT Devices | Permissive firewall rule in the input chain was found |
-| beb62be3-5e78-49bd-ac5f-099250ef3c7c: IoT Devices | Permissive firewall policy in one of the chains was found |
-| d5a8d84a-9ad0-42e2-80e0-d38e3d46028a: IoT Devices | Permissive firewall rule in the output chain was found |
-| 5f65e47f-7a00-4bf3-acae-90ee441ee876: IoT Devices | Operating system baseline validation failure |
-|a9a59ebb-5d6f-42f5-92a1-036fd0fd1879: IoT Devices | Agent sending underutilized messages |
-| 2acc27c6-5fdb-405e-9080-cb66b850c8f5: IoT Devices | TLS cipher suite upgrade needed |
-|d74d2738-2485-4103-9919-69c7e63776ec: IoT Devices | Auditd process stopped sending events |
-
-### Deprecated Microsoft Defender for IoT device alerts
-
-All of Microsoft's Defender for IoT device alerts are no longer visible in Microsoft Defender for Cloud. These alerts are still available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
-
-### Posture management and threat protection for AWS and GCP released for general availability (GA)
-
-- **Defender for Cloud's CSPM features** extend to your AWS and GCP resources. This agentless plan assesses your multicloud resources according to cloud-specific security recommendations that are included in your secure score. The resources are assessed for compliance using the built-in standards. Defender for Cloud's asset inventory page is a multicloud enabled feature that allows you to manage your AWS resources alongside your Azure resources.
-
-- **Microsoft Defender for Servers** brings threat detection and advanced defenses to your compute instances in AWS and GCP. The Defender for Servers plan includes an integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more. Learn about all of the [supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md). Automatic onboarding capabilities allow you to easily connect any existing or new compute instances discovered in your environment.
-
-Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
-
-### Registry scan for Windows images in ACR added support for national clouds
-
-Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet. This addition is currently in preview.
-
-Learn more about our [feature's availability](supported-machines-endpoint-solutions-clouds-containers.md).
