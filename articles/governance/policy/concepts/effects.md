@@ -751,8 +751,9 @@ allows for manual changes to the compliance state. To change the compliance for 
 you will need to create an attestation for that compliance state.
 
 > [!NOTE]
-> Currently, manual policy is available only in the Microsoft Defender Azure Security Benchmark
-> policy initiative.
+> During Public Preview, support for manual policy is available only for Microsoft Defender
+> for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
+> customers using the [Azure Security Benchmark v4 policy initiative](/security/benchmark/azure/introduction).
 
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
