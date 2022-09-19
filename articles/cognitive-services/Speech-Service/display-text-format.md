@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 09/19/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
@@ -17,69 +17,61 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 
 Speech-to-text offers an array of formatting features to ensure that the transcribed text is clear and legible. Below is an overview of these features and how each one is used to improve the overall clarity of the final text output.
 
-## Standard formatting
+## ITN
 
-### ITN
+Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech-to-text service and isn't configurable. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. This allows Speech users to speak naturally into their device, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
 
-Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech-to-text service and is not configurable by the user. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. This allows Speech users to speak naturally into their device, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
-
-|Spoken Form|Display Text|
+|Recognized speech|Display text|
 |---|---|
-|"that will cost nine hundred dollars"|That will cost $900.|
-|"my phone number is one eight hundred, four five six, eight nine ten"|My phone number is 1-800-456-8910.|
-|"the time is six forty five p m"|The time is 6:45 PM.|
-|"I live on thirty five lexington avenue"|I live on 35 Lexington Ave.|
-|"the answer is six point five"|The answer is 6.5.|
-|"send it to support at help dot com"|Send it to support@help.com.|
+|that will cost nine hundred dollars|That will cost $900.|
+|my phone number is one eight hundred, four five six, eight nine ten|My phone number is 1-800-456-8910.|
+|the time is six forty five p m|The time is 6:45 PM.|
+|I live on thirty five lexington avenue|I live on 35 Lexington Ave.|
+|the answer is six point five|The answer is 6.5.|
+|send it to support at help dot com|Send it to support@help.com.|
 
+## Capitalization
 
-### Capitalization
+Speech-to-text models recognize words that should be capitalized to improve readability, accuracy, and grammar. For example, the Speech service will automatically capitalize proper nouns and words at the beginning of a sentence. Some examples are shown in this table.
 
-Speech-to-text’s model knows which words should be capitalized and automatically does so in order to make the text more readable. It will capitalize proper nouns and words at the beginning of a sentence, as well as anywhere else where it makes the overall text more grammatically correct. Some examples are listed below:
-
-|Spoken Form|Display Text|
+|Recognized speech|Display text|
 |---|---|
-|"i got an iphone x r"|I got an iPhone XR.|
-|"my name is jennifer smith"|My name is Jennifer Smith.|
-|"i want to visit new york city"|I want to visit New York City.|
-|"i need to service my toyota"|I need to service my Toyota.|
+|i got an iphone x r|I got an iPhone XR.|
+|my name is jennifer smith|My name is Jennifer Smith.|
+|i want to visit new york city|I want to visit New York City.|
+|i need to service my toyota|I need to service my Toyota.|
 
-
-### Disfluency removal
+## Disfluency removal
 
 When speaking, it is common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize these disfluencies and remove them from the transcribed text so that it is cleaner. This is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
 
-|Spoken Form|Display Text|
+|Recognized speech|Display text|
 |---|---|
-|"i uh said that we can go to the uhmm movies"|I said that we can go to the movies.|
-|"its its not that big of uhm a deal"|It's not that big of a deal.|
-|"umm i think tomorrow should work"|I think tomorrow should work.|
+|i uh said that we can go to the uhmm movies|I said that we can go to the movies.|
+|its its not that big of uhm a deal|It's not that big of a deal.|
+|umm i think tomorrow should work|I think tomorrow should work.|
 
-
-## Configurable formatting options
-
-### Explicit Punctuation 
+## Explicit Punctuation 
 
 When using Speech-to-text, you have the option to speak aloud any punctuation you may want to use in order to make your text more legible. This is especially useful in a situation where you need to use complex punctuation or want your transcribed text to be read by someone else, as it allows you to include grammar with your voice rather than having to retroactively input it later. Some examples are shown in this table.
 
-|Spoken Form|Display Text|
+|Recognized speech|Display text|
 |---|---|
-|"they entered the room dot dot dot"|They entered the room...|
-|"i heart emoji you period"|I <3 you.|
-|"the options are apple forward slash banana forward slash orange period"|The options are apple/banana/orange.|
-|"are you sure question mark"|Are you sure?|
+|they entered the room dot dot dot|They entered the room...|
+|i heart emoji you period|I <3 you.|
+|the options are apple forward slash banana forward slash orange period|The options are apple/banana/orange.|
+|are you sure question mark|Are you sure?|
 
-
-### Auto Punctuation 
+## Auto Punctuation 
 
 Sometimes it may seem tedious to have to speak every punctuation mark out loud, so Speech-to-text also offers the ability to automatically punctuate your text and improve clarity. This is great option when you want to transcribe a call or conversation to read it later. Some examples are shown in this table.
 
-|Spoken Form|Display Text|
+|Recognized speech|Display text|
 |---|---|
-|"how are you"|How are you?|
-|"we can go to the mall park or beach"|We can go to the mall, park, or beach.|
+|how are you|How are you?|
+|we can go to the mall park or beach|We can go to the mall, park, or beach.|
 
-### Profanity filter 
+## Profanity filter 
 
 You can specify whether to mask, remove, or show profanity in the final transcribed text. Masking replaces profane words with asterisk (*) characters so that you can keep the original sentiment of your text while making it more appropriate for certain situations 
 
