@@ -239,7 +239,7 @@ The server is by nature an authorized user. With the help of the *event handler 
 
 It can also grant or revoke publish/join permissions for a PubSub client:
    - Grant publish/join permissions to some specific group or to all groups
-   - Revoke publish/joinh permissions for some specific group or for all groups
+   - Revoke publish/join permissions for some specific group or for all groups
    - Check if the client has permission to join or publish to some specific group or to all groups
    
 The service provides REST APIs for the server to do connection management.

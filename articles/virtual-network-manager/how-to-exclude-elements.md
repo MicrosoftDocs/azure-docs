@@ -70,20 +70,18 @@ Assume you have the following virtual networks in your subscription. Each virtua
 
 To begin using the basic editor to create your conditional statement, you need to create a new network group.
 
-1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under *Settings*. Then select **+ Add** to create a new network group.
+1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under *Settings*. Then select **+ Create** to create a new network group.
 
-1. Enter a **Name** for the network group. Then select the **Conditional statements** tab.
+1. Enter a **Name** and an optional **Description** for the network group, and select **Add**.
+1. Select the network group from the list and select **Create Azure Policy**.
+1. Enter a **Policy name** and leave the **Scope** selections unless changes are needed.
+1. Under **Criteria**, select **Tags** from the drop-down under *Parameter* and then select **Exist** from the drop-down under *Operator*.
 
-1. Select **Tags** from the drop-down under *Parameter* and then select **Exist** from the drop-down under *Operator*.
-
-1. Enter **Prod** under *Condition*, then select **Evaluate**. You should only see VNet-A-EastUS, VNet-B-WestUS, and VNetA show up in the list.
-
-1. Add another conditional statement by selecting the logical operator **AND**. Select **Name** for the *Parameter* and **Contains** for the *Operator*. Enter **VNet-A** into the *Condition* field. Select **Evaluate** to see which virtual network shows up in the list. You should only see VNet-A-EastUS and VNet-A-WestUS.
-
-1. Select **Review + Create** and then select **Create** once validation has passed.
+1. Enter **Prod** under *Condition*, then select **Save**. 
+1. After a few minutes, select your network group and select **Group Members** under *Settings*. You should only see VNet-A-EastUS, VNet-A-WestUS, and VNetA show up in the list.
 
 > [!NOTE] 
-> The **basic editor** is only available during the creation of a network group. 
+> The **basic editor** is only available during the creation of an Azure Policy. 
 
 ## Advanced editor
 
