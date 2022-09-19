@@ -250,24 +250,6 @@ The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. 
 | umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's access ACL to the child's default ACL |
 | umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's access ACL |
 
-The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
-
-```console
-def set_default_acls_for_new_child(parent, child):
-    child.acls = []
-    for entry in parent.acls :
-        new_entry = None
-        if (entry.type == OWNING_USER) :
-            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
-        elif (entry.type == OWNING_GROUP) :
-            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
-        elif (entry.type == OTHER) :
-            new_entry = entry.clone(perms = entry.perms & (~umask.other))
-        else :
-            new_entry = entry.clone(perms = entry.perms )
-        child_acls.add( new_entry )
-```
-
 ## FAQ
 
 ### Do I have to enable support for ACLs?
