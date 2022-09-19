@@ -41,7 +41,7 @@ The following steps describe how to construct the authorization header.
 
 ### Create a new Python script
 
-Open Visual Studio Code and create a new file named `SignHmacTutorial.py`. Save this file to a known folder.
+Open Visual Studio Code or other IDE or editor of your choice and create a new file named `SignHmacTutorial.py`. Save this file to a known folder.
 
 ## Add necessary imports
 
@@ -63,8 +63,8 @@ For this example, we'll sign a request to create a new identity by using the Com
 
 Add the following code to the `SignHmacTutorial.py` script.
 
-Replace `resource_endpoint_name` with your real resource endpoint name value. This value can be found in Overview section of your Azure Communication Services resource. It's the value of "Endpoint" after "https://". 
-Replace `resource_endpoint_secret` with your real resource endpoint secret value. This value can be found in Keys section of your Azure Communication Services resource. It's the value of "Key" - either primary or secondary.
+- Replace `resource_endpoint_name` with your real resource endpoint name value. This value can be found in Overview section of your Azure Communication Services resource. It's the value of "Endpoint" after "https://".
+- Replace `resource_endpoint_secret` with your real resource endpoint secret value. This value can be found in Keys section of your Azure Communication Services resource. It's the value of "Key" - either primary or secondary.
 
 ```python
 host = "resource_endpoint_name"
