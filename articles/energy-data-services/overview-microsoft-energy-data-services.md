@@ -16,6 +16,8 @@ Microsoft Energy Data Services Preview is a secure, reliable, hyperscale, fully 
 
 ## Principles
 
+Microsoft Energy Data Services Preview follows certain principles:
+
 ### Fully managed OSDU&trade; platform
 
 Microsoft Energy Data Services Preview is a first-party PaaS (Platform as a Service) offering where Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service so that the customers can focus on the value from the platform. Microsoft offers seamless upgrades to the latest OSDU&trade; milestone versions after testing and validation.
