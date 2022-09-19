@@ -196,7 +196,8 @@ Details will differ for each playbook, but the main steps remain the same.
 1. With the playbook opened as a Logic app, select **Logic app designer**. Expand each step in the logic app to check for invalid connections, which are indicated by an orange warning triangle. For example:
 
     :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default AD4IOT AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png"::: 
-
+> [!IMPORTANT]
+> Make sure to expand each step in the logic app. Invalid connections may be hiding inside other steps.
 1. Select **Save**. 
 
 **Connect your incidents, relevant analytics rules, and the playbook**:
