@@ -26,7 +26,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 | CPU: usable    | 40 vCPUs                                                                    |
 | Memory type    | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
 | Memory: raw    | 128 GB RAM (8 x 16 GB)                                                      |
-| Memory: usable | 102 GB RAM                                                                  |
+| Memory: usable | 96 GB RAM                                                                  |
 
 
 ## Compute acceleration specifications
