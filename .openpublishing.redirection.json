@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
             "redirect_url": "/azure/automanage/index",
             "redirect_document_id": false
