@@ -33,6 +33,13 @@ To verify if a method can be used:
 
 If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
 
+## A user is blocked from accessing a resource
+
+If authentication strength requires a method a user can’t use (for example, they are not enabled for the method in the unified authentication method policy), the user is blocked from sign-in.
+
+Follow the steps outlined in the [previous question](/troubleshoot-authentication-strengths.md#a-user-is-prompted-to-use-a-different-authentication-method-but-they-dont-see-how-to-register-that-method) to identify which method the user is required to use by authentication strengths, and which method the user is enabled for by the unified authentication method policy. 
+
+
 ## How to check which authentication strength was enforced during sign-in
 Use the **Sign-ins** log to find additional information about the sign-in: 
 
@@ -47,6 +54,12 @@ Use the **Sign-ins** log to find additional information about the sign-in:
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they can't use, this **You can't get there from here** message appears. The user has to restart the session, and sign-in with a different FIDO2 security key.
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/restricted-security-key.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key.":::
+
+## During sign-in, a user is asked to register a new authentication method. When the user is in the combined registration – they are unable to register the method.
+
+Some methods cannot be registered during sign-in or require additional configuration outside of the combined registration. For more information see [Registering authentication methods](concept-authentication-strengths.md#registering-authentication-methods]
+ 
+:::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/MySecInfo-RegisterFIDO2.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key."::: 
 
 ## Next steps
 
