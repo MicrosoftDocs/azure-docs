@@ -52,7 +52,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow-windows-latest.yml) into the Edit new file tab.
 
-```yml
+    ```yml
     name: MSDO windows-latest
     on:
       push:
@@ -90,9 +90,9 @@ Security DevOps uses the following Open Source tools:
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
-```
+    ```
         
-    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)`                    
+    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                
 
 1.  Select **Start commit**
 
