@@ -27,11 +27,7 @@ This data is gathered on demand when trigger conditions are met. The available t
 When a threshold is reached, a profile of the configured type and duration is gathered and uploaded. This profile is then visible within the performance blade of the associated Application Insights Portal UI.
 
 > [!WARNING]
-> The JFR profiler by default executes the "profile-without-env-data" profile. A JFR file is a series of
-> events emitted by the JVM. The "profile-without-env-data" configuration, is similar to the "profile" 
-> configuration that ships with the JVM, however has had some events disabled that have the potential to 
-> contain sensitive deployment information such as environment variables, arguments provided to the JVM 
-> and processes running on the system.
+> The JFR profiler by default executes the "profile-without-env-data" profile. A JFR file is a series of events emitted by the JVM. The "profile-without-env-data" configuration, is similar to the "profile" configuration that ships with the JVM, however has had some events disabled that have the potential to contain sensitive deployment information such as environment variables, arguments provided to the JVM and processes running on the system.
 
 The flags that have been disabled are:
 
@@ -68,11 +64,15 @@ Within the profiler user interface (see [profiler settings](../profiler/profiler
 
 #### CPU
 
-For CPU, the threshold is a percentage of the usage of all available cores on the system, for instance, if your machine has saturated one core of an eight core machine the CPU percentage would be considered 12.5%.
+CPU threshold is a percentage of the usage of all available cores on the system.
+
+As an example, if one core of an eight core machine were saturated the CPU percentage would be considered 12.5%.
 
 #### Memory
 
-For memory, the percentage is the current Tenured memory region (OldGen) occupancy against the maximum possible size of the region, the occupancy is evaluated after a tenured collection has been performed. The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size. 
+Memory percentage is the current Tenured memory region (OldGen) occupancy against the maximum possible size of the region.
+
+Occupancy is evaluated after a tenured collection has been performed. The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size.
 
 For instance, take the following scenario:
 
@@ -83,14 +83,12 @@ For instance, take the following scenario:
 
 In this scenario, a profile will occur in the following circumstances:
 
-- A full garbage collection is executed.
-- After the collection is finished, the Tenured regions occupancy is above 691 mb.
+- Full garbage collection is executed
+- The Tenured regions occupancy is above 691 mb after collection
 
 ### Installation
 
-The following steps will guide you through enabling the profiling component on the agent and
-configuring resource limits that will trigger a profile if breached.
-
+The following steps will guide you through enabling the profiling component on the agent and configuring resource limits that will trigger a profile if breached.
 
 1. Configure the resource thresholds that will cause a profile to be collected:
     
@@ -121,23 +119,16 @@ configuring resource limits that will trigger a profile if breached.
 > [!WARNING]
 > The Java profiler does not support the "Sampling" trigger. Configuring this will have no effect.
 
-After these steps have been completed, the agent will monitor the resource usage of your process and
-trigger a profile when the threshold is exceeded. When a profile has been triggered and completed, it will be
-viewable from the
-Application Insights instance within the Performance -> Profiler section. From that screen the
-profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
-tool of your choosing, for example JDK Mission Control (JMC).
+After these steps have been completed, the agent will monitor the resource usage of your process and trigger a profile when the threshold is exceeded. When a profile has been triggered and completed, it will be viewable from the
+Application Insights instance within the Performance -> Profiler section. From that screen the profile can be downloaded, once download the JFR recording file can be opened and analyzed within a tool of your choosing, for example JDK Mission Control (JMC).
 
 :::image type="content" source="./media/java-standalone-profiler/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiler/configure-blade-inline.png":::
 
 ### Configuration
 
-Configuration of the profiler triggering settings, such as thresholds and profiling periods, are set
-within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as
-described in [Installation](#installation).
+Configuration of the profiler triggering settings, such as thresholds and profiling periods, are set within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as described in [Installation](#installation).
 
-Additionally, many parameters can be configured using environment variables and the
-`applicationinsights.json` configuration file.
+Additionally, many parameters can be configured using environment variables and the `applicationinsights.json` configuration file.
 
 #### Configuring Profile Contents
 
@@ -168,19 +159,16 @@ Example configuration:
 
 ```
 
-`memoryTriggeredSettings` This configuration will be used if a memory profile is
-requested. This value can be one of:
+`memoryTriggeredSettings` This configuration will be used if a memory profile is requested. This value can be one of:
 
-- `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
-  Warning section above for details.
+- `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see Warning section above for details.
 - `profile`. Uses the `profile.jfc` configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
 `cpuTriggeredSettings` This configuration will be used if a cpu profile is requested.
 This value can be one of:
 
-- `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
-  Warning section above for details.
+- `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see Warning section above for details.
 - `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
