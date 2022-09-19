@@ -159,7 +159,7 @@ For new application deployments to AKS, instead of using Deployment center users
 
 2. Will I lose my earlier configured pipelines? 
 
-    No.  All the created pipelines will still be available and functional in GitHub or Azure DevOps. Only the experience of creating/viewing the pipelines from Azure portal will be retired. 
+No.  All the created pipelines will still be available and functional in GitHub or Azure DevOps. Only the experience of creating and viewing pipelines from Azure portal will be retired. 
 
 3. How can I still configure CD pipelines directly through Azure portal? 
 
