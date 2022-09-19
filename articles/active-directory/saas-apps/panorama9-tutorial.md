@@ -154,11 +154,11 @@ In the case of Panorama9, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Panorama9 Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Panorama9 Sign on URL where you can initiate the login flow. 
 
-* Go to Panorama9 Sign-on URL directly and initiate the login flow from there.
+* Go to Panorama9 Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Panorama9 tile in the My Apps, this will redirect to Panorama9 Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the Panorama9 tile in the My Apps, this will redirect to Panorama9 Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
