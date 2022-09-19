@@ -119,18 +119,20 @@ To generate a data collection rule JSON file in the Azure portal:
 
     Notice the following details in the DCR defined in this template:
 
-    - `identity`: Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+    - `identity` - Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
-    - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
-    - `streamDeclarations`: Defines the columns in which to store the incoming data, based on the destination table. In our example, we've defined these columns:
+    - `dataCollectionEndpointId` - Resource ID of the data collection endpoint.
+    - `streamDeclarations` - Defines the columns in which to store the incoming data, based on the destination table. In our example, we've defined these columns:
        - `TimeGenerated` - The time at which the data was ingested from event hub to Azure Monitor Logs.
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
     
-       Modify the `streamDeclarations` section based on your destination table, if you're using a different destination table.
+       Modify the `streamDeclarations` section based on your [destination table](#create-a-destination-table-for-event-hub-data-in-your-log-analytics-workspace), if you're using a schema different from our example.
+
     - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) (optional).
-    - `destinations`: Specifies the destination workspace.
-    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table.
+    - `destinations` - Specifies the destination workspace.
+    - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
+    - `transformKql` - Defines how to map and transform data from the source format to the columns in the destination table. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping standard event hub data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a built-in Azure resource table or need to filter or modify data before storing the data in a Log Analytics workspace, [define a data collection transformation](../essentials/data-collection-transformations.md).
 
     ```json
     {
