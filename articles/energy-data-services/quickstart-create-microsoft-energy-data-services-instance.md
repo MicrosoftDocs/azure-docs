@@ -13,70 +13,61 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-In this quickstart, you'll learn how to create and deploy a Microsoft Energy Data Services instance. 
+Get started with Microsoft Energy Data Services by creating it on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to provision a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
+
+The setup of Microsoft Energy Data Services instance can be triggered using a simple form-based interface and takes about 50 minutes to complete.
 
 Microsoft Energy Data Services is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) data platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
-
-## Before you start
-
-- The entire setup of Microsoft Energy Data Services instance, including the preparation and installation will take about 50 minutes.
-
 
 ## Prerequisites
 
 | Prerequisite | Details |
 | ------------ | ------- |
-Active Azure Subscription | You'll need the Azure subscription ID and the region where you want to install Microsoft Energy Data Services. Choose one of the regions listed in the Regions supported section.
-Application ID | You'll need an application ID (often referred to as "App ID" or a "client ID"). This application ID will be used for authentication to Azure Active Directory and will be associated with your Microsoft Energy Data Services instance. Follow the steps below if you don't have one.
+Active Azure Subscription | You'll need the Azure subscription ID in which you want to install Microsoft Energy Data Services. You need to have appropriate permissions to create Azure resources in this subscription. 
+Application ID | You'll need an [application ID](../active-directory/develop/application-model.md) (often referred to as "App ID" or a "client ID"). This application ID will be used for authentication to Azure Active Directory and will be associated with your Microsoft Energy Data Services instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by navigating to Active directory and selecting *App registrations* > *New registration*.
+Client Secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting *Certificates & secrets* > *Client secrets* > *New client secret*. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
-#### Creating an Application ID
-
-1. Log in to the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
-
-1. Navigate to Azure Active Directory and open *App registration* in the left-hand pane.
-
-1. Select *+ New Registration*.
-
-1. Add a redirect URI.
-
-
-1. *Save* your application registration. 
-
-1. Add a client secret with the steps laid out in [this documentation](../active-directory/develop/quickstart-register-app.md)
-
-> [!NOTE]
-> Note down your **Application (client) ID** and **client secret** for future use
 
 ## Create a Microsoft Energy Data Services instance
 
-> [!IMPORTANT]
-> *Microsoft Energy Data Services* is available on the Azure Marketplace only if you use the below Azure portal link.
+
+1. Note down your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
 
 1. Log in to [Microsoft Azure Marketplace](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
 
+    > [!IMPORTANT]
+    > *Microsoft Energy Data Services* is available on the Azure Marketplace only if you use the above Azure portal link.
 
-1. Select your account in the top-right corner and switch to the Azure AD tenant where you want to install Microsoft Energy Data Services instance.
 
-1. Go to Azure Marketplace within the portal and search for *Microsoft Energy Data Services* in the Marketplace.
+1. If you have access to multiple tenants, use the Directories + subscriptions filter in the top menu to switch to the tenant in which you want to install Microsoft Energy Data Services.
+
+1. Use the search bar in the Azure Marketplace (not the global Azure search bar on top of the screen) to search for *Microsoft Energy Data Services*.
 
     [![Screenshot of the search result on Azure Marketplace that shows Microsoft energy data services. Microsoft Energy data services shows as a card.](media/quickstart-create-microsoft-energy-data-services-instance/search-meds-on-azure-marketplace.png)](media/quickstart-create-microsoft-energy-data-services-instance/search-meds-on-azure-marketplace.png#lightbox)
 
-1. A new window with an overview of **Microsoft Energy Data Services** appears. Select **Create**.
+1. In the search page select *Create* on the card titled "Microsoft Energy Data Services (Preview)". 
 
-1. A new window appears. Complete the sign-up process by choosing the correct subscription, resource group, and location to which you want to create an instance of **Microsoft Energy Data Services**.
+1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, and the *region* in which you want to create your instance of Microsoft Energy Data Services. Enter the *App ID* that you created during the prerequisite steps.
+
+    [![Screenshot of the basic details page after you select 'create' for Microsoft energy data services. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png#lightbox)
+ 
 
     Some naming conventions to guide you at this step:
 
     | Field | Name Validation | 
     | ----- | --------------- |
-    Instance name | Only alphanumeric characters are allowed, and the value must be 1-15 characters long.
+    Instance name | Only alphanumeric characters are allowed, and the value must be 1-15 characters long. The name is **not** case-sensitive. One resource group cannot have two instance with the same name. 
     Application ID | Enter the valid Application ID that you generated and saved in the last section.
-    Data Partition name | Name should be 1-10 char long consisting of lowercase alphanumeric characters and hyphens. It should start with an alphanumeric character and shouldn't contain consecutive hyphens.
+    Data Partition name | Name should be 1-10 char long consisting of lowercase alphanumeric characters and hyphens. It should start with an alphanumeric character and should not contain consecutive hyphens.The data partitions names that you chose are automatically prefixed with your Microsoft Energy Data Services instance name. This compound name will be used to refer to your data partition in application and API calls. 
 
-    [![Screenshot of the basic details page after you select 'create' for Microsoft energy data services. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png#lightbox)
+    > [!NOTE]
+    > The name you chose for your Microsoft Energy Data Services and the data partitions in it cannot be changed later.  
 
 
 1. Select **Next: Tags** and enter any tags that you would want to specify. If nothing, this field can be left blank.
+
+    > [!TIP]
+    > Tags are metadata elements attached to resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named Environment. To identify the resources deployed to production, give them a value of Production. [Learn more](../azure-resource-manager/management/tag-resources.md?tabs=json). 
 
     [![Screenshot of the tags tab on the create workflow. Any number of tags can be added and will show up in the list.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
@@ -86,26 +77,29 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
     [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png#lightbox)
 
-1. At this stage, you can also download an Azure Resource Manager (ARM) template to use for automated deployments of Microsoft Energy Data Services in future.  
+1. At this stage, you can also download an Azure Resource Manager (ARM) template to use for automated deployments of Microsoft Energy Data Services in future by selecting *Download a template for automation* located on the bottom-right of the screen. 
+
+    [![Screenshot to help locate the link to download azure resource manager template for automation. It is available on the bottom right of the *review + create* tab](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png)](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png#lightbox)
 
     [![Screenshot of the template that opens up when you select 'download template for automation'. Options are available to download or deploy from this page.](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png)](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png#lightbox)
 
-1. Sit back and relax while the deployment happens in the background. Review the details of the instance created.
+1. Wait while the deployment happens in the background. Review the details of the instance created.
 
     [![Screenshot of the deployment completion page. Options are available to view details of the deployment.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png#lightbox)
 
+
  
-## Uninstall
+## Delete an Microsoft Energy Data Services instance
 
-To uninstall a Microsoft Energy Data Services instance, complete the following steps:
+Deleting a Microsoft Energy Data instance also deletes any data that you have ingested. This action is permanent and the ingested data cannot be recovered. To delete a Microsoft Energy Data Services instance, complete the following steps:
 
-1. Sign in to the Azure portal and **delete the resource groups** in which these components are installed.
+1. Sign in to the Azure portal and delete the *resource group* in which these components are installed.
 
-2. Go to Azure Active Directory and **delete the Azure AD application** linked to the Microsoft Energy Data Services installation.
+2. This is an optional step. Go to Azure Active Directory and delete the *app registration* that you linked to your Microsoft Energy Data Services instance.
 
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-After installing a Microsoft Energy Data Services instance, you can learn about user management on this instance.
+After provisioning a Microsoft Energy Data Services instance, you can learn about user management on this instance.
 > [!div class="nextstepaction"]
 > [How to manage users](how-to-manage-users.md)
