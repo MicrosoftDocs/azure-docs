@@ -15,7 +15,7 @@ Microsoft regularly releases new versions of the **IoT/OT Threat Monitoring with
 
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json).
 
-This article lists the new features available in each version of the **IoT/OT Threat Monitoring with Defender for IoT** solution. For more information, see [What's new in Microsoft Defender for IoT?](release-notes.md).
+This article lists the new features available in each version of the **IoT/OT Threat Monitoring with Defender for IoT** solution. For more information, see [What's new in Microsoft Defender for IoT?](release-notes.md)
 
 ## Version 2.0
 
