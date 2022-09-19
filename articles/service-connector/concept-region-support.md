@@ -11,17 +11,20 @@ ms.custom: references_regions, event-tier1-build-2022
 
 # Service Connector region support
 
-When you create a connection between several Cloud services with Service Connector, the conceptual connection resource is provisioned into the same region as your compute service instance by default. This page shows the region support information and corresponding behavior of Service Connector.
+When you create a connection between several Cloud services with Service Connector, the conceptual connection resource is provisioned into the same region as your compute service instance by default. This page shows the region support information.
 
 ## Supported regions with regional endpoint
 
 If your compute service instance is located in one of the regions that Service Connector supports below, you can use Service Connector to create and manage service connections.
 
+- Australia Central
 - Australia East
+- Australia Southeast
 - Brazil South
 - Canada Central
 - Canada East
 - Central India
+- Central US
 - East Asia
 - East US
 - East US 2
@@ -29,32 +32,22 @@ If your compute service instance is located in one of the regions that Service C
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
+- North Central US
 - North Europe
 - Norway East
 - South Africa North
+- South Central US
 - South India
 - UAE North
 - UK South
+- UK West
 - West Central US
 - West Europe
+- West US
 - West US 2
-
-## Supported regions with geographical endpoint
-
-Your compute service instance might be created in a region where Service Connector has geographical region support. It means that your service connection will be created in a different region from your compute instance. In such cases, you'll see a banner providing some details about the region when you create a service connection. The region difference may impact your compliance, data residency, and data latency.
-
-|Region             | Support Region|
-|-------------------|---------------|
-|Australia Central  |Australia East |
-|Australia Southeast|Australia East |
-|Central US         |West US 2      |
-|Japan West         |Japan East     |
-|North Central US   |East US        |
-|South Central US   |West US 2      |
-|UK West            |UK South       |
-|West US            |East US        |
-|West US 3          |West US 2      |
+- West US 3
 
 ## Regions not supported
 
