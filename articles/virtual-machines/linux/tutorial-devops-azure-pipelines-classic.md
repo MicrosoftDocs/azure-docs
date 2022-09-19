@@ -95,7 +95,7 @@ You won't be able to view or create Azure DevOps pipelines from an Azure portal 
 
 2. Will I lose my earlier configured pipelines? 
 
-    No.  All the created pipelines will still be available and functional in Azure DevOps portal. Only the experience of creating/viewing the Azure DevOps pipeline from Azure portal will be retired. 
+No.  Your pipelines will still be available in Azure DevOps. 
 
  
 3. How can I configure different deployment strategies? 
