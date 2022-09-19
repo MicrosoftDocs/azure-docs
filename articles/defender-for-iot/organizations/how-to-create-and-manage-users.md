@@ -16,7 +16,7 @@ By default, each sensor and on-premises management console is installed with the
 
 These privileged users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-operational.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-azure.md#default-privileged-on-premises-users).
 
 ## Add new users
 
@@ -41,7 +41,7 @@ This procedure describes how to create new users for a specific OT network senso
     |**Email**     |   Enter the user's email address.      |
     |**First Name**     |    Enter the user's first name.     |
     |**Last Name**     |   Enter the user's last name.      |
-    |**Role**     |  Select a user role. For more information, see [On-premises users for OT networks](roles-operational.md#on-premises-users-for-ot-networks).      |
+    |**Role**     |  Select a user role. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
     |**Remote Sites Access Group**     | Available for the on-premises management console only.   <br><br> Select either **All** to assign the user to all global access groups, or **Specific** to assign them to a specific group only, and then select the group from the drop-down list.   <br><br>For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).  |
     |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Integrating with Active Discovery lets you associate groups of users with specific permission levels. For more information, see [Integrate on-premises users with Active Directory](#integrate-on-premises-users-with-active-directory).|
 
@@ -94,7 +94,7 @@ Users with an administrator role can change passwords for other users who have e
 
 Administrator users cannot change their own passwords, and must contact a user who has access to either the *cyberx* or *support* user to have their passwords reset.
 
-This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises users for OT networks](roles-operational.md#on-premises-users-for-ot-networks).
+This procedure is not supported for users with **Security analyst** or **Read-only** roles. [On-premises user roles](roles-on-premises.md#on-premises-user-roles).
 
 **To reset a user's password on the sensor**:
 
@@ -119,7 +119,7 @@ This procedure is not supported for users with **Security analyst** or **Read-on
 
 The *cyberx* and *support* users can recover passwords for users on sensors or an on-premises management console.
 
-This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises users for OT networks](roles-operational.md#on-premises-users-for-ot-networks).
+This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 **To recover a password**:
 

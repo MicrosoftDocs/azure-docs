@@ -28,7 +28,7 @@ Before you start, make sure that you have the following:
 
 - Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT.
 
-- Access to the Azure portal as a [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Owner](../role-based-access-control/built-in-roles.md#owner). For more information, see [Defender for IoT users, roles, and permissions for OT network monitoring](roles-operational.md).
+- Access to the Azure portal as a [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Owner](../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
@@ -135,7 +135,7 @@ This procedure describes how to install the sensor software on your VM.
 
     - **cyberX**: The equivalent of root for accessing the appliance.
 
-    For more information, see [Default privileged on-premises users](roles-operational.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 

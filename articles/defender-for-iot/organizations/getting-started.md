@@ -20,7 +20,7 @@ Before you start, make sure that you have:
 
 - An Azure account. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
-- Access to the Azure portal as a [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Owner](../role-based-access-control/built-in-roles.md#owner). For more information, see [Defender for IoT users, roles, and permissions for OT network monitoring](roles-operational.md).
+- Access to the Azure portal as a [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Owner](../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 If you're using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 

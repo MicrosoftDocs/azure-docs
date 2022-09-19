@@ -38,5 +38,8 @@ For more information, see [Tutorial: Grant a user access to Azure resources usin
 
 ## Next steps
 
-- [Defender for IoT users, roles, and permissions for OT network monitoring](roles-operational.md)
-- [Track sensor activity](how-to-track-sensor-activity.md)
+For more information, see:
+
+- [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md)
+- [Create and manage on-premises users for OT monitoring](how-to-create-and-manage-users.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)

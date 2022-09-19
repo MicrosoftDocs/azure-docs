@@ -76,7 +76,7 @@ Manage site access control by selecting the site in the **Sites and sensors** pa
 
 :::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page.":::
 
-For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Defender for IoT users, roles, and permissions for OT network monitoring](roles-operational.md).
+For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Manage OT monitoring users on the Azure portal](manage-users-portal.md).
 
 ## August 2022
 

@@ -27,10 +27,10 @@
       href: architecture.md
     - name: Users, roles, and permissions
       items:
-      - name: Users, roles, and permissions for OT networks
-        href: roles-operational.md
-      - name: Roles and permissions for Enterprise OT networks
-        href: roles-enterprise.md
+      - name: Azure user roles for OT and Enterprise IoT monitoring
+        href: roles-azure.md
+      - name: On-premises users and roles for OT monitoring
+        href: roles-on-premises.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
