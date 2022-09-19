@@ -540,14 +540,14 @@ Just as there's no single way to represent a piece of data on a screen, there's 
 
 ## Next steps
 
-* To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
+* To learn more about Azure Cosmos DB, refer to the service's [documentation](/azure/cosmos-db/) page.
 
 * To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](../partitioning-overview.md).
 
 * To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
 
-* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
+* See the training module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 
 * Configure and use [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md).
 

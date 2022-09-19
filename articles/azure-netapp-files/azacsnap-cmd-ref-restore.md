@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 09/04/2022
 ms.author: phjensen
 ---
 
@@ -42,7 +42,7 @@ The `-c restore` command has the following options:
 
 ## Perform a test DR failover `azacsnap -c restore --restore snaptovol`
 
-This command is like the "full" DR Failover command (`--restore restorevolume`), but rather than breaking the replication between the primary site and the disaster recovery site, a clone volume is created out of the disaster recovery volumes, allowing the restoration of the most recent snapshot in the DR site. Those cloned volumes are then usable by the customer to test Disaster Recovery without having to
+This command is like the "full" DR Failover command (`--restore revertvolume`), but rather than breaking the replication between the primary site and the disaster recovery site, a clone volume is created out of the disaster recovery volumes, allowing the restoration of the most recent snapshot in the DR site. Those cloned volumes are then usable by the customer to test Disaster Recovery without having to
 execute a complete failover of their HANA environment that breaks the replication agreement between the primary site and the disaster recovery site.
 
 - Multiple different restore points can be tested in this way,

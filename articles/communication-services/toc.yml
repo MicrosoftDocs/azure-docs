@@ -130,6 +130,8 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Enable Push Notifications in your chat app
+    href: tutorials/add-chat-push-notifications.md
 - name: Concepts
   expanded: false
   items:
@@ -143,6 +145,8 @@ items:
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
+    - name: Understand identifiers
+      href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
   - name: Chat
@@ -217,6 +221,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -266,7 +272,7 @@ items:
         items:        
           - name: Overview
             href: concepts/interop/guest/overview.md
-          - name: Capabilities
+          - name: Meeting capabilities
             href: concepts/interop/guest/capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
@@ -286,6 +292,12 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Phone capabilities
+            href: concepts/interop/teams-user/phone-capabilities.md
+          - name: Meeting capabilities
+            href: concepts/interop/teams-user/meeting-capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
           - name: Azure AD API permissions
@@ -364,6 +376,8 @@ items:
     href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
+  - name: UI Library cross platform samples
+    href: samples/ui-library-cross-platform.md
 - name: References
   items:
   - name: Reference documentation overview
@@ -402,6 +416,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
     - name: SMS (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
+  - name: Email libraries
+    items:
+    - name: Email (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+    - name: Email (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+    - name: Email (Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+    - name: Email (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
   - name: Identity libraries
     items:
     - name: Identity (JavaScript)
@@ -429,8 +453,7 @@ items:
     - name: UI Library (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html
-   
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
 - name: Resources
   items:
   - name: Release notes

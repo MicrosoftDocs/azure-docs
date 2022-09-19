@@ -49,15 +49,22 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
-    - Use the same value for both the **N2 subnet** and **N3 subnet** fields (if this site will support 5G user equipment (UEs)).
-    - Use the same value for both the **N2 gateway** and **N3 gateway** fields (if this site will support 5G UEs).
-    - Use the same value for both the **S1-MME subnet** and **S1-U subnet** fields (if this site will support 4G UEs).
-    - Use the same value for both the **S1-MME gateway** and **S1-U gateway** fields (if this site will support 4G UEs).
+    - If this site will support 5G user equipment (UEs):
+        - **N2 interface name** and **N3 interface name** must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+        - **N2 subnet** must match **N3 subnet**.
+        - **N2 gateway** must match **N3 gateway**.
+    - If this site will support 4G UEs:
+        - **S1-MME interface name** and **S1-U interface name** must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+        - **S1-MME subnet** must match **S1-U subnet**.
+        - **S1-MME gateway** must match **S1-U gateway**.
 
-1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields and select **Submit**. Note that you can only connect the packet core instance to a single data network.
+1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+    - **N6 interface name** (if this site will support 5G UEs) or **SGi interface name** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
+    - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
 
     :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 
+1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 

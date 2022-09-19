@@ -28,7 +28,10 @@ Supported data types:
 * [IIS Logs](../agents/data-sources-iis-logs.md)
 
 ## Using Private links
-Customer-managed storage accounts are used to ingest Custom logs or IIS logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
+Customer-managed storage accounts are used to ingest Custom logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
+
+> [!IMPORTANT]
+> Collection of IIS logs is not supported with private link.
 
 ### Using a customer-managed storage account over a Private Link
 #### Workspace requirements
@@ -64,7 +67,8 @@ To configure your Azure Storage account to use CMK with Azure Key Vault, use the
 ## Link storage accounts to your Log Analytics workspace
 
 > [!NOTE]
-> You can connect up to five storage accounts for the ingestion of Custom logs & IIS logs, and one storage account for Saved queries and Saved log alert queries (each).
+> - Delending if you link storage account for queries, or for log alerts, existing queries will be removed from workspace. Copy saved searches and log alerts that you need before this configuration. You can find directions for moving saved queries and log alerts in [workspace move procedure](./move-workspace-region.md). 
+> - You can connect up to five storage accounts for the ingestion of Custom logs & IIS logs, and one storage account for Saved queries and Saved log alert queries (each).
 
 ### Using the Azure portal
 On the Azure portal, open your Workspace' menu and select *Linked storage accounts*. A blade will open, showing the linked storage accounts by the use cases mentioned above (Ingestion over Private Link, applying CMK to saved queries or to alerts).

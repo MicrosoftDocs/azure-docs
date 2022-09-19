@@ -20,6 +20,25 @@ Host pools are a collection of one or more identical virtual machines (VMs), als
 
 This article will walk you through the setup process for creating a host pool for an Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory (AD) domain or Azure Active Directory (Azure AD) tenant, and register the VMs with Azure Virtual Desktop.
 
+You can create host pools in the following Azure regions:
+
+- Australia East
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+
 ## Prerequisites
 
 Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
@@ -55,7 +74,7 @@ To start creating your new host pool:
      > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
   
    >[!NOTE]
-   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) troubleshooting article.
+   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-dont-see-the-azure-region-i-want-to-use-when-selecting-the-location-for-my-service-objects) troubleshooting article.
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 

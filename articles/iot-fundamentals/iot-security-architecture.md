@@ -5,7 +5,7 @@ author: eross-msft
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 08/26/2022
 ms.author: lizross
 ---
 # Internet of Things (IoT) security architecture
