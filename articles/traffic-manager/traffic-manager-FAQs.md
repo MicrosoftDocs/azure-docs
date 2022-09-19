@@ -40,7 +40,7 @@ Further investigation should therefore focus on the application.
 
 The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you’re using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/configure-domain-traffic-manager.md).
 
-### How can I resolve a 500 (Internal Server Error) when using Traffic Manager?
+### How can I resolve a 500 (Internal Server Error) problem when using Traffic Manager?
 
 If your client or application receives an HTTP 500 error while using Traffic Manager, this can be caused by a stale DNS query. To resolve the issue, clear the DNS cache and allow the client to issue a new DNS query.
 

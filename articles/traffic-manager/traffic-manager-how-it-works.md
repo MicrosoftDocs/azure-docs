@@ -75,7 +75,7 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 * [Why am I seeing an HTTP error when using Traffic Manager?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [How can I resolve a 500 (Internal Server Error) when using Traffic Manager?](./traffic-manager-faqs.md#how-can-i-resolve-a-500-internal-server-error-when-using-traffic-manager)
+* [How can I resolve a 500 (Internal Server Error) problem when using Traffic Manager?](./traffic-manager-faqs.md#how-can-i-resolve-a-500-internal-server-error-problem-when-using-traffic-manager)
 
 * [What is the performance impact of using Traffic Manager?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 
