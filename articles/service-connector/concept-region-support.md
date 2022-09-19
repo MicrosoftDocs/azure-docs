@@ -11,7 +11,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 # Service Connector region support
 
-When you create a connection between several Cloud services with Service Connector, the conceptual connection resource is provisioned into the same region as your compute service instance by default. This page shows the region support information.
+When you connect Cloud services together with Service Connector, the conceptual connection resource is provisioned into the same region as your compute service instance by default. This page shows the region support information.
 
 ## Supported regions with regional endpoint
 
@@ -52,3 +52,10 @@ If your compute service instance is located in one of the regions that Service C
 ## Regions not supported
 
 In regions where Service Connector isn't supported, you will still find Service Connector in the Azure portal and the Service Connector commands will appear in the Azure CLI, but you won't be able to create or manage service connections. The product team is working actively to enable more regions.
+
+## Next steps
+
+Go the concept article below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [High availability](./concept-availability.md)
