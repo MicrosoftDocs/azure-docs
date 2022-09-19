@@ -86,9 +86,9 @@ The Defender for DevOps service automatically discovers the organizations, proje
 
 ## Learn more
 
-- Learn more about [Azure DevOps](/azure/devops/?view=azure-devops).
+- Learn more about [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops).
 
-- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- Learn how to [create your first pipeline](https://learn.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).

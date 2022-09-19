@@ -48,10 +48,10 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-    - name: Connect GitHuB repositories
-      displayName: GitHuB, DevOps
+    - name: Connect GitHub reositories
+      displayName: GitHub, DevOps
       href: quickstart-onboard-github.md
-    - name: Connect Azure DevOps
+    - name: Connect Azure DevOps repositories
       displayName: DevOps, connect, Azure
       href: quickstart-onboard-ado.md
   - name: 4. Configure auto provisioning
