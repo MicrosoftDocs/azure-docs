@@ -149,7 +149,7 @@ There is no migration required as AKS Deployment center experience does not stor
 
 For existing pipelines, users will still be able to perform all operations from GitHub Actions or Azure DevOps after the retirement of this experience. Only the ability to create and view pipelines from Azure portal will be removed. See [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) to learn how to get started. 
 
-For new application deployments to AKS, instead of using Deployment center users can get the same capabilities by using Automated Deployments. 
+For new application deployments to AKS, instead of using Deployment center users can get the same capabilities by using Automated deployments. 
 
 #### FAQ  
 
