@@ -65,7 +65,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 6. After you add Application Insights to your project, check to confirm that you're using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages...** > **Microsoft.ApplicationInsights.AspNetCore**. If you need to, select **Update**.
 
-     :::image type="content" source="./media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update":::
+     :::image type="content" source="./media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update.":::
 
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
