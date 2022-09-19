@@ -1,6 +1,6 @@
 ---
 title: Use built-in persistent storage in Azure Spring Apps | Microsoft Docs
-description: Lean how to use built-in persistent storage in Azure Spring Apps
+description: Learn how to use built-in persistent storage in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
@@ -36,31 +36,32 @@ You can modify the state of built-in persistent storage using the Azure portal o
 
 ### [Portal](#tab/azure-portal)
 
-## Enable or disable built-in persistent storage with the portal
+## Enable or disable built-in persistent storage using the Azure portal
 
-The portal can be used to enable or disable built-in persistent storage.
+Use the following steps to enable or disable built-in persistent storage using the Azure portal.
 
-1. From the **Home** page of your Azure portal, select **All Resources**.
+1. Go to your Azure Spring Apps instance in the Azure portal.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/portal-all-resources.jpg" lightbox="media/how-to-built-in-persistent-storage/portal-all-resources.jpg" alt-text="Screenshot of the Azure portal home page showing the All Resources button.":::
+1. From the left pane, open the **Apps** pane to view apps for your service instance.
 
-1. Select the Azure Spring Apps resource that needs persistent storage. In this example, the selected application is called **upspring**.
+   :::image type="content" source="media/how-to-built-in-persistent-storage/app-dashboard.png" lightbox="media/how-to-built-in-persistent-storage/app-dashboard.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/select-service.jpg" lightbox="media/how-to-built-in-persistent-storage/select-service.jpg" alt-text="Screenshot of the All resources page.":::
+1. Select an app to view details.
 
-1. Under the **Settings** heading, select **Apps**.
+   :::image type="content" source="media/how-to-built-in-persistent-storage/app-overview.png" lightbox="media/how-to-built-in-persistent-storage/app-overview.png" alt-text="Screenshot of details for an app.":::
 
-1. Your Azure Spring Apps services appear in a table.  Select the service that you want to add persistent storage to. In this example, the **gateway** service is selected.
+1. Select **Configuration** to open the Configuration pane, and then select **Persistent Storage**.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/select-gateway.jpg" lightbox="media/how-to-built-in-persistent-storage/select-gateway.jpg" alt-text="Screenshot of the Apps pane.":::
+   :::image type="content" source="media/how-to-built-in-persistent-storage/select-configuration.png" lightbox="media/how-to-built-in-persistent-storage/select-configuration.png" alt-text="Screenshot of the Configuration pane showing the Persistent Storage tab.":::
 
-1. From the service's configuration page, select **Configuration**
-
-1. Select the **Persistent Storage** tab and select **Enable** to turn on persistent storage, or select **Disable** to turn off persistent storage.
+1. On the **Persistent Storage** tab, select **Enable** to turn on persistent storage, or select **Disable** to turn off persistent storage.
 
    :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.jpg" alt-text="Screenshot of the Persistent Storage tab.":::
 
-If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
+If persistent storage is enabled, the **Persistent Storage** tab displays the storage size and path.
+
+> [!NOTE]
+> Built-in persistent storage is not recommended.
 
 ### [Azure CLI](#tab/azure-cli)
 
