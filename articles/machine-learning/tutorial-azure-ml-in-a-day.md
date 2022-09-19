@@ -17,7 +17,7 @@ ms.custom: sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure ML and their most common usage. 
+Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure ML and their most common usage.
 
 You'll learn how to submit a *command job* to run your *training script* on a specified *compute resource*, configured with the *job environment* necessary to run the script.
 
@@ -92,8 +92,7 @@ Before you dive in the code, you'll need to connect to your Azure ML workspace. 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-
-@@REFERENCE name="credential"
+[!notebook-python[] (~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="credential"c
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -102,7 +101,7 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
 
-@@REFERENCE name="ml_client"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="ml_client")]
 
 The result is a handler to the workspace that you'll use to manage other resources and jobs.
 
@@ -117,7 +116,7 @@ You'll provision a Linux compute cluster. See the [full list on VM sizes and pri
 
 For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure ML Compute.
 
-@@REFERENCE name="cpu_compute_target"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="cpu_compute_target")]
 
 ## Create a job environment
 
@@ -129,17 +128,17 @@ In this example, you'll create a custom conda environment for your jobs, using a
 
 First, create a directory to store the file in.
 
-@@REFERENCE name="dependencies_dir"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="dependencies_dir")]
 
 Now, create the file in the dependencies directory.
 
-@@REFERENCE name="write_model"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="write_model"
 
 The specification contains some usual packages, that you'll use in your job (numpy, pip).
 
 Reference this *yaml* file to create and register this custom environment in your workspace:
 
-@@REFERENCE name="custom_env_name"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="custom_env_name")]
 
 ## What is a command job?
 
@@ -158,13 +157,13 @@ Let's start by creating the training script - the *main.py* python file.
 
 First create a source folder for the script:
 
-@@REFERENCE name="train_src_dir"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="train_src_dir")]
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
 
-@@REFERENCE name="write_main"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="write_main")]
 
 As you can see in this script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
@@ -179,14 +178,14 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
 
-@@REFERENCE name="registered_model_name"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="registered_model_name")]
 
 ## Submit the job 
 
 It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
 
 
-@@REFERENCE name="create_job"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="create_job")]
 
 ## View job output and wait for job completion
 
@@ -214,16 +213,16 @@ To deploy a machine learning service, you usually need:
 Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier#:~:text=A%20universally%20unique%20identifier%20(UUID,%2C%20for%20practical%20purposes%2C%20unique.).
 
 
-@@REFERENCE name="online_endpoint_name"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="online_endpoint_name")]
 
 > [!NOTE]
 > Expect the endpoint creation to take approximately 6 to 8 minutes.
 
-@@REFERENCE name="endpoint"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="endpoint")]
 
 Once you've created an endpoint, you can retrieve it as below:
 
-@@REFERENCE name="retrieve_endpoint"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="retrieve_endpoint")]
 ```
 
 ## Deploy the model to the endpoint
@@ -233,7 +232,7 @@ Once the endpoint is created, deploy the model with the entry script. Each endpo
 You can check the **Models** page on the Azure ML studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
-@@REFERENCE name="latest_model_version"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="latest_model_version")]
 
 Deploy the latest version of the model.  
 
@@ -241,7 +240,7 @@ Deploy the latest version of the model.
 > Expect this deployment to take approximately 6 to 8 minutes.
 
 
-@@REFERENCE name="blue_deployment"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="blue_deployment")]
 
 
 ### Test with a sample query
@@ -250,12 +249,12 @@ Now that the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
-@@REFERENCE name="deploy_dir"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="deploy_dir")]
 
 
-@@REFERENCE name="write_sample"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="write_sample")]
 
-@@REFERENCE name="test"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="test")]
 
 ## Clean up resources
 
@@ -264,7 +263,7 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 > [!NOTE]
 > Expect this step to take approximately 6 to 8 minutes.
 
-@@REFERENCE name="delete_endpoint"
+(~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="delete_endpoint")]
 
 
 ### Delete everything
