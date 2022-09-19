@@ -100,7 +100,7 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
 1. In Microsoft Sentinel, go to the **Incidents** page.
 
-1. Above the list of incidents, select the **Product name** filter, clear all selections and then select **Microsoft Defender for IoT** to view incidents triggered by Defender for IoT alerts.
+1. Above the incident grid, select the **Product name** filter and clear the  **Select all** option. Then, select only **Microsoft Defender for IoT** to view only incidents triggered by Defender for IoT alerts.
 
 1. Select a specific incident to begin your investigation.
 
