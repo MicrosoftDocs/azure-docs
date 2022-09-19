@@ -36,7 +36,7 @@ The  following are required to compile the ASP.NET Core MVC application and crea
 
 ## Overview
 
-This quickstart uses [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](..//..//azure-resource-manager/bicep/overview.md)**, which is a new declarative language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
+This quickstart uses [Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) approach to deploy the resources to Azure. We'll use **[Bicep](..//..//azure-resource-manager/bicep/overview.md)**, which is a new declarative language that offers the same capabilities as [ARM templates](..//..//azure-resource-manager/templates/overview.md) but with a syntax that is more concise and easier to use. 
 
 The Bicep modules will deploy the following Azure resources under subscription scope.
 
