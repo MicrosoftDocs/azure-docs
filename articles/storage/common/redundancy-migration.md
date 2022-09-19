@@ -125,7 +125,13 @@ az storage account update \
 
 ---
 
-### Customer-initiated conversion (preview)
+### Perform a conversion
+
+A storage account replication conversion provides a way to change the zone redundancy replication setting for a storage account, without incurring any down time.
+
+During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+
+#### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
 > Customer-initiated conversion is currently in preview, but is not available in the following regions:
@@ -139,16 +145,16 @@ az storage account update \
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the migration directly from within the Azure portal. Once initiated, the migration could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
-Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the migration, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-### Support-requested conversion
+#### Support-requested conversion
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
 > [!IMPORTANT]
-> If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
 
 Follow these steps to request a conversion from Microsoft:
 
@@ -190,7 +196,7 @@ You must perform a manual migration if:
 - Your storage account includes data in the archive tier and rehydrating the data is not desired.
 
 > [!IMPORTANT]
-> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a conversion](#conversion) option. A conversion is an in-place migration with no downtime.
+> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [conversion](#perform-a-conversion) option. A conversion is an in-place migration with no downtime.
 
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
@@ -311,7 +317,7 @@ If you performed an [account failover](storage-disaster-recovery-guidance.md) fo
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
- If you initiate a conversion from the Azure portal, the migration process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
+If you initiate a conversion from the Azure portal, the migration process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
 
 If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
 

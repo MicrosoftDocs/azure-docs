@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2022
+ms.date: 09/19/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -47,7 +47,7 @@ Review the [limitations for changing replication types](../storage/common/redund
 
 During a conversion to ZRS, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
-If you choose manual migration, some downtime is required but you have more control over when the migration starts and completes.
+If you choose manual migration, some downtime is required but you have more control over when the process starts and completes.
 
 ## Option 1: Conversion
 
@@ -55,8 +55,8 @@ If you choose manual migration, some downtime is required but you have more cont
 
 Perform a conversion if:
 
-- You want to migrate your storage account from LRS to ZRS in the primary region with no application downtime.
-- You don't need the migration to be completed by a certain date. While Microsoft handles your request for conversion promptly, there's no guarantee as to when it will complete.  Generally, the more data you have in your account, the longer it takes to replicate that data.
+- You want to convert your storage account from LRS to ZRS in the primary region with no application downtime.
+- You don't need the change to be completed by a certain date. While Microsoft handles your request for conversion promptly, there's no guarantee as to when it will complete.  Generally, the more data you have in your account, the longer it takes to replicate that data.
 - You want to minimize the amount of manual effort required to complete the change.
 
 ### Conversion considerations
@@ -82,16 +82,20 @@ However, be aware of the following limitations:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer-initiated conversion is currently in preview.
+> Customer-initiated conversion is currently in preview, but is not available in the following regions:
+>
+> - (Europe) West Europe
+> - (Europe) UK South
+> - (North America) Canada Central
+> - (North America) East US
+> - (North America) East US 2
+>
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Customer-initiated conversion replaces the previous requirement to create a support request to perform a conversion. Now an Azure customer can easily initiate the migration from within the Azure portal. Once initiated, the migration could still take up to 72 hours to begin, but delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
-> [!NOTE]
-> Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI.
-
-To change the redundancy option for your storage account in the Azure portal, follow these steps:
+Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Data management** select **Redundancy**.
@@ -102,9 +106,39 @@ To change the redundancy option for your storage account in the Azure portal, fo
 
 #### Request a conversion by creating a support request
 
-If you need to migrate a production workload and don't want to use the customer-initiated migration preview, you can still open a support ticket to request Microsoft to do the conversion for you:
+Customers can still request a conversion by opening a support request with Microsoft.
 
-[Request a conversion](../storage/common/redundancy-migration.md) by creating a new support request from the Azure portal.
+> [!IMPORTANT]
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
+
+Follow these steps to request a conversion from Microsoft:
+
+1. In the Azure portal, navigate to a storage account that you want to convert.
+1. Under **Support + troubleshooting**, select **New Support Request**.
+1. Complete the **Problem description** tab based on your account information:
+    - **Summary**: (some descriptive text).
+    - **Issue type**: Select **Technical**.
+    - **Subscription**: Select your subscription from the drop-down.
+    - **Service**: Select **My Services**, then **Storage Account Management**.
+    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Details** section.
+    - **Problem type**: Choose **Data Migration**.
+    - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Basics tab":::
+
+1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
+    - **Target replication type**: (choose the desired option from the drop-down)
+    - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions tab":::
+
+1. Select **Submit**. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
+
+1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Details tab":::
+
+1. Fill out the additional required information on the **Details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 ## Option 2: Manual migration
 
