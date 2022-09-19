@@ -35,7 +35,7 @@ The Azure AD provisioning service automates your identity lifecycle and keeps id
 
 Thousands of organizations are running Azure AD cloud-hosted services, alongside its hybrid components delivered on-premises, for their provisioning scenarios. Microsoft continues to support and invest in both its cloud-hosted and on-premises delivered functionality, including MIM and Azure AD Connect sync, to help organizations provision users in all their connected systems and applications. This article focuses on how organizations can use Azure AD to address their provisioning needs and make clear which technology is most right for each scenario.
 
-!Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
+![Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
 
  Use the following table to find content specific to your scenario. For example, if you want to employee and contractor identities management from an HR system to Active Directory (AD) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
 
