@@ -30,11 +30,11 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ### Composed model compatibility
 
-|Custom model type |Models trained with version 2.1 and v2.0 | Custom template modes (3.0) preview | Custom neural models 3.0 Preview |Custom Neural models 3.0 GA|
+|Custom model type |Models trained with version 2.1 and v2.0 | Custom template models (3.0) preview | Custom neural models 3.0 Preview |Custom neural models 3.0 GA|
 |--|--|--|--|--|
 | Models trained with version 2.1 and v2.0 | Supported | Supported | Not Supported | Not Supported |
-| Custom template modes (3.0) preview | Supported |Supported |  Not Supported | Not Supported |
-| Custom Template models 3.0 GA | Not Supported |Not Supported | Supported | Not Supported |
+| Custom template models (3.0) preview | Supported |Supported |  Not Supported | Not Supported |
+| Custom template models 3.0 GA | Not Supported |Not Supported | Supported | Not Supported |
 | Custom neural models 3.0 Preview | Not Supported | NotSupported | Supported | Not Supported |
 |Custom Neural models 3.0 GA| Not Supported | NotSupported |NotSupported |Supported |
 
