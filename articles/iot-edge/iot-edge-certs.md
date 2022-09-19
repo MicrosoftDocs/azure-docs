@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.date: 09/16/2022
+ms.date: 09/19/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -136,10 +136,10 @@ In summary, *ContosoIotHub* can trust *EdgeGateway* because:
 - *EdgeGateway's* ability to decrypt data signed with its public key using its private key verifies the cryptographic key pair
 
 > [!NOTE]
-> This example doesn't address DPS, which also has support for X.509 CA authentication with IoT Edge when provisioned with enrollment group. You upload the CA or an intermediate certificate to DPS. DPS then checks that the chain is legit, a proceeds with a provisioning. To learn more, see link.
-> 
-> Then, DPS registers the SHA256 thumbprint (and updates it if reprovisioned) to IoT Hub. Verify this by `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. From then on, Iot Edge essentially uses thumbprint auth with IoT Hub until it's time for reprovision. If that happens, DPS updates IoT Hub with the new thumbprint if a new cert is issued. 
-> 
+> This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [link]().
+>
+> DPS registers or updates the SHA256 thumbprint to IoT Hub. You can verify the thumbprint using the command `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. Once registered, Iot Edge uses thumbprint authentication with IoT Hub. If the device is reprovisioned and a new certificate is issued, DPS updates IoT Hub with the new thumbprint.
+>
 > IoT Hub currently doesn't support X.509 CA authentication directly with IoT Edge.
 
 ### PS: IoT Edge uses the certificate only for module identity operations
