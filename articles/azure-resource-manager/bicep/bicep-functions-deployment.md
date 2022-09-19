@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 09/19/2022
 ---
 
 # Deployment functions for Bicep
