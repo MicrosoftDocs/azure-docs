@@ -15,7 +15,7 @@ This article is about role-based access control for data plane operations in Azu
 
 If you are using management plane operations, see [role-based access control](../role-based-access-control.md) applied to your management plane operations article.
 
-The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users are roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
+The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
 
 ## Concepts
 

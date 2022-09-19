@@ -33,7 +33,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant (all users, service principals and managed identities) |
 | [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
@@ -226,4 +226,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) image from a direct shared image in the target subscription or tenant.

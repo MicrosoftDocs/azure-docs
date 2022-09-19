@@ -4,7 +4,7 @@ description: This article explains the different types of Azure Monitor alerts a
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 09/14/2022
 ms.custom: template-concept 
 ms.reviewer: harelbr
 ---
@@ -83,6 +83,7 @@ The platform metrics for these services in the following Azure clouds are suppor
 | Azure Cache for Redis        | Yes      | Yes    | Yes |
 | Azure Stack Edge devices     | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
+| Azure Database for PostgreSQL - Flexible Servers     | Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts are not supported for the following scenarios:

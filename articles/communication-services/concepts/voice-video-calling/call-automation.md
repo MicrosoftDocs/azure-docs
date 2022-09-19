@@ -41,21 +41,19 @@ The following list presents the set of features that are currently available in 
 | Pre-call scenarios    | Answer a one-to-one call                          | ✔️    | ✔️    |
 |                       | Answer a group call                               | ✔️    | ✔️    |
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |
-|                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |
+|                       | Redirect (forward) a call to one or more endpoints  | ✔️    | ✔️    |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |
-|                       | Blind Transfer** a call to another endpoint         | ✔️    | ✔️    |
+|                       | Blind Transfer* a call to another endpoint         | ✔️    | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
 
-*Redirecting a call to a phone number is currently not supported.
-
-**Transfer of VoIP call to a phone number is currently not supported.
+*Transfer of VoIP call to a phone number is currently not supported.
 
 ## Architecture
 
@@ -120,6 +118,7 @@ Most of the events sent by Event Grid are platform agnostic meaning they're emit
 ### Call Automation webhook events
 
 The Call Automation events are sent to the web hook callback URI specified when you answer or place a new outbound call.
+
 | Event             | Description |
 | ----------------- | ------------ |
 | CallConnected      | Your application’s call leg is connected (inbound or outbound)  |
