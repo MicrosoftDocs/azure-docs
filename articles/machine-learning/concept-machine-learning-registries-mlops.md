@@ -9,7 +9,7 @@ ms.author: mabables
 author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 9/9/2022
-ms.topic: concept
+ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 

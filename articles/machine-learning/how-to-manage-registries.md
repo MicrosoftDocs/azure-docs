@@ -28,7 +28,7 @@ AzureML registries enable you to create and use those assets in different worksp
 
 ## Prerequisites
 
-[!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-v2-prereqs.md)]
+[!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
 
 ## Prepare to create registry
 

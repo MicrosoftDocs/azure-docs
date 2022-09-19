@@ -1,7 +1,7 @@
 ---
-title: Share models, components, and environments across workspaces with registries using CLI v2 (preview)
+title: Share models, components, and environments across workspaces with registries (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries
+description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 
 ---
 
-# Share models, components and environments across workspaces with registries using CLI v2 (preview)
+# Share models, components and environments across workspaces with registries (preview)
 
 Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
@@ -37,7 +37,7 @@ Before following the steps in this article, make sure you have the following pre
 
 - An Azure Machine Learning registry (preview) to share models, components and environments. To create a registry, see [Learn how to create a registry](todo).
 
-- An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](../articles/machine-learning/quickstart-create-resources.md) article to create one.
+- An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
     The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
@@ -46,7 +46,7 @@ Before following the steps in this article, make sure you have the following pre
 
     # [Azure CLI](#tab/cli)
 
-    To install the Azure CLI and extension, see [Install, set up, and use the CLI (v2)](../articles/machine-learning/how-to-configure-cli.md).
+    To install the Azure CLI and extension, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
     > [!IMPORTANT]
     > * The CLI examples in this article assume that you are using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
@@ -59,8 +59,8 @@ Before following the steps in this article, make sure you have the following pre
     >     * Replace `<location>` with the Azure region that contains your workspace.
     >
     >     ```azurecli
-          az account set --subscription <subscription>
-          az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+    >     az account set --subscription <subscription>
+    >     az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
     >     ```
     >     You can see what your current defaults are by using the `az configure -l` command.
 
@@ -430,7 +430,7 @@ az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path 
 > [!TIP]
 > The same the CLI command `az ml model create` can be used to create models in a workspace or registry. Running the command with `--workspace-name` command creates the model in a workspace whereas running the command with `--registry-name` creates the model in the registry.
 
-# [Python SDK](#tab/sdk)
+# [Python SDK](#tab/python)
 
 Make sure you use the `pipeline_job` object from the previous section or fetch the pipeline job using `ml_client_workspace.jobs.get(name="<pipeline-job-name>")` method to get the list of child jobs in the pipeline. You'll then look for the job with `display_name` as `train_job` and download the trained model from `train_job` output. The downloaded model along with MLflow metadata files should be available in the `./artifacts/model/`.
 
@@ -498,7 +498,7 @@ az ml model show --name <model_name> --version <model_version> --registry-name <
 ```
  You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
-# [Python SDK](#tab/cli)
+# [Python SDK](#tab/python)
 
 Make sure you use the `pipeline_job` object from the previous section or fetch the pipeline job using `ml_client_workspace.jobs.get(name="<pipeline-job-name>")` method to get the list of child jobs in the pipeline. You'll then look for the job with `display_name` as `train_job` and use the `name` of the `train_job` to construct the path pointing to the model output, which looks like this: `azureml://jobs/<job_name>/outputs/default/model`.
 
@@ -658,7 +658,7 @@ If you aren't going use the deployment, you should delete it to reduce costs. Th
 az ml online-endpoint delete --name reg-ep-1234 --yes --no-wait
 ```
 
-# [Python SDK](#tab/sdk)
+# [Python SDK](#tab/python)
 
 ```python
 ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
