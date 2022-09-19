@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 With Conditional Access policies, you can control how your users get access to the resources of your Azure tenant. As a tenant admin, you need to be able to determine what impact your Conditional Access policies have on sign-ins to your tenant, so that you can take action if necessary. 
 
-The sign-in logs in Azure Active Directory (Azure AD) give you the information that you need to assess the impact of your policies. This article explains how to view those logs.
+The sign-in logs in Azure Active Directory (Azure AD) give you the information that you need to assess the impact of your policies. This article explains how to view applied Conditional Access policies in those logs.
 
 ## What you should know
 
