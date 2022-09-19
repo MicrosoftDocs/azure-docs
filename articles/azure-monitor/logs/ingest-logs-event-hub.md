@@ -274,7 +274,7 @@ With [user-assigned identity](../../active-directory/managed-identities-azure-re
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
 
-3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your event hub and click **Select**.
+3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your DCR and click **Select**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
 
