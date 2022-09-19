@@ -25,17 +25,17 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
-You can switch a storage account from one type of replication to any other type. This article describes two basic options for adding availability zone support to a storage account:
+This article describes two basic options for adding availability zone support to a storage account:
 
 - [Conversion](#option-1-conversion)
 - [Manual migration](#option-2-manual-migration)
 
 > [!NOTE]
-> For more details on how to change how your storage account is replicated, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
+> For complete details on how to change how your storage account is replicated, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).
 
 ## Prerequisites
 
-Review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types). Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
+Before making any changes, review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types) to make sure your storage account is eligible for migration or conversion, and to understand the options available to you. Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
 
 - [Storage account type](../storage/common/redundancy-migration.md#storage-account-type)
 - [Region](../storage/common/redundancy-migration.md#region)
@@ -61,23 +61,16 @@ Perform a conversion if:
 
 ### Conversion considerations
 
-Conversion can be used in most situations to add availability zone support, but in some cases you will need to use multiple steps or perform a manual migration. Some examples are:
+Conversion can be used in most situations to add availability zone support, but in some cases you will need to use multiple steps or perform a manual migration. For example, if you also want to add or remove geo-redundancy (GRS) or read access (RA) to the secondary region, you will need to perform a two-step process. Perform the conversion to ZRS as one step and the GRS and/or RA change as a separate step. These steps can be performed in any order.
 
-- If you also want to add or remove geo-redundancy (GRS) or read access (RA) to the secondary region, you will need to perform a two-step process. Perform the conversion to ZRS as one step and the GRS and/or RA change as a separate step. These steps can be performed in any order.
-
-However, be aware of the following limitations:
-
-- The archive tier is not currently supported for ZRS accounts.
-
-- Unmanaged disks don't support ZRS or GZRS.
-
-- Only general-purpose v2 storage accounts support GZRS and RA-GZRS. GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues.
-
-- conversion from LRS to ZRS isn't supported if the storage account contains Azure Files NFSv4.1 shares.
-
-- For premium performance, conversion is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
+A fill list of things to consider can be found here: [Limitations](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types).
 
 ### How to perform a conversion
+
+A conversion can be accomplished in one of two ways:
+
+1. [A Customer-initiated conversion (preview)](#customer-initiated-conversion-preview)
+1. [Request a conversion by creating a support request](#request-a-conversion-by-creating-a-support-request)
 
 #### Customer-initiated conversion (preview)
 
