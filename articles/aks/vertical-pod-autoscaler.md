@@ -43,35 +43,57 @@ The following table describes the options and supported values to configure and 
 |`--vpa-controlled-values` |Specifies the behavior of VPA. Options are: **Requests**, **limits**, or **RequestsAndLimits** | None |
 |`--vpa-update-mode` |Specifies the allowed modes. Options are:<br><br> <ul><li> **Off** - VPA does not automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.</ul></li> <ul><li>**Initial** - VPA only assigns resource requests on pod creation and never changes them later.</ul></li> <ul><li>**Recreate** - VPA assigns resource requests on pod creation as well as updates them on existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, prefer the "Auto" mode which may take advantage of restart-free updates once they are available. >[!NOTE] This feature of VPA is in preview and may cause downtime for your applications. </ul></li> <ul><li>**Auto** - VPA assigns resource requests during pod creation as well as updates them on existing pods using the preferred update mechanism. Currently, this is equivalent to **Recreate**. Once restart free, *in-place* update of pod requests is available. It may be used as the preferred update mechanism by the **Auto** mode. >[!NOTE] This feature of VPA is in preview and may cause downtime for your applications.</ul></li>| None |
 
-## Deploy VPA on a new cluster
+## Deploy, upgrade, or disable VPA on a cluster
 
-To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
+In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on your cluster.
+
+1. To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
 
     ```azurecli
     az aks create -n myAKSCluster -g myResourceGroup --enable-vpa
     ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## Deploy VPA on an existing cluster
+2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
 
-To enable VPA on an existing cluster, use `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+    ```azurecli
+    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    ```
 
-```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+
+    ```azurecli
+    az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
+    ```
+
+    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+To verify that the Vertical Pod Autoscaler pods have been created successfully, run the following [kubectl] command:
+
+```bash
+kubectl get pods -n kube-system
 ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+## Test your Vertical Pod Autoscaler installation
 
-## Disable VPA on an existing cluster
+The following steps creates a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they are updated with a higher CPU request.
 
-To disable VPA on an existing cluster, use `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+1. Create a file named `hamster.yaml` and copy in the following manifest of the Vertical Pod Autoscaler example from the the [kubernetes/autoscaler][kubernetes-autoscaler-github-repo] GitHub repository.
 
-```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
-```
+1. Deploy the `hamster.yaml` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+    ```bash
+    kubectl apply -f hamster.yaml
+    ```
+
+1. 
+
+<!-- EXTERNAL LINKS -->
+[kubernetes-autoscaler-github-repo]: https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/examples/hamster.yaml
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- INTERNAL LINKS -->
 [get-started-with-aks]: /azure/architecture/reference-architectures/containers/aks-start-here
