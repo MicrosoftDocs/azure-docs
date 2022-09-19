@@ -56,7 +56,7 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 
 # [Azure portal](#tab/azure-portal)
 
-1. On the Key Vault properties pages, select **Certificates**.
+1. On the page for your key vault, select **Certificates**.
 2. Click on **Generate/Import**.
 3. On the **Create a certificate** screen choose the following values:
     - **Method of Certificate Creation**: Import.

@@ -30,13 +30,29 @@ What is logged:
 
 ## Prerequisites
 
-To complete this tutorial, you must have the following:
+To complete this tutorial, you will need an Azure key vault. You can create a new key vault using one of these methods:
+  - [Create a key vault using the Azure CLI](quick-create-cli.md)
+  - [Create a key vault using Azure PowerShell](quick-create-powershell.md)
+  - [Create a key vault using the Azure portal](quick-create-portal.md)
 
-* An existing key vault that you have been using.  
-* [Azure Cloud Shell](https://shell.azure.com) - Bash environment.
-* Sufficient storage on Azure for your Key Vault logs.
+You will also need a destination for your logs.  This can be an existing or new Azure storage account and/or Log Analytics workspace.
 
-In this article, commands are formatted for [Cloud Shell](https://shell.azure.com) with Bash as an environment.
+> [!IMPORTANT]
+> If you use an existing Azure storage account or Log Analytics workspace, it must be in the same subscription as your key vault. It must also use the Azure Resource Manager deployment model, rather than the classic deployment model.
+>
+> If you create a new Azure storage account or Log Analytics workspace, we recommend you create it in the same resource group as your key vault, for ease of management.
+
+You can create a new Azure storage account using one of these methods:
+  - [Create a storage account using the Azure CLI](../../storage/common/storage-account-create.md?tabs=azure-cli)
+  - [Create a storage account using Azure PowerShell](../../storage/common/storage-account-create.md?tabs=azure-powershell)
+  - [Create a storage account using the Azure portal](../../storage/common/storage-account-create.md?tabs=azure-portal)
+
+You can create a new Log Analytics workspace using one of these methods:
+  - [Create a Log Analytics workspace using the Azure CLI](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-cli)
+  - [Create a Log Analytics workspace using Azure PowerShell](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-powershell)
+  - [Create a Log Analytics workspace the Azure portal](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal)
+
+
 
 ## Connect to your Key Vault subscription
 
