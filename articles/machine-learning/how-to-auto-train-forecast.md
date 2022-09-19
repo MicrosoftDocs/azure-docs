@@ -60,7 +60,7 @@ Pass your training and validation data as one dataset to the parameter `training
 automl_config = AutoMLConfig(task='forecasting',
                              training_data= training_data,
                              n_cross_validations=”auto”, # Could be customized as an integer
-                             cv_step_size = “auto”, # Could be customized as an integer
+                             cv_step_size = "auto", # Could be customized as an integer
                              ...
                              **time_series_settings)
 ```
