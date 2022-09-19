@@ -2,7 +2,10 @@
 title: 'Tutorial: Access data with managed identity in Java using Service Connector'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and also how to deploy it to Azure Container Apps.
 ms.devlang: java
+author: shizn
 ms.topic: tutorial
+ms.author: xshi
+ms.service: container-apps
 ms.date: 09/22/2022
 ---
 # Tutorial: Connect to PostgreSQL Database from Java Quarkus Container App without secrets using a managed identity
@@ -182,10 +185,9 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
     --name $CONTAINERAPPS_ENVIRONMENT \
     --resource-group $RESOURCE_GROUP \
     --location $LOCATION
-
     ```
 
-1. Create a container app with your app image by running the following command. Replace the <placeholders> with your values. To find Container Registry admin account details, please check [Authenticate with an Azure container registry](../container-registry/container-registry-authentication#admin-account)
+1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find Container Registry admin account details, please check [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md)
 
     ```azurecli
     CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1
@@ -248,7 +250,6 @@ Next, you create a Postgres Database and configure your container app to connect
 
 1. Connect database to container app with a system-assigned managed identity with connection command.
 
-
     ```azurecli
     az containerapp connection create postgres -g $RESOURCE_GROUP \
     -n my-container-app 
@@ -269,7 +270,6 @@ You can find the application URL(FQDN) by using the following command:
 When the new webpage shows your fruit list, your app is connecting to the database using the managed identity. You should now be able to edit fruit list as before.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-> [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
 
 ## Next steps
