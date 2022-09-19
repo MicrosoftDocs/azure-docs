@@ -134,11 +134,10 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
-- [Defender for CSPM Premium](concept-cloud-security-posture-management.md)
-    - [Security Governance](concept-cloud-security-posture-management.md#security-governance)
+- [Defender for CSPM](concept-cloud-security-posture-management.md)
+    - [Security governance and regulatory compliance](concept-cloud-security-posture-management.md#security-governance-and-regulatory-compliance)
     - [Cloud Security Graph](concept-cloud-security-posture-management.md#cloud-security-graph)
     - [Attack Path Analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
-    - [Regulatory compliance](concept-cloud-security-posture-management.md#regulatory-compliance)
     - [Agentless scanning for machines](concept-cloud-security-posture-management.md#agentless-scanning-for-machines)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.

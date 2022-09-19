@@ -96,7 +96,9 @@
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
-
+    - name: Cloud Security Posture Management (CSPM)
+      href: concept-cloud-security-posture-management.md
+      
   - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents

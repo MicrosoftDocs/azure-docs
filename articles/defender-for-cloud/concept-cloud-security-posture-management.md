@@ -1,6 +1,6 @@
 ---
-title: Overview of CSPM
-description: 
+title: Overview of Cloud Security Posture Management (CSPM)
+description: Learn more about the nw Defender for CSPM plan and the additional enhanced security features that can be enable for your multicloud environment through the CSPM premium plan.
 ms.topic: conceptual
 ms.date: 09/19/2022
 ---
@@ -19,10 +19,9 @@ The following table summarizes what's included in each plan and their cloud avai
 
 | Feature | Details | Defender for CSPM | Defender for CSPM Premium | Cloud availability |
 |--|--|--|--|--|
-| [Security Governance](#security-governance) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
+| [Security governance and regulatory compliance](#security-governance-and-regulatory-compliance) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
 | [Cloud Security Graph](#cloud-security-graph) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Attack Path Analysis](#attack-path-analysis) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Regulatory compliance](#regulatory-compliance) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
 | [Agentless scanning for machines](#agentless-scanning-for-machines) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 
 > [!NOTE]
@@ -30,7 +29,13 @@ The following table summarizes what's included in each plan and their cloud avai
 >
 > To enable Governance for for DevOps related recommendations, the CSPM premium plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
 
-## Security Governance
+## Security governance and regulatory compliance
+
+Security governance and regulatory compliance refers to the policies and processes which organizations have in place to ensure that they comply with laws, rules and regulations put in place by external bodies (government) which control activity in a given jurisdiction. Defender for Cloud allows you to view your regulatory compliance through the regulatory compliance dashboard.
+
+Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
+
+Learn more about [security and regulatory compliance in Defender for Cloud](concept-regulatory-compliance.md).
 
 ## Cloud Security Graph
 
@@ -48,10 +53,6 @@ By taking your environment's contextual information into account such as, intern
 
 Learn more about [attack path analysis](concept-attack-path.#what-is-attack-path-analysis)
 
-## Regulatory compliance
-
-
-
 ## Agentless scanning for machines 
 
 With agentless scanning for VMs, you can get visibility on actionable OS posture issues without installed agents, network connectivity, or machine performance impact.
@@ -60,5 +61,4 @@ Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 ## Next steps
 
-
-
+Learn about [Microsoft Defender for Cloud's basic and enhanced security features](enhanced-security-features-overview.md)
