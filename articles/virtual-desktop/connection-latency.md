@@ -3,7 +3,7 @@ title: Azure Virtual Desktop user connection quality - Azure
 description: Connection quality for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/21/2022
 ms.author: helohr
 manager: femila
 ---
