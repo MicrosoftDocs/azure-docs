@@ -163,4 +163,4 @@ No.  All the created pipelines will still be available and functional in GitHub 
 
 3. How can I still configure CD pipelines directly through Azure portal? 
 
-    You can use the newer and improved experience of “Automated deployments” available 	in AKS blade in Azure portal.
+You can use Automated deployments available in the AKS blade in Azure portal.
