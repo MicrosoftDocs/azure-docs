@@ -22,7 +22,7 @@ Customers are encouraged to use [Azure Developer CLI](/azure/developer/azure-dev
 
 ## Azure Developer CLI
 
-The replacement [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. Hence enabling users to create, provision, and deploy a new application in a single step. 
+The replacement [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/overview?tabs=nodejs) is a developer command-line tool for building cloud apps. It provides commands that map to key stages in your workflow: code, build, deploy, monitor, repeat. You can use Azure CLI to create, provision, and deploy a new application in a single step. 
 
 ## Comparision between Azure DevOps and Azure Developer CLI
 
