@@ -130,7 +130,7 @@ The Azure Kubernetes Fleet Manager resource itself is a Kubernetes cluster that 
 1. Get the kubeconfig file of the fleet resource:
 
     ```azurecli-interactive
-    az fleet get-credentials -n ${FLEET} -g {GROUP}
+    az fleet get-credentials -n ${FLEET} -g ${GROUP}
     ```
 
 1. Get the id of the fleet resource:
@@ -142,10 +142,10 @@ The Azure Kubernetes Fleet Manager resource itself is a Kubernetes cluster that 
 1. Authorize your identity to this Kubernetes API:
 
     ```azurecli-interactive
-    az role assignment create --role "${ROLE}" --assignee ${ME} --scope ${FLEET_ID}
+    az role assignment create --role "${ROLE}" --assignee ${IDENTITY} --scope ${FLEET_ID}
     ```
 
-    For the above command, you can use one of the following four built in role-definitions:
+    For the above command, for the `ROLE` environment variable, you can use one of the following four built in role-definitions as value:
 
     * Azure  Kubernetes Fleet Manager RBAC Reader
     * Azure  Kubernetes Fleet Manager RBAC Writer

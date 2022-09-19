@@ -16,7 +16,7 @@ Once an application has been deployed across multiple clusters using the [Kubern
 
 ## Prerequisites
 
-* The target AKS clusters on which these workloads are deployed need to be using the [Azure CNI networking](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni).
+* The target AKS clusters on which these workloads are deployed need to be using the [Azure CNI networking](../aks/configure-azure-cni).
 
 * The target AKS clusters on which these workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
@@ -46,76 +46,78 @@ Once an application has been deployed across multiple clusters using the [Kubern
 	
 	Contents of `demo-app.yaml`:
 	
-		```yml
-		apiVersion: apps/v1
-		kind: Deployment
-		metadata:
-			name: app
-			namespace: demo
-		spec:
-			replicas: 2
-			selector:
-				matchLabels:
-					app: hello-world
-			template:
-				metadata:
-					labels:
-						app: hello-world
-				spec:
-					containers:
-						- name: python
-							image: fleetnetbugbash.azurecr.io/app
-							imagePullPolicy: Always
-							ports:
-							- containerPort: 8080
-							env:
-							- name: MEMBER_CLUSTER_ID
-								valueFrom:
-									configMapKeyRef:
-										name: member-cluster-id
-										key: id
-							resources:
-								requests:
-									cpu: "0.2"
-									memory: "400M"
-								limits:
-									cpu: "0.2"
-									memory: "400M"
-							volumeMounts:
-								- mountPath: /etc/podinfo
-									name: podinfo
-					volumes:
-						- name: podinfo
-							downwardAPI:
-								items:
-									- path: "name"
-										fieldRef:
-											fieldPath: metadata.name
-									- path: "namespace"
-										fieldRef:
-											fieldPath: metadata.namespace
-		---
-		apiVersion: v1
-		kind: Service
-		metadata:
-			name: app
-			namespace: demo
-		spec:
-			type: LoadBalancer
-			selector:
+	```yml
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+		name: app
+		namespace: demo
+	spec:
+		replicas: 2
+		selector:
+			matchLabels:
 				app: hello-world
-			ports:
-			- port: 80
-				targetPort: 8080
-		
-		---
-		
-		apiVersion: networking.fleet.azure.com/v1alpha1
-		kind: ServiceExport
-		metadata:
-			name: app
-			namespace: demo
-		```
+		template:
+			metadata:
+				labels:
+					app: hello-world
+			spec:
+				containers:
+					- name: python
+						image: fleetnetbugbash.azurecr.io/app
+						imagePullPolicy: Always
+						ports:
+						- containerPort: 8080
+						env:
+						- name: MEMBER_CLUSTER_ID
+							valueFrom:
+								configMapKeyRef:
+									name: member-cluster-id
+									key: id
+						resources:
+							requests:
+								cpu: "0.2"
+								memory: "400M"
+							limits:
+								cpu: "0.2"
+								memory: "400M"
+						volumeMounts:
+							- mountPath: /etc/podinfo
+								name: podinfo
+				volumes:
+					- name: podinfo
+						downwardAPI:
+							items:
+								- path: "name"
+									fieldRef:
+										fieldPath: metadata.name
+								- path: "namespace"
+									fieldRef:
+										fieldPath: metadata.namespace
+    
+    ---
+    
+    apiVersion: v1
+    kind: Service
+    metadata:
+    	name: app
+    	namespace: demo
+    spec:
+    	type: LoadBalancer
+    	selector:
+    		app: hello-world
+    	ports:
+    	- port: 80
+    		targetPort: 8080
+    	
+    ---
+    
+    apiVersion: networking.fleet.azure.com/v1alpha1
+    kind: ServiceExport
+    metadata:
+    	name: app
+    	namespace: demo
+	```
 
 
 	The `ServiceExport` specification above allows one to export a service from one member cluster to the fleet. Once successfully exported, fleet  will sync this service and all endpoints behind it to the hub, which other member clusters and fleet-scoped load balancer can then consume.
