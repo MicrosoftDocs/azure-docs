@@ -7,8 +7,6 @@ ms.date: 08/08/2022
 
 # What's new in Microsoft Defender for IoT?
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
 Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
