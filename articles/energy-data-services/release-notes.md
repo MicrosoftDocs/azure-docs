@@ -1,6 +1,6 @@
 ---
 title: Release notes #Required; page title is displayed in search results. Include the brand.
-description: This topic provides release notes of Microsoft Energy Data Services releases, improvements, bug fixes, and known issues. #Required; article description that is displayed in search results. 
+description: This topic provides release notes of Microsoft Energy Data Services Preview releases, improvements, bug fixes, and known issues. #Required; article description that is displayed in search results. 
 author: nitinnms #Required; your GitHub user alias, with correct capitalization.
 ms.author: nitindwivedi #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
@@ -9,7 +9,7 @@ ms.date: 09/20/2022 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Microsoft Energy Data Services Preview
+# Release Notes
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -21,8 +21,8 @@ Microsoft Energy Data Services receives improvements on an ongoing basis. To sta
 - Deprecated functionality
 - Plans for changes
 
-## September 20, 2022
----
+## Microsoft Energy Data Services Preview Release
+
 
 ### Key Announcement
 
