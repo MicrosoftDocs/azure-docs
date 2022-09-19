@@ -9,7 +9,7 @@ ms.date: 09/20/2022 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Release Notes
+# Release Notes for Microsoft Energy Data Services Preview
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
