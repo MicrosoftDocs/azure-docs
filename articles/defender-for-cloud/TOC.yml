@@ -97,6 +97,8 @@
 
   - name: Cloud Workload Protection concepts
     items:
+    - name: Agentless scanning
+      href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
