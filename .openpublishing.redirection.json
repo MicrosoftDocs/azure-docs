@@ -29359,5 +29359,10 @@
             "redirect_url": "/azure/virtual-machines/workloads/sap/ha-setup-with-fencing-device",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/aks/howto-deploy-java-liberty-app-with-postgresql.md",
+            "redirect_url": "/azure/developer/java/ee/howto-deploy-java-liberty-app-manual",
+            "redirect_document_id": false
+        }
     ]
 }
