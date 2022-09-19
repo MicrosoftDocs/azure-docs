@@ -94,7 +94,7 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
-    - name: Multi-instance GPU Node pool (preview)
+    - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
       href: servicemesh-about.md
@@ -260,8 +260,6 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md
               maintainContext: True
-        - name: Remove vulnerable images with ImageCleaner (preview)
-          href: image-cleaner.md
         - name: Registry security
           items:
             - name: Scanning images in ACR registries
@@ -273,6 +271,8 @@
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Remove vulnerable images with ImageCleaner (preview)
+              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -456,13 +456,11 @@
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
-        - name: Build Jakarta EE app with PostgreSQL
-          href: howto-deploy-java-liberty-app-with-postgresql.md
+        - name: Build Java app with WebSphere Liberty or Open Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Build Jakarta EE app with Open Liberty or WebSphere Liberty
-          href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr

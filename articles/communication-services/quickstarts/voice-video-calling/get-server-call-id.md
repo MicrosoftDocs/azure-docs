@@ -2,7 +2,7 @@
 ms.date: 09/07/2022 
 ms.topic: quickstart
 author: dbasantes
-title: Get server Call Id
+title: Get server Call ID
 ms.author: dbasantes
 ms.service: azure-communication-services
 description: This section describes how to get the serverCallid from a JavaScript server app
