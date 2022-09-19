@@ -80,7 +80,7 @@ To run an AKS cluster that supports node pools for Windows Server containers, yo
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and sets it to *WINDOWS_USERNAME* for use in a later command (remember that the commands in this article are entered into a BASH shell).
+Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
