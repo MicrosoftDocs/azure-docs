@@ -45,7 +45,7 @@ The Bicep modules will deploy the following Azure resources under subscription s
 3. An [Azure Container Registry](..//..//container-registry/container-registry-intro.md) (ACR) for storing container images
 4. An [AKS](..//..//aks/intro-kubernetes.md) Cluster
 5. A [VNet](..//..//virtual-network/network-overview.md) required for configuring the AKS
-6. A [Cosmos DB SQL API Account](../introduction.md)) along with a Database, Container, and [SQL Role](https://docs.microsoft.com/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
+6. A [Cosmos DB SQL API Account](../introduction.md)) along with a Database, Container, and [SQL Role](/cli/azure/cosmosdb/sql/role)
 7. A [Key Vault](..//../key-vault/general/overview.md) to store secure keys
 8. A [Log Analytics Workspace](..//../azure-monitor/logs/log-analytics-overview.md) (optional)
 
