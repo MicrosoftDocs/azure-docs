@@ -81,7 +81,7 @@ Using **Continuous-delivery**, you can configure rolling updates to your virtual
 
 ## Retirement
 
-Continuous delivery setting of Virtual Machines will be retired on March 31, 2023. Please switch to directly using Azure DevOps to create customized pipelines for deployment to Azure VMs. Release pipeline [Stage Templates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/env-templates?view=azure-devops) and [Deployments Groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) are features in Azure DevOps that provide similar experience to customers.
+Continuous delivery setting of Virtual Machines will be retired on March 31, 2023. Please switch to directly using Azure DevOps to create customized pipelines for deployment to Azure VMs. Release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates?view=azure-devops) and [Deployments Groups](/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) Azure DevOps' features provide similar experiences.
 
 ### Migration Steps
 
