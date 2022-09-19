@@ -65,4 +65,4 @@ As we invest more into this functionality, we recommend developers sign up to ou
 
 ## Next steps
 
-- Check out the [Recognize action quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md) to learn more.
+- Check out the [Recognize action quickstart](../../quickstarts/voice-video-calling/recognize-action.md) to learn more.
