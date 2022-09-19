@@ -20,16 +20,16 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create an ARM-based account (preview)
+  - name: Create an ARM-based account
     href: create-account-portal.md
-  - name: Create a classic account
-    href: connect-to-azure.md
   - name: Deploy using Bicep
     displayName: ARM,template,resource manager
     href: deploy-with-bicep.md
   - name: Deploy using ARM template
     displayName: Azure resporce manager
     href: deploy-with-arm-template.md
+  - name: Develop with API
+    href: video-indexer-use-apis.md    
 - name: Samples
   items:
   - name: Azure Video Indexer samples
@@ -44,25 +44,8 @@
     href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
-  - name: Live stream analysis
-    href: live-stream-analysis.md
-  - name: Considerations when using at scale 
+  - name: Using at scale 
     href: considerations-when-use-at-scale.md
-  - name: Insights
-    items:
-    - name: Language identification model
-      href: language-identification-model.md
-    - name: Observed people (preview)
-      href: observed-people-tracing.md
-      items:
-      - name: Detected clothing (preview)
-        href: detected-clothing.md
-      - name: Featured clothing (preview)
-        href: observed-people-featured-clothing.md
-    - name: Matched person (preview)
-      href: matched-person.md
-    - name: Audio effects detection (preview)
-      href: audio-effects-detection.md
   - name: Customizing content models
     items:
     - name: Overview
@@ -103,59 +86,88 @@
         href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
-  - name: Connect an existing account to ARM (preview)
-    href: connect-classic-account-to-arm.md
-  - name: Add contributor role to Media Services
-    href: add-contributor-role-on-the-media-service.md    
-  - name: Import content from the trial account
-    href: import-content-from-trial.md
-  - name: Upload and index videos
-    href: upload-index-videos.md   
-  - name: Index a video from OneDrive
-    href: odrv-download.md        
-  - name: Use Azure Video Indexer API
-    href: video-indexer-use-apis.md
-  - name: Examine Azure Video Indexer output
-    href: video-indexer-output-json-v2.md    
-  - name: View and edit insights
-    href: video-indexer-view-edit.md    
-  - name: Find exact moments within videos
-    displayName: search
-    href: video-indexer-search.md
-  - name: Detect scenes, shots, keyframes
-    href: scenes-shots-keyframes.md
-  - name: Identify and transcribe multi-language content
-    href: multi-language-identification-transcription.md
-  - name: Use editor to create projects
-    href: use-editor-create-project.md
-  - name: Embed widgets into your application
-    href: video-indexer-embed-widgets.md
-  - name: Insert or remove transcript lines
-    href: edit-transcript-lines-portal.md
-  - name: Logic Apps connector
-    href: logic-apps-connector-tutorial.md
-  - name: Customize content models
+  - name: Manage accounts
     items:
-    - name: Animated characters
-      href: animated-characters-recognition-how-to.md
-    - name: Person
+    - name: Manage access to your account
+      href: restricted-viewer-role.md
+    - name: Connect an existing account to ARM
+      href: connect-classic-account-to-arm.md
+    - name: Add contributor role to Media Services
+      href: add-contributor-role-on-the-media-service.md    
+    - name: Import content from the trial account
+      href: import-content-from-trial.md
+    - name: Create a classic account
+      href: connect-to-azure.md
+  - name: Upload and index media
+    items:
+    - name: Upload and index videos
+      href: upload-index-videos.md   
+    - name: Index a video from OneDrive
+      href: odrv-download.md        
+  - name: Examine Azure Video Indexer output
+    href: video-indexer-output-json-v2.md  
+  - name: Use insights
+    items:
+    - name: View and edit insights
+      href: video-indexer-view-edit.md    
+    - name: Find exact moments within videos
+      displayName: search
+      href: video-indexer-search.md
+    - name: Detect scenes, shots, keyframes
+      href: scenes-shots-keyframes.md
+    - name: Insert or remove transcript lines
+      href: edit-transcript-lines-portal.md     
+    - name: Identify and transcribe multi-language content
+      href: multi-language-identification-transcription.md
+    - name: Use editor to create projects
+      href: use-editor-create-project.md
+    - name: Automatically identify spoken languages
+      href: language-identification-model.md
+    - name: Observed people (preview)
+      href: observed-people-tracing.md
       items:
-      - name: using the website
-        href: customize-person-model-with-website.md
-      - name: using the API
-        href: customize-person-model-with-api.md
-    - name: Brands
+      - name: Detected clothing (preview)
+        href: detected-clothing.md
+      - name: Featured clothing (preview)
+        href: observed-people-featured-clothing.md
+    - name: Matched person (preview)
+      href: matched-person.md
+    - name: Audio effects detection (preview)
+      href: audio-effects-detection.md
+    - name: Customize content models
       items:
-      - name: using the website
-        href: customize-brands-model-with-website.md
-      - name: using the API
-        href: customize-brands-model-with-api.md
-    - name: Language
-      items:
-      - name: using the website
-        href: customize-language-model-with-website.md
-      - name: using the API
-        href: customize-language-model-with-api.md
+      - name: Animated characters
+        href: animated-characters-recognition-how-to.md
+      - name: Person
+        items:
+        - name: using the website
+          href: customize-person-model-with-website.md
+        - name: using the API
+          href: customize-person-model-with-api.md
+      - name: Brands
+        items:
+        - name: using the website
+          href: customize-brands-model-with-website.md
+        - name: using the API
+          href: customize-brands-model-with-api.md
+      - name: Language
+        items:
+        - name: using the website
+          href: customize-language-model-with-website.md
+        - name: using the API
+          href: customize-language-model-with-api.md
+  - name: Embed widgets into your application
+    href: video-indexer-embed-widgets.md  
+  - name: Logic Apps connector 
+    items:
+    - name: with ARM-based AVI accounts
+      displayName: Logic Apps connector, ARM
+      href: logic-apps-connector-arm-accounts.md    
+    - name: with classic-based AVI accounts
+      displayName: Logic Apps connector, classic
+      href: logic-apps-connector-tutorial.md
+  - name: Use live stream analysis
+    href: live-stream-analysis.md
   - name: Monitor Video Indexer
     href: monitor-video-indexer.md
   - name: Network Security
@@ -166,6 +178,8 @@
   items:
   - name: Account connection issues
     href: manage-account-connected-to-azure.md
+  - name: Switch between tenants in portal
+    href: switch-tenants-portal.md
 - name: Reference
   items:
   - name: Azure Video Indexer API

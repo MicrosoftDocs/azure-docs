@@ -99,9 +99,7 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [YAML](#tab/yaml)
 
-When defining a Dapr component via YAML, you'll pass your component manifest into the Azure CLI.  When configuring multiple components, you'll need to create a separate YAML file and run the Azure CLI command for each component.
-
-For example, deploy a `pubsub.yaml` component using the following command:
+When defining a Dapr component via YAML, you'll pass your component manifest into the Azure CLI. For example, deploy a `pubsub.yaml` component using the following command:
 
 ```azurecli
 az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub --yaml "./pubsub.yaml"
@@ -127,9 +125,7 @@ scopes:
 
 # [Bicep](#tab/bicep)
 
-This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
-
-The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
 
 ```bicep
 resource daprComponent 'daprComponents@2022-03-01' = {
@@ -160,9 +156,7 @@ resource daprComponent 'daprComponents@2022-03-01' = {
 
 # [ARM](#tab/arm)
 
-A Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
-
-This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via ARM. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
 
 ```json
 {
@@ -239,12 +233,16 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 
 ## Next Steps
 
-Now that you've learned about Dapr and some of the challenges it solves, try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
+Now that you've learned about Dapr and some of the challenges it solves:
+
+- Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
+- Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
 
 <!-- Links Internal -->
 [dapr-quickstart]: ./microservices-dapr.md
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
 [aca-secrets]: ./manage-secrets.md
+[dapr-github-actions]: ./dapr-github-actions.md
 
 <!-- Links External -->
 [dapr-concepts]: https://docs.dapr.io/concepts/overview/

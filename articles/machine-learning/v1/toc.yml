@@ -23,6 +23,9 @@
       href: ../migrate-execute-r-script.md
 - name: Concepts (v1)
   items:
+  - name: Model training
+    displayName: run config, machine learning pipeline, ml pipeline, train model
+    href: concept-train-machine-learning-model-v1.md
   - name: Work with data
     items: 
     - name: Data access
@@ -56,6 +59,20 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
+    - name: Microsoft Power BI integration
+      items: 
+        - name: "Part 1: Train and deploy models"
+          href: ../tutorial-power-bi-custom-model.md
+        - name: "Part 2: Consume in Power BI"
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
+- name: Samples (v1)
+  items: 
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks-v1.md
+    - name: Examples repository
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/azure/machinelearningnotebooks
 - name: How-to guides (v1)
   items:
   - name: Install and set up the CLI (v1)
@@ -66,6 +83,8 @@
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
   - name: Create & manage compute resources
+  - name: Workspace Diagnostics
+    href: how-to-workspace-diagnostic-api.md
     items:
     - name: Compute instance
       displayName: compute target
@@ -84,6 +103,13 @@
       href: how-to-setup-authentication.md
     - name: Network security
       items:
+      - name: Network security overview (v1)
+        href: how-to-network-security-overview.md
+      - name: Use private endpoint (v1)
+        displayName: private endpoint
+        href: how-to-configure-private-link.md
+      - name: Secure training environment (v1)
+        href: how-to-secure-training-vnet.md
       - name: Secure inferencing environment (v1)
         displayName: vnet
         href: how-to-secure-inferencing-vnet.md
@@ -144,8 +170,23 @@
     - name: Configure & submit training run
       displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
-    - name: Train with SDK v1
-      href: how-to-attach-compute-targets.md
+    - name: Train with the Python SDK
+      items:
+      - name: Train with SDK v1
+        href: how-to-attach-compute-targets.md
+      - name: Distributed GPU guide
+        displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
+        href: how-to-train-distributed-gpu.md
+      - name: Scikit-learn
+        href: how-to-train-scikit-learn.md
+      - name: TensorFlow
+        href: how-to-train-tensorflow.md
+      - name: Keras
+        href: how-to-train-keras.md
+      - name: PyTorch
+        href: how-to-train-pytorch.md
+      - name: Migrate from Estimators to ScriptRunConfig
+        href: how-to-migrate-from-estimators-to-scriptrunconfig.md
     - name: Automated machine learning
       displayName: automl, auto ml
       items:
@@ -164,6 +205,7 @@
       - name: Set up AutoML to train computer vision models with Python
         displayName: auto ML, automl, SDK
         href: how-to-auto-train-image-models-v1.md
+          
       - name: Local inference using ONNX
         displayName: SDK, automl
         href: how-to-inference-onnx-automl-image-models-v1.md
@@ -287,3 +329,8 @@
   items: 
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
+  - name: Hyperparameters for AutoML computer vision tasks (v1)
+    displayName: automl, yolo-5, image, image model
+    href: reference-automl-images-hyperparameters-v1.md
+  - name: Image data schemas for AutoML (v1)
+    href: reference-automl-images-schema-v1.md

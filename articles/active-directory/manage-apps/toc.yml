@@ -57,6 +57,8 @@
         href: certificate-signing-options.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -168,6 +170,8 @@
           href: datawiza-with-azure-ad.md 
         - name: Configure Oracle JDE with Azure AD 
           href: datawiza-azure-ad-sso-oracle-jde.md
+        - name: Configure Oracle PeopleSoft with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure

@@ -255,6 +255,19 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
+- id: programming-languages-set-twenty-eight
+# Owner: aahi
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -450,6 +463,20 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+  - id: vision-studio
+    title: Vision Studio
+- id: programming-languages-ocr
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -852,8 +879,8 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container
-- id: app-service-containers-windows-linux-portal
+    title: Windows container    
+- id: app-service-containers-windows-linux-portal-ps-cli
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
   pivots:
@@ -865,6 +892,10 @@ groups:
     title: Windows container - Visual Studio
   - id: container-windows-azure-portal
     title: Windows container - Azure portal
+  - id: container-windows-powershell
+    title: Windows container - PowerShell
+  - id: container-windows-cli
+    title: Windows container - CLI
 - id: app-service-containers-code
   title: App Service containers and code
   prompt: Choose a hosting platform
@@ -959,10 +990,12 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
-- id: acs-js-csharp-java-python-swift-android
+- id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1155,6 +1188,24 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: acs-js-csharp-java-python-ios-android-rest
+  title: Language
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-rest
+    title: REST
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
@@ -1400,6 +1451,15 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
+# Owner: patricka
+- id: iotedge-dev
+  title: IoT Edge development tool
+  prompt: Choose an Azure IoT Edge development tool
+  pivots:
+  - id: iotedge-dev-cli
+    title: Command line interface
+  - id: iotedge-dev-vscode
+    title: Azure IoT Edge VS Code extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
@@ -1769,3 +1829,23 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jorgegarc
+- id: acs-xamarin-react
+  title: Cross-platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: platform-xamarin
+    title: Xamarin
+  - id: platform-react
+    title: React Native
+# Owner: jodowns
+- id: web-application-firewall-configuration
+  title: Deployment options
+  prompt: Choose how you deploy your resources
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: PowerShell
+  - id: bicep
+    title: Bicep

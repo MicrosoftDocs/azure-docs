@@ -25,6 +25,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
+  - name: Forward syslog data to workspace
+    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -131,8 +133,6 @@ items:
     href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
-  - name: Continuous monitoring
-    href: continuous-monitoring.md
   - name: Observability
     href: observability-data.md
   - name: Data platform
@@ -467,14 +467,14 @@ items:
     items:
     - name: Overview
       href: agents/agents-overview.md
-    - name: Install Azure Monitor Agent
+    - name: Install
       displayName: Azure Monitor agent
       items:
-      - name: Using the agent extension
+      - name: Using the VM extension
         href: agents/azure-monitor-agent-manage.md
       - name: Using Windows client installer (preview)
         href: agents/azure-monitor-agent-windows-client.md
-    - name: Configure data collection
+    - name: Configure
       items:
       - name: Collect events and performance
         displayName: data collection rule,Azure Monitor agent
@@ -583,26 +583,23 @@ items:
             href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
-      - name: Azure Monitor Agent
+      - name: Linux VM
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Linux Rsyslog issues
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+      - name: Windows VM
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+      - name: Windows Arc-enabled server
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
+      - name: Troubleshoot legacy agents
         displayName: Troubleshooting guidance
         items:
-        - name: Linux VM
-          href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-        - name: Linux Rsyslog issues
-          href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-        - name: Windows VM
-          href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-        - name: Windows Arc-enabled server
-          href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-      - name: Log Analytics VM Extension
-        displayName: troubleshoot, troubleshooting
-        href: visualize/vmext-troubleshoot.md
-      - name: Log Analytics Windows agent
-        displayName: troubleshoot, troubleshooting
-        href: agents/agent-windows-troubleshoot.md
-      - name: Log Analytics Linux agent
-        displayName: troubleshoot, troubleshooting
-        href: agents/agent-linux-troubleshoot.md
+        - name: Log Analytics VM Extension
+          href: visualize/vmext-troubleshoot.md
+        - name: Log Analytics Windows agent
+          href: agents/agent-windows-troubleshoot.md
+        - name: Log Analytics Linux agent
+          href: agents/agent-linux-troubleshoot.md
   - name: Autoscale
     items:
     - name: Overview
@@ -615,6 +612,8 @@ items:
       href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
+    - name: Flapping in autoscale
+      href: autoscale/autoscale-flapping.md
     - name: Common metrics
       href: autoscale/autoscale-common-metrics.md
     - name: Common patterns
@@ -649,7 +648,7 @@ items:
         href: alerts/alerts-metric-logs.md
       - name: Using Resource Manager template
         href: alerts/alerts-metric-create-templates.md
-      - name: Troubleshoot metric alerts
+      - name: FAQ
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
@@ -891,6 +890,8 @@ items:
           href: app/java-in-process-agent.md
         - name: Spring Boot
           href: app/java-spring-boot.md
+        - name: Java Profiler
+          href: app/java-standalone-profiler.md
         - name: Configuration options
           href: app/java-standalone-config.md
         - name: Advanced configurations
@@ -907,7 +908,7 @@ items:
                 href: app/java-standalone-telemetry-processors-examples.md
         - name: JVM arguments setup
           href: app/java-standalone-arguments.md
-        - name: Upgrade from 2.x SDK
+        - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
@@ -1132,17 +1133,19 @@ items:
     - name: Overview
       displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
       href: snapshot-debugger/snapshot-debugger.md
-    - name: Enable Snapshot Debugger for an App Service
-      href: snapshot-debugger/snapshot-debugger-app-service.md
-    - name: Enable Snapshot Debugger for a Function App
-      href: snapshot-debugger/snapshot-debugger-function-app.md
-    - name: Enable Snapshot Debugger for other environments
-      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Enable Snapshot Debugger
+      items:        
+      - name: Azure App Service
+        href: snapshot-debugger/snapshot-debugger-app-service.md
+      - name: Azure Function App
+        href: snapshot-debugger/snapshot-debugger-function-app.md
+      - name: Other environments
+        href: snapshot-debugger/snapshot-debugger-vm.md
     - name: Upgrade Snapshot Debugger
       href: snapshot-debugger/snapshot-debugger-upgrade.md
     - name: Configure BYOS (Bring Your Own Storage)
       href: profiler/profiler-bring-your-own-storage.md
-    - name: Snapshot Debugger troubleshooting
+    - name: Troubleshooting
       displayName: troubleshoot, troubleshooting
       href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
@@ -1185,6 +1188,8 @@ items:
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
+    - name: Migrate from service map
+      href: vm/vminsights-migrate-from-service-map.md
     - name: Monitor performance
       href: vm/vminsights-performance.md
     - name: Monitor guest health (preview)
@@ -1275,8 +1280,6 @@ items:
         href: containers/container-insights-livedata-setup.md
       - name: View cluster metrics
         href: containers/container-insights-livedata-metrics.md
-      - name: View deployments
-        href: containers/container-insights-livedata-deployments.md
     - name: Alerting
       items:
       - name: Create log alert rules
@@ -1419,6 +1422,8 @@ items:
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
         href: visualize/workbooks-view-designer-conversions.md 
+    - name: Access Troubleshooting guides
+      href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md          
   - name: Other visualizations

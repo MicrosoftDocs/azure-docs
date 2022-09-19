@@ -47,8 +47,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | Version | Date released | End support date |
 |--|--|--|
 | 22.2.5 | 08/2022 | 04/2023 |
-| 22.2.4 | 07/2022 <br> There's a known compatibility issue with Hyper-V, please use version 22.1.7 | 04/2023 |
-| 22.2.3 | 07/2022 <br> There's a known compatibility issue with Hyper-V, please use version 22.1.7 | 04/2023 |
+| 22.2.4 | 07/2022 | 04/2023 |
+| 22.2.3 | 07/2022 | 04/2023 |
 | 22.1.7 | 07/2022 | 04/2023 |
 | 22.1.6 | 06/2022 | 10/2022 |
 | 22.1.5 | 06/2022 | 10/2022 |
@@ -62,9 +62,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## August 2022
 
-- **Sensor software version 22.2.5**: Minor version with stability improvements
-- [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
-- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**Sensor software version 22.2.5**: Minor version with stability improvements<br><br>**Sensor software version 22.2.4**: [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)<br><br>**Sensor software version 22.1.3**: [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview) |
 
 ### New alert columns with timestamp data
 

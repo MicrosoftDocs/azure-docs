@@ -1,6 +1,6 @@
 ---
 title: Private connectivity for Arc enabled Kubernetes clusters using private link (preview)
-ms.date: 04/08/2021
+ms.date: 08/28/2021
 ms.topic: article
 description: With Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to use a single private endpoint.
 ms.custom: references_regions
@@ -68,25 +68,25 @@ The rest of this document assumes you have already set up your ExpressRoute circ
 
 ## Network configuration
 
-Azure Arc-enabled Kubernetes integrates with several Azure services to bring cloud management and governance to your hybrid Kubernetes clusters. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the internet until these services offer private endpoints. You also need to allow access to Microsoft Container Registry (and Azure Front Door.First Party as a precursor for Microsoft Container Registry) to pull images & Helm charts to enable services like Azure Monitor, as well as for initial setup of Azure Arc agents on the Kubernetes clusters.
+Azure Arc-enabled Kubernetes integrates with several Azure services to bring cloud management and governance to your hybrid Kubernetes clusters. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the internet until these services offer private endpoints. You also need to allow access to Microsoft Container Registry (and AzureFrontDoor.FirstParty as a precursor for Microsoft Container Registry) to pull images & Helm charts to enable services like Azure Monitor, as well as for initial setup of Azure Arc agents on the Kubernetes clusters.
 
 There are two ways you can achieve this:
 
-* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, Azure Frontdoor and Microsoft Container Registry  using [service tags] (/azure/virtual-network/service-tags-overview). The NSG rules should look like the following:
+* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, Azure Front Door and Microsoft Container Registry  using [service tags](/azure/virtual-network/service-tags-overview). The NSG rules should look like the following:
 
     | Setting                 | Azure AD rule                                                 | Azure Resource Manager rule                                   | AzureFrontDoorFirstParty rule                                 | Microsoft Container Registry rule                            |     
     |-------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------
     | Source                  | Virtual Network                                               | Virtual Network                                               | Virtual Network                                               | Virtual Network
     | Source Port ranges      | *                                                             | *                                                             | *                                                             | *
     | Destination             | Service Tag                                                   | Service Tag                                                   | Service Tag                                                   | Service Tag
-    | Destination service tag | AzureActiveDirectory                                          | AzureResourceManager                                          | FrontDoor.FirstParty                                     | MicrosoftContainerRegistry
+    | Destination service tag | AzureActiveDirectory                                          | AzureResourceManager                                          | AzureFrontDoor.FirstParty                                     | MicrosoftContainerRegistry
     | Destination port ranges | 443                                                           | 443                                                           | 443                                                           | 443
     | Protocol                | TCP                                                           | TCP                                                           | TCP                                                           | TCP
     | Action                  | Allow                                                         | Allow                                                         | Allow (Both inbound and outbound)                             | Allow
     | Priority                | 150 (must be lower than any rules that block internet access) | 151 (must be lower than any rules that block internet access) | 152 (must be lower than any rules that block internet access) | 153 (must be lower than any rules that block internet access) |
     | Name                    | AllowAADOutboundAccess                                        | AllowAzOutboundAccess                                         | AllowAzureFrontDoorFirstPartyAccess                           | AllowMCROutboundAccess 
 
-* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to Azure FrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, Azure FrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry, and Azure Front Door's service tag is FrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to AzureFrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, AzureFrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry, and Azure Front Door's service tag is AzureFrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 ## Create an Azure Arc Private Link Scope
 
@@ -123,7 +123,7 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
 1. On the **Configuration** page, perform the following:
     1. Choose the virtual network and subnet from which you want to connect to Azure Arc-enabled Kubernetes clusters.
     1. For **Integrate with private DNS zone**, select **Yes**. A new Private DNS Zone will be created. The actual DNS zones may be different from what is shown in the screenshot below.
-    
+
         :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
         > [!NOTE]
@@ -131,11 +131,7 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
     1. Select **Review + create**.
     1. Let validation pass.
     1. Select **Create**.
-    
-    :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
-    > [!NOTE]
-    > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link, including this private endpoint and the Private Scope configuration. Next, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Arc-enabled Kubernetes clusters.
 
 ## Configure on-premises DNS forwarding
 
