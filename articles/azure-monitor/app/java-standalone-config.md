@@ -435,6 +435,8 @@ You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumb
 >
 > This feature could add a performance overhead.
 
+This feature is in preview, starting from 3.4.0.
+
 ### LoggingLevel
 
 Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
