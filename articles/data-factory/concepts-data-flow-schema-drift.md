@@ -50,7 +50,7 @@ In a sink transformation, schema drift is when you write additional columns on t
 
 If schema drift is enabled, make sure the **Auto-mapping** slider in the Mapping tab is turned on. With this slider on, all incoming columns are written to your destination. Otherwise you must use rule-based mapping to write drifted columns.
 
-:::image type="content" source="media/data-flow/auto-map.png" alt-text="Sink auto mapping":::
+:::image type="content" source="media/data-flow/automap.png" alt-text="Sink auto mapping":::
 
 ## Transforming drifted columns
 
