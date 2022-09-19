@@ -2,6 +2,7 @@
 title: 'Quickstart: Create a WordPress site'
 description: Create your first WordPress site on Azure App Service in minutes.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 06/27/2022
 ms.devlang: wordpress
@@ -12,7 +13,7 @@ ms.custom: mvc
 
 [WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks), [Virtual Machines](/azure/virtual-machines/linux/tutorial-lamp-stack#install-wordpress), and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=wordpress&page=1).
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) with [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
 
 To complete this quickstart, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
 
@@ -66,9 +67,18 @@ When no longer needed, you can delete the resource group, App service, and all r
 1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
     :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group.":::
-## Change MySQL password
 
-The WordPress configuration is modified to use [Application Settings](reference-app-settings.md#wordpress) to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](reference-app-settings.md#wordpress) also need to be updated. The [Application Settings for MySQL database](reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [Changing MySQL database password](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
+## MySQL flexible server username and password
+
+- Database username and password of the MySQL Flexible Server are generated automatically. To retrieve these values after the deployment go to Application Settings section of the Configuration page in Azure App Service. The WordPress configuration is modified to use these [Application Settings](reference-app-settings.md#wordpress) to connect to the MySQL database.
+
+- To change the MySQL database password, see [Reset admin password](how-to-manage-server-portal.md#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](../../app-service/reference-app-settings.md#wordpress) need to be updated. The [Application Settings for MySQL database](../../app-service/reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
+
+## Manage the MySQL database
+
+The MySQL Flexible Server is created behind a private [Virtual Network](../../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access and manage the database, use phpMyAdmin that's deployed with the WordPress site. 
+- Navigate to the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
+- Login with the flexible server's username and password
 
 ## Change WordPress admin password
 
