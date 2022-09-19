@@ -32,7 +32,7 @@ The replacement [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli
 | Configures code, deployment, monitoring    | Configures code, deployment, monitoring     |
 | Provides sample application to get started | Provides sample applications to get started |
 | Allows user’s repo to be deployed          | Allows user’s repo to be deployed           |
-| Is UI based experience in Azure portal     | Is CLI based experience                     |
+| UI-based experience in Azure portal     | CLI-based experience                     |
 
 ## Migration:
 
