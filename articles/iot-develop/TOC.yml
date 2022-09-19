@@ -55,12 +55,12 @@
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
+  - name: C SDK and Embedded C SDK usage scenarios
+    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
-  - name: IOT device selection table
-    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
