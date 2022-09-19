@@ -43,10 +43,12 @@ Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Az
 * Upgrade from Local to Standard or Premium SKU.
     * Can only be done using Azure CLI or Azure PowerShell.
     * Billing type must be **unlimited**.
+* Changing from *MeteredData* to *UnlimitedData*.
 
 #### Unsupported workflow
 
 * Downgrade from Premium to Standard SKU.
+* Changing from *UnlimitedData* to *MeteredData*.
 
 ## <a name="routingdomains"></a>ExpressRoute peering
 
@@ -82,7 +84,7 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ExpressRoute circuits can be monitored for availability, connectivity to VNets and bandwidth utilization using [ExpressRoute Network Insights](expressroute-network-insights.md).
 
-Connection Monitor for Expressroute monitors the health of Azure private peering and Microsoft peering. For more information on configuration, see [Configure Connection Monitor for ExpressRoute](how-to-configure-connection-monitor).
+Connection Monitor for Expressroute monitors the health of Azure private peering and Microsoft peering. For more information on configuration, see [Configure Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md).
 
 ## Next steps
 
