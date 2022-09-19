@@ -61,7 +61,7 @@ For existing application deployments, **DevOps starter does not store any inform
 
 Both are tools, which enable quick setting up of application deployment to Azure and configure CI/CD pipeline for the same. They enable users to quickly get started with Azure.
 
-Azure Developer CLI provides more developer friendly commands as compared to clicking through multiple pages in the UI wizard of DevOps starter experience. This also means better clarity with extensive config-as-code.
+Azure Developer CLI provides more developer-friendly commands in contrast to the UI wizard for DevOps Starter. This also means better clarity with config-as-code.
 
 2. Will I lose my application or the Azure resources if I am not able to access DevOps starter?
 
