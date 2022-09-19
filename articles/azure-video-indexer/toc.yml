@@ -44,9 +44,7 @@
     href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
-  - name: Live stream analysis
-    href: live-stream-analysis.md
-  - name: Considerations when using at scale 
+  - name: Using at scale 
     href: considerations-when-use-at-scale.md
   - name: Customizing content models
     items:
@@ -90,14 +88,16 @@
   items:
   - name: Manage accounts
     items:
-    - name: Create a classic account
-      href: connect-to-azure.md
+    - name: Manage access to your account
+      href: restricted-viewer-role.md
     - name: Connect an existing account to ARM
       href: connect-classic-account-to-arm.md
     - name: Add contributor role to Media Services
       href: add-contributor-role-on-the-media-service.md    
     - name: Import content from the trial account
       href: import-content-from-trial.md
+    - name: Create a classic account
+      href: connect-to-azure.md
   - name: Upload and index media
     items:
     - name: Upload and index videos
@@ -157,9 +157,17 @@
         - name: using the API
           href: customize-language-model-with-api.md
   - name: Embed widgets into your application
-    href: video-indexer-embed-widgets.md      
-  - name: Logic Apps connector
-    href: logic-apps-connector-tutorial.md
+    href: video-indexer-embed-widgets.md  
+  - name: Logic Apps connector 
+    items:
+    - name: with ARM-based AVI accounts
+      displayName: Logic Apps connector, ARM
+      href: logic-apps-connector-arm-accounts.md    
+    - name: with classic-based AVI accounts
+      displayName: Logic Apps connector, classic
+      href: logic-apps-connector-tutorial.md
+  - name: Use live stream analysis
+    href: live-stream-analysis.md
   - name: Monitor Video Indexer
     href: monitor-video-indexer.md
   - name: Network Security

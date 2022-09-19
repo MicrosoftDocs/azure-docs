@@ -80,9 +80,9 @@ For more information, see [Manage OT monitoring users on the Azure portal](manag
 
 ## August 2022
 
-- **Sensor software version 22.2.5**: Minor version with stability improvements
-- [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
-- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**Sensor software version 22.2.5**: Minor version with stability improvements<br><br>**Sensor software version 22.2.4**: [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)<br><br>**Sensor software version 22.1.3**: [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview) |
 
 ### New alert columns with timestamp data
 
