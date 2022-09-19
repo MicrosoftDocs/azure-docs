@@ -39,7 +39,7 @@ Let's cover each step:
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-do-i-enable-azure-ad-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Sign in with a certificate** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
