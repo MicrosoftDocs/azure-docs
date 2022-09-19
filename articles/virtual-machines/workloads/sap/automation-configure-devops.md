@@ -22,7 +22,7 @@ To use Azure DevOps Services, you'll need an Azure DevOps organization. An organ
 
 You can use the following script to do a basic installation of Azure Devops Services for the SAP Deployment Automation Framework.
 
-Login to Azure Cloud Shell
+Log in to Azure Cloud Shell
 ```bash
     export ADO_ORGANIZATION=<yourOrganization>    
     export ADO_PROJECT=SAP Deployment Automation
@@ -62,7 +62,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/ex
 
 ```
 
-## Manual Configuration
+## Manual configuration of Azure DevOps Services for the SAP Deployment Automation Framework
 
 ### Create a new project
 
