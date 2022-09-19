@@ -418,6 +418,23 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > | project timestamp, message, itemType
 > ```
 
+
+### Code properties for Logback (preview) 
+
+You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumber_) for Logback: 
+
+```json
+{
+  "preview": {
+    "captureLogbackCodeAttributes": true
+  }
+}
+```
+
+> [!WARNING]
+>
+> This feature could add a performance overhead.
+
 ### LoggingLevel
 
 Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
