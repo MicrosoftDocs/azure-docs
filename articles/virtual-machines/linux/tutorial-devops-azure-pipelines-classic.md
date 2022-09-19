@@ -100,6 +100,6 @@ You won't be able to view or create Azure DevOps pipelines from an Azure portal 
  
 3. How can I configure different deployment strategies? 
 
-    The current experience leverages [deployment groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) to create deployment strategies. You can use the same in Azure DevOps to create customized pipelines as per your requirements. You can also use release pipeline [Stage Templates](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/env-templates?view=azure-devops) to have a templatized pipeline stage created. 
+The current experience uses [deployment groups](/azure/devops/pipelines/process/deployment-group-phases?view=azure-devops&tabs=yaml) to create deployment strategies. You can use deployment groups or release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates?view=azure-devops) to build your pipeline with templates. 
 
 
