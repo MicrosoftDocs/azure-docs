@@ -27,17 +27,17 @@ These articles are for:
 
 * IT professionals
 
-The articles provides information for those who make decisions about how to address identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they are working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
+The article provides information for those who make decisions about how to address identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
 
-Employees in an organization rely on many applications to perform their work. These applications often require IT admins or application owners to provision accounts before an employee can start accessing them. Organizations also need to manage the lifecycle of these accounts and keep them up to date with the latest information and remove accounts when users do not require them anymore.
+Employees in an organization rely on many applications to perform their work. These applications often require IT admins or application owners to provision accounts before an employee can start accessing them. Organizations also need to manage the lifecycle of these accounts and keep them up to date with the latest information and remove accounts when users don't require them anymore.
 
-The Azure AD provisioning service automates your identity lifecycle and keeps identities in sync across trusted source systems (like HR systems) and applications that users need access to. It enables you to bring users into Azure AD and provision them into the various applications that they require. The provisioning capabilities are foundational building blocks that enable rich governance and lifecycle workflows. For [hybrid](../hybrid/whatis-hybrid-identity.md) scenarios, Azure AD employs an agent model to connect to various on-premises or IaaS based systems and includes components such as the Azure AD provisioning agent, Microsoft Identity Manager (MIM), and Azure AD Connect.
+The Azure AD provisioning service automates your identity lifecycle and keeps identities in sync across trusted source systems (like HR systems) and applications that users need access to. It enables you to bring users into Azure AD and provision them into the various applications that they require. The provisioning capabilities are foundational building blocks that enable rich governance and lifecycle workflows. For [hybrid](../hybrid/whatis-hybrid-identity.md) scenarios, Azure AD employs an agent model to connect to on-premises or IaaS systems, and includes components such as the Azure AD provisioning agent, Microsoft Identity Manager (MIM), and Azure AD Connect.
 
-Thousands of organizations are running Azure AD cloud-hosted services, alongside its hybrid components delivered on-premises, for their provisioning scenarios. Microsoft continues to support and invest in both its cloud-hosted and on-premises delivered functionality, including MIM and Azure AD Connect sync, to help organizations provision users in all their connected systems and applications. This article focuses on how organizations can use Azure AD to address their provisioning needs and make clear which technology is most right for each scenario.
+Thousands of organizations are running Azure AD cloud-hosted services, alongside its hybrid components delivered on-premises, for their provisioning scenarios. Microsoft supports and invest in its cloud-hosted and on-premises delivered functionality, including MIM and Azure AD Connect sync, to help organizations provision users in their connected systems and applications. This article focuses on how organizations can use Azure AD to address their provisioning needs and make clear which technology is most right for each scenario.
 
 ![Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
 
- Use the following table to find content specific to your scenario. For example, if you want to employee and contractor identities management from an HR system to Active Directory (AD) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
+ Use the following table to find content specific to your scenario. For example, if you want employee and contractor identities management from an HR system to Active Directory (AD) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
 
 | What | From | To | Read |
 | - | - | - | - |
@@ -75,11 +75,11 @@ In this example, the organization has a mix of cloud and on-premises infrastruct
 
 2.Azure AD Connect Cloud Sync provisions the user into Azure AD, which enables the user to access SharePoint Online and their OneDrive files.
 
-3.The Azure AD provisioning service detects that a new account has been created in Azure AD and then creates accounts in the SaaS and on-premises applications that the user needs access to.
+3.The Azure AD provisioning service detects a new account was created in Azure AD. It then creates accounts in the SaaS and on-premises applications the user needs access to.
 
 ### Hybrid-advanced
 
-In this example, the organization has users spread across multiple on-prem HR systems and cloud HR. They have large groups and device synchronization requirements.
+In this example, the organization has users spread across multiple on-premises HR systems and cloud HR. They have large groups and device synchronization requirements.
 
 ![Advanced hybrid deployment model](media/automate-user-provisioning-to-applications-introduction/hybrid-advanced.png)
 
