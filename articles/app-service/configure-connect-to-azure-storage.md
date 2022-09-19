@@ -106,7 +106,6 @@ The following features are supported for Linux containers:
 - Mapping `/mounts`, `mounts/foo/bar`, `/`, and `/mounts/foo.bar/` to custom-mounted storage is not supported (you can only use /mounts/pathname for mounting custom storage to your web app.)
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
-- Only Azure Files [SMB](../storage/files/files-smb-protocol.md) are supported.  Azure Files [NFS](../storage/files/files-nfs-protocol.md) is not currently supported for Linux App Services.
 
 ::: zone-end
 
@@ -118,7 +117,7 @@ The following features are supported for Linux containers:
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage is not supported.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
-- Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 
 > [!NOTE]
 > Ensure ports 80 and 445 are open when using Azure Files with VNET integration.
@@ -134,6 +133,7 @@ The following features are supported for Linux containers:
 - Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Only Azure Files [SMB](../storage/files/files-smb-protocol.md) are supported.  Azure Files [NFS](../storage/files/files-nfs-protocol.md) is not currently supported for Linux App Services.
 
 > [!NOTE]
 > When VNET integration is used, ensure the following ports are open:

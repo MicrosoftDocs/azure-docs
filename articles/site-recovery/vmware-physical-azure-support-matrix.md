@@ -55,6 +55,7 @@ IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
+IP address | Make sure that configuration server and process server have a static IPv4 address, and doesn't have NAT configured.
 
 > [!NOTE]
 > Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.

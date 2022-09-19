@@ -3,12 +3,12 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
 Use this quickstart to create an entity linking application with the client library for Python. In the following example, you will create a Python application that can identify and disambiguate entities found in text.
 
@@ -34,7 +34,7 @@ Use this quickstart to create an entity linking application with the client libr
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-textanalytics==5.1.0
+pip install azure-ai-textanalytics==5.2.0
 ```
 
 > [!div class="nextstepaction"]
@@ -97,7 +97,7 @@ entity_linking_example(client)
 
 ```console
 Linked Entities:
-
+    
     Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
     Data Source:  Wikipedia
     Matches:
@@ -130,13 +130,6 @@ Linked Entities:
     Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
     Data Source:  Wikipedia
     Matches:
-            Text: April 4
-            Confidence Score: 0.32
-            Offset: 54
-            Length: 7
-    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
-    Data Source:  Wikipedia
-    Matches:
             Text: BASIC
             Confidence Score: 0.33
             Offset: 98
@@ -149,3 +142,15 @@ Linked Entities:
             Offset: 125
             Length: 11
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Entity linking language support](../../language-support.md)
+* [How to call the entity linking API](../../how-to/call-api.md)  
+* [Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python)
+* [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
