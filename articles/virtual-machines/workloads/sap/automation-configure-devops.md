@@ -18,7 +18,53 @@ You can use Azure Repos to store your configuration files and Azure Pipelines to
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. 
 
-## Create a new project
+## Configure Azure DevOps Services for the SAP Deployment Automation Framework
+
+You can use the following script to do a basic installation of Azure Devops Services for the SAP Deployment Automation Framework.
+
+Login to Azure Cloud Shell
+```bash
+    export ADO_ORGANIZATION=<yourOrganization>    
+    export ADO_PROJECT=SAP Deployment Automation
+    wget https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/create_devops_artifacts.sh -O devops.sh
+    chmod +x ./devops.sh
+    ./devops.sh
+    rm ./devops.sh
+
+```
+
+Validate that the project has been created by navigating to the Azure DevOps portal and selecting the project. Ensure that the Repo is populated and that the pipelines have been created.
+
+You can finalize the Azure DevOps configuration by running the following scripts on your local workstation. Open a PowerShell Console and define the environment variables. Replace the bracketed values with the actual values.
+
+
+
+
+```powershell
+$Env:ADO_ORGANIZATION="https://dev.azure.com/<yourorganization>" 
+
+$Env:ADO_PROJECT="<yourProject>"
+$Env:YourPrefix="<yourPrefix>"
+
+$Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
+$Env:DevSubscriptionID="<YourDevSubscriptionID>"
+
+```
+> [!NOTE]
+> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID.
+
+
+Once the variables are defined run the following script to create the service principals and the application registration.
+
+```powershell
+
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1 
+
+```
+
+## Manual Configuration
+
+### Create a new project
 
 You can use Azure Repos to store both the code from the sap-automation GitHub repository and the environment configuration files.
 
@@ -186,9 +232,6 @@ Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pi
 | Name    | Configuration Web App                              |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
-
-> [!NOTE]
-> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
 
 ## Deployment removal pipeline
 
