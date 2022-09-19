@@ -27,22 +27,14 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
     ```python
     # Imports
-    import logging
-    
-    from matplotlib import pyplot as plt
-    import pandas as pd
-    import os
-    
+
     import azureml.core
     from azureml.core.experiment import Experiment
     from azureml.core.workspace import Workspace
     from azureml.core.dataset import Dataset
     from azureml.train.automl import AutoMLConfig
-    from azureml.train.automl.run import AutoMLRun
-    
-    from azureml.widgets import RunDetails
-    
-    
+    from azureml.train.automl.run import AutoMLRun   
+   
     # Load tabular dataset
     data = "<url_to_data>"
     dataset = Dataset.Tabular.from_delimited_files(data)
@@ -71,21 +63,14 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     
     # Submit run
     remote_run = experiment.submit(automl_config, show_output=False)
-    
-    # Register the best model
-    best_run, fitted_model = remote_run.get_output()
-    fitted_model
-    description = 'My AutoML Model'
-    model = run.register_model(description = description, 
-                                tags={'area': 'qna'}) # AutoML Run Object
+    azureml_url = remote_run.get_portal_url()
+    print(azureml_url)
     ```
 
 * SDK v2: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-mlflow.ipynb).
 
     ```python
     # Imports
-    from azure.identity import DefaultAzureCredential
-    from azure.identity import AzureCliCredential
     from azure.ai.ml import automl, Input, MLClient
     
     from azure.ai.ml.constants import AssetTypes
@@ -95,19 +80,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
         ClassificationModels,
     )
     
-    import mlflow
-    from mlflow.tracking.client import MlflowClient
-    
-    from azure.ai.ml.entities import (
-        ManagedOnlineEndpoint,
-        ManagedOnlineDeployment,
-        Model,
-        Environment,
-        CodeConfiguration,
-        ProbeSettings,
-    )
-    from azure.ai.ml.constants import ModelType
-    
+   
     # Create MLTables for training dataset
     # Note that AutoML Job can also take in tabular data
     my_training_data_input = Input(
@@ -143,32 +116,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     )
     
     # Submit the AutoML job
-    job_name = ml_client.jobs.create_or_update(
-        classification_job
-    )  
-    
-    print(f"Created job: {returned_job}")
-    
-    # Set up MLFLow
-    MLFLOW_TRACKING_URI = ml_client.workspaces.get(
-        name=ml_client.workspace_name
-    ).mlflow_tracking_uri
-    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-    mlflow_client = MlflowClient()
-    
-    # Get the AutoML best run
-    mlflow_parent_run = mlflow_client.get_run(job_name)
-    best_child_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
-    best_run = mlflow_client.get_run(best_child_run_id)
-    
-    # Register the best model
-    model_name = "bankmarketing-model"
-    model = Model(
-        path=f"azureml://jobs/{best_run.info.run_id}/outputs/artifacts/outputs/model.pkl",
-        name=model_name,
-        description="my sample mlflow model",
-    )
-    registered_model = ml_client.models.create_or_update(model)
+    returned_job = ml_client.jobs.create_or_update(classification_job)  
+    returned_job
     ```
 
 ## Mapping of key functionality in SDK v1 and SDK v2
