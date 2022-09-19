@@ -89,6 +89,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
     [![Screenshot of the deployment completion page. Options are available to view details of the deployment.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png#lightbox)
 
+    [![Screenshot of the overview of Microsoft Energy Data Services instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png#lightbox)
 
  
 ## Delete a Microsoft Energy Data Services instance
