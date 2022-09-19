@@ -4,7 +4,7 @@ titleSuffix: Microsoft Defender for Cloud
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/14/2022
+ms.date: 09/19/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -134,12 +134,12 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
-- [Defender for CSPM Premium]
-    - Security Governance
-    - Cloud Security Graph
-    - Attack Path Analysis
-    - Regulatory compliance
-    - Agentless scanning for machines
+- [Defender for CSPM Premium](concept-cloud-security-posture-management.md)
+    - [Security Governance](concept-cloud-security-posture-management.md#security-governance)
+    - [Cloud Security Graph](concept-cloud-security-posture-management.md#cloud-security-graph)
+    - [Attack Path Analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
+    - [Regulatory compliance](concept-cloud-security-posture-management.md#regulatory-compliance)
+    - [Agentless scanning for machines](concept-cloud-security-posture-management.md#agentless-scanning-for-machines)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 

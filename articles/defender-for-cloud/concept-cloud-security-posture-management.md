@@ -2,7 +2,7 @@
 title: Overview of CSPM
 description: 
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/19/2022
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -38,15 +38,25 @@ The Cloud Security Graph is a graph-based context engine that exists within Defe
 
 Defender for Cloud then uses the generated graph to perform an Attack Path Analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the Cloud Security Explorer.
 
+Learn more about [attack path analysis](concept-attack-path.#what-is-cloud-security-graph)
+
 ## Attack Path Analysis
 
 Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
 
 By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
 
+Learn more about [attack path analysis](concept-attack-path.#what-is-attack-path-analysis)
+
 ## Regulatory compliance
 
+
+
 ## Agentless scanning for machines 
+
+With agentless scanning for VMs, you can get visibility on actionable OS posture issues without installed agents, network connectivity, or machine performance impact.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 ## Next steps
 
