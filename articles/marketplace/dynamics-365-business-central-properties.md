@@ -4,8 +4,8 @@ description: Configure Dynamics 365 Business Central offer properties on Microso
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: JasonWHowell
-ms.author: jasonh
+author: trkeya
+ms.author: trkeya
 ms.date: 11/24/2021
 ---
 

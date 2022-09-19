@@ -72,6 +72,7 @@ The following Azure resources are defined in the template.
     |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |
     |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
     |**Site Name**     | Enter a name for your site.        |
+    | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
@@ -93,7 +94,7 @@ The following Azure resources are defined in the template.
     |**Data Network Name**  | Enter the name of the data network. |    
     |**Core Network Technology**  | Enter *5GC* for 5G, or *EPC* for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
-    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a DNS server for the UEs in this data network. |
+    | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if the UEs in this data network don't need to access the public internet. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 
 1. Select **Review + create**.

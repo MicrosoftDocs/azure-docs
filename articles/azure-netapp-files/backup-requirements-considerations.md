@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/19/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 

@@ -7,7 +7,6 @@ ms.custom: devx-track-csharp
 ms.date: 10/12/2021
 ms.reviewer: casocha
 ---
-
 # Application Insights for ASP.NET Core applications
 
 This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application.

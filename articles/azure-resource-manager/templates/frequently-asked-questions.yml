@@ -3,7 +3,8 @@ metadata:
   title: ARM template frequently asked questions
   description: Frequently asked questions (FAQ) about Azure Resource Manager templates (ARM templates).
   ms.topic: faq
-  ms.service: azure
+  ms.service: azure-resource-manager
+  ms.subservice: templates
   ms.date: 03/03/2021
   ms.author: tomfitz
   author: tfitzmac

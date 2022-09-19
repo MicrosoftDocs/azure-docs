@@ -34,14 +34,14 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 
 You need to create a snapshot policy and associate the snapshot policy to the volume that you want to back up. A single snapshot policy can be attached to multiple volumes. Changes in the snapshot policy can affect the backup functionality of a volume. 
 
-1. Sign in to the Azure portal and navigate to **Azure NetApp Files**.    
+1. Log into the Azure portal and navigate to **Azure NetApp Files**.    
 2. Select your Azure NetApp Files account.   
 3. Select **Snapshot policy**.   
 
     ![Screenshot that shows how to navigate to Snapshot Policy option.](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
 
-4.	Click **Add snapshot policy**.
-5.	In the Snapshot policy page that appears, specify the number of snapshots to keep and the schedule for creating snapshots for the volume. Click **Save**.  
+4.	Select **Add snapshot policy**.
+5.	In the Snapshot policy page that appears, specify the number of snapshots to keep and the schedule for creating snapshots for the volume. Select **Save**.  
 
     Currently, the backup functionality can back up only daily, weekly, and monthly snapshots. (Hourly backups are not supported).   
 
@@ -90,19 +90,14 @@ To enable a policy-based (scheduled) backup:
 
     ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
 
-    * The minimum value for **Daily Backups to Keep** should be 2. 
+    * The minimum value for **Daily Backups to Keep** is 2. 
 
         ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
  
-<!-- DELETE 
 ### Example of a valid configuration
 
-The following example configuration shows you how to configure a data protection policy on the volume with 5 latest daily snapshots, 4 latest weekly snapshots, and 3 latest monthly snapshots on the volume. This configuration results in backing up 15 latest daily snapshots, 6 latest weekly snapshots, and 4 latest monthly snapshots.
+The following example configuration shows you how to configure a data protection policy on the volume. This configuration results in backing up 15 latest daily snapshots, 6 latest weekly snapshots, and 4 latest monthly snapshots.
 
-* Snapshot policy:   
-    Daily: `Number of Snapshots to Keep = 5`   
-    Weekly: `Number of Snapshots to Keep = 4`   
-    Monthly: `Number of Snapshots to Keep = 3`
 * Backup policy:   
     Daily: `Daily Backups to Keep = 15`   
     Weekly: `Weekly Backups to Keep = 6`   
@@ -110,16 +105,12 @@ The following example configuration shows you how to configure a data protection
 
 ### Example of an invalid configuration
 
-The following example configuration has a backup policy configured for daily backups, but the snapshot policy does not have a corresponding configuration. As a result, no daily snapshots are created to be backed up by the backup policy. This configuration would back up only weekly and monthly snapshots.
+The following example configuration has a backup policy configured for daily backups. The daily backup policy is below the minimum of two. This configuration would back up only weekly and monthly snapshots.
 
-* Snapshot policy:   
-    Weekly: `Number of Snapshots to Keep = 4`   
-    Monthly: `Number of Snapshots to Keep = 3`   
 * Backup policy:   
-    Daily: `Daily Backups to Keep = 15`   
+    Daily: `Daily Backups to Keep = 1`   
     Weekly: `Weekly Backups to Keep = 6`   
     Monthly: `Monthly Backups to Keep = 4`   
--->
 
 ## Enable backup functionality for a volume and assign a backup policy
 

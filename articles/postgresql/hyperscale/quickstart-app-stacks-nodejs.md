@@ -7,18 +7,18 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-In this article, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
+In this article, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
-> The process of creating a NodeJS app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
+> The process of creating a NodeJS application with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -31,96 +31,105 @@ In this article, you'll connect to a Hyperscale (Citus) server group using a Nod
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
 To do so, run the node package manager (npm) for JavaScript from your command line to install the pg client.
 
-```dotnetcli
+```bash
 npm install pg
 ```
 
 Verify the installation by listing the packages installed.
 
-```dotnetcli
+```bash
 npm list
 ```
 
 ### Get database connection information
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
+To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See the screenshot below.
 
 ![Diagram showing NodeJS connection string.](../media/howto-app-stacks/01-python-connection-string.png)
 
 ### Running JavaScript code in Node.js
 
-You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.
+You may launch Node.js from the Bash shell, Terminal or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.
 
-## Connect, create table, insert data
+## Connect, create table and insert data
 
 All examples in this article need to connect to the database. Let's put the
 connection logic into its own module for reuse. We'll use the
-[pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object to
+[pg.Client](https://node-postgres.com/) object to
 interface with the PostgreSQL server.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
-Create a `citus.js` with the common connection code:
+Create a folder called `db` and inside this folder create `citus.js` file with the common connection code:
 
 ```javascript
-// citus.js
+/**
+* file: db/citus.js
+*/
 
 const { Pool } = require('pg');
-module.exports = new Promise((resolve, reject) => {
-    const pool = new Pool({
-        host: 'c.citustest.postgres.database.azure.com',
-        port: 5432,
-        user: 'citus',
-        password: 'Password123$',
-        database: 'citus',
-        ssl: true,
-        connectionTimeoutMillis: 0,
-        idleTimeoutMillis: 0,
-        min: 10,
-        max: 20,
-    });
 
-    resolve({ pool });
+const pool = new Pool({
+  max: 300,
+  connectionTimeoutMillis: 5000,
+
+  host: '<host>',
+  port: 5432,
+  user: 'citus',
+  password: '<your password>',
+  database: 'citus',
+  ssl: true,
 });
+
+module.exports = {
+  pool,
+};
 ```
 
 Next, use the following code to connect and load the data using CREATE TABLE
-and INSERT INTO SQL statements.
+and INSERT INTO SQL statements. 
 
 ```javascript
-//create.js
+/**
+* file: create.js
+*/
+
+const { pool } = require('./db/citus');
 
 async function queryDatabase() {
+  const queryString = `
+    DROP TABLE IF EXISTS pharmacy;
+    CREATE TABLE pharmacy (pharmacy_id integer,pharmacy_name text,city text,state text,zip_code integer);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
+    INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (2,'Walgreens','San Diego','California',94003);
+    CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
+  `;
 
-    const q = `
-        DROP TABLE IF EXISTS pharmacy;
-        CREATE TABLE pharmacy (pharmacy_id integer,pharmacy_name text,city text,state text,zip_code integer);
-        INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
-        INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
-        CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
-    `;
-    const { pool } = await postgresql;
+  try {
+    /* Real application code would probably request a dedicated client with
+       pool.connect() and run multiple queries with the client. In this
+       example, we're running only one query, so we use the pool.query()
+       helper method to run it on the first available idle client.
+    */
 
-    const client = await pool.connect();
-
-    var stream = client.query(q).then(() => {
-        console.log('Created tables and inserted rows');
-        client.end(console.log('Closed client connection'));
-    })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
-    await pool.end();
-
+    await pool.query(queryString);
+    console.log('Created the Pharmacy table and inserted rows.');
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    pool.end();
+  }
 }
+
 queryDatabase();
 ```
 
+To execute the code above, run `node create.js`. This command will create a new "pharmacy" table and insert some sample data.
+
 ## Super power of Distributed Tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
@@ -129,28 +138,27 @@ Hyperscale (Citus) gives you [the super power of distributing tables](overview.m
 Use the following code to connect to the database and distribute the table.
 
 ```javascript
-const postgresql = require('./citus');
+/**
+* file: distribute-table.js
+*/
 
-// Connect with a connection pool.
+const { pool } = require('./db/citus');
+
 async function queryDatabase() {
-    const q = `select create_distributed_table('pharmacy','pharmacy_id');`;
+  const queryString = `
+    SELECT create_distributed_table('pharmacy', 'pharmacy_id');
+  `;
 
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-    var stream = await client.query(q).then(() => {
-        console.log('Distributed pharmacy table');
-        client.end(console.log('Closed client connection'));
-    })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
-    await pool.end();
+  try {
+    await pool.query(queryString);
+    console.log('Distributed pharmacy table.');
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    pool.end();
+  }
 }
 
-// Use a self-calling function so we can use async / await.
 queryDatabase();
 ```
 
@@ -159,31 +167,25 @@ queryDatabase();
 Use the following code to connect and read the data using a SELECT SQL statement.
 
 ```javascript
-// read.js
+/**
+* file: read.js
+*/
 
-const postgresql = require('./citus');
-// Connect with a connection pool.
+const { pool } = require('./db/citus');
+
 async function queryDatabase() {
-    const q = 'SELECT * FROM pharmacy;';
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-    var stream = await client.query(q).then(res => {
-        const rows = res.rows;
-        rows.map(row => {
-            console.log(`Read: ${JSON.stringify(row)}`);
-        });
-        process.exit();
-    })
-        .catch(err => {
-            console.log(err);
-            throw err;
-        })
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
-    await pool.end();
+  const queryString = `
+    SELECT * FROM pharmacy;
+  `;
+
+  try {
+    const res = await pool.query(queryString);
+    console.log(res.rows);
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    pool.end();
+  }
 }
 
 queryDatabase();
@@ -194,29 +196,27 @@ queryDatabase();
 Use the following code to connect and read the data using a UPDATE SQL statement.
 
 ```javascript
-//update.js
+/**
+* file: update.js
+*/
 
-const postgresql = require('./citus');
+const { pool } = require('./db/citus');
 
-// Connect with a connection pool.
 async function queryDatabase() {
-    const q = `
-        UPDATE pharmacy SET city = 'guntur'
-        WHERE pharmacy_id = 1 ;
-    `;
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-    var stream = await client.query(q).then(result => {
-        console.log('Update completed');
-        console.log(`Rows affected: ${result.rowCount}`);
-        process.exit();
-    })
-        .catch(err => {
-            console.log(err);
-            throw err;
-        });
-    await pool.end();
+  const queryString = `
+    UPDATE pharmacy SET city = 'Long Beach'
+    WHERE pharmacy_id = 1;
+  `;
+
+  try {
+    const result = await pool.query(queryString);
+    console.log('Update completed.');
+    console.log(`Rows affected: ${result.rowCount}`);
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    pool.end();
+  }
 }
 
 queryDatabase();
@@ -227,29 +227,27 @@ queryDatabase();
 Use the following code to connect and read the data using a DELETE SQL statement.
 
 ```javascript
-//delete.js
+/**
+* file: delete.js
+*/
 
-const postgresql = require('./citus');
+const { pool } = require('./db/citus');
 
-// Connect with a connection pool.
 async function queryDatabase() {
-    const q = `DELETE FROM pharmacy WHERE pharmacy_name = 'Target';`;
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-    var stream = await client.query(q).then(result => {
-        console.log('Delete completed');
-        console.log(`Rows affected: ${result.rowCount}`);
-    })
-        .catch(err => {
-            console.log(err);
-            throw err;
-        })
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
-    await pool.end();
+  const queryString = `
+    DELETE FROM pharmacy
+    WHERE pharmacy_name = 'Target';
+  `;
+
+  try {
+    const result = await pool.query(queryString);
+    console.log('Delete completed.');
+    console.log(`Rows affected: ${result.rowCount}`);
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    pool.end();
+  }
 }
 
 queryDatabase();
@@ -261,11 +259,11 @@ The COPY command can yield [tremendous throughput](https://www.citusdata.com/blo
 
 ### COPY command to load data from a file
 
-Before running below code, install
+Before running code below, install
 [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams). To do so,
 run the node package manager (npm) for JavaScript from your command line.
 
-```dotnetcli
+```bash
 npm install pg-copy-streams
 ```
 
@@ -273,98 +271,164 @@ The following code is an example for copying data from a CSV file to a database 
 It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
 
 ```javascript
-//copycsv.js
+/**
+* file: copycsv.js
+*/
 
-const inputFile = require('path').join(__dirname, '/pharmacies.csv')
+const inputFile = require('path').join(__dirname, '/pharmacies.csv');
+const fileStream = require('fs').createReadStream(inputFile);
 const copyFrom = require('pg-copy-streams').from;
-const postgresql = require('./citus');
+const { pool } = require('./db/citus');
 
-// Connect with a connection pool.
-async function queryDatabase() {
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-
-    const q = `
-        COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
+async function importCsvDatabase() {
+  return new Promise((resolve, reject) => {
+    const queryString = `
+      COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
     `;
 
-    var fileStream = require('fs').createReadStream(inputFile)
-    fileStream.on('error', (error) => {
-        console.log(`Error in reading file: ${error}`)
-        process.exit();
-    });
+    fileStream.on('error', reject);
 
-    var stream = await client.query(copyFrom(q))
-        .on('error', (error) => {
-            console.log(`Error in copy command: ${error}`)
-        })
-        .on('end', () => {
-            // TODO: this is never reached
-            console.log(`Completed loading data into pharmacy`)
-            client.end()
-            process.exit();
-        });
+    pool
+      .connect()
+      .then(client => {
+        const stream = client
+          .query(copyFrom(queryString))
+          .on('error', reject)
+          .on('end', () => {
+            reject(new Error('Connection closed!'));
+          })
+          .on('finish', () => {
+            client.release();
+            resolve();
+          });
 
-    console.log('Copying from CSV...');
-    fileStream.pipe(stream);
-
-    console.log("inserted csv successfully");
-
-    await pool.end();
-    process.exit();
+        fileStream.pipe(stream);
+      })
+      .catch(err => {
+        reject(new Error(err));
+      });
+  });
 }
 
-queryDatabase();
+(async () => {
+  console.log('Copying from CSV...');
+  await importCsvDatabase();
+  await pool.end();
+  console.log('Inserted csv successfully');
+})();
 ```
 
 ### COPY command to load data in-memory
 
-Before running the below code, install
-[through2](https://www.npmjs.com/package/through2). This package allows pipe
+Before running the code below, install
+[through2](https://www.npmjs.com/package/through2) package. This package allows pipe
 chaining.  Install it with node package manager (npm) for JavaScript like this:
 
-```dotnetcli
+```bash
 npm install through2
 ```
 
 The following code is an example for copying in-memory data to a table.
 
 ```javascript
-//copyinmemory.js
+/**
+ * file: copyinmemory.js
+ */
+
 const through2 = require('through2');
 const copyFrom = require('pg-copy-streams').from;
-const postgresql = require('./citus');
+const { pool } = require('./db/citus');
 
-// Connect with a connection pool.
-async function queryDatabase() {
-    const { pool } = await postgresql;
-    // resolve the pool.connect() promise
-    const client = await pool.connect();
-    var stream = client.query(copyFrom(`COPY pharmacy FROM STDIN `));
+async function importInMemoryDatabase() {
+  return new Promise((resolve, reject) => {
+    pool
+      .connect()
+      .then(client => {
+        const stream = client
+          .query(copyFrom('COPY pharmacy FROM STDIN'))
+          .on('error', reject)
+          .on('end', () => {
+            reject(new Error('Connection closed!'));
+          })
+          .on('finish', () => {
+            client.release();
+            resolve();
+          });
 
-    var interndataset = [
-        ['0', 'Target', 'Sunnyvale', 'California', '94001'],
-        ['1', 'CVS', 'San Francisco', 'California', '94002']
-    ];
+        const internDataset = [
+          ['100', 'Target', 'Sunnyvale', 'California', '94001'],
+          ['101', 'CVS', 'San Francisco', 'California', '94002'],
+        ];
 
-    var started = false;
-    var internmap = through2.obj(function (arr, enc, cb) {
-        var rowText = (started ? '\n' : '') + arr.join('\t');
-        started = true;
-        cb(null, rowText);
-    });
-    interndataset.forEach(function (r) { internmap.write(r); })
+        let started = false;
+        const internStream = through2.obj((arr, _enc, cb) => {
+          const rowText = (started ? '\n' : '') + arr.join('\t');
+          started = true;
+          cb(null, rowText);
+        });
 
-    internmap.end();
-    internmap.pipe(stream);
-    console.log("inserted inmemory data successfully ");
+        internStream.on('error', reject).pipe(stream);
 
-    await pool.end();
-    process.exit();
+        internDataset.forEach((record) => {
+          internStream.write(record);
+        });
+
+        internStream.end();
+      })
+      .catch(err => {
+        reject(new Error(err));
+      });
+  });
 }
+(async () => {
+  await importInMemoryDatabase();
+  await pool.end();
+  console.log('Inserted inmemory data successfully.');
+})();
+```
 
-queryDatabase();
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```javascript
+const { Pool } = require('pg');
+const { sleep } = require('sleep');
+
+const pool = new Pool({
+  host: '<host>',
+  port: 5432,
+  user: 'citus',
+  password: '<your password>',
+  database: 'citus',
+  ssl: true,
+  connectionTimeoutMillis: 0,
+  idleTimeoutMillis: 0,
+  min: 10,
+  max: 20,
+});
+
+(async function() {
+  res = await executeRetry('select nonexistent_thing;',5);
+  console.log(res);
+  process.exit(res ? 0 : 1);
+})();
+
+async function executeRetry(sql,retryCount)
+{
+  for (let i = 0; i < retryCount; i++) {
+    try {
+      result = await pool.query(sql)
+      return result;
+    } catch (err) {
+      console.log(err.message);
+      sleep(60);
+    }
+  }
+
+  // didn't succeed after all the tries
+  return null;
+}
 ```
 
 ## Next steps

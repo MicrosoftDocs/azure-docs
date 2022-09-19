@@ -42,6 +42,8 @@ This article covers only the CLI v1 way to accomplish these tasks.  To see how t
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 
 ## What is a compute cluster?
 
@@ -162,5 +164,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](../how-to-set-up-training-targets.md) 
+* [Submit a training run](how-to-set-up-training-targets.md) 
 * [Run batch inference](../tutorial-pipeline-batch-scoring-classification.md).

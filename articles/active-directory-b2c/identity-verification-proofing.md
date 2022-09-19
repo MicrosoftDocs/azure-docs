@@ -10,7 +10,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -27,6 +27,7 @@ Microsoft partners with the following ISV partners.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a deduce logo.](./media/partner-gallery/deduce-logo.png) | [Deduce](./partner-deduce.md) is an identity verification and proofing provider focused on stopping account takeover and registration fraud. It helps combat identity fraud and creates a trusted user experience. |
 | ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
 |![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an Identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
 |![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an Identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
