@@ -63,11 +63,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Kubernetes Service
-            url: /learn/modules/intro-to-azure-kubernetes-service/
+            url: /training/modules/intro-to-azure-kubernetes-service/
           - text: Introduction to containers on Azure
-            url: /learn/modules/intro-to-containers/
+            url: /training/modules/intro-to-containers/
           - text: Build and store container images with Azure Container Registry
-            url: /learn/modules/build-and-store-container-images/
+            url: /training/modules/build-and-store-container-images/
 
   # Card (optional)
   - title: Deploy an AKS cluster in 5 minutes
