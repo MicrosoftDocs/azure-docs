@@ -333,7 +333,7 @@ sections:
 
            - Model Compose is currently available only for custom models trained with labels.
 
-           - Analyzing a document with composed models is identical to analyzing a document with a single model, the analyze result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There is no change in pricing for analyzing a document with a individual custom model or a composed custom model.
+           - Analyzing a document with composed models is identical to analyzing a document with a single model, the analyze result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There is no change in pricing for analyzing a document with an individual custom model or a composed custom model.
 
            Learn more about [composed models](concept-custom.md).
 
