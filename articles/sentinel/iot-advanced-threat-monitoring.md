@@ -106,7 +106,7 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
     In the incident details pane on the right, view details such as incident severity, a summary of the entities involved, any mapped MITRE ATT&CK tactics or techniques, and more.
 
-To investigate further, do one or both of the following:
+**To investigate further, do one or both of the following**:
 
 - Select an entity from the **Entities** list in the incident details pane to open an IoT device's entity page. For example:
         
