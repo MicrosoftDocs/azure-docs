@@ -67,15 +67,6 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
     npm install @azure/identity
     ```
 
-1. In your `index.js` file, add the package:
-
-    ```javascript
-    const { BlobServiceClient, StorageSharedKeyCredential } = require('@azure/storage-blob');    
-
-    // optional but recommended - connect with managed identity (Azure AD)
-    const { DefaultAzureCredential } = require('@azure/identity');
-    ```
-
 ## Authenticate to Azure with passwordless credential
 
 Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code. 
@@ -86,17 +77,16 @@ To connect to Azure without passwords, you need to set up an Azure identity or u
 
 To authorize passwordless access with Azure AD, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
 
-Environment setup for identities:
-
-* Developer environment setup
-    * [Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)
-    * [Service principal](../common/identity-library-acquire-token.md)
-* [Azure-hosted apps setup](/azure/storage/blobs/authorize-managed-identity)
-* [On-premises app setup](/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet)
+|Environment|Method|
+|--|--|
+|Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
+|Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
+|Azure-hosted apps|[Azure-hosted apps setup](/azure/storage/blobs/authorize-managed-identity)|
+|On-premises|[On-premises app setup](/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet)|
 
 ### Set up storage account roles
 
-Your storage resource needs to have one or more of the following roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
+Your storage resource needs to have one or more of the following [Azure RBAC](/azure/role-based-access-control/built-in-roles) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
 
 After you complete the setup, each identity needs at least one of the appropriate roles: 
     
@@ -106,6 +96,7 @@ After you complete the setup, each identity needs at least one of the appropriat
 * A [resource](../common/authorization-resource-provider.md) role - such as:
     * **Reader** 
     * **Contributor**
+
 
 ### Passwordless authentication to Azure 
 
@@ -139,7 +130,7 @@ The `dotenv` package is used to read your storage account connection string from
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-## Object Authorization with a SAS token
+## Connect with a SAS token
 
 Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri.
 
