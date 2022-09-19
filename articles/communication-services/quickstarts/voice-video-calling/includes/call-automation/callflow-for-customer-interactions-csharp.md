@@ -84,9 +84,12 @@ using Azure.Communication.CallingServer;
 using Azure.Messaging.EventGrid;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+
 var builder = WebApplication.CreateBuilder(args);
+
 var client = new CallAutomationClient(builder.Configuration["ACS:ConnectionString"]);
 var callbackUriBase = "<YOUR_NGROK_FQDN>"; // i.e. https://someguid.ngrok.io
+
 var app = builder.Build();
 app.MapPost("/api/incomingCall", async (
     [FromBody] EventGridEvent[] eventGridEvents) =>
@@ -147,6 +150,7 @@ app.MapPost("/api/calls/{contextId}", async (
     
     return Results.Ok();
 }).Produces(StatusCodes.Status200OK);
+
 app.Run();
 ```
 
