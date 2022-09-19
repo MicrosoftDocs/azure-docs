@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2022
+ms.date: 09/19/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -63,14 +63,19 @@ Performing a manual migration involves downtime, but you have more control over 
 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
-The following table provides an overview of how to switch from each type of replication to another:
+### Replication change table
+
+The following table provides an overview of how to switch from each type of replication to another.
+
+> [!NOTE]
+> Manual migration is an option for any scenario in which you want to change the replication setting within the [Limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table to simplify it.
 
 | Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a conversion<sup>5</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a conversion<sup>3</sup> |
-| <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a conversion<sup>3</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a conversion<sup>3</sup> |
-| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a conversion<sup>3</sup> <br /><br /> OR <br /><br /> Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
-| <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
+| <b>…from LRS</b> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> |
+| <b>…from GRS/RA-GRS</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | <b>N/A</b> | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup><sup>3</sup> |
+| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | <b>N/A</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup><sup>3</sup> <br /><b>- or -</b><br /> [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to change the replication setting (as part of a failback operation only)<sup>4</sup> |
+| <b>…from GZRS/RA-GZRS</b> | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| <b>N/A</b> |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
