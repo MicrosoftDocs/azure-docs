@@ -17,10 +17,10 @@ Microsoft Energy Data Services receives improvements on an ongoing basis. To sta
 - Deprecated functionality
 - Plans for changes
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 
 # Microsoft Energy Data Services Preview
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## September 2022
 
