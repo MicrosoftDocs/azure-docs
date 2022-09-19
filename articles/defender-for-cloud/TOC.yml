@@ -277,9 +277,12 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment
+    - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-va-acr.md
+    - name: Vulnerability assessment for Amazon Elastic Container Registry
+      displayName: AWS, ECR, registry, images, qualys
+      href: defender-for-containers-va-ecr.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-containers-cicd.md
