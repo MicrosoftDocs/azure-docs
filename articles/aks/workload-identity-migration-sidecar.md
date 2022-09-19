@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 09/19/2022
 ---
 
-# Managed identity with workload identity sidecar
+# Modernize application authentication with workload identity sidecar
 
-If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API version 1.6 and minimize downtime, you can setup a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to run pod-identity and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the workload identity.
+If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity or other authentication method to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API version 1.6 and minimize downtime, you can set up a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to run pod-identity, other credential method, and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the Azure AD workload identity.
 
-This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution. 
+This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution.
 
 ## Create a Managed Identity and grant permissions to access Azure Key Vault
 
