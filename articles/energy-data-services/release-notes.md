@@ -1,5 +1,5 @@
 ---
-title: Release notes #Required; page title is displayed in search results. Include the brand.
+title: Release notes for Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
 description: This topic provides release notes of Microsoft Energy Data Services Preview releases, improvements, bug fixes, and known issues. #Required; article description that is displayed in search results. 
 author: nitinnms #Required; your GitHub user alias, with correct capitalization.
 ms.author: nitindwivedi #Required; microsoft alias of author; optional team alias.
@@ -9,7 +9,7 @@ ms.date: 09/20/2022 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Release Notes for Microsoft Energy Data Services Preview
+# Release Notes: Microsoft Energy Data Services Preview
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
