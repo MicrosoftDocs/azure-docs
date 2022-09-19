@@ -72,9 +72,9 @@ In this first example, we'll create a simple condition group: If either conditio
 
 1. Let's decide what these conditions will be. That is, what two *different* conditions will cause the incident severity to be changed to *High*? Let's suggest the following:
 
-    1. If the incident's associated MITRE ATT&CK **Tactics** include any of the four we've selected from the drop-down (see the image below), the severity should be raised to High.
+    - If the incident's associated MITRE ATT&CK **Tactics** include any of the four we've selected from the drop-down (see the image below), the severity should be raised to High.
 
-    1. If the incident contains a **Host name** entity named "SUPER_SECURE_STATION", the severity should be raised to High.
+    - If the incident contains a **Host name** entity named "SUPER_SECURE_STATION", the severity should be raised to High.
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-simple-or-condition.png" alt-text="Screenshot of adding simple OR conditions to an automation rule.":::
 
@@ -128,4 +128,4 @@ In this document, you learned how to add condition groups using `OR` operators t
 - For instructions on creating basic automation rules, see [Create and use Microsoft Sentinel automation rules to manage response](create-manage-use-automation-rules.md).
 - To learn more about automation rules, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help with implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

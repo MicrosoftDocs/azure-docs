@@ -135,7 +135,8 @@ To add a condition based on a custom detail, take the following steps:
 
     :::image type="content" source="media/create-manage-use-automation-rules/custom-detail-key-condition.png" alt-text="Screenshot of adding a custom detail key as a condition.":::
 
-1. You've now chosen the field you want to evaluate for this condition. Now you have to specify the value appearing in that field that will make this condition evaluate to *true*.<br>Select **+ Add item condition**.
+1. You've now chosen the field you want to evaluate for this condition. Now you have to specify the value appearing in that field that will make this condition evaluate to *true*.  
+Select **+ Add item condition**.
 
     :::image type="content" source="media/create-manage-use-automation-rules/add-item-condition.png" alt-text="Screenshot of selecting add item condition for automation rules.":::
 
