@@ -37,8 +37,8 @@ Add the 3.x Java agent to your JVM command-line args, for example
 
 If you were using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the above.
 
-Note: if you were using the spring-boot-starter and if you prefer, there is an alternative to using the Java agent, see
-[3.x Spring Boot](./java-spring-boot.md).
+> [!Note] 
+> If you were using the spring-boot-starter and if you prefer, there is an alternative to using the Java agent. See [3.x Spring Boot](./java-spring-boot.md).
 
 ## Step 3: Configure your Application Insights connection string
 
