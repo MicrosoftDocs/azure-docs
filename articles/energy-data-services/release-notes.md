@@ -32,8 +32,8 @@ Microsoft Energy Data Services conforms with the requirements of the Release-3, 
 
 ### Partition & User Management
 
-- You can create [new data partitions](../energy-data-services/how-to-add-more-data-partitions.md) (up to five) in your existing Microsoft Energy Data Services instance. Earlier, you could create a data partition only while provisioning the instance.
-- The domain name for your entitlement groups for [user management](../energy-data-services/how-to-manage-users.md) is changed to "dataservices.energy".
+- You can create [new data partitions](how-to-add-more-data-partitions.md) (up to five) in your existing Microsoft Energy Data Services instance. Earlier, you could create a data partition only while provisioning the instance.
+- The domain name for your entitlement groups for [user management](how-to-manage-users.md) is changed to "dataservices.energy".
 
 ### Data Ingestion
 
@@ -51,7 +51,7 @@ Microsoft Energy Data Services conforms with the requirements of the Release-3, 
 
 ### Monitoring
 
-- You can create diagnostic settings to export [Airflow](../energy-data-services/how-to-integrate-airflow-logs-with-azure-monitor.md) and [Elasticsearch](../energy-data-services/how-to-integrate-elastic-logs-with-azure-monitor.md) logs from your Microsoft Energy Data Services instance to Azure Monitor.
+- You can create diagnostic settings to export [Airflow](how-to-integrate-airflow-logs-with-azure-monitor.md) and [Elasticsearch](how-to-integrate-elastic-logs-with-azure-monitor.md) logs from your Microsoft Energy Data Services instance to Azure Monitor.
 
 ### Hardware & Software
 
