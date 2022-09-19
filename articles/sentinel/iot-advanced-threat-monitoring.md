@@ -82,7 +82,7 @@ The following table describes the out-of-the-box analytics rules provided in the
 
 ### Alternate options for triggering incidents from Defender for IoT data
 
-Use the following alternate options to ensure that incidents are triggered for Defender for IoT data in Microsoft Sentinel:
+The following alternative options are available for you to ensure that incidents are triggered for Defender for IoT data in Microsoft Sentinel:
 
 - Manually create and manage analytics rules in the Microsoft Sentinel **Analytics > Active rules** page. For example, use this option to use the out-of-the box analytics rules as templates for customized rules, or to configure analytics rules for scenarios not yet covered by the solution. For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
 
