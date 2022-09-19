@@ -36,7 +36,7 @@ The following Azure Advisor recommendation **features aren't currently available
 - Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs.
 - Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs.
 
-## Operational
+### Operational
 
 - Add Azure Monitor to your virtual machine (VM) labeled as production.
 - Delete and recreate your pool using a VM size that will soon be retired.
