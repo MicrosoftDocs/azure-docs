@@ -11,6 +11,8 @@ ms.author: mbullwin
 recommendations: false
 ---
 
+<a href="https://go.microsoft.com/fwlink/?linkid=2090370" target="_blank">Library reference documentation</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector/azure-ai-anomalydetector" target="_blank">Library source code</a> | <a href="https://pypi.org/project/azure-ai-anomalydetector/" target="_blank">Package (PyPi)</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector/azure-ai-anomalydetector/samples" target="_blank">Find the sample code on GitHub</a>
+
 Get started with the Anomaly Detector client library for Python. Follow these steps to install the package and start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
 Use the Anomaly Detector client library for Python to:
@@ -18,8 +20,6 @@ Use the Anomaly Detector client library for Python to:
 * Detect anomalies throughout your time series data set, as a batch request
 * Detect the anomaly status of the latest data point in your time series
 * Detect trend change points in your data set.
-
-<a href="https://go.microsoft.com/fwlink/?linkid=2090370" target="_blank">Library reference documentation</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector/azure-ai-anomalydetector" target="_blank">Library source code</a> | <a href="https://pypi.org/project/azure-ai-anomalydetector/" target="_blank">Package (PyPi)</a> |<a href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/anomalydetector/azure-ai-anomalydetector/samples" target="_blank">Find the sample code on GitHub</a>
 
 ## Prerequisites
 
