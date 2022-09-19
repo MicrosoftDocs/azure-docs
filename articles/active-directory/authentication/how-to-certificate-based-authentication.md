@@ -403,4 +403,4 @@ To enable the certificate-based authentication and configure username bindings u
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)

@@ -52,5 +52,5 @@ The following scenarios aren't supported:
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
 

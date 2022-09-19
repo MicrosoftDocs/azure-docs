@@ -66,6 +66,6 @@ On iOS, users will see a double prompt, where they must click the option to use 
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
 
 

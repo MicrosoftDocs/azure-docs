@@ -55,4 +55,4 @@ The Windows sign-in works with the latest preview build of Windows 11 and the fu
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
