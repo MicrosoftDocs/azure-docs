@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 09/25/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
-
+# Control egress traffic for an Azure Spring Apps (ASA) instance
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
-# Control egress traffic for an Azure Spring Apps (ASA) instance
+
 
 This article provides a way that allow you to secure outbound traffic from your Azure Spring Apps (ASA). The following two articles are highly recommended to read before you start this article. 
 * [Introduction to Azure Spring Apps VNet](how-to-deploy-in-azure-virtual-network.md)
