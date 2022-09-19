@@ -63,6 +63,16 @@ az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
+## Disable VPA on an existing cluster
+
+To disable VPA on an existing cluster, use `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+
+```azurecli
+az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
+```
+
+After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
 <!-- INTERNAL LINKS -->
 [get-started-with-aks]: /azure/architecture/reference-architectures/containers/aks-start-here
 [install-azure-cli]: /cli/azure/install-azure-cli
