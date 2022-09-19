@@ -89,7 +89,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 
  
-## Delete an Microsoft Energy Data Services instance
+## Delete a Microsoft Energy Data Services instance
 
 Deleting a Microsoft Energy Data instance also deletes any data that you have ingested. This action is permanent and the ingested data cannot be recovered. To delete a Microsoft Energy Data Services instance, complete the following steps:
 
