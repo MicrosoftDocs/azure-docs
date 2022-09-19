@@ -325,12 +325,6 @@ To create a recurring profile
 
 The example below shows the addition of a recurring profile, recurring on Thursdays between 06:00 and 22:50.
 
-> [!NOTE]  
-> The JSON for your autoscale default profile will be modified by adding a recurring profile.  
-> The `name` of the default profile will be an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name from the `az monitor autoscale profile create` command.  
-> The default profile will also have a recurrence clause added to it that starts at the end time specified for the new recurring profile
-> A new default profile is created for each recurring profile.
-
 ``` azurecli
 
 az monitor autoscale profile create --autoscale-name VMSS1-Autoscale-607 --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
@@ -339,5 +333,22 @@ az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-60
 
 az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
 ```
+
+> [!NOTE]  
+> The JSON for your autoscale default profile is modified by adding a recurring profile.  
+> The `name` of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name from the `az monitor autoscale profile create` command.  
+> The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
+> A new default profile is created for each recurring profile.  
+
+After adding recurring profiles, your default profile is renamed. If you have multiple recurring profiles and want to update your default profile the update mast be made to each default profile that corresponds to a recurring profile.
+
+For example, if you have two recurring profiles called *Wednesdays* and *Thursdays*, you need two commands to add a rule to the default profile.
+
+```azurecli
+az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607 --scale out 8 --condition "Percentage CPU > 52 avg 5m"  --profile-name "{\"name\": \"Auto created default scale condition\", \"for\": \"Wednesdays\"}" 
+ 
+az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607 --scale out 8 --condition "Percentage CPU > 52 avg 5m"  --profile-name "{\"name\": \"Auto created default scale condition\", \"for\": \"Thursdays\"}"  
+```
+
 
 ---
