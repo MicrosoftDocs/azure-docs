@@ -213,7 +213,7 @@ Similar to the `command` for a job, the `command` for a component can also be pa
 
 #### Define optional inputs in command line
 When the input is set as `optional = true`, you need to use the command line which includes this input. Command line at runtime may have different inputs.
-- If only specify `training_data` and `model_output` as they are must have parameters, the command line will look like:
+- If you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```cli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
