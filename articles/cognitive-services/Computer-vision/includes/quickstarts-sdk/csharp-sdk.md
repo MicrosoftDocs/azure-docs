@@ -36,7 +36,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 ## Read printed and handwritten text
 
 1. Create a new C# application.
-    
+
     #### [Visual Studio IDE](#tab/visual-studio)
 
     Using Visual Studio, create a new .NET Core application. 
@@ -76,10 +76,8 @@ Use the OCR client library to read printed and handwritten text from a remote im
     ```console
     dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
     ```
-    ---
 
-    > [!TIP]
-    > The latest version of [Image Analysis](../../overview-image-analysis.md), 4.0, features an updated language model that can do OCR with improved performance. If you have a Computer Vision resource that belongs to one of the regions enabled for 4.0, we recommend you use Image Analysis for OCR.
+    ---
 
 1. Find the key and endpoint.
 
@@ -88,7 +86,6 @@ Use the OCR client library to read printed and handwritten text from a remote im
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the contents of *Program.cs* with the following code.
 
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart-single.cs?name=snippet_single)]
-
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
@@ -115,7 +112,8 @@ Use the OCR client library to read printed and handwritten text from a remote im
    ```dotnet
    dotnet run
    ```
----
+
+   ---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
