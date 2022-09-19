@@ -222,26 +222,20 @@ The **Deploy model** dialog is presented, in which you can provide a name for th
 
 :::image type="content" source="../media/fine-tuning/studio-models-deploy-model.png" alt-text="Screenshot of the Deploy Model dialog from Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-models-deploy-model.png":::
 
-When the dialog closes, you can monitor the progress of your deployment from the **Deployments** pane of Azure OpenAI Studio.
+You can monitor the progress of your deployment from the **Deployments** pane of Azure OpenAI Studio.
 
-## Use a fine-tuned model
+## Use a deployed customized model
 
-Once your model has been deployed, you can use it like any other model. Reference the deployment name you specified in the previous step. You can use either the REST API or Python SDK and can continue to use all the other Completions parameters like temperature, frequency_penalty, presence_penalty, etc., on these requests to fine-tuned models.
-
-```python
-print('Sending a test completion job')
-start_phrase = 'When I go to the store, I want a'
-response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=4)
-text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-print(f'"{start_phrase} {text}"')
-```
+Once your customized model has been deployed, you can use it like any other model. For example, you can use the **Playground** pane of Azure OpenAI Studio to experiment with your new deployment, as shown in the following picture. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
 
-## Clean up your deployments, fine-tuned models and training files
+:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
-When you're done with your fine-tuned model, you can delete the deployment and fine-tuned model. You can also delete the training and validation files you uploaded to the service. 
+## Clean up your deployments, customized models, and training data
+
+When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service. 
 
 ### Delete your model deployment
 
