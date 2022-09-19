@@ -163,122 +163,37 @@ output environmentOutput object = environment()
 The preceding example returns the following object when deployed to global Azure:
 
 ```json
-[
-  {
-    "portal": "https://portal.azure.com",
-    "authentication": {
-      "loginEndpoint": "https://login.microsoftonline.com/",
-      "audiences": [
-        "https://management.core.windows.net/",
-        "https://management.azure.com/"
-      ],
-      "tenant": "common",
-      "identityProvider": "AAD"
-    },
-    "media": "https://rest.media.azure.net",
-    "graphAudience": "https://graph.windows.net/",
-    "graph": "https://graph.windows.net/",
-    "name": "AzureCloud",
-    "suffixes": {
-      "azureDataLakeStoreFileSystem": "azuredatalakestore.net",
-      "acrLoginServer": "azurecr.io",
-      "sqlServerHostname": "database.windows.net",
-      "azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
-      "keyVaultDns": "vault.azure.net",
-      "storage": "core.windows.net",
-      "azureFrontDoorEndpointSuffix": "azurefd.net"
-    },
-    "batch": "https://batch.core.windows.net/",
-    "resourceManager": "https://management.azure.com/",
-    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-    "activeDirectoryDataLake": "https://datalake.azure.net/",
-    "sqlManagement": "https://management.core.windows.net:8443/",
-    "gallery": "https://gallery.azure.com/"
+{
+  "portal": "https://portal.azure.com",
+  "authentication": {
+    "loginEndpoint": "https://login.microsoftonline.com/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
   },
-  {
-    "portal": "https://portal.azure.cn",
-    "authentication": {
-      "loginEndpoint": "https://login.chinacloudapi.cn",
-      "audiences": [
-        "https://management.core.chinacloudapi.cn",
-        "https://management.chinacloudapi.cn"
-      ],
-      "tenant": "common",
-      "identityProvider": "AAD"
-    },
-    "media": "https://rest.media.chinacloudapi.cn",
-    "graphAudience": "https://graph.chinacloudapi.cn",
-    "graph": "https://graph.chinacloudapi.cn",
-    "name": "AzureChinaCloud",
-    "suffixes": {
-      "acrLoginServer": "azurecr.cn",
-      "sqlServerHostname": "database.chinacloudapi.cn",
-      "keyVaultDns": "vault.azure.cn",
-      "storage": "core.chinacloudapi.cn",
-      "azureFrontDoorEndpointSuffix": ""
-    },
-    "batch": "https://batch.chinacloudapi.cn",
-    "resourceManager": "https://management.chinacloudapi.cn",
-    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-    "sqlManagement": "https://management.core.chinacloudapi.cn:8443",
-    "gallery": "https://gallery.chinacloudapi.cn"
+  "media": "https://rest.media.azure.net",
+  "graphAudience": "https://graph.windows.net/",
+  "graph": "https://graph.windows.net/",
+  "name": "AzureCloud",
+  "suffixes": {
+    "azureDataLakeStoreFileSystem": "azuredatalakestore.net",
+    "acrLoginServer": "azurecr.io",
+    "sqlServerHostname": "database.windows.net",
+    "azureDataLakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "keyVaultDns": "vault.azure.net",
+    "storage": "core.windows.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net"
   },
-  {
-    "portal": "https://portal.azure.us",
-    "authentication": {
-      "loginEndpoint": "https://login.microsoftonline.us",
-      "audiences": [
-        "https://management.core.usgovcloudapi.net",
-        "https://management.usgovcloudapi.net"
-      ],
-      "tenant": "common",
-      "identityProvider": "AAD"
-    },
-    "media": "https://rest.media.usgovcloudapi.net",
-    "graphAudience": "https://graph.windows.net",
-    "graph": "https://graph.windows.net",
-    "name": "AzureUSGovernment",
-    "suffixes": {
-      "acrLoginServer": "azurecr.us",
-      "sqlServerHostname": "database.usgovcloudapi.net",
-      "keyVaultDns": "vault.usgovcloudapi.net",
-      "storage": "core.usgovcloudapi.net",
-      "azureFrontDoorEndpointSuffix": ""
-    },
-    "batch": "https://batch.core.usgovcloudapi.net",
-    "resourceManager": "https://management.usgovcloudapi.net",
-    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-    "sqlManagement": "https://management.core.usgovcloudapi.net:8443",
-    "gallery": "https://gallery.usgovcloudapi.net"
-  },
-  {
-    "portal": "https://portal.microsoftazure.de",
-    "authentication": {
-      "loginEndpoint": "https://login.microsoftonline.de",
-      "audiences": [
-        "https://management.core.cloudapi.de",
-        "https://management.microsoftazure.de"
-      ],
-      "tenant": "common",
-      "identityProvider": "AAD"
-    },
-    "media": "https://rest.media.cloudapi.de",
-    "graphAudience": "https://graph.cloudapi.de",
-    "graph": "https://graph.cloudapi.de",
-    "name": "AzureGermanCloud",
-    "suffixes": {
-      "sqlServerHostname": "database.cloudapi.de",
-      "keyVaultDns": "vault.microsoftazure.de",
-      "storage": "core.cloudapi.de",
-      "azureFrontDoorEndpointSuffix": ""
-    },
-    "batch": "https://batch.cloudapi.de",
-    "resourceManager": "https://management.microsoftazure.de",
-    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-    "sqlManagement": "https://management.core.cloudapi.de:8443",
-    "gallery": "https://gallery.cloudapi.de"
-  }
-]
+  "batch": "https://batch.core.windows.net/",
+  "resourceManager": "https://management.azure.com/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "gallery": "https://gallery.azure.com/"
+}
 ```
 
 ## Next steps
