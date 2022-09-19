@@ -59,6 +59,10 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
+
 ## August 2022
 
 ### Update topic inferencing model 
