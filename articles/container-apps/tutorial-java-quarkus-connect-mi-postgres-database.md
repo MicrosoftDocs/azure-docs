@@ -263,9 +263,9 @@ Next, you create a Postgres Database and configure your container app to connect
 
 You can find the application URL(FQDN) by using the following command:
 
-    ```
-    az containerapp list -g $RESOURCE_GROUP
-    ```
+```azurecli
+az containerapp list -g $RESOURCE_GROUP
+```
 
 When the new webpage shows your fruit list, your app is connecting to the database using the managed identity. You should now be able to edit fruit list as before.
 
