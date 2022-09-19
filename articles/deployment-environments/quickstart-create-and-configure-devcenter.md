@@ -1,5 +1,5 @@
 ---
-title: Set up an Azure Deployment Environments Dev center
+title: Configure the Azure Deployment Environments service
 description: This quickstart shows you how to configure the Azure Deployment Environments (ADE) service. You'll create a Dev center, attach an Identity, attach a Catalog, and create Environment types.
 author: anandmeg
 ms.author: meghaanand
@@ -9,9 +9,9 @@ ms.date: 08/05/2022
 ms.custom: devdivchpfy22
 ---
 
-# Quickstart: Create and configure the Azure Deployment Environments Dev center
+# Quickstart: Configure the Azure Deployment Environments Preview service
 
-This tutorial shows you how to configure Azure Deployment Environments by using the Azure portal. The Enterprise Dev IT team typically sets up a Dev center, configures different entities within the Dev center, creates projects and provides access to development teams. Development teams create Environments using the Catalog items, connect to individual resources, and deploy their applications.
+This tutorial shows you how to configure Azure Deployment Environments Preview by using the Azure portal. The Enterprise Dev IT team typically sets up a Dev center, configures different entities within the Dev center, creates Projects, and provides access to development teams. Development teams create [Environments](concept-environments-key-concepts.md#environments) using the [Catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
 
 In this quickstart, you'll perform the following actions:
 
@@ -19,6 +19,14 @@ In this quickstart, you'll perform the following actions:
 * Attach an Identity
 * Attach a Catalog
 * Create Environment types
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure RBAC role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Create a Dev center
 

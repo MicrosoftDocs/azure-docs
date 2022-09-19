@@ -6,18 +6,23 @@ ms.service: deployment-environments
 ms.topic: overview
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/16/2022
+ms.date: 09/19/2022
 ---
 
-# What is Azure Deployment Environments?
+# What is Azure Deployment Environments Preview?
 
-Azure Deployment Environments service enables your development teams to deploy their own secure, cloud environments on-demand based on IT-approved templates.  This on-demand access to secure environments accelerates the different stages of the software development lifecycle in a compliant and cost-efficient manner.
+Azure Deployment Environments Preview enables your development teams to deploy their own secure, cloud environments on-demand based on IT-approved templates.  This on-demand access to secure environments accelerates the different stages of the software development lifecycle in a compliant and cost-efficient manner.
 
 An Azure Deployment Environment is a pre-configured collection of Azure resources deployed in predefined subscriptions, where Azure governance is applied based on the type of environment, such as sandbox, testing, staging, or production.
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
 With Azure Deployment Environments, your Dev Infra Admin can enforce enterprise security policies through environment templates, which are predefined infrastructure-as-code Azure Resource Manager (ARM) templates. This will enable your developers to quickly and easily spin-up app infrastructure with project-based templates that establish consistency and best practices while maximizing security, compliance, and cost efficiency.
+
+Learn more about the [key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Usage scenarios
 
@@ -61,22 +66,19 @@ Azure Deployment Environments Preview will support two custom roles:
 
 Azure Deployment Environments provide the following benefits to creating, configuring, and managing environments in the cloud.
 
-- **Standardization and collaboration**
+- **Standardization and collaboration**:
 Capture and share 'infra as code' templates in source control within your team or organization, to easily create on-demand environments. Promote collaboration through inner-sourcing of templates through source control repositories.
 
-- **Compliance and governance**
+- **Compliance and governance**:
 Dev Infra Teams can curate environment templates to enforce enterprise security policies and map Projects to Azure subscriptions, identities, and permissions by environment types.
 
-- **Project-based configurations**
-
+- **Project-based configurations**:
 Create and organize environment definitions linked to dev projects, rather than an unorganized list of templates or a traditional IaC setup.
 
-- **Worry-free self-service**
-
+- **Worry-free self-service**:
 Enable your development teams to quickly and easily create PaaS resources by using a set of pre-configured templates. You can also track costs on these resources to stay within your budget.
 
-- **Integrate with your existing toolchain**
-
+- **Integrate with your existing toolchain**:
 Use the API to provision environments directly from your preferred continuous integration (CI) tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
 ## Next steps

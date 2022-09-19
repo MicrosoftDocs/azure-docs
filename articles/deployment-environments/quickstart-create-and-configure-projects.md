@@ -5,19 +5,26 @@ author: anandmeg
 ms.author: meghaanand
 ms.service: deployment-environments
 ms.topic: quickstart
-ms.date: 08/05/2022
+ms.date: 09/19/2022
 ms.custom: devdivchpfy22
 ---
 
-# Quickstart: Set up an Azure Deployment Environments Project
+# Quickstart: Configure an Azure Deployment Environments Preview Project
 
-In this tutorial, you create and configure an Azure Deployment Environments Project and associate it to the Dev center created in [Quickstart: Set up an Azure Deployment Environments Dev center](./quickstart-create-and-configure-devcenter.md). The enterprise dev IT team typically creates projects and provides access to development teams. Development teams (for example: developers and testers) then create environments using the Catalog Items, connect to individual resources, and deploy their applications.
+In this tutorial, you create and configure an Azure Deployment Environments Preview Project and associate it to the Dev center created in [Quickstart: Configure an Azure Deployment Environments service](./quickstart-create-and-configure-devcenter.md). The enterprise dev IT team typically creates projects and provides access to development teams. Development teams (for example: developers and testers) then create [Environments](concept-environments-key-concepts.md#environments) using the Catalog Items, connect to individual resources, and deploy their applications.
 
 In this quickstart, you'll learn how to:
 
 * Create and configure a project.
 * Provide access to the development team.
 
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure RBAC role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Create a Project
 
