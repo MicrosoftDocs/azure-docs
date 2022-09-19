@@ -80,11 +80,16 @@ Esv5-series supports Standard SSD, Standard HDD, and Premium SSD disk types. You
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | Remote Storage Only | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
 | Standard_E104is_v5<sup>4,6</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 120000/4000 | 8 | 100000 |
 
-<sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> [Constrained core](constrained-vcpu.md) sizes available.<br>
-<sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
-<sup>5</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.
+
+<sup>2</sup> Accelerated networking can be applied to two NICs.
+
+<sup>3</sup> [Constrained core](constrained-vcpu.md) sizes available.
+
+<sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
+
+<sup>5</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
 <sup>6</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104is_v5** results in higher IOPs and MBps than standard premium disks:
 - Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/4000 
 - Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/4000

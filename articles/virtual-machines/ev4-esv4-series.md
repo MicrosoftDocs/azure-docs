@@ -78,10 +78,14 @@ Esv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
 | Standard_E80is_v4 <sup>3,5</sup> | 80 | 504 | Remote Storage Only | 64 | 80000/1200 | 80000/2000 | 8|30000 |
 
-<sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
-<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
-<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.<br>
-<sup>4</sup> Accelerated networking can only be applied to a single NIC. <br>
+<sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).
+
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
+
+<sup>4</sup> Accelerated networking can only be applied to a single NIC. 
+
 <sup>5</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E80is_v4** results in higher IOPs and MBps than standard premium disks:
 - Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 120000/1800 
 - Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 120000/2000
