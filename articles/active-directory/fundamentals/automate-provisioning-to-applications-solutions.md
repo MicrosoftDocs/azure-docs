@@ -29,8 +29,6 @@ This article presents solutions that enable you to:
 
 In most designs, the human resources (HR) system is the source-of-authority for newly created digital identities. The HR system is often the starting point for many provisioning processes. For example, if a new user joins a company, they have a record in the HR system. That user likely needs an account to access Microsoft 365 services such as Teams and SharePoint, or non-Microsoft applications.
 
-![Systems of record model](media/automate-user-provisioning-to-applications-solutions/system-of-record.png)
-
 ### Synchronizing identities with cloud HR
 
 The Azure AD provisioning service enables organizations to [bring identities from popular HR systems](../app-provisioning/what-is-hr-driven-provisioning.md) (examples: [Workday](../saas-apps/workday-inbound-tutorial.md) and [SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)), into Azure AD directly, or into Active Directory Domain Services. This provisioning capability enables new hires to access the resources they need from the first day of work.
@@ -41,15 +39,17 @@ To create a full user profile for an employee identity, organizations often merg
 
 MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms698810(v=vs.100)?redirectedfrom=MSDN) and [workflow capabilities](https://microsoft.github.io/MIMWAL/) features for advanced scenarios requiring data transformation and consolidation from multiple sources. These connectors, rule extensions, and workflow capabilities enable organizations to aggregate user data in the MIM metaverse to form a single identity for each user. The identity can be [provisioned into downstream systems](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms) such as Active Directory Domain Services.
 
+![Systems of record model](media/automate-user-provisioning-to-applications-solutions/system-of-record.png)
+
 ## Synchronize identities between Active Directory and Azure AD
 
-As customers move more of their applications to the cloud and integrate with Azure AD, users often need accounts in Azure AD and AD to access the applications they need to get their work done. Here are the five common scenarios in which objects need to be synchronized between AD and Azure AD.
+As customers move more of their applications to the cloud and integrate with Azure AD, users often need accounts in Azure AD and AD to access the applications they need to get their work done. Here are five common scenarios in which objects need to be synchronized between AD and Azure AD.
 
 The scenarios are divided by the direction of synchronization needed, and are listed, one through five. Use the table following the scenarios to determine what technical solution provides the synchronization.
 
 **Synchronize identities from AD into Azure AD**
 
-1. For users in AD and need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management are primarily done in the cloud, minimizing your on-premises footprint. It provides high-availability and automatic failover, ensuring password resets and synchronization continue, even if there's an issue with on-premises servers.
+1. For users in AD that need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management are primarily done in the cloud, minimizing your on-premises footprint. It provides high-availability and automatic failover, ensuring password resets and synchronization continue, even if there's an issue with on-premises servers.
 
 1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50 K and device sync, customers can use Azure AD Connect sync to meet their needs.
 
@@ -65,8 +65,8 @@ As customers transition identity management to the cloud, more users and groups 
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
-| 1 |Users, groups| AD| Azure AD| Azure AD Connect Cloud Sync |
-| 2 |Users, groups, devices| AD| Azure AD| Azure AD Connect Sync |
+| 1 |Users, groups| AD| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/en-us/azure/active-directory/cloud-sync/what-is-cloud-sync) |
+| 2 |Users, groups, devices| AD| Azure AD| [Azure AD Connect Sync](https://learn.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) |
 | 3 |Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
 | 4 |Guest accounts| Azure AD| AD| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
@@ -97,7 +97,7 @@ In addition to the pre-integrated gallery applications, Azure AD supports provis
 
 ### Use integrations developed by partners
 
-Many applications may not yet support SCIM or rely on SQL / LDAP databases. Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases.
+Many applications may not yet support SCIM or rely on SQL / LDAP databases. Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases. In the image below, the SCIM Gateways are built and managed by partners.
 
 ![Agent with SCIM gateway](media/automate-user-provisioning-to-applications-solutions/provisioning-agent-with-scim-gateway.png)
 
@@ -107,7 +107,7 @@ Many applications may not yet support SCIM or rely on SQL / LDAP databases. Micr
 
 Many applications have a local authentication store and a UI that only checks the user’s supplied credentials against that store. As a result, these applications can't support Multi Factor Authentication (MFA) through Azure AD and pose a security risk. Microsoft recommends enabling single sign-on and MFA for all your applications. Based on our studies, your account is more than 99.9% less likely to be compromised if you [use MFA](https://aka.ms/securitysteps). However, in cases where the application can’t externalize authentication, customers can use MIM to sync password changes to these applications.
 
-![Manage local app passwords](media/automate-user-provisioning-to-applications-solutions/manage-local-app-passwords.png)
+![Provision access from org data](media/automate-user-provisioning-to-applications-solutions/provision-access-based-on-org-data.png)
 
 [Learn more about the MIM password](/microsoft-identity-manager/infrastructure/mim2016-password-management)change notification service
 
@@ -115,7 +115,7 @@ Many applications have a local authentication store and a UI that only checks th
 
 MIM enables you to import organizational data such as job codes and locations. That information can then be used to automatically set up access rights for that user.
 
-![Provision access from org data](media/automate-user-provisioning-to-applications-solutions/provision-access-based-on-org-data.png)
+![Manage local app passwords](media/automate-user-provisioning-to-applications-solutions/manage-local-app-passwords.png)
 
 ### Automate common business workflows
 
@@ -124,6 +124,8 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 * **Joiner**: When a user joins the organization, they're ready to go on day one. They have the correct access to the information and applications they need. They have the required hardware necessary to do their job.
 
 * **Leaver**: When users leave the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner.
+
+Learn more about [Azure AD Lifecycle Workflows](https://learn.microsoft.com/en-us/azure/active-directory/governance/what-are-lifecycle-workflows).
 
 > [!Note]
 > For scenarios not covered by LCW, customers can leverage the extensibility of [Logic Applications](../..//logic-apps/logic-apps-overview.md).
