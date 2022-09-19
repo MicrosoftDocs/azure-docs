@@ -45,6 +45,7 @@ The following list presents the set of features that are currently available in 
 |                       | Reject an incoming call                           | ✔️    | ✔️    |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |
+|                       | Recognize user input through DTMF                 | ✔️    | ✔️    |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |
 |                       | Blind Transfer* a call to another endpoint         | ✔️    | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
@@ -93,6 +94,8 @@ These actions can be performed on the calls that are answered or placed using Ca
 
 **Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. This audio can be looped if needed in scenarios like playing hold music. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/play-action.md)
 
+**Recognize input** - After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)
+
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
 **Hang-up** – When your application has answered a one-to-one call, the hang-up action will remove the call leg and terminate the call with the other endpoint. If there are more than two participants in the call (group call), performing a ‘hang-up’ action will remove your application’s endpoint from the group call.
@@ -132,6 +135,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
 | PlayCompleted| Your application successfully played the audio file provided |
 | PlayFailed| Your application failed to play audio |
+| RecognizeCompleted | Recognition of user input was successfully completed |
+| RecognizeFailed | Recognition of user input was unsuccessful <br/><br/>*to learn more about recognize action events view our [quickstart](../../quickstarts/voice-video-calling/Recognize-Action.md)*|
 
 ## Known Issues
 
