@@ -27,7 +27,7 @@ In this quickstart, you'll perform the following actions:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure RBAC role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
-- 
+
 ## Create a Dev center
 
 The following steps illustrate how to use the Azure portal to create and configure a Dev center in Azure Deployment Environments.
