@@ -51,7 +51,7 @@ Microsoft Energy Data Services conforms with the requirements of the Release-3, 
 
 ### Monitoring
 
-- You can create diagnostic settings to export [Airflow]../energy-data-services/how-to-integrate-airflow-logs-with-azure-monitor.md) and [Elasticsearch](../energy-data-services/how-to-integrate-elastic-logs-with-azure-monitor.md) logs from your Microsoft Energy Data Services instance to Azure Monitor.
+- You can create diagnostic settings to export [Airflow](../energy-data-services/how-to-integrate-airflow-logs-with-azure-monitor.md) and [Elasticsearch](../energy-data-services/how-to-integrate-elastic-logs-with-azure-monitor.md) logs from your Microsoft Energy Data Services instance to Azure Monitor.
 
 ### Hardware & Software
 
