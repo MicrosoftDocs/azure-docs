@@ -107,7 +107,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ### Define optional inputs in command line
 When set input as `optional = true`, you need to embrace command line which includes this input. Command line in the runtime may differ according to different inputs.
-- If only specify `training_data` and `model_output` as they are must have parameters, the command line will look like:
+- If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```cli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
