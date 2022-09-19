@@ -191,6 +191,8 @@ items:
         href: map-add-image-layer.md
       - name: Add tile layers
         href: map-add-tile-layer.md
+      - name: Add a WebGL layer
+        href: webgl-custom-layer.md
       - name: Show traffic 
         href: map-show-traffic.md
       - name: Cluster point data
