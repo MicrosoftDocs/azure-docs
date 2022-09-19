@@ -22,109 +22,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 2. Check the status of your file and table connections in the data flow designer. In debug mode, select **Data Preview** on your source transformations to ensure that you can access your data.
 3. If everything looks correct in data preview, go into the Pipeline designer and put your data flow in a Pipeline activity. Debug the pipeline for an end-to-end test.
 
-### Improvement on CSV/CDM format in Data Flow 
-
-If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from **1 May 2021**. 
-
-You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
-
-#### Scenario 1: Encounter the unexpected row delimiter issue
-
- You are affected if you are in the following conditions:
- - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
- - The first row has more than 128 characters. 
- - The row delimiter in data files is not `\n`.
-
- Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
-
- After the improvement, any one of the three-row delimiters: `\r`, `\n`, `\r\n` should  have worked.
- 
- The following example shows you one pipeline behavior change after the improvement:
-
- **Example**:<br/>
-   For the following column:<br/>
-    `C1, C2, {long first row}, C128\r\n `<br/>
-    `V1, V2, {values………………….}, V128\r\n `<br/>
- 
-   Before the improvement, `\r` is kept in the column value. The parsed column result is:<br/>
-   `C1 C2 {long first row} C128`**`\r`**<br/>
-   `V1 V2 {values………………….} V128`**`\r`**<br/> 
-
-   After the improvement, the parsed column result should be:<br/>
-   `C1 C2 {long first row} C128`<br/>
-   `V1 V2 {values………………….} V128`<br/>
-  
-#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
-
- You are affected if you are in the following conditions:
- - Using the Delimited Text with the Multiline setting set to True or CDM as a source. 
- - The row delimiter is `\r\n`.
-
- Before the improvement, when reading the column value, the `\r\n` in it may be incorrectly replaced by `\n`. 
-
- After the improvement, `\r\n` in the column value will not be replaced by `\n`.
-
- The following example shows you one pipeline behavior change after the improvement:
- 
- **Example**:<br/>
-  
- For the following column：<br/>
-  **`"A\r\n"`**`, B, C\r\n`<br/>
-
- Before the improvement, the parsed column result is:<br/>
-  **`A\n`**` B C`<br/>
-
- After the improvement, the parsed column result should be:<br/>
-  **`A\r\n`**` B C`<br/>  
-
-#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'
-
- You are affected if you are in the following conditions:
- - Using the Delimited Text as a sink.
- - The column value contains `\n`.
- - The row delimiter is set to `\r\n`.
- 
- Before the improvement, when writing the column value, the `\n` in it may be incorrectly replaced by `\r\n`. 
-
- After the improvement, `\n` in the column value will not be replaced by `\r\n`.
- 
- The following example shows you one pipeline behavior change after the improvement:
-
- **Example**:<br/>
-
- For the following column:<br/>
- **`A\n`**` B C`<br/>
-
- Before the improvement, the CSV sink is:<br/>
-  **`"A\r\n"`**`, B, C\r\n` <br/>
-
- After the improvement, the CSV sink should be:<br/>
-  **`"A\n"`**`, B, C\r\n`<br/>
-
-#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
- 
- You are affected if you are in the following conditions:
- - Using the Delimited Text as a source. 
- - NULL value is set to non-empty value. 
- - The column value is empty string and is unquoted. 
- 
- Before the improvement, the column value of unquoted empty string is read as NULL. 
-
- After the improvement, empty string will not be parsed as NULL value. 
- 
- The following example shows you one pipeline behavior change after the improvement:
-
- **Example**:<br/>
-
- For the following column:<br/>
-  `A, ,B, `<br/>
-
- Before the improvement, the parsed column result is:<br/>
-  `A null B null`<br/>
-
- After the improvement, the parsed column result should be:<br/>
-  `A "" (empty string) B "" (empty string)`<br/>
-
 ###  Internal server errors
 
 Specific scenarios that can cause internal server errors are shown as follows.
@@ -1042,6 +939,109 @@ This section lists common error codes and messages reported by mapping data flow
 		- Schema import fails to show correctly in the UX and the last column has a new line character in the name.
 	- **Cause**: In the Mapping data flow, multiline CSV source files don't currently work when \r\n is used as the row delimiter. Sometimes extra lines at carriage returns can cause errors. 
 	- **Recommendation**: Generate the file at the source by using \n as the row delimiter rather than \r\n. Or use the Copy activity to convert the CSV file to use \n as a row delimiter.
+
+### Improvement on CSV/CDM format in Data Flow 
+
+If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from **1 May 2021**. 
+
+You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
+
+#### Scenario 1: Encounter the unexpected row delimiter issue
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
+ - The first row has more than 128 characters. 
+ - The row delimiter in data files is not `\n`.
+
+ Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
+
+ After the improvement, any one of the three-row delimiters: `\r`, `\n`, `\r\n` should  have worked.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+   For the following column:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Before the improvement, `\r` is kept in the column value. The parsed column result is:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   After the improvement, the parsed column result should be:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as a source. 
+ - The row delimiter is `\r\n`.
+
+ Before the improvement, when reading the column value, the `\r\n` in it may be incorrectly replaced by `\n`. 
+
+ After the improvement, `\r\n` in the column value will not be replaced by `\n`.
+
+ The following example shows you one pipeline behavior change after the improvement:
+ 
+ **Example**:<br/>
+  
+ For the following column：<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  **`A\n`**` B C`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a sink.
+ - The column value contains `\n`.
+ - The row delimiter is set to `\r\n`.
+ 
+ Before the improvement, when writing the column value, the `\n` in it may be incorrectly replaced by `\r\n`. 
+
+ After the improvement, `\n` in the column value will not be replaced by `\r\n`.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+ **`A\n`**` B C`<br/>
+
+ Before the improvement, the CSV sink is:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ After the improvement, the CSV sink should be:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
+ 
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a source. 
+ - NULL value is set to non-empty value. 
+ - The column value is empty string and is unquoted. 
+ 
+ Before the improvement, the column value of unquoted empty string is read as NULL. 
+
+ After the improvement, empty string will not be parsed as NULL value. 
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+  `A, ,B, `<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  `A null B null`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
 
 ## Next steps
 
