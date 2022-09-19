@@ -141,7 +141,7 @@ You can modify these build and release pipelines to meet the needs of your team.
 
 ## Retirement
 
-Deployment Center for Azure Kubernetes will be retired on March 31, 2023 in favour of [Automated Deployments](https://docs.microsoft.com/azure/aks/automated-deployments). We encourage you to switch at the earliest to enjoy similar capabilities
+Deployment Center for Azure Kubernetes will be retired on March 31, 2023 in favor of [Automated deployments](/azure/aks/automated-deployments). We encourage you to switch for enjoy similar capabilities.
 
 #### Migration Steps
 
