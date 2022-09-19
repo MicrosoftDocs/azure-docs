@@ -1155,7 +1155,7 @@ items:
         href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
-- name: Data Analysis
+- name: Analyize
   items:
   - name: Metrics explorer
     items:
