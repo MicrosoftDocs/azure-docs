@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/19/2022
-ms.author: v-smcevoy 
+ms.author: mmitrik  
 ---
 
 # DICOM Conformance Statement
