@@ -187,7 +187,7 @@ Details will differ for each playbook, but the main steps remain the same.
 
 1. When you're done, select **Save**. 
 
-**To ensure that you have valid connections for each of your connection steps in the playbook**:
+**Ensure that you have valid connections for each of your connection steps in the playbook**:
 
 1. In Microsoft Sentinel, open the playbook from **Automation** > **Active playbooks**.
 
