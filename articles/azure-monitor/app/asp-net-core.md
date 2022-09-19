@@ -67,8 +67,6 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
      :::image type="content" source="./media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update":::
 
-7. If you added your project to source control, go to **View** > **Team Explorer** > **Changes**. You can select each file to see a diff view of the changes made by Application Insights telemetry.
-
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
 1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)
