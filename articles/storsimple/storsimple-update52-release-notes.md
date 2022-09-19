@@ -24,7 +24,7 @@ Update 5.2 corresponds to software version 6.3.9600.17886.
 > [!IMPORTANT]
 >
 > * Update 5.2 is a mandatory security update. It must be installed immediately to ensure the operation of the device. Microsoft implements a phased rollout, so your new release might not detect all available updates. To ensure a complete update to 5.2, wait a few days and then scan for updates again.
-> * Update 5.1 is a minimally supported version. Any device on version 5.0 or lower won’t see any available updates. If you're not notified about Update 5.2 via a banner in the Azure portal UI, you can't update via the Azure portal. In this case, you must [apply Update 5.1 via hotfix](storsimple-8000-install-update-51.md). Once you are on Update 5.1, you'll see the banner in the Azure portal to apply Update 5.2.
+> * If you're not notified about Update 5.2 via a banner in the Azure portal UI, contact Microsoft Support.
 
 ## What's new in Update 5.2
 
@@ -36,18 +36,15 @@ Update 5.2 corresponds to software version 6.3.9600.17886.
 
 * **SHA 256 hashing algorithm is supported for the remote management certificate.** Remote management certificates are used while connecting to the PowerShell interface of the appliance, or during a Support session using remote PowerShell over Single Sockets Layer (SSL). Earlier releases use an SHA 128 hashing algorithm, which is considered weak. Update 5.2 uses SHA 256, which is considered more secure.
 
-## Download Update 5.2
+## Install Update 5.2
 
-You must download and install the following hotfixes to the specified folders in the prescribed order. Update 5.2 takes 40-60 minutes to install.
+Use the following steps to install Update 5.2:
 
-| Order | KB       | Description | Update type | Install time |Install in folder|
-|-------|----------|------------ |-------------|--------------|----- |
-|1     |KB4645959|Software update 5.2 for StorSimple 8000 Series |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
-|2     |KB4645960|OS Cumulative update 5.2 for StorSimple 8000 Series|Regular <br></br>Non-disruptive |~ 40 mins|SecondOrderUpdate|
+1. [Connect to Windows PowerShell on the StorSimple 8000 series device](/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console), or connect directly to the appliance via serial cable.
 
-## Download hotfixes
+1. Use [Start-HcsUpdate](/powershell/module/hcs/start-hcsupdate.md?view=winserver2012r2-ps&preserve-view=true) to update the device. For steps, see [Install regular updates via Windows PowerShell](/azure/storsimple/storsimple-update-device.md#to-install-regular-updates-via-windows-powershell-for-storsimple). This update is non-disruptive.
 
-To download the hotfixes, follow the steps [to download hotfixes](/azure/storsimple/storsimple-8000-install-update-5.md#to-download-hotfixes) and search for KB articles listed in the table above.
+1. If ```Start-HcsUpdate``` doesn't work because of firewall issues, install Update 5.2 (or higher) [via the hotfix method](storsimple-8000-install-update-51.md). 
 
 ## Verify the updates
 
@@ -61,4 +58,4 @@ To verify Update 5.2, check for these software versions after installation:
 
 ## Next steps
 
-Install StorSimple 8000 Series Update 5.2.
+Install StorSimple 8000 Series Update 5.2. Steps to install Update 5.2 are largely the same as for installation of Update 5.1. For more information, see detailed steps in [Installing via the hotfix method](storsimple-8000-install-update-51.md). 
