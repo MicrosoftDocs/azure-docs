@@ -24,7 +24,7 @@ The "upload and index your video automatically" scenario covered in this article
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes.
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. 
 
-The logic apps that you create in this article, contain one flow per app. The second section ("**Create a second flow - JSON extraction**") explains how to connect the two.
+The logic apps that you create in this article, contain one flow per app. The second section ("**Create a second flow - JSON extraction**") explains how to connect the two. The second flow stands alone and is triggered by the first one (the section with the callback URL). 
 
 ## Prerequisites
 
