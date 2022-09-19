@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 08/25/2022
+ms.date: 09/19/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -18,6 +18,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## September 2022
+
+* [Conversational language understanding](./conversational-language-understanding/overview.md) is available in the following regions:
+* Central India
+* Switzerland North
 
 * Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
 
