@@ -24,9 +24,6 @@ Making an Azure Logic app compatible to run with the **Custom Task Extension** r
 - Enable system assigned managed identity.
 - Configure AuthZ policies.
 
-> [!NOTE]
-> For our public preview we will provide a UI and a deployment script that will automate the following steps.
-
 To configure those you'll follow these steps:
 
 1. Open the Azure Logic App you want to use with Lifecycle Workflow. Logic Apps may greet you with an introduction screen, which you can close with the X in the upper right corner.
