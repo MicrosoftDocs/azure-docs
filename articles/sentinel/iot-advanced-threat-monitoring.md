@@ -193,7 +193,7 @@ Details will differ for each playbook, but the main steps remain the same.
 
 1. Select a playbook to open it as a Logic app.
 
-1. With the playbook opened as a Logic app, select **Logic app designer**. Expand each step in the logic app to check for invalid connections, which are indicated by an orange warning triangle. Invalid connections may be hiding inside other steps. For example:
+1. With the playbook opened as a Logic app, select **Logic app designer**. Expand each step in the logic app to check for invalid connections, which are indicated by an orange warning triangle. For example:
 
     :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default AD4IOT AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png"::: 
 
