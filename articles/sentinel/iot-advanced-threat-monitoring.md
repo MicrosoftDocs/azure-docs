@@ -155,7 +155,8 @@ For more information, see:
 
 ### Playbook prerequisites
 
-This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot), [AD4IoT-CVEAutoWorkflow](#automatic-workflow-for-incident-with-active-cves), [AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner), and [AD4IoT-AutoTriageIncident](#triage-incidents-involving-high-importance-devices) playbooks only. Details will differ for each playbook, but the main steps remain the same.
+This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot),
+[AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves), [AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner), and [AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices) playbooks only. Details will differ for each playbook, but the main steps remain the same.
 
 **To add the required role to the Azure subscription where the playbook is installed**:
 
@@ -178,9 +179,9 @@ This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-st
         |Playbook name  |Role  |
         |---------|---------|
         |[AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot)  |Security Admin  |
-        |[AD4IoT-CVEAutoWorkflow](#automatic-workflow-for-incident-with-active-cves)  |Reader  |
+        |[AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves)  |Reader  |
         |[AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner)  |Reader  |
-        |[AD4IoT-AutoTriageIncident](#triage-incidents-involving-high-importance-devices)  |Reader  |
+        |[AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices)  |Reader  |
 
 1. When you're done, select **Save**. 
 
@@ -209,9 +210,9 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
     |Playbook name  |Trigger  |
     |---------|---------|
     |[AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot)  |When an incident is updated  |
-    |[AD4IoT-CVEAutoWorkflow](#automatic-workflow-for-incident-with-active-cves)  |When an incident is created  |
+    |[AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves)  |When an incident is created  |
     |[AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner)  |When an incident is created  |
-    |[AD4IoT-AutoTriageIncident](#triage-incidents-involving-high-importance-devices)  |When an incident is created  |
+    |[AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices)  |When an incident is created  |
 
 1. In the **Conditions** area, select **If > Analytic rule name > Contains**, and then select the specific analytics rules relevant for Defender for IoT in your organization.
 
