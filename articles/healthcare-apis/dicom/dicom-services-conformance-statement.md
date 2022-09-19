@@ -6,7 +6,7 @@ author: v-smcevoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/16/2022
+ms.date: 09/19/2022
 ms.author: chrupa
 ---
 
@@ -260,7 +260,7 @@ An unsupported `transfer-syntax` will result in `406 Not Acceptable`.
 
 ### Retrieve metadata (for study, series, or instance)
 
-The following `Accept` header(s) are supported for retrieving metadata for a study, a series, or an instance:
+The following `Accept` header is supported for retrieving metadata for a study, a series, or an instance:
 
 * `application/dicom+json`
 
