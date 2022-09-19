@@ -119,14 +119,10 @@ To generate a data collection rule JSON file in the Azure portal:
 
     Notice the following details in the DCR defined in this template:
 
-    - `identity`: Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use.
-    
-       In our example, we use [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+    - `identity`: Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
     - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
-    - `streamDeclarations`: Defines the columns in which to store the incoming data, based on the destination table.
-    
-       In our example, we've defined these columns:
+    - `streamDeclarations`: Defines the columns in which to store the incoming data, based on the destination table. In our example, we've defined these columns:
        - `TimeGenerated` - The time at which the data was ingested from event hub to Azure Monitor Logs.
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
