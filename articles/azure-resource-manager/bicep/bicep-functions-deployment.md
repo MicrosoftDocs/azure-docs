@@ -160,7 +160,7 @@ The following example Bicep file returns the environment object.
 output environmentOutput object = environment()
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+The latest values can be be found [here](https://management.azure.com/metadata/endpoints?api-version=latest). The preceding example returns the following object when deployed to global Azure:
 
 ```json
 {
