@@ -20,6 +20,14 @@ This article explains how to deploy and configure an Elastic SAN.
 - If you're using Azure Powershell, install the `Az.Elastic-SAN` module version `.10-preview`.
 - If you're using Azure CLI, install version `2.41.0`.
 
+## Limitations
+
+Currently, Elastic SAN is only available in the following regions:
+
+- West US 2
+- France Central
+- Southeast Asia
+
 ## Configure virtual network
 
 Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your elastic SAN.

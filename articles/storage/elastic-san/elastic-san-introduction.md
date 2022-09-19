@@ -11,16 +11,16 @@ ms.subservice: elastic-san
 
 # What is Azure Elastic SAN?
 
-Azure Elastic SAN is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
 Elastic SAN is designed for large scale IO-intensive workloads and top tier databases, such as:
-- SAP HANA
 - SQL
 - MariaDB
-- Epic
 - Containers, such as Azure Kubernetes Service
 
 ## Benefits of Elastic SAN
+
+### Increased
 
 ### Simplified provisioning and management
 
@@ -38,7 +38,7 @@ Cost optimization can be achieved with Elastic SAN since you can increase your S
 
 Elastic SAN has three resources:
 
-- The SAN itself
+- The Elastic SAN itself
 - Volume groups
 - Volumes
 
@@ -46,7 +46,7 @@ The following diagram illustrates the relationship and mapping of an Azure Elast
 
 :::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic san is like an on-premises san appliance and is where billing and provisioning is handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises san.":::
 
-### The SAN
+### The Elastic SAN
 
 When you configure the SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
@@ -58,7 +58,7 @@ Volume groups are management constructs that you use to manage volumes at scale.
 
 ### Volumes
 
-You partition the appliance's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
+You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
 The name of your volume is part of their iSCSI IQN. The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
@@ -76,12 +76,10 @@ The status of items in this table may change over time.
 | [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
 | Private endpoints | ⛔  |
 | Grant network access to specific Azure virtual networks|  ✔️  |
-| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2felastic%2fsan%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
 | Access same data from Windows and Linux client|  ✔️   |
 | Soft delete | ⛔  |
 | Backups| ⛔ |
 | Snapshots | ⛔ |
-| GRS or GZRS redundancy types| ⛔ |
 
 ### iSCSI support
 

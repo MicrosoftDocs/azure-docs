@@ -23,13 +23,13 @@ The total capacity of your elastic SAN is determined by two different capacities
 
 ### IOPS
 
-The IOPS of a SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
+The IOPS of a SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still achieve/provide up to 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+The throughput of an SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still achieve/provide up to 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
-### Appliance scale targets
+### Elastic SAN scale targets
 
 The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets by the [redundancy](elastic-san-planning.md#redundancy) of the SAN and the SAN's region.
 

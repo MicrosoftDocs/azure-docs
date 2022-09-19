@@ -20,5 +20,5 @@ If you can create the SAN itself, and volume groups, but not volumes, your SAN m
 To remedy this, make sure that the **Microsoft.Storage** endpoint is registered in your virtual network's subnet and use the following PowerShell command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "AllowGlobalTagsForStorage" -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName "AllowGlobalTagsForStorage" -ProviderNamespace "Microsoft.Storage"
 ```
