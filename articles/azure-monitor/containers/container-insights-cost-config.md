@@ -67,7 +67,7 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o
 curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
 ```
 
-2. Edit the values in the parameter file.
+2. Edit the values in the parameter file: existingClusterParam.json
 
 - For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
@@ -98,7 +98,7 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o
 curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
 ```
 
-2. Edit the values in the parameter file.
+2. Edit the values in the parameter file: existingClusterParam.json
 
 - For _clusterResourceId_ and _clusterRegion_, use the values of Azure Arc Kubernetes cluster resource id and location
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
