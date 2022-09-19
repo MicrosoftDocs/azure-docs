@@ -155,7 +155,7 @@ For new application deployments to AKS, instead of using Deployment center users
 
 1. Where can I manage my CD pipeline after this experience is deprecated?  
 
-    Post retirement, you will not be able to view or create CD pipelines from Azure portal’s AKS blade. However, as with the current experience, you can go to GitHub Actions or Azure DevOps portal and view/update the configured pipelines and leverage all the advanced capabilities provided there. 
+Post retirement, you will not be able to view or create CD pipelines from Azure portal’s AKS blade. However, as with the current experience, you can go to GitHub Actions or Azure DevOps portal and view or update the configured pipelines there. 
 
 2. Will I lose my earlier configured pipelines? 
 
