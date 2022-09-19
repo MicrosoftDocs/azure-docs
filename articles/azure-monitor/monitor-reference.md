@@ -41,7 +41,7 @@ Some services have curated monitoring experiences call "insights". Insights are 
 
 ## Product integrations
 
-The services and [older monitoring solutions](insights/solutions) in the following table store their data in a Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
+The services and [older monitoring solutions](solutions.md) in the following table store their data in a Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
 | Product/Service | Description |
 |:---|:---|
@@ -55,7 +55,7 @@ The services and [older monitoring solutions](insights/solutions) in the followi
 | [Microsoft Teams Rooms](/microsoftteams/room-systems/azure-monitor-deploy) | Integrated, end-to-end management of Microsoft Teams Rooms devices. |
 | [Visual Studio App Center](/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](app/mobile-center-quickstart.md). |
 | Windows | [Windows Update Compliance](/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
-| **The following solutions also integrate with parts of Azure Monitor. Note that solutions are no longer under active development. Use [Insights](#insights-and-curated-visualizations) instead.**  | |
+| **The following solutions also integrate with parts of Azure Monitor. Note that solutions, which are based on Azure Monitor Logs and Log Analytics, are no longer under active development. Use [Insights](insights-overview.md) instead.**  | |
 | Network - [Network Performance Monitor solution](insights/network-performance-monitor.md) |
 | Network - [Azure Application Gateway solution](insights/azure-networking-analytics.md#azure-application-gateway-analytics) | .
 | [Office 365 solution](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Microsoft Sentinel. |
