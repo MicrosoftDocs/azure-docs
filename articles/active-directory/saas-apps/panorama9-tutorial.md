@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 09/19/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Panorama9
@@ -120,23 +120,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Panorama9 company site as an administrator.
 
-2. In the toolbar on the top, click **Manage**, and then click **Extensions**.
-   
-	![Extensions](./media/panorama9-tutorial/toolbar.png "Extensions")
-
-3. On the **Extensions** dialog, click **Single Sign-On**.
-   
-	![Single Sign-On](./media/panorama9-tutorial/extension.png "Single Sign-On")
+2. Navigate to **Manage** -> **Extensions** -> **Single Sign-On**.
 
 4. In the **Settings** section, perform the following steps:
    
 	![Settings](./media/panorama9-tutorial/configuration.png "Settings")
    
-	a. In **Identity provider URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	a. Enable the Single Sign-On.
+    
+    b. In **Identity URL** textbox, paste the value of **Identifier(Entity ID)**, which you have copied from Azure portal.
    
-	b. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate, which you have copied from Azure portal.    
+	c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate, which you have copied from Azure portal.    
          
-5. Click **Save**.
+5. Click **Save Changes**.
 
 ### Create Panorama9 test user
 
@@ -148,20 +144,11 @@ In the case of Panorama9, provisioning is a manual task.
 
 1. Sign in to your **Panorama9** company site as an administrator.
 
-2. In the menu on the top, click **Manage**, and then click **Users**.
-   
-	![Screenshot that shows the "Manage" and "Users" tabs selected.](./media/panorama9-tutorial/user.png "Users")
-
-3. In the Users section, Click **+** to add new user.
+1. In the Users section, type the email address of a valid Azure Active Directory user you want to provision into the **Email** textbox and give a valid **Name**.
 
 	![Users](./media/panorama9-tutorial/new-user.png "Users")
 
-4. Go to the User data section, type the email address of a valid Azure Active Directory user you want to provision into the **Email** textbox.
-
-5. Come to the Users section, Click **Save**.
-   
-	> [!NOTE]
-    > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+5. Click **Create user**.
 
 ## Test SSO
 
