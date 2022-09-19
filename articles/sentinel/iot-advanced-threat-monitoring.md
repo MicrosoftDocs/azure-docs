@@ -228,7 +228,8 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 
 
 
-You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).
+> [!TIP]
+> You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).
 
 ###  Automatically close incidents
 
