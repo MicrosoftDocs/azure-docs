@@ -263,7 +263,7 @@ Next, you create a Postgres Database and configure your container app to connect
 
 You can find the application URL(FQDN) by using the following command:
 
-    ```azurecli
+    ```
     az containerapp list -g $RESOURCE_GROUP
     ```
 
