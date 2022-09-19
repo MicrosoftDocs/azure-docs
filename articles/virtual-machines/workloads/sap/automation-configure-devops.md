@@ -26,7 +26,7 @@ Log in to Azure Cloud Shell
 ```bash
    export ADO_ORGANIZATION=https://dev.azure.com/<yourorganization>
    export ADO_PROJECT=SAP Deployment Automation
-   wget https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/create_devops_artifacts.sh -O devops.sh
+   wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/create_devops_artifacts.sh -O devops.sh
    chmod +x ./devops.sh
    ./devops.sh
    rm ./devops.sh
@@ -59,7 +59,7 @@ Once the variables are defined run the following script to create the service pr
 
 ```powershell
 
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
 
 ```
 
