@@ -85,7 +85,7 @@ Continuous delivery setting of Virtual Machines will be retired on March 31, 202
 
 ### Migration Steps
 
-There is no migration required as VM CD experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure and Azure DevOps. Users will still be able to perform all operations from Azure DevOps portal even after the retirement of this experience. Only the ability to create and view pipelines from Azure portal will be removed. 
+There is no migration required as VM CD experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure and Azure DevOps. Users will still be able to perform all operations from Azure DevOps after retirement. You won't be able to create and view pipelines from the Azure portal anymore. 
 
 ### FAQ
 
