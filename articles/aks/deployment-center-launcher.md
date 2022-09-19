@@ -10,7 +10,7 @@ author: rayoef
 # Deployment Center for Azure Kubernetes
 
 > [!IMPORTANT]
-> Deployment Center for Azure Kubernetes will be retired on March 31, 2023. [Learn more](https://docs.microsoft.com/en-us/azure/aks/deployment-center-launcher#retirement)
+> Deployment Center for Azure Kubernetes Service will be retired on March 31, 2023. [Learn more](https://docs.microsoft.com/en-us/azure/aks/deployment-center-launcher#retirement)
 
 Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: the ability to gain approval before deploying, provision additional Azure resources, run scripts, upgrade your application, and even run more validation tests.
 
