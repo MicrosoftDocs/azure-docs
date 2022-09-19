@@ -63,7 +63,135 @@ When creating multiple profiles using templates and the CLI,
 
 #### [ARM templates](#tab/templates)
 
-<!--- Content here  -->
+Follow the tules below when using tARM templates to create autoscale setting with multiple profiles:
+
+* Create a default profile for each recurring profile.
+    * The default profile must contain a `recurrence` section that is the same as the recurring profile, with the `hours` and `minuted` elements set for the end time of the recurring profile.
+    * The `name` element for the default profile is an object with the follwoing format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Recurring profile name\"}"` where the recurring profile name is the value of the `name` element for the recurring profile.
+
+If you do not specify a default profile recurrence with a start time, the last recurrence rule will remain in effect.
+
+These rules do not apply for a non-recurring scheduled profile.
+The example below shows the JSON for  recurring profile for weekends that begins at 06:00 on a Saturday and Sunday, and ends at 19:00 for the same days.
+
+``` JSON
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Insights/autoscaleSettings",
+            "apiVersion": "2015-04-01",
+            "name": "VMSS1-Autoscale-607",
+            "location": "eastus",
+            "properties": {
+                
+                    "name": "VMSS1-Autoscale-607",
+                    "enabled": true,
+                    "targetResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
+                    "profiles": [
+                        {
+                            "name": "Weekend profile",
+                            "capacity": {
+                                "minimum": "2",
+                                "maximum": "3",
+                                "default": "2"
+                            },
+                            "rules": [],
+                            "recurrence": {
+                                "frequency": "Week",
+                                "schedule": {
+                                    "timeZone": "E. Europe Standard Time",
+                                    "days": [
+                                       "Saturday",
+                                       "Sunday"
+                                    ],
+                                    "hours": [
+                                        6
+                                    ],
+                                    "minutes": [
+                                        0
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Weekend profile\"}",
+                            "capacity": {
+                                "minimum": "2",
+                                "maximum": "10",
+                                "default": "3"
+                            },
+                              "recurrence": {
+                                "frequency": "Week",
+                                "schedule": {
+                                    "timeZone": "E. Europe Standard Time",
+                                    "days": [
+                                        "Saturday",
+                                        "Sunday"
+                                    ],
+                                    "hours": [
+                                        19
+                                    ],
+                                    "minutes": [
+                                        0
+                                    ]
+                                }
+                            },
+                            "rules": [
+                                {
+                                    "scaleAction": {
+                                        "direction": "Increase",
+                                        "type": "ChangeCount",
+                                        "value": "1",
+                                        "cooldown": "PT3M"
+                                    },
+                                    "metricTrigger": {
+                                        "metricName": "Percentage CPU",
+                                        "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                                        "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
+                                        "operator": "GreaterThan",
+                                        "statistic": "Average",
+                                        "threshold": 50,
+                                        "timeAggregation": "Average",
+                                        "timeGrain": "PT1M",
+                                        "timeWindow": "PT1M",
+                                        "Dimensions": [],
+                                        "dividePerInstance": false
+                                    }
+                                },
+                                {
+                                    "scaleAction": {
+                                        "direction": "Decrease",
+                                        "type": "ChangeCount",
+                                        "value": "1",
+                                        "cooldown": "PT3M"
+                                    },
+                                    "metricTrigger": {
+                                        "metricName": "Percentage CPU",
+                                        "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                                        "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
+                                        "operator": "LessThan",
+                                        "statistic": "Average",
+                                        "threshold": 39,
+                                        "timeAggregation": "Average",
+                                        "timeGrain": "PT1M",
+                                        "timeWindow": "PT3M",
+                                        "Dimensions": [],
+                                        "dividePerInstance": false
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "notifications": [],
+                    "targetResourceLocation": "eastus"
+                }
+            
+        }
+    ]
+}
+```
 
 #### [CLI](#tab/cli)
 
