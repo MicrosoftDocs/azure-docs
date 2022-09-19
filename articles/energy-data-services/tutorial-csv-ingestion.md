@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 
 ### Get Microsoft Energy Data Services Preview instance details
 
-* Microsoft Energy Data Service Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create a Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
+* Microsoft Energy Data Services Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create a Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
 * For this tutorial, you will need the following parameters:
 
   | Parameter          | Value to use             | Example                               | Where to find these values?           |
