@@ -20,7 +20,9 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ## Benefits of Elastic SAN
 
-### Increased
+### Compatibility
+
+### Scalability
 
 ### Simplified provisioning and management
 
