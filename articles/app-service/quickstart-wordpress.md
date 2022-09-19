@@ -18,11 +18,9 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 To complete this quickstart, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
 
 > [!IMPORTANT]
-> - [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
-> - The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
+> After November 28, 2022, [PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
->  Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice/tree/main/WordPress). If you have feedback to improve this WordPress offering on App Service, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c). 
->
+
 ## Create WordPress site using Azure portal
 
 1. To start creating the WordPress site, browse to [https://ms.portal.azure.com/#create/WordPress.WordPress](https://ms.portal.azure.com/#create/WordPress.WordPress).
@@ -56,6 +54,11 @@ To complete this quickstart, you need an Azure account with an active subscripti
 1. To access the WordPress Admin page, browse to `/wp-admin` and use the credentials you created in the [WordPress settings step](#wordpress-settings).
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login.":::
+    
+> [!NOTE]
+> If you have feedback to improve this WordPress offering on App Service, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c). 
+>
+     
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
@@ -68,21 +71,23 @@ When no longer needed, you can delete the resource group, App service, and all r
 
     :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group.":::
 
-## MySQL flexible server username and password
+## Manage the MySQL flexible server, username, or password
+
+- The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
+    - Navigate to the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
+    - Login with the flexible server's username and password
 
 - Database username and password of the MySQL Flexible Server are generated automatically. To retrieve these values after the deployment go to Application Settings section of the Configuration page in Azure App Service. The WordPress configuration is modified to use these [Application Settings](reference-app-settings.md#wordpress) to connect to the MySQL database.
 
-- To change the MySQL database password, see [Reset admin password](how-to-manage-server-portal.md#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](../../app-service/reference-app-settings.md#wordpress) need to be updated. The [Application Settings for MySQL database](../../app-service/reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
-
-## Manage the MySQL database
-
-The MySQL Flexible Server is created behind a private [Virtual Network](../../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access and manage the database, use phpMyAdmin that's deployed with the WordPress site. 
-- Navigate to the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
-- Login with the flexible server's username and password
+- To change the MySQL database password, see [Reset admin password](how-to-manage-server-portal.md#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](reference-app-settings.md#wordpress) need to be updated. The [Application Settings for MySQL database](reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_mysql_database_password.md).
 
 ## Change WordPress admin password
 
 The [Application Settings](reference-app-settings.md#wordpress) for WordPress admin credentials are only for deployment purposes. Modifying these values has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). The [Application Settings for WordPress admin credentials](reference-app-settings.md#wordpress) begin with the **`WORDPRESS_ADMIN_`** prefix. For more information on updating the WordPress admin password, see [Changing WordPress Admin Credentials](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/changing_wordpress_admin_credentials.md).
+
+## Migrating to App Service
+
+Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice/tree/main/WordPress).
 
 ## Next steps
 
