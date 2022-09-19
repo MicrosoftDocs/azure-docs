@@ -19,15 +19,15 @@ ms.collection: M365-identity-device-management
 
 This topic covers errors you might see when you use Azure Active Directory (Azure AD) authentication strength and how to resolve them.  
 
-## A user is prompted to use a different authentication method, but they don’t see how to register that method
+## A user is getting prompted for additional authentication methods, but they don't see the methods I expect
 
-To evaluate if a method can be used, we consider which authentication methods the user has registered and enabled. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
+To evaluate if a method can be used, we consider which authentication methods the user has registered and enabled for by the Authentication method policy. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
 
 To verify if a method can be used:
 
 1. Check which authentication strength is required. Click **Security** > **Authentication methods** > **Authentication strengths**. 
 1. Check if the user is enabled for a required method:
-   1. If you use the new Authentication methods policy, check if the user is enabled for any method required for the authentication strength. Click **Security** > **Authentication methods** > **Policies**.
+   1. First, check the unified Authentication methods policy. See if the user is enabled for any method required by authentication strength. Click **Security** > **Authentication methods** > **Policies**.
    1. If you use the legacy Authentication methods policy, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
 1. Check which authentication methods are registered for the user in the Authentication methods policy. Click **Users and groups** > _username_ > **Authentication methods**. 
 
@@ -38,11 +38,12 @@ Use the **Sign-ins** log to find additional information about the sign-in:
 
 - Under the **Authentication details** tab, check the **Requirement** column will indicate the name of the authentication strengths policy.
 
-  :::image type="content" source="media/concept-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
+  :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
 
 - Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look under **Grant control** for the authentication strength that was enforced. 
+  :::image type="content" source="media/troubleshoot-authentication-strengths/AuthStrengthsCASignInLogs.png" alt-text="Screenshot showing the authentication strength under "Conditional Access Policy details" in the Sign-ins log.":::
 
-## User sign in error when using a restricted FIDO2 security key
+## My users can't use their FIDO2 key to sign in
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they can't use, this **You can't get there from here** message appears. The user has to restart the session, and sign-in with a different FIDO2 security key.
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/restricted-security-key.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key.":::
