@@ -3,7 +3,7 @@ title: Configure your Azure Kubernetes Service (AKS) cluster with a workload ide
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article
-ms.date: 09/13/2022
+ms.date: 09/19/2022
 ---
 
 # Managed identity with workload identity sidecar
@@ -127,6 +127,13 @@ Update the pod with the annotation by performing the following steps.
     
     ```output
     Pod/quick-start created
+    ```
+
+2. To check whether all properties are injected properly by the webhook, use
+the [kubectl describe][kubelet-describe] command:
+
+    ```bash
+    kubectl describe pod quick-start
     ```
 
 ## Next steps
