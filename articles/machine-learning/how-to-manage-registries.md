@@ -77,7 +77,7 @@ Run the registry create command.
 
 `az ml registry create --file registry.yml`
 
-# [Studio](#tab/studio)
+# [AzureML studio](#tab/studio)
 
 You can create registries in AzureML studio using the following steps:
 
@@ -153,6 +153,5 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 
 ## Next steps
 
-* [Learn how to share models, components and environments across workspaces with registries using CLI (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
-* [Learn how to share models, components and environments across workspaces with registries using Python SDK (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries-sdk.md)
+* [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
 

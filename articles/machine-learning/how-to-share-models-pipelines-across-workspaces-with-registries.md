@@ -40,7 +40,7 @@ Before following the steps in this article, make sure you have the following pre
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
+    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
 
 - The Azure CLI and the `ml` extension __or__ the Azure Machine Learning Python SDK v2 (preview):
 
@@ -50,7 +50,6 @@ Before following the steps in this article, make sure you have the following pre
 
     > [!IMPORTANT]
     > * The CLI examples in this article assume that you are using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
-
     > * The examples also assume that you have configured defaults for the Azure CLI so that you don't have to specify the parameters for your subscription, workspace, resource group, or location. To set default settings, use the following commands. Replace the following parameters with the values for your configuration:
     >
     >     * Replace `<subscription>` with your Azure subscription ID.
@@ -87,10 +86,10 @@ cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 
 ### Create SDK connection
 
-> [TIP]
+> [!TIP]
 > This step is only needed when using the Python SDK.
 
-First, create a client connection to both the AzureML workspace and registry:
+Create a client connection to both the AzureML workspace and registry:
 
 ```python
 ml_client_workspace = MLClient( credential=credential,
@@ -104,7 +103,7 @@ ml_client_registry = MLClient ( credential=credential,
 print(ml_client_registry)
 ```
 
-## Create Environment in Registry
+## Create environment in registry
 
 Environments define the docker container and python dependencies required to run training jobs or deploy models. For more information on environments, see the following articles:
 
@@ -178,7 +177,7 @@ You can also use `ml_client_registry.environments.list()` to list all environmen
 
 ---
 
-You can also browse all environments in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all environments in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" alt-text="Screenshot of environments in the registry.":::
 
@@ -278,7 +277,7 @@ You can also use `ml_client_registry.component.list()` to list all components in
 
 ---
 
-You can also browse all components in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all components in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" alt-text="Screenshot of components in the registry.":::
 
