@@ -358,12 +358,14 @@ The following assemblies are automatically added by the Azure Functions hosting 
 
 The following assemblies may be referenced by simple-name, by runtime version:
 
-# [Version 2.x+](#tab/v2)
+# [v2.x+](#tab/functionsv2)
 
 * `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.WindowsAzure.Storage`<sup>*</sup>
 
-# [Version 1.x](#tab/v1)
+<sup>*</sup>Removed in version 4.x of the runtime.
+
+# [v1.x](#tab/functionsv1)
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -372,6 +374,7 @@ The following assemblies may be referenced by simple-name, by runtime version:
 * `Microsoft.AspNet.WebHooks.Common`
 
 ---
+
 
 In code, assemblies are referenced like the following example:
 
