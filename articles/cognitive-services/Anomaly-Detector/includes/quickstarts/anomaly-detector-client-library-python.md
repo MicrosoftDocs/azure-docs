@@ -45,7 +45,7 @@ To successfully make a call against the Anomaly Detector service, you'll need th
 |--------------------------|-------------|
 | `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
 | `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-|`TIME_SERIES_DATA_PATH` | This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). You can also download the sample data by running: `curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv`. Example path: `c:\\test\\request-data.csv`  |
+|`DATA_PATH` | This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). Example path: `c:\\test\\request-data.csv`  |
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
@@ -85,6 +85,16 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 ---
 
+### Download sample data
+
+This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv)
+
+ You can also download the sample data by running:
+
+```cmd
+`curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv`
+```
+
 ## Create a new Python application
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
@@ -100,12 +110,12 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY'] 
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT'] 
-    TIME_SERIES_DATA_PATH = "c:\\test\\request-data.csv" 
+    DATA_PATH = "REPLACE_WITH_YOUR_SAMPLE_REQUEST_DATA_PATH"
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
     series = []
-    data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
+    data_file = pd.read_csv(DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
     for index, row in data_file.iterrows():
         series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 
@@ -179,12 +189,12 @@ To visualize the anomalies and change points in relation to the sample data seri
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY_ENVIRONMENT_VARIABLE_NAME']
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT_ENVIRONMENT_VARIABLE_NAME']
-    TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE"
+    DATA_PATH = "REPLACE_WITH_YOUR_SAMPLE_REQUEST_DATA_PATH"
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
     series = []
-    data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
+    data_file = pd.read_csv(DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
     for index, row in data_file.iterrows():
         series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 
