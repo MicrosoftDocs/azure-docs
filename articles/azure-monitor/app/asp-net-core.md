@@ -85,7 +85,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
     ### [ASP.NET Core 6.0](#tab/netcore6)
     
-    Add `builder.Services.AddApplicationInsightsTelemetry();` to the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
+    Add `builder.Services.AddApplicationInsightsTelemetry();` after the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
     
     ```csharp
     // This method gets called by the runtime. Use this method to add services to the container.
