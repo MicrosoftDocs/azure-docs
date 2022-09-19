@@ -227,7 +227,6 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 1. Select **Run**.
 
 
-:::image type="content" source="media/iot-solution/automate-playbook.png" alt-text="Screenshot of a Defender for IoT alert status sync automation rule." lightbox="media/iot-solution/automate-playbook.png":::
 
 You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).
 
