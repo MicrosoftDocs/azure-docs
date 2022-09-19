@@ -1,23 +1,23 @@
 ---
 title: What is Azure Deployment Environments?
-description: 'Azure Deployment Environments is an Azure service that enables developers to deploy on-demand environments using self-service, project-specific templates pre-configured by dev infra teams for any stage of development, to establish consistency and best practices while maximizing security, compliance, and cost efficiency.'
+description: 'Azure Deployment Environments enables developer teams to quickly spin up app infrastructure with project-based templates, minimizing set-up time while maximizing security, compliance, and cost efficiency.'
 titleSuffix: Azure Deployment Environments
 ms.service: deployment-environments
 ms.topic: overview
 ms.author: meghaanand
 author: anandmeg
-ms.date: 07/29/2022
+ms.date: 09/16/2022
 ---
 
 # What is Azure Deployment Environments?
 
-Azure Deployment Environments is an Azure service that enables enterprises to provide development teams with self-service management of environments in Azure, while adhering to enterprise security guidelines. Development teams can create [Environments](./concept-environments-key-concepts.md#environments) from a curated list of Azure Resource Manager (ARM) templates. An environment is a pre-configured collection of Azure resources deployed in predefined subscriptions, where Azure governance is applied based on the [type of environment](./concept-environments-key-concepts.md#environment-types), such as sandbox, testing, staging or production.
+Azure Deployment Environments service enables your development teams to deploy their own secure, cloud environments on-demand based on IT-approved templates.  This on-demand access to secure environments accelerates the different stages of the software development lifecycle in a compliant and cost-efficient manner.
 
-With Azure Deployment Environments, DevOps can quickly and easily spin-up app infrastructure with project-based templates that establish consistency and best practices while maximizing security, compliance, and cost efficiency. 
-
-Azure Deployment Environments provide self-serve capability to developers by enabling them to deploy on-demand environments easily to test the latest versions of their applications. Developments teams can deploy environments from a catalog of project-specific templates pre-configured by their dev infra/IT teams for different stages of development. This helps accelerate the software development lifecycle.
+An Azure Deployment Environment is a pre-configured collection of Azure resources deployed in predefined subscriptions, where Azure governance is applied based on the type of environment, such as sandbox, testing, staging, or production.
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
+
+With Azure Deployment Environments, your Dev Infra Admin can enforce enterprise security policies through environment templates, which are predefined infrastructure-as-code Azure Resource Manager (ARM) templates. This will enable your developers to quickly and easily spin-up app infrastructure with project-based templates that establish consistency and best practices while maximizing security, compliance, and cost efficiency.
 
 ## Usage scenarios
 
@@ -26,40 +26,56 @@ Azure Deployment Environments enables usage [scenarios](./concept-environments-s
 Some common use cases:
 
 - Quickly create on-demand Azure environments by using reusable ARM templates.
-- Easily provision various types of environments to seamlessly integrate your deployment pipeline
+- Easily provision various types of environments to seamlessly integrate your deployment pipeline.
+- Create environments as part of CI/CD workflow, consistent with development teams.
 - Create pre-provisioned environments for trainings and demos.
 
 ### Developer scenarios
 
-Azure Deployment Environments provide the following capabilities to developers working with [environments](./concept-environments-key-concepts.md#environments):
+Developers have self-service experience when working with [environments](./concept-environments-key-concepts.md#environments):
 
-- Choose from a curated list of Azure Resource Manager (ARM) templates, which are configured, and authorized by the team lead or central IT.
-- Quickly and easily create PaaS and IaaS environments by following a few simple steps.
-- Spin-up an empty resource group (sandbox) by using a Resource Manager template to explore Azure.
-- Deploy a pre-configured environment directly from where you work.
+>[!NOTE]
+> Developers will have a CLI based experience to create and manage Environments for Azure Deployment Environments Preview.
 
-### DevOps scenarios
+- Deploy a pre-configured environment for any stage of your development cycle.
+- Spin up a sandbox environment to explore Azure.
+- Create PaaS and IaaS environments quickly and easily by following a few simple steps.
+- Deploy an environment easily and quickly right from where you work.
 
-Azure Deployment Environments enable central IT to ensure the right set of policies and settings are applied on different types of environments, control the resource configuration that the developers can create, and centrally track environments across different projects by doing the following tasks:  
+### Dev Infra scenarios
 
-- Provide self-service, project-based curated set of reusable 'infra as code' templates.
-- Pre-configure which subscriptions to use based on the environment type when creating resources.
-- Securely enable developers to self-serve Azure infrastructure without granting them access to a specific subscription.
-- Track costs and security alerts per environment.
+Azure Deployment Environments enable your Dev Infra Admin to ensure that the right set of policies and settings are applied on different types of environments, control the resource configuration that the developers can create, and centrally track environments across different projects by doing the following tasks:  
+
+- Provide project-based curated set of reusable 'infra as code' templates.
+- Define specific Azure deployment configurations per project and per environment type.
+- Provide self-service experience without giving control over subscription.
+- Track cost and compliance with organization IT policies.
+
+Azure Deployment Environments Preview will support two custom roles:
+
+- **Dev center Project Admin**, who can create environments and manage the environment types for a Project.
+- **Deployment Environments User**, who can create environments as per appropriate access. 
+
 
 ## Benefits
 
 Azure Deployment Environments provide the following benefits to creating, configuring, and managing environments in the cloud.
 
-## Standardization and collaboration
-
+- **Standardization and collaboration**
 Capture and share 'infra as code' templates in source control within your team or organization, to easily create on-demand environments. Promote collaboration through inner-sourcing of templates through source control repositories.
 
-## Worry-free self-service
+- **Compliance and governance**
+Dev Infra Teams can curate environment templates to enforce enterprise security policies and map Projects to Azure subscriptions, identities, and permissions by environment types.
+
+- **Project-based configurations**
+
+Create and organize environment definitions linked to dev projects, rather than an unorganized list of templates or a traditional IaC setup.
+
+- **Worry-free self-service**
 
 Enable your development teams to quickly and easily create PaaS resources by using a set of pre-configured templates. You can also track costs on these resources to stay within your budget.
 
-## Integrate with your existing toolchain
+- **Integrate with your existing toolchain**
 
 Use the API to provision environments directly from your preferred continuous integration (CI) tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
