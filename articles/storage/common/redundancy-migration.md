@@ -21,9 +21,9 @@ Azure Storage always stores multiple copies of your data so that it is protected
 
 A combination of three factors determine how your storage account is replicated and accessible:
 
+- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
 - **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
 - **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
-- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
 
 For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -47,41 +47,39 @@ You can change how your storage account is replicated from any type to any other
 
 If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-> [!NOTE]
-> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
-
 To add or remove zone-redundancy requires using either [customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
 
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
-
-> [!NOTE]
-> While Microsoft handles your request for conversion promptly, there's no guarantee as to when a conversion will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
->
-> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
+During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
 Performing a manual migration involves downtime, but you have more control over the timing of the process. It also involves the most manual effort.
 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
+
+> [!NOTE]
+> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when a conversion will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
+>
+> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
 ### Replication change table
 
 The following table provides an overview of how to switch from each type of replication to another.
 
 > [!NOTE]
-> Manual migration is an option for any scenario in which you want to change the replication setting within the [Limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table to simplify it.
+> Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table to simplify it.
 
-| Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
+| Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> |
-| <b>…from GRS/RA-GRS</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | <b>N/A</b> | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup><sup>3</sup> |
-| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | <b>N/A</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup><sup>3</sup> <br /><b>- or -</b><br /> [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to change the replication setting (as part of a failback operation only)<sup>4</sup> |
-| <b>…from GZRS/RA-GZRS</b> | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>5</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| <b>N/A</b> |
+| <b>…from LRS</b> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| <b>…from GRS/RA-GRS</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | <b>N/A</b> | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
+| <b>…from GZRS/RA-GZRS</b> | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| <b>N/A</b> |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
-<sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
-<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts.<br />
+<sup>2</sup> Switching to geo-redundancy is not supported if the storage account contains blobs in the archive tier.<br />
+<sup>3</sup> Conversion is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.<br />
 <sup>4</sup> After an account failover to the secondary region, it's possible to initiate a fail back from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [Use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary). <br />
-<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
+<sup>5</sup> Converting from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
+<sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
 
 ## Change the replication setting
 
@@ -310,7 +308,7 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
 
-For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of the conversion or migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
