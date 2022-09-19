@@ -200,6 +200,8 @@ items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
+  - name: Pipeline parameters and variables
+    href: concepts-parameters-variables.md 
   - name: Nested activities
     href: concepts-nested-activities.md
     displayName: nested, nesting
@@ -443,6 +445,8 @@ items:
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
+    - name: Google Sheets
+      href: connector-google-sheets.md   
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -1255,23 +1259,23 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC)
+  - name: SAP change data capture (CDC) solution (preview)
     items:
-    - name: 1 - Introduction and architecture
+    - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md
       displayName: SAP, change data capture, CDC
-    - name: 2 - Prerequisites and configuration
+    - name: Prerequisites and setup
       href: sap-change-data-capture-prerequisites-configuration.md
-    - name: 3 - Self-hosted integration runtime preparation
+    - name: Set up a self-hosted integration runtime
       href: sap-change-data-capture-shir-preparation.md
-    - name: 4 - Linked service and source dataset creation
+    - name: Set up a linked service and source dataset
       href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: 5 - Debug copy activity issues
+    - name: Debug the Data Factory copy activity
       href: sap-change-data-capture-debug-shir-logs.md
-    - name: 6 - Data partitioning template
+    - name: Use the SAP data partitioning template
       href: sap-change-data-capture-data-partitioning-template.md
-    - name: 7 - Data Replication template
+    - name: Use the SAP data replication template
       href: sap-change-data-capture-data-replication-template.md
-    - name: 8 - Managing the solution
+    - name: Manage your solution
       href: sap-change-data-capture-management.md
     displayName: SAP, change data capture, CDC
