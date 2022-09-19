@@ -22,8 +22,8 @@ In this article, you will learn how to use your dedicated SQL pool as an output 
 
 * Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to:  
 
-    1. Create an Event Hub input
-    1. Configure and start event generator application. This app sends data from a client through your Event Hub. The JSON structure of the data looks as follows:
+    1. Create an Event Hubs input
+    1. Configure and start event generator application. This app sends data from a client through your Event Hubs. The JSON structure of the data looks as follows:
 
        ```json
        {
@@ -67,7 +67,7 @@ From the Azure portal, go to your Stream Analytics job and click on **Outputs** 
 
 ### Step 2
 
-Click on the **Add** button and choose **Azure Synapse Analytics** from the drop down menu.
+Click on the **Add** button and choose **Azure Synapse Analytics** from the drop-down menu.
 
 ![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
@@ -79,7 +79,7 @@ Enter the following values:
 * *Subscription*:
   * If your dedicated SQL pool is in the same subscription as the Stream Analytics job, click on ***Select Azure Synapse Analytics from your subscriptions***.
   * If your dedicated SQL pool is in a different subscription, click on Provide Azure Synapse Analytics settings manually.
-* *Database*: Select the destination database from the drop down list.
+* *Database*: Select the destination database from the drop-down list.
 * *User Name*: Specify the user name of an account that has write permissions for the database.
 * *Password*: Provide the password for the specified user account.
 * *Table*: Specify the name of the target table in the database.
