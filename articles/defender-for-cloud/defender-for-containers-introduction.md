@@ -65,20 +65,15 @@ Learn more about:
 - [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-va-acr.md)
 - [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-va-ecr.md)
 
-### View vulnerabilities for running images
+### View vulnerabilities for running images in Azure Container Registry (ACR)
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) recommendation.
 
 To provide findings for the recommendation, Defender for Cloud collects the inventory of your running containers that are collected by the Defender agent installed on your AKS clusters. Defender for Cloud correlates that inventory with the vulnerability assessment scan of images that are stored in ACR. The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps.
 
-> [!NOTE] 
-> **Windows containers**: There is no Defender agent for Windows containers, the Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
->
-> Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
->
-> Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
-
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
+
+Learn more about [viewing vulnerabilities for running images in (ACR)](defender-for-containers-va-acr.md).
 
 ## Run-time protection for Kubernetes nodes and clusters
 

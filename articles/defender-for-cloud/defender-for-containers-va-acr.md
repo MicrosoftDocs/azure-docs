@@ -28,6 +28,13 @@ The triggers for an image scan are:
   - A continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
 
   - (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
+    
+    > [!NOTE] 
+    > **Windows containers**: There is no Defender agent for Windows containers, the Defender agent is deployed to a Linux node running in the cluster, to retrieve the running container inventory for your Windows nodes.
+    >
+    > Images that aren't pulled from ACR for deployment in AKS won't be checked and will appear under the **Not applicable** tab.
+    >
+    > Images that have been deleted from their ACR registry, but are still running, won't be reported on only 30 days after their last scan occurred in ACR.
 
 This scan typically completes within 2 minutes, but it might take up to 40 minutes.
 
@@ -47,6 +54,10 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
 ## Identify vulnerabilities in images in other container registries
+
+If you want to find vulnerabilities in images stored in other container registries, you can import the images into ACR and scan them.
+
+You can also [scan images in Amazon AWS Elastic Container Registry](defender-for-containers-va-ecr.md) directly from the Azure portal.
 
 1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry. When the import completes, the imported images are scanned by the built-in vulnerability assessment solution.
 

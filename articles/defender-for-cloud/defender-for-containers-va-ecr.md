@@ -61,12 +61,6 @@ To enable vulnerability assessment:
 
 Findings are available as Defender for Cloud recommendations from 2 hours after vulnerability assessment is turned on.
 
-## Identify vulnerabilities in images in Elastic Container Registry
-
-When you [enable Defender for Containers](defender-for-containers-enable.md) for your subscription, Defender for Containers starts scanning images in your ECR based on the triggering events. To trigger the scan of an image, push it to your repository.
-
-Then you can [view and remediate the findings](#view-and-remediate-findings).
-
 ## View and remediate findings
 
 1. To view the findings, open the **Recommendations** page. If the scan found issues, you'll see the recommendation [Elastic container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03587042-5d4b-44ff-af42-ae99e3c71c87).
