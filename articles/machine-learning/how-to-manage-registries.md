@@ -1,63 +1,61 @@
 ---
 title: Create and manage registries (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, Azure Portal and AzureML Studio 
+description: Learn how create registries with the CLI, Azure portal and AzureML Studio 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: 
-author: mabables
+ms.author: mabables
+author: ManojBableshwar
+ms.reviewer: larryfr
 ms.date: 9/9/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Manage Azure Machine Learning registies
+# Manage Azure Machine Learning registries
 
-In this article you will learn how to create [**Azure Machine Learning registries**](todo) using the CLI, Azure portal or the CLI.
+Azure Machine Learning entities can be grouped into two broad categories:
+
+* Assets such as __models__, __environments__, __components__, and __datasets__ are durable entities that are _workspace agnostic_. For example, a model can be registered with any workspace and deployed to any endpoint. 
+* Resources such as __compute__, __job__, and __endpoints__ are _transient entities that are workspace specific_. For example, an online endpoint has a scoring URI that is unique to a specific instance in a specific workspace. Similarly, a job runs for a known duration and generates logs and metrics each time it's run. 
+
+Assets lend themselves to being stored a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
+
+AzureML registries enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registries support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+
+![Diagram of the relationship between assets in workspace and registry](./media/how-to-manage-registries/machiene-learning-registry-block-diagram.png)
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-* If you create the registry using CLI, you need to [Install and set up CLI (v2)](how-to-configure-cli.md).
-
-
-## Introduction to registries
-
-Azure Machine Learning entities can be grouped into two broad categories:
-* Assets such as models, environments, components and datasets: These are durable entities that are workspace agnostic. For example, a model can be registered with any workspace and deployed to any endpoint. 
-* Resources such as compute, job and endpoints: These are transient entities that are workspace specific. For example, a online endpoint has a scoring URI that is unique to a specific instance in a specific workspace. Similarly, a job runs for a known duration and generates logs and metrics each time it is run. 
-
-Assets lend well to be stored a central repository and used in different workspaces, possibly in different regions where as resources are workspace specific. 
-
-AzureML registries enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registies support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
-
-![](./media/how-to-manage-registries/machiene-learning-registry-block-diagram.png)
+[!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-v2-prereqs.md)]
 
 ## Prepare to create registry
 
-You need to decide the following information carefully before proceeding to create a registry. 
+You need to decide the following information carefully before proceeding to create a registry:
 
 ### Choosing a name
 
 Consider the following factors before picking a name.
-* Registries are meant to facilitate sharing of ML assets across teams within your orgnization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or orgnization. 
-* Registry unique with your orgnization (Azure Active Directory tenant). Its recommended to prefix your team or orgnization name and avoid generic names. 
-* Registry names cannot be changed once created because they are used in IDs of models, environments and components which are referneced in code. 
+* Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or organization. 
+* Registry unique with your organization (Azure Active Directory tenant). It's recommended to prefix your team or organization name and avoid generic names. 
+* Registry names can't be changed once created because they're used in IDs of models, environments and components that are referenced in code. 
   * Length can be 2-32 characters. 
-  * Alphanumerics, underscore, hyphen are allowed. No other special charaters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
-  * Name can contain underscore or hyphen but cannot start with a underscore or hyphen. Needs to start with an alphanumeric. 
+  * Alphanumerics, underscore, hyphen are allowed. No other special characters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
+  * Name can contain underscore or hyphen but can't start with an underscore or hyphen. Needs to start with an alphanumeric. 
 
 ### Choosing Azure regions 
 
-Registies enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions. You need to define the list of regions that a registry needs to support when creating a registry. A master list of all regions in which you have workspaces today and plan to add in near future is a good set of regions to start with. You define a primary region which cannot be changed and set of an additional regions that can be updated at a later point.
+Registries enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions. You need to define the list of regions that a registry supports when creating the registry. Create a list of all regions in which you have workspaces today and plan to add in near future. This list is a good set of regions to start with. When creating a registry, you define a primary region and a set of additional regions. The primary region can't be changed after registry creation, but the additional regions can be updated at a later point.
 
 ### Checking permissions
 
-Make sure you are the "Owner" or "Contributor" of the subscription or resource group in which you plan to create the registry. If you don't have one of these built in roles, review the section on permissions toward the end of this article. 
+Make sure you're the "Owner" or "Contributor" of the subscription or resource group in which you plan to create the registry. If you don't have one of these built-in roles, review the section on permissions toward the end of this article. 
 
 
-## Create registry using CLI
+## Create a registry
+
+# [Azure CLI](#tab/cli)
 
 Create the YAML definition and name it `registry.yml`.
 
@@ -79,60 +77,79 @@ Run the registry create command.
 
 `az ml registry create --file registry.yml`
 
-### Add or remove regions using CLI
+# [Studio](#tab/studio)
 
-<todo>
+You can create registries in AzureML studio using the following steps:
 
-## Create registry using Studio UI
+1. In the [AzureML studio](https://ml.azure.com), select the __Registries__, and then __Manage registries__. Select __+ Create registry__.
 
-You can create registries in the Studio UI in the "Manage Registries" tab im "Registries" hub. If you are in a workspace, you need to navigate to the global UI by clicking your orgnization or tenant name in the navigation pane for find the "Registries" hub or you can open [https://ml.azure.com/registries](https://ml.azure.com/registries). Get started by clicking the "Create registry" button. Enter the registry name, select the subscription and resource group. Click next, and select the primary regions and additional regions. Review the entered information and click Create. You can track the progress of the create operation in the Azure Portal. Once the registry is successfully created, you can find it listed in the Manage Registries tab. 
+    > [!TIP]
+    > If you are in a workspace, navigate to the global UI by clicking your organization or tenant name in the navigation pane to find the __Registries__ entry.  You can also go directly there by navigating to [https://ml.azure.com/registries](https://ml.azure.com/registries).
 
-![](./media/how-to-manage-registries/create-azureml-registry-studio.gif)
+    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-button.png" alt-text="Screenshot of the create registry screen.":::
+	
+1. Enter the registry name, select the subscription and resource group and then select __Next__.
 
-## Create registry using Azure Portal
+    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-basics.png" alt-text="Screenshot of the registry creation basics tab.":::
 
-Navigate to the Azure Machine Learning service. You can do this by searching for "Azure Machine Learning" in the search bar at the top of the page or going to "All Services" looking for "Azure Machine Learning" under the "AI + machine learning" category. 
+1. Select the __Primary region__ and __Additional region__, then select __Next__.
 
-Click on "Create" button and pick "Azure Machine Learning registry". Enter the registry name, select the subscription, resource group and primary region. Enter an optional description and click Next. Select the additional regions the registry must support and click Next. Enter tags and click "Review + Create". Review the information and click Create. You will be navigated to the deployment status page where you can track the progress. 
+    :::image type="content" source="./media/how-to-manage-registries/studio-registry-select-regions.png" alt-text="Screenshot of the registry region selection":::
 
-![](./media/how-to-manage-registries/create-azureml-registry-azure-portal.gif)
+1. Review the information you provided, and then select __Create__. You can track the progress of the create operation in the Azure portal. Once the registry is successfully created, you can find it listed in the __Manage Registries__ tab.
 
-(todo: need to capture better gif)
+    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-review.png" alt-text="Screenshot of the create + review tab.":::
+# [Azure portal](#tab/portal)
+
+1. From the [Azure portal](https://portal.azure.com), navigate to the Azure Machine Learning service. You can get there by searching for __Azure Machine Learning__ in the search bar at the top of the page or going to __All Services__ looking for __Azure Machine Learning__ under the __AI + machine learning__ category. 
+
+1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group and primary region, then select __Next__.
+
+    :::image type="content" source="./media/how-to-manage-registries/create-registry-basics.png" alt-text="Screenshot of the basics tab.":::
+	
+1. Select the additional regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
+
+    :::image type="content" source="./media/how-to-manage-registries/create-registry-review.png" alt-text="Screenshot of the review + create tab.":::
+
+1. Review the information and select __Create__.
+
+---
 
 ## Add users to the registry 
 
-Decide if you want allow the user to only use assets (models, environments and components) from the registry or both use and create assets in the registry. 
+Decide if you want to allow users to only use assets (models, environments and components) from the registry or both use and create assets in the registry. 
 
-### Allow users to use assets from registry
+# [Use assets](#tab/use)
 
-To let a user only read assets you can grant the user the built-in "Reader" role. If don't want to use the built-in role, create a custom role with the following permissions
+To let a user only read assets, you can grant the user the built-in __Reader__ role. If don't want to use the built-in role, create a custom role with the following permissions
 
 Permission | Description 
 --|--
 Microsoft.MachineLearningServices/registries/read | Allows the user to list registries and get registry metadata
 Microsoft.MachineLearningServices/registries/assets/read | Allows the user to browse assets and use the assets in a workspace
 
-### Allow users to create and use assets from registry
+# [Create and use assets](#tab/create-use)
 
-To let the user both read and create or delete assets, you need to grant the following write permission in addition to the above read permissions.
+To let the user both read and create or delete assets, grant the following write permission in addition to the above read permissions.
 
 Permission | Description 
 --|--
 Microsoft.MachineLearningServices/registries/assets/write | Create assets in registries
 Microsoft.MachineLearningServices/registries/assets/delete| Delete assets in registries
 
+# [Create and manage registries](#tab/create-registry)
+
+To let users create, update and delete registries, grant them the built-in __Contributor__ or __Owner__ role. If you don't want to use built in roles, create a custom role with the following permissions, in addition to all the above permissions to read, create and delete assets in registry.
+
 > [!WARNING]
-> The built-in "Contributor" role allows users to create, update and delete registries. You need to create a custom role if you want the user to create and use assets from registry but not create or update registries. 
-
-### Allow users to create and manage registries
-
-To let users create, update and delete registries, grant the built in "Contributor" or "Owner" role. If you don't want to use built in roles, create a custom role with the following permissions, in addition to all the above permissions to read, create and delete assets in registry.
+> The built-in __Contributor__ and __Owner__ roles allow users to create, update and delete registries. 
 
 Permission | Description 
 --|--
 Microsoft.MachineLearningServices/registries/write| Allows the user to create or update registries
 Microsoft.MachineLearningServices/registries/delete | Allows the user to delete registries
 
+---
 
 ## Next steps
 
