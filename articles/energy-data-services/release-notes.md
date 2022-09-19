@@ -26,7 +26,7 @@ Microsoft Energy Data Services receives improvements on an ongoing basis. To sta
 
 ### Key Announcement
 
-Microsoft Energy Data Services is now in **Public Preview**. 
+Microsoft Energy Data Services is now available as a public preview. 
 
 Microsoft Energy Data Services conforms with the requirements of the Release-3, [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes) of OSDU&trade; Technical Standard, Version 1.0.
 
