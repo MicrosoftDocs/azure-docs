@@ -30,7 +30,7 @@ To enable AD DS authentication over SMB for Azure file shares, you need to regis
 
 The cmdlets in the AzFilesHybrid PowerShell module make the necessary modifications and enable the feature for you. Because some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Although we recommend using AzFilesHybrid module, if you're unable to do so, we provide [manual steps](#option-two-manually-perform-the-enablement-actions).
 
-### Prerequisites
+### Download AzFilesHybrid module
 
 - If you don't have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It's required for the module to import successfully.
 - [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
