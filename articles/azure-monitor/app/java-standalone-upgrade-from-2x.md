@@ -11,9 +11,9 @@ ms.reviewer: mmcc
 # Upgrading from Application Insights Java 2.x SDK
 
 There are typically no code changes when upgrading to 3.x. The 3.x SDK dependencies are just no-op API versions of the
-2.x SDK dependencies, but when used in conjunction with the 3.x Javaagent, the 3.x Javaagent provides the implementation
+2.x SDK dependencies, but when used in conjunction with the 3.x Java agent, the 3.x Java agent provides the implementation
 for these 3.x SDK dependencies, so that any of your custom instrumentation will be correlated with all of the new
-auto-instrumentation which is provided by the 3.x Javaagent.
+auto-instrumentation which is provided by the 3.x Java agent.
 
 ## Step 1: Update dependencies
 
@@ -22,22 +22,22 @@ auto-instrumentation which is provided by the 3.x Javaagent.
 | `applicationinsights-core` | Update the version to `3.4.0` or later | |
 | `applicationinsights-web` | Update the version to `3.4.0` or later, and remove the Application Insights web filter your `web.xml` file. | |
 | `applicationinsights-web-auto` | Replace with `3.4.0` or later of `applicationinsights-web` | |
-| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 1.2 is auto-instrumented in the 3.x Javaagent. |
-| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 2 is auto-instrumented in the 3.x Javaagent. |
-| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | This is no longer needed since Logback is auto-instrumented in the 3.x Javaagent. |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 1.2 is auto-instrumented in the 3.x Java agent. |
+| `applicationinsights-logging-log4j2` | Remove the dependency and remove the Application Insights appender from your log4j configuration. | This is no longer needed since Log4j 2 is auto-instrumented in the 3.x Java agent. |
+| `applicationinsights-logging-log4j1_2` | Remove the dependency and remove the Application Insights appender from your logback configuration. | This is no longer needed since Logback is auto-instrumented in the 3.x Java agent. |
 | `applicationinsights-spring-boot-starter` | Replace with `3.4.0` or later of `applicationinsights-web` | The cloud role name will no longer default to `spring.application.name`, see the [3.x configuration docs](./java-standalone-config.md#cloud-role-name) for configuring the cloud role name. |
 
-## Step 2: Add the 3.x Javaagent
+## Step 2: Add the 3.x Java agent
 
-Add the 3.x Javaagent to your JVM command-line args, e.g.
+Add the 3.x Java agent to your JVM command-line args, e.g.
 
 ```
 -javaagent:path/to/applicationinsights-agent-3.4.0.jar
 ```
 
-If you were using the Application Insights 2.x Javaagent, just replace your existing `-javaagent:...` with the above.
+If you were using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the above.
 
-Note: if you were using the spring-boot-starter and if you prefer, there is an alternative to using the Javaagent, see
+Note: if you were using the spring-boot-starter and if you prefer, there is an alternative to using the Java agent, see
 [3.x Spring Boot](./java-spring-boot.md).
 
 ## Step 3: Configure your Application Insights connection string
