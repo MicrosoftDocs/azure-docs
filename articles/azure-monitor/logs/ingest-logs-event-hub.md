@@ -132,7 +132,7 @@ To generate a data collection rule JSON file in the Azure portal:
     - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) (optional).
     - `destinations` - Specifies the destination workspace.
     - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
-    - `transformKql` - Defines how to map and transform data from the source format to the columns in the destination table. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping standard event hub data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a built-in Azure resource table or need to filter or modify data before storing the data in a Log Analytics workspace, [define a data collection transformation](../essentials/data-collection-transformations.md).
+    - `transformKql` - Defines how to map and transform data from the source format to the columns in the destination table. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping standard event hub data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a standard Azure table or a table with a schema different from your destination table [define a data collection transformation](../essentials/data-collection-transformations.md).
 
     ```json
     {
@@ -298,15 +298,15 @@ The final step is to associate the data collection rule to the event hub from wh
 
 You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
 
-```powershell
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "vmName": {
+    "eventHubResourceId": {
       "type": "string",
       "metadata": {
-        "description": "The name of the virtual machine."
+        "description": "Specifies the Azure resource ID of the event hub to use."
       }
     },
     "associationName": {
@@ -326,11 +326,11 @@ You can associate a single data collection rule with multiple event hubs that sh
     {
       "type": "Microsoft.Insights/dataCollectionRuleAssociations",
       "apiVersion": "2021-09-01-preview",
-      "scope": "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.EventHub/namespaces/IlanaEventHub-Namespace/eventhubs/<event_hub_name>",
-      "name": "template_name",
+      "scope": "[parameters('eventHubResourceId')]",
+      "name": "[parameters('associationName')]",
       "properties": {
-        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
-        "dataCollectionRuleId": "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Insights/dataCollectionRules/<dcr_name>"
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this event hub.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
       }
     }
   ]
