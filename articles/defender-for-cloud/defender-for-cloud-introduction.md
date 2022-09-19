@@ -37,11 +37,19 @@ As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
 - **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Microsoft Cloud Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
+    You can also [learn more about secure score](secure-score-security-controls.md).
+
 - **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multicloud resources.
 
-Defender for CSPM offers two options to protect your environments and resources, a free option and a premium option. We recommend enabling the premium option to gain the full coverage and benefits of CSPM. You can learn more about the benefits offered by CSPM premium and [the differences between the two plans](concept-cloud-security-posture-management.md).
+- **Analyze and secure your attack paths** through the Cloud Security Graph, which is a graph-based context engine that exists within Defender for Cloud. The Cloud Security Graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment. 
 
-You can also [learn more about secure score](secure-score-security-controls.md).
+    Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
+    
+    By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+
+    Learn more about [attack path analysis](azure/defender-for-cloud/concept-attack-path.#what-is-attack-path-analysis).
+
+Defender for CSPM offers two options to protect your environments and resources, a free option and a premium option. We recommend enabling the premium option to gain the full coverage and benefits of CSPM. You can learn more about the benefits offered by CSPM premium and [the differences between the two plans](concept-cloud-security-posture-management.md).
 
 ### CWP - Identify unique workload security requirements
 
