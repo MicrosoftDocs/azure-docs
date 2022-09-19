@@ -38,7 +38,6 @@ The replacement [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli
 
 There is no migration required because DevOps Starter does not store any information, it just helps users with their Day 0 getting started experience on Azure. Moving forward the recommended way for users to get started on Azure will be [Azure Developer CLI](/azure/developer/azure-developer-cli/overview?tabs=nodejs).
 
-For new application deployments to Azure, instead of creating DevOps Starter users can get the same capabilities by using Azure Developer CLI.
 
 1. For choosing language, framework and target service, choose an appropriate [template](https://github.com/search?q=org:azure-samples%20topic:azd-templates) from azd repo and run the command `azd up --template \<template-name\>`
 
