@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 09/19/2022
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: template-how-to
@@ -98,7 +98,7 @@ After you complete the setup, each identity needs at least one of the appropriat
     * **Contributor**
 
 
-### Passwordless authentication to Azure 
+### Connect with passwordless authentication to Azure 
 
 Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Use this package to create your authentication credential. The easiest credential is the **DefaultAzureCredential** used below. 
 
