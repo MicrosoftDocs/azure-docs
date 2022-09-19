@@ -13,7 +13,7 @@ Defender for Containers lets you scan the container images stored in your Amazon
 
 To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities. Defender for Containers creates resources in your AWS account, such as an ECS cluster in a dedicated VPC and an S3 bucket, so that images stay within your account for privacy and intellectual property protection.
 
-Defender for Cloud filters and classifies findings from the scanner. Images without vulnerabilities are marked as healthy and Defender for Cloud does not send notifications about healthy images to keep you from getting unwanted informational alerts.
+Defender for Cloud filters and classifies findings from the scanner. Images without vulnerabilities are marked as healthy and Defender for Cloud doesn't send notifications about healthy images to keep you from getting unwanted informational alerts.
 
 The triggers for an image scan are:
 
@@ -65,37 +65,23 @@ Findings are available as Defender for Cloud recommendations from 2 hours after 
 
 1. To view the findings, open the **Recommendations** page. If the scan found issues, you'll see the recommendation [Elastic container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03587042-5d4b-44ff-af42-ae99e3c71c87).
 
-    ![Screenshot of the Recommendation to remediate findings in ECR images.](media/monitor-container-security/acr-finding.png)
+    :::image type="content" source="media/defender-for-containers-va-ecr/elastic-container-registry-recommendation.png" alt-text="Screenshot of the Recommendation to remediate findings in ECR images.":::
 
 1. Select the recommendation.
 
     The recommendation details page opens with additional information. This information includes the list of repositories with vulnerable images ("Affected resources") and the remediation steps.
 
-1. Select a specific repository within that have vulnerable images.
+1. Select specific repositories to the vulnerabilities found in images in those repositories.
 
-    ![Select a registry.](media/monitor-container-security/acr-finding-select-registry.png)
+    :::image type="content" source="media/defender-for-containers-va-ecr/elastic-container-registry-unhealthy-repositories.png" alt-text="Screenshot of ECR repositories that have vulnerabilities." lightbox="media/defender-for-containers-va-ecr/elastic-container-registry-unhealthy-repositories.png":::
 
-    The registry details page opens with the list of affected repositories.
+    The vulnerabilities section shows the identified vulnerabilities.
 
-1. Select a specific repository to see the vulnerable images.
+1. To learn more about a vulnerability, select the vulnerability.
 
-    ![Select a repository.](media/monitor-container-security/acr-finding-select-repository.png)
+    The vulnerability details pane opens.
 
-    The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
-
-1. Select a specific image to see the vulnerabilities.
-
-    ![Select images.](media/monitor-container-security/acr-finding-select-image.png)
-
-    The list of findings for the selected image opens.
-
-    ![List of findings.](media/monitor-container-security/acr-findings.png)
-
-1. To learn more about a finding, select the finding.
-
-    The findings details pane opens.
-
-    [![Findings details pane.](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    :::image type="content" source="media/defender-for-containers-va-ecr/elastic-container-registry-vulnerability.png" alt-text="Screenshot of vulnerability details in ECR repositories." lightbox="media/defender-for-containers-va-ecr/elastic-container-registry-vulnerability.png":::
 
     This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
@@ -111,6 +97,7 @@ Findings are available as Defender for Cloud recommendations from 2 hours after 
 
     1. When you're sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
+<!-- 
 ## Disable specific findings
 
 > [!NOTE]
@@ -146,13 +133,13 @@ To create a rule:
 1. Define your criteria.
 1. Select **Apply rule**.
 
-    :::image type="content" source="media/defender-for-containers-va-acr/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry.":::
+    :::image type="content" source="media/defender-for-containers-va-acr/new-disable-rule-for-registry-finding.png" alt-text="Screenshot of how to create a disable rule for VA findings on registry.":::
 
 1. To view, override, or delete a rule:
     1. Select **Disable rule**.
     1. From the scope list, subscriptions with active rules show as **Rule applied**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule.":::
-    1. To view or delete the rule, select the ellipsis menu ("...").
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Screenshot of how to modify or delete an existing rule.":::
+    1. To view or delete the rule, select the ellipsis menu ("..."). -->
 
 ## FAQs
 
