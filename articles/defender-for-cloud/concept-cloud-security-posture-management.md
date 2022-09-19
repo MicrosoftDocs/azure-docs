@@ -11,6 +11,14 @@ One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud S
 
 Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues and shows your security posture in secure score, an aggregated score of the security findings that tells you, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|General availability (GA)|
+|Required roles and permissions:| |
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts <br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP projects|
+
 ## Defender for CSPM plan options
 
 The Defender for CSPM plan comes with two options, CSPM (free) and CSPM Premium. When you deploy Defender for Cloud to your subscription and resources you will automatically gain the basic coverages offered by the CSPM plan. To gain access to the additional capabilities provided by Defender for CSPM, you will need to [enable the CSPM premium plan](enable-enhanced-security.md) to your subscription and resources.

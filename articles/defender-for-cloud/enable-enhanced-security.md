@@ -45,8 +45,6 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 1. Select the subscription or workspace that you want to protect.
     
 1. Select **Enable all** to enable all of the plans for Defender for Cloud.
-
-    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Screenshot of the Defender for Cloud's pricing page in the Azure portal." lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
     
 1. Select **Save**.
 
