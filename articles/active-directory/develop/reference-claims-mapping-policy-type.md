@@ -9,7 +9,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 09/16/2022
 ms.author: davidmu
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
@@ -362,7 +362,7 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
-### Group Filter (Preview)
+### Group Filter
 
 **String:** GroupFilter
 
@@ -406,7 +406,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other directory extensions, which are storing a UPN or email address value for the user, for example, johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue** (Preview)
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue**
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
