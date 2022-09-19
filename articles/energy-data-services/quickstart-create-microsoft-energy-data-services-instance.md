@@ -13,11 +13,11 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Get started with Microsoft Energy Data Services by creating it on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
+Get started by creating a Microsoft Energy Data Services instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
 
-The setup of Microsoft Energy Data Services instance can be triggered using a simple form-based interface and takes about 50 minutes to complete.
+The setup of Microsoft Energy Data Services instance can be triggered using a simple interface on Azure Portal and takes about 50 minutes to complete.
 
-Microsoft Energy Data Services is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) data platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Microsoft Energy Data Services is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
 ## Prerequisites
 
@@ -31,12 +31,12 @@ Client Secret | Sometimes called an application password, a client secret is a s
 ## Create a Microsoft Energy Data Services instance
 
 
-1. Note down your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
+1. Save your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
 
 1. Sign in to [Microsoft Azure Marketplace](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
 
     > [!IMPORTANT]
-    > *Microsoft Energy Data Services* is available on the Azure Marketplace only if you use the above Azure portal link.
+    > *Microsoft Energy Data Services* is accessible on the Azure Marketplace only if you use the above Azure portal link.
 
 
 1. If you have access to multiple tenants, use the *Directories + subscriptions* filter in the top menu to switch to the tenant in which you want to install Microsoft Energy Data Services.
@@ -58,16 +58,16 @@ Client Secret | Sometimes called an application password, a client secret is a s
     | ----- | --------------- |
     Instance name | Only alphanumeric characters are allowed, and the value must be 1-15 characters long. The name is **not** case-sensitive. One resource group can't have two instances with the same name. 
     Application ID | Enter the valid Application ID that you generated and saved in the last section.
-    Data Partition name | Name should be 1-10 char long consisting of lowercase alphanumeric characters and hyphens. It should start with an alphanumeric character and not contain consecutive hyphens. The data partitions names that you chose are automatically prefixed with your Microsoft Energy Data Services instance name. This compound name will be used to refer to your data partition in application and API calls. 
+    Data Partition name | Name should be 1-10 char long consisting of lowercase alphanumeric characters and hyphens. It should start with an alphanumeric character and not contain consecutive hyphens. The data partition names that you chose are automatically prefixed with your Microsoft Energy Data Services instance name. This compound name will be used to refer to your data partition in application and API calls. 
 
     > [!NOTE]
-    > The name you chose for your Microsoft Energy Data Services and the data partitions in it cannot be changed later.  
+    > Microsoft Energy Data Services instance and data partition names, once created, cannot be changed later.  
 
 
 1. Select **Next: Tags** and enter any tags that you would want to specify. If nothing, this field can be left blank.
 
     > [!TIP]
-    > Tags are metadata elements attached to resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named Environment. To identify the resources deployed to production, give them a value of Production. [Learn more](../azure-resource-manager/management/tag-resources.md?tabs=json). 
+    > Tags are metadata elements attached to resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named `Environment`. To identify the resources deployed to production, give them a value of `Production`. [Learn more](../azure-resource-manager/management/tag-resources.md?tabs=json). 
 
     [![Screenshot of the tags tab on the create workflow. Any number of tags can be added and will show up in the list.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
