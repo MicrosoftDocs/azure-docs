@@ -459,6 +459,12 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
+     - name: Integrate with Logic Apps
+       items:
+        - name: Azure Monitor Logs connector
+          href: logs/logicapp-flow-connector.md
+        - name: Application Insights connector
+          href: app/automate-with-logic-apps.md
      - name: Data export
        items:
           - name: Workspace data export
@@ -1201,12 +1207,6 @@ items:
       href: logs/queries.md
     - name: Query packs
       href: logs/query-packs.md
-    - name: Logic Apps
-      items:
-        - name: Azure Monitor Logs connector
-          href: logs/logicapp-flow-connector.md
-        - name: Application Insights connector
-          href: app/automate-with-logic-apps.md
     - name: Tutorials
       items:
         - name: Custom logs
