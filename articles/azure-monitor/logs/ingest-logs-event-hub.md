@@ -24,8 +24,8 @@ In this tutorial, you learn how to:
 > * Create a destination table for event hub data in your Log Analytics workspace
 > * Create a data collection endpoint
 > * Create a data collection rule
-> * Grant the data collection rule permissions to the Event Hub
-> * Associate the data collection rule with the Event Hub
+> * Grant the data collection rule permissions to the event hub
+> * Associate the data collection rule with the event hub
 
 ## Prerequisites
 
