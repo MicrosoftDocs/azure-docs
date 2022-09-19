@@ -30,15 +30,15 @@ Additionally, Front Door's global traffic acceleration capabilities help to impr
 
 ### Security
 
-Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](TODO) scan incoming requests for suspicious content. [Bot protection rules](TODO) identify and respond to traffic from bots. [Geo-filtering](TODO) and [rate limiting](TODO) features protect your application servers from unexpected traffic.
+Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
 
-Because of Front Door's architecture, it can also absorb large [distributed denial of service attacks](TODO) and prevent the traffic from reaching your application.
+Because of Front Door's architecture, it can also absorb large [distributed denial of service attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
 
-Private Link support helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
+[Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
 
 ### Reliability
 
-Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](TODO). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
+Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](routing-methods.md). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
 
 By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door may be able to continue to serve cached responses until your application recovers.
 
@@ -48,7 +48,7 @@ Front Door can help you to reduce the cost of running your Azure solution by usi
 
 ### Operational excellence
 
-Front Door can help you to modernize your legacy applications with [HTTP/2 support](TODO). The Front Door [rules engine](TODO) enables you to change the internal architecture of your solution without affecting your clients.
+Front Door can help you to modernize your legacy applications with [HTTP/2 support](front-door-http2.md). The Front Door [rules engine](front-door-rules-engine.md) enables you to change the internal architecture of your solution without affecting your clients.
 
 You can also deploy and configure Front Door by using infrastructure as code (IaC) technologies including Bicep, Terraform, ARM templates, Azure PowerShell, and the Azure CLI.
 
