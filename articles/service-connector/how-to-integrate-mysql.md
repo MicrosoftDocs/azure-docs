@@ -67,6 +67,14 @@ Use the connection details below to connect compute services to Azure Database f
 | spring.datatsource.username | Database username             | `<MySQL-DB-username>@<MySQL-DB-name>`                                                         |
 | spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
 
+### Java - Spring Boot (JDBC) System-assigned managed identity
+
+| Application properties      | Description                   | Example value                                                                                 |
+|-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
+| spring.datatsource.url      | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
+| spring.datatsource.username | Database username             | `Connection-Name`                                                                             |
+| spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
+
 ### Node.js (mysql) secret / connection string
 
 | Default environment variable name | Description       | Example value                              |

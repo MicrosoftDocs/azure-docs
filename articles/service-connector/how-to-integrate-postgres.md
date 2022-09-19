@@ -28,8 +28,8 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | .NET (ADO.NET)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Go (pg)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC) | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js (pg)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python (psycopg2)         |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python-Django             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -53,6 +53,12 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 |-----------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_POSTGRESQL_CONNECTIONSTRING | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>%40<PostgreSQL-server-name>l&password=<password>` |
 
+### Java (JDBC) System-assigned managed identity
+
+| Default environment variable name | Description                       | Example value                                                                                                                                                             |
+|-----------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_POSTGRESQL_CONNECTIONSTRING | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<connection-name>` |
+
 ### Java - Spring Boot (JDBC) secret / connection string
 
 | Application properties      | Description       | Example value                                                                                                 |
@@ -60,6 +66,15 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 | spring.datatsource.url      | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
 | spring.datatsource.username | Database username | `<username>@<PostgreSQL-server-name>`                                                                         |
 | spring.datatsource.password | Database password | `<password>`                                                                                                  |
+
+### Java - Spring Boot (JDBC) System-assigned managed identity
+
+| Application properties      | Description       | Example value                                                                                                 |
+|-----------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| spring.datatsource.url      | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
+| spring.datatsource.username | Database username | `Connection-Name`                                                                                             |
+| spring.datatsource.password | Database password | `<password>`                                                                                                  |
+
 
 ### Node.js (pg) secret / connection string
 

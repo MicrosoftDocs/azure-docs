@@ -26,8 +26,8 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
 | .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Go                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java               |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |![yes icon](./media/green-check.png)|                                | ![yes icon](./media/green-check.png) |                   |
 | PHP                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -39,7 +39,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 Use the environment variable names and application properties listed below to connect compute services to Azure SQL Database using a secret and a connection string.
 
-### Azure Container Apps
+### Azure Container Apps and Azure App Service
 
 Use the connection details below to connect Azure App Service and Azure Container Apps instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby. For each example below, replace the placeholder texts `<sql-server>`, `<sql-database>`, `<sql-username>`, and `<sql-password>` with your own server name, database name, user ID and password.
 
@@ -57,6 +57,13 @@ Use the connection details below to connect Azure App Service and Azure Containe
 > | --------------------------------- | ------------| ------------ |
 > | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
+#### Java Database Connectivity (JDBC) System-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description | Sample value |
+> | --------------------------------- | ------------| ------------ |
+> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
+
 #### Java Spring Boot (spring-boot-starter-jdbc)
 
 > [!div class="mx-tdBreakAll"]
@@ -64,7 +71,14 @@ Use the connection details below to connect Azure App Service and Azure Containe
 > |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
 > | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
 > | spring.datasource.username        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
-> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-password>`                                                                     |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-password>`                                                                 |
+
+#### Java Spring Boot (spring-boot-starter-jdbc) System-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                                                                     |
+> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` |
 
 #### Go (go-mssqldb)
 
@@ -139,6 +153,13 @@ Use the connection details below to connect Azure Spring Cloud instances with Ja
 > | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;` |
 > | spring.datasource.username        | Azure SQL Database datasource username | `<sql-username>`                                                                     |
 > | spring.datasource.password        | Azure SQL Database datasource password | `<sql-password>`                                                                     |
+
+#### Java Spring Boot (spring-boot-starter-jdbc) System-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                                                                     |
+> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` |
 
 ## Next steps
 
