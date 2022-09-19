@@ -9,6 +9,10 @@ ms.date: 09/20/2022 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
+# Microsoft Energy Data Services Preview
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 Microsoft Energy Data Services receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
@@ -17,17 +21,14 @@ Microsoft Energy Data Services receives improvements on an ongoing basis. To sta
 - Deprecated functionality
 - Plans for changes
 
-
-# Microsoft Energy Data Services Preview
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## September 2022
+## September 20, 2022
 ---
 
 ### Key Announcement
 
-Your Microsoft Energy Data Services instance conforms with the requirements of the Release-3, [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes) of OSDU&trade; Technical Standard, Version 1.0.
+Microsoft Energy Data Services is now in **Public Preview**. 
+
+Microsoft Energy Data Services conforms with the requirements of the Release-3, [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes) of OSDU&trade; Technical Standard, Version 1.0.
 
 ### Partition & User Management
 
@@ -60,3 +61,7 @@ Your Microsoft Energy Data Services instance conforms with the requirements of t
 
 - In Preview, Availability Zones will be available by default in select regions. All new Microsoft Energy Data Services instances created in these select zones will have Availability Zones redundancy enabled on them upon creation.
 - The selected regions where Availability Zones will be offered on Microsoft Energy Data Services Preview are - South Central US, East US, West Europe, and North Europe.
+
+---
+
+ 
