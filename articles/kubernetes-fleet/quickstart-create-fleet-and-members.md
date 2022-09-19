@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create Azure Kubernetes Fleet Manager and join member clusters"
+title: "Quickstart: Create Azure Kubernetes Fleet Manager and join member clusters (preview)"
 description: In this quickstart, you learn how to create an Azure Kubernetes Fleet Manager resource and how to join member clusters to the fleet resource.
 ms.topic: quickstart
 ms.date: 09/06/2022
@@ -13,6 +13,8 @@ ms.devlang: azurecli
 # Quickstart: Create Azure Kubernetes Fleet Manager and join member clusters (preview)
 
 Get started with Azure Kubernetes Fleet Manager by using Azure CLI to create a fleet resource and later connect Azure Kubernetes Service (AKS) clusters as member clusters to the fleet resource.
+
+[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -158,5 +160,5 @@ The Azure Kubernetes Fleet Manager resource itself is a Kubernetes cluster that 
 
 ## Next steps
 
-* Kubernetes object propagation
-* L4 load balancing across endpoints on multiple clusters
+* [Kubernetes configuration propagation](./configuration-propagation.md)
+* 

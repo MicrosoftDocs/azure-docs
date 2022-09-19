@@ -8,3 +8,9 @@
   items:
   - name: Create fleet and join member clusters
     href: quickstart-create-fleet-and-members.md
+- name: How-to guides
+  items:
+  - name: Kubernetes configuration propagation
+    href: configuration-propagation.md
+  - name: Multi-cluster Layer 4 Load Balancing
+    href: l4-load-balancing.md

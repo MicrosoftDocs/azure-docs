@@ -1,5 +1,5 @@
 ---
-title: "Propagate Kubernetes configurations from fleet to member clusters"
+title: "Propagate Kubernetes configurations from fleet to member clusters (preview)"
 description: You can use to fleet to control how Kubernetes configurations get propagated to all or a subset of member clusters of the fleet.
 ms.topic: how-to
 ms.date: 09/09/2022
@@ -11,6 +11,8 @@ ms.service: kubernetes-fleet
 # Propagate Kubernetes configurations from fleet to the member clusters (preview)
 
 Platform admins and application developers need a way to deploy the same workload across all member clusters or just a subset of member clusters of the fleet. Fleet provides ClusterResourcePlacement as a mechanism to control how cluster scoped Kubernetes resources are propagated to member clusters.
+
+[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -28,6 +30,12 @@ Select resource by specifying the <group, version, kind>, name and list of label
 
 An example of selecting resource by label is given below. :
 
+1. Create a sample namespace by running the following command:
+
+  ```bash
+  kubectl create ns hello-world
+  ```
+
 1. Apply the following `ClusterResourcePlacement` by running this command:
 
   ```bash
@@ -38,53 +46,32 @@ An example of selecting resource by label is given below. :
 
   ```yaml
   apiVersion: fleet.azure.com/v1alpha1
-  kind: ClusterResourcePlacement
-  metadata:
-    name: resource-label-selector
-  spec:
-  resourceSelectors:
-    - group: rbac.authorization.k8s.io
-      version: v1
-      kind: ClusterRole
-      labelSelector:
-        matchLabels:
-          fleet.azure.com/name: test
+    kind: ClusterResourcePlacement
+    metadata:
+      name: hello-world
+    spec:
+      resourceSelectors:
+        - group: ""
+          version: v1
+          kind: Namespace
+          name: hello-world
+      policy:
+        affinity:
+          clusterAffinity:
+            clusterSelectorTerms:
+              - labelSelector:
+                  matchLabels:
+                    fleet.azure.com/location: westcentralus
   ```
 
-1. Apply the following `ClusterRole` on the fleet cluster with matching labels:
-
-  ```bash
-    kubectl apply -f clusterrole.yaml
-  ```
-
-  Contents of `clusterrole.yaml`:
-
-  ```yaml
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    name: test-cluster-role
-    labels:
-      fleet.azure.com/name: test
-  rules:
-    - apiGroups: [""]
-      resources: ["secrets"]
-      verbs: ["get", "list", "watch"]
-    - apiGroups: [ "" ]
-      resources: [ "events" ]
-      verbs: [ "get", "list", "watch", "create", "patch" ]
-    - apiGroups: [ "" ]
-      resources: ["nodes"]
-      verbs: [ "get", "list", "watch"]
-  ```
-
-1. On each of the member cluster you can verify that the ClusterRole has been propagated:
+1. On each member cluster in `westcetralus` region, you can verify that the namespace has been propagated:
 
     ```
-    kubectl get clusterrole test-cluster-role
+    kubectl get namespace hello-world
     ```
 
-While the above steps gave an example of one way of selecting the resources to be propagated (<group, version, kind> and labels), more ways and their examples can be found [here](https://github.com/Azure/fleet/tree/main/test/integration/manifests/placement).
+    > [!INFO]
+    > While the above steps gave an example of one way of selecting the resources to be propagated (<group, version, kind> and labels), more ways and their examples can be found [here](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
 
 ## Target cluster selection
 
@@ -95,7 +82,13 @@ While the above steps gave an example of one way of selecting the resources to b
 1. Specify a list of cluster names and also specify list of labels to select clusters
 
 
-An example of targeting a specific cluster by name is given below. :
+An example of targeting a specific cluster by name is given below :
+
+1. Create a sample namespace by running the following command:
+
+  ```bash
+  kubectl create ns hello-world
+  ```
 
 1. Apply the following `ClusterResourcePlacement` by running this command:
 
@@ -107,58 +100,32 @@ An example of targeting a specific cluster by name is given below. :
 
   ```yaml
   apiVersion: fleet.azure.com/v1alpha1
-  kind: ClusterResourcePlacement
-  metadata:
-    name: test-select-cluster
-  spec:
-    resourceSelectors:
-      - group: rbac.authorization.k8s.io
-        version: v1
-        kind: ClusterRole
-        name: test-cluster-role-1
-    policy:
-      clusterNames:
-        - cluster-a
-  ```
-
-1. Apply the following `ClusterRole` on the fleet cluster with matching labels:
-
-  ```bash
-    kubectl apply -f clusterrole.yaml
-  ```
-
-  where contents of `clusterrole.yaml`:
-
-  ```yaml
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    name: test-cluster-role-1
-    labels:
-      fleet.azure.com/name: test
-  rules:
-    - apiGroups: [""]
-      resources: ["secrets"]
-      verbs: ["get", "list", "watch"]
-    - apiGroups: [ "" ]
-      resources: [ "events" ]
-      verbs: [ "get", "list", "watch", "create", "patch" ]
-    - apiGroups: [ "" ]
-      resources: ["nodes"]
-      verbs: [ "get", "list", "watch"]
+    kind: ClusterResourcePlacement
+    metadata:
+      name: hello-world
+    spec:
+      resourceSelectors:
+        - group: ""
+          version: v1
+          kind: Namespace
+          name: hello-world
+      policy:
+        clusterNames:
+          - aks-member-1
+          - aks-member-3
   ```
 
 1. On each of the member cluster, run the following command to see if the ClusterRole has been propagated:
 
     ```
-    kubectl get clusterrole test-cluster-role-1
+    kubectl get ns hello-world
     ```
 
-  You'll observe that the `ClusterRole` has been propagated only to `cluster-a`, but not the other clusters.
+  You'll observe that the namespace has been propagated only to `cluster-a`, but not the other clusters.
 
 
-While the above steps gave an example of one way of identifying the target clusters specifically by name, more ways and their examples can be found [here](https://github.com/Azure/fleet/tree/main/test/integration/manifests/placement).
+While the above steps gave an example of one way of identifying the target clusters specifically by name, more ways and their examples can be found [here](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
 
 ## Next steps
 
-* L4 load balancing across endpoints on multiple clusters
+* [Set up multi-cluster Layer 4 load balancing](./l4-load-balancing.md)

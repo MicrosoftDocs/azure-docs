@@ -30,3 +30,13 @@ landingContent:
         links:
           - text: Create fleet and join member clusters
             url: quickstart-create-fleet-and-members.md
+      - linkListType: how-to-guide
+        links:
+          - text: Propagate Kubernetes configurations from fleet to member clusters
+            url: configuration-propagation.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up multi-cluster Layer 4 load balancing
+            url: l4-load-balancing.md
+
+  

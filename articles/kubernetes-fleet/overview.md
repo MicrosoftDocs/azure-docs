@@ -1,5 +1,5 @@
 ---
-title: "Overview of Azure Kubernetes Fleet Manager"
+title: "Overview of Azure Kubernetes Fleet Manager (preview)"
 services: kubernetes-fleet
 ms.service: kubernetes-fleet
 ms.date: 08/29/2022
@@ -10,7 +10,7 @@ description: "This article provides an overview of Azure Kubernetes Fleet Manage
 keywords: "Kubernetes, Azure, multi-cluster, multi, containers"
 ---
 
-# What is Azure Kubernetes Fleet Manager?
+# What is Azure Kubernetes Fleet Manager (preview)?
 
 Azure Kubernetes Fleet Manager enables multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters. 
 
