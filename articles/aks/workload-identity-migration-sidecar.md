@@ -1,5 +1,5 @@
 ---
-title: Configure your Azure Kubernetes Service (AKS) cluster with a workload identity sidecar
+title: Modernize your Azure Kubernetes Service (AKS) application with a workload identity sidecar
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article

@@ -316,9 +316,9 @@
               items:
                 - name: Overview
                   href: workload-identity-overview.md
-                - name: Deploy and configure cluster with workload identity
+                - name: Deploy and configure cluster
                   href: workload-identity-deploy-cluster.md
-                - name: Migrate using workload identity sidecar
+                - name: Modernize your app with workload identity sidecar
                   href: workload-identity-migration-sidecar.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
