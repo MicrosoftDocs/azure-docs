@@ -40,8 +40,6 @@ To customize the dashboard, you have to edit the default dashboard in your appli
 
 1. Select **Dashboard settings**  and enter **Name** for your dashboard and select **Save**. 
 
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Azure IoT Central edit dashboard.":::
-
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central new dashboard.":::
 
 
@@ -55,9 +53,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **Edit** on the image tile that displays the Northwind brand image. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-edit.png" alt-text="Azure IoT Central edit brand image.":::
+1. Select **Edit** on the image tile that displays the Northwind brand image.
 
 1. Change the **Title**. The title appears when a user hovers over the image.
 
@@ -95,9 +91,6 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **ellipsis** and **Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Occupancy**, **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions** and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
 
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png" alt-text="Azure IoT Central delete tiles.":::
-
-
 1. Select **Save**. Removing unused tiles frees up space in the edit page, and simplifies the dashboard view for operators.
 
 After you remove unused tiles, rearrange the remaining tiles to create an organized layout. The new layout includes space for tiles you add in a later step.
@@ -132,11 +125,7 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
 1. Select `Relative humidity` and `temperature` in the **Telemetry** list. These are the telemetry items that display for each zone on the tile.
 
-1. Select **Combine**. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/add-zone1-ruuvi.png" alt-text="Azure IoT Central add RuuviTag tile 1.":::
-
-    A new tile appears to display combined humidity and temperature telemetry for the selected sensor. 
+1. Select **Combine**. A new tile appears to display combined humidity and temperature telemetry for the selected sensor.
 
 1. Select **Configure** on the new tile for the RuuviTag sensor. 
 

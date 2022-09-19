@@ -1,14 +1,14 @@
 ---
 title: Use Search with SynapseML
 titleSuffix: Azure Cognitive Search
-description: Add full text search to big data on Apache Spark that's been loaded and transformed through the open source SynapseML library. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
+description: Add full text search to big data on Apache Spark that's been loaded and transformed through the open-source library, SynapseML. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/23/2022
 ---
 
 # Add search to AI-enriched data from Apache Spark using SynapseML
@@ -17,7 +17,7 @@ In this Azure Cognitive Search article, learn how to add data exploration and fu
 
 [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. In SynapseML, one of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
-In this walkthrough, you'll set up a workbook that does the following:
+In this walkthrough, you'll set up a workbook that includes the following actions:
 
 > [!div class="checklist"]
 > + Load various forms (invoices) into a data frame in an Apache Spark session
@@ -35,18 +35,21 @@ Although Azure Cognitive Search has native [AI enrichment](cognitive-search-conc
 
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
-+ [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
-+ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
++ [SynapseML package](https://microsoft.github.io/SynapseML/docs/getting_started/installation/#python) <sup>1</sup> 
++ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>2</sup> 
++ [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>3</sup> 
++ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>4</sup>
 
-<sup>1</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large. You'll need the [API key](search-security-api-keys.md#find-existing-keys) for this resource.
+<sup>1</sup> This article includes instructions for loading the package.
 
-<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it'll work for both services.
+<sup>2</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large. You'll need the [API key](search-security-api-keys.md#find-existing-keys) for this resource.
 
-<sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
+<sup>3</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
+
+<sup>4</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
 > [!NOTE]
-> All of the above resources support security features in the Microsoft Identity platform. For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
+> All of the above Azure resources support security features in the Microsoft Identity platform. For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
 
 ## Create a Spark cluster and notebook
 
@@ -73,6 +76,8 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
    1. In Coordinates, enter `com.microsoft.azure:synapseml_2.12:0.10.0`
 
    1. Select **Install**.
+
+      :::image type="content" source="media/search-synapseml-cognitive-services/install-library-from-maven.png" alt-text="Screenshot of Maven package specification." border="true":::
 
 1. On the left menu, select **Create** > **Notebook**.
 
@@ -108,7 +113,7 @@ search_index = "placeholder-search-index-name"
 
 Paste the following code into the second cell. No modifications are required, so run the code when you're ready.
 
-This code loads a small number of external files from an Azure storage account that's used for demo purposes. The files are various invoices, and they're read into a data frame.
+This code loads a few external files from an Azure storage account that's used for demo purposes. The files are various invoices, and they're read into a data frame.
 
 ```python
 def blob_to_url(blob):
@@ -130,7 +135,7 @@ df2 = (spark.read.format("binaryFile")
 display(df2)
 ```
 
-## Apply form recognition
+## Add form recognition
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
@@ -152,11 +157,15 @@ analyzed_df = (AnalyzeInvoices()
 display(analyzed_df)
 ```
 
-## Apply data restructuring
+The output from this step should look similar to the next screenshot. Notice how the forms analysis is packed into a densely structured column, which is difficult to work with. The next transformation resolves this issue by parsing the column into rows and columns.
+
+:::image type="content" source="media/search-synapseml-cognitive-services/analyze-forms-output.png" alt-text="Screenshot of the AnalyzeInvoices output." border="true":::
+
+## Restructure form recognition output
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
-This code loads [FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
+This code loads [FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer), a transformer that analyzes the output of Form Recognizer transformers and infers a tabular data structure. The output of AnalyzeInvoices is dynamic and varies based on the features detected in your content. Furthermore, the transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
 
 FormOntologyLearner extends the utility of the AnalyzeInvoices transformer by looking for patterns that can be used to create a tabular data structure. Organizing the output into multiple columns and rows makes the content consumable in other transformers, like AzureSearchWriter.
 
@@ -174,7 +183,11 @@ itemized_df = (FormOntologyLearner()
 display(itemized_df)
 ```
 
-## Apply translations
+Notice how this transformation recasts the nested fields into a table, which enables the next two transformations. This screenshot is trimmed for brevity. If you're following along in your own notebook, you'll have 19 columns and 26 rows.
+
+:::image type="content" source="media/search-synapseml-cognitive-services/form-ontology-learner-output.png" alt-text="Screenshot of the FormOntologyLearner output." border="true":::
+
+## Add translations
 
 Paste the following code into the fifth cell. No modifications are required, so run the code when you're ready.
 
@@ -204,7 +217,7 @@ display(translated_df)
 > 
 > :::image type="content" source="media/search-synapseml-cognitive-services/translated-strings.png" alt-text="Screenshot of table output, showing the Translations column." border="true":::
 
-## Apply search indexing
+## Add a search index with AzureSearchWriter
 
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
@@ -224,11 +237,21 @@ from synapse.ml.cognitive import *
     ))
 ```
 
+You can check the search service pages in Azure portal to explore the index definition created by AzureSearchWriter.
+
+<!-- > [!NOTE]
+> If you can't use default search index, you can provide an external custom definition in JSON, passing its URI as a string in the "indexJson" property. Generate the default index first so that you know which fields to specify, and then follow with customized properties if you need specific analyzers, for example.  -->
+
 ## Query the index
 
-Paste the following code into the seventh cell and then run it. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) or [review these query examples](search-query-simple-examples.md) to further explore your content.
+Paste the following code into the seventh cell and then run it. No modifications are required, except that you might want to vary the syntax or try more examples to further explore your content:
 
-This code calls the [Search Documents REST API](/rest/api/searchservice/search-documents) that queries an index. This particular example is searching for the word "door". This query returns a count of the number of matching documents. It also returns just the contents of the "Description' and "Translations" fields. If you want to see the full list of fields, remove the "select" parameter.
++ [Query syntax](query-simple-syntax.md)
++ [Query examples](search-query-simple-examples.md)
+
+There's no transformer or module that issues queries. This cell is a simple call to the [Search Documents REST API](/rest/api/searchservice/search-documents). 
+
+This particular example is searching for the word "door" (`"search": "door"`). It also returns a "count" of the number of matching documents, and selects just the contents of the "Description' and "Translations" fields for the results. If you want to see the full list of fields, remove the "select" parameter.
 
 ```python
 import requests

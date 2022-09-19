@@ -2,7 +2,7 @@
 title: Sign up for Azure Video Indexer and upload your first video - Azure
 description: Learn how to sign up and upload your first video using the Azure Video Indexer portal.
 ms.topic: quickstart
-ms.date: 01/25/2021
+ms.date: 08/24/2022
 ms.author: juliako
 ms.custom: mode-other
 ---
@@ -11,9 +11,9 @@ ms.custom: mode-other
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This getting started quickstart shows how to sign in to the Azure Video Indexer website and how to upload your first video.
+This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
 
-When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you aren't limited by the quota). With free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create an Azure Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+[!INCLUDE [accounts](./includes/create-accounts-intro.md)]
 
 ## Sign up for Azure Video Indexer
 
@@ -25,6 +25,10 @@ Once you start using Azure Video Indexer, all your stored data and uploaded cont
 > Review [planned Azure Video Indexer website authenticatication changes](./release-notes.md#planned-azure-video-indexer-website-authenticatication-changes).
 
 ## Upload a video using the Azure Video Indexer website
+
+### Supported browsers
+
+For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
 ### Supported file formats for Azure Video Indexer
 
@@ -47,7 +51,8 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload"::: 
 
-    The produced JSON output contains  `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
+    The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
+    
 1. Once Azure Video Indexer is done analyzing, you'll get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
 1. You can later find your video in the library list and perform different operations. For example: search, reindex, edit.
 
@@ -59,10 +64,6 @@ After you upload and index a video, you can continue using [Azure Video Indexer 
 For more details, see [Upload and index videos](upload-index-videos.md).
 
 To start using the APIs, see [use APIs](video-indexer-use-apis.md)
-
-## Supported browsers
-
-For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
 ## Next steps
 

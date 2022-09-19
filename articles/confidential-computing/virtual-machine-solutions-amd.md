@@ -82,7 +82,7 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 ### Disk encryption
 
-OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [full-disk encryption](confidential-vm-overview.md#full-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
+OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
 - Ubuntu 20.04 Gen 2
 - Windows Server 2019 Gen 2
