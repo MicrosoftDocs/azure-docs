@@ -35,6 +35,19 @@ Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbp
 
 Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information on quotas.
 
+### Circuit SKU upgrade and downgrade
+
+#### Allowed workflow
+
+* Upgrade from Standard to Premium SKU.
+* Upgrade from Local to Standard or Premium SKU.
+    * Can only be done using Azure CLI or Azure PowerShell.
+    * Billing type must be **unlimited**.
+
+#### Unsupported workflow
+
+* Downgrade from Premium to Standard SKU.
+
 ## <a name="routingdomains"></a>ExpressRoute peering
 
 An ExpressRoute circuit has multiple routing domains/peerings associated with it: Azure public, Azure private, and Microsoft. Each peering is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
