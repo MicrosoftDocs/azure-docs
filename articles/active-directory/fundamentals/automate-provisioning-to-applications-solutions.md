@@ -65,7 +65,7 @@ As customers transition identity management to the cloud, more users and groups 
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
-| 1 |Users, groups| AD| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/en-us/azure/active-directory/cloud-sync/what-is-cloud-sync) |
+| 1 |Users, groups| AD| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync) |
 | 2 |Users, groups, devices| AD| Azure AD| [Azure AD Connect Sync](https://learn.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) |
 | 3 |Groups| Azure AD| AD| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
 | 4 |Guest accounts| Azure AD| AD| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
@@ -125,7 +125,7 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 
 * **Leaver**: When users leave the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner.
 
-Learn more about [Azure AD Lifecycle Workflows](https://learn.microsoft.com/en-us/azure/active-directory/governance/what-are-lifecycle-workflows).
+Learn more about [Azure AD Lifecycle Workflows](https://learn.microsoft.com/azure/active-directory/governance/what-are-lifecycle-workflows).
 
 > [!Note]
 > For scenarios not covered by LCW, customers can leverage the extensibility of [Logic Applications](../..//logic-apps/logic-apps-overview.md).
