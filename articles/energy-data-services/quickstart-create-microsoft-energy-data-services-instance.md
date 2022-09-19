@@ -15,7 +15,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 Get started by creating a Microsoft Energy Data Services instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
 
-The setup of Microsoft Energy Data Services instance can be triggered using a simple interface on Azure Portal and takes about 50 minutes to complete.
+The setup of Microsoft Energy Data Services instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
 
 Microsoft Energy Data Services is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
@@ -79,7 +79,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. This step is optional. You can download an Azure Resource Manager (ARM) template and use it for automated deployments of Microsoft Energy Data Services in future. Select *Download a template for automation* located on the bottom-right of the screen.
 
-    [![Screenshot to help locate the link to download azure resource manager template for automation. It is available on the bottom right of the *review + create* tab](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png)](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png#lightbox)
+    [![Screenshot to help locate the link to download Azure Resource Manager template for automation. It is available on the bottom right of the *review + create* tab.](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png)](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png#lightbox)
 
     [![Screenshot of the template that opens up when you select 'download template for automation'. Options are available to download or deploy from this page.](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png)](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png#lightbox)
 
