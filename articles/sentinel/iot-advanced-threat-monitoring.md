@@ -197,7 +197,7 @@ This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-st
 
 1. Select **Save**. 
 
-**To connect your incidents, relevant analytics rules, and the playbook**:
+**Connect your incidents, relevant analytics rules, and the playbook**:
 
 Add a new Microsoft Sentinel analytics rule, defined as follows:
 
