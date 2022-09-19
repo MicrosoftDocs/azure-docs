@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - [Python](https://www.python.org/downloads/) 3.6+ for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/rooms-quickstart).
+
 ## Setting up
 
 ### Create a new python application
@@ -160,3 +164,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```python
 self.rooms_client.delete_room(room_id=room)
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Python SDK reference](/python/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

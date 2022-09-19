@@ -22,7 +22,7 @@ Java auto-instrumentation is enabled through configuration changes; no code chan
 
 - Java application using Java 8+
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
 ### Enable Azure Monitor Application Insights
 
@@ -30,23 +30,29 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.1/applicationinsights-agent-3.3.1.jar) file.
+Download the [applicationinsights-agent-3.4.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.0/applicationinsights-agent-3.4.0.jar) file.
 
 > [!WARNING]
-> 
-> If you're upgrading from 3.2.x:
-> 
->    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>
+> If you are upgrading from an earlier 3.x version,
+>
+> Starting from 3.4.0:
+>
+>    - Rate-limited sampling is now the default (if you have not configured a fixed percentage previously). By default, it will capture at most around 5 requests per second (along with their dependencies, traces and custom events). See [fixed-percentage sampling](./java-standalone-config.md#fixed-percentage-sampling) if you wish to revert to the previous behavior of capturing 100% of requests.
+>
+> Starting from 3.3.0:
+>
+>    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
-> If you're upgrading from 3.1.x:
+> Starting from 3.2.0:
 > 
->    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Controller "InProc" dependencies are no longer captured by default. For details on how to re-enable these, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 > 
-> If you're upgrading from 3.0.x:
+> Starting from 3.1.0:
 > 
 >    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
@@ -56,7 +62,7 @@ Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.0.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -71,10 +77,10 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your applicati
    - You can set an environment variable:
     
         ```console
-        APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
+        APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.0.jar` with the following content:
 
         ```json
         {
@@ -118,9 +124,9 @@ In the `applicationinsights.json` file, you can also configure these settings:
 
 For more information, see [Configuration options](./java-standalone-config.md).
 
-## Instrumentation libraries
+## Auto-Instrumentation
 
-Java 3.x includes the following instrumentation libraries.
+Java 3.x includes the following auto-instrumentation.
 
 ### Autocollected requests
 
@@ -225,38 +231,38 @@ This section explains how to modify telemetry.
 
 ### Add spans
 
-You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans. Spans populate the dependencies table in Application Insights. The string passed in for the span's name is saved to the _target_ field within the dependency.
+The easiest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+
+Spans populate the `requests` and `dependencies` tables in Application Insights.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-extension-annotations-1.16.0.jar` to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <artifactId>opentelemetry-extension-annotations</artifactId>
+     <version>1.16.0</version>
    </dependency>
    ```
 
-1. Add spans in your code:
+1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
 
    ```java
-    import io.opentelemetry.api.trace.Tracer;
-    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.extension.annotations.WithSpan;
 
-    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
-    Span span = tracer.spanBuilder("mySpan").startSpan();
+    @WithSpan(value = "your span name")
+    public void yourMethod() {
+    }
    ```
 
-> [!TIP]
-> The tracer name ideally describes the source of the telemetry, in this case your application,
-> but currently Application Insights Java is not reporting this name to the backend.
+By default the span will end up in the dependencies table with dependency type `InProc`.
 
-> [!TIP]
-> Tracers are thread-safe, so it's generally best to store them into static fields in order to
-> avoid the performance overhead of creating lots of new tracer objects.
+If your method represents a background job that is not already captured by auto-instrumentation,
+it is recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
+so that it will end up in the Application Insights `requests` table.
 
 ### Add span events
 
@@ -287,9 +293,7 @@ You can use `opentelemetry-api` to create span events, which populate the traces
 
 You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
 
-#### Add a custom dimension
-
-Adding one or more custom dimensions populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
+Adding one or more span attributes populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -409,8 +413,8 @@ The following table represents currently supported custom telemetry types that y
 
 - Custom metrics are supported through micrometer.
 - Custom exceptions and traces are supported through logging frameworks.
-- Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
-- Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
+- Custom requests, dependencies, metrics, and exceptions are supported through `opentelemetry-api`.
+- All types of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
 | Custom telemetry type | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |-----------------------|------------|---------------------|---------|-------------------|
@@ -420,7 +424,7 @@ The following table represents currently supported custom telemetry types that y
 | Exceptions            |            |  Yes                |  Yes    |  Yes              |
 | Page views            |            |                     |  Yes    |                   |
 | Requests              |            |                     |  Yes    |  Yes              |
-| Traces                |            |  Yes                |  Yes    |  Yes              |
+| Traces                |            |  Yes                |  Yes    |                   |
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 

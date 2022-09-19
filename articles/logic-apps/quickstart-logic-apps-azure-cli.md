@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-api
-ms.date: 05/03/2022
+ms.date: 08/20/2022
 ---
 
 # Quickstart: Create and manage workflows with Azure CLI in Azure Logic Apps

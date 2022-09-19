@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -27,6 +27,10 @@ Azure AD Connect provides the following features:
 
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
+
+> [!IMPORTANT]
+> Azure AD Connect Health for Sync requires Azure AD Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
+> AADConnect V1 is retired on August 31, 2022. Azure AD Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
 
 
 

@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 08/31/2022
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -15,6 +15,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.AlertsManagement
 
+* actionRules
 * smartDetectorAlertRules
 
 ## Microsoft.Automation
@@ -23,6 +24,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.AzureStack
 
+* generateDeploymentLicense
 * linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
@@ -30,7 +32,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.BotService
 
-* botServices - By default, limited to 800 instances. That limit can be increased by contacting support.
+* botServices - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 
 ## Microsoft.Compute
 
@@ -42,7 +44,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * snapshots
 * virtualMachines
 * virtualMachines/extensions
-* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 
 ## Microsoft.ContainerInstance
 
@@ -82,7 +84,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.DevTestLab
 
-* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by contacting support.
+* labs/virtualMachines - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.DevTestLab/DisableLabVirtualMachineQuota 
 * schedules
 
 ## Microsoft.EdgeOrder
@@ -94,10 +96,6 @@ Some resources have a limit on the number instances per region. This limit is di
 
 * clusters
 * namespaces
-
-## Microsoft.Experimentation
-
-* experimentWorkspaces
 
 ## Microsoft.GuestConfiguration
 
@@ -184,18 +182,27 @@ Some resources have a limit on the number instances per region. This limit is di
 * virtualNetworks/privateDnsZoneLinks
 * virtualNetworkTaps
 
+## Microsoft.NotificationHubs
+
+* namespaces - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.NotificationHubs/ARMDisableResourcesPerRGLimit 
+* namespaces/notificationHubs - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.NotificationHubs/ARMDisableResourcesPerRGLimit 
+
 ## Microsoft.PowerBI
 
-* workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
+* workspaceCollections - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBI/UnlimitedQuota 
 
 ## Microsoft.PowerBIDedicated
 
-* autoScaleVCores - By default, limited to 800 instances. That limit can be increased by contacting support.
-* capacities - By default, limited to 800 instances. That limit can be increased by contacting support.
+* autoScaleVCores - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBIDedicated/UnlimitedResourceGroupQuota 
+* capacities - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBIDedicated/UnlimitedResourceGroupQuota 
 
 ## Microsoft.Relay
 
 * namespaces
+
+## Microsoft.Security
+
+* assignments
 
 ## Microsoft.ServiceBus
 
@@ -238,7 +245,7 @@ Some resources have a limit on the number instances per region. This limit is di
 
 ## Microsoft.StreamAnalytics
 
-* streamingjobs - By default, limited to 800 instances. That limit can be increased by contacting support.
+* streamingjobs - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.StreamAnalytics/ASADisableARMResourcesPerRGLimit 
 
 ## Microsoft.Web
 

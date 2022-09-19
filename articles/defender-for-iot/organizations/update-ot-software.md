@@ -29,9 +29,9 @@ Updates from legacy versions may require a series of software updates. For examp
 
     For more information, see [OT sensor cloud connection methods](architecture-connections.md) and [Connect your OT sensors to the cloud](connect-sensors.md).
 
-- Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support [sensor access to the Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of domains required to access the Azure portal.
 
-    For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).
+    For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 ## Update an on-premises management console
 
@@ -53,6 +53,8 @@ In such cases, make sure to update your on-premises management consoles *before*
 
     Make sure to select the version for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. On your on-premises management console, select **System Settings** > **Version Update**.
 
 1. In the **Upload File** dialog, select **BROWSE FILE** and then browse to and select the update file you'd downloaded from the Azure portal.
@@ -60,8 +62,6 @@ In such cases, make sure to update your on-premises management consoles *before*
     The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
     Sign in when prompted and check the version number listed in the bottom-left corner to confirm that the new version is listed.
-
-
 
 ## Update your sensors
 
@@ -93,6 +93,8 @@ This procedure describes how to manually download the new sensor software versio
 
     Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. On your sensor console, select **System Settings** > **Sensor management** > **Software Update**.
 
 1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file.
@@ -122,6 +124,8 @@ The sensor update process won't succeed if you don't update the on-premises mana
    :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
 
     Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
+
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 1. On your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
@@ -175,6 +179,7 @@ This procedure is relevant only if you're updating sensors from software version
 
 1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 > [!NOTE]
 > The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
