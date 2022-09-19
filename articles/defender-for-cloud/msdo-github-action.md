@@ -56,12 +56,13 @@ Security DevOps uses the following Open Source tools:
     name: MSDO windows-latest
     on:
       push:
-        branches:
-          - main
+        branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
     jobs:
       sample:
-        name: Microsoft Security DevOps Analysis
 
         # MSDO runs on windows-latest and ubuntu-latest.
         # macos-latest supporting coming soon
@@ -90,12 +91,6 @@ Security DevOps uses the following Open Source tools:
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
 
-      # Upload alerts file as a workflow artifact
-    - name: Upload alerts file as a workflow artifact
-      uses: actions/upload-artifact@v3
-      with:  
-        name: alerts
-        path: ${{ steps.msdo.outputs.sarifFile }}
     ```
         
     For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)`                    
