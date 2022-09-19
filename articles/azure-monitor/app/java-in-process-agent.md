@@ -34,7 +34,7 @@ Download the [applicationinsights-agent-3.4.0.jar](https://github.com/microsoft/
 
 > [!WARNING]
 >
-> If you are upgrading from an earlier version,
+> If you are upgrading from an earlier 3.x version,
 >
 > Starting from 3.4.0:
 >
