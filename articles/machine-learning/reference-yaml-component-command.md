@@ -106,7 +106,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
 
 ### Define optional inputs in command line
-When set input as `optional = true`, you need to embrace command line which includes this input. Command line in the runtime may differ according to different inputs.
+When the input is set as `optional = true`, you need to use the command line which includes this input. Command line at runtime may have different inputs.
 - If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```cli
