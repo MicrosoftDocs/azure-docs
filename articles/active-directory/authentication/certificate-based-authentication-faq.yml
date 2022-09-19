@@ -87,8 +87,6 @@ sections:
           - 20 MB in Azure Global
           - 45 MB in Azure Government
 
-          We're reviewing the impact of these limits during public preview.
-
       - question: |
           I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
         answer: |
@@ -105,12 +103,6 @@ sections:
           Will the changes to the Authentication methods policy take effect immediately?
         answer: |
           The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
-          
-          
-
-
-
- 
           
 additionalContent: |
   ## Next steps
