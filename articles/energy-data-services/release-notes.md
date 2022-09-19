@@ -23,6 +23,7 @@ Microsoft Energy Data Services receives improvements on an ongoing basis. To sta
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## September 2022
+---
 
 ### Key Announcement
 
