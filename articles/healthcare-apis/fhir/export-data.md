@@ -39,8 +39,7 @@ The FHIR service supports `$export` at the following levels:
 * [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET {{fhirurl}}/Patient/$export`
 * [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) – *The FHIR service exports all referenced resources but doesn't export the characteristics of the group resource itself: `GET {{fhirurl}}/Group/[ID]/$export`
 
-When data is exported, a separate file is created for each resource type. The FHIR service will create a new file when the size of a single exported file exceeds 64 MB. The result is that you may get multiple files for a resource type, which will be enumerated (e.g., `Patient-1.ndjson`, `Patient-2.ndjson`). 
-
+When data is exported, a separate file is created for each resource type. No individual file will exceed one million resource records. The result is that you may get multiple files for a resource type, which will be enumerated (for example, `Patient-1.ndjson`, `Patient-2.ndjson`). Every file will not necessarily have one million resource records listed.
 > [!Note] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if a resource is in multiple groups or in a compartment of more than one resource.
 
