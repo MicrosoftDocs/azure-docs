@@ -251,6 +251,7 @@ No output for a successful response
 Create a legal tag for your Microsoft Energy Data Services Preview instance's data partition.
 > [!div class="nextstepaction"]
 > [How to manage legal tags](how-to-manage-legal-tags.md)
+
 Begin your journey by ingesting data into your Microsoft Energy Data Services Preview instance.
 > [!div class="nextstepaction"]
 > [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
