@@ -56,7 +56,7 @@ Performing a manual migration involves downtime, but you have more control over 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
 > [!NOTE]
-> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when a conversion will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
+> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
@@ -71,7 +71,7 @@ The following table provides an overview of how to switch from each type of repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
 | <b>…from GRS/RA-GRS</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | <b>N/A</b> | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
-| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
+| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>2</sup> |
 | <b>…from GZRS/RA-GZRS</b> | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| <b>N/A</b> |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
@@ -89,7 +89,7 @@ Depending on your scenario from the table above, use one of the methods below to
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are initiating a zone redundancy conversion, you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
 
-Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require conversion.
+Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require a conversion.
 
 # [Portal](#tab/portal)
 
@@ -131,6 +131,7 @@ az storage account update \
 > Customer-initiated conversion is currently in preview, but is not available in the following regions:
 >
 > - (Europe) West Europe
+> - (Europe) UK South
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2
@@ -140,7 +141,7 @@ az storage account update \
 
 Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the migration directly from within the Azure portal. Once initiated, the migration could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
-Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the migration, perform the same steps used for changing other replication factors in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the migration, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
 ### Support-requested conversion
 
@@ -151,18 +152,27 @@ Customers can still request a conversion by opening a support request with Micro
 
 Follow these steps to request a conversion from Microsoft:
 
-1. In the Azure portal, navigate to a storage account that you want to migrate.
+1. In the Azure portal, navigate to a storage account that you want to convert.
 1. Under **Support + troubleshooting**, select **New Support Request**.
-1. Complete the **Basics** tab based on your account information:
+1. Complete the **Problem description** tab based on your account information:
+    - **Summary**: (some descriptive text).
     - **Issue type**: Select **Technical**.
+    - **Subscription**: Select your subscription from the drop-down.
     - **Service**: Select **My Services**, then **Storage Account Management**.
-    - **Resource**: Select a storage account to migrate. If you need to specify multiple storage accounts, you can do so in the **Details** section.
+    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Details** section.
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Screenshot showing how to request a conversion - Basics tab":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Basics tab":::
 
-1. Select **Next**. On the **Solutions** tab, you can check the eligibility of your storage accounts for migration.
+1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
+    - **Target replication type**: (choose the desired option from the drop-down)
+    - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions tab":::
+
+1. Select **Submit**. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
+
 1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
 
     :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Details tab":::
@@ -274,6 +284,7 @@ Make sure the region where your storage account is located supports all of the d
 Also, the [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
 
 - (Europe) West Europe
+- (Europe) UK South
 - (North America) Canada Central
 - (North America) East US
 - (North America) East US 2
