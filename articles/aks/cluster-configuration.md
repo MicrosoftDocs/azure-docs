@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/09/2020
+ms.date: 08/31/2022
 ms.author: jpalma
 author: palma21
 ---
@@ -140,11 +140,62 @@ As you work with the node resource group, keep in mind that you can't:
 - Specify names for the managed resources within the node resource group.
 - Modify or delete Azure-created tags of managed resources within the node resource group.
 
+## Node Restriction (Preview)
+
+The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you are using an older version use the below commands to create a cluster with Node Restriction or Update an existing cluster to add Node Restriction.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* The `aks-preview` extension version 0.5.95 or later
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create an AKS cluster with Node Restriction
+
+To create a cluster using Node Restriction.
+
+```azurecli-interactive
+az aks create -n aks -g myResourceGroup --enable-node-restriction
+```
+
+### Update an AKS cluster with Node Restriction
+
+To update a cluster to use Node Restriction.
+
+```azurecli-interactive
+az aks update -n aks -g myResourceGroup --enable-node-restriction
+```
+
+### Remove Node Restriction from an AKS cluster
+
+To remove Node Restriction from a cluster.
+
+```azurecli-interactive
+az aks update -n aks -g myResourceGroup --disable-node-restriction
+```
+
 ## OIDC Issuer (Preview)
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Limitations
+
+OIDC issuer is only supported in Azure Public regions now.
 
 > [!WARNING]
 > Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.

@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 07/01/2022
+ms.date: 08/24/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
@@ -10,7 +10,7 @@ ms.topic: include
 
 1. In the left pane, select **User VPN configurations**.
 
-1. Select the configuration for which you want to download the profile.
+1. Select the configuration for which you want to download the profile. If you have multiple hubs assigned to the same profile, expand the profile to show the hubs, then select one of the hubs that uses this profile.
 
 1. Select **Download virtual WAN user VPN profile**.
 

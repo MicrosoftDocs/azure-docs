@@ -85,7 +85,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 ### Troubleshoot permissions
 
-If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot failed service request: Error 403 (Forbidden)](troubleshoot-error-403.md).
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)](troubleshoot-error-403-digital-twins.md).
 
 ## Managed identity for accessing other resources
 

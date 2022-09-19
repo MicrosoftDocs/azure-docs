@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool load-balancing - Azure
 description: Learn about host pool load-balancing algorithms for a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 09/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -23,6 +23,7 @@ Each host pool can only configure one type of load-balancing specific to it. How
 
 - If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False (drain mode is enabled).
 - If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
+- If you lower the maximum session limit on a session host while it has active user sessions, the change won't affect the active user sessions.
 
 ## Breadth-first load-balancing algorithm
 

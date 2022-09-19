@@ -18,7 +18,7 @@ This article shows you how to list and download server flexible server using Azu
 
 This article requires that you're running the Azure CLI version 2.39.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to sign-in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to sign-in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
@@ -44,10 +44,10 @@ Here are the details for the above command
 
 LastModifiedTime | Name  | ResourceGroup | SizeInKb  | TypePropertiesType  | Url
 ---|---|---|---|---|---|
-2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?
-2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?
-2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?
-2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?
+2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?`
+2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?`
+2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?`
+2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?`
 
 
 Above list shows LastModifiedTime, Name, ResourceGroup, SizeInKb and Download Url of the Server Logs available.
@@ -66,5 +66,5 @@ az mysql flexible-server server-logs download --resource-group <myresourcegroup>
 ```
 
 ## Next Steps
-- To enable and disable Server logs from portal, you can refer to the [article].(./how-to-server-logs-portal.md)
+- To enable and disable Server logs from portal, you can refer to the [article.](./how-to-server-logs-portal.md)
 - Learn more about [Configure slow logs using Azure CLI](./tutorial-query-performance-insights.md#configure-slow-query-logs-by-using-the-azure-cli)
