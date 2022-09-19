@@ -116,7 +116,8 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
     
     For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
 
-- Hunt for vulnerable devices on the **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name.
+- Hunt for vulnerable devices on the **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name:
+
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
