@@ -44,7 +44,7 @@ You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -
     ```
 
 3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
-    
+
     ```bash
     export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
@@ -122,9 +122,9 @@ Update the pod with the annotation by performing the following steps.
          kubernetes.io/os: linux
      EOF
     ```
-    
+
     The following output resembles successful creation of the pod:
-    
+
     ```output
     Pod/quick-start created
     ```
