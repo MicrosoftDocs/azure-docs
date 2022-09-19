@@ -57,7 +57,7 @@ The recognize action can be used for many reasons, below are a few examples of h
 
 ## How the Recognize action workflow looks
 
-![Recognize Action](./Recognize-Action-flow.png)
+![Recognize Action](./recognize-action-flow.png)
 
 ## What's coming up next for Recognize action
 
