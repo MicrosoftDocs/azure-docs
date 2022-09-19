@@ -8,7 +8,7 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 09/16/2022
 ---
 
 #	Text Translation cognitive skill
@@ -21,6 +21,8 @@ The [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-r
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> 
+> When using this skill, take into consideration that all documents in the source will be processed for translation, even if the source document language is the same as the required target language. This is useful for multi-language support within the same document. However, keep this in mind when planning for your source location data, to avoid unexpected billing charges from documents that didn't need to be processed for translation.
 >
 
 ## @odata.type  
