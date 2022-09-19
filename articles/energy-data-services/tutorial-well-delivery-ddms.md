@@ -9,7 +9,7 @@ ms.date: 07/28/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Steps to interact with Well Delivery DDMS
+# Tutorial: Sample steps to interact with Well Delivery ddms
 
 Well Delivery DDMS provides the capability to manage well related data in the Microsoft Energy Data Services Preview instance.
 
@@ -55,7 +55,7 @@ In this tutorial, you'll learn how to:
 
 ### Generate a token
 
-1. **Get a Token** - Import the CURL command in postman to generate the bearer token. Update the bearerToken in well delivery ddms environment. Use Bearer Token as Authorization type in other API calls.
+1. **Get a Token** - Import the CURL command in Postman to generate the bearer token. Update the bearerToken in well delivery ddms environment. Use Bearer Token as Authorization type in other API calls.
       ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
           --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -67,8 +67,9 @@ In this tutorial, you'll learn how to:
   :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-generate-token.png" alt-text="Screenshot of the well delivery generate token." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-generate-token.png":::
 
 
-## Utilize Well Delivery DDMS API's to store and retrieve well data
+## Store and retrieve well data with Well Delivery ddms APIs
 
+1. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
 1. **Create Well** - Creates the well record.
   :::image type="content" source="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well.png" alt-text="Screenshot of the well delivery - create well." lightbox="media/tutorial-well-delivery/screenshot-of-the-well-delivery-create-well.png":::
 1. **Create Wellbore** - Creates the wellbore record.
