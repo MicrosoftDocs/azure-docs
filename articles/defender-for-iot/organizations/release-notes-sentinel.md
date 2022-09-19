@@ -53,7 +53,9 @@ New features in this version include:
 - Updates in the **Unauthorized PLC changes** analytics rule to support the **Illegal Beckhoff AMS Command** Defender for IoT alert.
 - A new, deep link to Defender for IoT alerts directly from related Microsoft Sentinel incidents.
 
-<!--what about earlier than this? when was it first released?-->
+## Earlier versions
+
+For more information about earlier versions of the **IoT/OT Threat Monitoring with Defender for IoT** solution, contact us via the [Defender for IoT community](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/bd-p/MicrosoftDefenderIoT).
 
 ## Next steps
 
