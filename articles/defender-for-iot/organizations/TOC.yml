@@ -23,7 +23,7 @@
     items: 
     - name: Integrate Defender for IoT data with Microsoft Sentinel
       href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
-    - name: Advanced investigation and threat detection with Microsoft Sentinel
+    - name: Investigate and detect threats for IoT devices
       href: ../../sentinel/iot-advanced-threat-monitoring.md
 - name: Concepts
   items:
