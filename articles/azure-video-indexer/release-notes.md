@@ -59,6 +59,10 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
+### Use Azure Video Indexer API to configure confidence level in a person model
+
+Use Azure Video Indexer API to configure the confidence level for face recognition within a person model. For more information, explore the [Pathch person model API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model).
+
 ## August 2022
 
 ### Update topic inferencing model 
