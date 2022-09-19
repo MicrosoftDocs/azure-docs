@@ -109,7 +109,7 @@ Many applications have a local authentication store and a UI that only checks th
 
 ![Provision access from org data](media/automate-user-provisioning-to-applications-solutions/provision-access-based-on-org-data.png)
 
-![Learn more about the MIM password](/microsoft-identity-manager/infrastructure/mim2016-password-management)change notification service
+![Learn more about the MIM password change notification service](/microsoft-identity-manager/infrastructure/mim2016-password-management)
 
 ### Define and provision access for a user based on organizational data
 
@@ -125,7 +125,7 @@ Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) a
 
 * **Leaver**: When users leave the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner.
 
-Learn more about [Azure AD Lifecycle Workflows](https://learn.microsoft.com/azure/active-directory/governance/what-are-lifecycle-workflows).
+[Learn more about Azure AD Lifecycle Workflows](https://learn.microsoft.com/azure/active-directory/governance/what-are-lifecycle-workflows)
 
 > [!Note]
 > For scenarios not covered by LCW, customers can leverage the extensibility of [Logic Applications](../..//logic-apps/logic-apps-overview.md).
