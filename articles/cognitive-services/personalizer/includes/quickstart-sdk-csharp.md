@@ -347,7 +347,9 @@ static UserProfile GetRandomUser()
 
 public class UserProfile
 {
-    public string Name { get; set; }
+    // Mark name as non serializable so that it is not part of the context features
+    [NonSerialized()]
+    public string Name;
     public Dictionary<string, bool> DietaryPreferences { get; set; }
     public string AvgOrderPrice { get; set; }
 
