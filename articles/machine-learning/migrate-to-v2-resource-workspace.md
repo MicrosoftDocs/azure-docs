@@ -179,7 +179,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1 (use links to ref docs)](python/api/azureml-core/azureml.core.workspace.workspace)|[Method/API in SDK v2 (use links to ref docs)](python/api/azure-ai-ml/azure.ai.ml.entities.workspace)|
+|[Method/API in SDK v1 (use links to ref docs)](/python/api/azureml-core/azureml.core.workspace.workspace)|[Method/API in SDK v2 (use links to ref docs)](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace)|
 
 ## Related documents
 

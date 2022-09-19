@@ -196,7 +196,7 @@ For more information on concepts for endpoints and deployments, see [What are on
 |[azureml.core.model.InferenceConfig class](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.CodeConfiguration class](/python/api/azure-ai-ml/azure.ai.ml.entities.codeconfiguration?view=azure-python-preview&preserve-view=true)|
 |[azureml.core.webservice.AciWebservice class](/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#azureml-core-webservice-aciwebservice-deploy-configuration)|[azure.ai.ml.entities.OnlineDeployment class](/python/api/azure-ai-ml/azure.ai.ml.entities.onlinedeployment?view=azure-python-&preserve-view=true) (and [azure.ai.ml.entities.ManagedOnlineEndpoint class](/en-us/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint?view=azure-python-preview&preserve-view=true))|
 |[Model.deploy](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true#azureml-core-model-deploy) or [Webservice.deploy](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-deploy) |[ml_client.begin_create_or_update(online_deployment)](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview&preserve-view=true#azure-ai-ml-mlclient-begin-create-or-update)|
-[Webservice.run](/ja-jp/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-run)|[ml_client.online_endpoints.invoke](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations?view=azure-python-preview#azure-ai-ml-operations-onlineendpointoperations-invoke)|
+[Webservice.run](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-run)|[ml_client.online_endpoints.invoke](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations?view=azure-python-preview&preserve-view=true#azure-ai-ml-operations-onlineendpointoperations-invoke)|
 [Webservice.delete](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-delete)|[ml_client.online_endpoints.delete](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations?view=azure-python-preview&preserve-view=true#azure-ai-ml-operations-onlineendpointoperations-begin-delete)|
 
 ## Related documents
@@ -209,4 +209,4 @@ v2 docs:
 
 v1 docs:
 * [MLOps: ML model management v1](v1/concept-model-management-and-deployment.md)
-* [Deploy machine learning models](v1/how-to-deploy-and-where?tabs=python.md)
+* [Deploy machine learning models](v1/how-to-deploy-and-where.md?tabs=python.md)

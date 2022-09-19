@@ -51,10 +51,10 @@
         href: migrate-to-v2-execution-parallel-run-step.md  
       - name: "Pipelines"
         displayName: migration, v1, v2
-        href: migrate-to-v2-execution-pipelines.md  
+        href: migrate-to-v2-execution-pipeline.md  
     - name: "Deploy endpoints"
       displayName: migration, v1, v2
-      href: migrate-to-v2-execution-pipelines.md  
+      href: migrate-to-v2-deploy-endpoints.md  
 
 - name: Quickstart
   expanded: true
