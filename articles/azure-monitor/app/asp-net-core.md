@@ -55,11 +55,11 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 1. Open your project in Visual Studio.
 
-2. Select **Project** > **Add Application Insights Telemetry**.
+2. Go to **Project** > **Add Application Insights Telemetry**.
 
-3. Select **Azure Application Insights**, then select **Next**.
+3. Choose **Azure Application Insights**, then select **Next**.
 
-4. Select your subscription and Application Insights instance (or create a new instance by selecting **Create new**), then select **Next**.
+4. Choose your subscription and Application Insights instance (or create a new instance with **Create new**), then select **Next**.
 
 5. Add or confirm your Application Insights connection string (this should be prepopulated based on your selection in the previous step), then select **Finish**.
 
