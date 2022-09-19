@@ -31,7 +31,7 @@
     items: 
     - name: Connect Defender for IoT data with Microsoft Sentinel
       href: iot-solution.md
-    - name: Advanced investigation and threat detection for IoT devices
+    - name: Investigate and detect threats for IoT devices
       href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
