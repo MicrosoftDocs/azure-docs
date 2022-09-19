@@ -23,10 +23,13 @@ The **sdutil** is an intuitive command line utility tool to interact with seismi
 
 ## Prerequisites
 
+Install the following prerequisites based on your OS:
+
 Windows
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe)
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+- [Linux Subsystem Ubuntu](https://learn.microsoft.com/windows/wsl/install)
 
 Linux
 
@@ -290,7 +293,7 @@ run the changelog script (`./changelog-generator.sh`) to automatically generate 
 ## Setup and usage for Microsoft Energy Data Services
 
 Below steps are for windows subsystem linux - ubuntu 20.04
-Microsoft Energy Data Services instance is using OSDU&trade; M8 Version of sdutil
+Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil
 
 - Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
 
