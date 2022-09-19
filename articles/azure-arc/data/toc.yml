@@ -278,7 +278,7 @@ items:
     href: about-arcdata-extension.md
 - name: Resources
   items:
-    - name: Azure Arc jumpstart
+    - name: Azure Arc Jumpstart
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md

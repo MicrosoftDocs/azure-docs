@@ -291,19 +291,6 @@ items:
             href: agents/agent-linux-troubleshoot.md
   - name: Data collection rules
     items:
-      - name: Overview
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-overview.md
-      - name: Edit
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-edit.md
-      - name: Structure
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-structure.md
-  - name: Data collection endpoints
-    href: essentials/data-collection-endpoint-overview.md
-  - name: Diagnostic settings
-    items:
     - name: Overview
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
@@ -314,38 +301,45 @@ items:
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
     items:
-      - name: Overview
-        displayName: Transformations
-        href: essentials/data-collection-transformations.md
-      - name: Structure
-        displayName: Transformations
-        href: essentials/data-collection-transformations-structure.md
-      - name: Tutorial (portal)
-        href: logs/tutorial-workspace-transformations-portal.md
-      - name: Tutorial (API)
-        href: logs/tutorial-workspace-transformations-api.md
-  - name: Private Link networking
-    items:
-      - name: Private Link overview
-        href: logs/private-link-security.md
-      - name: Private Link design
-        href: logs/private-link-design.md
-      - name: Private Link configuration
-        href: logs/private-link-configure.md
-  - name: Troubleshoot
-    href: logs/data-collection-troubleshoot.md
-  - name: Logs ingestion API
-    items:
-    - name: Overview
-      displayName: data ingestion
-      href: logs/logs-ingestion-api-overview.md
-    - name: Tutorial (portal)
-      href: logs/tutorial-logs-ingestion-portal.md
-    - name: Tutorial (API)
-      href: logs/tutorial-logs-ingestion-api.md
-    - name: Migrate from Data Collector API
-      href: logs/custom-logs-migrate.md
-    - name: Data collector API
+    - name: Create a new alert rule
+      href: alerts/alerts-create-new-alert-rule.md
+    - name: Manage alert rules
+      href: alerts/alerts-manage-alert-rules.md
+    - name: Manage alert instances
+      href: alerts/alerts-manage-alert-instances.md
+    - name: Metric alert rules
+      items:
+      - name: Use dynamic thresholds
+        href: alerts/alerts-dynamic-thresholds.md
+      - name: Single alerts for many time series
+        href: alerts/alerts-metric-multiple-time-series-single-rule.md
+      - name: Metric alerts on logs
+        href: alerts/alerts-metric-logs.md
+      - name: Using Resource Manager template
+        href: alerts/alerts-metric-create-templates.md
+      - name: FAQ
+        href: alerts/alerts-troubleshoot-metric.md
+    - name: Log alert rules
+      items:
+      - name: Edit log alerts created in previous versions
+        href: alerts/alerts-manage-alerts-previous-version.md
+      - name: Optimizing alert queries
+        href: alerts/alerts-log-query.md
+      - name: Using Resource Manager template
+        href: alerts/alerts-log-create-templates.md
+      - name: Troubleshoot log alerts
+        href: alerts/alerts-troubleshoot-log.md
+      - name: Webhook actions
+        href: alerts/alerts-log-webhook.md
+      - name: Log analytics alerts legacy API
+        href: alerts/api-alerts.md
+    - name: Service health alerts
+      items:
+      - name: View notifications
+        href: ../service-health/service-notifications.md
+      - name: Configure alerts on notification events
+        href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Notifications and actions
       items:
       - name: Overview
         href: logs/data-collector-api.md
@@ -445,8 +439,14 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
-        - name: Data export
-          items:
+     - name: Integrate with Logic Apps
+       items:
+        - name: Azure Monitor Logs connector
+          href: logs/logicapp-flow-connector.md
+        - name: Application Insights connector
+          href: app/automate-with-logic-apps.md
+     - name: Data export
+       items:
           - name: Workspace data export
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
@@ -1187,12 +1187,6 @@ items:
       href: logs/queries.md
     - name: Query packs
       href: logs/query-packs.md
-    - name: Logic Apps
-      items:
-        - name: Azure Monitor Logs connector
-          href: logs/logicapp-flow-connector.md
-        - name: Application Insights connector
-          href: app/automate-with-logic-apps.md
     - name: Tutorials
       items:
         - name: Custom logs
