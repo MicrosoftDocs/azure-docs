@@ -43,7 +43,7 @@ Speech-to-text models recognize words that should be capitalized to improve read
 
 ## Disfluency removal
 
-When speaking, it is common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize these disfluencies and remove them from the transcribed text so that it is cleaner. This is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
+When speaking, it is common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize such disfluencies and remove them from the display text. This is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -51,20 +51,9 @@ When speaking, it is common for someone to stutter, duplicate words, and say fil
 |its its not that big of uhm a deal|It's not that big of a deal.|
 |umm i think tomorrow should work|I think tomorrow should work.|
 
-## Explicit Punctuation 
-
-When using Speech-to-text, you have the option to speak aloud any punctuation you may want to use in order to make your text more legible. This is especially useful in a situation where you need to use complex punctuation or want your transcribed text to be read by someone else, as it allows you to include grammar with your voice rather than having to retroactively input it later. Some examples are shown in this table.
-
-|Recognized speech|Display text|
-|---|---|
-|they entered the room dot dot dot|They entered the room...|
-|i heart emoji you period|I <3 you.|
-|the options are apple forward slash banana forward slash orange period|The options are apple/banana/orange.|
-|are you sure question mark|Are you sure?|
-
 ## Auto Punctuation 
 
-Sometimes it may seem tedious to have to speak every punctuation mark out loud, so Speech-to-text also offers the ability to automatically punctuate your text and improve clarity. This is great option when you want to transcribe a call or conversation to read it later. Some examples are shown in this table.
+You don't have to speak every punctuation mark out loud. Speech-to-text automatically punctuates your text to improve clarity. This is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
