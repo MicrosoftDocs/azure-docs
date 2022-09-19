@@ -12,11 +12,11 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
+# Quickstart: Recognize action
+
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-
-# Quickstart: Recognize action
 
 This quickstart will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
