@@ -179,6 +179,8 @@ If a user is not registered for these methods, they can register a required meth
 
 - **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strengths correctly. However, when clicking on the authentication strengths name a name page is open with additional information on the methods the user can use. This information may be incorrect.
 
+- **Authentication strength is not enforced on “Register security information” user action** – If an Authentication strengths Conditional Access policy is targeting “Register security information” user action, the policy would not apply. 
+
 <!-- Namrata to update about B2B--->
 
 ## Limitations
