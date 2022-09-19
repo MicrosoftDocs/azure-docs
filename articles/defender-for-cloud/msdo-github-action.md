@@ -57,9 +57,9 @@ Security DevOps uses the following Open Source tools:
     on:
       push:
         branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+      pull_request:
+        branches: [ main ]
+      workflow_dispatch:
 
     jobs:
       sample:
