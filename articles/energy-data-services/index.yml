@@ -42,6 +42,10 @@ landingContent:
             url: concepts-csv-parser-ingestion.md
           - text: Index and search workflows
             url: concepts-index-and-search.md
+      - linkListType: whats-new
+        links:
+          - text: Release notes
+            url: release-notes.md
   - title: About Domain Data Management Services (DDMS)
     linkLists:
       - linkListType: overview

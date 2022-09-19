@@ -8,6 +8,10 @@
     - name: About Domain Data Management Services (DDMS)
       displayName: DDMS overview
       href: overview-ddms.md
+    - name: What's new
+      items:
+        - name: Release notes
+          href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
