@@ -35,7 +35,7 @@ The Azure AD provisioning service enables organizations to [bring identities fro
 
 ### On-premises HR + joining multiple data sources
 
-To create a full user profile for an employee identity, organizations often merge information from multiple HR systems, databases, and other user data stores. MIM provides a rich set of [connectors](/microsoft-identity-manager/supported-management-agents) and integration solutions interoperating with heterogeneous platforms.
+To create a full user profile for an employee identity, organizations often merge information from multiple HR systems, databases, and other user data stores. MIM provides a rich set of [connectors](https://learn.microsoft.com/microsoft-identity-manager/supported-management-agents) and integration solutions interoperating with heterogeneous platforms.
 
 MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms698810(v=vs.100)?redirectedfrom=MSDN) and [workflow capabilities](https://microsoft.github.io/MIMWAL/) features for advanced scenarios requiring data transformation and consolidation from multiple sources. These connectors, rule extensions, and workflow capabilities enable organizations to aggregate user data in the MIM metaverse to form a single identity for each user. The identity can be [provisioned into downstream systems](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms) such as Active Directory Domain Services.
 
