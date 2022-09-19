@@ -92,7 +92,7 @@ Before you dive in the code, you'll need to connect to your Azure ML workspace. 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-[!notebook-python[] (~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="credential"c
+[!notebook-python[] (~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb, name="credential")]
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
