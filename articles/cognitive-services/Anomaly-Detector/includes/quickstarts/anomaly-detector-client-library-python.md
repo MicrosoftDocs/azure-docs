@@ -92,7 +92,7 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
  You can also download the sample data by running:
 
 ```cmd
-`curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv`
+curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 ```
 
 ## Create a new Python application
