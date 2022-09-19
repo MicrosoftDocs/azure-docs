@@ -73,7 +73,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Select Next: **Review + Create**.
 
-1. Once the basic validation tests have been passed, review the Terms and Basic Details. Select **Create** to start the deployment.
+1. Once the basic validation tests have been passed, review the Terms and Basic Details. 
 
     [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png#lightbox)
 
@@ -82,6 +82,8 @@ Client Secret | Sometimes called an application password, a client secret is a s
     [![Screenshot to help locate the link to download azure resource manager template for automation. It is available on the bottom right of the *review + create* tab](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png)](media/quickstart-create-microsoft-energy-data-services-instance/download-template-automation.png#lightbox)
 
     [![Screenshot of the template that opens up when you select 'download template for automation'. Options are available to download or deploy from this page.](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png)](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png#lightbox)
+
+1. Select **Create** to start the deployment.
 
 1. Wait while the deployment happens in the background. Review the details of the instance created.
 
