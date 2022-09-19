@@ -190,6 +190,8 @@
         href: ardoq-tutorial.md
       - name: Arena
         href: arena-tutorial.md
+      - name: Arena EU
+        href: arena-eu-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -1399,7 +1401,7 @@
         href: litmos-tutorial.md
       - name: LMS and Education Management System Leaf
         href: lms-and-education-management-system-leaf-tutorial.md
-      - name: LockPath Keylight
+      - name: NAVEX IRM (Lockpath/Keylight)
         href: keylight-tutorial.md
       - name: LogicMonitor
         href: logicmonitor-tutorial.md
@@ -2639,6 +2641,8 @@
         href: zohoone-tutorial.md
       - name: Zoho One China
         href: zoho-one-china-tutorial.md        
+      - name: Zola
+        href: zola-tutorial.md
       - name: Zoom
         href: zoom-tutorial.md
       - name: Zscaler
