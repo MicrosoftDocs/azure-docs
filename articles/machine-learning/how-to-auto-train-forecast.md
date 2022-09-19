@@ -122,7 +122,8 @@ automl_config = AutoMLConfig(task='forecasting',
                              enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
-                             n_cross_validations=”auto”, # Could be customized as an integer
+                             n_cross_validations="auto", # Could be customized as an integer
+                             cv_step_size = "auto", # Could be customized as an integer
                              enable_ensembling=False,
                              verbosity=logging.INFO,
                              **forecasting_parameters)
