@@ -18,7 +18,7 @@ ms.topic: conceptual
 
 There are multiple options for the degree of connectivity from your Azure Arc-enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
-Azure Arc-enabled data services provides you the option to connect to Azure in two different *connectivity modes*: 
+Azure Arc-enabled data services provide you the option to connect to Azure in two different *connectivity modes*: 
 
 - Directly connected 
 - Indirectly connected
@@ -76,7 +76,7 @@ Some Azure-attached services are only available when they can be directly reache
 There are three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
-- [Helm chart (direct connected mode)](#Helm-chart-direct-connected-mode)
+- [Helm chart (direct connected mode)](#helm-chart-direct-connected-mode)
 - [Azure Resource Manager APIs](#azure-resource-manager-apis)
 - [Azure monitor APIs](#azure-monitor-apis)
 - [Azure Arc data processing service](#azure-arc-data-processing-service)
