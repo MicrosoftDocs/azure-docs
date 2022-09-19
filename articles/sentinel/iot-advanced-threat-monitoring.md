@@ -27,7 +27,7 @@ Before you start, make sure you have:
 
 - Completed [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
-- **Contributor** or **Owner** permissions on the subscription you want to connect.
+- Completed [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
 ## Install the Defender for IoT solution
 
