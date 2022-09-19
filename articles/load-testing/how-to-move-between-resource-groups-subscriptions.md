@@ -1,5 +1,5 @@
 ---
-title: Move an Azure Load testing resource to resource group or subscription
+title: Move an Azure Load testing resource to another resource group or subscription
 titleSuffix: Azure Load Testing
 description: Learn how to move an Azure Load testing resource to another resource group or subscription.
 services: load-testing
