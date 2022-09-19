@@ -53,7 +53,7 @@ For existing application deployments, **DevOps starter does not store any inform
 
 2. To see pipeline and deployment information, go to the corresponding GitHub Actions workflow or Azure pipeline to view runs and deployments. 
 
-3. Monitoring details in Application insights – Visit application insights menu in the corresponding Azure resource to look at the monitoring charts
+3. To see monitoring details in Application insights, go to application insights for your Azure resource and look at  the monitoring charts. 
 
 ## FAQ 
 
