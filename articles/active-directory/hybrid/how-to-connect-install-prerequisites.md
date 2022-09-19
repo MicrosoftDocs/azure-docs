@@ -57,13 +57,13 @@ To read more about securing your Active Directory environment, see [Best practic
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2019 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](https://docs.microsoft.com/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
+- Azure AD Connect must be installed on a domain-joined Windows Server 2019 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
 - The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you use the Azure AD Connect wizard to manage Active Directory Federation Services (AD FS) configuration. You can enable PowerShell transcription if you use the Azure AD Connect wizard to manage sync configuration. 
 - If AD FS is being deployed: 
-    - The servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation. You may require [a paid support program](https://docs.microsoft.com/lifecycle/policies/fixed#extended-support) if you require support for Windows Server 2016 and older.
+    - The servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation. You may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for Windows Server 2016 and older.
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - It is not supported to break and analyze traffic between Azure AD Connect and Azure AD. Doing so may disrupt the service.
