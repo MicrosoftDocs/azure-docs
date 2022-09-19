@@ -109,7 +109,7 @@ Many applications have a local authentication store and a UI that only checks th
 
 ![Provision access from org data](media/automate-user-provisioning-to-applications-solutions/provision-access-based-on-org-data.png)
 
-[Learn more about the MIM password](/microsoft-identity-manager/infrastructure/mim2016-password-management)change notification service
+![Learn more about the MIM password](/microsoft-identity-manager/infrastructure/mim2016-password-management)change notification service
 
 ### Define and provision access for a user based on organizational data
 
