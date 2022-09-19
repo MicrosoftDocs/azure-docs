@@ -97,6 +97,12 @@
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
+    - name: Cross-zone replication 
+      items: 
+      - name: Understand cross-region replication 
+        href: cross-zone-replication-introduction.md
+      - name: Requirements and considerations for cross-zone replication 
+        href: cross-zone-replication-requirements-considerations.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -287,9 +293,9 @@
         href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
-    - name: Manage cross-region replication
+    - name: Manage replication
       items:
-      - name: Create volume replication
+      - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
