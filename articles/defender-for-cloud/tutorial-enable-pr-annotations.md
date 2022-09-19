@@ -2,7 +2,7 @@
 title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
-ms.date: 09/12/2022
+ms.date: 09/19/2022
 ---
 
 # Tutorial: Enable pull request annotations in GitHub and Azure Devops
@@ -64,16 +64,6 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/edit-button.png" alt-text="Screenshot that shows you what the edit button looks like.":::
 
-1. Locate and update the on section to include:
-
-    ```yml
-    push:    
-       branches: [ main ]  
-    pull_request:    
-       branches: [ main ]  
-    workflow_dispatch:
-    ```
-
 1. Locate and update the trigger section to include:
 
     ```yml
@@ -84,7 +74,9 @@ By enabling pull request annotations in GitHub, your developers gain the ability
       branches: [ main ]
     ```
     
-    By adding these lines to your yaml file, you'll configure the action to run when either a push or pull request event occurs on the designated repo.  
+    By adding these lines to your yaml file, you'll configure the action to run when either a push or pull request event occurs on the designated repository.  
+
+    You can also view a [sample repository](https://github.com/microsoft/security-devops-action/tree/main/samples).
 
     (Optional) You can select which branches you want to run it on by entering the branch(es) under the trigger section. If you want to include all branches remove the lines with the branch list.  
 
@@ -96,11 +88,11 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
 You'll now be able to see all the issues that were discovered by the scanner.
 
-### Mitigate issues found by the scanner
+### Mitigate GitHub issues found by the scanner
 
 Once you've configured the scanner, you'll be able to view all issues that were detected.
 
-**To mitigate issues**:
+**To mitigate GitHub issues found by the scanner**:
 
 1. Navigate through the page and locate an affected file with an annotation.
 
@@ -140,18 +132,18 @@ By enabling pull request annotations in Azure DevOps, your developers gain the a
 1. Select **Save**.
 
 All annotations will now be displayed based on your configurations with the relevant line of code.
-**To mitigate issues**:
 
-### Mitigate issues found by the scanner
+### Mitigate Azure DevOps issues found by the scanner
 
 Once you've configured the scanner, you'll be able to view all issues that were detected.
-To mitigate issues:
 
-**To mitigate issues found by the scanner**:
+**To mitigate Azure DevOps issues found by the scanner**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate through the page and locate an affected line with an annotation.
+1. Navigate to **Pull requests**.
+
+1. Scroll through the Overview page and locate an affected line with an annotation.
 
 1. Select **Active**.
 
