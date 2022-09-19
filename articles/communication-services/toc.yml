@@ -416,6 +416,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
     - name: SMS (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
+  - name: Email libraries
+    items:
+    - name: Email (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+    - name: Email (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+    - name: Email (Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+    - name: Email (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
   - name: Identity libraries
     items:
     - name: Identity (JavaScript)
@@ -443,8 +453,7 @@ items:
     - name: UI Library (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html
-   
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
 - name: Resources
   items:
   - name: Release notes
