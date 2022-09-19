@@ -75,7 +75,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`| |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
-| `optional` | boolean | Whether the input is required. If set to true, need embrace command includes optional inputs with `$[[]]`| | `false` |
+| `optional` | boolean | Whether the input is required. If set to `true`, you need use the command includes optional inputs with `$[[]]`| | `false` |
 | `min` | integer or number | The minimum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `max` | integer or number | The maximum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `enum` | array | The list of allowed values for the input. Only applicable if `type` field is `string`.| |
