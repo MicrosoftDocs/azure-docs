@@ -23,9 +23,40 @@ In this article, you will learn how to use your dedicated SQL pool as an output 
 * Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to:  
 
     1. Create an Event Hub input
-    2. Configure and start event generator application
-    3. Provision a Stream Analytics job
-    4. Specify job input and query
+    1. Configure and start event generator application. This app sends data from a client through your Event Hub. The JSON structure of the data looks as follows:
+
+       ```json
+       {
+           RecordType: "",
+           SystemIdentity: "",
+           FileNum: ,
+           SwitchNum: "",
+           CallingNum: "",
+           CallingIMSI: "",
+           CalledNum: "",
+           CalledIMSI: "",
+           DateS: "",
+           TimeS: "",
+           TimeType: ,
+           CallPeriod: ,
+           CallingCellID: "",
+           CalledCellID: "",
+           ServiceType: "",
+           Transfer: ,
+           IncomingTrunk: "",
+           OutgoingTrunk: "",
+           MSRN: "",
+           CalledNum2: "",
+           FCIFlag: "",
+           callrecTime: "",
+           EventProcessedUtcTime: "",
+           PartitionId: ,
+           EventEnqueuedUtcTime: ""
+       }
+       ```
+
+    1. Provision a Stream Analytics job
+    1. Specify job input and query
 * Dedicated SQL pool - To create a new dedicated SQL pool, follow the steps in the [Quickstart: Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md).
 
 ## Specify streaming output to point to your dedicated SQL pool
@@ -114,39 +145,6 @@ Start the Azure Stream Analytics job.  Click on the ***Start*** button on the **
 Click the ***Start*** button on the start job pane.
 
 ![Click Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
-
-### Step 8
-
-Start sending json information with a client through your Event Hub, here you have a structure for the json of this example.
-```yaml
-{
-    RecordType: "",
-    SystemIdentity: "",
-    FileNum: ,
-    SwitchNum: "",
-    CallingNum: "",
-    CallingIMSI: "",
-    CalledNum: "",
-    CalledIMSI: "",
-    DateS: "",
-    TimeS: "",
-    TimeType: ,
-    CallPeriod: ,
-    CallingCellID: "",
-    CalledCellID: "",
-    ServiceType: "",
-    Transfer: ,
-    IncomingTrunk: "",
-    OutgoingTrunk: "",
-    MSRN: "",
-    CalledNum2: "",
-    FCIFlag: "",
-    callrecTime: "",
-    EventProcessedUtcTime: "",
-    PartitionId: ,
-    EventEnqueuedUtcTime: ""
-}
-```
  
 ## Next steps
 
