@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 08/30/2022
+ms.date: 09/15/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -243,6 +243,9 @@ Helm release deployment succeeded
 
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
+
+> [!IMPORTANT]
+> In some cases, deployment may fail due to a timeout error. Please see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

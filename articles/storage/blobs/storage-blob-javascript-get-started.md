@@ -3,11 +3,13 @@ title: Get started with Azure Blob Storage and JavaScript
 titleSuffix: Azure Storage
 description: Get started developing a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
+
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/19/2022
-ms.author: normesta
+ms.date: 09/16/2022
+
 ms.subservice: blobs
 ms.custom: template-how-to
 ---
