@@ -17,7 +17,7 @@ ms.author: moala
 ---
 # Retirement of DevOps Starter
 
-Azure DevOps Starter will be retired in March of 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](https://docs.microsoft.com/rest/api/visualstudio/projects) resources will be retired as well. 
+Azure DevOps Starter will be retired March 31, 2023. The corresponding REST APIs for [Microsoft.DevOps](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devops/resource-manager/Microsoft.DevOps/) and [Microsoft.VisualStudio/accounts/projects](/rest/api/visualstudio/projects) resources will be retired as well. 
 Customers are encouraged to use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview?tabs=nodejs) instead. 
 
 ## Azure Developer CLI
