@@ -23,7 +23,6 @@ In this article, you'll learn to
 ## Prerequisites
 
 >* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. To find the version, run `az --version`.
->* [!INCLUDE [Use Azure Cloud Shell](cloud-shell-try-it-no-header.md)]
 >* Sign into [Azure portal.](https://portal.azure.com) 
 
 ## Create and configure a Conditional Access policy - Azure portal
@@ -104,7 +103,7 @@ You can enable registry's conditional access policy in the [Azure portal](https:
 
 1. Navigate to  **Azure Policy**, On the **Assignments**, select **Assign policy**.
    
-   :::image type="content" source="media/container-registry-enable-conditional-policy/02-Assign-policy.png.png" alt-text="Screenshot to assign a policy":::
+   :::image type="content" source="media/container-registry-enable-conditional-policy/02-Assign-policy.png" alt-text="Screenshot to assign a policy":::
 
 1. Under the **Assign policy** , use filters to search and find the **Scope**, **Policy definition**, **Assignment name**.
 
@@ -131,7 +130,7 @@ Azure Container Registry has two built-in policy definitions for Conditional Acc
 
 1. Select **Review+Create**
 
-   :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to assign a policy":::
+   :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
 
 ### Disable the authentication-as-arm in ACR - Azure CLI
 
@@ -154,7 +153,6 @@ Disabling the `azureADAuthenticationAsArmPolicy` will force the registry to use 
 To learn more about assigning policies
 
 > [!div class="nextstepaction"]
-> [Create and manage policies](../tutorials/create-and-manage.md)
 > Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 > Learn more about [governance capabilities](../governance/index.yml).
 > The [policy assignment structure](/azure/governance/policy/concepts/assignment-structure#enforcement-mode)
