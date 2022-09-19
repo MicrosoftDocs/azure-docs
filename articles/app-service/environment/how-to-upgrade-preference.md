@@ -3,7 +3,7 @@ title: Configure upgrade preference for App Service Environment planned maintena
 description: Configure the upgrade preference for the Azure App Service Environment planned maintenance.
 author: madsd
 ms.topic: tutorial
-ms.date: 19/09/2022
+ms.date: 09/19/2022
 zone_pivot_groups: app-service-cli-portal
 ---
 
