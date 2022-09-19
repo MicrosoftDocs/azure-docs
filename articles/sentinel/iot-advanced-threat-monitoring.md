@@ -160,7 +160,7 @@ This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-st
 
 Details will differ for each playbook, but the main steps remain the same.
 
-**To add the required role to the Azure subscription where the playbook is installed**:
+**Add the required role to the Azure subscription where the playbook is installed**:
 
 1. In Microsoft Sentinel, open the playbook from **Automation** > **Active playbooks**. 
 
