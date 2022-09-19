@@ -22,7 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in October include:
 
-- Defender for DevOps (Preview) 
+- [Defender for DevOps (Preview)](#defender-for-devops-preview) 
 
 ## Defender for DevOps (Preview) 
 
