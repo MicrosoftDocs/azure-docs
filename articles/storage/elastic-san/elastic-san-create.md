@@ -207,7 +207,8 @@ iscsicli AddTarget $storageTargetIQN * $portalName $port * 0 * * * * * * * * * 0
 
 # Login
 
-iscsicli LoginTarget t $storageTargetIQN $portalName $port Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
+# The *s are essential, as they are default arguments
+iscsicli LoginTarget $storageTargetIQN t $portalName $port Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
 
 ```
 

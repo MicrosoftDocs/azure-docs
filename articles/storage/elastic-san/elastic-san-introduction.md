@@ -50,13 +50,13 @@ The following diagram illustrates the relationship and mapping of an Azure Elast
 
 When you configure the SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
-### Volume groups
+### Volume groups resources
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
  Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
-### Volumes
+### Volumes resources
 
 You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
@@ -97,8 +97,6 @@ Only the following iSCSI commands are currently supported:
 - REQUEST SENSE
 - INQUIRY
 - REPORT LUNS
-- RESERVE UNIT
-- RELEASE UNIT
 - MODE SENSE
 - READ CAPACITY (10)
 - READ CAPACITY (16)
