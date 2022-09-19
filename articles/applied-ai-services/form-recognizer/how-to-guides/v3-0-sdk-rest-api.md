@@ -12,25 +12,29 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
 ---
+<!-- markdownlint-disable MD051 -->
 
 # Use Form Recognizer SDKs or REST API (v3.0)
 
  In this how-to guide, you'll learn how to add Form Recognizer to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-You'll use the following APIs and models to extract structured data from forms and documents:
+In this project, you'll learn how-to use the following Form Recognizer models to analyze and extract data and values from forms and documents:
 
-<!-- * [Authenticate the client](#authenticate-the-client)
 * [prebuilt-read](#read-model)
+
 * [prebuilt-layout](#layout-model)
+
 * [prebuilt-document](#general-document-model)
+
 * [prebuilt-tax.us.w2](#w2-model)
+
 * [prebuilt-invoice](#invoice-model)
+
 * [prebuilt-receipt](#receipt-model)
+
 * [prebuilt-idDocument](#id-document-model)
+
 * [prebuilt-businessCard](#business-card-model)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage custom models](#manage-custom-models) -->
 
 ::: zone pivot="programming-language-csharp"
 
