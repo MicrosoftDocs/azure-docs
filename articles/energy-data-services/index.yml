@@ -92,3 +92,9 @@ landingContent:
             url: how-to-integrate-airflow-logs-with-azure-monitor.md
           - text: How to integrate elastic logs with Azure Monitor
             url: how-to-integrate-elastic-logs-with-azure-monitor.md
+  - title: Resources
+    linkLists:
+      - linkListType: whats-new
+        links:
+        - text: Release notes
+          url: release-notes.md
