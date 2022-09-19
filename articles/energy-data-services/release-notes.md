@@ -37,15 +37,15 @@ Your Microsoft Energy Data Services instance conforms with the requirements of t
 
 - Microsoft Energy Data Services - Enabled support for user context in ingestion ([ADR: Issue 52](https://community.opengroup.org/osdu/platform/data-flow/ingestion/home/-/issues/52)) (not yet supported in the Azure OSDU&trade; community edition)
   - In Microsoft Energy Data Services, the User identity is preserved and passed on to all ingestion workflow related services using the newly introduced _x-on-behalf-of_ header.
-  - In Azure OSDU&trade; community edition, users could trigger an ingestion job by calling the workflow service even without appropriate service level entitlements on the underlying dependent services (using elevated SPN permissions). In Microsoft Energy Data Services, a user needs to have appropriate service level entitlements on all dependent services involved in the ingestion workflow
-  - In Azure OSDU&trade; community edition, users who were not part of the same data entitlement group could accidentally modify and corrupt data (using elevated SPN permissions). In Microsoft Energy Data Services, only users belonging to the same data entitlement group can modify data, and the modified user and date information are captured.
-- Workflow service payload is restricted to a maximum of 2MB. If it exceeds, the service will throw a HTTP 413 error. This restriction is placed to prevent workflow requests from overwhelming the server.
-- Microsoft Energy Data Services leverages Azure Data Factory (ADF) to run large scale ingestion workloads.
+  - In Azure OSDU&trade; community edition, by using elevated SPN permissions, users could call the workflow service and trigger an ingestion job even without appropriate service level entitlements on the underlying dependent services. In Microsoft Energy Data Services, a user needs to have appropriate service level entitlements on all dependent services involved in the ingestion workflow
+  - In Azure OSDU&trade; community edition, users who weren't part of the same data entitlement group could accidentally modify and corrupt data (using elevated SPN permissions). In Microsoft Energy Data Services, only users belonging to the same data entitlement group can modify data, and the modified user and date information are captured.
+- Workflow service payload is restricted to a maximum of 2 MB. If it exceeds, the service will throw an HTTP 413 error. This restriction is placed to prevent workflow requests from overwhelming the server.
+- Microsoft Energy Data Services uses Azure Data Factory (ADF) to run large scale ingestion workloads.
 
 ### Search
 
 - Improved security as Elasticsearch images is now pulled from Microsoft's internal Azure Container Registry instead of public repositories.
-- Improved security by enabling encryption in transit in Elasticsearch, Registration, and Notification services.
+- Improved security by enabling encryption in transit for Elasticsearch, Registration, and Notification services.
 
 ### Monitoring
 
