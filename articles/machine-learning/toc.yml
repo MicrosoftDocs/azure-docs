@@ -18,27 +18,43 @@
     - name: Migration overview
       displayName: migration
       href: how-to-migrate-from-v1.md
-    - name: Run a script
+    - name: Manage resources and assets
+      items:
+      - name: "Workspace"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-workspace.md
+      - name: "Datastore"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-datastore.md
+      - name: "Data assets"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-assets-data.md
+      - name: "Model assets"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-assets-model.md
+    - name: Train a model
+      items:
+      - name: "Run a script"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-command-job.md
+      - name: "Local runs"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-local-runs.md
+      - name: "AutoML"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-automl.md
+      - name: "Hyperparameter tuning"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-hyperdrive.md
+      - name: "Parallel run step"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-parallel-run-step.md  
+      - name: "Pipelines"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-pipelines.md  
+    - name: "Deploy endpoints"
       displayName: migration, v1, v2
-      href: migrate-to-v2-command-job.md
-    - name: Local runs
-      displayName: migration, v1, v2
-      href: migrate-to-v2-local-runs.md
-    - name: AutoML
-      displayName: migration, v1, v2
-      href: migrate-to-v2-execution-automl.md
-    - name: Hyperparameter tuning
-      displayName: migration, v1, v2
-      href: migrate-to-v2-assets-model.md
-    - name: Parallel run step
-      displayName: migration, v1, v2
-      href: migrate-to-v2-assets-model.md
-    - name: Data assets
-      displayName: migration, v1, v2
-      href: migrate-to-v2-assets-data.md
-    - name: Model assets
-      displayName: migration, v1, v2
-      href: migrate-to-v2-assets-model.md
+      href: migrate-to-v2-execution-pipelines.md  
 
 - name: Quickstart
   expanded: true

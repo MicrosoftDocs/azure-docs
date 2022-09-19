@@ -182,4 +182,3 @@ This articles gives a comparison of scenario(s) in SDK v1 and SDK v2.
 For further details refer to the documentation here:
 
 * [How to train an AutoML model with Python SDKv2](how-to-configure-auto-train.md)
-
