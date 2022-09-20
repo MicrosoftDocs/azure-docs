@@ -32,9 +32,9 @@ highlightedContent:
       itemType: overview
       url: /azure/cloud-adoption-framework/
     # Card
-    - title: Build your skills with Microsoft Learn
+    - title: Build your skills with Microsoft Learn training
       itemType: learn
-      url: /learn/browse/?products=azure&resource_type=learning%20path
+      url: /training/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
