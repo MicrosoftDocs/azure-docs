@@ -8,16 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/18/2022
+ms.date: 09/20/2022
 ms.author: eur
 ms.devlang: csharp
 ---
 
 # Quickstart: Post-call transcription and analytics
 
-::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/call-center/csharp.md)]
-::: zone-end
 
 ## Next steps
 

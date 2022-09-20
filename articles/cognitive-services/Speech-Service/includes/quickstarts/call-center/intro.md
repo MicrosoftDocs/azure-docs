@@ -6,7 +6,7 @@ ms.date: 09/18/2022
 ms.author: eur
 ---
 
-In this quickstart, you perform sentiment analysis and conversation summarization of [call center](/azure/cognitive-services/speech-service/call-center-overview) transcriptions. The sample will automatically identify, categorize, and redact sensitive information.
+In this C# quickstart, you perform sentiment analysis and conversation summarization of [call center](/azure/cognitive-services/speech-service/call-center-overview) transcriptions. The sample will automatically identify, categorize, and redact sensitive information.
 
 The following Azure Cognitive Service for Speech features are used:
 - [Batch transcription](/azure/cognitive-services/speech-service/batch-transcription): Submit a batch of audio files for transcription.
