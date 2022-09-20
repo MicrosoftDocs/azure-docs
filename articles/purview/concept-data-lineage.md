@@ -23,7 +23,7 @@ Data lineage is broadly understood as the lifecycle that spans the data’s orig
 
 Microsoft Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the Catalog.
 
-:::image type="content" source="media/concept-lineage/lineage-end-end.png" alt-text="end-end lineage showing data copied from blob store all the way to Power BI dashboard":::
+:::image type="content" source="media/concept-lineage/lineage-end-end-inline.png" alt-text="end-end lineage showing data copied from blob store all the way to Power BI dashboard" lightbox="media/concept-lineage/lineage-end-end.png":::
 
 Your data estate may include systems doing data extraction, transformation (ETL/ELT systems), analytics, and visualization systems. Each of the systems captures rich static and operational metadata that describes the state and quality of the data within the systems boundary. The goal of lineage in a data catalog is to extract the movement, transformation, and operational metadata from each data system at the lowest grain possible.
 
