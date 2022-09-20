@@ -13,11 +13,11 @@ ms.date: 09/19/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Set up an indexer connection to an Azure Storage account using a managed identity
+# Set up an indexer connection to Azure Storage using a managed identity
 
 This article explains how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Storage. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Storage. 
 
 > [!NOTE]
 > If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances). 

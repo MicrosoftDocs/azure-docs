@@ -13,17 +13,17 @@ ms.date: 09/19/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Set up an indexer connection to a Cosmos DB database using a managed identity
+# Set up an indexer connection to Cosmos DB using a managed identity
 
-This article explains how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.
+This article explains how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.'
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Cosmos DB. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Cosmos DB. 
 
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. 
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB.
 
   For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. 
 

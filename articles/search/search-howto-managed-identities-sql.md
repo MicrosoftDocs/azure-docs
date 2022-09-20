@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 09/19/2022
 ---
 
-# Set up an indexer connection to Azure SQL Database using a managed identity
+# Set up an indexer connection to Azure SQL using a managed identity
 
 This article explains how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
 
