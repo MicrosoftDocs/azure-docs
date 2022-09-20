@@ -8,7 +8,7 @@ ms.date: 09/19/2022
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This ensures pods are scheduled onto nodes which have the required CPU and memory resources.  
+This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This ensures pods are scheduled onto nodes that have the required CPU and memory resources.  
 
 ## Benefits
 
@@ -28,7 +28,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ## Limitations
 
-- Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
+* Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
 
 ## Before you begin
 
@@ -40,12 +40,12 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ## VPA configuration options
 
-The following table describes the options and supported values to configure and use this feature for your pods.
+The following table describes the options and supported values to configure and use the VPA feature for your pods.
 
 |Value |Description |Default value |
 |------|------------|--------------|
 |`--vpa-controlled-values` |Specifies the behavior of VPA. Options are: **Requests**, **limits**, or **RequestsAndLimits** | None |
-|`--vpa-update-mode` |Specifies the allowed modes. Options are:<ul><li> **Off** - VPA does not automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.</ul></li> <ul><li>**Initial** - VPA only assigns resource requests on pod creation and never changes them later.</ul></li> <ul><li>**Recreate** - VPA assigns resource requests on pod creation as well as updates them on existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, prefer the "Auto" mode which may take advantage of restart-free updates once they are available. >[!NOTE] This feature of VPA is in preview and may cause downtime for your applications. </ul></li> <ul><li>**Auto** - VPA assigns resource requests during pod creation as well as updates them on existing pods using the preferred update mechanism. Currently, this is equivalent to **Recreate**. Once restart free, *in-place* update of pod requests is available. It may be used as the preferred update mechanism by the **Auto** mode. >[!NOTE] This feature of VPA is in preview and may cause downtime for your applications.</ul></li>| None |
+|`--vpa-update-mode` |Specifies the allowed modes. Options are:<ul><li> **Off** - VPA does not automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.</ul></li> <ul><li>**Initial** - VPA only assigns resource requests on pod creation and never changes them later.</ul></li> <ul><li>**Recreate** - VPA assigns resource requests on pod creation, and updates them on existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, prefer the "Auto" mode that might take advantage of restart-free updates once they are available. >[!NOTE] The VPA feature is in preview and may cause application downtime. </ul></li> <ul><li>**Auto** - VPA assigns resource requests during pod creation, and updates them on existing pods using the preferred update mechanism. Currently, this is equivalent to **Recreate**. Once restart free, *in-place* update of pod requests is available. It may be used as the preferred update mechanism by the **Auto** mode. >[!NOTE] The VPA feature is in preview and may cause application downtime.</ul></li>| None |
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
@@ -83,9 +83,9 @@ kubectl get pods -n kube-system
 
 ## Test your Vertical Pod Autoscaler installation
 
-The following steps creates a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they are updated with a higher CPU request.
+The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they are updated with a higher CPU request.
 
-1. Create a file named `hamster.yaml` and copy in the following manifest of the Vertical Pod Autoscaler example from the the [kubernetes/autoscaler][kubernetes-autoscaler-github-repo] GitHub repository.
+1. Create a file named `hamster.yaml` and copy in the following manifest of the Vertical Pod Autoscaler example from the [kubernetes/autoscaler][kubernetes-autoscaler-github-repo] GitHub repository.
 
 1. Deploy the `hamster.yaml` Vertical Pod Autoscaler example using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -120,7 +120,7 @@ The following steps creates a deployment with two pods, each running a single co
     
     ```
 
-    The pod has 100 millicpu and 50 mebibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there is no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
+    The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there is no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
 
 1. Wait for the vpa-updater to launch a new hamster pod. This should take a minute or two. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
@@ -140,9 +140,9 @@ The following steps creates a deployment with two pods, each running a single co
     
     ```
 
-    In the previous output, you can see that the CPU reservation increased to 587 millicpu, which is over five times the original value. The memory increased to 262,144 Kilobytes, which is around 250 mebibytes, or five times the original value. This pod was under-resourced, and the Vertical Pod Autoscaler corrected the estimate with a much more appropriate value.
+    In the previous output, you can see that the CPU reservation increased to 587 millicpu, which is over five times the original value. The memory increased to 262,144 Kilobytes, which is around 250 Mibibytes, or five times the original value. This pod was under-resourced, and the Vertical Pod Autoscaler corrected the estimate with a much more appropriate value.
 
-1. To view updated recommendations from VPA, run the [kubectl describe][kubectl-describe] command to describe the `hamster-vpa` resource information.
+1. To view updated recommendations from VPA, run the [kubectl describe][kubectl-describe] command to describe the hamster-vpa resource information.
 
     ```bash
     kubectl describe vpa/hamster-vpa
