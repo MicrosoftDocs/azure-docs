@@ -99,6 +99,6 @@ To learn more about troubleshooting common errors, see this article:
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
-* [Provision throughput on containers and databases](../how-to-provision-throughput.md) 
-* [Partition key best practices](../partitioning.md)
+* [Provision throughput on containers and databases](how-to-provision-throughput.md) 
+* [Partition key best practices](partitioning.md)
 
