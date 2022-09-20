@@ -129,7 +129,7 @@ Below are the steps to activate the prefix.
 
 **A.**   After the LAG comes up our automated process configures BGP. Note, BFD must be configured on the non-MSFT peer to start route exchange.
 
-**Q.**   When will peering IP addresses be allocated and displayed in the Azure Portal?
+**Q.**   When will peering IP addresses be allocated and displayed in the Azure portal?
 
 **A.**   Our automated process allocates addresses and sends the information via email after the port is configured on our side.
 
