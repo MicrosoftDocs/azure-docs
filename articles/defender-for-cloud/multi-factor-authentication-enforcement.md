@@ -115,7 +115,8 @@ To exempt account(s), follow these steps:
 1. In the Accounts tab, select an account to exempt.
 1. Select the three dots button, then select **Exempt account**.
 1. Select a scope and exemption reason. 
-5.	All exempted accounts can then be found under “Exempted accounts” per recommendation.
+
+If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
 
 > [!TIP]
 > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear unhealthy.
