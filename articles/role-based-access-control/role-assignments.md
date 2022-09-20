@@ -21,7 +21,7 @@ Access to Azure resources is granted by creating a role assignment, and access i
 A role assignment has several components, including:
 
 - The *principal*, or *who* is assigned the role.
-- The *role definition* that they're assigned.
+- The *role* that they're assigned.
 - The *scope* at which the role is assigned.
 - The *name* of the role assignment, and a *description* that helps you to explain why the role has been assigned.
 
