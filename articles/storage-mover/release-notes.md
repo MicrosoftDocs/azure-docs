@@ -75,10 +75,16 @@ Supports merging content from the source to the target:
 - Files with matching names and paths will be updated to match the source.
 - Folder renames between copies may lead to duplicate content in the target.
 
+### Service
+
+- When a job is started w/o the agent having permissions to the target storage and the job is immediately canceled, the job might not close down gracefully and remain in the `Cancel requested` state indefinitely. The only mitigation at the moment is to delete the job definition and recreate it.
+- The Storage Mover service is currently not resilient to a zonal outage within the selected region. Appropriate configuration steps to achieve zonal redundancy are underway.
+
 ### Agent
 
-- The storage mover agent appliance VM is currently only tested and supported as a Version 1 Windows Hyper-V VM.
-- Re-registration of a previously registered agent is currently not supported.
+- The storage mover agent appliance VM is currently only tested and supported as a `Version 1` Windows Hyper-V VM.
+- Re-registration of a previously registered agent is currently not supported. [Download a new agent image](https://aka.ms/StorageMover/agent) instead.
+- When registering an agent, a hybrid compute resource is also deployed into the same resource group as the storage mover resides in. In some cases, unregistering the server does not remove the agent's hybrid compute resource. Admins must manually remove it to complete unregistration of the agent and remove all permissions to target storage the agent previously held.
 - Copy logs aren't configurable to be emitted to Azure and must be accessed locally.
 
 To access copy logs on the agent:
