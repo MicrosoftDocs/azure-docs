@@ -102,7 +102,7 @@ Review the findings from these vulnerability scanners and respond to them all fr
 Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
-- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-va-acr.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 ## Enforce your security policy from the top down
 

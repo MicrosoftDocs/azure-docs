@@ -278,9 +278,12 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment
+    - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
-      href: defender-for-containers-usage.md
+      href: defender-for-containers-va-acr.md
+    - name: Vulnerability assessment for Amazon Elastic Container Registry
+      displayName: AWS, ECR, registry, images, qualys
+      href: defender-for-containers-va-ecr.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-containers-cicd.md
@@ -447,6 +450,8 @@
       href: episode-fifteen.md
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
+    - name: Defender for Servers integration with Microsoft Entra
+      href: episode-seventeen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
