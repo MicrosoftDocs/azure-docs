@@ -169,8 +169,8 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 To learn how to query using this newly enabled feature visit [advanced queries](advanced-queries.md).
 
 ## Next steps
-* For more information on how to query resource-specific tables see [troubleshooting using resource-specific tables](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
+* For more information on how to query resource-specific tables see [troubleshooting using resource-specific tables](monitor-logs-basic-queries.md#resource-specific-queries).
 
-* For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](cosmosdb-monitor-logs-basic-queries.md#azure-diagnostics-queries).
+* For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](monitor-logs-basic-queries.md#azure-diagnostics-queries).
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.

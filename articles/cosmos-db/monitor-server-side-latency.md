@@ -29,7 +29,7 @@ You can monitor server-side latency metrics if you see unusually high latency fo
 * A read or write operation or
 * A query
 
-You can look up the diagnostic log to see the size of the data returned. If you see a sustained high latency for query operations, you should look up the diagnostic log for higher [throughput or RU/s](cosmosdb-monitor-logs-basic-queries.md) used. Server side latency shows the amount of time spent on the backend infrastructure before the data was returned to the client. It is important to look at this metric to rule out any backend latency issues.
+You can look up the diagnostic log to see the size of the data returned. If you see a sustained high latency for query operations, you should look up the diagnostic log for higher [throughput or RU/s](monitor-logs-basic-queries.md) used. Server side latency shows the amount of time spent on the backend infrastructure before the data was returned to the client. It is important to look at this metric to rule out any backend latency issues.
 
 ## View the server-side latency metrics
 

@@ -343,7 +343,7 @@
             - name: Monitor with diagnostic logs
               href: ../cosmosdb-monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
-              href: ../cosmosdb-monitor-logs-basic-queries.md
+              href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
               href: ../advanced-queries.md
             - name: Audit control plane logs
