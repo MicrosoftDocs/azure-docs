@@ -57,7 +57,7 @@ For existing application deployments, **DevOps starter does not store any inform
 
 ## FAQ 
 
-1. What is the difference between DevOps starter and Azure developer CLI?
+### What is the difference between DevOps starter and Azure developer CLI?
 
 Both are tools, which enable quick setting up of application deployment to Azure and configure CI/CD pipeline for the same. They enable users to quickly get started with Azure.
 
