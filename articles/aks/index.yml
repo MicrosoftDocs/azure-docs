@@ -135,16 +135,16 @@ landingContent:
             url: /security/benchmark/azure/baselines/aks-security-baseline?context=%2Fazure%2Faks%2Fcontext%2Faks-context
       - linkListType: how-to-guide
         links:
+          - text: Upgrade from Windows Server 2019 to 2022
+            url: /azure/aks/upgrade-windows-2019-2022
           - text: Create Dockerfiles for Windows Server containers
             url: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context 
           - text: Optimize Dockerfiles for Windows Server containers
             url: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context
           - text: Use HostProcess containers
             url: use-windows-hpc.md
-          - text: Enable Calico network policies
-            url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
-          - text: Enable GMSA
-            url: use-group-managed-service-accounts.md
+          - text: Enable network policies
+            url: /azure/aks/use-network-policies
           - text: Use Azure disks CSI drivers
             url: azure-disk-csi.md#windows-containers
           - text: Use Azure files CSI drivers
