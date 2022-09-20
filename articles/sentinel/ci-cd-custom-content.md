@@ -73,17 +73,27 @@ Smart deployments are enabled by default on newly created connections. If you pr
 
 ## Consider deployment customization options
 
-Even with smart deployments enabled, the default behavior is to push all the updated content from the connected repository branch. If the default configuration for your content deployment from GitHub or Azure DevOps doesn't meet all your requirements, you can modify the experience to fit your needs.
+There are a growing number of customization options available to consider when deploying content from your Microsoft Sentinel repositories.
 
-For example, you may want to:
-- turn off smart deployments
+#### Customize the workflow or pipeline
+
+For example, you may want to customize the workflow or pipeline in one of the following ways:
 - configure different deployment triggers
 - deploy content only from a specific root folder for a given workspace
 - schedule the workflow to run periodically
 - combine different workflow events together
-- prioritize content to be evaluated before the entire repo is enumerated for valid ARM templates
+- turn off smart deployments
 
-For more details on how to implement these customizations, see [Customize the deployment workflow](ci-cd.md#customize-the-deployment-workflow).
+These customizations are defined in a .yml file specific to your workflow or pipeline. For more details on how to implement, see [Customize repository deployments](ci-cd-custom-deploy.md)
+
+#### Customize the ARM deployment
+
+The workflow and pipeline deployment script supports the following scenarios:
+- prioritize content to be evaluated before the entire repo is enumerated for valid ARM templates
+- exclude content
+- specify ARM template parameter files 
+
+These customizations are made available through a new feature of the PowerShell deployment script called from the workflow or pipeline .yml file. For more details on how to implement these customizations, see [Customize repository deployments](ci-cd-custom-deploy.md).
 
 
 ## Next steps

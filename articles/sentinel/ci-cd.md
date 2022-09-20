@@ -1,5 +1,6 @@
 ---
 title: Deploy custom content from your repository
+titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
@@ -33,9 +34,9 @@ This procedure describes how to connect a GitHub or Azure DevOps repository to y
 
 Each connection can support multiple types of custom content, including analytics rules, automation rules, hunting queries, parsers, playbooks, and workbooks. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
-**To create your connection**:
+**Create your connection**:
 
-1. Make sure that you're signed into your source control app with the credentials you want to use for your connection.  If you're currently signed in using different credentials, sign out first.
+1. Make sure that you're signed into your source control app with the credentials you want to use for your connection. If you're currently signed in using different credentials, sign out first.
 
 1. In Microsoft Sentinel, on the left under **Content management**, select **Repositories**.
 
@@ -109,128 +110,6 @@ After the deployment is complete:
 - The connection details on the **Repositories** page are updated with the link to the connection's deployment logs and the status and time of the last deployment. For example:
 
     :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
-
-### Customize the deployment workflow
-
-The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
-
-Select one of the following tabs depending on your connection type:
-
-# [GitHub](#tab/github)
-
-**To customize your GitHub deployment workflow**:
-
-1. In GitHub, go to your repository and find your workflow in the `.github/workflows` directory.
-
-    The workflow file is the YML file starting with `sentinel-deploy-xxxxx.yml`. Open that file and the workflow name is shown in the first line and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
-
-    For example: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
-
-1. Select the pencil button at the top-right of the page to open the file for editing, and then modify the deployment as follows:
-
-    - **To modify the deployment trigger**, update the `on` section in the code, which describes the event that triggers the workflow to run.
-
-        By default, this configuration is set to `on: push`, which means that the workflow is triggered at any push to the connected branch, including both modifications to existing content and additions of new content to the repository. For example:
-
-        ```yml
-        on:
-            push:
-                branches: [ main ]
-                paths:
-                - `**`
-                - `!.github/workflows/**` # this filter prevents other workflow changes from triggering this workflow
-                - `.github/workflows/sentinel-deploy-<deployment-id>.yml`
-        ```
-
-        You may want to change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
-
-        For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
-
-    - **To disable smart deployments**:
-        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
-
-    - **To modify the deployment path**:
-
-        In the default configuration shown above for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
-
-        This default configuration means that a deployment workflow is triggered anytime that content is pushed to any part of the branch.
-
-        Later on in the file, the `jobs` section includes the following default configuration: `directory: '${{ github.workspace }}'`. This line indicates that the entire GitHub branch is in the path for the content deployment, without filtering for any folder paths.
-
-        To deploy content from a specific folder path only, add it to both the `paths` and the `directory` configuration. For example, to deploy content only from a root folder named `SentinelContent`, update your code as follows:
-
-        ```yml
-        paths:
-        - `SentinelContent/**`
-        - `!.github/workflows/**` # this filter prevents other workflow changes from triggering this workflow
-        - `.github/workflows/sentinel-deploy-<deployment-id>.yml`
-
-        ...
-            directory: '${{ github.workspace }}/SentinelContent'
-        ```
-
-For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) on GitHub Actions and editing GitHub workflows.
-
-# [Azure DevOps](#tab/azure-devops)
-
-**To customize your Azure DevOps deployment pipeline**:
-
-1. In Azure DevOps, go to your repository and find your pipeline definition file in the `.sentinel` directory.
-
-    The pipeline name is shown in the first line of the pipeline file, and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
-
-    For example: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
-
-1. Select the pencil button at the top-right of the page to open the file for editing, and then modify the deployment as follows:
-
-    - **To modify the deployment trigger**, update the `trigger` section in the code, which describes the event that triggers the workflow to run.
-
-        By default, this configuration is set to detect any push to the connected branch, including both modifications to existing content and additions of new content to the repository.
-
-        Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
-
-    - **To disable smart deployments**:
-        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
-
-    - **To modify the deployment path**:
-
-        The default configuration for the `trigger` section has the following code, which indicates that the `main` branch is in the path for the deployment triggers:
-
-        ```yml
-        trigger:
-            branches:
-                include:
-                - main
-        ```
-
-        This default configuration means that a deployment pipeline is triggered anytime that content is pushed to any part of the `main` branch.
-
-        To deploy content from a specific folder path only, add the folder name to the `include` section, for the trigger, and the `steps` section, for the deployment path, below as needed.
-
-        For example, to deploy content only from a root folder named `SentinelContent` in your `main` branch, add `include` and `workingDirectory` settings to your code as follows:
-
-        ```yml
-        paths:
-            exclude:
-            - .sentinel/*
-            include:
-            - .sentinel/sentinel-deploy-39d8ekc8-397-5963-49g8-5k63k5953829.yml
-            - SentinelContent
-        ....
-        steps:
-        - task: AzurePowerShell@5
-          inputs:
-            azureSubscription: `Sentinel_Deploy_ServiceConnection_0000000000000000`
-            workingDirectory: `SentinelContent`
-        ```
-
-For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
-
----
-
-> [!IMPORTANT]
-> In both GitHub and Azure DevOps, make sure that you keep the trigger path and deployment path directories consistent.
->
 
 ## Edit content
 
