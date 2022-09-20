@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 09/19/2022
 ms.author: jeedes
 
 ---
@@ -86,10 +86,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| -------- | --------- |
 	| email | user.userprincipalname |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/certificate-base64-download.png)
 
 1. On the **Set up MURAL Identity** section, copy the appropriate URL(s) based on your requirement.
 
@@ -121,7 +123,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure MURAL Identity SSO
 
-To configure single sign-on on **MURAL Identity** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [MURAL Identity support team](mailto:support@mural.co). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the MURAL Identity website as an administrator.
+
+1. Click your **name** in the bottom left corner of the dashboard and select **Company dashboard** from the list of options.
+
+1. Click **SSO** in the left sidebar and perform the below steps.
+
+    ![Screenshot of showing the configuration for MURAL.](./media/mural-identity-tutorial/settings.png)
+
+a. Download the **MURAL's metadata**.
+
+b. In the **Sign in URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+
+c. In the **Sign in certificate**, upload the **Certificate (PEM)**, which you have downloaded from the Azure portal. 
+
+d. Select **HTTP-POST** as the Request binding type and select **SHA256** as the Sign in algorithm type.
+
+e. In the **Claim mapping** section, fill the following fields. 
+
+* Email address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+* First name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+
+* Last name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
+f. Click **Test single sign-on** to test the configuration and **Save** it.
+
+> [!NOTE]
+> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/articles/6224385-mural-s-azure-ad-integration) support page.
 
 ### Create MURAL Identity test user
 
