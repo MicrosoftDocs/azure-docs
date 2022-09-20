@@ -129,9 +129,9 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     * `instance_count` - The number of instances to use for the deployment
 
     ```python
-    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    model = Model(path="./endpoints/online/model-1/model/sklearn_regression_model.pkl")
     env = Environment(
-        conda_file="../model-1/environment/conda.yml",
+        conda_file="./endpoints/online/model-1/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
     )
 
@@ -141,7 +141,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
         model=model,
         environment=env,
         code_configuration=CodeConfiguration(
-            code="../model-1/onlinescoring", scoring_script="score.py"
+            code="./endpoints/online/model-1/onlinescoring", scoring_script="score.py"
         ),
         instance_type="Standard_F2s_v2",
         instance_count=1,
@@ -177,7 +177,7 @@ Invoke the endpoint to score the model by using the convenience command invoke a
 ```python
 ml_client.online_endpoints.invoke(
     endpoint_name=local_endpoint_name,
-    request_file="../model-1/sample-request.json",
+    request_file="./endpoints/online/model-1/sample-request.json",
     local=True,
 )
 ```
@@ -221,9 +221,9 @@ Next, deploy your online endpoint to Azure.
     A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
     ```python
-    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    model = Model(path="./endpoints/online/model-1/model/sklearn_regression_model.pkl")
     env = Environment(
-        conda_file="../model-1/environment/conda.yml",
+        conda_file="./endpoints/online/model-1/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
     )
 
@@ -233,7 +233,7 @@ Next, deploy your online endpoint to Azure.
         model=model,
         environment=env,
         code_configuration=CodeConfiguration(
-            code="../model-1/onlinescoring", scoring_script="score.py"
+            code="./endpoints/online/model-1/onlinescoring", scoring_script="score.py"
         ),
         instance_type="Standard_F2s_v2",
         instance_count=1,
@@ -269,7 +269,7 @@ We'll send a sample request using a [json](https://github.com/Azure/azureml-exam
 ml_client.online_endpoints.invoke(
     endpoint_name=online_endpoint_name,
     deployment_name="blue",
-    request_file="../model-1/sample-request.json",
+    request_file="./endpoints/online/model-1/sample-request.json",
 )
 ```
 
