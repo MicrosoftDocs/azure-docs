@@ -174,6 +174,8 @@
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Maintain threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
+    - name: Manage user access from the Azure portal
+      href: manage-users-portal.md
     - name: OT system maintenance
       items:
       - name: Update OT monitoring software
@@ -197,11 +199,9 @@
             href: configure-reverse-dns-lookup.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: Manage OT system users
+      - name: Manage on-premises OT system users
         items:
-        - name: Manage user access from the Azure portal
-          href: manage-users-portal.md
-        - name: Create and manage user access on-premises
+        - name: Create and manage on-premises users
           href: how-to-create-and-manage-users.md
         - name: Track on-premises user activity
           href: track-user-activity.md
