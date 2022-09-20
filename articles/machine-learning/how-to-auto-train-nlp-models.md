@@ -489,7 +489,7 @@ You can optionally specify the experiment budget for your AutoML NLP training jo
 AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in minutes an individual trial can run before being terminated, and `max_nodes`, the maximum number of nodes from the backing compute cluster to leverage for the job. These parameters also belong to the `limits` section.  
 
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI]
 
  [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
