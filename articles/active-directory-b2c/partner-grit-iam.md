@@ -79,11 +79,11 @@ The Grit Admin portal is to assign administrators access to the portal where the
 
 - Add other admins such as super, organization, application admin in the hierarchy depending on their permission level.
 
-- View/Accept/Reject all the user's requests for the application registration.
+- View/accept/reject all the user's requests for the application registration.
 
 - Search users.
 
-To learn how to assign admin roles, check the [tutorial.](https://app.archbee.com/doc/j1VX2J3B3xJ-zMqnmlDA5/9IW3PgI2yn1cCpPGm1vVN). 
+To learn how to assign admin roles, check the [tutorial.](https://app.archbee.com/doc/j1VX2J3B3xJ-zMqnmlDA5/9IW3PgI2yn1cCpPGm1vVN) 
 
 ### Step 3 - Onboard organizations
 
