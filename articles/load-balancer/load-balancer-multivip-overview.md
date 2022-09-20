@@ -37,11 +37,10 @@ Azure Load Balancer provides flexibility in defining the load balancing rules. A
 1. The default rule with no backend port reuse.
 2. The Floating IP rule where backend ports are reused.
 
-Azure Load Balancer allows you to mix both rule types on the same load balancer configuration. The load balancer can use them simultaneously for a given VM, or any combination, if you abide by the constraints of the rule. The rule type you choose depends on the requirements of your application and the complexity of supporting that configuration. You should evaluate which rule types are best for your scenario. We'll explore these scenarios further by starting with the default behavior. We explore these scenarios further by starting with the default behavior.
+Azure Load Balancer allows you to mix both rule types on the same load balancer configuration. The load balancer can use them simultaneously for a given VM, or any combination, if you abide by the constraints of the rule. The rule type you choose depends on the requirements of your application and the complexity of supporting that configuration. You should evaluate which rule types are best for your scenario. We'll explore these scenarios further by starting with the default behavior.
 
 ## Rule type #1: No backend port reuse
-
-![Multiple frontend illustration with green and purple frontend](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
+:::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip.png" alt-text="Diagram of Load Balancer traffice with no backend port reuse.":::
 
 In this scenario, the frontends are configured as follows:
 
@@ -80,9 +79,7 @@ If you want to reuse the backend port across multiple rules, you must enable Flo
 
 With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. Enabling Floating IP changes the IP address mapping scheme to allow for more flexibility as explained below. 
 
-The following diagram illustrates floating IP configuration: 
-
-![Multiple frontend illustration with green and purple frontend with DSR](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)
+:::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
 
 For this scenario, every VM in the backend pool has three network interfaces:
 
