@@ -235,6 +235,25 @@ For the next test scenario, configure the authentication policy where the **poli
 
   We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
 
+## Understanding the certificate-based authentication validation error
+
+Certificate-based authentication can fail for reasons such as the certificate being invalid, or the user selected the wrong certificate or an expired certificate, or because of a Certificate Revocation List (CRL) issue. When certificate validation fails, the user sees this error:
+
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/validation-error.png" alt-text="Screenshot of a certificate validation error." :::  
+
+If CBA fails on a browser, even if the failure is because you cancel the certificate picker, you have to close the browser session and open a new session to try CBA again. A new session is required because browsers cache the certificate. When CBA is re-tried, the browser will send the cached certificate during the TLS challenge, which causes sign-in failure and the validation error.
+ 
+Click **More details** to get logging information that can be sent to an administrator, who in turn can get more information from the Sign-in logs.
+
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/details.png" alt-text="Screenshot of error details." :::  
+
+Click **Other ways to sign in** to try other methods available to the user to sign in. 
+ 
+>[!NOTE]
+>If you retry CBA in a browser, it will keep failing due to the browser caching issue. Users need to open a new browser session and sign in again.
+
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/new-sign-in.png" alt-text="Screenshot of a new sign-in attempt." :::  
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
