@@ -4,7 +4,7 @@ description: Describes the migration steps for the batch pool without public ip 
 author: harperche
 ms.author: harpercheng
 ms.service: batch
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 09/01/2022
 ---
 
@@ -26,7 +26,7 @@ In late 2021, we launched a simplified compute node communication model for Azur
 
 ## Migration steps
 
-Batch pool without public IP addresses (classic) will retire on **31/2023 and will be updated to simplified compute node communication pools without public IPs. For existing pools that use the previous preview version of Batch pool without public IP addresses (classic), it's only possible to migrate pools created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
+Batch pool without public IP addresses (classic) will retire on **31 March 2023** and will be updated to simplified compute node communication pools without public IPs. For existing pools that use the previous preview version of Batch pool without public IP addresses (classic), it's only possible to migrate pools created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
 
 1. Opt in to [use simplified compute node communication](./simplified-compute-node-communication.md#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication).
 
