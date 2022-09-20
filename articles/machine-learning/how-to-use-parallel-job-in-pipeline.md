@@ -127,6 +127,10 @@ Entry script is a single python file where user needs to implement three predefi
 | Run(mini_batch) | Y | Implement main execution logic for mini_batches. | mini_batch: <br>Pandas dataframe if input data is a tabular data.<br> List of file path if input data is a directory. | Dataframe, List, or Tuple. |
 | Shutdown() | N | Optional function to do custom cleans up before returning the compute back to pool. | -- | -- |
 
+Check the following entry script examples to get more details:
+- [Image identification for a list of image files](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/digit_identification.py)
+- [Iris classification for a tabular iris data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py)
+
 Once you have entry script ready, you can set following two attributes to use it in your parallel job:
 
 | Attribute name | Type | Description | Default value |
