@@ -83,9 +83,9 @@ Once you have submitted the short code program brief application in the Azure po
 
 ## Toll-Free Verification
 ### What is toll free verification?
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks, have faster resolution for deliverability issues, and increased protection for your brand.
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
 
-This verification requirement is applicable to toll-free numbers sending traffic to United States and Canada. It is free of cost.
+This verification is **required** for TFNs sending messages to **Canada recipients** and is **not required** for TFNs sending [low throughput messages](#sms-to-us-phone-numbers) to **US recipients**. Verifying TFNs is free of cost.
 
 ### What happens if I don't verify my toll-free numbers?
 What happens to the unverified toll-free number depends on the destination of SMS traffic.
@@ -104,18 +104,25 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 ### What is a pending status? What can I do in a pending status?
 After submission of the toll-free verification application, we will process your application and send it to the toll-free messaging aggregator. This process usually takes in 4-6 business days. Once the application reaches the toll-free messaging aggregator the application status changes to pending until verified or rejected.
 
-Once in this state, you can start sending SMS to US numbers without the thresholds mentioned above and be unblocked from sending SMS to Canadian destinations. Reduced likelihood of filtering when TFNs in a pending status.
+Once in pending state, you can start sending SMS to US numbers without the thresholds mentioned above and be unblocked from sending SMS to Canadian destinations. TFNs in pending state are subject to reduced likelihood of filtering.
 
 ### What happens after I submit the toll-free verification form?
-Updates and the status of your applications will be communicated via the email you provide in the application. Results from the application can be: approved, denied or further clarification needed. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+Updates for changes and the status of your applications will be communicated via the email you provide in the application. Results from the application can be: approved, denied or further clarification needed. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 The whole toll-free verification process takes about **5-6 weeks** but is subject to change depending on the volume of applications to the toll-free messaging aggregator and how detailed the application is.
 
 ### How do I submit a toll-free verification?
-To submit a toll-free verification, you will need to submit a toll-free verification application. Go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
+To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
+
+### What are common reasons for toll-free verification delays? 
+Your application wait time increases when your application has missing or unclear information. 
+
+- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, proved a good justification. 
+- **Opt-in Image URL is not accessible to the public** - When you host your image on image hosting services (i.e. OneDrive, GoogleDrive, iCloud, Dropbox, etc.) make sure the public can view it. Test the URL by seeing if the URL can be viewed by a personal account. 
+- **Incorrect toll-free numbers** - Phone numbers have to be toll-free numbers, not local numbers, 10DLC, or short codes. 
  
 ## Character and rate limits
 ### What is the SMS character limit?
