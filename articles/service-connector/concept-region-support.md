@@ -28,7 +28,6 @@ If your compute service instance is located in one of the regions that Service C
 - East Asia
 - East US
 - East US 2
-- East US 2 EUAP
 - France Central
 - Germany West Central
 - Japan East
