@@ -22,7 +22,7 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ### Compatibility
 
-### Scalability
+Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 
 ### Simplified provisioning and management
 
@@ -30,7 +30,7 @@ Elastic SAN simplifies deploying and managing storage at scale through grouping 
 
 ### Performance
 
-With Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an Azure Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -48,9 +48,9 @@ The following diagram illustrates the relationship and mapping of an Azure Elast
 
 :::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic san is like an on-premises san appliance and is where billing and provisioning is handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises san.":::
 
-### The Elastic SAN
+### The Elastic SAN resource
 
-When you configure the SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
+When you configure an elastic SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
 ### Volume groups resources
 
@@ -75,7 +75,6 @@ The status of items in this table may change over time.
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](elastic-san-planning.md#redundancy)|	✔️ |
-| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
 | Private endpoints | ⛔  |
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Access same data from Windows and Linux client|  ✔️   |

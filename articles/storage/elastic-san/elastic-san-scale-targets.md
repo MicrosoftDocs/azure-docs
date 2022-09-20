@@ -13,7 +13,7 @@ ms.subservice: elastic-san
 
 There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
 
-## The SAN
+## The elastic SAN
 
 An elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
@@ -25,11 +25,11 @@ The maximum total capacity of your SAN is determined by the region where it's lo
 
 ### IOPS
 
-The IOPS of a SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
+The IOPS of an elastic SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+The throughput of an elastic SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
 ### Elastic SAN scale targets
 
@@ -47,7 +47,7 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 ## Volume group
 
-An SAN can have a maximum of 20 volume groups, and a volume group can contain up to 1,000 volumes.
+An elastic SAN can have a maximum of 20 volume groups, and a volume group can contain up to 1,000 volumes.
 
 ## Volume
 

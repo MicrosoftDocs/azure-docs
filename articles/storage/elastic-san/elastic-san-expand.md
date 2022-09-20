@@ -1,6 +1,6 @@
 ---
 title: Increase the size of an Azure Elastic SAN
-description: Learn how to increase the size of an Azure Elastic SAN and its volumes with the Azure portal or the Azure PowerShell module.
+description: Learn how to increase the size of an Azure Elastic SAN and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -47,6 +47,8 @@ Once you've expanded the size of your SAN, you can either create an additional v
 
 # [Portal](#tab/azure-portal)
 
+Use either the Azure PowerShell module or the Azure CLI to expand your volume size.
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -65,6 +67,10 @@ az elastic-san update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $
 
 # [Portal](#tab/azure-portal)
 
+1. Select **Volumes** and select **Create**.
+1. Create volumes by entering a name, selecting an appropriate volume group, and entering the capacity you'd like to allocate for your volume.
+    The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
+1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 

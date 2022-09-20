@@ -1,6 +1,6 @@
 ---
 title: Planning for an Azure Elastic SAN
-description: An overview of Azure Elastic SAN, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: storage
 ms.topic: overview
