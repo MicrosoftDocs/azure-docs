@@ -22,6 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
+- [Defender for Containers now supports vulnerability assessment for Elastic Container Registry](#defender-for-containers-now-supports-vulnerability-assessment-for-elastic-container-registry)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
@@ -51,6 +52,14 @@ FIM is now available in a new version based on Azure Monitor Agent (AMA), which 
 
 Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
 
+### Defender for Containers now supports vulnerability assessment for Elastic Container Registry
+
+Microsoft Defender for Containers now provides agentless vulnerability assessment scanning for Elastic Container Registry (ECR) in Amazon AWS. This expands on coverage for multicloud environments, building on the release earlier this year of advanced threat protection and Kubernetes environment hardening for AWS and Google GCP. The agentless model creates AWS resources in your accounts to scan your images without extracting images out of your AWS accounts and with no footprint on your workload.
+
+Agentless vulnerability assessment scanning for images in ECR repositories helps reduce the attack surface of your containerized estate by continuously scanning images to identify and manage container vulnerabilities. With this new release, Defender for Cloud scans container images after they are pushed to the repository and continually reassess the ECR container images in the registry. The findings are available in Microsoft Defender for Cloud as recommendations, and you can use Defender for Cloud's built-in automated workflows to take action on the findings, such as opening a ticket for fixing a high severity vulnerability in an image.
+
+Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-va-ecr.md).
+
 ## August 2022
 
 Updates in August include:
@@ -66,7 +75,7 @@ Defender for Containers now shows vulnerabilities for running Windows containers
 
 When vulnerabilities are detected, Defender for Cloud generates the following security recommendation listing the detected issues: [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false).
 
-Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
+Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images-in-azure-container-registry-acr).
 
 ### Azure Monitor Agent integration now in preview
  
