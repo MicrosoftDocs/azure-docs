@@ -194,21 +194,26 @@ You can't use a copy loop for a child resource. To create more than one instance
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
 ```json
-"resources": [
 {
-  "type": "Microsoft.DataFactory/factories",
-  "name": "exampleDataFactory",
-  ...
   "resources": [
     {
-      "type": "datasets",
-      "name": "exampleDataSet",
-      "dependsOn": [
-        "exampleDataFactory"
-      ],
+      "type": "Microsoft.DataFactory/factories",
+      "name": "exampleDataFactory",
+      ...
+      "resources": [
+        {
+          "type": "datasets",
+          "name": "exampleDataSet",
+          "dependsOn": [
+            "exampleDataFactory"
+          ],
+          ...
+        }
+      ]
       ...
     }
   ]
+}
 ```
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
