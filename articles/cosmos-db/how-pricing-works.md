@@ -47,9 +47,9 @@ Azure Cosmos DB offers many options for developers to it for free. These options
 
 ## Pricing with reserved capacity
 
-Azure Cosmos DB [reserved capacity](cosmos-db-reserved-capacity.md) helps you save money when using the provisioned throughput mode by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. Azure Cosmos DB reserved capacity helps you lower costs by pre-paying for the provisioned throughput (RU/s) for one year or three years and you get a discount on the throughput provisioned. 
+Azure Cosmos DB [reserved capacity](reserved-capacity.md) helps you save money when using the provisioned throughput mode by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. Azure Cosmos DB reserved capacity helps you lower costs by pre-paying for the provisioned throughput (RU/s) for one year or three years and you get a discount on the throughput provisioned. 
 
-Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources. Reserved capacity is available consistently to all APIs, which includes MongoDB, Cassandra, SQL, Gremlin, and Azure Tables and all regions worldwide. You can learn more about reserved capacity in [Prepay for Azure Cosmos DB resources with reserved capacity](cosmos-db-reserved-capacity.md) article and buy reserved capacity from the [Azure portal](https://portal.azure.com/).
+Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources. Reserved capacity is available consistently to all APIs, which includes MongoDB, Cassandra, SQL, Gremlin, and Azure Tables and all regions worldwide. You can learn more about reserved capacity in [Prepay for Azure Cosmos DB resources with reserved capacity](reserved-capacity.md) article and buy reserved capacity from the [Azure portal](https://portal.azure.com/).
 
 ## Next steps
 
@@ -65,5 +65,5 @@ You can learn more about optimizing the costs for your Azure Cosmos DB resources
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos DB accounts](optimize-cost-regions.md)
-* Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
+* Learn about [Azure Cosmos DB reserved capacity](reserved-capacity.md)
 * Learn about [Azure Cosmos DB Emulator](local-emulator.md)

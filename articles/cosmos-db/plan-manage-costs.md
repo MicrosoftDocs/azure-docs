@@ -153,7 +153,7 @@ The following are some best practices you can use to reduce the costs:
 
 * [Optimize development/testing cost](optimize-dev-test.md) - Learn how to optimize your development cost by using the local emulator, the Azure Cosmos DB free tier, Azure free account and few other options.
 
-* [Optimize cost with reserved capacity](cosmos-db-reserved-capacity.md) - Learn how to use reserved capacity to save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years.
+* [Optimize cost with reserved capacity](reserved-capacity.md) - Learn how to use reserved capacity to save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years.
 
 ## Next steps
 

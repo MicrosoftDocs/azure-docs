@@ -171,7 +171,7 @@ The following steps help you to make your solutions highly scalable and cost-eff
 
 9. You can further perform workload-specific cost optimizations – for example, increasing batch-size, load-balancing reads across multiple regions, and de-duplicating data, if applicable.
 
-10. With Azure Cosmos DB reserved capacity, you can get significant discounts for up to 65% for three years. Azure Cosmos DB reserved capacity model is an upfront commitment on requests units needed over time. The discounts are tiered such that the more request units you use over a longer period, the more your discount will be. These discounts are applied immediately. Any RUs used above your provisioned values are charged based on the non-reserved capacity cost. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)) for more details. Consider purchasing reserved capacity to further lower your provisioned throughput costs.  
+10. With Azure Cosmos DB reserved capacity, you can get significant discounts for up to 65% for three years. Azure Cosmos DB reserved capacity model is an upfront commitment on requests units needed over time. The discounts are tiered such that the more request units you use over a longer period, the more your discount will be. These discounts are applied immediately. Any RUs used above your provisioned values are charged based on the non-reserved capacity cost. See [Azure Cosmos DB reserved capacity](reserved-capacity.md)) for more details. Consider purchasing reserved capacity to further lower your provisioned throughput costs.  
 
 ## Next steps
 

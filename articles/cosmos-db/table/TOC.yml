@@ -220,7 +220,7 @@
           displayName: free tier
           href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
     - name: Enterprise readiness
