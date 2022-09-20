@@ -247,12 +247,15 @@ To generate a data collection rule JSON file in the Azure portal:
         ]
     }
     ```
-1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes: 
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values for the parameters defined in the template, including: 
 
-    - A **Name** for the data collection rule.
-    - The **Workspace Resource ID** you collected in a previous step. 
-    - The **Location** should be the same location as the workspace. 
-    - The **Region** will already be populated and is used for the location of the data collection rule.
+    - **Region** - Region for the data collection rule. Populated automatically based on the subscription you select. 
+    - **Data Collection Rule Name** - Give the rule a name.
+    - **Location** - Set to be the same location as the workspace.
+    - **Workspace Name** and **Workspace Resource ID** - The same values you use to [create a destination table for event hub data in your Log Analytics workspace](#create-a-destination-table-for-event-hub-data-in-your-log-analytics-workspace). 
+    - **Endpoint Resource ID** - As set when you [create the data collection endpoint](#create-a-data-collection-endpoint).
+    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
+    - **Consumer Group** - When left blank, Azure sets the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) to `$default`. 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
