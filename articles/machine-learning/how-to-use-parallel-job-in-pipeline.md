@@ -53,7 +53,7 @@ The following table illustrates the relation between input data and partition se
 | Data format | AML input type | AML input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
 | File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)*
-| Tabular data | `mltable` | direct | By size (estimated physical size) or<br> 
+| Tabular data | `mltable` | direct | By size (estimated physical size) <br> 
 
 You can declare your major input data with `input_data` attribute in parallel job yaml or python sdk. And if you partition your data **by size**, set numbers to `mini_batch_siz` attribute to define the size of mini-batch.
 
