@@ -3,7 +3,7 @@ title: Enable Microsoft Defender for Cloud's integrated workload protections
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
-ms.date: 07/14/2022
+ms.date: 09/20/2022
 ms.custom: mode-other
 ---
 
@@ -45,6 +45,8 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 1. Select the subscription or workspace that you want to protect.
     
 1. Select **Enable all** to enable all of the plans for Defender for Cloud.
+
+    :::image type="content" source="media/enable-enhanced-security/enable-all-plans.png" alt-text="Screenshot that shows where to select enable all on the plans page." lightbox="media/enable-enhanced-security/enable-all-plans.png":::
     
 1. Select **Save**.
 

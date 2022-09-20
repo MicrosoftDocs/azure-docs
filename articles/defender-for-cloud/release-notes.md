@@ -18,6 +18,29 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## October 2022
+
+Updates in October include:
+
+- [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
+
+## Defender CSPM P1 (Preview)
+
+One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
+
+We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. CSPM P1 enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
+
+- Continuous assessment of the security configuration of your cloud resources
+- Security recommendations to fix misconfigurations and weaknesses
+- Secure score
+- Governance
+- Regulatory compliance
+- Cloud security graph
+- Attack Path Analysis
+- Agentless scanning for machines
+
+You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
+
 ## September 2022
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)

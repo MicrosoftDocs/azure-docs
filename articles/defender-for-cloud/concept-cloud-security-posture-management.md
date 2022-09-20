@@ -2,7 +2,7 @@
 title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the nw Defender for CSPM plan and the additional enhanced security features that can be enable for your multicloud environment through the CSPM premium plan.
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/20/2022
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -15,8 +15,7 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability (GA)|
-|Required roles and permissions:| |
+|Release state:| Preview |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts <br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP projects|
 
 ## Defender for CSPM plan options
@@ -25,12 +24,17 @@ The Defender for CSPM plan comes with two options, CSPM (free) and CSPM Premium.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
-| Feature | Details | Defender for CSPM | Defender for CSPM Premium | Cloud availability |
-|--|--|--|--|--|
-| [Security governance and regulatory compliance](#security-governance-and-regulatory-compliance) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
-| [Cloud Security Graph](#cloud-security-graph) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Attack Path Analysis](#attack-path-analysis) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Agentless scanning for machines](#agentless-scanning-for-machines) | | | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| Feature | Defender for CSPM | Defender for CSPM Premium | Cloud availability |
+|--|--|--|--|
+| Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | |
+| [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| |
+| [Secure score](secure-score-access-and-track.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | |
+| [Governance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
+| [Regulatory compliance](#security-governance-and-regulatory-compliance) - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
+| [Cloud security explorer](#cloud-security-explorer) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Attack Path Analysis](#attack-path-analysis) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Agentless scanning for machines](#agentless-scanning-for-machines) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+
 
 > [!NOTE]
 > If you have enabled Defender for DevOps, you will only gain Cloud Security Graph and Attack Path Analysis to the artifacts that arrive through those connectors. 
@@ -45,7 +49,7 @@ Defender for Cloud continuously assesses your hybrid cloud environment to analyz
 
 Learn more about [security and regulatory compliance in Defender for Cloud](concept-regulatory-compliance.md).
 
-## Cloud Security Graph
+## Cloud security explorer
 
 The Cloud Security Graph is a graph-based context engine that exists within Defender for Cloud. The Cloud Security Graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment.
 
