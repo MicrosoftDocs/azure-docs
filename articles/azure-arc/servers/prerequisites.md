@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 07/05/2022
+ms.date: 09/14/2022
 ms.topic: conceptual 
 ---
 

@@ -93,7 +93,7 @@ You can configure **one** public standard load balancer resource for the backend
 
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single front-end IP configuration unless both have Floating IP enabled.
 
-- IP fragmenting isn't supported. If a packet is already fragmented, it's forwarded based on the two-tuple [distribution mode](distribution-mode-concepts.md) when enabled on HA ports load-balancing rules.
+- IP fragmenting isn't supported. 
 
 - Flow symmetry for NVA scenarios with a backend instance and a single IP/single NIC configuration is supported only when used as shown in the diagram above. Flow symmetry isn't provided in any other scenario. Two or more load balancer resources and their rules make independent decisions and aren't coordinated. Flow symmetry isn't available with the use of multiple IP configurations. Flow symmetry isn't available when placing the NVA between a public and internal load balancer. We recommend the use of a single IP/single NIC configuration referenced in the architecture above.
 
