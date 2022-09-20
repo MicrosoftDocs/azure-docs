@@ -28,7 +28,7 @@ You can access the Cloud Shell in three ways:
 
     ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-- **Code snippets**: In Microsoft [technical documentation](/) and [training resources](/learn), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
+- **Code snippets**: In Microsoft [technical documentation](/) and [training resources](/training), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
 
     ```azurecli-interactive
     az account show
