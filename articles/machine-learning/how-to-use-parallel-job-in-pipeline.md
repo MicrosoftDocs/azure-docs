@@ -83,33 +83,7 @@ Sample code to set two attributes:
 
 # [Azure CLI](#tab/cliv2)
 
-```azurecli
-
-batch_prediction:
-    type: parallel
-    compute: azureml:cpu-cluster
-    inputs:
-    input_data: 
-        type: mltable
-        path: ./neural-iris-mltable
-        mode: direct
-    score_model: 
-        type: uri_folder
-        path: ./iris-model
-        mode: download
-    outputs:
-    job_output_file:
-        type: uri_file
-        mode: rw_mount
-
-    mini_batch_size: "500kb"
-    mini_batch_error_threshold: 5
-    logging_level: "DEBUG"
-    input_data: ${{inputs.input_data}}
-    <mark>max_concurrency_per_instance: 3</mark>
-    <mark>resources:</mark>
-        <mark>instance_count: 2</mark>
-```
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-41" highlight="20-22":::
 
 
 # [Python](#tab/python)
