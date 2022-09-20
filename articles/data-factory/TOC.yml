@@ -537,6 +537,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-change-data-capture.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout
@@ -1272,10 +1274,6 @@ items:
       href: sap-change-data-capture-prepare-linked-service-source-dataset.md
     - name: Debug the Data Factory copy activity
       href: sap-change-data-capture-debug-shir-logs.md
-    - name: Use the SAP data partitioning template
-      href: sap-change-data-capture-data-partitioning-template.md
-    - name: Use the SAP data replication template
-      href: sap-change-data-capture-data-replication-template.md
     - name: Manage your solution
       href: sap-change-data-capture-management.md
     displayName: SAP, change data capture, CDC

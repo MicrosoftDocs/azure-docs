@@ -156,7 +156,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Azure Load Balancer Standard SKU | Yes | Yes | Yes |
 | Application Gateway | Yes | Yes | Yes |
 | Infiniband Networking | No | Yes, single placement group only | Yes |
-| Basic SLB | No | Yes | Yes |
+| Basic LB | No | Yes | Yes |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) | Yes (NAT Pool) | Yes (NAT Rules for individual instances) |
 
 ### Backup and recovery 

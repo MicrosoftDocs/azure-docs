@@ -362,8 +362,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-hubs
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-hubs
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap

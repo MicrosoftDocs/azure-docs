@@ -260,11 +260,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
-| AutoML NLP | automlresources-prod.azureedge.net | TCP | 443 |
-| AutoML NLP | aka.ms | TCP | 443 |
+| AutoML NLP, Vision | automlresources-prod.azureedge.net | TCP | 443 |
+| AutoML NLP, Vision | aka.ms | TCP | 443 |
 
 > [!NOTE]
-> AutoML NLP is currently only supported in Azure public regions.
+> AutoML NLP, Vision are currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 
