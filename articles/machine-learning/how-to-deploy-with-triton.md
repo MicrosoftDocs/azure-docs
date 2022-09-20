@@ -197,11 +197,19 @@ This section shows how you can define a Triton deployment to deploy to a managed
 
     ```python
     from azure.ai.ml.entities import ManagedOnlineDeployment, Model
-
+    
+    model_name = "densenet-onnx-model"
+    model_version = 1
+    
     deployment = ManagedOnlineDeployment(
         name="blue",
         endpoint_name=endpoint_name,
-        model=Model(path="./models", type="triton_model"),
+        model=Model(
+            name=model_name, 
+            version=model_version,
+            path="./models",
+            type="triton_model"
+        ),
         instance_type="Standard_NC6s_v3",
         instance_count=1,
     )
@@ -435,25 +443,15 @@ To test an endpoint using Azure Machine Learning Studio, click `Test` from the E
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
 
-1. Use the following command to delete your model:
+1. Use the following command to archive your model:
 
     ```azurecli
-    az ml model delete --name $MODEL_NAME --version $MODEL_VERSION
+    az ml model archive --name $MODEL_NAME --version $MODEL_VERSION
     ```
 
 # [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-1. Get the name and version of the anonymous model in order to archive it. 
-
-    ```python 
-    deployment = ml_client.online_deployments.get(name="blue", endpoint_name=endpoint_name)
-
-    model_uri = deployment.model.split("/")
-    model_name = model_uri[-3]
-    model_version = model_uri[-1]
-    ```
 
 1. Delete the endpoint. Deleting the endpoint also deletes any child deployments, however it will not archive associated Environments or Models. 
 
@@ -461,7 +459,7 @@ To test an endpoint using Azure Machine Learning Studio, click `Test` from the E
     ml_client.online_endpoints.begin_delete(name=endpoint_name)
     ```
 
-1. Delete the model with the following code.
+1. Archive the model with the following code.
 
     ```python 
     ml_client.models.archive(name=model_name, version=model_version)
