@@ -105,13 +105,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
           - text: Implement message-based communication workflows with Azure Service Bus
-            url: /learn/modules/implement-message-workflows-with-service-bus/
+            url: /training/modules/implement-message-workflows-with-service-bus/
           - text: Discover Azure message queues
-            url: /learn/modules/discover-azure-message-queue/
+            url: /training/modules/discover-azure-message-queue/
           - text: Enable asynchronous messaging in Java apps by using JMS and Azure Service Bus
-            url: /learn/modules/cloud-scale-messaging-with-jms-service-bus/
+            url: /training/modules/cloud-scale-messaging-with-jms-service-bus/
 
   # Card
   - title: Monitor and manage
