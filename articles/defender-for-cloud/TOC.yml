@@ -105,6 +105,8 @@
 
   - name: Cloud Workload Protection concepts
     items:
+    - name: Agentless scanning
+      href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
@@ -220,7 +222,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Overview
-      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File Integrity Monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
@@ -229,6 +231,8 @@
       href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
+      - name: Find vulnerabilities and software inventory with agentless scanning
+        href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid
         href: deploy-vulnerability-assessment-tvm.md
@@ -269,9 +273,12 @@
       - name: Overview
         displayName: fim, change
         href: file-integrity-monitoring-overview.md
-      - name: Compare baselines using file integrity monitoring
+      - name: Enable File Integrity Monitor with the Log Analytics agent
         displayName: fim, change
-        href: file-integrity-monitoring-usage.md
+        href: file-integrity-monitoring-enable-log-analytics.md
+      - name: Enable File Integrity Monitor with the Azure Monitor Agent
+        displayName: fim, change
+        href: file-integrity-monitoring-enable-ama.md
     - name: Improve your network security posture
       displayName: anh, adaptive network hardening
       href: adaptive-network-hardening.md
@@ -288,9 +295,12 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment
+    - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
-      href: defender-for-containers-usage.md
+      href: defender-for-containers-va-acr.md
+    - name: Vulnerability assessment for Amazon Elastic Container Registry
+      displayName: AWS, ECR, registry, images, qualys
+      href: defender-for-containers-va-ecr.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-containers-cicd.md
@@ -457,6 +467,8 @@
       href: episode-fifteen.md
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
+    - name: Defender for Servers integration with Microsoft Entra
+      href: episode-seventeen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
