@@ -107,18 +107,35 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="Malicious
 
 };
 ```
+
 ## Extending the protection from malicious boot attacks via Integrity Measurement Architecture(IMA) on Linux
 
 Linux systems follows a similar boot process to Windows, and with TPM attestation the protection profile can be extended to beyond boot into the kernel as well using Integrity Measurement Architecture(IMA). IMA subsystem was designed to detect if files have been accidentally or maliciously altered, both remotely and locally, it maintains a runtime measurement list and, if anchored in a hardware Trusted Platform Module(TPM), an aggregate integrity value over this list provides the benefit of resiliency from software attacks.Recent enhancements in the IMA subsystem also allows for non file based attributes to be measured and attested remotely. Azure attestation supports non file based measurements to be attested remtoely to provide a holistic view of system integrity.
 
 Enabling IMA with the following ima-policy will enable measurement of non file attributes while still enabling local file integrity attestation.
 
-
 Using the following Attestation policy, you can now validate the secureboot, kernel signature, kernel version, kernel cmdline passed in by grub and other key security attributes supported by IMA.
 
-
+<U><B>Todo add policy</B></U>
 
 Note: Support for non-file based measurements are only available from linux kernel version: 5.15
+
+## TPM Key attestation support
+
+Numerous applications rely on foundational credential management of keys and certs for protections against credential theft, and one of main ways of ensuring the credential security is the reliance of key storage providers that provide additional security from malware and attacks. Windows implements various cryptographic providers which can be either software or hardware based. 
+
+The two most important ones are: 
+
+* Microsoft Software Key Storage Provider : Standard provider which stores keys software based and supports CNG (Crypto-Next Generation) 
+
+* Microsoft Platform Crypto Provider : Hardware based which stores keys on a TPM (trusted platform module) and supports CNG as well 
+
+Whenever a Storage provider is used, it’s usually to create a pub/priv key pair which are chained to a root of trust. At creation additional properties can also be used to enable certain aspects of the key storage, exportability, etc. Key attestation in this context, is the technical ability to prove to a replying party that a private key was generated inside, and is managed inside, and in a not exportable form. Such attestation clubbed with other information can help protect from credential theft and replay type of attack. 
+
+TPMs also provide the capability ability to attest that keys are resident in a TPM, enabling higher security assurance, backed up by non-exportability, anti-hammering, and isolation of keys. A very common use case is for applications that issue digital signature certificate for subscriber keys, verifying that the subscribers private signature key is generated and managed in an approved TPM.
+One can easily attest to the fact the keys are resident in a valid TPM with appropriate non-exportablity flags using a policy as below.
+
+<U><B>Todo add policy</B></U>
 
 ## Next steps
 

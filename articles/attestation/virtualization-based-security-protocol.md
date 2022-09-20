@@ -19,7 +19,14 @@ VBS enclaves require a TPM to provide the measurement to validate the security f
 
 ## Protocol messages
 
-### Init message
+The protocol has 2 messages exchanges: 
+* Init Message
+* Request Message
+
+<B><U> Insert image of protocol messages </B></U>
+
+### Init Message
+Message to establish context for the request message.
 
 #### Direction
 
@@ -55,7 +62,12 @@ Azure Attestation -> Client
 **service_context** (BASE64URL(OCTETS)): Opaque context created by the service.
 
 
-### Request message
+## Request Message
+Payload containing the data that is to be attested by the attestation service.
+
+Note: Support for IMA measurement logs and Keys has been added to Request message, and can be found in the Request Message V2 section
+
+## Request Message V1
 
 #### Direction
 
@@ -250,6 +262,847 @@ Azure Attestation -> Client
 ```
 
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
+
+## Request Message V2
+
+5.10.4.2	Payload
+
+```
+{
+  "request": "<JWS>"
+}
+```
+
+**request** (JWS): Request consists of a JSON Web Signature (JWS) structure. The JWS Protected Header and JWS Payload are shown below. As in any JWS structure, the final value consists of:
+BASE64URL(UTF8(JWS Protected Header)) || '.' ||
+BASE64URL(JWS Payload) || '.' ||
+BASE64URL(JWS Signature)
+
+##### JWS Protected Header
+```
+{
+  "alg": "PS256",
+  "typ": "attReqV2"
+  // no "kid" parameter as the key specified by request_key MUST sign this JWS to prove possession.
+}
+```
+
+#### JWS Payload
+
+JWS payload can be of type basic or vsm. Basic is used when attestation evidence does not include VSM data.
+
+Basic example:
+
+```
+{
+  "att_type": "basic",
+  "att_data": {
+    "rp_id": "<URL>",
+    "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
+    "challenge": "<BASE64URL(CHALLENGE)>",
+    "tpm_att_data": {
+      "current_attestation": {
+        "logs": [
+          {
+            "type": "TCG",
+            "log": "<BASE64URL(CURRENT_LOG1)>"
+          },
+          {
+            "type": "TCG",
+            "log": "<BASE64URL(CURRENT_LOG2)>"
+          },
+          {
+            "type": "TCG",
+            "log": "<BASE64URL(CURRENT_LOG3)>"
+          }
+        ],
+        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+        "aik_pub": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        },
+        "pcrs": [
+          {
+            "algorithm": 4, // TPM_ALG_SHA1
+            "values": [
+              {
+                "index": 0,
+                "digest": "<BASE64URL(DIGEST)>"
+              },
+              {
+                "index": 5,
+                "digest": "<BASE64URL(DIGEST)>"
+              }
+            ]
+          },
+          {
+            "algorithm": 11, // TPM_ALG_SHA256
+            "values": [
+              {
+                "index": 2,
+                "digest": "<BASE64URL(DIGEST)>"
+              },
+              {
+                "index": 1,
+                "digest": "<BASE64URL(DIGEST)>"
+              }
+            ]
+          }
+        ],
+        "quote": "<BASE64URL(TPMS_ATTEST)>",
+        "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+      },
+      "boot_attestation": {
+        "logs": [
+          {
+            "type": "TCG",
+            "log": "<BASE64URL(BOOT_LOG1)>"
+          },
+          {
+            "type": "TCG",
+            "log": "<BASE64URL(BOOT_LOG2)>"
+          }
+        ],
+        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+        "aik_pub": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        },
+        "pcrs": [
+          {
+            "algorithm": 4, // TPM_ALG_SHA1
+            "values": [
+              {
+                "index": 0,
+                "digest": "<BASE64URL(DIGEST)>"
+              },
+              {
+                "index": 5,
+                "digest": "<BASE64URL(DIGEST)>"
+              }
+            ]
+          },
+          {
+            "algorithm": 11, // TPM_ALG_SHA256
+            "values": [
+              {
+                "index": 2,
+                "digest": "<BASE64URL(DIGEST)>"
+              },
+              {
+                "index": 1,
+                "digest": "<BASE64URL(DIGEST)>"
+              }
+            ]
+          }
+        ],
+        "quote": "<BASE64URL(TPMS_ATTEST)>",
+        "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+      }
+    },
+    "request_key": {
+      "jwk": {
+        "kty": "RSA",
+        "n": "<Base64urlUInt(MODULUS)>",
+        "e": "<Base64urlUInt(EXPONENT)>"
+      },
+      "info": {
+        "tpm_quote": {
+          "hash_alg": "sha-256"
+        }
+      }
+    },
+    "other_keys": [
+      {
+        "jwk": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        },
+        "info": {
+          "tpm_certify": {
+            "public": "<BASE64URL(TPMT_PUBLIC)>",
+            "certification": "<BASE64URL(TPMS_ATTEST)>",
+            "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+          }
+        }
+      },
+      {
+        "jwk": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        }
+      }
+    ],
+    "custom_claims": [
+      {
+        "name": "<name>",
+        "value": "<value>",
+        "value_type": "<value_type>"
+      },
+      {
+        "name": "<name>",
+        "value": "<value>",
+        "value_type": "<value_type>"
+      }
+    ],
+    "service_context": "<BASE64URL(SERVICECONTEXT)>"
+  }
+}
+```
+
+TPM + VBS enclave example:
+```
+{
+  "att_type": "vbs",
+  "att_data": {
+    "report_signed": {
+      "rp_id": "<URL>",
+      "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
+      "challenge": "<BASE64URL(CHALLENGE)>",
+      "tpm_att_data": {
+        "current_attestation": {
+        "logs": [
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG1)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG2)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG3)>"
+            }
+          ],
+          "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+          // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+          "aik_pub": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "pcrs": [
+            {
+              "algorithm": 4, // TPM_ALG_SHA1
+              "values": [
+                {
+                  "index": 0,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 5,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            },
+            {
+              "algorithm": 11, // TPM_ALG_SHA256
+              "values": [
+                {
+                  "index": 2,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 1,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            }
+          ],
+          "quote": "<BASE64URL(TPMS_ATTEST)>",
+          "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+        },
+        "boot_attestation": {
+          "logs": [
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(BOOT_LOG1)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(BOOT_LOG2)>"
+            }
+          ],
+          "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+          // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+          "aik_pub": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "pcrs": [
+            {
+              "algorithm": 4, // TPM_ALG_SHA1
+              "values": [
+                {
+                  "index": 0,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 5,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            },
+            {
+              "algorithm": 11, // TPM_ALG_SHA256
+              "values": [
+                {
+                  "index": 2,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 1,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            }
+          ],
+          "quote": "<BASE64URL(TPMS_ATTEST)>",
+          "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+        }
+      },
+      "request_key": {
+        "jwk": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        },
+        "info": {
+          "tpm_quote": {
+            "hash_alg": "sha-256"
+          }
+        }
+      },
+      "other_keys": [
+        {
+          "jwk": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "info": {
+            "tpm_certify": {
+              "public": "<BASE64URL(TPMT_PUBLIC)>",
+              "certification": "<BASE64URL(TPMS_ATTEST)>",
+              "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+            }
+          }
+        },
+        {
+          "jwk": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          }
+        }
+      ],
+      "custom_claims": [
+        {
+          "name": "<name>",
+          "value": "<value>",
+          "value_type": "<value_type>"
+        },
+        {
+          "name": "<name>",
+          "value": "<value>",
+          "value_type": "<value_type>"
+        }
+      ],
+      "service_context": "<BASE64URL(SERVICECONTEXT)>"
+    },
+    "vsm_report": {
+      "enclave": {
+        "report": "<BASE64URL(REPORT)>"
+      }
+    }
+  }
+}
+```
+
+VBS trustlet example:
+
+```
+{
+  "att_type": "vbs",
+  "att_data": {
+    "report_signed": {
+      "rp_id": "<URL>",
+      "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
+      "challenge": "<BASE64URL(CHALLENGE)>",
+      "tpm_att_data": {
+        "current_attestation": {
+        "logs": [
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG1)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG2)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(CURRENT_LOG3)>"
+            }
+          ],
+          "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+          // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+          "aik_pub": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "pcrs": [
+            {
+              "algorithm": 4, // TPM_ALG_SHA1
+              "values": [
+                {
+                  "index": 0,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 5,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            },
+            {
+              "algorithm": 11, // TPM_ALG_SHA256
+              "values": [
+                {
+                  "index": 2,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 1,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            }
+          ],
+          "quote": "<BASE64URL(TPMS_ATTEST)>",
+          "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+        },
+        "boot_attestation": {
+          "logs": [
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(BOOT_LOG1)>"
+            },
+            {
+              "type": "TCG",
+              "log": "<BASE64URL(BOOT_LOG2)>"
+            }
+          ],
+          "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
+          // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
+          "aik_pub": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "pcrs": [
+            {
+              "algorithm": 4, // TPM_ALG_SHA1
+              "values": [
+                {
+                  "index": 0,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 5,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            },
+            {
+              "algorithm": 11, // TPM_ALG_SHA256
+              "values": [
+                {
+                  "index": 2,
+                  "digest": "<BASE64URL(DIGEST)>"
+                },
+                {
+                  "index": 1,
+                  "digest": "<BASE64URL(DIGEST)>"
+                }
+              ]
+            }
+          ],
+          "quote": "<BASE64URL(TPMS_ATTEST)>",
+          "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+        }
+      },
+      "request_key": {
+        "jwk": {
+          "kty": "RSA",
+          "n": "<Base64urlUInt(MODULUS)>",
+          "e": "<Base64urlUInt(EXPONENT)>"
+        },
+        "info": {
+          "tpm_quote": {
+            "hash_alg": "sha-256"
+          }
+        }
+      },
+      "other_keys": [
+        {
+          "jwk": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          },
+          "info": {
+            "tpm_certify": {
+              "public": "<BASE64URL(TPMT_PUBLIC)>",
+              "certification": "<BASE64URL(TPMS_ATTEST)>",
+              "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+            }
+          }
+        },
+        {
+          "jwk": {
+            "kty": "RSA",
+            "n": "<Base64urlUInt(MODULUS)>",
+            "e": "<Base64urlUInt(EXPONENT)>"
+          }
+        }
+      ],
+      "custom_claims": [
+        {
+          "name": "<name>",
+          "value": "<value>",
+          "value_type": "<value_type>"
+        },
+        {
+          "name": "<name>",
+          "value": "<value>",
+          "value_type": "<value_type>"
+        }
+      ],
+      "service_context": "<BASE64URL(SERVICECONTEXT)>"
+    },
+    "vsm_report": {
+      "trustlet": {
+        "report": "<BASE64URL(REPORT)>",
+        "signature": "<BASE64URL(REPORTSIGNATURE)>"
+      }
+    }
+  }
+}
+```
+
+**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim.
+
+**rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report.
+
+**challenge** (BASE64URL(OCTETS)): Random value issued by the service.
+
+- ***current_attestation*** (Object): Contains logs and TPM quote for the current state of the system (either boot or resume). The nonce received from the service must be passed to the TPM2_Quote command in the 'qualifyingData' parameter.
+
+- ***boot_attestation*** (Object): This is optional and contains logs and the TPM quote saved before the system hibernated and resumed. boot_attestation info must be associated with the same cold boot cycle (i.e. the system was only hibernated and resumed between them).
+
+- ***logs*** (Array(Object)): Array of logs. Each element of the array contains a log and the array must be in the order used for measurements.
+
+- - ***type*** (String): Type of the log: “TCG” or “IMA”.
+
+- - ***log*** (BASE64URL(OCTETS)): The log encoded as a BASE64URL string.
+
+- ***aik_cert*** (BASE64URL(OCTETS)): The X.509 certificate representing the AIK.
+
+- ***aik_pub*** (JWK): The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517).
+
+- ***pcrs*** (Array(Object)): Contains the set quoted. Each element of the array represents a PCR bank and the array must be in the order used to create the quote. A PCR bank is defined by its algorithm and its values (only the values quoted should be in the list).
+
+- - ***algorithm*** (Integer): UINT16 value representing a hash algorithm defined by the TPM_ALG_ID constants.
+
+- - ***values*** (Array(Object)): Array of digest values quoted. Each element of the array represents a digest value in the PCR bank.
+
+- - - ***index*** (Integer): Index of the PCR digest value.
+
+- - - ***digest*** (BASE64URL(OCTETS)): Digest value.
+
+- - ***quote*** (BASE64URL(OCTETS)): TPMS_ATTEST returned by the TPM2_Quote command. If this field is in the “current_attestation” object, the challenge received from the service must be passed to the TPM2_Quote command in the 'qualifyingData' parameter. The specific ‘qualifyingData’ parameter value depends on the “request_key” binding method and is described in the KEY OBJECT section.
+
+- - ***signature*** (BASE64URL(OCTETS)): TPMT_SIGNATURE returned by the TPM2_Quote command. If this field is in the “current_attestation” object, the challenge received from the service must be passed to the TPM2_Quote command in the 'qualifyingData' parameter. The specific ‘qualifyingData’ parameter value depends on the “request_key” binding method and is described in the KEY OBJECT section.
+
+**vsm_report** (VSM Report Object): The VSM attestation report. See the VSM REPORT OBJECT section.
+
+**request_key** (Key object): Key used to sign the request. If a TPM is present (request contains TPM quote), request_key must either be bound to the TPM via quote or be resident in the TPM (see KEY OBJECT).
+
+**other_keys** (Array(Key object)): Array of keys to be sent to the service. Maximum of 2 keys.
+
+**custom_claims** (Array(Object)): Array of custom enclave claims sent to the service that can be evaluated by the policy.
+
+- ***name*** (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy.
+
+- ***value*** (String): Value of the claim.
+
+- ***value_type*** (String): Data type of the claim’s value.
+
+**service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
+
+## Key object
+
+**jwk** (Object): The public part of the key represented as a JSON Web Key (JWK) object (RFC 7517).
+
+**info** (Object): Extra information about the key.
+
+No extra information:(Info object can be empty or missing from request)
+
+•	Key bound to the TPM via quote:
+- ***tpm_quote*** (Object): Data for the TPM quote binding method.
+- ***hash_alg*** (String): The algorithm used to create the hash passed to the TPM2_Quote command in the 'qualifyingData' parameter. The hash is computed by HASH[UTF8(jwk) || 0x00 || <OCTETS(service challenge)>]. Note: UTF8(jwk) must be the exact string that will be sent on the wire as the service will compute the hash using the exact string received in the request without modifications.
+
+>> Note: This binding method cannot be used for keys in the other_keys array. 
+
+•	Key certified to be resident in the TPM:
+
+- ***tpm_certify*** (Object): Data for the TPM certification binding method.
+“public” (BASE64URL(OCTETS)): TPMT_PUBLIC structure representing the public area of the key in the TPM.
+
+- ***certification*** (BASE64URL(OCTETS)): TPMS_ATTEST returned by the TPM2_Certify command. The challenge received from the service must be passed to the TPM2_Certify command in the 'qualifyingData' parameter. The AIK provided in the request must be used to certify the key.
+
+- ***signature*** (BASE64URL(OCTETS)): TPMT_SIGNATURE returned by the TPM2_Certify command. The challenge received from the service must be passed to the TPM2_Certify command in the 'qualifyingData' parameter. The AIK provided in the request must be used to certify the key.
+
+>> Note: When this binding method is used for the request_key, the 'qualifyingData' parameter value passed to the TPM2_Quote command is simply the challenge received from the service.
+
+•	Key stored in a trustlet with attestation claim issued by NCryptCreateClaim:
+
+- ***vbs_ncrypt*** (Object): Data for the NCrypt key attestation claim binding method.
+- - ***att_stmt*** (BASE64URL(OCTETS)): The NCRYPT_VSM_KEY_ATTESTATION_STATEMENT structure as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_VSM_KEY_ATTESTATION_STATEMENT. The challenge received from the service must be passed to the function in the NCRYPTBUFFER_CLAIM_KEYATTESTATION_NONCE buffer parameter.
+
+>> Note: When this binding method is used for the request_key, the 'qualifyingData' parameter value passed to the TPM2_Quote command is simply the challenge received from the service.
+
+Examples:
+
+Key not bound to the TPM:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  }
+}
+```
+
+Key bound to the TPM via quote (either resident in a VBS enclave or not):
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "tpm_quote":
+      "hash_alg": "sha-256"
+    }
+  }
+}
+```
+
+Key certified to be resident in the TPM:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "tpm_certify": {
+      "public": "<BASE64URL(TPMT_PUBLIC)>",
+      "certification": "<BASE64URL(TPMS_ATTEST)>",
+      "signature": "<BASE64URL(TPMT_SIGNATURE)>"
+    }
+  }
+}
+```
+
+Key stored in a trustlet with attestation claim issued by NCryptCreateClaim:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "vbs_ncrypt": {
+      "att_stmt": "<BASE64URL(NCRYPT_VSM_KEY_ATTESTATION_STATEMENT)>"
+    }
+  }
+}
+```
+
+## Policy key object
+
+The policy key object is the version of the key object used as input claims in the policy. It is processed by the service in order to make it more readable and easier to evaluate by policy rules.
+
+•	Key not bound to the TPM:
+Same as the respective key object.
+Example:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  }
+}
+```
+•	Key bound to the TPM via quote (either resident in a VBS enclave or not):
+Same as the respective key object.
+Example:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "tpm_quote":
+      "hash_alg": "sha-256"
+    }
+  }
+}
+```
+
+•	Key certified to be resident in the TPM:
+
+***jwk*** (Object): Same as the respective key object.
+***info.tpm_certify*** (Object):
+- ***name_alg*** (Integer): UINT16 value representing a hash algorithm defined by the TPM_ALG_ID constants.
+- ***obj_attr*** (Integer): UINT32 value representing the attributes of the key object defined by TPMA_OBJECT 
+- ***auth_policy*** (BASE64URL(OCTETS)): Optional policy for using this key object.
+
+Example:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "tpm_certify": {
+      "name_alg": 11, // 0xB (TPM_ALG_SHA256)
+      "obj_attr": 50, // 0x32 (fixedTPM | fixedParent | sensitiveDataOrigin)
+      "auth_policy": "<BASE64URL(AUTH_POLICY)>"
+    }
+  }
+}
+```
+
+•	Key stored in a trustlet with attestation claim issued by NCryptCreateClaim:
+
+***jwk*** (Object): Same as the respective key object.
+***info.vbs_ncrypt*** (Object):
+- ***trustlet_report*** (Object): Data related to the VSM trustlet that maintains the key object.
+- - ***trustlet_id*** (Integer): Integer value containing the id of the trustlet.
+- - ***trustlet_svn*** (Integer): Integer value containing the SVN of the trustlet.
+- - ***flags*** (Integer): Integer value representing the flags of the trustlet. For example, it can indicate whether the trustlet has been or is being debugged.
+- - ***policies*** (Array(Object)): Array of policy entries specified for the trustlet.
+- - - ***raw_id*** (Integer): Integer value containing the id of the policy entry.
+- - - ***id*** (String): If the raw_id is known – it is one of the values in the IMAGE_POLICY_ID enum –, this contains the enum value string with the prefix 'ImagePolicyId' removed. Otherwise, this is not generated.
+- - - ***value*** (Bool/Integer/String): Boolean, Integer or String containing the value of the policy entry.
+- - - ***enum_value*** (String): If the id is known, the value is an Integer, and the value is also known to be an enum, this contains the appropriate enum value string with the prefix removed. For example, if the id is “CrashDump”, the value should be one of the names in the IUM_TRUSTLET_POLICY_CRASHDUMP_ENABLE enum with the prefix “IumTrustletPolicyCrashDump” removed. Otherwise, this is not generated.
+- ***attributes** (Object): Attributes of the key.
+- - ***flags*** (Integer): UINT32 value representing the key flags as defined by the NCRYPT_ISOLATED_KEY_FLAG_ constants.
+
+Example:
+```
+{
+  "jwk": {
+    "kty": "RSA",
+    "n": "<Base64urlUInt(MODULUS)>",
+    "e": "<Base64urlUInt(EXPONENT)>"
+  },
+  "info": {
+    "vbs_ncrypt": {
+      "trustlet_report": {
+        "trustlet_id": 123,
+        "trustlet_svn": 1,
+        "flags": 0,
+        "policies": [
+          {
+            "raw_id": 5,
+            "id": "CrashDumpKeyGuid",
+            "value": "{7454c382-75a6-4394-946b-3ee5a4556120}"
+          },
+          {
+            "raw_id": 3,
+            "id": "CrashDump",
+            "value": 0,
+            "enum_value": "Disable"
+          }
+        ]
+      },
+      "attributes": {
+        "flags": 3
+      }
+    }
+  }
+}
+```
+
+## VBS report object
+
+###	Enclave attestation:
+***enclave*** (Object): Data for VSM enclave attestation.
+- ***report*** (BASE64URL(OCTETS)): The VSM enclave attestation report as returned by function EnclaveGetAttestationReport. The EnclaveData parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed).
+
+###	Trustlet attestation:
+***trustlet*** (Object): Data for VSM trustlet attestation.
+- ***report*** (BASE64URL(OCTETS)): The VSM trustlet attestation report as returned by function GetSignedReport. The UserHashToInclude parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed). The HashAlgIDForUserHash parameter must be 0x800e (representing SHA-512 as defined by CALG_SHA_512). The Flags parameter should include SK_SIGNED_REPORT_FLAG_INCLUDE_TRUSTLET_POLICY.
+- ***signature*** (BASE64URL(OCTETS)): The VSM trustlet attestation report signature as returned by function GetSignedReport. The UserHashToInclude parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed). The HashAlgIDForUserHash parameter must be 0x800e (representing SHA-512 as defined by CALG_SHA_512). The Flags parameter should include SK_SIGNED_REPORT_FLAG_INCLUDE_TRUSTLET_POLICY.
+
+Examples:
+
+Enclave attestation:
+```
+{
+  "enclave": {
+    "report": "<BASE64URL(REPORT)>"
+  }
+}
+```
+
+Trustlet attestation:
+```
+{
+  "trustlet": {
+    "report": "<BASE64URL(REPORT)>",
+    "signature": "<BASE64URL(REPORTSIGNATURE)>"
+  }
+}
+```
+
+## Report message
+
+Direction
+Attestation Service -> Client
+
+Payload
+```
+{
+  "report": "<JWT>"
+}
+```
+
+***report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
+
 
 ## Next steps
 

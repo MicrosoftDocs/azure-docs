@@ -108,12 +108,10 @@ A simple TPM attestation policy that can be used to verify minimal aspects of th
 version=1.2;
 
 configurationrules{
-	=> issueproperty(type="required_pcr_mask", value=131070);
-	=> issueproperty(type="require_valid_aik_cert", value=false);
 };
 
 authorizationrules { 
-c:[type == "tpmVersion", issuer=="AttestationService", value==2] => permit();
+	=> premit();
 };
 
 issuancerules{

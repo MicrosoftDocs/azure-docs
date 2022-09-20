@@ -27,6 +27,8 @@
     href: private-endpoint-powershell.md
   - name: Azure Diagnostic Monitoring
     href: azure-diagnostic-monitoring.md
+  - name: Using TPM and VBS attestation
+    href: azure-TPM-VBS-attestation-usage.md
   - name: SGX attestation code samples
     href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
