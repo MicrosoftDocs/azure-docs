@@ -70,8 +70,8 @@ Common name of CA | Thumbprint (SHA1)
 [DgiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436
 [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt)| d4de20d05e66fc53fe1a50882c78db2852cae474
 [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0
-[Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft RSA Root Certificate Authority 2017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74
-[Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft ECC Root Certificate Authority 2017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5
+[Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74
+[Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 999a64c37ff47d9fab95f14769891460eec4c3c5
 
 ## Frequently asked questions
 
