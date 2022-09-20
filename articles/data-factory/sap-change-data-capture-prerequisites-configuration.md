@@ -1,7 +1,7 @@
 ---
-title: Prerequisites and setup for the SAP CDC solution (preview)
+title: Prerequisites and setup for the SAP CDC connector (preview)
 titleSuffix: Azure Data Factory
-description: Learn about the prerequisites and setup for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+description: Learn about the prerequisites and setup for the SAP CDC connector (preview) in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,15 +10,15 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Prerequisites and setup for the SAP CDC solution (preview)
+# Prerequisites and setup for the SAP CDC connector (preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn about the prerequisites for the SAP change data capture (CDC) solution (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
+Learn about the prerequisites for the SAP CDC connector (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 
 ## Prerequisites
 
-To preview the SAP CDC solution in Azure Data Factory, be able to complete these prerequisites:
+To preview the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
 
 - In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
