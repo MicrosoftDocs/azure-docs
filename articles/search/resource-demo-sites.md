@@ -23,10 +23,3 @@ The following demos are built and hosted by Microsoft.
 | [Semantic search for retail](https://brave-meadow-0f59c9b1e.1.azurestaticapps.net/) | Web app for a fictitious online retailer, "Terra" | Not available |
 | [Semantic search for content](https://semantic-search-demo-web.azurewebsites.net/) | Web app that includes search index for three data sets: Covid-19, MS-Marco, and Microsoft documentation. | Not available |
 | [Wolters Kluwer demo search app](https://wolterskluwereap.azurewebsites.net/) | Financial files demo that uses custom skills and forms recognition to make fictitious business documents searchable. | Not available |
-
-## See also
-
-+ [Tools](resource-tools.md)
-+ [Training](resource-training.md)
-+ [Samples (.NET SDK)](samples-dotnet.md)
-+ [Samples (Python)](samples-python.md)

@@ -22,10 +22,3 @@ The following tools are built by engineers at Microsoft, but aren't part of the 
 | [Knowledge Mining Accelerator readme](https://github.com/Azure-Samples/azure-search-knowledge-mining/blob/main/README.md) | Code and docs to jump start a knowledge store using your data. | [https://github.com/Azure-Samples/azure-search-knowledge-mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) |
 | [Back up and Restore readme](https://github.com/liamca/azure-search-backup-restore/blob/main/README.md) | Download a search index to your local device and then upload the index to a new search service. | [https://github.com/liamca/azure-search-backup-restore](https://github.com/liamca/azure-search-backup-restore) |
 | [Performance testing readme](https://github.com/Azure-Samples/azure-search-performance-testing/blob/main/README.md | This pipeline helps to load test Azure Cognitive Search, it leverages Apache JMeter as an open source load and performance testing tool and Terraform to dynamically provision and destroy the required infrastructure on Azure. | [https://github.com/Azure-Samples/azure-search-performance-testing](https://github.com/Azure-Samples/azure-search-performance-testing) |
-
-## See also
-
-+ [Demos](resource-demo-sites.md)
-+ [Training](resource-training.md)
-+ [Samples (.NET SDK)](samples-dotnet.md)
-+ [Samples (Python)](samples-python.md)
