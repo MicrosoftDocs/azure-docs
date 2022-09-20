@@ -154,6 +154,9 @@ The following steps creates a deployment with two pods, each running a single co
     
     ```
 
+## Next steps
+
+This article showed you how to automatically scale resource utilization, such as CPU and memory, of cluster nodes to match application requirements. You can also use the horizontal pod autoscaler to automatically adjust the number of pods that run your application. For steps on using the horizontal pod autoscaler, see [Scale applications in AKS][scale-applications-in-aks].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-autoscaler-github-repo]: https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/examples/hamster.yaml
@@ -167,3 +170,4 @@ The following steps creates a deployment with two pods, each running a single co
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [horizontal-pod-autoscaling]: concepts-scale.md#horizontal-pod-autoscaler
+[scale-applications-in-aks]: tutorial-kubernetes-scale.md
