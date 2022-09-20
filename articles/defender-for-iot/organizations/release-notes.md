@@ -60,7 +60,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## September 2022
+## October 2022
 
 |Service area  |Updates  |
 |---------|---------|
