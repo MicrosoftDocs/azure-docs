@@ -2,12 +2,12 @@
 title: Manage GCP assessments and standards
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 09/14/2022
 ---
 
 # Manage GCP assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards such as GCP CIS 1.1.0, GCP CIS 1.2.0. If you want, you can create your own custom standards, and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards such as GCP CIS 1.1.0, GCP CIS and 1.2.0, or you can create your own custom standards and assessments to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage custom assessments:
 
@@ -18,11 +18,11 @@ There are three types of resources that are needed to create and manage custom a
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard will evaluate. For example, specific GCP project(s).
 
-You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
+You can either use the built-in compliance standards or create your own custom standards and assessments.
 
-## Assign a built-in regulatory compliance standard to your GCP project
+## Assign a built-in compliance standard to your GCP project
 
-**To assign a built-in regulatory compliance standard to your GCP project**:
+**To assign a built-in compliance standard to your GCP project**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -121,7 +121,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 ## How to build a query
 
-The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away). End the query with an if statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
+The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away). End the query with an iff statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
 
 ### Sample KQL queries
 

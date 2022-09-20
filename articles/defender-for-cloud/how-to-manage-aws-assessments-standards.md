@@ -7,7 +7,7 @@ ms.date: 08/11/2022
 
 # Manage AWS assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, AWS PCI DSS 3.2.1. If you want, you can create your own custom standards, and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or you can also create your own custom standards, and assessments to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage custom assessments:
 
@@ -20,9 +20,9 @@ There are three types of resources that are needed to create and manage custom a
 
 You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
 
-## Assign a built-in regulatory compliance standard to your AWS account
+## Assign a built-in compliance standard to your AWS account
 
-**To assign a built-in regulatory compliance standard to your AWS account**:
+**To assign a built-in compliance standard to your AWS account**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -96,9 +96,9 @@ You can either use the built-in regulatory compliance standards or create your o
 
     :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-assessment.png" alt-text="Screenshot of the adding a new assessment screen for your AWS account." lightbox="media/how-to-manage-assessments-standards/new-aws-assessment.png":::
 
-1. Enter a name, severity and select an assessment from the drop-down menu.
+1. Enter a name, severity, and select an assessment from the drop-down menu.
 
-1. Enter a KQL query will define the assessment logic.
+1. Enter a KQL query that defines the assessment logic.
 
     If you’d like to create a new query, select the ‘[Azure Data Explorer](https://dataexplorer.azure.com/clusters/securitydatastoreus.centralus/databases/DiscoveryMockDataAws)’ link. The explorer will contain mock data on all of the supported native APIs. The data will appear in the same structure as contracted in the API.
 
@@ -106,13 +106,13 @@ You can either use the built-in regulatory compliance standards or create your o
 
     See the [how to build a query](#how-to-build-a-query) section for more examples.
 
-1. Select the standards to add to this assessment to.
+1. Select the standards to add to this assessment.
 
 1. Select **Save**.
 
 ## How to build a query
 
-The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away). End the query with an if statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
+The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away'). End the query with an iff statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
 
 ### Sample KQL queries
 
