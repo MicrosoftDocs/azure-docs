@@ -90,11 +90,11 @@ If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, y
 
 In this section you'll find troubleshooting guidance for the Remote Desktop Web client.
 
-## Web client stops responding or disconnects
+### Web client stops responding or disconnects
 
 Try connecting using another browser or client.
 
-## Web client won't open
+### Web client won't open
 
 First, test your internet connection by opening another website in your browser, for example [www.bing.com](https://www.bing.com).
 
@@ -104,7 +104,7 @@ Next, open a Command Prompt or PowerShell session and use **nslookup** to confir
 nslookup rdweb.wvd.microsoft.com
 ```
 
-If one or neither of these work, you most likely have a problem with your network connection. Contact your network admin for help.
+If one or neither of these work, you most likely have a problem with your network connection. We recommend you contact your network admin for help.
 
 ### Your client can't connect but other clients on your network can connect
 
@@ -115,11 +115,9 @@ If your browser starts acting up or stops working while you're using the web cli
 3. Clear browser cache. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
 4. Open browser InPrivate mode.
 
-### Other browsers and clients also malfunction or fail to open
+If issues continue even after you've switched browsers, the problem may not be with your browser, but with your network. We recommend you contact your network admin for help.
 
-If issues continue even after you've switched browsers, the problem may not be with your browser, but with your network. We recommend you contact network support.
-
-## Web client keeps prompting for credentials
+### Web client keeps prompting for credentials
 
 If the Web client keeps prompting for credentials, follow these instructions:
 
