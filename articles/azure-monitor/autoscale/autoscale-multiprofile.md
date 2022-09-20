@@ -50,7 +50,7 @@ After 6 PM on Monday, autoscale switches to the default profile. If for example,
 
 When creating multiple profiles using templates and the CLI, follow the guidelines below.
 
-#### [ARM templates](#tab/templates)
+## [ARM templates](#tab/templates)
 
 Follow the rules below when using ARM templates to create autoscale settings with multiple profiles:
 
@@ -321,7 +321,7 @@ where `VMSS1-autoscale.json` is the the file containing the JSON object below.
     
 ```
 
-#### [CLI](#tab/cli)
+## [CLI](#tab/cli)
 
 The CLI can be used to create addition profiles in your autoscale settings.
 
