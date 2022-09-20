@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/11/2022
+ms.date: 9/19/2022
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,6 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported |
 | V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported |
 | V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported |
 | V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported |
@@ -44,6 +45,24 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 15.1.0.0
+The following release notes are for version 15.1.0.0 of the Azure File Sync agent released September 19, 2022. These notes are in addition to the release notes listed for version 15.0.0.0.
+
+### Improvements and issues that are fixed 
+- Low disk space mode to prevent running out of disk space when using cloud tiering.
+	- Low disk space mode is designed to handle volumes with low free space more effectively. On a server endpoint with cloud tiering enabled, if the free space on the volume reaches below a threshold, Azure File Sync considers the volume to be in Low disk space mode.  
+		 
+		In this mode, Azure File Sync does two things to free up space on the volume: 
+	
+		- Files are tiered to the Azure file share more proactively.
+		- Tiered files accessed by the user will not be persisted to the disk. 
+		
+		To learn more, see the [low disk space mode](file-sync-cloud-tiering-overview.md#low-disk-space-mode) section in the Cloud tiering overview documentation.
+
+- Fixed a cloud tiering issue that caused high CPU usage after v15.0 agent is installed. 
+
+- Miscellaneous reliability and telemetry improvements.
 
 ## Agent version 15.0.0.0
 The following release notes are for version 15.0.0.0 of the Azure File Sync agent (released March 30, 2022).

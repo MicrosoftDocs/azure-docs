@@ -549,8 +549,8 @@
   items:
   - name: FAQ
     href: cost-management-billing-faq.yml
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-cost-management
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
     href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
   - name: Azure Roadmap

@@ -59,14 +59,14 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 
 1. Navigate to **Azure Active Directory** feature on the left pane
 
-1. Verify that Azure Active Directory Authentication is configured and scroll down.
+1. Verify that Azure Active Directory Authentication is configured. This means that all these have been entered: an admin login, a SQL Server service certificate, and a SQL Server app registration.
 ![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
 
-1. Set **External Policy Based Authorization** to enabled
+1. Scroll down to set **External Policy Based Authorization** to enabled
 
 1. Enter **Microsoft Purview Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*. You can see the names of Microsoft Purview accounts in your tenant through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts). Optionally, you can confirm the endpoint by navigating to the Microsoft Purview account, then  to the Properties section on the left menu and scrolling down until you see "Scan endpoint". The full endpoint path will be the one listed without the "/Scan" at the end.
 
-1. Make a note of the **App registration ID**, as you will need it when you register and enable this data source for *Data use Management* in Microsoft Purview.
+1. Make a note of the **App registration ID**, as you will need it when you register and enable this data source for *Data Use Management* in Microsoft Purview.
    
 1. Select the **Save** button to save the configuration.
 
@@ -95,7 +95,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
 > [!Note]
-> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID. See this document on how to create policies at resource group or subscription level: [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md).
+> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data Use Management* to provide their App ID. See this document on how to create policies at resource group or subscription level: [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md).
 
 ## Create and publish a data owner policy
 
@@ -166,7 +166,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
-|                                     |                                      |
+|||
 | *Read* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
@@ -174,10 +174,8 @@ This section contains a reference of how actions in Microsoft Purview data polic
 |||
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseMetadata/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
 |||               
 | *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |
@@ -186,6 +184,11 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
 ||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
+
+
+
+
+
 
 ## Next steps
 Check blog, demo and related how-to guides
