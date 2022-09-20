@@ -180,7 +180,7 @@ The Azure Image Builder build fails with an authorization error that looks like 
 #### Error
 
 ```text
-Attempting to deploy created Image template in Azure fails with an 'The client '64667524-efd0-4530-884c-96dd20bae591' with object id '64667524-efd0-4530-884c-96dd20bae591' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
+Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '48466419-6398-4a8b-a234-6a5842bfa566' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
 ```
 #### Cause
 
@@ -188,9 +188,14 @@ This error is caused when trying to specify a pre-existing resource group and VN
 
 #### Solution
 
-You will need to assign the contributor role to the resource group for the service principal by using the CLI command or portal instructions below.
+You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app by using the CLI command or portal instructions below.
 
-To implement this solution using CLI, use the following command:
+First, validate that the service principal is associated with Azure Image Builder's first party app by using the following CLI command:
+```azurecli-interactive
+az ad sp show --id {servicePrincipalName, or objectId}
+```
+
+Then, to implement this solution using CLI, use the following command:
 ```azurecli-interactive
 az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
 ```
