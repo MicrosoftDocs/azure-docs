@@ -1,12 +1,12 @@
 ---
-title: What is BareMetal Infrastructure for NC2 on Azure?
+title: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
 description: Learn about the features BareMetal Infrastructure offers for NC2 workloads. 
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.date: 07/01/2022
 ---
 
-# What is BareMetal Infrastructure for NC2 on Azure?
+# What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
 
 In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
