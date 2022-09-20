@@ -78,9 +78,9 @@ conceptualContent:
 #           whats-new
   sections:
 # ==========================Section ==================================================
-#    - title: subsectiontitle1 # < 60 chars (optional)
-#      summary: subsectionsummary1 # optional
-    - items:
+    - title: subsectiontitle1 # < 60 chars (optional)
+      summary: subsectionsummary1 # optional
+      items:
         # Card 1
         - title: Azure Native ISV Service features 
           links:
