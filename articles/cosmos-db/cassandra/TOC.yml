@@ -413,7 +413,7 @@
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Azure Cosmos DB
-              href: ../cosmosdb-insights-overview.md
+              href: ../insights-overview.md
             - name: Scenarios to monitor
               href: ../use-metrics.md
             - name: Monitor server-side latency
