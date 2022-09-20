@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -127,7 +127,7 @@ The **Mask** element contains the following attributes:
 | `Type` | Yes | The type of the claim mask. Possible values: `Simple` or `Regex`. The `Simple` value indicates that a simple text mask is applied to the leading portion of a string claim. The `Regex` value indicates that a regular expression is applied to the string claim as whole.  If the `Regex` value is specified, an optional attribute must also be defined with the regular expression to use. |
 | `Regex` | No | If **`Type`** is set to `Regex`, specify the regular expression to use.
 
-The following example configures a **PhoneNumber** claim with the `Simple` mask:
+The following example configures a **PhoneNumber** claim with the `Simple` mask. For more samples, check out the [Claim simple mask live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#simple-mask).
 
 ```xml
 <ClaimType Id="PhoneNumber">
@@ -142,7 +142,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 ![Phone number claim shown in browser with first six digits masked by Xs](./media/claimsschema/mask.png)
 
-The following example configures a **AlternateEmail** claim with the `Regex` mask:
+The following example configures a **AlternateEmail** claim with the `Regex` mask. For more samples, check out the [Regex mask live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#regex-mask).
 
 ```xml
 <ClaimType Id="AlternateEmail">
@@ -156,7 +156,6 @@ The following example configures a **AlternateEmail** claim with the `Regex` mas
 The Identity Experience Framework renders only the first letter of the email address and the email domain name:
 
 ![Email claim shown in browser with characters masked by asterisks](./media/claimsschema/mask-regex.png)
-
 
 ### Restriction
 
@@ -185,7 +184,7 @@ The **Enumeration** element contains the following attributes:
 |Value | Yes | The claim value that is associated with selecting this option. |
 | SelectByDefault | No | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
 
-The following example configures a **city** dropdown list claim with a default value set to `New York`:
+The following example configures a **city** dropdown list claim with a default value set to `New York`. For more samples, check out the [Claim restriction enumeration live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#restriction-enumeration).
 
 ```xml
 <ClaimType Id="city">
@@ -237,6 +236,8 @@ The Identity Experience Framework renders the email address claim with email for
 ### UserInputType
 
 Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md) and [display controls](display-controls.md).
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#user-input-types) of the user input type.
 
 The **UserInputType** element available user input types:
 
@@ -388,7 +389,6 @@ The **Readonly** user input type is used to provide a readonly field to display 
 </ClaimType>
 ```
 
-
 #### Paragraph
 
 The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
@@ -402,10 +402,5 @@ The **Paragraph** user input type is used to provide a field that shows text onl
   <AdminHelpText>A claim responsible for holding response messages to send to the relying party</AdminHelpText>
   <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
   <UserInputType>Paragraph</UserInputType>
-  <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
-    <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
-    <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
-  </Restriction>
 </ClaimType>
 ```

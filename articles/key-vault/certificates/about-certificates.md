@@ -41,7 +41,7 @@ The addressable key becomes more relevant with non-exportable KV certificates. T
 
 The type of key pair to supported for certificates
 
- - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+ - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
    Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 |Key type|About|Security|
@@ -91,7 +91,7 @@ At a high level, a certificate policy contains the following information (their 
 
 -   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
 -   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key. 
-     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype)) 
 -   Secret properties: contains secret properties such as content type of addressable secret to generate the secret value, for retrieving certificate as a secret.  
 -   Lifetime Actions: contains lifetime actions for the KV Certificate. Each lifetime action contains:  
 
@@ -143,6 +143,9 @@ For more information on creating Issuer objects from the Certificates portal, se
 Key Vault allows for creation of multiple issuer objects with different issuer provider configuration. Once an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use configuration as specified in the issuer object when requesting the x509 certificate from CA provider during the certificate creation and renewal.  
 
 Issuer objects are created in the vault and can only be used with KV certificates in the same vault.  
+
+>[!Note]
+>Publicly trusted certificates are sent to Certificate Authorities (CAs) and Certificate Transparency (CT) logs outside of the Azure boundary during enrollment and will be covered by the GDPR policies of those entities.
 
 ## Certificate contacts
 

@@ -1,12 +1,12 @@
 ---
-title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
+title: Adaptive network hardening in Microsoft Defender for Cloud
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
 # Improve your network security posture with adaptive network hardening
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Adaptive network hardening is an agentless feature of Microsoft Defender for Cloud - nothing needs to be installed on your machines to benefit from this network hardening tool.
 
@@ -16,10 +16,10 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
-|||
+
 
 ## What is adaptive network hardening?
 Applying [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
@@ -44,9 +44,9 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
    * **Unscanned resources**: VMs that the adaptive network hardening algorithm cannot be run on because of one of the following reasons:
       * **VMs are Classic VMs**: Only Azure Resource Manager VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Defender for Cloud requires at least 30 days of traffic data.
-      * **VM is not protected by Microsoft Defender for servers**: Only VMs protected with [Microsoft Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
+      * **VM is not protected by Microsoft Defender for Servers**: Only VMs protected with [Microsoft Defender for Servers](defender-for-servers-introduction.md) are eligible for this feature.
 
-    :::image type="content" source="./media/adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines.":::
+    :::image type="content" source="./media/adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive network hardening recommendations should be applied on internet facing virtual machines.":::
 
 1. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 
@@ -94,7 +94,7 @@ To modify an adaptive network hardening rule:
    > [!NOTE]
    > After selecting **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and select **Enforce** (as explained in the next step).
 
-   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecting Save.](./media/adaptive-network-hardening/edit-hard-rule-3.png)
 
 3. To apply the updated rule, from the list, select the updated rule and select **Enforce**.
 

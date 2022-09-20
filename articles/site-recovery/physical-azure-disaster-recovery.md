@@ -3,7 +3,7 @@ title: Set up disaster recovery of physical on-premises servers with Azure Site 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2021
+ms.date: 05/02/2022
 
 
 ---
@@ -11,7 +11,7 @@ ms.date: 07/14/2021
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
-This tutorial shows you how to set up disaster recovery of on-premises physical Windows and Linux servers to Azure. In this tutorial, you learn how to:
+This tutorial shows how to set up disaster recovery of on-premises physical Windows and Linux servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up Azure and on-premises prerequisites
@@ -24,7 +24,7 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 
 To complete this tutorial:
 
-- Make sure that you understand the [architecture and components](physical-azure-architecture.md) for this scenario.
+- Make sure you understand the [architecture and components](physical-azure-architecture.md) for this scenario.
 - Review the [support requirements](vmware-physical-secondary-support-matrix.md) for all components.
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
@@ -148,13 +148,13 @@ Select and verify target resources.
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
-5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+4. In **Recovery point retention**, specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
+5. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
     ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
-The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
+By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
 
 ## Enable replication
 

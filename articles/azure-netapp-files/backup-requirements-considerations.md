@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 08/15/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -28,6 +28,8 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
+* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+
 * Currently, the Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups are not currently supported.
 
 * Azure NetApp Files backup uses the [Zone-Redundant storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (ZRS) account that replicates the data synchronously across three Azure availability zones in the region, except for the regions listed below where only [Locally Redundant Storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (LRS) storage is supported:   
@@ -42,6 +44,10 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * If an issue occurs (for example, no sufficient space left on the volume) and causes the snapshot policy to stop creating new snapshots, the backup feature will not have any new snapshots to back up. 
 
 * In a cross-region replication setting, Azure NetApp Files backup can be configured on a source volume only. It is not supported on a cross-region replication *destination* volume.
+
+* [Reverting a volume using snapshot revert](snapshots-revert-volume.md) is not supported on Azure NetApp Files volumes that have backups. 
+
+* See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
 ## Next steps
 

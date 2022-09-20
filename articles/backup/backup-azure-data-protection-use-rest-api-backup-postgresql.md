@@ -2,7 +2,7 @@
 title: Back up Azure PostgreSQL databases using Azure data protection REST API
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure PostgreSQL databases using REST API.
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/24/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -37,7 +37,7 @@ Fetch the Azure Resource Manager ID (ARM ID) of the PostgreSQL database to be pr
 
 #### Azure key vault
 
-Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Azure Backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key. The following example uses bash.
+The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Azure Backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key. The following example uses bash.
 
 ```http
 "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
@@ -45,13 +45,13 @@ Azure Backup service doesn't store the username and password to connect to the P
 
 #### Backup vault
 
-Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
+Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's Managed Service Identity (MSI).
 
-[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you need to grant to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored.
+You need to grant permissions to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored. [Learn more](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the PostgreSQL database, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure the backup for an Azure PostgreSQL database. The Azure Resource Manager ID (ARM ID) of the Azure PostgreSQL database and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section.
+After you set the relevant permissions to the vault and PostgreSQL database, and configure the vault and policy, prepare the request to configure backup. See the following request body to configure backup for an Azure PostgreSQL database. The Azure Resource Manager ID (ARM ID) of the Azure PostgreSQL database and its details are present in the _datasourceinfo_ section. The policy information is present in the _policyinfo_ section.
 
 ```json
 {
@@ -87,7 +87,7 @@ Once the relevant permissions are set to the vault and the PostgreSQL database, 
 
 To validate if the request to configure backup will be successful, use the [validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform the required prerequisites, and then submit the configuration for the backup request.
 
-Validate for backup request is a _POST_ operation and the URI contains `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
+Validate for backup request is a _POST_ operation and the Uniform Resource Identifier (URI) contains `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/validateForBackup?api-version=2021-01-01
@@ -137,7 +137,7 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 
 Backup request validation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -292,7 +292,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### Configure backup request
 
-Once the request is validated, then you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the Backup vault. Here, the Azure PostgreSQL database is the backup instance and you can use the same request body, which was validated above, with minor additions.
+Once the request is validated, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services protects the Backup instance within the Backup vault. Here, the Azure PostgreSQL database is the backup instance. Use the above-validated request body with minor additions.
 
 Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use _testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149_ and mark it as the backup instance name.
 
@@ -318,7 +318,7 @@ To create a backup instance, following are the components of the request body:
 
 ##### Example request for configure backup
 
-We'll use the same request body that we used to validate the backup request with a unique name as we mentioned [above](#configure-backup).
+We'll use the [same request body that we used to validate the backup request](#configure-backup) with a unique name.
 
 ```json
 {
@@ -355,9 +355,9 @@ We'll use the same request body that we used to validate the backup request with
 
 #### Responses to configure backup request
 
-The _create backup instance request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
+_Create backup instance request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 201 (Created) when backup instance is created and the protection is being configured, and then 200 (OK) when that configuration completes.
+It returns two responses: 201 (Created) when backup instance is created and the protection is configured. 200 (OK) when that configuration completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -464,7 +464,7 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 *DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -514,5 +514,5 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
-- [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
+- [Get started with Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)

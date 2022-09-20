@@ -1,27 +1,29 @@
 ---
 title: Read replicas - Azure Database for PostgreSQL - Hyperscale (Citus)
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 06/17/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 The read replica feature allows you to replicate data from a Hyperscale (Citus)
 server group to a read-only server group. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
-replicate from the primary server to an unlimited number of replicas.
+run to up to five replicas from the primary server.
 
 Replicas are new server groups that you manage similar to regular Hyperscale
 (Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GB/ month.
+compute in vCores and storage in GiB/month. Compute and storage costs for
+replica server groups are the same as for regular server groups.
 
-Learn how to [create and manage
-replicas](howto-read-replicas-portal.md).
+Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 
 ## When to use a read replica
 
@@ -41,8 +43,8 @@ The feature is meant for scenarios where replication lag is acceptable, and is
 meant for offloading queries. It isn't meant for synchronous replication
 scenarios where replica data is expected to be up to date. There will be a
 measurable delay between the primary and the replica. The delay can be minutes
-or even hours depending on the workload and the latency between the primary and
-the replica.  The data on the replica eventually becomes consistent with the
+or even hours, depending on the workload and the latency between primary and
+replica.  The data on the replica eventually becomes consistent with the
 data on the primary. Use this feature for workloads that can accommodate this
 delay. 
 
@@ -66,15 +68,16 @@ portal](howto-read-replicas-portal.md).
 When you create a replica, it doesn't inherit firewall rules the primary
 server group. These rules must be set up independently for the replica.
 
-The replica inherits the admin ("citus") account from the primary server group.
+The replica inherits the admin (`citus`) account from the primary server group.
 All user accounts are replicated to the read replicas. You can only connect to
 a read replica by using the user accounts that are available on the primary
 server.
 
 You can connect to the replica's coordinator node by using its hostname and a
 valid user account, as you would on a regular Hyperscale (Citus) server group.
-For a server named **my replica** with the admin username **citus**, you can
-connect to the coordinator node of the replica by using psql:
+For instance, given a server named **my replica** with the admin username
+**citus**, you can connect to the coordinator node of the replica by using
+psql:
 
 ```bash
 psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
@@ -94,21 +97,25 @@ another read replica.
 
 ### Replica configuration
 
-A replica is created by using the same compute, storage, and worker node
-settings as the primary. After a replica is created, several settings can be
-changed, including storage and backup retention period. Other settings can't be
-changed in replicas, such as storage size and number of worker nodes.
+Replicas inherit compute, storage, and worker node settings from their
+primaries. You can change some--but not all--settings on a replica.  For
+instance, you can change compute, firewall rules for public access, and private
+endpoints for private access. You can't change the storage size or number of
+worker nodes.
 
 Remember to keep replicas strong enough to keep up changes arriving from the
 primary. For instance, be sure to upscale compute power in replicas if you
 upscale it on the primary.
 
-Firewall rules and parameter settings are not inherited from the primary server
+Firewall rules and parameter settings aren't inherited from the primary server
 to the replica when the replica is created or afterwards.
 
-### Regions
+### Cross-region replication (preview)
 
-Hyperscale (Citus) server groups support only same-region replication.
+Read replicas can be created in the region of the primary server group, or in
+any other [region supported by Hyperscale (Citus)](resources-regions.md). The
+limit of five replicas per server group counts across all regions, meaning five
+total, not five per region.
 
 ## Next steps
 

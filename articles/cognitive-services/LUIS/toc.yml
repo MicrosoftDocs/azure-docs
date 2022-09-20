@@ -12,17 +12,15 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: What's new
     href: whats-new.md
-  - name: LUIS FAQ
-    href: troubleshooting.yml
-    displayName: Troubleshooting, import
-- name: LUIS quickstarts
+  - name: FAQ
+    href: faq.md
+    displayName: Troubleshooting, import, phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+- name:  Quickstarts
   items:
   - name: Use the LUIS portal
     href: luis-get-started-create-app.md
   - name: Use the client libraries and REST API
     href: client-libraries-rest-api.md
-- name: Samples
-  href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -37,60 +35,49 @@ items:
     href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
-  - name: Sign in to LUIS portal
-    href: sign-in-luis-portal.md
-  - name: Start a new app
-    href: luis-how-to-start-new-app.md
+  - name: Sign in to the LUIS portal and create an app
+    href: how-to/sign-in.md
     displayName: import, export, container
-  - name: Build model
+  - name: Use intents
+    href: how-to/intents.md
+  - name: Use entities
+    href: how-to/entities.md
+    displayName: roles, import
+  - name: Label example utterances
+    href: how-to/label-utterances.md
+  - name: Train and test your app
     items:
-    - name: Add an intent
-      href: luis-how-to-add-intents.md
-    - name: Add an entity to extract data
-      href: luis-how-to-add-entities.md
-      displayName: roles, import
-    - name: Use prebuilt models
-      href: howto-add-prebuilt-models.md
-    - name: Label entity in utterance
-      href: label-entity-example-utterance.md
-    - name: Add features
-      displayName: synonym, interchange, phrase list, descriptor, feature
-      href: luis-how-to-add-features.md
-    - name: Get intent using the REST API
-      href: luis-get-started-get-intent-from-rest.md
-    - name: Change the model using the REST API
-      href: get-started-get-model-rest-apis.md
+    - name: Train and test your app
+      href: how-to/train-test.md
+      displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData, interactive testing
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
+      displayName: import, export
+  - name: Publish
+    href: how-to/publish.md
+  - name: Update model using the REST API
+    href: get-started-get-model-rest-apis.md
+  - name: Query prediction endpoint
+    href: luis-get-started-get-intent-from-browser.md
+  - name: Improve prediction accuracy
+    items:
+    - name: Using the dashboard
+      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
+      href: luis-how-to-use-dashboard.md
+    - name: Improve a LUIS app
+      displayName: active learning
+      href: how-to/improve-application.md
+    - name: Add Patterns
+      displayName: syntax, template, roles
+      href: luis-how-to-model-intent-pattern.md
   - name: Integrate your app
     items:
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-  - name: Improve prediction accuracy
-    items:
-    - name: Using the dashboard
-      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
-      href: luis-how-to-use-dashboard.md
-    - name: Review endpoint utterances
-      displayName: active learning
-      href: luis-how-to-review-endpoint-utterances.md
-    - name: Add Patterns
-      displayName: syntax, template, roles
-      href: luis-how-to-model-intent-pattern.md
-  - name: Train and test your app
-    items:
-    - name: Train your app
-      href: luis-how-to-train.md
-      displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
-    - name: Interactive testing
-      href: luis-interactive-test.md
-    - name: Batch testing
-      href: luis-how-to-batch-test.md
-      displayName: import, export
-  - name: Publish
-    href: luis-how-to-publish-app.md
-  - name: Query prediction runtime
-    href: luis-get-started-get-intent-from-browser.md
+    - name: With LUIS and question answering using orchestration
+      href: how-to/orchestration-projects.md
   - name: Migrate
     items:
     - name: Migrate to V3 Authoring APIs
@@ -101,8 +88,6 @@ items:
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
       href: luis-migration-authoring.md
-    - name: Migrate to V2 API
-      href: luis-migration-api-v1-to-v2.md
   - name: Manage app
     items:
     - name: Azure resources
@@ -130,79 +115,17 @@ items:
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Use containers in disconnected environments
+      href: ../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context
     - name: All Cognitive Services containers documentation
       href: ../containers/index.yml
       maintainContext: true
-  - name: Enterprise readiness
+  - name: Set up enterprise features
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
-- name: Concepts
-  items:
-  - name: Artificial intelligence
-    href: artificial-intelligence.md
-  - name: Development lifecycle
-    href: luis-concept-app-iteration.md
-  - name: Best practices
-    href: luis-concept-best-practices.md
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
-  - name: Plan your app
-    displayName: simple, composite, prebuilt, list, regex, regular expression
-    href: luis-how-plan-your-app.md
-  - name: App models
-    items:
-    - name: Types
-      href: luis-concept-model.md
-    - name: Intents classify utterances
-      href: luis-concept-intent.md
-    - name: Entities extract data
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
-      href: luis-concept-entity-types.md
-    - name: Example utterances
-      href: luis-concept-utterance.md
-    - name: Prebuilt models
-      href: luis-concept-prebuilt-model.md
-    - name: Patterns
-      href: luis-concept-patterns.md
-      displayName: roles
-    - name: Features
-      href: luis-concept-feature.md
-      displayName: descriptor, phrase list, feature
-    - name: Extend app at runtime
-      href: schema-change-prediction-runtime.md
-  - name: Prediction score
-    href: luis-concept-prediction-score.md
-  - name: Improve app performance
-    items:
-    - name: Review endpoint utterances
-      href: luis-concept-review-endpoint-utterances.md
-  - name: Data management
-    items:
-    - name: Data collection
-      href: data-collection.md
-    - name: Altering data
-      href: luis-concept-data-alteration.md
-    - name: Converting data
-      href: luis-concept-data-conversion.md
-    - name: Extracting data
-      href: luis-concept-data-extraction.md
-      displayName: roles
-    - name: Data Storage
-      href: luis-concept-data-storage.md
-  - name: Security
-    items:
-    - name: Role-based access control
-      href: role-based-access-control.md
-    - name: Authentication with Azure Active Directory
-      href: ../authentication.md#authenticate-with-azure-active-directory
-  - name: Using LUIS and QnA Maker
-    href: choose-natural-language-processing-service.md
-    displayName: nlp, qna maker
-  - name: Enterprise design strategies
-    href: luis-concept-enterprise.md
-    displayName: import
   - name: Applying DevOps practices with LUIS
     items:
     - name: Continuous Integration and Continuous Delivery (CI/CD) workflows
@@ -211,21 +134,51 @@ items:
       href: luis-concept-devops-sourcecontrol.md
     - name: Testing for DevOps
       href: luis-concept-devops-testing.md
+- name: Concepts
+  items:
+  - name: Application design
+    displayName: simple, composite, prebuilt, list, regex, regular expression
+    href: concepts/application-design.md
+  - name: Intents
+    href: concepts/intents.md
+  - name: Entities
+    href: concepts/entities.md
+    displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
+  - name: Utterances
+    href: concepts/utterances.md
+  - name: Patterns and features
+    displayName: roles, synonym, interchange, phrase list, descriptor, feature
+    href: concepts/patterns-features.md
+  - name: Prebuilt models
+    href: luis-concept-prebuilt-model.md
+  - name: Extend app at runtime
+    href: schema-change-prediction-runtime.md
+  - name: Prediction score
+    href: luis-concept-prediction-score.md
+  - name: Entity model
+    href: luis-concept-model.md
+  - name: Data management
+    items:
+    - name: Data selection
+      href: data-collection.md
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Data retention
+      href: luis-concept-data-storage.md
+    - name: Data conversion
+      href: luis-concept-data-conversion.md
+    - name: Data extraction
+      href: luis-concept-data-extraction.md
+  - name: Security
+    items:
+    - name: Role-based access control
+      href: role-based-access-control.md
+    - name: Authentication with Azure Active Directory
+      href: ../authentication.md#authenticate-with-azure-active-directory
 - name: Tutorials
   items:
-  - name: Build decomposable app
-    items:
-    - name: 1. Determine user intentions
-      href: tutorial-intents-only.md
-    - name: 2. Extract user data
-      href: tutorial-machine-learned-entity.md
-      displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-  - name: Improve app
-    items:
-    - name: Fix unsure predictions
-      href: luis-tutorial-review-endpoint-utterances.md
-    - name: Add patterns to improve predictions
-      href: luis-tutorial-pattern.md
+  - name: Build a decomposable app
+    href: tutorial/build-decomposable-application.md
   - name: Use with Bot Framework 
     items:
     - name: Bot Framework Composer
@@ -249,7 +202,7 @@ items:
       href: /powershell/module/azurerm.cognitiveservices/#cognitive_services
     - name: REST APIs
       items:
-      - name: V3 Authoring REST APIs (Preview)
+      - name: V3 Authoring REST APIs
         href: https://aka.ms/luis-apim-v3-authoring
       - name: V3 Prediction REST APIs
         href: https://aka.ms/luis-apim-v3-prediction
@@ -313,8 +266,6 @@ items:
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
     href: luis-limits.md
-  - name: App and version settings
-    href: luis-reference-application-settings.md
   - name: Entity reference
     items:
     - name: Prebuilt

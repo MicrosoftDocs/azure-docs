@@ -1,8 +1,8 @@
 ---
 title: How does Hyper-V migration work in Azure Migrate?
 description: Learn about Hyper-V migration with Azure Migrate 
-author: bsiva
-ms.author: bsiva
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -70,7 +70,6 @@ You can limit the amount of bandwidth used to upload data to Azure on each Hyper
 2. Run **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**, to open the Windows Azure Backup MMC snap-in.
 3. In the snap-in, select **Change Properties**.
 4. In **Throttling**, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 1,023 Mbps.
-I
 
 ### Influence upload efficiency
 

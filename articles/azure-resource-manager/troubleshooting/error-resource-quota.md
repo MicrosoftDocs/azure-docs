@@ -1,14 +1,14 @@
 ---
-title: Quota errors
+title: Resource quota errors
 description: Describes how to resolve resource quota errors when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/10/2021
+ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Resolve errors for resource quotas
 
-This article describes quota errors that might occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes resource quota errors that might occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
 
 ## Symptom
 
@@ -37,7 +37,7 @@ For quota information, see [Azure subscription and service limits, quotas, and c
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use the [az vm list-usage](/cli/azure/vm#az_vm_list_usage) command to find virtual machine quotas.
+For Azure CLI, use the [az vm list-usage](/cli/azure/vm#az-vm-list-usage) command to find virtual machine quotas.
 
 ```azurecli
 az vm list-usage --location "West US" --output table

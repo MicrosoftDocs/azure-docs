@@ -5,8 +5,6 @@
     items:
     - name: What is Application Proxy?
       href: what-is-application-proxy.md
-    - name: What's new in docs?
-      href: whats-new-docs.md
   - name: Tutorials
     expanded: true
     items:
@@ -81,6 +79,8 @@
     items:
     - name: Configure with proxy servers
       href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Add Traffic Manager
+      href: application-proxy-integrate-with-traffic-manager.md
     - name: Give mobile and desktop apps access to on-premises APIs
       href: application-proxy-secure-api-access.md 
     - name: Configure custom home page
@@ -125,6 +125,8 @@
         href: application-proxy-integrate-with-tableau.md
       - name: Integrate with Qlik
         href: application-proxy-qlik.md
+      - name: Integrate with WAF on Azure Application Gateway
+        href: application-proxy-application-gateway-waf.md
     - name: Troubleshoot
       items:
       - name: Application Proxy troubleshooting

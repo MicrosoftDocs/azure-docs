@@ -2,8 +2,8 @@
 title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
-ms.date: 07/21/2020
-
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # How to manage the Container insights agent
@@ -12,9 +12,9 @@ Container insights uses a containerized version of the Log Analytics agent for L
 
 ## How to upgrade the Container insights agent
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift version 3.x. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) and Azure Red Hat OpenShift version 4.x, the agent is not managed, and you need to manually upgrade the agent.
+Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md), the agent is not managed, and you need to manually upgrade the agent.
 
-If the agent upgrade fails for a cluster hosted on AKS or Azure Red Hat OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### Upgrade agent on AKS cluster
 
@@ -44,36 +44,19 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 If the Log Analytics workspace is in commercial Azure, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+$ helm upgrade --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
 If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+$ helm upgrade --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 If the Log Analytics workspace is in Azure US Government, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
-```
-
-### Upgrade agent on Azure Red Hat OpenShift v4
-
-Perform the following steps to upgrade the agent on a Kubernetes cluster running on Azure Red Hat OpenShift version 4.x. 
-
->[!NOTE]
->Azure Red Hat OpenShift version 4.x only supports running in the Azure commercial cloud.
->
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
+$ helm upgrade --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 ## How to disable environment variable collection on a container
@@ -87,13 +70,7 @@ To disable collection of environmental variables on a new or existing container,
   value: "False"  
 ```
 
-Run the following command to apply the change to Kubernetes clusters other than Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. To edit ConfigMap and apply this change for Azure Red Hat OpenShift clusters, run the command:
-
-```bash
-oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-```
-
-This opens your default text editor. After setting the variable, save the file in the editor.
+Run the following command to apply the change to Kubernetes clusters: `kubectl apply -f  <path to yaml file>`.
 
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.
 

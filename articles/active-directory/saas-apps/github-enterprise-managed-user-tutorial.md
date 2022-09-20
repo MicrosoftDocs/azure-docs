@@ -45,10 +45,12 @@ To configure the integration of GitHub Enterprise Managed User into Azure AD, yo
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Navigate to **Enterprise Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **GitHub Enterprise Managed User** in the search box.
-1. Select **GitHub Enterprise Managed User** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Type **GitHub Enterprise Managed User** in the search box.
+1. Select **GitHub Enterprise Managed User** from results panel and then click on the **Create** button. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for GitHub Enterprise Managed User

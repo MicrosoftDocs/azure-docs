@@ -1,21 +1,21 @@
 ---
-title: Connect to SFTP account (Deprecated)
-description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server by using Azure Logic Apps
+title: Connect to SFTP (Deprecated)
+description: Connect to an SFTP server from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ---
 
-# Monitor, create, and manage SFTP files in Azure Logic Apps
+# Connect to SFTP from workflows in Azure Logic Apps (Deprecated)
 
 > [!IMPORTANT]
 > Please use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) as the SFTP connector is deprecated. You can no longer select SFTP 
-> triggers and actions in the Logic App Designer.
+> triggers and actions in the workflow designer.
 
 To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server, you can build and automate integration workflows by using Azure Logic Apps and the SFTP connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
 
@@ -26,13 +26,20 @@ To automate tasks that monitor, create, send, and receive files on a [Secure Fil
 
 You can use triggers that monitor events on your SFTP server and make output available to other actions. You can use actions that perform various tasks on your SFTP server. You can also have other actions in your logic app use the output from SFTP actions. For example, if you regularly retrieve files from your SFTP server, you can send email alerts about those files and their content by using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## Limits
+## Limitations
 
 The SFTP connector handles only files that are *50 MB or smaller* and doesn't support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
 
+
+  * The SFTP-SSH managed or Azure-hosted connector for Consumption and Standard workflows handles only files that are *50 MB or smaller* and doesn't support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
+
+    By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
+
+* The SFTP-SSH managed or Azure-hosted connector can create a limited number of connections to the SFTP server, based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider creating a Standard logic app workflow and use the SFTP-SSH built-in connector instead.
+
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Your SFTP server address and account credentials, which let your logic app access your SFTP account. To use the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you also need access to an SSH private key and the SSH private key password.
 

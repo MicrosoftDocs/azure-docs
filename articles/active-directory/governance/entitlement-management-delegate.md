@@ -3,8 +3,8 @@ title: Delegation and roles in entitlement management - Azure AD
 description: Learn how to delegate access governance from IT administrators to department managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 7/6/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -70,12 +70,17 @@ After delegation, the marketing department might have roles similar to the follo
 
 ## Entitlement management roles
 
-Entitlement management has the following roles that are specific to entitlement management.
+Entitlement management has the following roles that apply across all catalogs.
 
 | Entitlement management role | Role definition ID | Description |
 | --- | --- | -- |
 | Catalog creator | `ba92d953-d8e0-4e39-a797-0cbedb0a89e8` | Create and manage catalogs. Typically an IT administrator who isn't a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add more catalog owners. A catalog creator can’t manage or see catalogs that they don’t own and can’t add resources they don’t own to a catalog. If the catalog creator needs to manage another catalog or add resources they don’t own, they can request to be a co-owner of that catalog or resource. |
-| Catalog owner | `ae79f266-94d4-4dab-b730-feca7e132178` | Edit and manage existing catalogs. Typically an IT administrator or resource owners, or a user who the catalog owner has chosen. |
+
+Entitlement management has the following roles that are defined for each particular catalog.  An administrator or a catalog owner can add users, groups of users, or service principals to these roles.
+
+| Entitlement management role | Role definition ID | Description |
+| --- | --- | -- |
+| Catalog owner | `ae79f266-94d4-4dab-b730-feca7e132178` | Edit and manage access packages and other resources in a catalog. Typically an IT administrator or resource owners, or a user who the catalog owner has chosen. |
 | Catalog reader | `44272f93-9762-48e8-af59-1b5351b1d6b3` | View existing access packages within a catalog. |
 | Access package manager | `7f480852-ebdc-47d4-87de-0d8498384a83` | Edit and manage all existing access packages within a catalog. |
 | Access package assignment manager | `e2182095-804a-4656-ae11-64734e9b7ae5` | Edit and manage all existing access packages' assignments. |

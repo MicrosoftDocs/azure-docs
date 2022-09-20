@@ -1,12 +1,12 @@
 ---
 title: DCsv2-series - Azure Virtual Machines
 description: Specifications for the DCsv2-series VMs.
-author: mmcrey
+author: linuxelf001
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: jushiman
+ms.author: raginjup
 ms.custom: ignite-fall-2021
 ---
 
@@ -34,6 +34,8 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+<br>
 
 ## Technical specifications
 

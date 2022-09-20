@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: rhurey
 ms.devlang: cpp, csharp, java, objective-c, python

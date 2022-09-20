@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Get started explore the Synapse Knowledge center' 
 description: In this tutorial, you'll learn how to use the Synapse Knowledge center.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: sngun

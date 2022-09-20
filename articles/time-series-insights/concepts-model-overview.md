@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Time Series Model in Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes Time Series Model, the capabilities, and how to start building and updating your own models in the Azure Time Series Insights Gen2 environment.
 
 > [!TIP]

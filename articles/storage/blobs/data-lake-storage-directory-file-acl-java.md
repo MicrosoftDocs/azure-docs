@@ -1,12 +1,12 @@
 ---
 title: Use Java to manage data in Azure Data Lake Storage Gen2
 description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that has hierarchical namespace enabled.
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: storage
 ms.date: 02/17/2021
 ms.devlang: java
 ms.custom: devx-track-java
-ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
@@ -134,13 +134,13 @@ Use the **DataLakeFileClient.uploadFromFile** method to upload large files witho
 
 ## Download from a directory
 
-First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file.
+First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any Java file processing API to save bytes from the stream to a file.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 
 ## List directory contents
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+This example prints the names of each file that is located in a directory named `my-directory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 

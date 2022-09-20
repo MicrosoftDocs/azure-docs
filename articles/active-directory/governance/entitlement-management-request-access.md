@@ -3,16 +3,16 @@ title: Request an access package - Azure AD entitlement management
 description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2021
-ms.author: ajburnle
+ms.date: 3/30/2022
+ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
@@ -56,13 +56,17 @@ Once you have found the access package in the My Access portal, you can submit a
 
     1. Or click **Request access** directly.
 
+1. You may have to answer questions and provide business justification for your request. If there are questions that you need to answer, type in your responses in the fields.
+
 1. If the **Business justification** box is displayed, type a justification for needing access.
 
-1. If **Request for specific period?** is enabled, select **Yes** or **No**.
+1. Set the **Request for specific period?** toggle to request access to the access package for a set duration of time:
 
-1. If necessary, specify the start date and end date.
+    1. If you don't need access for a specific period, set the **Request for specific period?** toggle to **No**.
 
-    ![My Access portal - Request access](./media/entitlement-management-shared/my-access-request-access.png)
+    1. If you need access for a certain time period, set the **Request for specific period?** toggle to **Yes**. Then, specify the start date and end date for access.
+
+        ![My Access portal - Request access](./media/entitlement-management-shared/my-access-request-access.png)
 
 1. When finished, click **Submit** to submit your request.
 

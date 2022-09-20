@@ -4,7 +4,7 @@ description: Explains how to troubleshoot SQL connectivity issues that occur wit
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -24,7 +24,7 @@ The following screenshot shows a typical error, if the SQL Server cannot be foun
 ![SQL error](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## Troubleshooting steps
-Open a PowerShell window and Import the ADSyncTools Powershell module
+Open a PowerShell window and Import the ADSyncTools PowerShell module
 
 ``` powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

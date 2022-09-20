@@ -1,11 +1,11 @@
 ---
 title: Plan capacity for VMware disaster recovery with Azure Site Recovery
 description: This article can help you plan capacity and scaling when you set up disaster recovery of VMware VMs to Azure by using Azure Site Recovery.
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 08/19/2021
 ---
 

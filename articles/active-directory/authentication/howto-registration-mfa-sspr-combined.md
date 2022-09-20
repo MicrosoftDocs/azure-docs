@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 03/1/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: rhicock
+manager: amycolannino
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,6 +21,8 @@ Before combined registration, users registered authentication methods for Azure 
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> 
+> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
 
 To make sure you understand the functionality and effects before you enable the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -66,7 +68,7 @@ Complete the following steps to create a policy that applies to all selected use
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
-1. Under **Assignments**, select **Users and groups**. Choose the users and groups you want this policy to apply to, then select **Done**.
+1. Under **Assignments**, select **Users or workload identities**.. Choose the users and groups you want this policy to apply to, then select **Done**.
 
    > [!WARNING]
    > Users must be enabled for combined registration.

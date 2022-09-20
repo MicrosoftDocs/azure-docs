@@ -38,7 +38,7 @@ The **sap-parameters.yaml** contains information that Ansible uses for configura
 ---
 
 # bom_base_name is the name of the SAP Application Bill of Materials file
-bom_base_name:                 S41909SPS03_v0006ms
+bom_base_name:                 S41909SPS03_v0010ms
 # Set to true to instruct Ansible to update all the packages on the virtual machines
 upgrade_packages:              false 
 

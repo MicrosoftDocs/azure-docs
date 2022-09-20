@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 07/04/2022
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions
@@ -318,9 +318,9 @@ public static object Run(
 {
     if (wpsContext.IsPreflight || !wpsContext.HasError)
     {
-        return wpsReq.Response;
+        return wpsContext.Response;
     }
-    var request = wpsReq.Request as ConnectEventRequest;
+    var request = wpsContext.Request as ConnectEventRequest;
     var response = new ConnectEventResponse
     {
         UserId = wpsContext.Request.ConnectionContext.UserId
@@ -365,7 +365,7 @@ module.exports = async function (context, req, wpsContext) {
   if (!wpsContext.hasError || wpsContext.isPreflight)
   {
     console.log(`invalid request: ${wpsContext.response.message}.`);
-    return wpsReq.response;
+    return wpsContext.response;
   }
   console.log(`user: ${wpsContext.connectionContext.userId} is connecting.`);
   return { body: {"userId": wpsContext.connectionContext.userId} };

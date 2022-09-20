@@ -83,5 +83,5 @@ This is the JSON if `verbose=true` is set in the query string:
 
 Learn more about entities:
 
-* [Concepts](luis-concept-entity-types.md)
-* [How to create](luis-how-to-add-entities.md)
+* [Entity types](concepts/entities.md)
+* [Create entities](how-to/entities.md)

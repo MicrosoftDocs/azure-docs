@@ -127,6 +127,7 @@ The following issues are possible causes:
 
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
 * The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
+* Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
 
 #### Resolution
 
@@ -135,9 +136,14 @@ To verify if the agent's workspace ID or workspace key was mistyped, see [Adding
 
 ##### Configuration not downloaded
 
-Your Log Analytics workspace and Automation account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
+Your Log Analytics workspace and Automation account must be in a linked region. This is the suggested solution for System Hybrid Runbook Worker used by Update Management. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
 
 You might also need to update the date or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
+
+##### Log Analytics gateway not configured
+
+Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
 
@@ -340,11 +346,11 @@ To resolve this issue, remove the following registry key, restart `HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python script:
 
 `Failed to deregister worker. [response_status=404]`
 

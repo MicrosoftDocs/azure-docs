@@ -1,8 +1,9 @@
 ---
 title: Red Hat JBoss EAP on Azure Best Practices
 description: The guide provides information on the best practices for using Red Hat JBoss Enterprise Application Platform in Microsoft Azure.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -20,7 +21,7 @@ JBoss EAP is a Jakarta Enterprise Edition (EE) 8 compatible implementation for b
 
 See the [JBoss EAP Supported Configurations](https://access.redhat.com/articles/2026253) documentation for details on Operating Systems (OS), Java platforms, and other supported platforms on which EAP can be used.
 
-The Red Hat Cloud Access program allows you to use a JBoss EAP subscription to install JBoss EAP on your Azure virtual machine, which are On-Demand Pay-As-You-Go (PAYG) operating systems from the Microsoft Azure Marketplace. Virtual machine operating system subscriptions, in this case Red Hat Enterprise Linux (RHEL), is separate from a JBoss EAP subscription. Red Hat Cloud Access is a Red Hat subscription feature that provides support for JBoss EAP on Red Hat certified cloud infrastructure providers, such as Microsoft Azure. Red Hat Cloud Access allows you to move your subscriptions between traditional on-premise servers and public cloud-based resources in a simple and cost-effective manner.
+The Red Hat Cloud Access program allows you to use a JBoss EAP subscription to install JBoss EAP on your Azure virtual machine, which are On-Demand Pay-As-You-Go (PAYG) operating systems from the Microsoft Azure Marketplace. Virtual machine operating system subscriptions, in this case Red Hat Enterprise Linux (RHEL), is separate from a JBoss EAP subscription. Red Hat Cloud Access is a Red Hat subscription feature that provides support for JBoss EAP on Red Hat certified cloud infrastructure providers, such as Microsoft Azure. Red Hat Cloud Access allows you to move your subscriptions between traditional on-premises servers and public cloud-based resources in a simple and cost-effective manner.
 
 You can find more information about [Red Hat Cloud Access on the Customer Portal](https://www.redhat.com/en/technologies/cloud-computing/cloud-access). Reminder, you don't need to Red Hat Cloud Access for any PAYG offers on Azure Marketplace. 
 
@@ -203,12 +204,12 @@ Once you've installed the JBoss EAP server, and you've created a management user
 
 ## Resource links and support
 
-For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/index)
 * Red Hat Subscription Manager (RHSM) [Cloud Access](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)
 * [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/)
-* Microsoft Docs for [Red Hat on Azure](./overview.md)
+* [Red Hat on Azure overview](./overview.md)
 * [RHEL BYOS Gold Images in Azure](./byos.md)
 * JBoss EAP on Azure [Quickstart video tutorial](https://www.youtube.com/watch?v=3DgpVwnQ3V4) 
 

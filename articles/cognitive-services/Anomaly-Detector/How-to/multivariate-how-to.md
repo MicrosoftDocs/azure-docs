@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 01/18/2022
+ms.date: 06/07/2022
 ms.author: mbullwin
 ---
 
@@ -23,7 +23,7 @@ The following are the basic steps needed to use MVAD:
   1. Get model status.
   1. Detect anomalies during the inference process with the trained MVAD model.
 
-To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb).
+To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). For more instructions on how to run a jupyter notebook, please refer to [Install and Run a Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#).
 
 ## Multivariate Anomaly Detector APIs overview
 
@@ -44,7 +44,7 @@ Generally, multivariate anomaly detector includes a set of APIs, covering the wh
 ## Create an Anomaly Detector resource in Azure portal
 
 * Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
+* Once you have your Azure subscription, [create an Anomaly Detector resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
 > [!NOTE]
 > During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request information regarding the timeline for specific regions being supported.
@@ -58,6 +58,10 @@ Next you need to prepare your training data (and inference data with asynchronou
 
 
 ## Train an MVAD model
+
+In this process, you should upload your data to blob storage and generate a SAS url used for training dataset.
+
+For training data size, the maximum number of timestamps is `1000000`, and a recommended minimum number is `15000` timestamps.
 
 Here is a sample request body and the sample code in Python to train an MVAD model.
 
@@ -229,7 +233,7 @@ You could choose the asynchronous API, or the synchronous API for inference.
 | ------------- | ---------------- | 
 | More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
 
-To perform asynchronous inference, provide the blob source path to the zip file containing the inference data, the start time, and end time.
+To perform asynchronous inference, provide the blob source path to the zip file containing the inference data, the start time, and end time. For inference data volume, at least `1 sliding window` length and at most `20000` timestamps.
 
 This inference is asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
@@ -353,10 +357,10 @@ The response contains the result status, variable information, inference paramet
 * Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
 
 * `"isAnomaly": false` indicates the current timestamp is not an anomaly.
-      * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
+      * `severity` indicates the relative severity of the anomaly and for normal data it is always 0.
       * `score` is the raw output of the model on which the model makes a decision, which could be non-zero even for normal data points.
 * `"isAnomaly": true` indicates an anomaly at the current timestamp.
-      * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
+      * `severity` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
       * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
 * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
 
@@ -374,7 +378,7 @@ The response contains the result status, variable information, inference paramet
 With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
-* Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables.
+* Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables, and at least `1 sliding window length`.
 
 ### Request schema
 
@@ -393,7 +397,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables
+        //more timestamps
       ],
       "values": [
         0.4551378545933972,
@@ -408,7 +412,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables
+        //more timestamps
       ],
       "values": [
         0.9617871613964145,
@@ -423,7 +427,7 @@ A sample request looks like following format, this case is detecting last two ti
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
         "2021-01-01T00:02:00Z"
-        //more variables        
+        //more timestamps       
       ],
       "values": [
         0.4030756879437628,
@@ -537,5 +541,5 @@ See the following example of a JSON response:
 
 ## Next steps
 
-* [What is the Multivariate Anomaly Detector API?](../overview-multivariate.md)
+* [Best practices for using the Multivariate Anomaly Detector API](../concepts/best-practices-multivariate.md)
 * [Join us to get more supports!](https://aka.ms/adadvisorsjoin)

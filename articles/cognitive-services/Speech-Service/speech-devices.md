@@ -7,12 +7,12 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/27/2021
 ms.author: eur
 ---
 
-# Speech devices overview
+# What are Speech devices?
 
 The [Speech service](overview.md) works with a wide variety of devices and audio sources. You can use the default audio processing available on a device. Otherwise, the Speech SDK has an option for you to use our advanced audio processing algorithms that are designed to work well with the [Speech service](overview.md). It provides accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
 
@@ -30,5 +30,4 @@ The Speech SDK is designed to work with purpose-built development kits, and vary
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Audio processing concepts](audio-processing-overview.md)
+* [Audio processing concepts](audio-processing-overview.md)

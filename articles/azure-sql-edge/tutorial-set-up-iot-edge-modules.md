@@ -1,14 +1,13 @@
 ---
 title: Set up IoT Edge modules in Azure SQL Edge
 description: In part two of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll set up IoT Edge modules and connections.
-keywords:
-services: sql-edge
+author: kendalvandyke
+ms.author: kendalv
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: tutorial
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sourabha, sstein
-ms.date: 09/22/2020
+services: sql-edge
 ---
 
 # Set up IoT Edge modules and connections
@@ -46,7 +45,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 ## Build, push, and deploy the Data Generator Module
 
-1. Clone the [project files](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) to your machine.
+1. Clone the project files to your machine.
 2. Open the file **IronOre_Silica_Predict.sln** using Visual Studio 2019
 3. Update the container registry details in the **deployment.template.json**
    ```json

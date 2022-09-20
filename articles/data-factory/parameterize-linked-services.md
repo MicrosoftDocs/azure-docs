@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/17/2022
+ms.date: 09/05/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -41,25 +41,38 @@ All the linked service types are supported for parameterization.
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Data Explorer
+- Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure Databricks
 - Azure File Storage
+- Azure Function
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- DB2
 - File System
 - FTP
 - Generic HTTP
 - Generic REST
+- Google AdWords
+- Informix
+- Microsoft Access
 - MySQL
+- OData 
+- ODBC
 - Oracle
 - Oracle Cloud Storage
+- PostgreSQL
 - Salesforce
 - Salesforce Service Cloud
+- SAP ODP
 - SFTP
+- SharePoint Online List
+- Snowflake
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:

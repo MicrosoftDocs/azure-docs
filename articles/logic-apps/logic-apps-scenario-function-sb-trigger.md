@@ -1,15 +1,17 @@
 ---
 title: Call logic apps with Azure Functions
-description: Call or trigger logic apps by using Azure Functions and Azure Service Bus
+description: Call or trigger logic apps by using Azure Functions and Azure Service Bus.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jehollan, klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
 ---
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create a function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/1/2021
+ms.date: 06/21/2022
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -19,9 +19,9 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the sample command-line client application for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
 
-You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
+You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/main/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -36,11 +36,13 @@ In this tutorial, you will...
 
 ### Run the sample project
 
-Now that the app and authentication are set up, run the project with this button in the toolbar:
+Now that the app and authentication are set up, open a local **console window** that you'll use to run the project. Navigate in the console to the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder, and run the project with this dotnet command:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button (SampleClientApp project)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
+```cmd/sh
+dotnet run
+```
 
-A console window will open, carry out authentication, and wait for a command. 
+The project will start running, carry out authentication, and wait for a command. 
 
 Here's a screenshot of what the project console looks like:
 
@@ -49,7 +51,7 @@ Here's a screenshot of what the project console looks like:
 > [!TIP]
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 
-Once you've confirmed the app is running successfully, close the console window to stop running the app for now. You'll run it again later in the article.
+Once you've confirmed the app is running successfully, you can stop running the project. You'll run it again later in the tutorial.
 
 ## Model a physical environment with DTDL
 
@@ -57,14 +59,14 @@ Now that the Azure Digital Twins instance and sample app are set up, you can beg
 
 The first step in creating an Azure Digital Twins solution is defining twin [models](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they're user-defined templates that you can instantiate to create [digital twins](concepts-twins-graph.md). Models are written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and they define a type of twin in terms of its properties, telemetry, relationships, and components.
 
 > [!NOTE]
-> DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
+> DTDL also allows for the definition of commands on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
-In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models folder*. This folder contains sample models.
+In the sample project folder that you downloaded earlier, navigate into the *digital-twins-samples-main\AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
-Select *Room.json* to open it in the editing window, and change it in the following ways:
+Open *Room.json* for editing, and make the following changes to the code:
 
 [!INCLUDE [digital-twins-tutorial-model-create.md](../../includes/digital-twins-tutorial-model-create.md)]
 
@@ -72,7 +74,7 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 
 After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you've uploaded the models, you can create twin instances that use them.
 
-1. After editing the Room.json file in the previous section, start running the console app again.
+1. Return to your console window that's open to the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder, and run the console app again with `dotnet run`.
 
 1. In the project console window, run the following command to upload your updated Room model along with a Floor model that you'll also use in the next section to create different types of twins.
 
@@ -86,31 +88,21 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot of the result from GetModels, showing the updated Room model." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
+Keep the console app running for the next steps.
+
 ### Errors
 
 The sample application also handles errors from the service. 
 
-Rerun the `CreateModels` command to try re-uploading one of the same models you uploaded, for a second time:
+To test this, rerun the `CreateModels` command to try re-uploading the Room model that you've already uploaded:
 
 ```cmd/sh
 CreateModels Room
 ```
 
-As models cannot be overwritten, this command will now return a service error.
+As models cannot be overwritten, this command will now return a service error indicating that some of the model IDs you are trying to create already exist.
+ 
 For the details on how to delete existing models, see [Manage DTDL models](how-to-manage-model.md).
-```cmd/sh
-Response 409: Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Could not add model dtmi:example:Room;2 as it already exists. Use Model_List API to view models that already exist. See the Swagger example.(http://aka.ms/ModelListSwSmpl)"}}
-
-Headers:
-Strict-Transport-Security: REDACTED
-Date: Wed, 20 May 2020 00:53:49 GMT
-Content-Length: 223
-Content-Type: application/json; charset=utf-8
-```
 
 ## Create digital twins
 
@@ -150,7 +142,7 @@ You can also modify the properties of a twin you've created.
     
     The output should indicate the twin was updated successfully.
 
-1. You can verify the update succeeded by running this command to see *room0*'s information:
+1. You can verify the update succeeded by running this command to see room0's information:
 
     ```cmd/sh
     GetDigitalTwin room0
@@ -161,13 +153,13 @@ You can also modify the properties of a twin you've created.
 
 ## Create a graph by adding relationships
 
-Next, you can create some **relationships** between these twins, to connect them into a [twin graph](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
+Next, you can create some relationships between these twins, to connect them into a [twin graph](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called *contains*, which makes it possible to create a *contains*-type relationship from each Floor twin to the corresponding room that it contains.
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called `contains`, which makes it possible to create a `contains`-type relationship from each Floor twin to the corresponding room that it contains.
 
 To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID.
 
-1. Run the following code to add a "contains" relationship from each of the Floor twins you created earlier to a corresponding Room twin. The relationships are named relationship0 and relationship1.
+1. Run the following commands to add a `contains` relationship from each of the Floor twins you created earlier to a corresponding Room twin. The relationships are named relationship0 and relationship1.
 
     ```cmd/sh
     CreateRelationship floor0 contains room0 relationship0
@@ -175,7 +167,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     ```
 
     >[!TIP]
-    >The *contains* relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two string properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
+    >The `contains` relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two string properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
     > Here's an alternate version of the command above to create relationship0 that also specifies initial values for these properties:
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
@@ -214,7 +206,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 Run the following commands in the running project console to answer some questions about the sample environment.
 
-1. **What are all the entities from my environment represented in Azure Digital Twins?** (query all)
+1. What are all the entities from my environment represented in Azure Digital Twins? (query all)
 
     ```cmd/sh
     Query
@@ -227,17 +219,17 @@ Run the following commands in the running project console to answer some questio
     >[!TIP]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt), use the longer (complete) query.
 
-1. **What are all the rooms in my environment?** (query by model)
+1. What are all the rooms in my environment? (query by model)
 
     ```cmd/sh
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but does **not** show floor0 or floor1 (since they're floors, not rooms).
+    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but doesn't show floor0 or floor1 (since they're floors, not rooms).
     
     :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Screenshot of the result from the model query, showing only room0 and room1.":::
 
-1. **What are all the rooms on *floor0*?** (query by relationship)
+1. What are all the rooms on floor0? (query by relationship)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
@@ -247,7 +239,7 @@ Run the following commands in the running project console to answer some questio
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Screenshot of the result from the relationship query, showing room0.":::
 
-1. **What are all the twins in my environment with a temperature above 75?** (query by property)
+1. What are all the twins in my environment with a temperature above 75? (query by property)
 
     ```cmd/sh
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
@@ -257,7 +249,7 @@ Run the following commands in the running project console to answer some questio
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Screenshot of the result from the property query, showing only room1.":::
 
-1. **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
+1. What are all the rooms on floor0 with a temperature above 75? (compound query)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
@@ -267,17 +259,19 @@ Run the following commands in the running project console to answer some questio
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Screenshot of the result from the compound query, showing no results." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
+Now that you've run several queries on the scenario you set up, the tutorial is complete. Stop running the project and close the console window.
+
 ## Clean up resources
 
 After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
-* **If you plan to continue to the next tutorial**, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app for the next tutorial
+* If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app for the next tutorial
 
-* **If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively.
+* If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-You may also want to delete the project folder from your local machine.
+You may also want to delete the downloaded project folder from your local machine.
 
 ## Next steps 
 

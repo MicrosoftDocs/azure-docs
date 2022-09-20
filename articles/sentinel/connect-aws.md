@@ -252,7 +252,11 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 
 1. **Verify that messages are being read from the SQS queue.**
 
-   Check the "Number of Messages Received" and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing. Check your IAM configurations.
+   Check the "Number of Messages Received" and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing. Check your IAM configurations. 
+
+For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
+
+Learn how to [troubleshoot Amazon Web Services S3 connector issues](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/troubleshoot-amazon-web-services-s3-connector-issues/ba-p/3608072).
 
 # [CloudTrail connector (legacy)](#tab/ct)
 

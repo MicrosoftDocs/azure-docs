@@ -1,11 +1,8 @@
 ---
 title: Workload identities 
-titleSuffix: Microsoft identity platform
-description: 
-services: active-directory
+description: Understand the concepts and supported scenarios for using workload identity in Azure Active Directory.
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -47,6 +44,7 @@ Here are some ways you can use workload identities:
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 - Access Azure AD protected resources without needing to manage secrets (for supported scenarios) using [workload identity federation](workload-identity-federation.md).
 - Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md).
+- Secure workload identities with [Identity Protection](../identity-protection/concept-workload-identity-risk.md).
 
 ## Next steps
 

@@ -2,6 +2,8 @@
 title: Create and manage virtual machines in Azure DevTest Labs with Azure CLI
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure CLI
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 
@@ -43,7 +45,7 @@ The following command creates a VM from a marketplace image with ssh authenticat
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-You can also create virtual machines based on formulas by setting the **image-type** parameter to **formula**. If you need to choose a specific virtual network for your virtual machine, use the **vnet-name** and **subnet** parameters. For more information, see [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create).
+You can also create virtual machines based on formulas by setting the **image-type** parameter to **formula**. If you need to choose a specific virtual network for your virtual machine, use the **vnet-name** and **subnet** parameters. For more information, see [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## Verify that the VM is available.
 Use the `az lab vm show` command to verify that the VM is available before you start and connect to it. 

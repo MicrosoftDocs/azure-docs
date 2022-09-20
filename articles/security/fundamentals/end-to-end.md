@@ -7,8 +7,8 @@ author: TerryLanfear
 manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -73,7 +73,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure confidential computing](../../confidential-computing/overview.md) | Allows you to isolate your sensitive data while it's being processed in the cloud. |
 | [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) | Your development projects benefit from multiple layers of security and governance technologies, operational practices, and compliance policies when stored in Azure DevOps. |
 | **Customer Access** |  |
-| [Azure AD External Identities](../../active-directory/external-identities/compare-with-b2c.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
+| [Azure AD External Identities](../../active-directory/external-identities/external-identities-overview.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
 |  | You can share your apps and resources with external users via [Azure AD B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
 |  | [Azure AD B2C](../../active-directory-b2c/overview.md) lets you support millions of users and billions of authentications per day, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks. |
 

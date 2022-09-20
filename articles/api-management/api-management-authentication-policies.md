@@ -1,22 +1,20 @@
 ---
 title: Azure API Management authentication policies | Microsoft Docs
-description: Learn about the authentication policies available for use in Azure API Management.
+description: Reference for the authentication policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
-ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/27/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
 # API Management authentication policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+This article provides a reference for API Management policies used for authentication with API backends. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ##  <a name="AuthenticationPolicies"></a> Authentication policies
 
@@ -28,6 +26,9 @@ This topic provides a reference for the following API Management policies. For i
 
 ##  <a name="Basic"></a> Authenticate with Basic
  Use the `authentication-basic` policy to authenticate with a backend service using Basic authentication. This policy effectively sets the HTTP Authorization header to the value corresponding to the credentials provided in the policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -66,6 +67,9 @@ This topic provides a reference for the following API Management policies. For i
 
 > [!CAUTION]
 > If the certificate references a certificate stored in Azure Key Vault, identify it using the certificate ID. When a key vault certificate is rotated, its thumbprint in API Management will change, and the policy will not resolve the new certificate if it is identified by thumbprint.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 ### Policy statement
 
@@ -117,7 +121,10 @@ In this example, the client certificate is set in the policy rather than retriev
 ##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
 
-Both system-assigned identity and any of the multiple user-assigned identity can be used to request token. If `client-id` is not provided system-assigned identity is assumed. If the `client-id` variable is provided token is requested for that user-assigned identity from Azure Active Directory
+Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Azure Active Directory.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
   
 ### Policy statement  
   
@@ -147,14 +154,14 @@ Both system-assigned identity and any of the multiple user-assigned identity can
 ```
 
 ```xml
-<authentication-managed-identity resource="Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="AD_application_id"/> <!--Application (client) ID of your own Azure AD Application-->
 ```
 
 #### Use managed identity and set header manually
 
 ```xml
-<authentication-managed-identity resource="Client_id_of_Backend"
-   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="AD_application_id"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Application (client) ID of your own Azure AD Application-->
 <set-header name="Authorization" exists-action="override">
    <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
 </set-header>
@@ -191,10 +198,4 @@ Both system-assigned identity and any of the multiple user-assigned identity can
   
 -   **Policy scopes:** all scopes
 
-## Next steps
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

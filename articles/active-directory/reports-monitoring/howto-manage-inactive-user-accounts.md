@@ -4,7 +4,7 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -90,7 +90,7 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 ### For how long is the last sign-in retained?
 
-The last sign-in date is associated with the user object. The value is retained until the sign-in of the user. 
+The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
 
 ## Next steps
 

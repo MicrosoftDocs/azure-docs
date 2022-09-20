@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 05/26/2022
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -45,7 +45,29 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > For **Azure Data Lake Storage Gen2**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
-## Example event
+### List of the events for SFTP APIs
+
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients use SFTP APIs. For more information about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](../storage/blobs/secure-file-transfer-protocol-support.md).
+
+|Event name|Description|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
+|**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
+|**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
+|**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
+|**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on a directory, which corresponds to the `SftpRename` API.|
+|**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `rmdir` operation, which corresponds to the `SftpRemoveDir` API.|
+
+### List of policy-related events
+
+These events are triggered when the actions defined by a policy are performed.
+
+ |Event name |Description|
+ |----------|-----------|
+ |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule that is defined an inventory policy . This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ |**Microsoft.Storage.LifecyclePolicyCompleted** |Triggered when the actions defined by a lifecycle management policy are performed. |
+
+## Example events
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -118,6 +140,52 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
+### Microsoft.Storage.BlobCreated event (SFTP)
+
+If the blob storage account uses SFTP to create or overwrite a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `3`.
+
+* The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
+
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
+* The `contentOffset` key is included in the data set.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+> [!NOTE]
+> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/new-file.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpCommit",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "contentType": "application/octet-stream",
+    "contentLength": 0,
+    "contentOffset": 0,
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "3",
+  "metadataVersion": "1"
+}]
+```
+
 ### Microsoft.Storage.BlobDeleted event
 
 ```json
@@ -171,6 +239,44 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/file-to-delete.txt",
     "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.BlobDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpRemove`.
+
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/new-file.txt",
+  "eventType": "Microsoft.Storage.BlobDeleted",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemove",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "contentType": "text/plain",
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -260,6 +366,39 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
+### Microsoft.Storage.BlobRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-file.txt",
+  "eventType": "Microsoft.Storage.BlobRenamed",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-file.txt",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-file.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
 ### Microsoft.Storage.DirectoryCreated event
 
 ```json
@@ -284,6 +423,40 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
+### Microsoft.Storage.DirectoryCreated event (SFTP)
+
+If the blob storage account uses SFTP to create a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpMakeDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-new-directory",
+  "eventType": "Microsoft.Storage.DirectoryCreated",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpMakeDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/my-new-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1"
+}]
+```
+
 ### Microsoft.Storage.DirectoryRenamed event
 
 ```json
@@ -300,6 +473,39 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "destinationUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-renamed-directory",
     "sourceUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-original-directory",
     "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.DirectoryRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-directory",
+  "eventType": "Microsoft.Storage.DirectoryRenamed",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-directory",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -332,6 +538,94 @@ If the blob storage account has a hierarchical namespace, the data looks similar
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
+```
+
+### Microsoft.Storage.DirectoryDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRemoveDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/directory-to-delete",
+  "eventType": "Microsoft.Storage.DirectoryDeleted",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemoveDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/directory-to-delete",
+    "recursive": "false", 
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.BlobInventoryPolicyCompleted event
+
+```json
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
+```
+
+### Microsoft.Storage.LifecyclePolicyCompleted event
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1",
+    "eventTime": "2022-05-26T00:00:40.1880331"
+}
 ```
 
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -554,7 +848,6 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 
 ---
 
-
 ## Event properties
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -605,6 +898,7 @@ The data object has the following properties:
 | `url` | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: `<storage-account-name>.blob.core.windows.net\<container-name>\<file-name>`. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: `<storage-account-name>.dfs.core.windows.net/<file-system-name>/<file-name>`. |
 | `recursive` | string | `True` to run the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | `sequencer` | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
+| `identity` | string | A string value representing the identity associated with the event. For SFTP, this is the local user name.|
 | `storageDiagnostics` | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
 
 ## Tutorials and how-tos
@@ -613,7 +907,7 @@ The data object has the following properties:
 | [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
 | [Quickstart: route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure PowerShell to send blob storage events to a WebHook. |
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
-| [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-subscribe-custom-topic.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |

@@ -3,7 +3,6 @@ title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
 ms.topic: conceptual
 ms.date: 06/03/2019
-
 ---
 
 # Application Insights Overview dashboard
@@ -50,6 +49,8 @@ To navigate back to the overview experience just select:
 ## Troubleshooting
 
 There is currently a limit of 30 days of data for data displayed in a dashboard.If you select a time filter beyond 30 days, or if you select **Configure tile settings** and set a custom time range in excess of 30 days your dashboard will not display beyond 30 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
+
+The default Application Dashboard is created during Application Insights resource creation. If you move or rename your Application Insights instance, then queries on the dashboard will fail with Resource not found errors as the dashboard queries rely on the original resource URI. Delete the default dashboard, then from the Application Insights Overview resource menu select Application Dashboard again and the default dashboard will be re-created with the new resource name. Make other custom edits to the dashboard as needed.
 
 ## Next steps
 

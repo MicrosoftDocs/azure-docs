@@ -33,7 +33,6 @@ See the list of SKUs and pricing information below.
 | Service            | Kind                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
-| Speech Recognition | `SpeakerRecognition` |
 
 #### Language
 

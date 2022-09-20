@@ -4,7 +4,8 @@ description: Configuration schema reference for Windows diagnostics extension (W
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 01/20/2020
+ms.date: 07/12/2022
+ms.reviewer: luki
 
 ---
 

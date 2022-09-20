@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/13/2021
+ms.date: 01/05/2022
 
 ---
 # Machine-learning entity
@@ -342,6 +342,6 @@ This entity isn't available in the V2 prediction runtime.
 
 ## Next steps
 
-Learn more about the machine-learning entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](luis-concept-entity-types.md#machine-learned-ml-entity), and [how-to guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Learn more about the machine-learning entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](concepts/entities.md#machine-learned-ml-entity), and [how-to guide](how-to/entities.md#create-a-machine-learned-entity).
 
 Learn about the [list](reference-entity-list.md) entity and [regular expression](reference-entity-regular-expression.md) entity.

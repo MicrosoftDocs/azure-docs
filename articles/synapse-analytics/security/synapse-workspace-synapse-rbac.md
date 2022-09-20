@@ -1,13 +1,13 @@
 ---
-title: Synapse role-based access control
+title: Azure Synapse role-based access control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 3/07/2022
 ms.author: mesrivas
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 # What is Synapse role-based access control (RBAC)?
 
@@ -53,15 +53,20 @@ Synapse provides built-in roles that define collections of actions that match th
 
 ### Scopes
 
-A _scope_ defines the resources or artifacts that the access applies to.  Synapse supports hierarchical scopes.  Permissions granted at a higher-level scope are inherited by objects at a lower level.  In Synapse RBAC, the top-level scope is a workspace.  Assigning a role with workspace scope grants permissions to all applicable objects in the workspace.  
+A _scope_ defines the resources or artifacts that the access applies to. Azure Synapse supports hierarchical scopes.  Permissions granted at a higher-level scope are inherited by objects at a lower level.  In Synapse RBAC, the top-level scope is a workspace.  Assigning a role with workspace scope grants permissions to all applicable objects in the workspace.  
 
-Current supported scopes within a workspace are: Apache Spark pool, Integration runtime, linked service, and credential. 
+Current supported scopes within a workspace are: 
+
+- Apache Spark pool
+- Integration runtime
+- linked service
+- credential
 
 Access to code artifacts is granted with workspace scope.  Granting access to collections of artifacts within a workspace will be supported in a later release.
 
 ## Resolving role assignments to determine permissions
 
-A role assignment grants the principal the permissions defined by the role at the specified scope.
+A role assignment grants a principal the permissions defined by the role at the specified scope.
 
 Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigned to a single principal and at different scopes. When computing the permissions of a security principal, the system considers all roles assigned to the principal and to groups that directly or indirectly include the principal.  It also considers the scope of each assignment in determining the permissions that apply.  
 
@@ -69,17 +74,19 @@ Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigne
 
 In Synapse Studio, specific buttons or options may be grayed out or a permissions error may be returned when attempting an action if you don't have the required permissions. 
 
-If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  Contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles that provide specific actions [here](./synapse-workspace-synapse-rbac-roles.md).
+If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  Contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles that provide specific actions, see [Synapse RBAC Roles](./synapse-workspace-synapse-rbac-roles.md).
 
 ## Who can assign Synapse RBAC roles?
 
-Only a Synapse Administrator can assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope.  A Synapse Administrator at a lower-level scope can only grant access at that scope. 
+Synapse Administrators can assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope.  A Synapse Administrator at a lower-level scope can only grant access at that scope. 
 
-When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.   
+When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.
+
+To help you regain access to a workspace in the event that no Synapse Administrators are assigned or available to you, users with permissions to manage Azure RBAC role assignments on the workspace can also manage Synapse RBAC role assignments, allowing the addition of Synapse Administrator or other Synapse role assignments.
 
 ## Where do I manage Synapse RBAC?
 
-Synapse RBAC is managed from within Synapse Studio using the Access control tools in the Manage hub. 
+Synapse RBAC is managed from within Synapse Studio using the access control tools in the **Manage** hub. 
 
 ## Next steps
 

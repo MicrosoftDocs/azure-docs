@@ -30,7 +30,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.21 or JIRA Service Desk 3.0 to 4.21.0 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.22.1 or JIRA Service Desk 3.0 to 4.22.1 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD
@@ -51,8 +51,8 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.21
-* JIRA Service Desk 3.0 to 4.21.0
+* JIRA Core and Software: 6.4 to 8.22.1
+* JIRA Service Desk 3.0 to 4.22.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -74,6 +74,8 @@ To configure the integration of JIRA SAML SSO by Microsoft into Azure AD, you ne
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **JIRA SAML SSO by Microsoft** in the search box.
 1. Select **JIRA SAML SSO by Microsoft** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for JIRA SAML SSO by Microsoft
 
@@ -115,6 +117,37 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
+
+
+
+1. The Name ID attribute in Azure AD can be mapped to any desired user attribute by editing the Attributes & Claims section.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
+	
+    a. After clicking on Edit, any desired user attribute can be mapped by clicking on Unique User Identifier (Name ID).
+    
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
+	
+    b. On the next screen, the desired attribute name like user.userprincipalname can be selected as an option from the Source Attribute dropdown menu.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to select Attributes and Claims.](common/attribute-select.png)
+	
+    c. The selection can then be saved by clicking on the Save button at the top.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to save Attributes and Claims.](common/attribute-save.png)
+	
+    d. Now, the user.userprincipalname attribute source in Azure AD is mapped to the Name ID attribute name in Azure AD which will be compared with the username attribute in Atlassian by the SSO plugin.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to review Attributes and Claims.](common/attribute-review.png)
+	
+	> [!NOTE]
+	> The SSO service provided by Microsoft Azure supports SAML authentication which is able to perform user identification using different attributes such as givenname (first name), surname (last name), email (email address), and user principal name (username). We recommend not to use email as an authentication attribute as email addresses are not always verified by Azure AD. The plugin compares the values of Atlassian username attribute with the NameID attribute in Azure AD in order to determine the valid user authentication.
 
 ### Create an Azure AD test user
 

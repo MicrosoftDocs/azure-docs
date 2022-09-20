@@ -1,53 +1,35 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 11/21/2021
+ms.date: 06/08/2022
 ms.topic: reference
 ---
 
 # Defender for IoT sensor and management console APIs
 
-Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
+Defender for IoT APIs is governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
 Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
 
 Connections are secured over SSL.
 
-## Getting started
+## Generate a token
 
-In general, when you're using an external API on the Microsoft Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for authentication APIs that you use on the sensor and the on-premises management console.
+In general, when you're using an external API on the Microsoft Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens aren't required for authentication APIs that you use on the sensor and the on-premises management console.
 
 To generate a token:
 
-1. In the **System Settings** window, select **Access Tokens**.
-  
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Screenshot of System Settings windows highlighting the Access Tokens button.":::
-
-1. Select **Generate new token**.
-
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Select the button to generate a new token.":::
-
-1. Describe the purpose of the new token and select **Next**.
-
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Generate a new token and enter the name of the integration associated with it.":::
-
+1. In the **System Settings** window, select **Integrations** > **Access Tokens**.
+1. Select **Generate token**.
+1. In **Description**, describe what the new token is for, and select **Generate**.
 1. The access token appears. Copy it, because it won't be displayed again.
+1. Select **Finish**.
+    - The tokens that you create appear in the **Access Tokens** dialog box. The **Used** indicates the last time an external call with this token was received.
+    - **N/A** in the **Used** field indicates that the connection between the sensor and the connected server isn't working.
 
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copy your access token for your integration.":::
+After generating the token, add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
 
-1. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
-
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Device Tokens dialog box with filled-out tokens":::
-
-   **Used** indicates the last time an external call with this token was received.
-
-   If **N/A** is displayed in the **Used** field for this token, the connection between the sensor and the connected server is not working.
-
-1. Add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
-
-## Sensor API specifications
-
-This section describes the following sensor APIs:
+## Sensor APIs
 
 ### No version
 
@@ -74,10 +56,6 @@ This section describes the following sensor APIs:
 - [Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
 - [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
-
-### Version 2
-
-- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
 
 ### Validate user credentials - /api/external/authentication/validation
 
@@ -257,11 +235,11 @@ Message string with the operation status details:
 
 - **Failure – error**: User authentication failure
 
-- **Failure – error**: User does not exist
+- **Failure – error**: User doesn't exist
 
 - **Failure – error**: Password doesn't match security policy
 
-- **Failure – error**: User does not have the permissions to change password
+- **Failure – error**: User doesn't have the permissions to change password
 
 #### Response example
 
@@ -1545,48 +1523,7 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### Retrieve alert PCAP - /api/v2/alerts/pcap
-
-Use this API to retrieve a PCAP file related to an alert.
-
-This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
-
-#### Method
-
-- **GET**
-
-#### Query Parameters
-
-- id: Xsense Alert ID  
-Example:  
-`/api/v2/alerts/pcap/<id>`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-- **Success**: Binary file containing PCAP data
-- **Failure**: JSON object that contains error message
-
-#### Response example
-
-#### Error
-
-```json
-{
-  "error": "PCAP file is not available"
-}
-```
-
-#### Curl command
-
-|Type|APIs|Example|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
-
-## On-premises management console API specifications
+## Management console API
 
 This section describes on-premises management console APIs for:
 
@@ -1618,7 +1555,19 @@ This section describes on-premises management console APIs for:
 
 ### Version 3
 
-- [ServiceNow Integration API - “/external/v3/integration/ (Preview)](#servicenow-integration-api---externalv3integration-preview)
+- [Request devices - /external/v3/integration/devices/{timestamp}](#request-devices---externalv3integrationdevicestimestamp)
+
+- [Request device connection events - /external/v3/integration/connections/{timestamp}](#request-device-connection-events---externalv3integrationconnectionstimestamp)
+
+- [Request device data by device ID - /external/v3/integration/device/{deviceId}](#request-device-data-by-device-id---externalv3integrationdevicedeviceid)
+
+- [Request deleted devices - /external/v3/integration/deleteddevices/{timestamp}](#request-deleted-devices---externalv3integrationdeleteddevicestimestamp)
+
+- [Request sensor data - external/v3/integration/sensors](#request-sensor-data---externalv3integrationsensors)
+
+- [Request all device CVEs - /external/v3/integration/devicecves/{timestamp}](#request-all-device-cves---externalv3integrationdevicecvestimestamp)
+
+All parameters in Version 3 APIs are optional.
 
 ### Alert Exclusions
 
@@ -1795,13 +1744,9 @@ response:
 
 ### QRadar alerts
 
-QRadar integration with Defender for IoT helps you identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
+QRadar integration helps you to identify and action alerts generated by Defender for IoT. QRadar receives the data from Defender for IoT, and then contacts the public API on-premises management console.
 
-To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option.
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="Edit the forwarding rules to match your needs.":::
-
-When you select this option during the process of configuring forwarding rules, the following additional fields appear in QRadar:
+To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option. With this option selected, the following additional fields appear in QRadar:
 
 - **UUID**: Unique alert identifier, such as 1-1555245116250.
 
@@ -1809,7 +1754,7 @@ When you select this option during the process of configuring forwarding rules, 
 
 - **Zone**: The zone where the alert was discovered.
 
-Example of the payload sent to QRadar:
+#### Example of the payload sent to QRadar:
 
 ```
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
@@ -1865,7 +1810,7 @@ Array of JSON objects that represent devices.
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | **Name** | String | No |  |
-| **Addresses** | JSON array | Yes | Master, or numeric values |
+| **Addresses** | JSON array | Yes | `Master`, or numeric values |
 
 #### Firmware fields
 
@@ -2147,7 +2092,7 @@ Array of JSON objects that represent devices.
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | Name | String | No | - |
-| Addresses | JSON array | Yes | Master, or numeric values |
+| Addresses | JSON array | Yes | `Master`, or numeric values |
 
 #### Firmware fields
 
@@ -2510,7 +2455,7 @@ Array of JSON objects that represent devices.
     "error": "Invalid action"
 }
 ```
-
+o
 #### Curl command
 
 | Type | APIs | Example |
@@ -2521,9 +2466,9 @@ Array of JSON objects that represent devices.
 
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
-The APIs that you define here appear in the on-premises management console's **Alert Exclusions** window as a read-only exclusion rule.
+The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The Alert Exclusions window, showing a list of all the exclusion rules. ":::
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](./how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
 
 #### Method - POST
 
@@ -2531,7 +2476,7 @@ The APIs that you define here appear in the on-premises management console's **A
 
 - **ticketId**: Defines the maintenance ticket ID in the user's systems.
 
-- **ttl**: Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
+- **ttl**: Required. Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
 
 - **engines**: Defines from which security engine to suppress alerts during the maintenance process:
 
@@ -2734,208 +2679,241 @@ Example:
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
-### ServiceNow Integration API - “/external/v3/integration/ (Preview)
+### Request devices - /external/v3/integration/devices/{timestamp}
 
-The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
+This API returns data about all devices that were updated after the given timestamp.
 
-### Create and update devices
+#### Method
 
-#### Request
+- **GET**
 
-- Path: “/devices/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+#### Path parameters
 
-- Query parameters:
-    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
-    - “**notificationType**” - should be a number, from the following mapping:
-        - 0 – both updated and new devices (default).
-        - 1 – only new devices.
-        - 2 – only updated devices.
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
+- **timestamp** – the time from which updates are required, only later updates will be returned.
 
-#### Response
+#### Query parameters
 
-- Type: JSON
-- Structure:
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of device objects (as defined in the specific device API).
+- **sensorId** - use this parameter to get only devices seen by a specific sensor. The ID should be taken from the results of the [sensor](#request-sensor-data---externalv3integrationsensors) API.
+- **notificationType** - should be a number, from the following mapping:
+    - **0** – both updated and new devices (default).
+    - **1** – only new devices.
+    - **2** – only updated devices.
+- **page** - the page number, from the result set (first page is 0, default value is 0).
+- **size** - the page size (default value is 50).
 
-### Connections
+#### Response type
 
-#### Request
+- **JSON**
 
-- Path: “/connections/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-- Query parameters:
-    - “**page**” - the page number, from the result set (default value is 1)
-    - “**size**” - the page size (default value is 50)
+#### Response structure
 
-#### Response
+- **u_count** - amount of objects in the full result sets, including all pages.
+- **u_devices** - array of device objects. Each object is defined with the parameters listed in the [device ID](#request-device-data-by-device-id---externalv3integrationdevicedeviceid) API.
 
-- Type: JSON
-- Structure: 
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_connections**” - array of
-        - “**u_src_device_id**” - the Id of the source device.
-        - “**u_dest_device_id**” - the Id of the destination device.
-        - “**u_connection_type**” - one of the following:
-            - “**One Way**”
-            - “**Two Way**”
-            - “**Multicast**”
+### Request device connection events - /external/v3/integration/connections/{timestamp}
 
-### Specific device
+This API returns data about all device connection events that were updated after the given timestamp.
 
-#### Request
+#### Method
 
-- Path: “/device/{deviceId}”
-- Method type: GET
-- Path parameters:
-    - “**deviceId**” – the Id of the requested device.
+- **GET**
 
-#### Response
+#### Path parameters
 
-- Type: JSON
-- Structure:
-    - “**u_id**” - the internal id of the device.
-    - “**u_vendor**” - the name of the vendor.
-    - “**u_mac_address_objects**” - array of
-        - “**u_mac_address**” - mac address of the device.
-    - “**u_ip_address_objects**” - array of
-        - “**u_ip_address**” - IP address of the device.
-        - “**u_guessed_mac_addresses**” - array of
-            - “**u_mac_address**” - guessed mac address.
-    - “**u_name**” - the name of the device.
-    - “**u_last_activity**” - timestamp of the last time the device was active.
-    - “**u_first_discovered**” - timestamp of the discovery time of the device.
-    - “**u_last_update**” - timestamp of the last update time of the device.
-    - “**u_vlans**” - array of
-        - “**u_vlan**” - vlan in which the device is in.
-    - “**u_device_type**” -
-        - “**u_name**” - the device type
-        - “**u_purdue_layer**” - the default purdue layer for this device type.
-        - “**u_category**” - will be one of the following:
-            - “**IT**”
-            - “**ICS**”
-            - “**IoT**”
-            - “**Network**”
-    - “**u_operating_system**” - the device operating system.
-    - “**u_protocol_objects**” - array of
-        - “**u_protocol**” - protocol the device uses.
-    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
-    - “**u_sensor_ids**” - array of
-        - “**u_sensor_id**” - the id of the sensor that saw the device.
-    - “**u_device_urls**” - array of
-        - “**u_device_url**” the URL to view the device in the sensor.
-    - “**u_firmwares**” - array of
-        - “**u_address**”
-        - “**u_module_address**”
-        - “**u_serial**”
-        - “**u_model**”
-        - “**u_version**”
-        - “**u_additional_data**"
+- **timestamp** – the time from which updates are required, only later updates will be returned.
 
-### Deleted devices
+#### Query parameters
 
-#### Request
+- **page** - the page number, from the result set (default value is 1).
+- **size** - the page size (default value is 50).
 
-- Path: “/deleteddevices/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+#### Response type
+
+- **JSON**
+
+#### Response structure
+
+- **u_count** - amount of object in the full result sets, including all pages.
+- **u_connections** - array of:
+    - **u_src_device_id** - the ID of the source device.
+    - **u_dest_device_id** - the ID of the destination device.
+    - **u_connection_type** - one of the following:
+        - **One Way**
+        - **Two Way**
+        - **Multicast**
+
+### Request device data by device ID - /external/v3/integration/device/{deviceId}
+
+This API returns data about a specific device per a given device ID.
+
+#### Method
+
+- **GET**
+
+#### Path parameters
+
+- **deviceId** – the ID of the requested device.
 
 #### Response
 
-- Type: JSON
-- Structure:
-    - Array of
-        - “**u_id**” - the id of the deleted device.
+- **JSON**
 
-### Sensors
+#### Response Structure
 
-#### Request
+- **u_id** - the internal ID of the device.
+- **u_vendor** - the name of the vendor.
+- **u_mac_address_objects** - array of:
+    - **u_mac_address** - mac address of the device.
+- **u_ip_address_objects** - array of:
+    - **u_ip_address** - IP address of the device.
+    - **u_guessed_mac_addresses** - array of:
+        - “**u_mac_address** - guessed mac address.
+- **u_name** - the name of the device.
+- **u_last_activity** - timestamp of the last time the device was active.
+- **u_first_discovered** - timestamp of the discovery time of the device.
+- **u_last_update** - timestamp of the last update time of the device.
+- **u_vlans** - array of:
+    - **u_vlan** - vlan in which the device is in.
+- **u_device_type** - array of:
+    - **u_name** - the device type.
+    - **u_purdue_layer** - the default purdue layer for this device type.
+    - **u_category** - will be one of the following:
+        - **IT**
+        - **ICS**
+        - **IoT**
+        - **Network**
+- **u_operating_system** - the device operating system.
+- **u_protocol_objects** - array of:
+    - **u_protocol** - protocol the device uses.
+- **u_purdue_layer** - the purdue layer that was manually set by the user.
+- **u_sensor_ids** - array of:
+    - **u_sensor_id** - the ID of the sensor that saw the device.
+- **u_device_urls** - array of:
+    - **u_device_url** the URL to view the device in the sensor.
+- **u_firmwares** - array of:
+    - **u_address**
+    - **u_module_address**
+    - **u_serial**
+    - **u_model**
+    - **u_version**
+    - **u_additional_data**
 
-- Path: “/sensors”
-- Method type: GET
+### Request deleted devices - /external/v3/integration/deleteddevices/{timestamp}
 
-#### Response
+This API returns data about deleted devices after the given timestamp.
 
-- Type: JSON
-- Structure:
-    - Array of
-        - “**u_id**” - internal sensor id, to be used in the devices API.
-        - “**u_name**” - the name of the appliance.
-        - “**u_connection_state**” - connectivity with the CM state. One of the following:
-            - “**SYNCED**” - Connection is successful.
-            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
-            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
-            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
-        - “**u_interface_address**” - the network address of the appliance.
-        - “**u_version**” - string representation of the sensor’s version.
-        - “**u_alert_count**” - number of alerts found by the sensor.
-        - “**u_device_count**” - number of devices discovered by the sensor.
-        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
-        - “**u_is_activated**” - is the alert activated.
-        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
-        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
-            - "**UPLOADING**"
-            - "**PREPARE_TO_INSTALL**"
-            - "**STOPPING_PROCESSES**"
-            - "**BACKING_UP_DATA**"
-            - "**TAKING_SNAPSHOT**"
-            - "**UPDATING_CONFIGURATION**"
-            - "**UPDATING_DEPENDENCIES**"
-            - "**UPDATING_LIBRARIES**"
-            - "**PATCHING_DATABASES**"
-            - "**STARTING_PROCESSES**"
-            - "**VALIDATING_SYSTEM_SANITY**"
-            - "**VALIDATION_SUCCEEDED_REBOOTING**"
-            - "**SUCCESS**"
-            - "**FAILURE**"
-            - "**UPGRADE_STARTED**"
-            - "**STARTING_INSTALLATION**"
-            - "**INSTALLING_OPERATING_SYSTEM**"
-        - “**u_uid**” - globally unique identifier of the sensor
+#### Method
 
-### Device CVEs
+- **GET**
 
-#### Request
+#### Path parameters
 
-- Path: “/devicecves/{timestamp}”
-- Method type: GET
-- Path parameters:
-    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
-- Query parameters:
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
+- **timestamp** – the time from which updates are required, only later updates will be returned.
 
 #### Response
 
-- Type: JSON
-- Structure:
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_id**” - the same as in the specific device API.
-    - “**u_name**” - the same as in the specific device API.
-    - “**u_ip_address_objects**” - the same as in the specific device API.
-    - “**u_mac_address_objects**” - the same as in the specific device API.
-    - “**u_last_activity**” - the same as in the specific device API.
-    - “**u_last_update**” - the same as in the specific device API.
-    - “**u_cves**” - an array of CVEs:
-        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
-        - “**u_cve_id**”- the ID of the CVE
-        - “**u_score**”- the risk score of the CVE
-        - “**u_attack_vector**” - one of the following:
-            - "**ADJACENT_NETWORK**"
-            - "**LOCAL**"
-            - "**NETWORK**"
-        - “**u_description**” - description about the CVE.
+- **JSON**
+
+#### Response structure:
+    
+Array of:
+- **u_id** - the ID of the deleted device.
+
+### Request sensor data - external/v3/integration/sensors
+
+This API returns data about the sensor.
+
+#### Method
+
+- **GET**
+
+#### Response
+
+- **JSON**
+
+#### Response structure
+
+Array of:
+
+- **u_id** - internal sensor ID, to be used in the devices API.
+- **u_name** - the name of the appliance.
+- **u_connection_state** - connectivity with the CM state. One of the following:
+    - **SYNCED** - connection is successful.
+    - **OUT_OF_SYNC** - management console cannot process data received from the sensor.
+    - **TIME_DIFF_OFFSET** - time drift detected. management console has been disconnected from the sensor.
+    - **DISCONNECTED** - sensor not communicating with management console. Check network connectivity.
+- **u_interface_address** - the network address of the appliance.
+- **u_version** - string representation of the sensor’s version.
+- **u_alert_count** - number of alerts found by the sensor.
+- **u_device_count** - number of devices discovered by the sensor.
+- **u_unhandled_alert_count** - number of unhandled alerts in the sensor.
+- **u_is_activated** - is the alert activated.
+- **u_data_intelligence_version** - string representation of the data intelligence installed in the sensor.
+- **u_remote_upgrade_stage** - the state of the remote upgrade. Will be one of the following:
+    - **UPLOADING**
+    - **PREPARE_TO_INSTALL**
+    - **STOPPING_PROCESSES**
+    - **BACKING_UP_DATA**
+    - **TAKING_SNAPSHOT**
+    - **UPDATING_CONFIGURATION**
+    - **UPDATING_DEPENDENCIES**
+    - **UPDATING_LIBRARIES**
+    - **PATCHING_DATABASES**
+    - **STARTING_PROCESSES**
+    - **VALIDATING_SYSTEM_SANITY**
+    - **VALIDATION_SUCCEEDED_REBOOTING**
+    - **SUCCESS**
+    - **FAILURE**
+    - **UPGRADE_STARTED**
+    - **STARTING_INSTALLATION**
+    - **INSTALLING_OPERATING_SYSTEM**
+- **u_uid** - globally unique identifier of the sensor.
+- **u_is_in_learning_mode** - boolean indication as to whether the sensor is in Learn mode or not.
+
+### Request all device CVEs - /external/v3/integration/devicecves/{timestamp}
+
+This API returns data about device CVEs after the given timestamp.
+
+#### Method 
+
+- **GET**
+
+#### Path parameters
+
+- **timestamp** – the time from which updates are required, only later updates will be returned.
+
+#### Query parameters
+
+- **page** - defines the page number, from the result set (first page is 0, default value is 0).
+- **size** - defines the page size (default value is 50).
+- **sensorId** - shows results from a specific sensor, as defined by the given sensor ID.
+- **score** - determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. (default value is 0).
+- **deviceIds** -  a comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
+
+#### Response
+
+- **JSON**
+
+#### Response structure
+
+- **u_count** - amount of objects in the full result sets, including all pages.
+- **u_id** - the same as in the specific device API.
+- **u_name** - the same as in the specific device API.
+- **u_ip_address_objects** - the same as in the specific device API.
+- **u_mac_address_objects** - the same as in the specific device API.
+- **u_last_activity** - the same as in the specific device API.
+- **u_last_update** - the same as in the specific device API.
+- **u_cves** - an array of CVEs:
+    - **u_ip_address** - the IP address of the specific interface with the specific firmware on which the CVE was detected.
+    - **u_cve_id**- the ID of the CVE.
+    - **u_score**- the risk score of the CVE.
+    - **u_attack_vector** - one of the following:
+        - **ADJACENT_NETWORK**
+        - **LOCAL**
+        - **NETWORK**
+    - **u_description** - description of the CVE.
 
 ## Next steps
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
-- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

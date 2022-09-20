@@ -4,7 +4,7 @@ description: Learn how extract, transform, and load is used in HDInsight with Ap
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/28/2020
+ms.date: 04/01/2022
 ---
 
 # Extract, transform, and load (ETL) at scale
@@ -98,7 +98,7 @@ HBase adaptability is dependent on the number of nodes in the HDInsight cluster.
 
 Azure offers three PaaS relational databases:
 
-* [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) is an implementation of Microsoft SQL Server. For more information on performance, see [Tuning Performance in Azure SQL Database](../../azure-sql/database/performance-guidance.md).
+* [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is an implementation of Microsoft SQL Server. For more information on performance, see [Tuning Performance in Azure SQL Database](/azure/azure-sql/database/performance-guidance).
 * [Azure Database for MySQL](../../mysql/overview.md)  is an implementation of Oracle MySQL.
 * [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) is an implementation of PostgreSQL.
 

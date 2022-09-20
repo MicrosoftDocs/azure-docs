@@ -1,7 +1,6 @@
 ---
 title: Migrate your dedicated SQL pool (formerly SQL DW) to Gen2 
 description: Instructions for migrating an existing dedicated SQL pool (formerly SQL DW) to Gen2 and the migration schedule by region.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sngun

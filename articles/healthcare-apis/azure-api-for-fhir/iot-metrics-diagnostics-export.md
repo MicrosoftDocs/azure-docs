@@ -6,11 +6,16 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 06/03/2022
 ms.author: jasteppe
 ---
 
 # Export IoT connector for FHIR (preview) Metrics through Diagnostic settings
+
+> [!IMPORTANT]
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 In this article, you'll learn how to export Azure IoT connector for Fast Healthcare Interoperability Resources (FHIR&#174;) Metrics logs. The feature that enables Metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
@@ -58,5 +63,5 @@ For more information about the frequently asked questions of Azure IoT connector
 >[!div class="nextstepaction"]
 >[Frequently asked questions about IoT connector](../../healthcare-apis/iot/iot-connector-faqs.md)
 
-*In the Azure portal, Azure IoT connector for FHIR is referred to as IoT connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT connector for FHIR is referred to as IoT connector (preview). FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

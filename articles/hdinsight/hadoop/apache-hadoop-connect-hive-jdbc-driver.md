@@ -4,7 +4,7 @@ description: Use the JDBC driver from a Java application to submit Apache Hive q
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/20/2020
+ms.date: 06/08/2022
 ---
 
 # Query Apache Hive through the JDBC driver in HDInsight
@@ -30,10 +30,6 @@ JDBC connections to an HDInsight cluster on Azure are made over port 443. The tr
 ```
 
 Replace `CLUSTERNAME` with the name of your HDInsight cluster.
-
-Or you can get the connection through **Ambari UI > Hive > Configs > Advanced**.
-
-:::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png" alt-text="Get JDBC connection string through Ambari" border="true":::
 
 ### Host name in connection string
 

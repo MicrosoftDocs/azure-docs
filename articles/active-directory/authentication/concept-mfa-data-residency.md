@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/01/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: inbarc
 ms.custom: references_regions
 
@@ -26,7 +26,7 @@ The Azure AD multifactor authentication service has datacenters in the United St
 
 * Multifactor authentication phone calls originate from datacenters in the customer's region and are routed by global providers. Phone calls using custom greetings always originate from data centers in the United States.
 * General purpose user authentication requests from other regions are currently processed based on the user's location.
-* Push notifications that use the Microsoft Authenticator app are currently processed in regional datacenters based on the user's location. Vendor-specific device services, such as Apple Push Notification Service, might be outside the user's location.
+* Push notifications that use the Microsoft Authenticator app are currently processed in regional datacenters based on the user's location. Vendor-specific device services, such as Apple Push Notification Service or Google Firebase Cloud Messaging, might be outside the user's location.
 
 ## Personal data stored by Azure AD multifactor authentication
 
@@ -53,7 +53,7 @@ For Azure public clouds, excluding Azure AD B2C authentication, the NPS Extensio
 | Voice call                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported) |
 | Microsoft Authenticator notification | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported)<br/>Change requests when the Microsoft Authenticator device token changes |
 
-For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure operated by 21Vianet, Azure AD B2C authentication, the NPS extension, and the Windows Server 2016 or 2019 AD FS adapter, the following personal data is stored:
+For Microsoft Azure Government, Microsoft Azure operated by 21Vianet, Azure AD B2C authentication, the NPS extension, and the Windows Server 2016 or 2019 AD FS adapter, the following personal data is stored:
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
@@ -125,7 +125,6 @@ The following table shows the location for service logs for sovereign clouds.
 
 | Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
 |--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
-| Microsoft Azure Germany              | Germany                              | United States                              | United States                           |
 | Azure China 21Vianet                 | China                                | United States                              | United States                           |
 | Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 

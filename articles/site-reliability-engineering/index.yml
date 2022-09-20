@@ -23,15 +23,15 @@ highlightedContent:
     # Card
     - title: "Introduction to SRE:  What is SRE? (1/3)"
       itemType: "video"
-      url: https://docs.microsoft.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
+      url: /Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
     # Card
     - title: "Introduction to SRE: Core Principles and Practices (2/3)"
       itemType: "video"
-      url: https://docs.microsoft.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
+      url: /Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
     # Card
     - title: "Introduction to SRE: How to Get Started (3/3)"
       itemType: "video"
-      url: https://docs.microsoft.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+      url: /Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
 
 productDirectory:
    # title: Learn about SRE # < 60 chars (optional)
@@ -149,7 +149,7 @@ conceptualContent:
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: ../azure-monitor/azure-monitor-app-hub.yml
+        - url: ../azure-monitor/app/app-insights-overview.md
           itemType: get-started
           text: Application Performance Management with Application Insights
 

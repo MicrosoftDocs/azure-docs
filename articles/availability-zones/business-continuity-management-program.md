@@ -2,7 +2,7 @@
 title: Business continuity management program in Azure
 description: Learn about one of the most mature business continuity management programs in the industry.
 author: arcorob
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: rarco
@@ -91,4 +91,5 @@ For more information on certifications, see the [Microsoft Trust Center](https:/
 ## Next steps
 
 - [Regions that support availability zones in Azure](az-overview.md)
+- [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Quickstart templates](https://aka.ms/azqs)

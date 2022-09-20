@@ -22,7 +22,7 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 ## Prerequisites
 
-+ A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
++ A Cognitive Search service at a Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
 
 + [Semantic search enabled on your search service](semantic-search-overview.md#enable-semantic-search). 
 
@@ -101,18 +101,17 @@ Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configura
 
 ### [**Azure portal**](#tab/portal)
 
-To create a semantic configuration in the Azure portal:
+1. [Sign in to Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
-1. Open the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
-
-1. Navigate to the index you want to add a semantic configuration to.
+1. Open an index.
 
 1. Select **Semantic Configurations** and then select **Add Semantic Configuration**.
 
-1. At this point, a wizard will appear allowing you to select a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order. After you're finished, select **OK** and then save the changes.
+   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
 
-:::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
+   Select **OK** to save the changes.
 
+   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
 
 ### [**REST API**](#tab/rest)
 

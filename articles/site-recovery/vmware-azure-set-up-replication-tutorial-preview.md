@@ -13,7 +13,7 @@ This article describes how to enable replication for on-premises VMware VMs, for
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 
-This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md) for disaster recovery to Azure.
 
 
 In this tutorial, you learn how to:
@@ -23,19 +23,15 @@ In this tutorial, you learn how to:
 > * Set up the replication target settings.
 > * Enable replication for a VMware VM.
 
-> [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
-
 ## Get started
 
 VMware to Azure replication includes the following procedures:
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- To get started, navigate to [Azure preview portal](https://aka.ms/rcmcanary). And do the steps detailed in the following sections.
-- Prepare Azure account
-- Prepare infrastructure
+- Prepare an Azure account.
+- Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
-- [Deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
+- Prepare infrastructure - [deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md)
 - Enable replication
 
 ## Prepare Azure account
@@ -66,6 +62,28 @@ Use the following steps to assign the required permissions:
 
 2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
 
+## Prepare an account for automatic discovery
+
+Site Recovery needs access to VMware servers to:
+
+- Automatically discover VMs. At least a read-only account is required.
+- Orchestrate replication, failover, and failback. You need an account that can run operations such
+  as creating and removing disks, and powering on VMs.
+
+Create the account as follows:
+
+1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
+   **Azure_Site_Recovery**.
+2. Assign the role the permissions summarized in the table below.
+3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+
+### VMware account permissions
+
+**Task** | **Role/Permissions** | **Details**
+--- | --- | ---
+**VM discovery** | At least a read-only user<br/><br/> Data Center object -> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots, Create snapshot, Revert snapshot.| User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
 You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview.md) to channel mobility agent communications.
@@ -80,7 +98,7 @@ Ensure the [pre-requisites](vmware-physical-azure-support-matrix.md) across stor
 
 Follow these steps to enable replication:
 
-1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Preview)** under the VMware section.
+1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Preview)** under the VMware section.
 
 2. Choose the machine type you want to protect through Azure Site Recovery.
 
@@ -89,11 +107,11 @@ Follow these steps to enable replication:
 
    ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-preview/select-source.png)
 
-3. After choosing the virtual machines, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
+3. After choosing the machine type, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
-4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
+4.4.	Search the source machine name to protect it. To review the selected machines, select **Selected resources**.
 
-5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
@@ -114,9 +132,9 @@ Follow these steps to enable replication:
 9. Select the storage.
 
     - Cache storage account:
-      Now, choose the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
+      Now, choose the cache storage account which Azure Site Recovery uses for staging purposes - caching and storing logs before writing the changes on to the managed disks.
 
-      By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
+      By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
     -  Managed disks
 
        By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -126,19 +144,19 @@ Follow these steps to enable replication:
 
 10. Create a new replication policy if needed.
 
-     A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
+     A default replication policy gets created under the vault with 3 days recovery point retention and app-consistent recovery points disabled by default. You can create a new replication policy or modify the existing one as per your RPO requirements.
 
      - Select **Create new**.
 
-     - Enter the Name.
+     - Enter the **Name**.
 
-     - Enter **Recovery point retention** in hours
+     - Enter a value for **Retention period (in days)**. You can enter any value ranging from 0 to 15.
 
-     - Select **App-consistent snapshot frequency in hours** as per business requirements
+     - **Enable app consistency frequency** if you wish and enter a value for **App-consistent snapshot frequency (in hours)** as per business requirements.
 
      - Select **OK** to save the policy.
 
-     The policy will be created and can used for protecting the chosen source machines.
+     The policy will be created and can be used for protecting the chosen source machines.
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 

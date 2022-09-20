@@ -4,14 +4,14 @@ titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
-manager: twooley
+author: greg-lindsay
+manager: kumud
 ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2018
-ms.author: allensu
+ms.date: 04/22/2022
+ms.author: greglin
 ---
 
 # Nested Traffic Manager profiles
@@ -89,6 +89,16 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
+## Example 6:  Endpoint monitoring with Multivalue Nested Profiles using IPv4 and IPv6 endpoints
+
+Suppose you have both IPv4 and IPv6 nested children endpoints, and you want to set thresholds for minimum children healthy for both. There are new parameters that will enable you to define the minimum number of these healthy endpoints that are expected for each type. The parameters **Minimum IPv4 endpoints** and **Minimum IPv6 endpoints** will determine the minimum number of healthy endpoints needed for each parameter, in order for the parent to be marked as healthy. 
+
+The default number for the total minimum child endpoints is always 1, and the default number for IPv4 and IPv6 endpoints is 0 to ensure backwards compatibility. 
+
+![Traffic Manager min-child behavior][11]
+
+In this example, the **East US** endpoint is unhealthy, because it doesn't satisfy the requirement to have at least 1 healthy IPv4 endpoint, which is set by the **ipv4-min-child** property. 
+
 ## FAQs
 
 * [How do I configure nested profiles?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
@@ -120,3 +130,4 @@ Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-mana
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
+[11]: ./media/traffic-manager-nested-profiles/figure-11.png

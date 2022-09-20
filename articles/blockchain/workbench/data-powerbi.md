@@ -1,12 +1,14 @@
 ---
 title: Use Azure Blockchain Workbench data in Microsoft Power BI
 description: Learn how to load and view Azure Blockchain Workbench SQL DB data in Microsoft Power BI.
-ms.date: 04/22/2020
+ms.date: 02/18/2022
 ms.topic: how-to
 ms.reviewer: sunri
 #Customer intent: As a developer, I want to load and view Azure Blockchain Workbench data in Power BI for analysis.
 ---
 # Using Azure Blockchain Workbench data with Microsoft Power BI
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Microsoft Power BI provides the ability to easily generate powerful reports from SQL DB databases using Power BI Desktop and then publish them to [https://www.powerbi.com](https://www.powerbi.com).
 

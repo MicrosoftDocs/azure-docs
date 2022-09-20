@@ -1,9 +1,9 @@
 ---
 title: Understand Azure IoT Hub cloud-to-device messaging | Microsoft Docs
 description: This developer guide discusses how to use cloud-to-device messaging with your IoT hub. It includes information about the message life cycle and configuration options.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -145,7 +145,7 @@ You can set the configuration options in one of the following ways:
 
 :::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="Set configuration options for cloud-to-device messaging in the portal" border="true":::
 
-* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) command:
+* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) command:
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

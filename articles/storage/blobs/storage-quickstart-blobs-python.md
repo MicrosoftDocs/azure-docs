@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Azure Blob Storage library v12 - Python'
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: normesta
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 01/28/2021
 ms.topic: quickstart
 ms.service: storage
@@ -46,12 +46,6 @@ Create a Python application named *blob-quickstart-v12*.
 
     ```console
     cd blob-quickstart-v12
-    ```
-
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This directory is where the blob data files will be created and stored.
-
-    ```console
-    mkdir data
     ```
 
 ### Install the package

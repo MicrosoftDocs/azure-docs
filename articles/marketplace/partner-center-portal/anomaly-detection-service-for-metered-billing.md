@@ -4,7 +4,7 @@ description: Describes how anomaly detection works, when notifications are sent 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 1/21/2022
 author: arifgani
 ms.author: argani
 ---
@@ -62,18 +62,14 @@ If one of the following cases applies, you can adjust the usage amount in Partne
 
 To submit a support ticket related to metered billing anomalies:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
-1. On the Home page, select the **Help + support** tile.
-
-    [ ![Illustrates the Help and Support tile on the Partner Center home page.](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
-
-1. Under **My support requests**, select **+ New request**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the **Help** icon (?).
 1. In the **Problem summary** box, enter **metered billing**.
+1. In the **Workspace list**, select **Marketplace Offers**.
 1. In the **Problem type** box, select one of the following:
-    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer**
-    - **Commercial Marketplace > Metered Billing > Wrong usage sent for SaaS offer**
-1. Under **Next step**, select **Review solutions**.
-1. Review the recommended documents, if any or select **Provide issue details** to submit a support ticket.
+    - **Metered Billing > Wrong usage sent for Azure Applications offer**
+    - **Metered Billing > Wrong usage sent for SaaS offer**
+1. Select **Review solutions**.
+1. Review the recommended documents, if any or select **Contact Support** to submit a support ticket.
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
 

@@ -3,13 +3,11 @@ metadata:
   title: Microsoft Defender for Cloud FAQ - General questions
   description: Frequently asked general questions about Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/09/2021
-    
-    
 title: FAQ - General questions about Microsoft Defender for Cloud
 summary: |
 

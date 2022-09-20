@@ -1,15 +1,17 @@
 ---
 title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: What is a server group in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 07/15/2022
 ---
 
 # Hyperscale (Citus) server group
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Nodes
 
@@ -39,6 +41,22 @@ values:
   states. For more information about subscription states, see [this
   page](../../cost-management-billing/manage/subscription-states.md).
 
+### Node availability zone
+
+Hyperscale (Citus) displays the [availability
+zone](../../availability-zones/az-overview.md#availability-zones) of each node
+in a server group on the Overview page in the Azure portal. The **Availability
+zone** column contains either the name of the zone, or `--` if the node isn't
+assigned to a zone. (Only [certain
+regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
+support availability zones.)
+
+If high availability is enabled for the server group, and a node [fails
+over](concepts-high-availability.md) to a standby, you may see its availability
+zone differs from the other nodes. In this case, the nodes will be moved back
+into the same availability zone together during the next [maintenance
+window](concepts-maintenance.md).
+
 ## Tiers
 
 The basic tier in Azure Database for PostgreSQL - Hyperscale (Citus) is a
@@ -59,14 +77,33 @@ applications with the basic tier and later [graduate to the standard
 tier](howto-scale-grow.md#add-worker-nodes) with confidence that the
 interface remains the same.
 
-The basic tier is also appropriate for smaller workloads in production. There
-is room to scale vertically *within* the basic tier by increasing the number of
+The basic tier is also appropriate for smaller workloads in production. There’s
+room to scale vertically *within* the basic tier by increasing the number of
 server vCores.
 
 When greater scale is required right away, use the standard tier. Its smallest
 allowed server group has one coordinator node and two workers. You can choose
 to use more nodes based on your use-case, as described in our [initial
 sizing](howto-scale-initial.md) how-to.
+
+#### Tier summary
+
+**Basic tier**
+
+* 2 to 8 vCores, 8 to 32 gigabytes of memory.
+* Consists of a single database node, which can be scaled vertically.
+* Supports sharding on a single node and can be easily upgraded to a standard tier.
+* Economical deployment option for initial development, testing.
+
+**Standard tier**
+
+* 8 to 1000+ vCores, up to 8+ TiB memory
+* Distributed Postgres cluster, which consists of a dedicated coordinator
+  node and at least two worker nodes.
+* Supports Sharding on multiple worker nodes. The cluster can be scaled
+  horizontally by adding new worker nodes, and scaled vertically by
+  increasing the node vCores.
+* Best for performance and scale.
 
 ## Next steps
 

@@ -102,7 +102,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create) command:
+To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 
 ```azurecli
 az apim api operation create --resource-group apim-hello-word-resource-group \
@@ -110,14 +110,14 @@ az apim api operation create --resource-group apim-hello-word-resource-group \
     --url-template /test --service-name apim-hello-world 
 ```
 
-Run the [az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list) command to see all your operations for an API:
+Run the [az apim api operation list](/cli/azure/apim/api/operation#az-apim-api-operation-list) command to see all your operations for an API:
 
 ```azurecli
 az apim api operation list --resource-group apim-hello-word-resource-group \
     --api-id test-api --service-name apim-hello-world --output table
 ```
 
-To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete) command. Get the operation ID from the previous command.
+To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az-apim-api-operation-delete) command. Get the operation ID from the previous command.
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \

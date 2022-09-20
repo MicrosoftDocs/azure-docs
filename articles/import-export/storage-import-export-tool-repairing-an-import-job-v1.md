@@ -3,11 +3,10 @@ title: Repairing an Azure Import/Export import job - v1 | Microsoft Docs
 description: Learn how to repair an import job that was created and run using the Azure Import/Export service.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ---
 
 # Repairing an import job

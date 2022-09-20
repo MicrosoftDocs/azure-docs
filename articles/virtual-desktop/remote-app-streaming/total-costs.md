@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 02/04/2022
 ms.author: helohr
 manager: femila
 ---
@@ -31,7 +31,7 @@ In Azure Virtual Desktop, session host VMs use the following three Azure service
 - Storage for managed disks (including OS storage per VM and any data disks for personal desktops)
 - Bandwidth (networking)
 
-These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. You can view [Monitor Windows Virtual Desktop cost pricing estimates](../azure-monitor-costs.md) for more information.
+These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. For more information, see [Estimate Azure Virtual Desktop monitoring costs](../azure-monitor-costs.md).
 
 Of the three primary VM session host usage costs that are listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](../set-up-scaling-script.md).
 
@@ -80,7 +80,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 3. Enter the values for your deployment into the fields to estimate your monthly Azure bill based on your expected compute, storage, and networking usage.
 
 >[!NOTE]
->Currently, the Azure Pricing Calculator Azure Virtual Desktop module can only estimate consumption costs for session host VMs and the aggregate additional storage of any optional Azure Virtual Desktop features requiring storage that you choose to deploy. However, you can add estimates for other Azure Virtual Desktop features in separate modules within the same Azure Pricing calculator page to get a more complete or modular cost estimate.
+>Currently, the Azure Pricing Calculator Azure Virtual Desktop module can only estimate consumption costs for session host VMs and the aggregate additional storage of any optional Azure Virtual Desktop features requiring storage that you choose to deploy. Your total cost may also include egress network traffic to Microsoft 365 services, such as OneDrive for Business or Exchange Online. However, you can add estimates for other Azure Virtual Desktop features in separate modules within the same Azure Pricing calculator page to get a more complete or modular cost estimate.
 >
 >You can add extra Azure Pricing Calculator modules to estimate the cost impact of other components of your deployment, including but not limited to:
 >

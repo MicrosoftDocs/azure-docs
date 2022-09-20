@@ -36,7 +36,7 @@ This video provides an introduction to some of the complex solutions that you ca
 
 Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, the service will automatically take the schema from the dataset and create a projection from that dataset schema definition.
 
-In a source transformation, schema drift is defined as reading columns that aren't defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
+In a source transformation, schema drift is defined as reading columns that aren't defined in your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
 
 :::image type="content" source="media/data-flow/schemadrift001.png" alt-text="Schema drift source":::
 
@@ -73,4 +73,4 @@ In the generated Derived Column transformation, each drifted column is mapped to
 :::image type="content" source="media/data-flow/mapdrifted2.png" alt-text="Screenshot shows the Derived Column's Settings tab.":::
 
 ## Next steps
-In the [Data Flow Expression Language](data-flow-expression-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".
+In the [Data Flow Expression Language](data-transformation-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".
