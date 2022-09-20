@@ -8,14 +8,12 @@ ms.date: 09/20/2022
 ms.author: juliako
 ---
 
-# Enable and view textless slate with scene matching (preview)
+# Enable and view a textless slate with matching scene (preview)
 
-This article shows how to enable a textless slate detection, including scene matching. 
-
-In order to set the index process to include the detection of audio effects, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+This article shows how to enable and view  a textless slate with matching scene (preview). In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="Index Audio Effects image":::
+> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::
 
 ## View the insight
 
@@ -28,5 +26,5 @@ In order to set the index process to include the detection of audio effects, the
 ## Next steps
 
 * [Slate detection overview](slate-detection-insight.md)
-* [How to enable and view clapper board with metadata extraction](clapper-board-metadata.md).
+* [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
 * [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md).
