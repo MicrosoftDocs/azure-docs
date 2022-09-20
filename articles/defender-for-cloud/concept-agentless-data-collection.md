@@ -51,7 +51,4 @@ Agentless scanning does not yet support encrypted disks, except for Azure Disk E
 
 This article explains how agentless scanning works and how it helps you collect data from your machines.
 
-Learn more about:
-
-- How to [enable agentless scanning]()
-- 
+Learn more about how to [enable vulnerability assessment with agentless scanning](deploy-vulnerability-assessment-agentless.md).
