@@ -29,12 +29,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
   At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) isn't supported when using Search with managed identities to connect to Cosmos DB.
 
-You should be familiar with indexer concepts and configuration. If you're new to indexers, start with these links:
-
-* [Indexer overview](search-indexer-overview.md)
-* [Azure Cosmos DB indexer (SQL API)](search-howto-index-cosmosdb.md)
-* [Azure Cosmos DB indexer (MongoDB API - preview)](search-howto-index-cosmosdb-mongodb.md)
-* [Azure Cosmos DB indexer (Gremlin API - preview)](search-howto-index-cosmosdb-gremlin.md)
+* You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
 
 ## Create the data source
 

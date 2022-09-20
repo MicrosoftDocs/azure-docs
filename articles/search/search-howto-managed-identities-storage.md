@@ -13,9 +13,9 @@ ms.date: 09/19/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Set up a connection to an Azure Storage account using a managed identity
+# Set up an indexer connection to an Azure Storage account using a managed identity
 
-This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string. 
+This article explains how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Storage. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -26,21 +26,16 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role to the managed identity](search-howto-managed-identities-data-sources.md#assign-a-role): 
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Storage: 
 
   * Choose **Storage Blob Data Reader** for data read access in Blob Storage and ADLS Gen2. 
 
   * Choose **Reader and Data** for data read access in Table Storage and File Storage.
 
-You should be familiar with indexer concepts and configuration. If you're new to indexers, start with these links:
+* You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-indexing-azure-blob-storage.md).
 
-* [Indexer overview](search-indexer-overview.md)
-* [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
-* [Azure Data Lake Storage (ADLS) Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-* [Azure Table indexer](search-howto-indexing-azure-tables.md)
-* [Azure Files indexer (preview)](search-file-storage-integration.md)
-
-For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
+> [!TIP]
+> For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Create the data source
 

@@ -14,7 +14,7 @@ ms.date: 09/19/2022
 
 # Set up an indexer connection to Azure SQL Database using a managed identity
 
-This article describes how to set up an Azure Cognitive Search indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
+This article explains how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure SQL.
 
@@ -22,14 +22,9 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* Azure AD admin role on SQL:
+* [Assign an Azure admin role on SQL](/azure/azure-sql/database/authentication-aad-configure). The identity used on the indexer connection needs read permissions. You must be an Azure AD admin with a server in SQL Database or SQL Managed Instance to grant reade permissions on a database.
 
-  To assign read permissions on the database, you must be an Azure AD admin with a server in SQL Database or SQL Managed Instance. See [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin.
-
-You should be familiar with indexer concepts and configuration. If you're new to indexers, start with these links:
-
-* [Indexer overview](search-indexer-overview.md)
-* [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
 ## 1 - Assign permissions to read the database
 
