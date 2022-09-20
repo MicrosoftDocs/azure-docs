@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: bmansheim
 ms.author: benmansheim
 ms.topic: reference
-ms.date: 09/20/202
+ms.date: 09/20/2022
 
 # What's new in Microsoft Defender for Cloud?
 
