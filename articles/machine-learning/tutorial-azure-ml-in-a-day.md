@@ -21,7 +21,7 @@ Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a mod
 
 You'll learn how to submit a *command job* to run your *training script* on a specified *compute resource*, configured with the *job environment* necessary to run the script.
 
-The *training script* handles the data preparation, then trains and registers a model. Once you have the model, you'll deploy it as an endpoint, then call the endpoint for inferencing.
+The *training script* handles the data preparation, then trains and registers a model. Once you have the model, you'll deploy it as an *endpoint*, then call the endpoint for inferencing.
 
 The steps you'll take are:
 
