@@ -12,7 +12,7 @@ ms.date: 09/20/2022
 
 # Training - Azure Cognitive Search
 
-Visit the following links to begin your learning with prepared lessons.
+Training modules deliver an end-to-end experience that build skills and insights over a progression of exercises. Visit the following links to begin your learning with prepared lessons from Microsoft and other training providers.
 
 + [Introduction to Azure Cognitive Search (Microsoft)](/training/modules/intro-to-azure-search/)
 + [Implement knowledge mining with Azure Cognitive Search (Microsoft)](/training/paths/implement-knowledge-mining-azure-cognitive-search/)
