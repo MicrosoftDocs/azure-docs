@@ -27,7 +27,9 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Important considerations and restrictions
 
-To learn about important considerations and restrictions to consider when configuring a federated identity credential, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
+[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
+
+To learn more about supported regions, time to propagate federated credential updates, supported issuers and more, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 
 ::: zone pivot="identity-wif-mi-methods-azp"
 
@@ -278,15 +280,17 @@ Resource Manager templates help you deploy new or modified resources defined by 
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Federated identity credential and parent user assigned identity can be created or updated be means of template below.  You can [deploy ARM templates](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal) from Azure Portal.
+Federated identity credential and parent user assigned identity can be created or updated be means of template below.  You can [deploy ARM templates](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal) from the [Azure portal](https://portal.azure.com).
 
 All of the template parameters are mandatory.
 
-There is a limit of 3-120 symbols for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
+There is a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
-You must add exactly 1 audience to a Federated Credential, this gets verified during token exchange. Please use “api://AzureADTokenExchange” as the default value.
+You must add exactly 1 audience to a federated identity credential, this gets verified during token exchange. Please use “api://AzureADTokenExchange” as the default value.
 
-List, Get, and Delete operations are not available with template. Please refer to Azure CLI for this.
+List, Get, and Delete operations are not available with template. Please refer to Azure CLI for this.  By default, all child federated identity credentials are created in parallel which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property. 
+
+Make sure that any kind of automation creates federated identity credentials under the same parent identity sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
 ```json
 { 

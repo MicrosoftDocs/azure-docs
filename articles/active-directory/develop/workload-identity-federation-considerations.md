@@ -27,29 +27,9 @@ A maximum of 20 federated identity credentials can be added to an application or
 
 Federated identity credentials do not consume the Azure AD tenant service principal object quota.
 
-When you configure a federated identity credential, there are several important pieces of information to provide:
+[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
 
-- *issuer* and *subject* are the key pieces of information needed to set up the trust relationship. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-    *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged. Required. If the `issuer` claim has leading or trailing whitespace in the value, the token exchange is blocked. This field has a character limit of 600 characters.
-    
-    *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. This field has a character limit of 600 characters.
-    
-    > [!IMPORTANT]
-    > The *subject* setting values must exactly match the configuration on the GitHub workflow configuration.  Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
-    
-    > [!IMPORTANT]
-    > If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-- *audiences* lists the audiences that can appear in the external token.  Required. You must add a single audience value which has a limit of 600 characters. The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.  
-
-- *name* is the unique identifier for the federated identity credential. Required.  This field has a character limit of 3-120 characters and must be URL friendly. Alphanumeric, dash, or underscore characters are supported, the first character must be alphanumeric only.  It is immutable once created.
-
-- *description* is the user-provided description of the federated identity credential.  Optional. The description is not validated or checked by Azure AD. This field has a limit of 600 characters.
-
-Wildcard characters are not supported in any federated identity credential property value.
-
-## Un-supported regions (user-assigned managed identities)
+## Unsupported regions (user-assigned managed identities)
 
 During the public preview of workload identity federation for user-assigned managed identities, the creation of federated identity credentials is available on user-assigned managed identities created in most Azure regions. However, creation of federated identity credentials is **not supported** on user-assigned managed identities in the following regions:
 
@@ -91,7 +71,9 @@ Creating multiple federated identity credentials under the same user-assigned ma
 
 Make sure that any kind of automation creates federated identity credentials under the same parent identity sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
-Important consideration for Azure Resource Manager template (ARM template) deployments comes from this limitation. By default, all the child federated identity credentials are created in parallel due to ARM internal logic. To create them sequentially, specify a chain of dependencies using the *dependsOn* property. Here is a sample: 
+Important consideration for Azure Resource Manager template (ARM template) deployments comes from this limitation. By default, all the child federated identity credentials are created in parallel due to ARM internal logic. To create them sequentially, specify a chain of dependencies using the *dependsOn* property. 
+
+The following example creates three new federated identity credentials on a user-assigned managed identity: 
 
 ```json
 { 

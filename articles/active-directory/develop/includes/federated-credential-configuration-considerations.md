@@ -17,8 +17,6 @@ ms.custom: aaddev
 
 A maximum of 20 federated identity credentials can be added to an application or user-assigned managed identity.
 
-Federated identity credentials do not consume the Azure AD tenant service principal object quota.
-
 When you configure a federated identity credential, there are several important pieces of information to provide:
 
 - *issuer* and *subject* are the key pieces of information needed to set up the trust relationship. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.

@@ -27,7 +27,9 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Important considerations and restrictions
 
-To learn about important considerations and restrictions to consider when configuring a federated identity credential, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
+[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
+
+To learn more about supported regions, time to propagate federated credential updates, supported issuers and more, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 
 ::: zone pivot="identity-wif-apps-methods-azp"
 
