@@ -29,7 +29,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 2. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
 
-   :::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Select diagnostics":::
+   :::image type="content" source="./media/monitor/diagnostics-settings-selection.png" alt-text="Select diagnostics":::
 
 
 3. In the **Diagnostic settings** pane, fill the form with your preferred categories.
@@ -50,7 +50,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 4. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
-    :::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
+    :::image type="content" source="./media/monitor/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
 ## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
@@ -160,11 +160,11 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 1. To enable this feature, navigate to the `Features` blade in your Azure Cosmos DB account.
    
-   :::image type="content" source="./media/monitor-cosmos-db/full-text-query-features.png" alt-text="Navigate to Features blade":::
+   :::image type="content" source="./media/monitor/full-text-query-features.png" alt-text="Navigate to Features blade":::
 
 2. Select `Enable`, this setting will then be applied in the within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
    
-    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable full-text":::
+    :::image type="content" source="./media/monitor/select-enable-full-text.png" alt-text="Select enable full-text":::
 
 To learn how to query using this newly enabled feature visit [advanced queries](advanced-queries.md).
 
