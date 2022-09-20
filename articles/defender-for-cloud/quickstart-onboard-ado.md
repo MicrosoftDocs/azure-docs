@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
-ms.date: 09/12/2022
+ms.date: 09/20/2022
 ms.topic: quickstart
 ---
 
@@ -22,9 +22,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 
 ## Prerequisites
 
-
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 
 ## Availability
 
@@ -32,7 +30,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 |--|--|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 | Pricing: | The Defender for DevOps plan is free during the Preview. <br><br> After which it will be billed. Pricing to be determined at a later date. |
-| Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **Azure DevOps Organization Administrator**  <br> Third-party applications can gain access using an OAuth which must be set to `On` . [Learn more about Oath](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
+| Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **Azure DevOps Organization Administrator**  <br> Third-party applications can gain access using an OAuth, which must be set to `On` . [Learn more about Oath](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Connect your Azure DevOps organization
@@ -47,13 +45,12 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 
 1. Select **Azure DevOps**.
 
-    :::image type="content" source="media/quickstart-onboard-ado/devop-connector.png" alt-text="Screenshot that shows you where to navigate to select the DevOps connector.":::
+    :::image type="content" source="media/quickstart-onboard-ado/devop-connector.png" alt-text="Screenshot that shows you where to navigate to select the DevOps connector." lightbox="media/quickstart-onboard-ado/devop-connector.png":::
 
 1. Enter a name, select a subscription, resource group, and region.
 
     > [!NOTE] 
     > The subscription will be the location where Defender for DevOps will create and store the Azure DevOps connection.
-
 
 1. Select **Next: Select plans**.
 

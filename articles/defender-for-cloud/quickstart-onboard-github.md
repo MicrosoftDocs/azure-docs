@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
-ms.date: 09/12/2022
+ms.date: 09/20/2022
 ms.topic: quickstart
 ---
 
@@ -44,7 +44,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 
 1. Select **GitHub**.
 
-    :::image type="content" source="media/quickstart-onboard-github/select-github.png" alt-text="Screenshot that shows you where to select, to select GitHub.":::
+    :::image type="content" source="media/quickstart-onboard-github/select-github.png" alt-text="Screenshot that shows you where to select, to select GitHub." lightbox="media/quickstart-onboard-github/select-github.png":::
 
 1. Enter a name, select your subscription, resource group, and region.
 

@@ -53,79 +53,79 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
     
     1. Copy all the information in the file.
 
-    ```Bash
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "webAppName": {
-          "type": "string",
-          "defaultValue": "AzureLinuxApp",
-          "metadata": {
-            "description": "Base name of the resource such as web app name and app service plan "
-          },
-          "minLength": 2
-        },
-        "sku": {
-          "type": "string",
-          "defaultValue": "S1",
-          "metadata": {
-            "description": "The SKU of App Service Plan "
-          }
-        },
-        "linuxFxVersion": {
-          "type": "string",
-          "defaultValue": "php|7.4",
-          "metadata": {
-            "description": "The Runtime stack of current web app"
-          }
-        },
-        "location": {
-          "type": "string",
-          "defaultValue": "[resourceGroup().location]",
-          "metadata": {
-            "description": "Location for all resources."
-          }
-        }
-      },
-      "variables": {
-        "webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]",
-        "appServicePlanName": "[concat('AppServicePlan-', parameters('webAppName'))]"
-      },
-      "resources": [
+        ```Bash
         {
-          "type": "Microsoft.Web/serverfarms",
-          "apiVersion": "2020-06-01",
-          "name": "[variables('appServicePlanName')]",
-          "location": "[parameters('location')]",
-          "sku": {
-            "name": "[parameters('sku')]"
-          },
-          "kind": "linux",
-          "properties": {
-            "reserved": true
-          }
-        },
-        {
-          "type": "Microsoft.Web/sites",
-          "apiVersion": "2020-06-01",
-          "name": "[variables('webAppPortalName')]",
-          "location": "[parameters('location')]",
-          "kind": "app",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
-          ],
-          "properties": {
-            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-            "siteConfig": {
-              "linuxFxVersion": "[parameters('linuxFxVersion')]"
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "webAppName": {
+              "type": "string",
+              "defaultValue": "AzureLinuxApp",
+              "metadata": {
+                "description": "Base name of the resource such as web app name and app service plan "
+              },
+              "minLength": 2
+            },
+            "sku": {
+              "type": "string",
+              "defaultValue": "S1",
+              "metadata": {
+                "description": "The SKU of App Service Plan "
+              }
+            },
+            "linuxFxVersion": {
+              "type": "string",
+              "defaultValue": "php|7.4",
+              "metadata": {
+                "description": "The Runtime stack of current web app"
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
-          }
+          },
+          "variables": {
+            "webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]",
+            "appServicePlanName": "[concat('AppServicePlan-', parameters('webAppName'))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Web/serverfarms",
+              "apiVersion": "2020-06-01",
+              "name": "[variables('appServicePlanName')]",
+              "location": "[parameters('location')]",
+              "sku": {
+                "name": "[parameters('sku')]"
+              },
+              "kind": "linux",
+              "properties": {
+                "reserved": true
+              }
+            },
+            {
+              "type": "Microsoft.Web/sites",
+              "apiVersion": "2020-06-01",
+              "name": "[variables('webAppPortalName')]",
+              "location": "[parameters('location')]",
+              "kind": "app",
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+              ],
+              "properties": {
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+                "siteConfig": {
+                  "linuxFxVersion": "[parameters('linuxFxVersion')]"
+                }
+              }
+            }
+          ]
         }
-      ]
-    }
-    ```
-
+        ```
+    
     1. On GitHub, navigate to your repository.
     
     1. **Select Add file** > **Create new file**.
