@@ -88,7 +88,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 Learn how to query data by using the Azure Cosmos DB for Table. 
 
 > [!div class="nextstepaction"]
->[How to query data?](tutorial-query-table.md)
+>[How to query data?](tutorial-query.md)
 
 
 

@@ -22,9 +22,9 @@
       displayName: import
       href: import.md
     - name: 2 - Query data
-      href: tutorial-query-table.md
+      href: tutorial-query.md
     - name: 3 - Distribute data globally
-      href: tutorial-global-distribution-table.md
+      href: tutorial-global-distribution.md
 - name: Samples
   items:
     - name: .NET
@@ -252,7 +252,7 @@
                 - name: Read an item
                   href: how-to-dotnet-read-item.md
         - name: Build apps with API for Table
-          href: table-support.md
+          href: support.md
         - name: Create a table - API for Table
           href: how-to-create-container.md
         - name: Find request unit charge

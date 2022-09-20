@@ -28,4 +28,4 @@ landingContent:
       - linkListType: concept
         links:
           - text: Differences between API for Table and Azure Table storage
-            url: table-support.md
+            url: support.md

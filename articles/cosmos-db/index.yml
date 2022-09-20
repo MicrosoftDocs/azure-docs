@@ -112,7 +112,7 @@ additionalContent:
         - title: Table
           links:
             - text: Build apps with API for Table
-              url: table/table-support.md
+              url: table/support.md
             - text: Find request unit charge
               url: table/find-request-unit-charge.md
             - text: FAQ
