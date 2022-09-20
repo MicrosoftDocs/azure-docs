@@ -186,15 +186,11 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 
 ## Connect a volume
 
-# [Portal](#tab/azure-portal)
-
-You must use either the Azure PowerShell module or the Azure CLI to connect to a volume.
-
-# [PowerShell](#tab/azure-powershell)
+### Windows
 
 You'll need to construct a command to connect to your volume from a client.
 
-```azurepowershell
+```powershell
 # Get the target name and iSCSI portal name to connect a volume to a virtual network 
 $connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $searchedVolumeGroup -Name $searchedVolume
 $storageTargetIQN = $connectVolume.storagetargetiqn
@@ -212,7 +208,7 @@ iscsicli LoginTarget $storageTargetIQN t $portalName $port Root\ISCSIPRT\0000_0 
 
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### Linux
 
 First, get the information from the volume you'd like to connect to using the following command:
 
@@ -230,10 +226,8 @@ Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, 
 
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands.
 
-```azurecli
+```bash
 iscsiadm -m node --target LoginTarget **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
 
 iscsiadm -m node --targetname LoginTarget **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```
-
----
