@@ -16,7 +16,7 @@ This guide describes how to migrate or convert Azure Storage accounts to add ava
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
 
-By default, data in a storage account is replicated in a single data center in the primary region. If your application must be highly available, you can migrate the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
+By default, data in a storage account is replicated in a single data center in the primary region. If your application must be highly available, you can convert the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
 
 Azure Storage offers the following types of replication:
 
@@ -29,8 +29,8 @@ For an overview of each of these options, see [Azure Storage redundancy](../stor
 
 This article describes two basic options for adding availability zone support to a storage account:
 
-- [Conversion](#option-1-conversion)
-- [Manual migration](#option-2-manual-migration)
+- [Conversion](#option-1-conversion): If your application must be highly available, you can convert the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
+- [Manual migration](#option-2-manual-migration): Manual migration gives you complete control over the migration process by allowing you to use tools such as AzCopy move to a new storage account with the desired replication settings at the time of your choosing.
 
 > [!NOTE]
 > For complete details on how to change how your storage account is replicated, see [Change how a storage account is replicated](../storage/common/redundancy-migration.md).

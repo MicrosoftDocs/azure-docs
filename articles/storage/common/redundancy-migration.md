@@ -15,8 +15,6 @@ ms.custom: devx-track-azurepowershell
 
 # Change how a storage account is replicated
 
-In this article, you will learn how to change the replication setting(s) for an existing storage account.
-
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
 A combination of three factors determine how your storage account is replicated and accessible:
@@ -26,6 +24,8 @@ A combination of three factors determine how your storage account is replicated 
 - **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
 
 For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
+
+In this article, you will learn how to change the replication setting(s) for an existing storage account.
 
 ## Before you make any changes
 
