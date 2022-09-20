@@ -87,7 +87,7 @@ You can learn more about each type of join and how to plan for them here:
      :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Create highlighted.":::
 
 1. Follow the steps on the appropriate tab to create your network connection.
-   #### [Azure AD join](#tab/AzureADJoin/)
+   #### [**Azure AD join**](#tab/AzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -102,7 +102,7 @@ You can learn more about each type of join and how to plan for them here:
 
    :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
 
-   #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
+   #### [**Hybrid Azure AD join**](#tab/HybridAzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -123,7 +123,7 @@ You can learn more about each type of join and how to plan for them here:
 
  ---
 
-For Azure AD join and Hybrid Azure AD join, use the following steps to finish creating your network connection:
+Use the following steps to finish creating your network connection, for For Azure AD join and Hybrid Azure AD join:
    1. Select **Review + Create**.
 
    1. On the **Review** tab, select **Create**.
