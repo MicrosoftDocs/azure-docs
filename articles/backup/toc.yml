@@ -421,11 +421,7 @@
       - name: Snapshots
         href: sap-hana-database-instances-restore.md
     - name: Manage
-      items:
-      - name: Database
-        href: sap-hana-database-manage.md
-      - name: Snapshots
-        href: sap-hana-database-instances-manage.md
+      href: sap-hana-database-manage.md      
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
