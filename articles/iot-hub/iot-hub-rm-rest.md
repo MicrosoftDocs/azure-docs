@@ -128,7 +128,7 @@ The response will show the new tag added in the console. Remember, you may need 
 
 See the PUT command in the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
 
-Alternatively, use the PATCH command from the IoT Hub Resource(/rest/api/iothub/iot-hub-resource/update?tabs=HTTP) to update tags.
+Alternatively, use the PATCH command from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/update?tabs=HTTP) to update tags.
 
 ## Show all details of your IoT hub
 
