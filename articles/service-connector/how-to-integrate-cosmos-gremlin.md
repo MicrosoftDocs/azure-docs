@@ -1,6 +1,6 @@
 ---
 title: Integrate the Azure Cosmos DB Gremlin API with Service Connector
-description: Integrate the Azure Cosmos DB Gremlin into your application with Service Connector
+description: Integrate the Azure Cosmos DB Gremlin API into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022
 
 # Integrate the Azure Cosmos DB API for Gremlin with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB Gremlin API using Service Connector. You might still be able to connect to the Azure Cosmos DB API for Gremlin in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB Gremlin API using Service Connector. You might still be able to connect to the Azure Cosmos DB API for Gremlin in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute services
 
@@ -60,7 +60,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect your compute services to the Cosmos DB Gremlin API. For each example below, replace the placeholder texts `<database-server>`, `<database>`, `<collection or graphs>`, `keyspace`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
+Use the connection details below to connect your compute services to the Cosmos DB Gremlin API. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `keyspace`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 
@@ -68,7 +68,7 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                                   | Example value                                  |
 |-----------------------------------|-----------------------------------------------|------------------------------------------------|
-| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<database-server>.gremlin.cosmos.azure.com`   |
+| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`   |
 | AZURE_COSMOS_PORT                 | Connection port                               | 443                                            |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `/dbs/<database>/colls/<collection or graphs>` |
 | AZURE_COSMOS_PASSWORD             | Your password                                 | `<password>`                                   |
@@ -77,10 +77,10 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                                   | Example value                                                                                                                                                                                         |
 |-----------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listKeys?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listKeys?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope                   | `https://management.azure.com/.default`                                                                                                                                                               |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                  |
-| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<database-server>.gremlin.cosmos.azure.com`                                                                                                                                                          |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                  |
+| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`                                                                                                                                                          |
 | AZURE_COSMOS_PORT                 | Connection port                               | 443                                                                                                                                                                                                   |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `/dbs/<database>/colls/<collection or graphs>`                                                                                                                                                        |
 
@@ -88,10 +88,10 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                                   | Example value                                                                                                                                                                                         |
 |-----------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listKeys?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listKeys?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope                   | `https://management.azure.com/.default`                                                                                                                                                               |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                  |
-| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<database-server>.gremlin.cosmos.azure.com`                                                                                                                                                          |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                  |
+| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`                                                                                                                                                          |
 | AZURE_COSMOS_PORT                 | Connection port                               | 443                                                                                                                                                                                                   |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `/dbs/<database>/colls/<collection or graphs>`                                                                                                                                                        |
 | AZURE_CLIENTID                    | Your client ID                                | `<client_ID>`                                                                                                                                                                                         |
@@ -100,10 +100,10 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                                   | Example value                                                                                                                                                                                         |
 |-----------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listKeys?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string          | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listKeys?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope                   | `https://management.azure.com/.default`                                                                                                                                                               |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                  |
-| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<database-server>.gremlin.cosmos.azure.com`                                                                                                                                                          |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                  |
+| AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`                                                                                                                                                          |
 | AZURE_COSMOS_PORT                 | Gremlin connection port                       | 10350                                                                                                                                                                                                 |
 | AZURE_COSMOS_KEYSPACE             | Your keyspace                                 | `<keyspace>`                                                                                                                                                                                          |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `</dbs/<database>/colls/<collection or graphs>`                                                                                                                                                                                          |

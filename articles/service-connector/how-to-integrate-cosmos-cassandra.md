@@ -1,6 +1,6 @@
 ---
 title: Integrate the Azure Cosmos DB Cassandra API with Service Connector
-description: Integrate the Azure Cosmos DB Cassandra into your application with Service Connector
+description: Integrate the Azure Cosmos DB Cassandra API into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
@@ -63,7 +63,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect your compute services to the Cosmos DB Cassandra API. For each example below, replace the placeholder texts `<database-server>`, `keyspace`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, `<tenant-id>`, and `<Azure-region>` with your own information.
+Use the connection details below to connect your compute services to the Cosmos DB Cassandra API. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `keyspace`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, `<tenant-id>`, and `<Azure-region>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 
@@ -71,7 +71,7 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                 | Example value                                  |
 |-----------------------------------|-----------------------------|------------------------------------------------|
-| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point | `<database-server>.cassandra.cosmos.azure.com` |
+| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com` |
 | AZURE_COSMOS_PORT                 | Cassandra connection port   | 10350                                          |
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace          | `<keyspace>`                                   |
 | AZURE_COSMOS_USERNAME             | Cassandra username          | `<username>`                                   |
@@ -81,10 +81,10 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                          | Example value                                                                                                                                                                                                      |
 |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listConnectionStrings?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
-| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<database-server>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                               |
+| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
 | AZURE_COSMOS_PORT                 | Cassandra connection port            | 10350                                                                                                                                                                                                              |
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
@@ -93,41 +93,41 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                          | Example value                                                                                                                                                                                                      |
 |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listConnectionStrings?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
-| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<database-server>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                               |
+| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
 | AZURE_COSMOS_PORT                 | Cassandra connection port            | 10350                                                                                                                                                                                                              |
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
-| AZURE_COSMOS_CLIENTID             | Your client secret ID                | `<client-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_CLIENTID             | Your client ID                       | `<client-ID>`                                                                                                                                                                                                      |
 
 #### Service principal
 
 | Default environment variable name | Description                          | Example value                                                                                                                                                                                                      |
 |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_LISTKEYURL           | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-account>/listConnectionStrings?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
-| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
-| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<database-server>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
+| AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint               | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                               |
+| AZURE_COSMOS_CONTACTPOINT         | Cassandra API contact point          | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com`                                                                                                                                                                     |
 | AZURE_COSMOS_PORT                 | Cassandra connection port            | 10350                                                                                                                                                                                                              |
 | AZURE_COSMOS_KEYSPACE             | Cassandra keyspace                   | `<keyspace>`                                                                                                                                                                                                       |
 | AZURE_COSMOS_USERNAME             | Cassandra username                   | `<username>`                                                                                                                                                                                                       |
-| AZURE_COSMOS_CLIENTID             | Your client secret ID                | `<client-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_CLIENTID             | Your client ID                       | `<client-ID>`                                                                                                                                                                                                      |
 | AZURE_COSMOS_CLIENTSECRET         | Your client secret                   | `<client-secret>`                                                                                                                                                                                                  |
 | AZURE_COSMOS_TENANTID             | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                      |
 
 ### Azure Spring Apps
 
-| Default environment variable name      | Description                 | Example value                                  |
-|----------------------------------------|-----------------------------|------------------------------------------------|
-| spring.data.cassandra.contact_points   | Cassandra API contact point | `<database-server>.cassandra.cosmos.azure.com` |
-| spring.data.cassandra.port             | Cassandra connection port   | 10350                                          |
-| spring.data.cassandra.keyspace_name    | Cassandra keyspace          | `<keyspace>`                                   |
-| spring.data.cassandra.username         | Cassandra username          | `<username>`                                   |
-| spring.data.cassandra.password         | Cassandra password          | `<password>`                                   |
-| spring.data.cassandra.local_datacenter | Azure Region                | `<Azure-region>`                               |
-| spring.data.cassandra.ssl              | SSL status                  | true                                           |
+| Default environment variable name      | Description                 | Example value                                          |
+|----------------------------------------|-----------------------------|--------------------------------------------------------|
+| spring.data.cassandra.contact_points   | Cassandra API contact point | `<Azure-Cosmos-DB-account>.cassandra.cosmos.azure.com` |
+| spring.data.cassandra.port             | Cassandra connection port   | 10350                                                  |
+| spring.data.cassandra.keyspace_name    | Cassandra keyspace          | `<keyspace>`                                           |
+| spring.data.cassandra.username         | Cassandra username          | `<username>`                                           |
+| spring.data.cassandra.password         | Cassandra password          | `<password>`                                           |
+| spring.data.cassandra.local_datacenter | Azure Region                | `<Azure-region>`                                       |
+| spring.data.cassandra.ssl              | SSL status                  | true                                                   |
 
 ## Next steps
 
