@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/19/2022
+ms.date: 09/20/2022
 ms.author: victorh 
 ---
 
@@ -35,7 +35,7 @@ An idle timer is in place to recycle idle sessions. The default value is four mi
 
 ### Drops due to auto-recovery
 
-Azure Firewall constantly monitors VM instances and recovers them automatically in case any instance goes unresponsive. In general, 1 out of 40 firewall instances exhibit unresponsiveness and are recovered monthly.
+Azure Firewall constantly monitors VM instances and recovers them automatically in case any instance goes unresponsive. In general, there is a 1 in 100 chance for a firewall instance to be auto-recovered over a 30 day period.
 
 ## Using applications sensitive to TCP session resets
 
