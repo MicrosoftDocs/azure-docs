@@ -19,25 +19,20 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2209** release, which maps to software version number **2.2.2088.5593**. This software can be applied to your device if you're running at least Azure Stack Edge 2207 (2.2.2307.5375) software.
+This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least Azure Stack Edge 2207 (2.2.2307.5375).
+
+> [!IMPORTANT]
+> Azure Stack Edge 2209 update contains critical security fixes and must be applied at the earliest.
 
 ## What's new
 
 The 2209 release has the following features and enhancements:
 
-**Arc agent** - To safeguard against a recent vulnerability, review and update your Azure Arc-enabled Kubernetes clusters to the latest agent version.
+**Security fix** - Microsoft recently identified a vulnerability affecting the cluster connect feature of Azure Arc-enabled Kubernetes clusters. This release addresses this critical security vulnerability in Arc agents for your Azure Stack Edge. The Arc agent running on your Azure Stack Edge cluster is updated to the latest version to safeguard against the vulnerability.
 
-We highly recommend that customers ensure they're running agent versions 1.5.8 and above, 1.6.19 and above, and 1.7.18 and above. Resources that should be updated are listed below this message. The following are options for performing this update:
+For more information about the vulnerability, see [Azure Guest Configuration and Azure Arc-enabled servers elevation of privilege vulnerability](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-38007).
 
-1. Customers with auto-upgrade enabled have automatically received the latest version. Customers can review their current agent version by running [Check agent version](../azure-arc/kubernetes/agent-upgrade.md#check-agent-version) in Azure CLI.
-
-1. Customers that don't have auto-upgrade enabled are highly encouraged to [enable auto-upgrade](../azure-arc/kubernetes/agent-upgrade.md#toggle-automatic-upgrade-on-or-off-after-connecting-a-cluster-to-azure-arc) to receive the update automatically. Updates are typically applied within 2 hours of release. 
-
-1. Customers that don't have auto-upgrade enabled should [manually upgrade their cluster connect feature](../azure-arc/kubernetes/agent-upgrade.md#manually-upgrade-agents). 
-
-1. Microsoft highly recommends that customers review cluster audit logs and/or other monitoring logs as a precaution to validate that there hasn't been suspicious activity on clusters. 
-
-   If you have questions or concerns, [open a support case through the Azure portal](https://aka.ms/azsupt). To stay up-to-date on important security events, [configure service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) in the Azure portal.
+ If you have questions or concerns, [open a support case through the Azure portal](https://aka.ms/azsupt). To stay up-to-date on important security events, [configure service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) in the Azure portal.
 
 ## Known issues in 2209 release
 
