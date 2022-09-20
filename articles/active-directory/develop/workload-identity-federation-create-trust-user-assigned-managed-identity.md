@@ -27,7 +27,7 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Important considerations and restrictions
 
-[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
+[!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
 To learn more about supported regions, time to propagate federated credential updates, supported issuers and more, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 
@@ -174,7 +174,7 @@ To delete a specific federated identity credential, select the **Delete** icon f
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Run the [az identity federated-credential create](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-create) command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+Run the [az identity federated-credential create](/cli/azure/identity/federated-credential#az-identity-federated-credential-create) command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
 ```azurecli
 az login 
@@ -202,7 +202,7 @@ az identity federated-credential create --name $ficId --identity-name $uaId --re
 
 ## List federated identity credentials on a user-assigned managed identity
 
-Run the [az identity federated-credential list](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-list) command to read all the federated identity credentials configured on a user-assigned managed identity:
+Run the [az identity federated-credential list](/cli/azure/identity/federated-credential#az-identity-federated-credential-list) command to read all the federated identity credentials configured on a user-assigned managed identity:
 ```azurecli
 az login 
 
@@ -218,7 +218,7 @@ az identity federated-credential list --identity-name $uaId --resource-group $rg
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-Run the [az identity federated-credential show](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-show) command to show a federated identity credential (by ID):
+Run the [az identity federated-credential show](/cli/azure/identity/federated-credential#az-identity-federated-credential-show) command to show a federated identity credential (by ID):
 
 ```azurecli
 az login 
@@ -238,7 +238,7 @@ az identity federated-credential show --name $ficId --identity-name $uaId --reso
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
+Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
 
 ```azure cli
 az login 

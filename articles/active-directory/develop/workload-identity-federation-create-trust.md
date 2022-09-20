@@ -27,7 +27,7 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Important considerations and restrictions
 
-[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
+[!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
 To learn more about supported regions, time to propagate federated credential updates, supported issuers and more, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 

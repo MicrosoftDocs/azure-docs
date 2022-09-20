@@ -15,7 +15,7 @@ ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev
 ---
 
-## Important considerations and restrictions for federated identity credentials
+# Important considerations and restrictions for federated identity credentials
 
 This article describes important considerations, restrictions, and limitations for federated identity credentials on Azure AD apps and user-assigned managed identities.  For more information on the scenarios enabled by federated identity credentials, see [workload identity federation overview](workload-identity-federation.md).
 
@@ -27,7 +27,7 @@ A maximum of 20 federated identity credentials can be added to an application or
 
 Federated identity credentials do not consume the Azure AD tenant service principal object quota.
 
-[!INCLUDE [federated credential configuration](.\includes\federated-credential-configuration-considerations.md)]
+[!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
 ## Unsupported regions (user-assigned managed identities)
 
