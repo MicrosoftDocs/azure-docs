@@ -20,7 +20,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in October include:
 
-- [Auto-provisioning is now available with an updated experience](auto-provisioning-is-now-available-with-an-updated-experience)
+- [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
 ### Auto-provisioning is now available with an updated experience
