@@ -16,25 +16,23 @@ sections:
       questions:
         - question: What is Microsoft Energy Data Services Preview?
           answer: >
-            Microsoft Energy Data Services is an open, secure, reliable, and fully managed cloud based data platform solution for the energy industry. It is an enterprise grade offering that is based on OSDU&trade; Data Platform and brings together Microsoft's secure and trusted Azure cloud platform and Schlumberger's extensive domain expertise. The offering is currently in preview for evaluation and deployment by customers.
+            Microsoft Energy Data Services is an open, secure, reliable, and fully managed cloud based data platform solution for the energy industry. It is an enterprise-grade offering that is based on OSDU&trade; Data Platform and brings together Microsoft's secure and trusted Azure cloud platform and Schlumberger's extensive domain expertise. The offering is currently in preview for evaluation and deployment by customers.
 
     - name: Access
       questions:
-        - question: How could I get access to Microsoft Energy Data Services Preview?
+        - question: How can I get access to Microsoft Energy Data Services Preview?
           answer: >
-            Microsoft Energy Data Services requires registration and is currently only available to approved customers and partners during the preview period. Request access to Microsoft Energy Data Services during the preview period [here](https://aka.ms/MicrosoftEnergyDataServices-create)
+            Microsoft Energy Data Services requires registration and is currently only available to approved customers and partners during the preview period. Request access to Microsoft Energy Data Services Preview [here](https://aka.ms/MicrosoftEnergyDataServices-create)
 
-    - name: Pricing
+    - name: Pricing and Billing
       questions:
-        - question: How much do I pay for Microsoft Energy Data Services Preview?
+        - question: Where can I learn about the pricing for Microsoft Energy Data Services?
           answer: >
-            The pricing for Microsoft Energy Data Services Preview will be announced in the next two months.
+            Pricing for Microsoft Energy Data Services will be made available by November 1st, 2022. 
 
-    - name: Billing
-      questions: 
-        - question: When does the billing period begin for Microsoft Energy Data Services Preview?
+        - question: When will billing begin for Microsoft Energy Data Services Preview?
           answer: >
-            The billing period for Microsoft Energy Data Services Preview will be announced in the next two months. You will not be charged for usage of the capability until the formal announcement is made.
+            Microsoft Energy Data Services is currently free and billing will begin starting December 1st, 2022.
 
     - name: Support policies
       questions:
@@ -46,5 +44,5 @@ sections:
       questions:
         - question: How do we get the latest updates on Microsoft Energy Data Services Preview?
           answer: > 
-            Microsoft Energy Data Services Preview is a full managed data platform. This means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ version is fully managed by Microsoft.
+            Microsoft Energy Data Services Preview is a fully managed OSDU&trade; Data Platform. It means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
 
