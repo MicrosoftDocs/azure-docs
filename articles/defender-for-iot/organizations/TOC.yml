@@ -31,8 +31,6 @@
         href: best-practices/understand-network-architecture.md
       - name: Plan your network connections
         href: best-practices/plan-network-monitoring.md
-      - name: Traffic mirroring methods
-        href: best-practices/traffic-mirroring-methods.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
     - name: OT threat monitoring in enterprise SOCs
@@ -144,6 +142,22 @@
       items:
       - name: Set up OT network monitoring
         href: how-to-set-up-your-network.md
+      - name: Configure traffic mirroring
+        items:
+        - name: Overview
+          href: traffic-mirroring-methods.md
+        - name: Switch SPAN port
+          href: configure-mirror-span.md
+        - name: Remote SPAN (RSPAN)
+          href: configure-mirror-rspan.md
+        - name: Active and passive aggregation (TAP)
+          href: configure-mirror-tap.md
+        - name: ERSPAN
+          href: configure-mirror-erspan.md
+        - name: ESXi vSwitch
+          href: configure-mirror-esxi.md
+        - name: Hyper-V vSwitch
+          href: configure-mirror-hyper-v.md
       - name: Deploy OT certificates
         href: how-to-deploy-certificates.md
       - name: Install OT system software

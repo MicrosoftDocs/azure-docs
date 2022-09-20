@@ -87,7 +87,18 @@ We recommend having your certificates ready before you start your deployment. Fo
 
 1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and network taps to the Defender for IoT appliance.
 
-1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+1. Configure, connect, and validate SPAN ports in the mirrored switches using one of the following methods:
+
+    - [Switch SPAN port](). 
+    - [Remote SPAN (RSPAN)]()
+    - [Active or passive aggregation (TAP)]()
+    - [ERSPAN]()
+    - [ESXi vSwitch]()
+    - [Hyper-V vSwitch]()
+
+    > [!NOTE]
+    > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
+    >
 
 1. Connect the configured SPAN port to a computer running Wireshark, and verify that the port is configured correctly.
 
