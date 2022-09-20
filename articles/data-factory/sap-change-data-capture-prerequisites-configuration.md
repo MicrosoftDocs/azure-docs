@@ -22,13 +22,11 @@ To preview the SAP CDC capabilities in Azure Data Factory, be able to complete t
 
 - In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
-- Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers.
+- Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, and triggers.
 - Set up a self-hosted integration runtime to use for the connector.
-- Set up an SAP ODP (preview) linked service.
-- Set up the Data Factory copy activity with an SAP ODP (preview) source dataset.
+- Set up an SAP CDC (preview) linked service.
+- Set up the Data Factory copy activity with an SAP CDC (preview) source dataset.
 - Debug Data Factory copy activity issues by sending self-hosted integration runtime logs to Microsoft.
-- Auto-generate a Data Factory pipeline by using the SAP data partitioning template.
-- Auto-generate a Data Factory pipeline by using the SAP data replication template.
 - Be able to run an SAP data replication pipeline frequently.
 - Be able to recover a failed SAP data replication pipeline run.
 - Be familiar with monitoring data extractions on SAP systems.
