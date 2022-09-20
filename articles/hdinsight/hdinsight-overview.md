@@ -12,26 +12,6 @@ ms.date: 09/20/2022
 
 Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as, Apache Spark, Apache Hive, LLAP, Apache Kafka, Hadoop and more, in your Azure environment.
 
-## Before you start
-
-The following points should be considered before starting to create a cluster
-
-1. Bring your own database
-
-By default, HDInsight creates a default database during creation. Databases cant' be changed after the cluster is created.
-
-We recommend using custom databases for Ambari, Hive, and Ranger. 
-
-To learn more on how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db.md) and [Use external metadata stores in Azure HDInsight](/azure/hdinsight/hdinsight-use-external-metadata-stores.md)
-          
-2. Keep your clusters up to date
-
-To take advantage of the latest HDInsight features, we recommend regularly migrating your HDInsight clusters to the latest version. HDInsight doesn't support in-place upgrades where existing clusters are upgraded to new component versions. You need to create a new cluster with the desired components and platform version and migrate your application to use the new cluster.
-
-We recommend updating each version (updates every 30-45 days). The recommended period is less than six months.
-
-To learn more on how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db) and [Migrate HDInsight cluster to a newer version](/azure/hdinsight/hdinsight-upgrade-cluster)
-
 ## What is HDInsight and the Hadoop technology stack?
 
 Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data in a customizable environment. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka  and more. With these frameworks, you can enable a broad range of scenarios such as extract, transform, and load (ETL), data warehousing, machine learning, and IoT.
