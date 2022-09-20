@@ -2,9 +2,8 @@
 title: Upload a blob using JavaScript - Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 07/18/2022
 ms.service: storage
 ms.subservice: blobs

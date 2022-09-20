@@ -10880,6 +10880,11 @@
       "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
       "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
       "redirect_document_id": false
+    },
+{   
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-integrations.md",
+      "redirect_url": "/azure/active-directory/fundamentals/cloud-infrastructure-entitlement-management",
+      "redirect_document_id": false
     }
 
   ]
