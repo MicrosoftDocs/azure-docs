@@ -13,9 +13,9 @@ ms.custom: template-tutorial
 ---
 
 
-# Tutorial: Monitor resources that send events to Azure Event Hubs with Azure Monitor Logs   
+# Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule   
 
-[Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. You can monitor resources that send data to an event hub by ingesting these resource logs from Azure Event Hubs into Azure Monitor. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
+[Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services.This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
 
 In this tutorial, you learn how to:
@@ -113,14 +113,14 @@ To generate a data collection rule JSON file in the Azure portal:
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
-3. Paste the Resource Manager template below into the editor and then select **Save**.
+1. Paste the Resource Manager template below into the editor and then select **Save**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
     Notice the following details in the DCR defined in this template:
 
-    - `identity` - Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
+    - `identity` - Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use system-assigned identity. You can also [configure user-assigned managed identity](#configure-user-assigned-managed-identity-optional).
+    
     - `dataCollectionEndpointId` - Resource ID of the data collection endpoint.
     - `streamDeclarations` - Defines the columns in which to store the incoming data, based on the destination table. In our example, we've defined these columns:
        - `TimeGenerated` - The time at which the data was ingested from event hub to Azure Monitor Logs.
@@ -190,16 +190,10 @@ To generate a data collection rule JSON file in the Azure portal:
                 "location": "[parameters('location')]",
                 "apiVersion": "2022-06-01",
                 "identity": {
-                        "type": "userAssigned",
-                        "userAssignedIdentities": {
-                            "/subscriptions/<subscription_id>/resourceGroups/demogroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/chechenmsi": {
-                                "principalId": "<principal_id>",
-                                "clientId": "<client_id>"
-                            }
-                        }
+                                 "type": "systemAssigned"
                   },
                 "properties": {
-                    "dataCollectionEndpointId": "[parameters('<endpoint_resource_id>')]",
+                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyEventHubStream": {
                             "columns": [
@@ -231,7 +225,7 @@ To generate a data collection rule JSON file in the Azure portal:
                     "destinations": {
                         "logAnalytics": [
                             {
-                                "workspaceResourceId": "[parameters('<workspace_resource_id>')]",
+                                "workspaceResourceId": "[parameters('workspaceResourceId')]",
                                 "name": "[parameters('workspaceName')]"
                             }
                         ]
@@ -253,22 +247,50 @@ To generate a data collection rule JSON file in the Azure portal:
         ]
     }
     ```
-4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values.":::
 
-5. Select **Review + create** and then **Create** when you review the details.
+1. Select **Review + create** and then **Create** when you review the details.
 
-6. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
+1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
-7. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
+1. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
 
     > [!NOTE]
     > All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
+
+### Configure user-assigned managed identity (optional)
+
+To configure your data collection rule to support [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md), in the example above, replace:
+
+```json
+                "identity": {
+                                 "type": "systemAssigned"
+                  },
+``` 
+
+with:
+
+```json
+                "identity": {
+                        "type": "userAssigned",
+                        "userAssignedIdentities": {
+                            "identity Resource Id": {
+                                "principalId": "<principal_id>",
+                                "clientId": "<client_id>"
+                            }
+                        }
+                  },
+```
+
+In the Azure portal, go to your user-assigned managed identity resource and select **Overview** to find the `<principal_id>` and `<client_id>` values:
+
+:::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields higlighted.":::
 
 ## Grant the event hub permission to the data collection rule
 
