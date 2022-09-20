@@ -43,17 +43,11 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## September 2022
 
-### Azure Monitor integration enabling indexing logs 
-
-Azure Video Indexer now supports Diagnostics settings for indexing events. Users can now export Logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
-
-The new set of Logs allows users to better monitor their indexing pipeline.
-
 ### General availability of Azure Resource Management (ARM)
 
 With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
 
-- The [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 - Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
 - Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
  
@@ -65,11 +59,9 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
-### Expanded supported languages in LID and MLID through the API
+### Configure confidence level in a person model with an API
 
-We expanded the list of the supported languages in LID (language identification) and MLID (multi language identification) using APIs. 
-
-For more information, see [supported languages](language-support.md).
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
 
 ## August 2022
 
