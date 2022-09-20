@@ -142,4 +142,4 @@ additionalContent:
           - text: Apache Cassandra to Azure Cosmos DB using Arcion
             url: cassandra/migrate-data-arcion.md 
           - text: Migrate 100's TBs of data
-            url: migrate-cosmosdb-data.md 
+            url: migrate.md 

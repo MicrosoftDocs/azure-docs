@@ -1152,7 +1152,7 @@
         - name: Using the Data Migration tool
           href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
-          href: ../migrate-cosmosdb-data.md
+          href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim
           href: migrate-data-striim.md
         - name: Migrate one-to-few relational data
