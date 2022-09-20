@@ -47,7 +47,7 @@ The following settings are available when configuring ingress:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `external` | When enabled, the environment is assigned a public IP and fully qualified domain name (FQDN) for external ingress and an internal IP and FQDN for internal ingress.  When disabled, only an internal IP/FQDN is created. |`true` for external visibility, `false` for internal visibility (default) | Yes |
+| `external` | Your ingress IP and app fully qualified domain name (FQDN) can either be visible externally from the internet, or internally from a VNET depending on whether the app environment has an external or internal endpoint, respectively - or visibility from within the app environment only. |`true` for visibility from internet or VNET, depending on app environment endpoint is configured, `false` for visibility within app environment only. (default) | Yes |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 | `transport` | You can use either HTTP/1.1 or HTTP/2, or you can set it to automatically detect the transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect the transport type (default) | No |
 | `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |

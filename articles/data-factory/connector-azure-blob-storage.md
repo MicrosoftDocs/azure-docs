@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Azure Blob storage
+title: Copy and transform data in Azure Blob Storage
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage using Azure Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2022
+ms.date: 09/01/2022
 ---
 
-# Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > - [Version 1](v1/data-factory-azure-blob-connector.md)
@@ -19,14 +19,14 @@ ms.date: 08/24/2022
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob storage. It also describes how to use the Data Flow activity to transform data in Azure Blob storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 >[!TIP]
 >To learn about a migration scenario for a data lake or a data warehouse, see the article [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
 ## Supported capabilities
 
-This Azure Blob storage connector is supported for the following capabilities:
+This Azure Blob Storage connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
@@ -91,7 +91,7 @@ This Blob storage connector supports the following authentication types. See the
 >- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
->Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
+>Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob Storage account keys.
 
 ### Account key authentication
 
@@ -244,17 +244,17 @@ To use service principal authentication, follow these steps:
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+2. Grant the service principal proper permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
@@ -304,17 +304,17 @@ For general information about Azure Storage authentication, see [Authenticate ac
 
 1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
-2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+2. Grant the managed identity permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
@@ -342,7 +342,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
 
 For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -350,12 +350,12 @@ For general information about Azure storage authentication, see [Authenticate ac
 2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
@@ -400,7 +400,7 @@ For a full list of sections and properties available for defining datasets, see 
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `location` settings in a format-based dataset:
+The following properties are supported for Azure Blob Storage under `location` settings in a format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -444,7 +444,7 @@ For a full list of sections and properties available for defining activities, se
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy source:
+The following properties are supported for Azure Blob Storage under `storeSettings` settings in a format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -515,7 +515,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
+The following properties are supported for Azure Blob Storage under `storeSettings` settings in a format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -610,11 +610,11 @@ This section describes the resulting behavior of the Copy operation for differen
 
 ## Preserving metadata during copy
 
-When you copy files from Amazon S3, Azure Blob storage, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2 or Azure Blob storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+When you copy files from Amazon S3, Azure Blob Storage, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2 or Azure Blob Storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
 
 ## Mapping data flow properties
 
-When you're transforming data in mapping data flows, you can read and write files from Azure Blob storage in the following formats:
+When you're transforming data in mapping data flows, you can read and write files from Azure Blob Storage in the following formats:
 
 - [Avro](format-avro.md#mapping-data-flow-properties)
 - [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
@@ -627,9 +627,9 @@ Format specific settings are located in the documentation for that format. For m
 
 ### Source transformation
 
-In source transformation, you can read from a container, folder, or individual file in Azure Blob storage. Use the **Source options** tab to manage how the files are read. 
+In source transformation, you can read from a container, folder, or individual file in Azure Blob Storage. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of source options tab in mapping data flow source transformation.":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
@@ -651,7 +651,7 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
 
-:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
+:::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings in mapping data flow source transformation.":::
 
 Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
@@ -690,7 +690,7 @@ In this case, all files that were sourced under `/data/sales` are moved to `/bac
 
 ### Sink properties
 
-In the sink transformation, you can write to either a container or a folder in Azure Blob storage. Use the **Settings** tab to manage how the files get written.
+In the sink transformation, you can write to either a container or a folder in Azure Blob Storage. Use the **Settings** tab to manage how the files get written.
 
 :::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Sink options":::
 
@@ -745,7 +745,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     "properties": {
         "type": "AzureBlob",
         "linkedServiceName": {
-            "referenceName": "<Azure Blob storage linked service name>",
+            "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

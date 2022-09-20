@@ -149,10 +149,10 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
     ```cmd
-    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
 ::: zone-end
@@ -350,7 +350,7 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
 1. Copy the PKCS12 formatted certificate file to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the sample repo.
 
     ```bash
-    cp certificate.pfx ./azure-iot-samples-csharp/provisioning/Samples/device/X509Sample
+    cp certificate.pfx ./azure-iot-sdk-csharp/provisioning/device/samples/Getting Started/X509Sample
     ```
 
 You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
@@ -375,8 +375,8 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
 6. Copy the device certificate and private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
 
     ```bash
-    cp device-cert.pem ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
-    cp device-key.pem ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
+    cp device-cert.pem ./azure-iot-sdk-python/samples/async-hub-scenarios
+    cp device-key.pem ./azure-iot-sdk-python/samples/async-hub-scenarios
     ```
 
 You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
@@ -661,7 +661,7 @@ In this section, you'll use your Windows command prompt.
 1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
-    cd ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
+    cd ./azure-iot-sdk-python/samples/async-hub-scenarios
     ```
 
     This sample uses six environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
@@ -705,7 +705,7 @@ In this section, you'll use your Windows command prompt.
 1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```cmd
-    $ python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
+    $ python azure-iot-sdk-python/samples/async-hub-scenarios/provision_x509.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
     my-x509-device

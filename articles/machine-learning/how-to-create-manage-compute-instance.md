@@ -60,7 +60,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The following example demonstrates how to create a compute instance:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -137,9 +137,10 @@ Where the file *create-instance.yml* is:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).inel
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
+    * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [configure auto-stop](#configure-auto-stop-preview) for more details.
 
 
 
@@ -156,6 +157,113 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
 ---
+
+## Configure auto-stop (preview)
+To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
+
+A compute instance is considered inactive if the below conditions are met:
+* No active Jupyter Kernel sessions (this translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
+* No active Jupyter terminal sessions
+* No active AzureML runs or experiments
+* No SSH connections
+* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+
+Note that activity on custom applications installed on the compute instance is not considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of 3 days.
+
+This setting can be configured during CI creation or for existing CIs via the following interfaces:
+* AzureML Studio
+    
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-advanced-settings.jpg" alt-text="Screenshot of the Advanced Settings page for creating a compute instance":::
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-update.jpg" alt-text="Screenshot of the compute instance details page showing how to update an existing compute instance with idle shutdown":::
+
+* REST API
+
+    Endpoint:
+    ```
+    POST https://management.azure.com/subscriptions/{SUB_ID}/resourceGroups/{RG_NAME}/providers/Microsoft.MachineLearningServices/workspaces/{WS_NAME}/computes/{CI_NAME}/updateIdleShutdownSetting?api-version=2021-07-01
+    ```
+    Body:
+    ```JSON
+    {
+        "idleTimeBeforeShutdown": "PT30M" // this must be a string in ISO 8601 format
+    }
+    ```
+
+* CLIv2 (YAML) -- only configurable during new CI creation
+
+    ```YAML
+    # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+    idle_time_before_shutdown_minutes: 30
+    ```
+
+* Python SDKv2 -- only configurable during new CI creation
+
+    ```Python
+    ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
+    ```
+
+* ARM Templates -- only configurable during new CI creation
+    ```JSON
+    // Note that this is just a snippet for the idle shutdown property in an ARM template
+    {
+        "idleTimeBeforeShutdown":"PT30M" // this must be a string in ISO 8601 format
+    }
+    ```
+
+### Azure policy support
+Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a given subscription/resource-group. 
+
+1. Navigate to Azure Policy in the Azure portal.
+2. Under "Definitions", look for the idle shutdown policy.
+
+      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure Portal.":::
+
+3. Assign policy to the necessary scope.
+
+You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60 minute inactivity period. 
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+        },
+        {
+          "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+          "equals": "ComputeInstance"
+        },
+        {
+          "anyOf": [
+            {
+              "field": "Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown",
+              "exists": false
+            },
+            {
+              "value": "[empty(field('Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown'))]",
+              "equals": true
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "append",
+      "details": [
+        {
+          "field": "Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown",
+          "value": "PT60M"
+        }
+      ]
+    }
+  },
+  "parameters": {}
+}
+```
+
 
 ## Create on behalf of (preview)
 
@@ -353,9 +461,6 @@ You can set up other applications, such as RStudio, when creating a compute inst
 1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
-
-> [!NOTE]
-> Custom applications are currently not supported in private link workspaces.
  
 ### Setup RStudio Workbench
 
@@ -367,12 +472,14 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
+
 > [!NOTE]
 > * Support for accessing your workspace file store from RStudio is not yet available.
 > * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
 > * Shiny applications are not currently supported on RStudio Workbench.
-
  
+
 ### Setup RStudio open source
 
 To use RStudio open source, set up a custom application as follows:
@@ -381,15 +488,18 @@ To use RStudio open source, set up a custom application as follows:
 1.	Select **Custom Application** on the **Application** dropdown 
 1.	Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
+
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
 1. Use **Bind mounts** to add access to the files in your default storage account: 
    * Specify **/home/azureuser/cloudfiles** for **Host path**.  
    * Specify **/home/azureuser/cloudfiles** for the **Container path**.
    * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
-3. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
+
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
  
 ### Setup other custom applications
 
@@ -398,10 +508,16 @@ Set up other custom applications on your compute instance by providing the appli
 1. Follow the steps listed above to **Add application** when creating your compute instance.
 1. Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
-1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
+1. Optionally, add **Environment variables**  you wish to use for your application.
+1. Use **Bind mounts** to add access to the files in your default storage account: 
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
 1. Select **Create** to set up the custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
+
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
 
 ### Accessing custom applications in studio
 
@@ -423,7 +539,7 @@ You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
