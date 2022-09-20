@@ -35,7 +35,7 @@ The maximum number of events displayed depends on the [hardware profile](how-to-
 | L100     |   500 thousand events      |
 | L60     |   500 thousand events      |
 
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
 
 ## View audit log data on the on-premises management console
 
