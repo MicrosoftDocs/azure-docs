@@ -26,11 +26,11 @@ Azure Elastic SAN volumes can connect to a wide variety of compute resources usi
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large amount of volumes from a single resource and with virtual network rules you can selectively grant access to your volumes.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large number of volumes from a single resource and with virtual network rules you can selectively grant access to your volumes.
 
 ### Performance
 
-With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -44,9 +44,9 @@ Elastic SAN has three resources:
 - Volume groups
 - Volumes
 
-The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to those of an on-premises SAN:
+The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to the resources of an on-premises SAN:
 
-:::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic san is like an on-premises san appliance and is where billing and provisioning is handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises san.":::
+:::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic SAN is like an on-premises SAN appliance and is where billing and provisioning are handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises SAN.":::
 
 ### The Elastic SAN resource
 

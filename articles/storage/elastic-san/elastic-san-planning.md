@@ -11,7 +11,7 @@ ms.subservice: elastic-san
 
 # Elastic SAN planning
 
-There are three main aspects to an elastic SAN: the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, as well as how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
+There are three main aspects to an elastic SAN: the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
 Before deploying an Elastic SAN, consider the following:
 
@@ -23,21 +23,21 @@ Answering those three questions can help you to successfully provision a SAN tha
 
 ## Storage and performance
 
-There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput. The maximum total capacity an elastic SAN can have is 1 pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1 TiB increments.
+There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput. The maximum total capacity an elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
 
 When you provision this storage into an individual volume, that volume's potential maximum performance is determined.
 
 ### IOPS
 
-Your SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
+Your elastic SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an elastic SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
 
-The IOPS of a SAN is distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your SAN.
+The IOPS of an elastic SAN are distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your elastic SAN.
 
 ### Throughput
 
-Your SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+Your elastic SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an elastic SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an elastic SAN is distributed among all its volumes.
 
-The throughput of a SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
+The throughput of an elastic SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your elastic SAN.
 
 ## Networking
 
@@ -45,15 +45,15 @@ To configure network access, Elastic SAN integrates with Azure [Virtual Network 
 
 ## Redundancy
 
-To protect the data in your Elastic SAN against data loss or corruption, all SANs store multiple copies of each file as they are written. Depending on the requirements of your workload, you can select additional degrees of redundancy. The following data redundancy options are currently supported:
+To protect the data in your Elastic SAN against data loss or corruption, all SANs store multiple copies of each file as they're written. Depending on the requirements of your workload, you can select additional degrees of redundancy. The following data redundancy options are currently supported:
 
 - **Locally-redundant storage (LRS)**: With LRS, every SAN is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of an Elastic SAN using LRS may be lost or unrecoverable.
 - **Zone-redundant storage (ZRS)**: With ZRS, three copies of each SAN are stored in three distinct and physically isolated storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write request to storage that is using ZRS happens synchronously. The write operation only returns successfully after the data is written to all replicas across the three availability zones.
 
 ## Encryption
 
-All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. SSE protects your data and to help you to meet your organizational security and compliance commitments. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis.
+All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. SSE protects your data and to help you to meet your organizational security and compliance commitments. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them regularly.
 
-Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Elastic SANs and can't be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of SSE. There is no additional cost for SSE.
+Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Elastic SANs and can't be disabled. Because your data is secured by default, you don't need to modify your code, or applications to take advantage of SSE. There's no extra cost for SSE.
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
