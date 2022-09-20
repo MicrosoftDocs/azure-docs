@@ -54,7 +54,7 @@ The following registry keys configure .NET Framework to support strong cryptogra
 
 ## Azure TLS certificate changes\
 
-Azure TLS/SSL endpoints now contains updated certificates chaining up to new root CAs. Ensure that the following changes include the updated root CAs.  [Learn more](../security/fundamentals/tls-certificate-changes.md#what-changed) about the possible impacts on your applications.
+Azure TLS/SSL endpoints now contain updated certificates chaining up to new root CAs. Ensure that the following changes include the updated root CAs.  [Learn more](../security/fundamentals/tls-certificate-changes.md#what-changed) about the possible impacts on your applications.
 
 Earlier, most of the TLS certificates, used by Azure services, chained up to the following Root CA:
 
@@ -88,7 +88,7 @@ The highest protocol version supported by both the client and server is negotiat
 For improved security from protocol downgrade attacks, Azure Backup is beginning to disable TLS versions older than 1.2 in a phased manner. This is part of a long-term shift across services to disallow legacy protocol and cipher suite connections. Azure Backup services and components fully support TLS 1.2. However, Windows versions lacking required updates or certain customized configurations can still prevent TLS 1.2 protocols being offered. This can cause failures including but not limited to one or more of the following:
 
 - Backup and restore operations may fail.
-- Backup components connections failures with error 10054 (An existing connection was forcibly closed by the remote host).
+- The backup components connections failures with error 10054 (An existing connection was forcibly closed by the remote host).
 - Services related to Azure Backup won't stop or start as usual.
 
 ## Additional resources
