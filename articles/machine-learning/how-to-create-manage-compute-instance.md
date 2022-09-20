@@ -489,14 +489,7 @@ To use RStudio open source, set up a custom application as follows:
 1.	Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 
-    > [!TIP]
-    > Using ports 8704-8993 is also supported.
-
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
-
-    > [!TIP]
-    > Using ports 8704-8993 is also supported.
-
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
 1. Use **Bind mounts** to add access to the files in your default storage account: 
    * Specify **/home/azureuser/cloudfiles** for **Host path**.  
