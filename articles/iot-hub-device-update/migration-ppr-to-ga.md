@@ -19,7 +19,7 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
 
 ## Update the device update agent
 
-For the GA release, the Device Update agent can be updated manually or using the Device Update Service. 
+For the GA release, the Device Update agent can be updated manually or using the Device Update Service using apt manifest or image updates. If you are using image updates, you can include the GA Device Update agent in the your update.
 
 ### Manual DU Agent Upgrade
 
@@ -38,109 +38,72 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 ### OTA DU Agent Upgrade though APT manifest
 
-The DU agent can be updated using the the Device Update service using package update. 
+1. Before you update your devices, the device attributes will include the PPR PnP model details. The **Contract Model Name** will show **Device Update Model V1** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;1**.
 
-1. Add device update agent upgrade as the last step in your update. The import manifest must be Ver. 4 to ensure it is targeted to the correct devices. Refer to the sample import manifest and apt manifest:
+2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
 
 **Example Import Manifest**
 ```JSON
 {
-    "updateId":  {
-                     "provider":  "Delta",
-                     "name":  "Sensor",
-                     "version":  "2.0"
-                 },
-    "isDeployable":  true,
-    "compatibility":  [
-                          {
-                              "deviceModel":  "Sensor",
-                              "deviceManufacturer":  "Delta"
-                          }
-                      ],
-    "instructions":  {
-                         "steps":  [
-                                       {
-                                           "type":  "inline",
-                                           "handler":  "microsoft/apt:1",
-                                           "files":  [
-                                                         "sample-upgrade-apt-manifest.json"
-                                                     ],
-                                           "handlerProperties":  {
-                                                                     "installedCriteria":  "1.1"
-                                                                 }
-                                       }
-                                   ]
-                     },
-    "files":  [
-                  {
-                      "filename":  "sample-upgrade-apt-manifest.json",
-                      "sizeInBytes":  211,
-                      "hashes":  {
-                                     "sha256":  "q9hCNObqGcGDW1kUcYdTa3J335Vt+yfHzIKqBtFHyvc="
-                                 }
-                  }
-              ],
-    "createdDateTime":  "2022-08-03T00:25:58.8744884Z",
-    "manifestVersion":  "4.0"
+  "manifestVersion": "4",
+  "updateId": {
+    "provider": "Contoso",
+    "name": "Sensor",
+    "version": "1.0"
+  },
+  "compatibility": [
+    {
+      "manufacturer": "Contoso",
+      "model": "Sensor"
+    }
+  ],
+  "instructions": {
+    "steps": [
+      {
+        "handler": "microsoft/apt:1",
+        "handlerProperties": {
+          "installedCriteria": "1.0"
+        },
+        "files": [
+          "fileId0"
+        ]
+      }
+    ]
+  },
+  "files": {
+    "fileId0": {
+      "filename": "sample-upgrade-apt-manifest.json",
+      "sizeInBytes": 210,
+      "hashes": {
+        "sha256": "mcB5SexMU4JOOzqmlJqKbue9qMskWY3EI/iVjJxCtAs="
+      }
+    }
+  },
+  "createdDateTime": "2022-08-20T18:32:01.8404544Z"
 }
 ```
+
+**Example APT manifest**
+  ```JSON
+  {
+    "name": "Sample DU agent upgrade update",
+    "version": "1.0.0",
+    "packages": [
+	{
+            "name": "deviceupdate-agent"
+        }
+    ]
+}
+  ```
 
 > [!NOTE] 
 > It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
 
 
 2. Deploy the update
+
+3. Once the update is successfully deployed, the device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**. 
  
-3. SSH into your device and remove any old Device Update agent.
-   ```bash
-   sudo apt remove deviceupdate-agent 
-   sudo apt remove adu-agent 
-   ```
-   
-4. Remove the old configuration file
-   ```bash
-   sudo rm -f /etc/adu/adu-conf.txt 
-   ```
-   
-5. Install the new agent
-   ```bash
-   sudo apt-get install deviceupdate-agent 
-   ```
-   Alternatively, you can get the .deb asset from [GitHub](https://github.com/Azure/iot-hub-device-update) and install the agent
-   
-      ```bash
-   sudo apt install <file>.deb
-   ```
-
-   Trying to upgrade the Device Update agent without removing the old agent and configuration files will result in the error shown below.
-    
-   :::image type="content" source="media/migration/update-error.png" alt-text="Screenshot of update error." lightbox="media/migration/update-error.png":::
-    
-
-6. Enter your IoT device's device (or module, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
-
-   ```markdown
-   sudo nano /etc/adu/du-config.json
-   ```
- 7. Add your model, manufacturer, agent name, connection type and other details in the configuration file
-
- 8. Delete the old IoT/IoT Edge device from the public preview portal.
-
-> [!NOTE] 
-> Attempting to update the agent through a DU deployment will lead to the device no longer being manageable by Device Update. The device will have to be re-provisioned to be managed from Device Update.
-
-## Migrate groups to Public Preview Refresh
-
-1. If your devices are using Device Update agent versions 0.6.0 or 0.7.0, upgrade to the latest agent version 0.8.0 following the steps above. 
- 
-2. Delete the existing groups in the public preview portal by navigating through the banner. 
- 
-3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-a-device-to-azure-iot-hub) section.
-
-4. Recreate the groups in the PPR portal by going to ‘Add Groups’ and selecting the corresponding groups tag from the drop-down list. 
- 
-5. Note that a group with the same name cannot be created in the PPR portal if the group in the public preview portal is not deleted.
-
 ## Group and deployment behavior across releases
 
 - Device with the Public Preview Refresh DU agent ( 0.8.x) and GA DU agent (1.0.x) can be managed through the Device Update portal. 
@@ -157,8 +120,6 @@ The DU agent can be updated using the the Device Update service using package up
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
 
 You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
-
-- [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
 	
 - [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 	
