@@ -5,7 +5,7 @@ ms.date: 09/19/2022
 ms.topic: conceptual
 ---
 
-## Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT
+# Azure user roles for OT and Enterprise IoT monitoring
 
 Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
@@ -43,11 +43,11 @@ Roles for security monitoring actions can be applied across an entire Azure subs
 | **Device inventory**  | Read-only | Read-write |Read-write | Read-write |
 
 
-# Azure user roles for Enterprise IoT networks
+## Azure user roles for Enterprise IoT networks
 
 The following tables list the Defender for IoT monitoring actions for Enterprise IoT networks that are available to each Azure user role.
 
-## Permissions for management actions
+### Permissions for management actions
 
 Roles for management actions are applied to user roles across an entire Azure subscription.
 
@@ -58,7 +58,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 |  **Remove plans from the Pricing page**  | -       |   ✔     | ✔ | ✔ |
 |  **Modify values on the Sites and sensors page**   |   -    |   ✔    | ✔ | ✔|
 
-## Permissions for security monitoring actions
+### Permissions for security monitoring actions
 
 Roles for security monitoring actions are applied to user roles across an entire Azure subscription.
 
