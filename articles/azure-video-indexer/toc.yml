@@ -158,14 +158,14 @@
           href: customize-language-model-with-website.md
         - name: using the API
           href: customize-language-model-with-api.md
-      - name: Slate detection
-        items:
-        - name: Clapper board with metadata extraction
-          href: clapper-board-metadata.md
-        - name: Digital patterns with color bars
-          href: digital-patterns-color-bars.md
-        - name: Textless slate with scene matching
-          href: textless-slate-scene-matching.md
+    - name: Slate detection
+      items:
+      - name: Clapper board with metadata extraction
+        href: clapper-board-metadata.md
+      - name: Digital patterns with color bars
+        href: digital-patterns-color-bars.md
+      - name: Textless slate with scene matching
+        href: textless-slate-scene-matching.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md  
   - name: Logic Apps connector 
