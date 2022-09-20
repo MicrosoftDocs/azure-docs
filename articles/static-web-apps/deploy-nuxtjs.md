@@ -52,7 +52,7 @@ You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of usi
 
 Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser. Select the buttons to invoke server and API routes.
 
-:::image type="content" source="media/deploy-nuxtjs/nuxt3-app.png" alt-text="Start Nuxt.js app":::
+:::image type="content" source="media/deploy-nuxtjs/nuxt-3-app.png" alt-text="Start Nuxt.js app":::
 
 ## Deploy your Nuxt 3 site
 
