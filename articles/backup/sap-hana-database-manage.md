@@ -88,7 +88,7 @@ On-demand backups triggered from any of the HANA native clients (to **Backint**)
 
 ![Last backups run](./media/sap-hana-db-manage/last-backups.png)
 
-You can also [monitor these backups](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
+You can also [monitor these backups](#monitor-manual-backup-jobs-using-the-azure-portal) from the **Backup jobs** page.
 
 These on-demand backups will also show up in the list of restore points for restore.
 
@@ -96,7 +96,7 @@ These on-demand backups will also show up in the list of restore points for rest
 
 #### Restore
 
-Restores triggered from HANA native clients (using **Backint**) to restore to **the same machine** can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
+Restores triggered from HANA native clients (using **Backint**) to restore to **the same machine** can be [monitored](#monitor-manual-backup-jobs-using-the-azure-portal) from the **Backup jobs** page.
 Restores triggered from HANA native clients to restore to another machine are not allowed. This is because Azure Backup service cannot authenticate the target server, as per Azure RBAC rules, for restore.
 
 #### Delete
