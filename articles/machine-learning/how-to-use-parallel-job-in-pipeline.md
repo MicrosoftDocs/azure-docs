@@ -55,7 +55,8 @@ The following table illustrates the relation between input data and partition se
 | File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)*
 | Tabular data | `mltable` | direct | By size (estimated physical size) <br> 
 
-You can declare your major input data with `input_data` attribute in parallel job yaml or python sdk. And if you partition your data **by size**, set numbers to `mini_batch_siz` attribute to define the size of mini-batch.
+You can declare your major input data with `input_data` attribute in parallel job yaml or python sdk. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input, you could:
+ - Set numbers to `mini_batch_size` to partition your data **by size**. For file list input, this value defines the number of files for each mini-batch. For tabular input, this value defines the estimated physical size for each mini-batch.
 
 # [Azure CLI](#tab/cliv2)
 
