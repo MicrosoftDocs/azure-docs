@@ -2,7 +2,7 @@
 title: Build queries with Cloud Security Explorer
 description: Learn how to build queries in Cloud Security Explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
-ms.date: 09/18/2022
+ms.date: 09/20/2022
 ---
 
 # Cloud Security Explorer

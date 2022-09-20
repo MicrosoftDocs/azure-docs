@@ -2,7 +2,7 @@
 title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.date: 09/18/2022
+ms.date: 09/20/2022
 ---
 
 # Identify and remediate attack paths 
@@ -25,7 +25,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 The attack path homepage offers you an overview of your total attack paths. From here, you can see all of your affected resources and a list of all active attack paths.
 
-:::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
+:::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage." lightbox="media/concept-cloud-map/attack-path-homepage.png":::
 
 On this page you can organize your attack paths based on name, environment, paths count, risk categories.
 
@@ -41,11 +41,13 @@ Attack path analysis allows you to locate the biggest risks to your environment 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack path**
+
+    :::image type="content" source="media/how-to-manage-attack-path/attack-path-icon.png" alt-text="Screenshot that shows where the icon is on the recommendations page to get to attack paths.":::
 
 1. Select an attack path.
 
-    :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png":::
+    :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png" lightbox="media/how-to-manage-cloud-map/attack-path.png":::
 
     > [!NOTE]
     > An attack path may have more than one path that is at risk. The path count will tell you how many paths need to be remediated. If the attack path has more than one path, you will need to select each path within that attack path to remediate all risks.
