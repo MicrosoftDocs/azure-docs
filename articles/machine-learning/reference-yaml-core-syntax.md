@@ -219,7 +219,7 @@ When the input is set as `optional = true`, you need to use `$[[]]` to embrace t
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
-As `learning_rate` and `learning_rate_schedule` have default value defined, which will be take if no value provide in runtime.
+If no value is specified at runtime, `learning_rate` and `learning_rate_schedule` will use the default value.
 
 - If all inputs/outputs provide values during runtime, the command line will look like:
 ```cli
