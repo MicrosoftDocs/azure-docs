@@ -4,7 +4,7 @@ description: Describes the lambda functions to use in a Bicep file.
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/15/2022
+ms.date: 09/20/2022
 
 ---
 # Lambda functions for Bicep
@@ -46,9 +46,9 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 An array.
 
-### Example
+### Examples
 
-The following example shows how to use the filter function.
+The following examples show how to use the filter function.
 
 ```bicep
 var dogs = [
@@ -73,10 +73,6 @@ var dogs = [
     interests: ['Rubs']
   }
 ]
-var itemForLoop = [for item in range(0, 10): item]
-
-output filteredLoop array = filter(itemForLoop, i => i > 5)
-output isEven array = filter(range(0, 10), i => 0 == i % 2)
 
 output oldDogs array = filter(dogs, dog => dog.age >=5)
 ```
@@ -85,9 +81,23 @@ The output from the preceding example shows the dogs that are five or older:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
+| oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+
+```bicep
+var itemForLoop = [for item in range(0, 10): item]
+
+output filteredLoop array = filter(itemForLoop, i => i > 5)
+output isEven array = filter(range(0, 10), i => 0 == i % 2)
+```
+
+The output from the preceding example:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
 | filteredLoop | Array | [6, 7, 8, 9] |
 | isEven | Array | [0, 2, 4, 6, 8] |
-| oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+
+**filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
 
 ## map
 
@@ -153,6 +163,8 @@ The output from the preceding example is:
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
 | mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
 
+**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+
 ## reduce
 
 `reduce(inputArray, initialValue, lambda expression)`
@@ -175,7 +187,7 @@ Any.
 
 ### Example
 
-The following example shows how to use the reduce function.
+The following examples show how to use the reduce function.
 
 ```bicep
 var dogs = [
@@ -203,7 +215,18 @@ var dogs = [
 var ages = map(dogs, dog => dog.age)
 output totalAge int = reduce(ages, 0, (cur, prev) => cur + prev)
 output totalAgeAdd1 int = reduce(ages, 1, (cur, prev) => cur + prev)
+```
 
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| totalAge | int | 18 |
+| totalAgeAdd1 | int | 19 |
+
+**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
+
+```bicep
 output reduceObjectUnion object = reduce([
   { foo: 123 }
   { bar: 456 }
@@ -215,11 +238,9 @@ The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| totalAge | int | 18 |
-| totalAgeAdd1 | int | 19 |
 | reduceObjectUnion | object | {"foo":123,"bar":456,"baz":789} |
 
-In the last output, the [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the objects.
+The [union](./bicep-functions-object.md#union) function returns a single object with all elements from the parameters. The function call unionizes the key value pairs of the objects into a new object.
 
 ## sort
 
@@ -268,10 +289,10 @@ var dogs = [
   }
 ]
 
-output dogsByAge array = sort(dogs, (a, b) => a.age <= b.age)
+output dogsByAge array = sort(dogs, (a, b) => a.age < b.age)
 ```
 
-The output from the preceding example is:
+The output from the preceding example sorts the dog objects from the youngest to the oldest:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
