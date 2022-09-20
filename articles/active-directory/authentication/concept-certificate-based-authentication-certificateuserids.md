@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 09/20/2022
 
 ms.author: justinha
 author: vimrang
@@ -63,3 +63,40 @@ Tenant admins can use Azure portal to update the CertificateUserIds attribute fo
  
 ## Update CertificateUserIds using Azure AD Connect for federated users
 
+To update CertificateUserIds for federated users, configure Azure AD Connect to sync UserPrincipalName to CertificateUserIds. 
+
+1. On the Azure AD Connect server, find and start the **Synchronization Rules Editor**.
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/sync-rules-editor.png" alt-text="Screenshot of Synchronization Rules Editor.":::
+
+1. Click **Direction**, and click **Outbound**. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/outbound.png" alt-text="Screenshot of outbound synchronization rule.":::
+
+1. Find the rule **Out to AAD – User Identity**, click **Edit**, and click **Yes** to confirm. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user-identity.png" alt-text="Screenshot of user identity.":::
+
+1. Enter a high number in the **Precedence** field, and then click **Next**. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/precedence.png" alt-text="Screenshot of a precedence value.":::
+
+1. Click **Transformations** > **Add transformation**. You may need to scroll down the list of transformations before you can create a new one. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/add-transformation.png" alt-text="Screenshot of how to add a transformation.":::
+
+1. Click **Target Attribute**, select **CertificateUserIds**, click **Source**, select **UserPrincipalName**, and then click **Save**. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/edit-rule.png" alt-text="Screenshot of how to edit a rule.":::
+
+1. Click **OK** to confirm. 
+
+## Next steps
+
+- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [FAQ](certificate-based-authentication-faq.yml)
