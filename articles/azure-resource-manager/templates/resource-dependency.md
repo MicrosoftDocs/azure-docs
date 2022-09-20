@@ -110,6 +110,8 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
       "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
       ...
     }
+    ...
+}    
 ```
 
 To learn more, see [reference function](template-functions-resource.md#reference).
