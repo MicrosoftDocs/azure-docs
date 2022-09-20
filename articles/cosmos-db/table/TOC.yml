@@ -20,7 +20,7 @@
   items:
     - name: 1 - Migrate data
       displayName: import
-      href: table-import.md
+      href: import.md
     - name: 2 - Query data
       href: tutorial-query-table.md
     - name: 3 - Distribute data globally

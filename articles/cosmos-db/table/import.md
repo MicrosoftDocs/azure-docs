@@ -62,7 +62,7 @@ Use the following source options when you define Azure Table Storage as the sour
 
 To retrieve the source connection string when you import from Table Storage, open the Azure portal. Select **Storage accounts** > **Account** > **Access keys**, and copy the **Connection string**.
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot that shows Storage accounts > Account > Access keys options, and highlights the copy icon.":::
+:::image type="content" source="./media/import/storage-table-access-key.png" alt-text="Screenshot that shows Storage accounts > Account > Access keys options, and highlights the copy icon.":::
 
 ### Command-line target settings
 

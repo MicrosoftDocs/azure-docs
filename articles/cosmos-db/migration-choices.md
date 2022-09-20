@@ -95,7 +95,7 @@ For APIs other than the API for NoSQL, API for MongoDB and the API for Cassandra
 
 **API for Table** 
 
-* [Data Migration Tool](table/table-import.md#data-migration-tool)
+* [Data Migration Tool](table/import.md#data-migration-tool)
 
 **API for Gremlin**
 

@@ -411,4 +411,4 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import table data to the API for Table](table-import.md)
+> [Import table data to the API for Table](import.md)

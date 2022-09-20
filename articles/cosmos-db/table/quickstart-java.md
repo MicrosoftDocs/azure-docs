@@ -781,4 +781,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the Tables API.
 
 > [!div class="nextstepaction"]
-> [Import table data to the Tables API](table-import.md)
+> [Import table data to the Tables API](import.md)
