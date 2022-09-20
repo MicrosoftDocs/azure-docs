@@ -121,7 +121,7 @@ The following example ARM template deploys a Container Apps environment.
 
 # [YAML](#tab/yaml)
 
-YAML input isn't currently used by Azure CLI commands to specify a Container Apps environment.
+YAML input is currently used by Azure CLI commands to specify a Container Apps environment. See [this](https://learn.microsoft.com/azure/container-apps/azure-resource-manager-api-spec?tabs=yaml#container-app-examples) example for more details.
 
 ---
 
