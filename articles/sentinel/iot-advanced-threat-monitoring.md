@@ -54,13 +54,13 @@ For more information, see:
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 
-**Prerequisites**: Make sure you've [installed the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules, built specifically for Defender for IoT data, deployed to your workspace.
+**Prerequisites**:
+ 
+- Make sure you've [installed the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules, built specifically for Defender for IoT data, deployed to your workspace.
+
+- To prevent duplicate incidents, disable the default *Microsoft Security* rule named **Create incidents based on Azure Defender for IOT alerts**.
 
 The following table describes the out-of-the-box analytics rules provided in the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
-
-> [!TIP]
-> When working with the following analytics rules, we recommend that you turn off the default *Microsoft Security* Defender for the IoT analytics rules.
->
 
 | Rule Name | Description|
 | ---------- | ----------|
