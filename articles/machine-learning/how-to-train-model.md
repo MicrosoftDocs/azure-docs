@@ -128,7 +128,7 @@ The service provider uses the `api-version` argument to ensure compatibility. Th
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
-### Get the default datastores
+<!-- ### Get the default datastores
 
 When training using the REST API, you must upload the training data and training files to a storage account. The following commands get the default storage account and default container for your workspace. These values are stored in the `$AZUREML_DEFAULT_DATASTORE` and `$AZUREML_DEFAULT_CONTAINER` environment variables:
 
@@ -140,7 +140,7 @@ response=$(curl --location --request GET "https://management.azure.com/subscript
 AZUREML_DEFAULT_DATASTORE=$(echo $response | jq -r '.value[0].name')
 AZUREML_DEFAULT_CONTAINER=$(echo $response | jq -r '.value[0].properties.containerName')
 AZURE_STORAGE_ACCOUNT=$(echo $response | jq -r '.value[0].properties.accountName')
-```
+``` -->
 
 ---
 
