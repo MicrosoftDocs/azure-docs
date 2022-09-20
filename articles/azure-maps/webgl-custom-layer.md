@@ -37,7 +37,7 @@ then add the layer to the map to have it rendered.
 The following sample code demonstrates how to add a WebGL layer to a map:
 
 ```js
-var renderer = {
+var myRenderer = {
     /**
      * Either "2d" or "3d". Defaults to "2d".
      * - "3d" to use the depth buffer and share it with other layers
@@ -97,7 +97,7 @@ var renderer = {
 };
  
 //Add the layer to the map.
-map.layers.add(new atlas.layer.WebGLLayer("layerId", { renderer    }));
+map.layers.add(new atlas.layer.WebGLLayer("layerId", { renderer: myRenderer }));
 ```
 
 > [!NOTE]
@@ -105,10 +105,14 @@ map.layers.add(new atlas.layer.WebGLLayer("layerId", { renderer    }));
 
 ```js
 //Add the layer to the map with layer options. 
-var minZoom = 10;
-var maxZoom = 22;
-var visible = true;
-map.layers.add(new atlas.layer.WebGLLayer("layerId", { renderer, minZoom, maxZoom, visible }));
+map.layers.add(new atlas.layer.WebGLLayer("layerId", 
+    { 
+        renderer: myRenderer, 
+        minZoom: 10, 
+        maxZoom: 22, 
+        visible: true
+    }
+));
 ```
 
 This sample renders a triangle on the map using a WebGL layer.
@@ -186,7 +190,7 @@ class DeckGLLayer extends atlas.layer.WebGLLayer {
         this._mbLayer = new deck.MapboxLayer(options); 
 
         //Create a renderer 
-        const renderer = { 
+        const deckGLRenderer = { 
             renderingMode: "3d", 
             onAdd: (map, gl) => { 
                this._mbLayer.onAdd?.(map["map"], gl); 
@@ -201,7 +205,7 @@ class DeckGLLayer extends atlas.layer.WebGLLayer {
                 this._mbLayer.render(gl, matrix); 
             } 
         }; 
-        this.setOptions({ renderer }); 
+        this.setOptions({ renderer: deckGLRenderer }); 
     } 
 } 
 ```
