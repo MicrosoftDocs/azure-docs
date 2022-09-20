@@ -294,7 +294,7 @@ In the Azure portal, go to your user-assigned managed identity resource and sele
 
 ## Grant the event hub permission to the data collection rule
 
-With [managed identity](../../active-directory/managed-identities-azure-resources/overview), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
+With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
 
 1. From the data collection rule in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
