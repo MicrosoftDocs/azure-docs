@@ -85,7 +85,6 @@ az sql mi-arc create
 --ad-account-name < SQL MI AD user account >  
 --primary-dns-name < SQL MI DNS endpoint > 
 --primary-port-number < SQL MI port number > 
---location < your cloud region >
 --custom-location < your custom location > 
 --resource-group < resource-group >
 ```
@@ -100,7 +99,6 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
---location westeurope
 --custom-location private-location
 --resource-group arc-rg
 ```
@@ -199,7 +197,6 @@ az sql mi-arc create
 --ad-account-name < SQL MI AD user account >  
 --primary-dns-name < SQL MI DNS endpoint > 
 --primary-port-number < SQL MI port number > 
---location < your cloud region >
 --custom-location < your custom location > 
 --resource-group <resource-group>
 ```
@@ -213,7 +210,6 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
---location westeurope
 --custom-location private-location
 --resource-group arc-rg
 ```
