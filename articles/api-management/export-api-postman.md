@@ -16,7 +16,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md) a
-+ Make sure your instance manages an API that you'd like to export as Postman collection. The API must have a [valid API schema](#supported-api-schemas).
++ Make sure your instance manages an API that you'd like to export as a Postman collection. The API must have a [valid API schema](#supported-api-schemas).
 
     For testing authorization in Postman, the API must require a subscription.
 
