@@ -71,6 +71,7 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 - Control who gets to join a room, using `roomJoinPolicy`. Details below.
 - Assign roles and permissions to users. Details below.
 
+
 ### Calling SDKs
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
