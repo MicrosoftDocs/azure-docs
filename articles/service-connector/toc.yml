@@ -64,8 +64,16 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: how-to-integrate-mysql.md
-    - name: Azure Cosmos DB Mongo API
+    - name: Azure Cosmos DB - Cassandra API
+      href: how-to-integrate-cosmos-cassandra.md
+    - name: Azure Cosmos DB - Gremlin API
+      href: how-to-integrate-cosmos-gremlin.md
+    - name: Azure Cosmos DB - Mongo API
       href: how-to-integrate-cosmos-db.md
+    - name: Azure Cosmos DB - SQL API
+      href: how-to-integrate-cosmos-sql.md
+    - name: Azure Cosmos DB - Table API
+      href: how-to-integrate-cosmos-table.md
     - name: Azure Blob Storage
       href: how-to-integrate-storage-blob.md
     - name: Azure Queue Storage
