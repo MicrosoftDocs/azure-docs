@@ -1,6 +1,6 @@
 ---
 title: Migrate to TLS 1.2 in Azure Batch client code
-description: Learn how to migrate to TLS 1.2 in Azure Batch client code to prepare for the end of support for TLS 1.0/1.1.
+description: Learn how to migrate to TLS 1.2 in Azure Batch client code to prepare for feature end of support for TLS 1.0/1.1.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -8,17 +8,19 @@ ms.topic: how-to
 ms.date: 08/16/2022
 ---
 
-# Migrate to TLS 1.2 in Azure Batch client code
+# Migrate client code to TLS 1.2 in Batch (feature retirement)
 
-To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0/1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in your Batch deployment.
+To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0 and TLS 1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in the client code you manage by using Batch.
 
-Transport Layer Security (TLS) versions 1.0 and 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
+## End of support for TLS 1.0 and TLS 1.1
 
-Most customers have already migrated to TLS 1.2. Customers who continue to use TLS 1.0/1.1 can be identified via existing BatchOperation telemetry. If you're using TLS 1.0/1.1, you must adjust your existing workflows to ensure that you're using TLS 1.2 to avoid disrupting your existing Batch workflows.
+TLS versions 1.0 and 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. TLS 1.0 and 1.1 don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
 
-## Migration strategy
+Most customers have already migrated to TLS 1.2. Customers who continue to use TLS 1.0 or 1.1 can be identified via existing BatchOperation telemetry. If you're using TLS 1.0 or 1.1, to avoid disruption to your Batch workflows, you must adjust existing workflows to ensure that you're using TLS 1.2.
 
-To avoid disruption to your Batch workflows, you must update your client code to use TLS 1.2 before the TLS 1.0/1.1 retirement in Batch on March 31, 2023.
+## Migrate to TLS 1.2
+
+To avoid disruption to your Batch workflows, you must update your client code to use TLS 1.2 before the TLS 1.0 and 1.1 retirement in Batch on March 31, 2023.
 
 For specific development use cases, see the following information:
 
@@ -30,15 +32,15 @@ For specific development use cases, see the following information:
 
 For TLS best practices, see [TLS best practices for the .NET Framework](/dotnet/framework/network-programming/tls).
 
-## FAQ
+## FAQs
 
 - Why do I need to upgrade to TLS 1.2?
 
-   TLS 1.0/1.1 has security issues that are fixed in TLS 1.2. TLS 1.2 has been available since 2008. TLS 1.2 is the current default version in most development frameworks.
+   TLS 1.0 and TLS 1.1 have security issues that are fixed in TLS 1.2. TLS 1.2 has been available since 2008. TLS 1.2 is the current default version in most development frameworks.
 
 - What happens if I don’t upgrade?
 
-   After the feature retirement from Azure Batch, your client application won't work until you upgrade.
+   After the feature retirement from Azure Batch, your client application won't work until you upgrade the code to use TLS 1.2.
 
 - Will upgrading to TLS 1.2 affect the performance of my application?
 
@@ -46,8 +48,8 @@ For TLS best practices, see [TLS best practices for the .NET Framework](/dotnet/
 
 - How do I know if I’m using TLS 1.0/1.1?
 
-   To determine the TLS version you're using, check the Audit Log for your Batch deployment.
+   To determine the TLS version you're using, check the audit log for your Batch deployment.
 
 ## Next steps
 
-For more information, see [How to enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).
+For more information, see [Enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).

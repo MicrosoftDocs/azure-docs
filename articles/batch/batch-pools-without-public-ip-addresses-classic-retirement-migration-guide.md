@@ -1,6 +1,6 @@
 ---
-title: Batch Pools without public IP addresses classic retirement
-description: Describes the migration steps for the batch pool without public ip addresses and the end of support details.
+title: Opt in to migrate Azure Batch pools without public IP addresses (classic)
+description: Learn how to opt in to migrate Azure Batch pools without public IP addresses (classic) and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -8,55 +8,61 @@ ms.topic: how-to
 ms.date: 09/01/2022
 ---
 
-# Batch Pools without public IP addresses classic retirement
+# Opt in to migrate Batch pools without public IP addresses (feature retirement)
 
-By default, all the compute nodes in an Azure Batch virtual machine (VM) configuration pool are assigned a public IP address. This address is used by the Batch service to schedule tasks and for communication with compute nodes, including outbound access to the internet. To restrict access to these nodes and reduce the discoverability of these nodes from the internet, we released [Batch pools without public IP addresses (classic)](./batch-pool-no-public-ip-address.md).
+Azure Batch pools without public IP addresses (classic) will retire on *March 31, 2023*. Existing pools will migrate to simplified compute node communication pools without public IP addresses. You must opt in to migrate your Batch pools.
 
-In late 2021, we launched a simplified compute node communication model for Azure Batch. The new communication model improves security and simplifies the user experience. Batch pools no longer require inbound Internet access and outbound access to Azure Storage, only outbound access to the Batch service. As a result, Batch pools without public IP addresses (classic) which is currently in public preview will be retired on *March 31 2023* and will be replaced with simplified compute node communication pools without public IPs.
+## About Batch pools without public IP addresses
 
-## Retirement alternatives
+By default, all the compute nodes in an Azure Batch virtual machine (VM) configuration pool are assigned a public IP address. The Batch service uses the IP address to schedule tasks and for communication with compute nodes, including outbound access to the internet. To restrict access to these nodes and reduce the discoverability of these nodes from the internet, we released [Batch pools without public IP addresses (classic)](./batch-pool-no-public-ip-address.md).
 
-[Simplified Compute Node Communication Pools without Public IPs](./simplified-node-communication-pool-no-public-ip.md) requires using simplified compute node communication. It provides customers with enhanced security for their workload environments on network isolation and data exfiltration to Azure Batch accounts. Its key benefits include:
+## End of support for pools without public IP addresses
 
-- Allow creating simplified node communication pool without public IP addresses.
-- Support Batch private pool using a new private endpoint (sub-resource nodeManagement) for Azure Batch account.
-- Simplified private link DNS zone for Batch account private endpoints: changed from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`.
+In late 2021, we launched a simplified compute node communication model for Azure Batch. The new communication model improves security and simplifies the user experience. Batch pools no longer require inbound internet access and outbound access to Azure Storage. Batch pools now need only outbound access to the Batch service. As a result, Batch pools without public IP addresses (classic), currently in public preview, will be retired on *March 31, 2023*. The feature will be replaced by simplified compute node communication pools without public IPs.
+
+## Use simplified node communication for a pool with no public IP address
+
+The alternative to using a Batch pool without a public IP address (classic) requires using [simplified node communication](./simplified-node-communication-pool-no-public-ip.md). The option gives you enhanced security for your workload environments on network isolation and data exfiltration to Azure Batch accounts. Its key benefits include:
+
+- You can create simplified node communication pools without public IP addresses.
+- You can create a Batch private pool by using a new private endpoint (sub-resource nodeManagement) for an Azure Batch account.
+- A simplified private link DNS zone for Batch account private endpoints. The private link changed from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`.
 - Mutable public network access for Batch accounts.
-- Firewall support for Batch account public endpoints: configure IP address network rules to restrict public network access with Batch accounts.
+- Firewall support for Batch account public endpoints. You can configure IP address network rules to restrict public network access with Batch accounts.
 
-## Migration steps
+## Opt in and migrate your eligible pools
 
-Batch pool without public IP addresses (classic) will retire on **31 March 2023** and will be updated to simplified compute node communication pools without public IPs. For existing pools that use the previous preview version of Batch pool without public IP addresses (classic), it's only possible to migrate pools created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
+Batch pools without public IP addresses (classic) will retire on *March 31, 2023*. For existing pools that use the earlier preview version of Batch pools without public IP addresses (classic), you can migrate only pools that you created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
 
 1. Opt in to [use simplified compute node communication](./simplified-compute-node-communication.md#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication).
 
-   ![Support Request](../batch/media/certificates/opt-in.png)
+   :::image type="content" source="media/certificates/opt-in.png" alt-text="Screenshot that shows creating a support request to opt in.":::
 
 1. Create a private endpoint for Batch node management in the virtual network.
 
-   ![Create Endpoint](../batch/media/certificates/private-endpoint.png)
+   :::image type="content" source="media/certificates/private-endpoint.png" alt-text="Screenshot that shows how to create an endpoint.":::
 
 1. Scale down the pool to zero nodes.
 
-   ![Scale Down](../batch/media/certificates/scale-down-pool.png)
+   :::image type="content" source="media/certificates/scale-down-pool.png" alt-text="Screenshot that shows how to scale down a pool.":::
 
 1. Scale out the pool again. The pool is then automatically migrated to the new version of the preview.
 
-   ![Scale Out](../batch/media/certificates/scale-out-pool.png)
+   :::image type="content" source="media/certificates/scale-out-pool.png" alt-text="Screenshot that shows how to scale out a pool.":::
 
-## FAQ
+## FAQs
 
 - How can I migrate my Batch pool without public IP addresses (classic) to simplified compute node communication pools without public IPs?
 
-  You can only migrate your pool to simplified compute node communication pools if it was created in a virtual network. Otherwise, you’d need to create a new simplified compute node communication pool without public IPs.
+  You can migrate your pool to simplified compute node communication pools only if you created the pool in a virtual network. Otherwise, create a new simplified compute node communication pool without public IP addresses.
 
 - What differences will I see in billing?
 
-  Compared with Batch pools without public IP addresses (classic), the simplified compute node communication pools without public IPs support will reduce costs because it won’t need to create network resources the following: load balancer, network security groups, and private link service with the Batch pool deployments. However, there will be a [cost associated with  private link](https://azure.microsoft.com/pricing/details/private-link/) or other outbound network connectivity used by pools, as controlled by the user, to allow communication with the Batch service without public IP addresses.
+  Compared with Batch pools without public IP addresses (classic), the simplified compute node communication pools without public IPs support will reduce costs because it won’t need to create the following network resources: load balancer, network security groups, and private link service with the Batch pool deployments. However, there will be a [cost associated with  private link](https://azure.microsoft.com/pricing/details/private-link/) or other outbound network connectivity used by pools, as controlled by the user, to allow communication with the Batch service without public IP addresses.
 
-- Will there be any performance changes?
+- Will I see any changes in performance?
 
-  No known performance differences compared to Batch pools without public IP addresses (classic).
+  No known performance differences exist for simplified compute node communication pools without public IPs compared to Batch pools without public IP addresses (classic).
 
 - How can I connect to my pool nodes for troubleshooting?
 
@@ -68,7 +74,7 @@ Batch pool without public IP addresses (classic) will retire on **31 March 2023*
 
 - What if I don’t migrate to simplified compute node communication pools without public IPs?
 
-  After *March 31 2023*, we will stop supporting Batch pool without public IP addresses. The functionality of the existing pool in that configuration may break, such as scale out operations, or may be actively scaled down to zero at any point in time after that date.
+  After *March 31, 2023*, we will stop supporting Batch pools without public IP addresses. The functionality of the existing pool in that configuration might break, including scale-out operations, or the pool might be actively scaled down to zero at any point in time after that date.
 
 ## Next steps
 
