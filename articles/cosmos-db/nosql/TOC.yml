@@ -1110,7 +1110,7 @@
             - name: Troubleshoot issues using basic queries
               href: ../cosmosdb-monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: ../cosmos-db-advanced-queries.md
+              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts

@@ -15,7 +15,7 @@ ms.author: esarroyo
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](../includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [API for NoSQL](../cosmos-db-advanced-queries.md)
+> * [API for NoSQL](../advanced-queries.md)
 > * [API for MongoDB](../mongodb/diagnostic-queries-mongodb.md)
 > * [API for Cassandra](diagnostic-queries-cassandra.md)
 > * [API for Gremlin](../queries-gremlin.md)

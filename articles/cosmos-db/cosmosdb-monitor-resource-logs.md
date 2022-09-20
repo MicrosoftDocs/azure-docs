@@ -166,7 +166,7 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
    
     :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable full-text":::
 
-To learn how to query using this newly enabled feature visit [advanced queries](cosmos-db-advanced-queries.md).
+To learn how to query using this newly enabled feature visit [advanced queries](advanced-queries.md).
 
 ## Next steps
 * For more information on how to query resource-specific tables see [troubleshooting using resource-specific tables](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
