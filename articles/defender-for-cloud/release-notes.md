@@ -18,6 +18,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## October 2022
+
+Updates in October include:
+
+- [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
+
+### Agentless scanning for Azure and AWS machines
+
+Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
+
+With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+
+Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+
+- Learn more about [agentless scanning](concept-agentless-data-collection.md).
+- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+
 ## September 2022
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
