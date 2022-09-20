@@ -36,7 +36,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 ## Error code: FIPSModeIsNotSupport
 
-- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
 
 - **Cause**: Then FIPS policy is enabled on the VM where the self-hosted integration runtime was installed.
 

@@ -322,7 +322,7 @@ def writeOrder(orderid):
   df = spark.read.json(sc.parallelize([orderjsondata]))
   
   #write the dataframe (this will be a single order record with merged many-to-one order details) to cosmos db using spark the connector
-  #https://docs.microsoft.com/azure/cosmos-db/spark-connector
+  #https://learn.microsoft.com/azure/cosmos-db/spark-connector
   df.write.format("com.microsoft.azure.cosmosdb.spark").mode("append").options(**writeConfig).save()
 ```
 
