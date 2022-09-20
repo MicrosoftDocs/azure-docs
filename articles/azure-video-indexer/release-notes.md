@@ -41,6 +41,18 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
+## October 2022
+
+### Slate detection insights (preview)
+
+The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
+
+* Clapper board detection with meta data extraction.
+* Digital patterns detection, including color bars.
+* Textless slate detection, including scene matching.
+
+For details, see [Slate detection](slate-detection-insight.md).
+
 ## September 2022
 
 ### General availability of Azure Resource Management (ARM)
