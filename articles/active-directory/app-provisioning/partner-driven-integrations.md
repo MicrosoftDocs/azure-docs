@@ -65,14 +65,32 @@ UNIFY Solutions is the leading provider of Identity, Access, Security and Govern
 #### Contact information
 * Company website: https://unifysolutions.net/identity/unifyconnect
 * Contact information: https://unifysolutions.net/contact/
+* Azure Marketplace: [UNIFYConnect - SCIM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifysolutionsptyltd-1016129.unifyconnectscim?tab=Overview)
 
 #### Popular applications supported
-* Aurion People & Payroll
-* Frontier Software chris21
-* TechnologyOne HR
 * Ascender HCM
+* Aurion People & Payroll
+* Aderant Expert
+* Cisco Unified Communications Manager
+* Coupa
+* CornerStone OnDemand HR Suite
+* ELMO HR
+* Frontier Software ichris/chris21
 * Fusion5 EmpowerHR
+* Kronos Workforce Ready
+* Micro Focus Content Manager
+* Microsoft Active Directory
+* Microsoft Dynamics CRM
+* Microsoft Dynamics 365 for Finance and Operations
+* Oracle HCM Cloud
+* Oracle Peoplesoft (PHRIS)
+* Oracle Taleo Cloud
 * SAP ERP Human Capital Management
+* SAP SuccessFactors
+* ServiceNow
+* TechnologyOne HR
+* TechnologyOne Financials
+* Workday
 
 ## How-to add partner-driven integrations to this document
 If you have built a SCIM Gateway and would like to add it to this list, follow the steps below. 
