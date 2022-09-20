@@ -28,7 +28,7 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
-- [Microsoft Learn](/learn)
+- [Microsoft Learn training](/training)
 - LinkedIn Learning
 - Fox Weather
 - Yammer

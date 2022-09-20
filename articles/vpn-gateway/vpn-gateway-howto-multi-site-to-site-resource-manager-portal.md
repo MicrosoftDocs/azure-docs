@@ -81,4 +81,4 @@ Verify the following items:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual machines learning paths](/learn/paths/deploy-a-website-with-azure-virtual-machines/).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual machines learning paths](/training/paths/deploy-a-website-with-azure-virtual-machines/).

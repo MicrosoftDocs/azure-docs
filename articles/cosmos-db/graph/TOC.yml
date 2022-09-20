@@ -396,8 +396,8 @@
       href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml
     - name: Whitepapers

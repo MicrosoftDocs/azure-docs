@@ -61,7 +61,7 @@ Import-Module -Name AzFilesHybrid
 # Login with an Azure AD credential that has either storage account owner or contributor Azure role 
 # assignment. If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) 
 # you will need to specify that.
-# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# See https://learn.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
 # for more information.
 Connect-AzAccount
 
@@ -69,7 +69,7 @@ Connect-AzAccount
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
 # for the object. 
-# See https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname for more information.
+# See https://learn.microsoft.com/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
