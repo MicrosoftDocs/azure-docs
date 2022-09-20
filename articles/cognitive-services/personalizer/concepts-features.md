@@ -348,8 +348,8 @@ Setting the service configuration flag IsInferenceExplainabilityEnabled in your 
   "learningMode": "Online",
   "isAutoOptimizationEnabled": true,
   "autoOptimizationFrequency": "P7D",
-  "autoOptimizationStartDate": "2019-01-19T00:00:00Z”,
-“isInferenceExplainabilityEnabled”: true
+  "autoOptimizationStartDate": "2019-01-19T00:00:00Z",
+"isInferenceExplainabilityEnabled": true
 }
 ```
 
@@ -357,6 +357,7 @@ Setting the service configuration flag IsInferenceExplainabilityEnabled in your 
 Enabling inference explainability will add a collection to the JSON response from the Rank API called *inferenceExplanation*. This contains a list of feature names and values that were submitted in the Rank request, along with feature scores learned by Personalizer’s underlying model. The feature scores provide you with insight on how influential each feature was in the model choosing the action.
 
 ```JSON
+
 {
   "ranking": [
     {
@@ -374,29 +375,28 @@ Enabling inference explainability will add a collection to the JSON response fro
   ],
  "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
  "rewardActionId": "EntertainmentArticle",
- “inferenceExplanation”: [
+ "inferenceExplanation": [
     {
-        “id”: “EntertainmentArticle”,
-        “features”: [
+        "id”: "EntertainmentArticle",
+        "features": [
             {
-                “name”: ”user.profileType”,
-                “score” 3.0
+                "name": "user.profileType",
+                "score": 3.0
             },
             {
-                “namespace”: “user”,
-                “name”: ”user.latLong”,
-                “score”: -4.3
+                "name": "user.latLong",
+                "score": -4.3
             },
             {
-                “name”: ”user.profileType^user.latLong”,
-                “score” : 12.1
+                "name": "user.profileType^user.latLong",
+                "score" : 12.1
             },
         ]
   ]
 }
 ```
 
-Recall that Personalizer will either return the best action as determined by the model or an exploratory action chosen by the exploration policy. Actions taken during exploration do not leverage the feature scores in determining which action to take, therefore **feature scores for exploratory actions should not be used to gain an understanding of why the action was taken.** [You can learn more about exploration here](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-exploration).
+Recall that Personalizer will either return the _best action_ as determined by the model or an _exploratory action_ chosen by the exploration policy. The best action is the one that the model has determined has the highest probability of maximizing the average reward, whereas exploratory actions are chosen among the set of all possible actions provided in the Rank API call. Actions taken during exploration do not leverage the feature scores in determining which action to take, therefore **feature scores for exploratory actions should not be used to gain an understanding of why the action was taken.** [You can learn more about exploration here](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-exploration).
 
 For the best actions returned by Personalizer, the feature scores can provide general insight where:
 * Larger positive scores provide more support for the model choosing the best action. 
@@ -405,7 +405,7 @@ For the best actions returned by Personalizer, the feature scores can provide ge
 
 ### Important considerations for Inference Explainability
 * **Increased latency.** Enabling _Inference Explainability_ will significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. Future versions of Inference Explainability will mitigate this issue.
-* **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when enabling _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
+* **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when using _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
 
 
 ## Next steps
