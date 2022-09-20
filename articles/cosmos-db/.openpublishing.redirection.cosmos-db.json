@@ -11,6 +11,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/autoscale.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/autoscale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/lock.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/lock",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/serverless.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/serverless",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/throughput.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/throughput",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/autoscale.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/autoscale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/create-index-none.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/create-index-none",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/create-large-partition-key.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/create-large-partition-key",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/create.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/list-get.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/list-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/lock.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/lock",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/scripts/powershell/sql/throughput.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/nosql/throughput",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-cpp-get-started.md",
       "redirect_url": "/azure/cosmos-db/",
       "redirect_document_id": false
