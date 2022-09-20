@@ -45,6 +45,7 @@ During the preview:
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+- TrustedLaunch and ConfidentialVM are not supported
 - PowerShell, Ansible, and Terraform aren't supported at this time.
 - Not available in Government clouds
 - For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
@@ -226,4 +227,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) image from a direct shared image in the target subscription or tenant.
