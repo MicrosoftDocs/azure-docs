@@ -1,17 +1,17 @@
 ---
-title: 'Cache purging - Azure Front Door - CLI'
-description: This article helps you understand how to purge cache on an Azure Front Door Standard and Premium profile using CLI.
+title: 'Cache purging - Azure Front Door - Azure CLI'
+description: This article helps you understand how to purge cache on an Azure Front Door Standard and Premium profile using Azure CLI.
 services: frontdoor
 author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 08/31/2022
+ms.date: 09/20/2022
 ms.author: duau
 ---
 
-# Cache purging in Azure Front Door
+# Cache purging in Azure Front Door with Azure CLI
 
 Azure Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Azure Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
@@ -30,12 +30,15 @@ Run [az afd endpoint purge](/cli/azure/afd/endpoint#az-afd-endpoint-purge) to pu
    * Name of the Azure Front Door profile within the resource group with assets you want to purge
    * Endpoints with assets you want to purge
    * Domains/Subdomains with assets you want to purge
+
    > [!IMPORTANT]
    > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
+
    * The path to the content to be purged.
      * These formats are supported in the lists of paths to purge:
        * **Single path purge**: Purge individual assets by specifying the full path of the asset (without the protocol and domain), with the file extension, for example, /pictures/strasbourg.png.
        * **Root domain purge**: Purge the root of the endpoint with "/*" in the path.
+
 ```azurecli-interactive
 az afd endpoint purge \
    --resource-group myRGFD \
