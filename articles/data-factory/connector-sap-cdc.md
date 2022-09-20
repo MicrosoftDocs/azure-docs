@@ -46,7 +46,7 @@ To use this SAP CDC connector, you need to:
 
   :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Install SAP Connector for .NET":::
 
-- The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#sap-user-configurations):
+- The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#set-up-the-sap-user):
 
 
 ## Get started
