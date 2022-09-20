@@ -11,11 +11,11 @@ ms.custom: template-how-to
 
 # Set employeeLeaveDateTime
 
-This article describes how to manually set the employeeLeaveDateTime attribute for a user. This attribute can be used to be set as a trigger for leaver workflows created using Lifecycle Workflows.
+This article describes how to manually set the employeeLeaveDateTime attribute for a user. This attribute can be set as a trigger for leaver workflows created using Lifecycle Workflows.
 
 ## Required permission and roles
 
-To set the employeeLeaveDateTime attribute, you must make sure the correct delegated roles and application permissions are set. These are as following:
+To set the employeeLeaveDateTime attribute, you must make sure the correct delegated roles and application permissions are set. They are as follows:
 
 ### Delegated
 
@@ -47,7 +47,7 @@ To set the employeeLeaveDateTime for a user using PowerShell enter the following
     $User.AdditionalProperties
  ```
 
-This is an example of a user who will leave on September 30, 2022 at 23:59.
+ This script is an example of a user who will leave on September 30, 2022 at 23:59.
 
  ```powershell
     Connect-MgGraph -Scopes "User-LifeCycleInfo.ReadWrite.All"
