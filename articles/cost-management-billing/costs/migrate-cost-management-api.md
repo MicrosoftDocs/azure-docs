@@ -112,7 +112,6 @@ Exports and the Cost Details API, as with all Cost Management APIs, are availabl
 | **Type** | **ID format** |
 | --- | --- |
 | Billing account | /Microsoft.Billing/billingAccounts/{billingAccountId} |
-| --- | --- |
 | Billing profile | /Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId} |
 | Subscription | /subscriptions/{subscriptionId} |
 | Resource group | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} |
