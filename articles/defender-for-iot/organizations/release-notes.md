@@ -46,6 +46,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.6 | 09/2022 | 04/2023 |
 | 22.2.5 | 08/2022 | 04/2023 |
 | 22.2.4 | 07/2022 | 04/2023 |
 | 22.2.3 | 07/2022 | 04/2023 |
@@ -59,6 +60,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## September 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm |
 
 ## August 2022
 
