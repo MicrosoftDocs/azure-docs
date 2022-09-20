@@ -102,13 +102,13 @@ You can learn more about each type of join and how to plan for them here:
 
    :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
 
-1. Select **Review + Create**.
+   1. Select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+   1. On the **Review** tab, select **Create**.
 
-1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+   1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
 
-   #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
+#### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
 
@@ -127,11 +127,12 @@ You can learn more about each type of join and how to plan for them here:
 
    :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
 
-1. Select **Review + Create**.
+   1. Select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+   1. On the **Review** tab, select **Create**.
 
-1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+   1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+
    ---
 
 ## Attach network connection to dev center
