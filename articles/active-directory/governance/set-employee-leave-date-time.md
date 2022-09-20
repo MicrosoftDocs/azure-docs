@@ -10,19 +10,27 @@ ms.custom: template-how-to
 ---
 
 # Set employeeLeaveDateTime
+
+This article describes how to manually set the employeeLeaveDateTime attribute for a user. This attribute can be used to be set as a trigger for leaver workflows created using Lifecycle Workflows.
+
 ## Required permission and roles
+
+To set the employeeLeaveDateTime attribute, you must make sure the correct delegated roles and application permissions are set. These are as following:
+
 ### Delegated
-In delegated scenarios the signed-in user needs the Global Administrator role to update the employeeLeaveDateTime attribute. In addition one of the following delegated permissions is required:
+
+In delegated scenarios, the signed-in user needs the Global Administrator role to update the employeeLeaveDateTime attribute. One of the following delegated permissions are also required:
 - User-LifeCycleInfo.ReadWrite.All
 - Directory.AccessAsUser.All
 
 ### Application
+
 Updating the employeeLeaveDateTime requires the User-LifeCycleInfo.ReadWrite.All application permission.
 
 >[!NOTE]
-> The User-LifeCycleInfo.ReadWrite.All permissions is currently hidden and cannot be configured in Graph Explorer or the API permssion blade of app registrations.
+> The User-LifeCycleInfo.ReadWrite.All permissions is currently hidden and cannot be configured in Graph Explorer or the API permission blade of app registrations.
 
-# Set employeeLeaveDateTime via PowerShell
+## Set employeeLeaveDateTime via PowerShell
 To set the employeeLeaveDateTime for a user using PowerShell enter the following information:
 
  ```powershell    
