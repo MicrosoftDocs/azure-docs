@@ -2,7 +2,7 @@
 title: Azure Event Grid - Subscribe to partner events 
 description: This article explains how to subscribe to events from a partner using Azure Event Grid.
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 09/14/2022
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
@@ -29,7 +29,7 @@ Here are the steps that a subscriber needs to perform to receive events from a p
 You must grant your consent to the partner to create partner topics in a resource group that you designate. This authorization has an expiration time. It's effective for the time period you specify between 1 to 365 days. 
 
 > [!IMPORTANT]
-> For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. 
+> For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
 
 > [!NOTE]
 > Event Grid started enforcing authorization checks to create partner topics or partner destinations around June 30th, 2022. 
@@ -65,7 +65,10 @@ Following example shows the way to create a partner configuration resource that 
         1. Specify authorization expiration time. 
         1. Select **Add**. 
         
-            :::image type="content" source="./media/subscribe-to-partner-events/add-non-verified-partner.png" alt-text="Screenshot for granting a non-verified partner the authorization to create resources in your resource group.":::                 
+            :::image type="content" source="./media/subscribe-to-partner-events/add-non-verified-partner.png" alt-text="Screenshot for granting a non-verified partner the authorization to create resources in your resource group.":::       
+
+            > [!IMPORTANT]          
+            > Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
 1. Back on the **Create Partner Configuration** page, verify that the partner is added to the partner authorization list at the bottom. 
 1. Select **Review + create** at the bottom of the page. 
 

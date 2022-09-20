@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
@@ -139,6 +139,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
 > |[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
+>|[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.3.1             | extension adding support for hypothetical indexes |
 > |[hstore](https://www.postgresql.org/docs/13/hstore.html)                       | 1.7             | data type for storing sets of (key, value) pairs|
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
@@ -196,6 +197,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
 > |[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
+>|[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.3.1             | extension adding support for hypothetical indexes |
 > |[hstore](https://www.postgresql.org/docs/13/hstore.html)                       | 1.7             | data type for storing sets of (key, value) pairs|
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|

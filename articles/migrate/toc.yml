@@ -57,9 +57,7 @@
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
-        href: tutorial-assess-sql.md
-    - name: Assess physical servers for migration to Azure
-      href: 
+        href: tutorial-assess-sql.md 
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure

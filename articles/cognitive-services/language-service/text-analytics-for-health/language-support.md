@@ -73,9 +73,6 @@ json
         {
             "taskName": "analyze 1",
             "kind": "Healthcare",
-            "parameters": {
-                "fhirVersion": "4.0.1"
-            }
         }
     ]
 }

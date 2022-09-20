@@ -132,7 +132,7 @@ Next, create the function that acts as the trigger and listens to the queue.
    // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
+   // Reuse the instance of HTTP clients if possible: https://learn.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
    public static async Task Run(string myQueueItem, TraceWriter log) 
