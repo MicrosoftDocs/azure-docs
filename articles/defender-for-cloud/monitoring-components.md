@@ -17,7 +17,7 @@ You can benefit from Microsoft Defender for Cloud even if you don’t provision 
 
 Data is collected using:
 
-- [Azure Monitor Agent](auto-deploy-azure-monitor-agent.md) (AMA)
+- [Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) (AMA)
 - [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) (MDE)
 - [Log Analytics agent](working-with-log-analytics-agent.md)
 - **Security components**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md)
