@@ -17,11 +17,11 @@ Tools are provided as source code that you can download, modify, and build to cr
 The following tools by engineers at Microsoft, but aren't part of the Azure Cognitive Search service and aren't under SLA.
 
 | Tool name | Description | Source code |
-|------|------------ |-------------|
-| [Azure Cognitive Search Lab]()   | | |
-| [Knowledge Mining Accelerator]() | | |
-| [Back up and Restore]() | | |
-| [Optimize indexing]() | | |
+|-----------|------------ |-------------|
+| [Azure Cognitive Search Lab readme](https://github.com/Azure-Samples/azure-search-lab/readme)   | Connects to your search service with a Web UI that exercises the full REST API, including the ability to edit a live search index. | [https://github.com/Azure-Samples/azure-search-lab](https://github.com/Azure-Samples/azure-search-lab) |
+| [Knowledge Mining Accelerator readme](https://github.com/Azure-Samples/azure-search-knowledge-mining/readme) | Code and docs to jump start a knowledge store using your data. | [https://github.com/Azure-Samples/azure-search-knowledge-mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) |
+| [Back up and Restore readme](https://github.com/liamca/azure-search-backup-restore/readme) | Download a search index to your local device and then upload to a new search service. | [https://github.com/liamca/azure-search-backup-restore](https://github.com/liamca/azure-search-backup-restore) |
+| [Performance testing readme](https://github.com/Azure-Samples/azure-search-performance-testing/readme) | This pipeline helps to load test Azure Cognitive Search, it leverages Apache JMeter as an open source load and performance testing tool and Terraform to dynamically provision and destroy the required infrastructure on Azure. | [https://github.com/Azure-Samples/azure-search-performance-testing](https://github.com/Azure-Samples/azure-search-performance-testing) |
 
 ## See also
 

@@ -623,20 +623,12 @@
   - name: Demo sites
     href: resource-demo-sites.md
   - name: Tools
-    href: XXX
+    href: resource-tools.md
   - name: Training
-    href: XXX
+    href: resource-training.md
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
   - name: Partner data sources (Terms of Use)
     href: search-data-sources-terms-of-use.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Training
-    items:
-    - name: Introduction (Learn module)
-      href: /training/modules/intro-to-azure-search/
-    - name: Add search to apps (Pluralsight)
-      href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-    - name: Developer course (Pluralsight)
-      href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
