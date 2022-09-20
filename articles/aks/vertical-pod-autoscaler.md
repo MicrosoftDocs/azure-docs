@@ -108,7 +108,7 @@ The following steps creates a deployment with two pods, each running a single co
     hamster-c7d89d6db-znvz5   1/1     Running   0          48s
     ```
 
-1. Use the [kubectl describe][kubectl-describe] command on one of the pods to view its CPU and memory reservation. Replace <example ID> with one of the IDs returned in your output from the previous step.
+1. Use the [kubectl describe][kubectl-describe] command on one of the pods to view its CPU and memory reservation. Replace "example ID" with one of the IDs returned in your output from the previous step.
 
     ```bash
     kubectl describe pod hamster-<exampleID>
