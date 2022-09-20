@@ -48,14 +48,12 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: 4. Configure auto provisioning
-    href: enable-data-collection.md
-  - name: 5. Set up email notifications
+  - name: 4. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
-  - name: 7. Choose standards for your compliance dashboard
+  - name: 6. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
@@ -84,7 +82,7 @@
   - name: The Defender for Cloud multicloud solution
     href: multicloud.yml
 
-  - name: Cloud Security Posture Management concepts
+  - name: Cloud Security Posture Management
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
@@ -95,7 +93,7 @@
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
 
-  - name: Cloud Workload Protection concepts
+  - name: Cloud Workload Protection
     items:
     - name: Agentless scanning
       href: concept-agentless-data-collection.md
@@ -204,6 +202,14 @@
 
 - name: Protect your workloads
   items:
+  - name: Settings & monitoring
+    items:
+    - name: Overview
+      href: monitoring-components.md
+    - name: Deploy the Azure Monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
+    - name: Working with the Log Analytics agent
+      href: working-with-log-analytics-agent.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -213,8 +219,6 @@
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
-    - name: Deploy the Azure Monitor agent
-      href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities and software inventory with agentless scanning

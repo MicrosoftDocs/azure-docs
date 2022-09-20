@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in October include:
 
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
+- [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
 ### Agentless scanning for Azure and AWS machines
@@ -33,6 +34,21 @@ Agentless vulnerability scanning is available in both Defender CSPM P1 and in [D
 
 - Learn more about [agentless scanning](concept-agentless-data-collection.md).
 - Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+
+### Auto-provisioning is now available with an updated experience
+
+To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring component into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
+
+The Defender plans page:
+- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- You can access the monitoring component settings for each Defender plan from the Defender plan page.
+- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
+
+The Settings & monitoring page:
+- Settings & monitoring now includes installed and agentless monitoring components for Defender plans.
+- Each monitoring component indicates the Defender plans that it is related to.
+
+Learn more about [managing your monitoring settings](monitoring-components.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
@@ -49,6 +65,8 @@ The MITRE ATT&CK framework has been integrated in three ways:
 :::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
 
 ## September 2022
+
+Updates in September include:
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
@@ -111,8 +129,7 @@ Learn more about [viewing vulnerabilities for running images](defender-for-conta
  
 Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
  
-In Defender for Cloud, when you [enable auto provisioning for AMA](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
-
+In Defender for Cloud, when you [deploy AMA with Defender for Cloud](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
 
 ### Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster
 
