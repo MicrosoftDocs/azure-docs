@@ -61,16 +61,16 @@ To create a network connection, you need an existing VNet and subnet. If you don
 
  
 ## Allow access to Dev Box endpoints from your network
-Network ingress and egress can be controlled using a firewall, network security groups, and even microsoft defender. 
+Network ingress and egress can be controlled using a firewall, network security groups, and even Microsoft Defender. 
 
 If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
 The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 ### Types of Azure Active Directory Join
-The Dev Box service requires a configured and working Azure AD join or Hybrid AD join which defines how dev boxes join your domain and access resources. 
+The Dev Box service requires a configured and working Azure AD join or Hybrid AD join, which defines how dev boxes join your domain and access resources. 
 
-If your organization uses Azure AD, you can use an Azure AD join, sometimes called a native Azure AD join. Dev box users sign into Azure AD joined dev boxes using their Azure AD account and access resources based on the permissions assigned to that account and policies assigned to the dev box account. Azure AD join enables access to cloud-based and on-premises apps and resources.
+If your organization uses Azure AD, you can use an Azure AD join, sometimes called a native Azure AD join. Dev box users sign into Azure AD joined dev boxes using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources.
 
 If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality provided by Azure AD by using hybrid Azure AD joined dev boxes. These dev boxes are joined to your on-premises Active Directory and registered with Azure Active Directory. Hybrid Azure AD joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. 
 
@@ -123,7 +123,7 @@ You can learn more about each type of join and how to plan for them here:
 
  ---
 
-Use the following steps to finish creating your network connection, for For Azure AD join and Hybrid Azure AD join:
+Use the following steps to finish creating your network connection, for both Azure AD join and Hybrid Azure AD join:
    1. Select **Review + Create**.
 
    1. On the **Review** tab, select **Create**.
@@ -152,7 +152,7 @@ To resolve any errors, refer to the [Troubleshoot Azure network connections](/wi
 
 
 ## Remove a network connection from a dev center
-You can remove a network connection from a dev center if you no longer want it to be used to connect to network resources. Network connections cannot be removed if they are in use by one or more dev box pools. 
+You can remove a network connection from a dev center if you no longer want it to be used to connect to network resources. Network connections can't be removed if they are in use by one or more dev box pools. 
 
 1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev centers* and then select **Dev centers** from the list.
 
