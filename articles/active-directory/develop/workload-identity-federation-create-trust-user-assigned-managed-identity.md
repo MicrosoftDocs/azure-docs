@@ -25,7 +25,9 @@ After you configure your user-assigned managed identity to trust an external IdP
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
-[!INCLUDE [Important considerations and restrictions](./includes/workload-identity-federation-apps-considerations.md)]
+## Important considerations and restrictions
+
+To learn about important considerations and restrictions to consider when configuring a federated identity credential, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 
 ::: zone pivot="identity-wif-mi-methods-azp"
 
