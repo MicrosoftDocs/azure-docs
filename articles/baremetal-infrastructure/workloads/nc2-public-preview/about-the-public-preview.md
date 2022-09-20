@@ -6,7 +6,7 @@ ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# About NC2 on Azure Public Preview
+# About Nutanix Cloud Clusters on Azure Public Preview
 
 The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
 
@@ -19,7 +19,7 @@ In particular, this article highlights Public Preview features.
 ## Unlock the benefits of Azure
 
 * Establish a consistent hybrid deployment strategy
-* Operate seamlessly with on-premise Nutanix Clusters in Azure
+* Operate seamlessly with on-premises Nutanix Clusters in Azure
 * Build and scale without constraints
 * Invent for today and be prepared for tomorrow with NC2 on Azure
 

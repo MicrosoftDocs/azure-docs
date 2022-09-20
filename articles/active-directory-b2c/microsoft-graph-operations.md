@@ -60,8 +60,8 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 
 An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
-- [Add](/graph/api/emailauthenticationmethod-post)
-- [List](/graph/api/emailauthenticationmethod-list)
+- [Add](/graph/api/authentication-post-emailmethods)
+- [List](/graph/api/authentication-list-emailmethods)
 - [Get](/graph/api/emailauthenticationmethod-get)
 - [Update](/graph/api/emailauthenticationmethod-update)
 - [Delete](/graph/api/emailauthenticationmethod-delete)
@@ -141,24 +141,25 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 - [Create oauth2Permission Grant](/graph/api/resources/oauth2permissiongrant)
 - [Delete application](/graph/api/application-delete)
 
-## Application extension properties
+## Application extension (directory extension) properties
 
-- [Create extension properties](/graph/api/application-post-extensionproperty)
-- [List extension properties](/graph/api/application-list-extensionproperty)
-- [Get an extension property](/graph/api/extensionproperty-get)
-- [Delete extension property](/graph/api/extensionproperty-delete)
-- [Get available extension properties](/graph/api/directoryobject-getavailableextensionproperties)
+Application extension properties are also known as directory or Azure AD extensions. To manage them in Azure AD B2C, use the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
-<!--
-#Hiding this note because user flows and extension attributes are different things in Microsoft Graph.
+- [Create user flow attribute](/graph/api/identityuserflowattribute-post)
+- [List user flow attributes](/graph/api/identityuserflowattribute-list)
+- [Get a user flow attribute](/graph/api/identityuserflowattribute-get)
+- [Update a user flow attribute](/graph/api/identityuserflowattribute-update)
+- [Delete a user flow attribute](/graph/api/identityuserflowattribute-delete)
 
-Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
--->
+You can store up to 100 directory extension values per user. To manage the directory extension properties for a user, use the following [User APIs](/graph/api/resources/user) in Microsoft Graph.
 
-Azure AD B2C provides a directory that can hold 100 extension values per user. To manage the extension values for a user, use the following [User APIs](/graph/api/resources/user) in Microsoft Graph.
+- [Update user](/graph/api/user-update): To write or remove the value of the directory extension property from the user object.
+- [Get a user](/graph/api/user-get): To retrieve the value of the directory extension for the user. The property will be returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
 
-- [Update user](/graph/api/user-update): To write or remove the extension property value from the user.
-- [Get a user](/graph/api/user-get): To retrieve the extension property value for the user. The extension property will be returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
+For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
+
+> [!NOTE]
+> In Azure AD, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they are used in B2C through the `b2c-extensions-app` app which should not be updated, they are managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
 ## Audit logs
 
@@ -173,6 +174,15 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 - [Create a new Conditional Access policy](/graph/api/resources/application)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
+
+## Retrieve or restore deleted users and applications
+
+Deleted items can only be restored if they were deleted within the last 30 days.
+
+- [List deleted items](/graph/api/directory-deleteditems-list)
+- [Get a deleted item](/graph/api/directory-deleteditems-get)
+- [Restore a deleted item](/graph/api/directory-deleteditems-restore)
+- [Permanently delete a deleted item](/graph/api/directory-deleteditems-delete)
 
 ## How to programmatically manage Microsoft Graph
 

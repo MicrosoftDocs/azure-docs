@@ -283,7 +283,7 @@ Some BI tools have what is known as a semantic metadata layer. That layer simpli
 >[!TIP]
 >Some BI tools have semantic layers that simplify business user access to physical data structures in your data warehouse or data mart.
 
-In a data warehouse migration, you might be forced to change column or table names. For example, Oracle allows a `#` character in table names, but Azure Synapse only allows `#` as a table name prefix to indicate a temporary table. In such cases, you might also need to change mappings.
+In a data warehouse migration, changes to column names or table names may be forced upon you. For example, in IBM Netezza, table names can have a "#". In Azure Synapse, the "#" is only allowed as a prefix to a table name to indicate a temporary table. In IBM Netezza, TEMPORARY TABLES do not necessarily have a "#" in the name, but in Synapse they must. You may need to do some rework to change table mappings in such cases. 
 
 To achieve consistency across multiple BI tools, create a universal semantic layer by using a data virtualization server that sits between BI tools and applications and Azure Synapse. In the data virtualization server, use common data names for high-level objects like dimensions, measures, hierarchies, and joins. That way you configure everything, including calculated fields, joins, and mappings, only once instead of in every tool. Then, point all BI tools at the data virtualization server.
 

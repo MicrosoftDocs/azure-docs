@@ -22,6 +22,8 @@ Creating the data controller has the following high level steps:
 
 > [!NOTE]
 > For simplicity, the steps below assume that you are a Kubernetes cluster administrator. For production deployments or more secure environments, it is recommended to follow the security best practices of "least privilege" when deploying the data controller by granting only specific permissions to users and service accounts involved in the deployment process. 
+>
+> See the topic [Operate Arc-enabled data services with least privileges](least-privilege.md) for detailed instructions.
 
 
 ## Prerequisites
@@ -170,4 +172,4 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 ## Next steps
 
 - [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-using-kubernetes-native-tools.md)
-- [Create a PostgreSQL Hyperscale server group using Kubernetes-native tools](./create-postgresql-hyperscale-server-group-kubernetes-native-tools.md)
+- [Create a PostgreSQL server using Kubernetes-native tools](./create-postgresql-server-kubernetes-native-tools.md)
