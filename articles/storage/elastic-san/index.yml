@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Elastic SAN documentation # < 60 chars
-summary: Simple, secure, and serverless enterprise-grade cloud file shares. # < 160 chars
+summary: A cloud-native service that offers a scalable, cost-effective, high-performance, and comprehensive storage solution for a range of compute options. # < 160 chars
 
 metadata:
   title: Azure Elastic SAN documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Create a virtual SAN to act as the storage for multiple compute options.  # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: elastic-san
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: roygara #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/05/2022
+  ms.date: 09/20/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -44,19 +44,5 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Files Windows troubleshooting
-            url: storage-troubleshoot-windows-file-connection-problems.md
-          - text: Azure Files Linux troubleshooting
-            url: storage-troubleshoot-linux-file-connection-problems.md
-          - text: Azure Files performance troubleshooting
-            url: storage-troubleshooting-files-performance.md
-
-  # Card
-  - title: Migrate
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Migration overview
-            url: storage-files-migration-overview.md
-          - text: Migration guides
-            url: storage-files-migration-overview.md#migration-guides
+          - text: Azure Elastic SAN troubleshooting
+            url: elastic-san-troubleshooting.md
