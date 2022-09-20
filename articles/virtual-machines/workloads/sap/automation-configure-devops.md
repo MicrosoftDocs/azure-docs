@@ -63,6 +63,10 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/ma
 
 ```
 
+### Create a sample Control Plane configuration
+
+You can run the 'Create Sample Deployer Configuration' pipeline to create a sample configuration for the Control Plane. When running choose the appropriate Azure region.
+
 ## Manual configuration of Azure DevOps Services for the SAP Deployment Automation Framework
 
 ### Create a new project
