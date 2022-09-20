@@ -57,7 +57,7 @@ GCP connector issues:
 
 ## Troubleshooting the Log Analytics agent
 
-Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-extensions.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
+Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 Alert types:
 

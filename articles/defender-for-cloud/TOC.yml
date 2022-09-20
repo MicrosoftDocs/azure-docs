@@ -203,7 +203,7 @@
   - name: Settings & monitoring
     items:
     - name: Overview
-      href: monitoring-extensions.md
+      href: monitoring-components.md
     - name: Deploy the Azure Monitor agent
       href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent

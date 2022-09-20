@@ -69,7 +69,7 @@ The native cloud connector requires:
     - Additional extensions should be enabled on the Arc-connected machines.
     - Log Analytics (LA) agent on Arc machines, and ensure the selected workspace has security solution installed. The LA agent is currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
         
-        Learn more about [monitoring extensions](monitoring-extensions.md) for Defender for Cloud.
+        Learn more about [monitoring extensions](monitoring-components.md) for Defender for Cloud.
 
 - **To enable the Defender for Servers plan**, you'll need:
     
@@ -95,7 +95,7 @@ The native cloud connector requires:
         
             The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.
 
-        Learn more about [monitoring extensions](monitoring-extensions.md) for Defender for Cloud.
+        Learn more about [monitoring extensions](monitoring-components.md) for Defender for Cloud.
 
         > [!NOTE]
         > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:

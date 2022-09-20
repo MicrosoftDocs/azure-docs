@@ -48,7 +48,7 @@ sections:
           
           * [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
           
-          Learn more about the [data collected by the Log Analytics agent](monitoring-extensions.md#log-analytics-agent).
+          Learn more about the [data collected by the Log Analytics agent](monitoring-components.md#log-analytics-agent).
           
           
           
@@ -141,7 +141,7 @@ sections:
         answer: |
           When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud does not override existing connections to user workspaces. Defender for Cloud will store security data from a VM in a workspace that is already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
           
-          For more information, see [Automatic provisioning in cases of a pre-existing agent installation](monitoring-extensions.md#preexisting).
+          For more information, see [Automatic provisioning in cases of a pre-existing agent installation](monitoring-components.md#preexisting).
           
           
           

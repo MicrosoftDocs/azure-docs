@@ -51,6 +51,6 @@ Protection for VMs residing in Azure Stack Hub is also supported. For more infor
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-extensions.md#log-analytics-agent).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Learn how to [plan and understand the design considerations to adopt Microsoft Defender for Cloud](security-center-planning-and-operations-guide.md).

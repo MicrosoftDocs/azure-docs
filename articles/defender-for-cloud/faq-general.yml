@@ -19,7 +19,7 @@ sections:
         answer: |
           Microsoft Defender for Cloud helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
           
-          Defender for Cloud uses monitoring extensions to collect and store data. For in-depth details, see [Data collection in Microsoft Defender for Cloud](monitoring-extensions.md).
+          Defender for Cloud uses monitoring extensions to collect and store data. For in-depth details, see [Data collection in Microsoft Defender for Cloud](monitoring-components.md).
           
           
       - question: |
