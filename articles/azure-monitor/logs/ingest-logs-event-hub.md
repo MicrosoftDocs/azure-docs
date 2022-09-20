@@ -247,10 +247,14 @@ To generate a data collection rule JSON file in the Azure portal:
         ]
     }
     ```
-1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes: 
 
-    :::image type="content" source="media/
-:::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
+    - A **Name** for the data collection rule.
+    - The **Workspace Resource ID** you collected in a previous step. 
+    - The **Location** should be the same location as the workspace. 
+    - The **Region** will already be populated and is used for the location of the data collection rule.
+
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
 1. Select **Review + create** and then **Create** when you review the details.
 
