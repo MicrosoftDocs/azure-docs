@@ -2411,6 +2411,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/cosmosdb-jupyter-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/jupyter-notebooks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-query-contains.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-query-contains",
       "redirect_document_id": true
