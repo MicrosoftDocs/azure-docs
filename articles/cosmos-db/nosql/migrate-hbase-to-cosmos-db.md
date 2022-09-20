@@ -839,7 +839,7 @@ If your environment implements HBase system monitoring to send alerts, such as b
 
 For more information on alerts in Azure Monitor, please refer to [Create alerts for Azure Cosmos DB using Azure Monitor](../create-alerts.md)
 
-Also, see [Azure Cosmos DB metrics and log types](../monitor-cosmos-db-reference.md) that can be collected by Azure Monitor.
+Also, see [Azure Cosmos DB metrics and log types](../monitor-reference.md) that can be collected by Azure Monitor.
 
 ## Backup & disaster recovery
 

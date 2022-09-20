@@ -441,7 +441,7 @@
             - name: Create alert on logical partition key size
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
-          href: ../monitor-cosmos-db-reference.md
+          href: ../monitor-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
 - name: Reference

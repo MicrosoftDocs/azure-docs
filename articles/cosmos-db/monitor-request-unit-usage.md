@@ -40,7 +40,7 @@ If you notice certain queries are taking more request units, you can take action
 
    :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 
-1. Next select the **Total Request Units** metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Total Request Units** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
+1. Next select the **Total Request Units** metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-reference.md) article. In this example, let's select **Total Request Units** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
    :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal" border="true":::
 

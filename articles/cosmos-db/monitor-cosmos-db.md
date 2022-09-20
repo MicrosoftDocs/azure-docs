@@ -58,7 +58,7 @@ Azure Cosmos DB insights is a feature based on the [workbooks feature of Azure M
 
 ## Monitoring data 
 
-Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
+Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
 
 The **Overview** page in the Azure portal for each Azure Cosmos DB database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable more data collection with some configuration.
 
@@ -78,7 +78,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. You can also check out how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
 
-For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-cosmos-db-reference.md#metrics) article.
+For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-reference.md#metrics) article.
 
 All metrics for Azure Cosmos DB are in the namespace **Azure Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
 
@@ -102,7 +102,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Choose an Azure Cosmos DB account to view metrics":::
 
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Request units** and **Avg** as the aggregation value.
+1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-reference.md) article. In this example, let's select **Request units** and **Avg** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
@@ -122,7 +122,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-cosmos-db-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-reference.md#resource-logs).
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
@@ -269,5 +269,5 @@ To learn more, see the [Azure monitoring REST API](../azure-monitor/essentials/r
 
 ## Next steps
 
-* See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
+* See [Azure Cosmos DB monitoring data reference](monitor-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
 * See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
