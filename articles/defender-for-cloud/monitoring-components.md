@@ -9,7 +9,7 @@ ms.date: 09/12/2022
 
 # How does Defender for Cloud collect data?
 
-Defender for Cloud collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) machines to monitor for security vulnerabilities and threats. 
+Defender for Cloud collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) machines to monitor for security vulnerabilities and threats. Some Defender plans require monitoring components to collect data from your workloads.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources such as VMs, virtual machine scale sets, IaaS containers, and non-Azure computers. 
 
@@ -17,19 +17,19 @@ You can benefit from Microsoft Defender for Cloud even if you don’t provision 
 
 Data is collected using:
 
-- The **Log Analytics agent**, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
-- **Security extensions**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), which can also provide data to Defender for Cloud regarding specialized resource types.
+- [Azure Monitor Agent](auto-deploy-azure-monitor-agent.md) (AMA)
+- [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) (MDE)
+- [Log Analytics agent](working-with-log-analytics-agent.md)
+- **Security components**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md)
 
 ## Why use Defender for Cloud to deploy monitoring components?
 
-The security of your workloads depends on the data that the monitoring components collect. The extensions ensure security coverage for all supported resources.
+The security of your workloads depends on the data that the monitoring components collect. The components ensure security coverage for all supported resources.
 
-To save you the process of manually installing the extensions, such as [the manual installation of the Log Analytics agent](working-with-log-analytics-agent.md#manual-agent-provisioning), Defender for Cloud reduces management overhead by installing all required extensions on existing and new machines. 
-
-Defender for Cloud assigns the appropriate **Deploy if not exists** policy to the workloads in the subscription. This policy type ensures the extension is provisioned on all existing and future resources of that type.
+To save you the process of manually installing the extensions, Defender for Cloud reduces management overhead by installing all required extensions on existing and new machines. Defender for Cloud assigns the appropriate **Deploy if not exists** policy to the workloads in the subscription. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
-> Learn more about Azure Policy effects including **Deploy if not exists** in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
+> Learn more about Azure Policy effects, including **Deploy if not exists**, in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
 ## What plans use monitoring components?
 
@@ -46,7 +46,7 @@ These plans use monitoring components to collect data:
   - Automatic SQL server discovery and registration
 - Defender for Containers
   - [Azure Arc agent](../azure-arc/servers/manage-vm-extensions.md) (For multicloud and on-premises servers)
-  - [Defender profile, Azure Policy Extension, Kubernetes audit log data]
+  - [Defender profile, Azure Policy Extension, Kubernetes audit log data](defender-for-containers-introduction.md)
 
 ## Availability of extensions
 
@@ -150,7 +150,9 @@ By default, the required extensions are enabled when you enable Defender for Con
 
 ## Next steps
 
-This page explained how to enable monitoring components. Learn more about:
+This page explained what monitoring components are and how to enable them.
+
+Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
 - Protecting workloads with [enhanced security features](enhanced-security-features-overview.md)
