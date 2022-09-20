@@ -48,13 +48,12 @@ Open Visual Studio Code or other IDE or editor of your choice and create a new f
 Update the `SignHmacTutorial.py` script with the following code to begin.
 
 ```python
-from base64 import b64decode, b64encode
+import base64
+import hashlib
+import hmac
+import json
 from datetime import datetime, timezone
-from hashlib import sha256
-from hmac import digest
-from json import dumps
-from locale import LC_TIME, setlocale
-from requests import post
+from urllib import request
 ```
 
 ## Prepare data for the request
@@ -88,10 +87,10 @@ The content hash is a part of your HMAC signature. Use the following code to com
 
 ```python
 def compute_content_hash(content):
-    sha_256 = sha256()
+    sha_256 = hashlib.sha256()
     sha_256.update(content)
     hashed_bytes = sha_256.digest()
-    base64_encoded_bytes = b64encode(hashed_bytes)
+    base64_encoded_bytes = base64.b64encode(hashed_bytes)
     content_hash = base64_encoded_bytes.decode('utf-8')
     return content_hash
 ```
@@ -102,12 +101,32 @@ Use the following code to create a method for computing your HMAC signature.
 
 ```python
 def compute_signature(string_to_sign, secret):
-    decoded_secret = b64decode(secret)
+    decoded_secret = base64.b64decode(secret)
     encoded_string_to_sign = string_to_sign.encode('ascii')
-    hashed_bytes = digest(decoded_secret, encoded_string_to_sign, digest=sha256)
-    encoded_signature = b64encode(hashed_bytes)
+    hashed_bytes = hmac.digest(decoded_secret, encoded_string_to_sign, digest=hashlib.sha256)
+    encoded_signature = base64.b64encode(hashed_bytes)
     signature = encoded_signature.decode('utf-8')
     return signature
+```
+
+## Get current UTC timestamp according to the RFC1123 standard
+
+Use the following code to get desired date format independent of locale settings.
+
+```python
+def format_date(dt):
+    days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    utc = dt.utctimetuple()
+
+    return "{}, {:02} {} {:04} {:02}:{:02}:{:02} GMT".format(
+    days[utc.tm_wday],
+    utc.tm_mday,
+    months[utc.tm_mon-1],
+    utc.tm_year,
+    utc.tm_hour, 
+    utc.tm_min, 
+    utc.tm_sec)
 ```
 
 ## Create an authorization header string
@@ -127,8 +146,7 @@ Add the following code to the `SignHmacTutorial.py` script.
 ```python
 # Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard
 utc_now = datetime.now(timezone.utc)
-setlocale(LC_TIME, 'en_US')
-date = utc_now.strftime('%a, %d %b %Y %H:%M:%S GMT')
+date = format_date(utc_now)
 # Compute a content hash for the 'x-ms-content-sha256' header.
 content_hash = compute_content_hash(content)
 
@@ -147,9 +165,6 @@ Use the following code to add the required headers.
 ```python
 request_headers = {}
 
-# Add content type header.
-request_headers["Content-Type"] = "text/plain; charset=utf-8"
-
 # Add a date header.
 request_headers["x-ms-date"] = date
 
@@ -165,7 +180,8 @@ request_headers["Authorization"] = authorization_header
 Call the endpoint and check the response.
 
 ```python
-response = post(request_uri, data=content, headers=request_headers)
-response_string = response.content.decode("utf-8")
+req = request.Request(request_uri, content, request_headers, method='POST')
+with request.urlopen(req) as response:
+  response_string = json.load(response)
 print(response_string)
 ```
