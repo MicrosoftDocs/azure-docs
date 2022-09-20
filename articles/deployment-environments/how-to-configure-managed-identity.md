@@ -40,7 +40,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 
 ### Configure a user-assigned managed identity  
 
-1. Go to you dev center home page.
+1. Go to your dev center home page.
 1. Select **Identity** from the left pane.
 1. Switch to **User assigned** tab and select **+ Add** to attach an existing identity.
 1. On the **Add user assigned managed identity** page, add the following details:
@@ -72,7 +72,7 @@ To grant the identity access to the secret:
 A Key Vault can be configured to use either the [Vault access policy'](../key-vault/general/assign-access-policy.md) or the [Azure role-based access control](../key-vault/general/rbac-guide.md) permission model.
 
 1. If the Key Vault is configured to use the **Vault access policy** permission model, 
-    1. Access the [Azure Portal](https://portal.azure.com/) and search for the specific Key Vault that contains the PAT secret.
+    1. Access the [Azure portal](https://portal.azure.com/) and search for the specific Key Vault that contains the PAT secret.
     1. Select **Access policies** from the left pane.
     1. Select **+ Create**.
     1. On the **Create an access policy** page, provide the following details:
