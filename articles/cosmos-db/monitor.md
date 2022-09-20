@@ -27,7 +27,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 The following image shows different options available to monitor Azure Cosmos DB account through Azure portal:
 
-:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Monitoring options available in Azure portal" border="false":::
+:::image type="content" source="media/monitor/monitoring-options-portal.png" alt-text="Monitoring options available in Azure portal" border="false":::
 
 When using Azure Cosmos DB, at the client-side you can collect the details for request charge, activity ID, exception/stack trace information, HTTP status/sub-status code, diagnostic string to debug any issue that might occur. This information is also required if you need to reach out to the Azure Cosmos DB support team. 
 
@@ -62,7 +62,7 @@ Azure Cosmos DB collects the same kinds of monitoring data as other Azure resour
 
 The **Overview** page in the Azure portal for each Azure Cosmos DB database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable more data collection with some configuration.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Overview page":::
+:::image type="content" source="media/monitor/overview-page.png" alt-text="Overview page":::
 
 ## Collection and routing
 
@@ -96,27 +96,27 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
+   :::image type="content" source="./media/monitor/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos DB accounts, and select **Apply**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Choose an Azure Cosmos DB account to view metrics":::
+   :::image type="content" source="./media/monitor/select-cosmosdb-account.png" alt-text="Choose an Azure Cosmos DB account to view metrics":::
 
 1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-reference.md) article. In this example, let's select **Request units** and **Avg** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Choose a metric from the Azure portal":::
+   :::image type="content" source="./media/monitor/metric-types.png" alt-text="Choose a metric from the Azure portal":::
 
 ### Add filters to metrics
 
 You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure aren't logged so they aren't available under the OperationType metric.
 
-:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Add a filter to select the metric granularity":::
+:::image type="content" source="./media/monitor/add-metrics-filter.png" alt-text="Add a filter to select the metric granularity":::
 
 You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
 
-:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Add apply splitting filter":::
+:::image type="content" source="./media/monitor/apply-metrics-splitting.png" alt-text="Add apply splitting filter":::
 
 ## Analyzing logs
 
