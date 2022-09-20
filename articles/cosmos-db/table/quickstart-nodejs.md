@@ -10,15 +10,18 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.custom: devx-track-js, mode-api
 ---
+
 # Quickstart: Build a API for Table app with Node.js and Azure Cosmos DB
+
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
+>
 > * [.NET](quickstart-dotnet.md)
 > * [Java](quickstart-java.md)
-> * [Node.js](create-table-nodejs.md)
+> * [Node.js](quickstart-nodejs.md)
 > * [Python](quickstart-python.md)
-> 
+>
 
 In this quickstart, you create an Azure Cosmos DB for Table account, and use Data Explorer and a Node.js app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
@@ -38,7 +41,7 @@ git clone https://github.com/Azure-Samples/msdocs-azure-data-tables-sdk-js
 
 The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with additional properties to demonstrate the schemaless capabilities of the API for Table.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/create-table-nodejs/table-api-app-finished-application.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/quickstart-nodejs/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
@@ -50,10 +53,10 @@ Log in to the [Azure portal](https://portal.azure.com/) and follow these steps t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure Cosmos DB accounts in Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
-| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Azure Cosmos DB accounts page in Azure." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
-| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
-| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/create-table-dotnet/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Azure Cosmos DB Account creation page." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/quickstart-nodejs/create-cosmos-db-acct-1.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure Cosmos DB accounts in Azure." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-1.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/quickstart-nodejs/create-cosmos-db-acct-2.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Azure Cosmos DB accounts page in Azure." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-2.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/quickstart-nodejs/create-cosmos-db-acct-3.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-3.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db account step 1](./includes/quickstart-nodejs/create-cosmos-db-acct-4.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Azure Cosmos DB Account creation page." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-account-table-api-4.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -121,9 +124,9 @@ In the [Azure portal](https://portal.azure.com/), complete the following steps t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create Azure Cosmos DB db table step 1](./includes/create-table-dotnet/create-cosmos-table-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create Azure Cosmos DB db table step 2](./includes/create-table-dotnet/create-cosmos-table-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create Azure Cosmos DB db table step 3](./includes/create-table-dotnet/create-cosmos-table-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/create-table-dotnet/azure-portal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 1](./includes/quickstart-nodejs/create-cosmos-table-1.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 2](./includes/quickstart-nodejs/create-cosmos-table-2.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create Azure Cosmos DB db table step 3](./includes/quickstart-nodejs/create-cosmos-table-3.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/quickstart-nodejs/azure-portal-create-cosmos-db-table-api-3.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -163,8 +166,8 @@ To access your table(s) in Azure Cosmos DB, your app will need the table connect
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Get Azure Cosmos DB db table connection string step 1](./includes/create-table-dotnet/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Azure Cosmos DB page." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-1.png":::           |
-| [!INCLUDE [Get Azure Cosmos DB db table connection string step 2](./includes/create-table-dotnet/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing which connection string to select and use in your application." lightbox="./media/create-table-dotnet/azure-portal-cosmos-db-table-connection-string-2.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 1](./includes/quickstart-nodejs/get-cosmos-connection-string-1.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Azure Cosmos DB page." lightbox="./media/quickstart-nodejs/azure-portal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get Azure Cosmos DB db table connection string step 2](./includes/quickstart-nodejs/get-cosmos-connection-string-2.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing which connection string to select and use in your application." lightbox="./media/quickstart-nodejs/azure-portal-cosmos-db-table-connection-string-2.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -363,23 +366,23 @@ const updateEntity = async function (entity) {
 
 Run the sample application to interact with the Azure Cosmos DB for Table.  The first time you run the application, there will be no data because the table is empty.  Use any of the buttons at the top of application to add data to the table.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Azure Cosmos DB using the Table API." lightbox="./media/create-table-nodejs/table-api-app-data-insert-buttons.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Azure Cosmos DB using the Table API." lightbox="./media/quickstart-nodejs/table-api-app-data-insert-buttons.png":::
 
 Selecting the **Insert using Table Entity** button opens a dialog allowing you to insert or upsert a new row using a `TableEntity` object.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/create-table-nodejs/table-api-app-insert-table-entity.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object." lightbox="./media/quickstart-nodejs/table-api-app-insert-table-entity.png":::
 
 Selecting the **Insert using Expandable Data** button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Azure Cosmos DB for Table automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/create-table-nodejs/table-api-app-insert-expandable-entity.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/quickstart-nodejs/table-api-app-insert-expandable-entity.png":::
 
 Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/create-table-nodejs/table-api-app-sample-data-insert.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-nodejs/table-api-app-sample-data-insert.png":::
 
 Select the **Filter Results** item in the top menu to be taken to the Filter Results page.  On this page, fill out the filter criteria to demonstrate how a filter clause can be built and passed to the Azure Cosmos DB for Table.
 
-:::image type="content" source="./media/create-table-nodejs/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/create-table-nodejs/table-api-app-filter-data.png":::
+:::image type="content" source="./media/quickstart-nodejs/table-api-app-filter-data-480px.png" alt-text="A screenshot of the application showing filter results page and highlighting the menu item used to navigate to the page." lightbox="./media/quickstart-nodejs/table-api-app-filter-data.png":::
 
 ## Clean up resources
 
@@ -391,9 +394,9 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Delete resource group step 1](./includes/create-table-dotnet/remove-resource-group-1.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for a resource group." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Delete resource group step 2](./includes/create-table-dotnet/remove-resource-group-2.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete resource group button." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Delete resource group step 3](./includes/create-table-dotnet/remove-resource-group-3.md)] | :::image type="content" source="./media/create-table-dotnet/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot showing the confirmation dialog for deleting a resource group." lightbox="./media/create-table-dotnet/azure-portal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Delete resource group step 1](./includes/quickstart-nodejs/remove-resource-group-1.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for a resource group." lightbox="./media/quickstart-nodejs/azure-portal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Delete resource group step 2](./includes/quickstart-nodejs/remove-resource-group-2.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete resource group button." lightbox="./media/quickstart-nodejs/azure-portal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Delete resource group step 3](./includes/quickstart-nodejs/remove-resource-group-3.md)] | :::image type="content" source="./media/quickstart-nodejs/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot showing the confirmation dialog for deleting a resource group." lightbox="./media/quickstart-nodejs/azure-portal-remove-resource-group-3.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 

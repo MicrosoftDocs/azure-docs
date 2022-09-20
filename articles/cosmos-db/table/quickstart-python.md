@@ -16,6 +16,14 @@ ms.custom: devx-track-python, mode-api, devx-track-azurecli
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+>
+
 This quickstart shows how to access the Azure Cosmos DB [API for Table](introduction.md) from a Python application. The Azure Cosmos DB for Table is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table. Python applications can access the Azure Cosmos DB for Table using the [Azure Data Tables SDK for Python](https://pypi.org/project/azure-data-tables/) package.
 
 ## Prerequisites

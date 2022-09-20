@@ -13,7 +13,7 @@
     - name: Java
       href: quickstart-java.md
     - name: Node.js
-      href: create-table-nodejs.md
+      href: quickstart-nodejs.md
     - name: Python
       href: quickstart-python.md
 - name: Tutorials

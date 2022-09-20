@@ -16,11 +16,12 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
+>
 > * [.NET](quickstart-dotnet.md)
 > * [Java](quickstart-java.md)
-> * [Node.js](create-table-nodejs.md)
+> * [Node.js](quickstart-nodejs.md)
 > * [Python](quickstart-python.md)
-> 
+>
 
 This quickstart shows how to access the Azure Cosmos DB [Tables API](introduction.md) from a Java application. The Azure Cosmos DB Tables API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
