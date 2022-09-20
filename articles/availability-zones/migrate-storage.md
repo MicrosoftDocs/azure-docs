@@ -113,7 +113,7 @@ Follow these steps to request a conversion from Microsoft:
     - **Issue type**: Select **Technical**.
     - **Subscription**: Select your subscription from the drop-down.
     - **Service**: Select **My Services**, then **Storage Account Management**.
-    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Details** section.
+    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Additional details** section.
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
@@ -122,10 +122,11 @@ Follow these steps to request a conversion from Microsoft:
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
+    - Select **Submit**.
 
     :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page":::
 
-1. Select **Submit**. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
+1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, then on the **Additional details** tab, specify the name for each account, separated by a semicolon.
 
@@ -143,7 +144,7 @@ Use a manual migration if:
 
 - You want to migrate your data to a ZRS storage account that's in a different region than the source account.
 
-- You want to migrate data from ZRS to LRS, GRS or RA-GRS and you don't want to use the customer-initiated migration feature in preview.
+- You want to add or remove zone-redundancy and you don't want to use the customer-initiated migration feature in preview.
 
 - Your storage account is a premium page blob or block blob account.
 
