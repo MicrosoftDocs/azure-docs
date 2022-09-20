@@ -22,6 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
+- [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
