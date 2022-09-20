@@ -51,29 +51,3 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 Trying to do capacity planning for a migration to Azure Cosmos DB?
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
-<!--Image references-->
-[2]: ./media/partners-migration-cosmosdb/striim_logo.png
-[3]: ./media/partners-migration-cosmosdb/altoros_logo.png
-[4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
-[7]: ./media/partners-migration-cosmosdb/coeo_logo.png
-[8]: ./media/partners-migration-cosmosdb/infosys_logo.png
-[9]: ./media/partners-migration-cosmosdb/nealanalytics_logo.png
-[10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
-[11]: ./media/partners-migration-cosmosdb/tallan_logo.png
-[12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
-[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
-[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
-[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
-[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
-[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
-[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
-[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
-[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
-[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
-[22]: ./media/partners-migration-cosmosdb/syone_logo.png
-[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
-[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
-[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
-[26]: ./media/partners-migration-cosmosdb/avanade_logo.png
