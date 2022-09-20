@@ -44,14 +44,14 @@ You need:
 
 ## Azure setup
 
-If you do not have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), click on the free account option, and follow the instructions.
+If you don't have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), select the free account option, and follow the instructions.
 
 Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
 
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
-To create one, click on the "Create a resource" button:
+To create one, select the "Create a resource" button:
 
 ![Azure - add resource](media/azure-add-a-resource.png)
 
@@ -74,7 +74,7 @@ Fill out the form in the following manner:
 
 None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
-The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Click on the **"Go to resource"** button for the next steps:
+The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select the **"Go to resource"** button for the next steps:
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
@@ -82,7 +82,7 @@ The website now informs you about the progress of your deployment and reports "Y
 
 Next we need two blob containers, one for input and one for output.
 
-From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, click on the **"Containers"** button:
+From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select the **"Containers"** button:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
@@ -92,7 +92,7 @@ Use the following settings when creating it:
 * Name = arrinput
 * Public access level = Private
 
-After the container has been created, click **+ Container** again and repeat with these settings for the **output** container:
+After the container has been created, select **+ Container** again and repeat with these settings for the **output** container:
 
 * Name = arroutput
 * Public access level = Private
@@ -107,12 +107,12 @@ There are three distinct ways to trigger a model conversion:
 
 ### 1. Conversion via the ARRT tool
 
-There is a [UI-based tool called ARRT](./../samples/azure-remote-rendering-asset-tool.md) to start conversions and interact with the rendered result.
+There's a [UI-based tool called ARRT](./../samples/azure-remote-rendering-asset-tool.md) to start conversions and interact with the rendered result.
 ![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
 
 ### 2. Conversion via a PowerShell script
 
-To make it easier to call the asset conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
+To make it easier to call the asset conversion service, we provide a utility script. It's located in the *Scripts* folder and is called **Conversion.ps1**.
 
 In particular, this script
 
@@ -198,14 +198,14 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 
 ## Optional: Re-creating a SAS URI
 
-The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
+The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you don't need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
 1. Go to the [Azure portal](https://www.portal.azure.com)
-2. Click on your **Storage account** resource:
+2. Select your **Storage account** resource:
 
 ![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)
 
-3. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
+3. In the following screen, Select **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
 
    ![Signature Access](./media/portal-storage-explorer.png)
 
