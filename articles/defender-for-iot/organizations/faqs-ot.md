@@ -37,7 +37,7 @@ For example:
 
 ## How can I change a user's passwords
 
-Learn how to [Reset a sensor user's password](how-to-create-and-manage-users.md#reset-a-sensor-users-password) or [Recover a password](how-to-create-and-manage-users.md#recover-a-password) for either the sensor or the on-premises management console.
+Learn how to [Reset a user's password](how-to-create-and-manage-users.md#reset-a-users-password) or [Recover a password](how-to-create-and-manage-users.md#recover-a-password) for either the sensor or the on-premises management console.
 
 ## How do I activate the sensor and on-premises management console
 

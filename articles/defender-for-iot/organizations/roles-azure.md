@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
-The built-in Azure [Security Reader](../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Owner](../role-based-access-control/built-in-roles.md#owner) roles are relevant for use in Defender for IoT.
+The built-in Azure [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), and [Owner](../../role-based-access-control/built-in-roles.md#owner) roles are relevant for use in Defender for IoT.
 
 This article provides a reference of Defender for IoT actions available for each role, for OT and Enterprise IoT networks respectively.
 
@@ -23,7 +23,7 @@ The following tables list the Defender for IoT monitoring actions for OT network
 
 Roles for management actions are applied to user roles across an entire Azure subscription.
 
-| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 |  **Onboard sensors** <!--check w idan that we added this--> | ✔      |  ✔       |   ✔      | ✔ |
 |  **Download sensor and on-premises management console software and threat intelligence packages** | ✔      |  ✔       |   ✔      | ✔ |
@@ -37,7 +37,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 
 Roles for security monitoring actions can be applied across an entire Azure subscription, or for a specific OT site only. For more information, see [Define Azure access control per OT site](manage-users-portal.md#define-azure-access-control-per-ot-site).
 
-| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 | **Alerts page** | Read-only | Read-write |Read-write | Read-write |
 | **Device inventory**  | Read-only | Read-write |Read-write | Read-write |
@@ -51,7 +51,7 @@ The following tables list the Defender for IoT monitoring actions for Enterprise
 
 Roles for management actions are applied to user roles across an entire Azure subscription.
 
-| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 | **Onboard sensors** (Public preview) | -    |   ✔    | ✔ | ✔|
 |  **Download activation files**|   -     |   ✔      | ✔ | ✔ |
@@ -62,7 +62,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 
 Roles for security monitoring actions are applied to user roles across an entire Azure subscription.
 
-| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Action |[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 | **Alerts page** | Read-only | Read-write |Read-write | Read-write |
 | **Device inventory**  | Read-only | Read-write |Read-write | Read-write |

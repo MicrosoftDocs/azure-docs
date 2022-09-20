@@ -16,7 +16,7 @@ By default, each sensor and on-premises management console is installed with the
 
 These privileged users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-azure.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new users
 
