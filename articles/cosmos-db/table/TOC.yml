@@ -9,7 +9,7 @@
 - name: Quickstarts
   items:
     - name: .NET
-      href: create-table-dotnet.md
+      href: quickstart-dotnet.md
     - name: Java
       href: create-table-java.md
     - name: Node.js

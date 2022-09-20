@@ -350,5 +350,5 @@ additionalContent: |
 
   ## Next steps
 
-  * [Build a API for Table app with .NET SDK and Azure Cosmos DB](../create-table-dotnet.md)
+  * [Build a API for Table app with .NET SDK and Azure Cosmos DB](../quickstart-dotnet.md)
   * [Build a Java app to manage Azure Cosmos DB for Table data](../create-table-java.md)

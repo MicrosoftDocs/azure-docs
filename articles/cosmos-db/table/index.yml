@@ -22,7 +22,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET app
-            url: create-table-dotnet.md            
+            url: quickstart-dotnet.md            
           - text: Manage your data using a Java app
             url: create-table-java.md                     
       - linkListType: concept

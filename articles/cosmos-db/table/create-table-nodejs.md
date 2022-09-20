@@ -14,7 +14,7 @@ ms.custom: devx-track-js, mode-api
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-table-dotnet.md)
+> * [.NET](quickstart-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
 > * [Python](how-to-use-python.md)

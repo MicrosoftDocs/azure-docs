@@ -16,7 +16,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-table-dotnet.md)
+> * [.NET](quickstart-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
 > * [Python](how-to-use-python.md)
