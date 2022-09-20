@@ -21,6 +21,7 @@ ms.author: kpunjabi
 ## Technical Specifications
 
 The following parameters are available to customize the Recognize function:
+
 | Parameter | Type | Default (if not specified) | Description | Required or Optional |
 | ------- | -- | ------------------------ | --------- | ------------------ |
 | Prompt <br/><br/> *(for details on Play action, refer to [this quickstart](../../play-action.md))* | FileSource | Not set | This will be the message you wish to play before recognizing input. | Optional |

@@ -45,7 +45,7 @@ Dual-tone multifrequency (DTMF) recognition is the process of understanding tone
 
 The recognize action can be used for many reasons, below are a few examples of how developers can use the recognize action in their application.
 
-### Improve user journey with self-service prompts (Focus on Virtual Call center agent)
+### Improve user journey with self-service prompts
 
 - **Users can control the call** - By enabling input recognition you allow the caller to navigate your IVR menu and provide information that can be used to resolve their query. 
 - **Gather user information** - By enabling input recognition your application can gather input from the callers. This can be information such as account numbers, credit card information, etc.
