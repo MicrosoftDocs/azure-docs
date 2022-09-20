@@ -27,7 +27,7 @@ Azure Firewall scales up\down based on throughput and CPU usage. Scale down is p
 
 ### Drops during maintenance
 
-The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a rolling update mode. The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
+The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://azure.microsoft.com/en-us/blog/deployment-strategies-defined/). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
 
 ### Drops due to idle timeout
 
@@ -39,7 +39,7 @@ Azure Firewall constantly monitors VM instances and recovers them automatically 
 
 ## Using applications sensitive to TCP session resets
 
-Session drops aren't a problem when applications are built with network resilience to auto-reconnect disconnected sessions. However, there are few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. If you have sensitive applications, you should avoid using them with Azure Firewall. Instead, implement security using Network Security Groups (NSGs).
+Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. Secure such sensitive applications using Network Security Groups (NSGs).
 
 ## Network security groups
 
