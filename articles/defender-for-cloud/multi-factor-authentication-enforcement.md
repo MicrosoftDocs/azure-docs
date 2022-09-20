@@ -113,7 +113,7 @@ To exempt account(s), follow these steps:
 
 1. Select an MFA recommendation associated with an unhealthy account.
 1. In the Accounts tab, select an account to exempt.
-3.	Click on the three dots on the right side and select “exempt account”.
+1. Select the three dots button, then select **Exempt account**.
 4.	A context panel is open where you can select a scope and exemption reason. 
 5.	All exempted accounts can then be found under “Exempted accounts” per recommendation.
 
