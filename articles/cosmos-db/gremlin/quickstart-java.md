@@ -15,12 +15,12 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Java app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -101,7 +101,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     Copy the first portion of the URI value.
 
-    :::image type="content" source="./media/create-graph-java/copy-access-key-azure-portal.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
+    :::image type="content" source="./media/quickstart-java/copy-access-key-azure-portal.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
 
 2. Open the *src/remote.yaml* file and paste the unique ID value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
@@ -166,15 +166,15 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
+   :::image type="content" source="./media/quickstart-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that the user is connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/quickstart-java/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
 
 3. Let's add a few new users. Select **New Vertex** to add data to your graph.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
+   :::image type="content" source="./media/quickstart-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. In the label box, enter *person*.
 
@@ -209,17 +209,17 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
     As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
 
-12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Change the target of a vertex in a graph":::  next to **Targets** on lower right side. You may need to widen your window to see the button.
+12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select :::image type="content" source="./media/quickstart-java/edit-pencil-button.png" alt-text="Change the target of a vertex in a graph":::  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph - Azure CosmosDB":::
+    :::image type="content" source="./media/quickstart-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph - Azure CosmosDB":::
 
 13. In the **Target** box enter *rakesh*, and in the **Edge label** box enter *knows*, and then select the check box.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection in Data Explorer - Azure CosmosDB":::
+    :::image type="content" source="./media/quickstart-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection in Data Explorer - Azure CosmosDB":::
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer - Azure CosmosDB":::
+    :::image type="content" source="./media/quickstart-java/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer - Azure CosmosDB":::
 
 That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 

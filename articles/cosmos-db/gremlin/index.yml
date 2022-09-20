@@ -26,9 +26,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Manage your data using using Gremlin Console
-            url: create-graph-console.md
+            url: quickstart-console.md
           - text: Manage your data using a .NET app
-            url: create-graph-dotnet.md   
+            url: quickstart-dotnet.md   
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin

@@ -14,12 +14,12 @@ ms.custom: devx-track-python, mode-api
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -103,7 +103,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     Copy the first portion of the URI value.
 
-    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
+    :::image type="content" source="./media/quickstart-python/keys.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
 
 2. Open the *connect.py* file and in line 155 paste the URI value over `<YOUR_ENDPOINT>` in here:
 
@@ -177,15 +177,15 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
+   :::image type="content" source="./media/quickstart-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice three new users are added to the graph. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/quickstart-python/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
 
 3. Let's add a few new users. Select the **New Vertex** button to add data to your graph.
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
+   :::image type="content" source="./media/quickstart-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. Enter a label of *person*.
 
@@ -224,15 +224,15 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
 
 12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph":::
+    :::image type="content" source="./media/quickstart-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph":::
 
 13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then select the check.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection between ashley and rakesh in Data Explorer":::
+    :::image type="content" source="./media/quickstart-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection between ashley and rakesh in Data Explorer":::
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer":::
+    :::image type="content" source="./media/quickstart-python/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer":::
 
 That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 

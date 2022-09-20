@@ -13,19 +13,19 @@ ms.custom: mode-api
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
-:::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
+:::image type="content" source="./media/quickstart-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
 The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/download.html).
 
@@ -61,11 +61,11 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
 
    For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 
-   :::image type="content" source="./media/create-graph-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
+   :::image type="content" source="./media/quickstart-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
 
    For the password value, copy the **Primary key** from the **Keys** page:
 
-   :::image type="content" source="./media/create-graph-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
+   :::image type="content" source="./media/quickstart-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
 
    Your remote-secure.yaml file should look like this:
 

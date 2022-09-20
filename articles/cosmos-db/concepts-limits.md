@@ -289,10 +289,10 @@ Read more about Azure Cosmos DB's core concepts [global distribution](distribute
 
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+* [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
 * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
-* [Get started with Azure Cosmos DB for Gremlin](create-graph-dotnet.md)
+* [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-dotnet.md)
 * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

@@ -15,12 +15,12 @@ ms.custom: mode-api, kr2b-contr-experiment
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 In this quickstart, you create and use an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
@@ -135,7 +135,7 @@ Get the Azure Cosmos DB account connection keys to use later in this quickstart.
    - The first part (Azure Cosmos DB account name) of the **.NET SDK URI**.
    - The **PRIMARY KEY** value.
 
-   :::image type="content" source="media/create-graph-php/keys.png" alt-text="Screenshot that shows the access keys for the Azure Cosmos DB account.":::
+   :::image type="content" source="media/quickstart-php/keys.png" alt-text="Screenshot that shows the access keys for the Azure Cosmos DB account.":::
 
 
 ## Clone the sample application
@@ -251,15 +251,15 @@ You can now go back to Data Explorer in the Azure portal, see the vertices added
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-database** and **sample-graph**, select **Graph**, and then select **Execute Gremlin Query**.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot that shows Graph selected with the option to Execute Gremlin Query.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot that shows Graph selected with the option to Execute Gremlin Query.":::
 
 1. In the **Results** list, notice the new users added to the graph. Select **ben**, and notice that they're connected to **robin**. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Screenshot that shows new vertices in the graph in Data Explorer.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Screenshot that shows new vertices in the graph in Data Explorer.":::
 
 1. Add a new user. Select the **New Vertex** button to add data to your graph.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot that shows the New Vertex pane where you can enter values.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot that shows the New Vertex pane where you can enter values.":::
 
 1. Enter a label of *person*.
 
@@ -296,15 +296,15 @@ You can now go back to Data Explorer in the Azure portal, see the vertices added
 
 1. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select the edit icon next to **Targets** at lower right.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Screenshot that shows changing the target of a vertex in a graph.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Screenshot that shows changing the target of a vertex in a graph.":::
 
 1. In the **Target** box, type *rakesh*, and in the **Edge label** box type *knows*, and then select the check mark.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Screenshot that shows adding a connection between ashley and rakesh in Data Explorer.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Screenshot that shows adding a connection between ashley and rakesh in Data Explorer.":::
 
 1. Now select **rakesh** from the results list, and see that ashley and rakesh are connected. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Screenshot that shows two vertices connected in Data Explorer.":::
+   :::image type="content" source="./media/quickstart-php/azure-cosmosdb-graph-explorer.png" alt-text="Screenshot that shows two vertices connected in Data Explorer.":::
 
 You've completed the resource creation part of this quickstart. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries.
 

@@ -14,12 +14,12 @@ ms.custom: devx-track-js, mode-api
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 In this quickstart, you create and manage an Azure Cosmos DB for Gremlin (graph) API account from the Azure portal, and add data by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -150,13 +150,13 @@ This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/pa
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="View and copy an access key in the Azure portal, Overview page":::
+    :::image type="content" source="./media/quickstart-nodejs/gremlin-uri.png" alt-text="View and copy an access key in the Azure portal, Overview page":::
 
 3. In *config.js*, fill in the config.primaryKey value with the **Primary Key** value from the **Keys** page of your Cosmos DB account in the Azure portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure portal keys blade":::
+   :::image type="content" source="./media/quickstart-nodejs/keys.png" alt-text="Azure portal keys blade":::
 
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 

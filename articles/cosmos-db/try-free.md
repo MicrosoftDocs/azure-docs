@@ -47,7 +47,7 @@ Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosm
 * [API for NoSQL Quickstart](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
 * [API for MongoDB Quickstart](mongodb/create-mongodb-python.md#learn-the-object-model)
 * [API for Apache Cassandra](cassandra/cassandra-adoption.md)
-* [API for Apache Gremlin](graph/create-graph-console.md#add-a-graph)
+* [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
 * [API for Table](table/quickstart-dotnet.md)
 
 You can also get started with one of the learning resources in Data Explorer.
@@ -125,7 +125,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
     * [Get started with Azure Cosmos DB for NoSQL](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
     * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
     * [Get started with Azure Cosmos DB for Cassandra](cassandra/cassandra-adoption.md)
-    * [Get started with Azure Cosmos DB for Gremlin](graph/create-graph-console.md#add-a-graph)
+    * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
     * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).

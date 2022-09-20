@@ -36,7 +36,7 @@ Before you begin, make sure that you have the following:
 
    Alternatively, you can [create a free Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 
-* An Azure Cosmos DB for Gremlin database with an *unlimited collection*. To get started, go to [Azure Cosmos DB for Gremlin in .NET](./create-graph-dotnet.md).
+* An Azure Cosmos DB for Gremlin database with an *unlimited collection*. To get started, go to [Azure Cosmos DB for Gremlin in .NET](./quickstart-dotnet.md).
 
 * Git. To begin, go to the [git downloads](https://git-scm.com/downloads) page.
 

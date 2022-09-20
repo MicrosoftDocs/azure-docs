@@ -11,17 +11,17 @@
 - name: Quickstarts
   items:
     - name: Gremlin console
-      href: create-graph-console.md
+      href: quickstart-console.md
     - name: .NET
-      href: create-graph-dotnet.md
+      href: quickstart-dotnet.md
     - name: Java
-      href: create-graph-java.md
+      href: quickstart-java.md
     - name: Node.js
-      href: create-graph-nodejs.md
+      href: quickstart-nodejs.md
     - name: Python
-      href: create-graph-python.md
+      href: quickstart-python.md
     - name: PHP
-      href: create-graph-php.md
+      href: quickstart-php.md
 - name: Tutorials
   items:
     - name: Query data using Gremlin

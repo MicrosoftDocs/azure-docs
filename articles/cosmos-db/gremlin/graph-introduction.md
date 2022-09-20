@@ -125,7 +125,7 @@ We represent the relationships between these entities via the following *edge* t
 * **Uses**: To represent which device a person uses. For example, Robin uses a Motorola phone with serial number 77
 * **Located**: To represent the location from which the devices are accessed
 
-The Gremlin Console is an interactive terminal offered by the Apache TinkerPop and this terminal is used to interact with the graph data. To learn more, see the quickstart doc on [how to use the Gremlin console](create-graph-console.md). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET). The following examples show how to run queries against this graph data using the Gremlin Console.
+The Gremlin Console is an interactive terminal offered by the Apache TinkerPop and this terminal is used to interact with the graph data. To learn more, see the quickstart doc on [how to use the Gremlin console](quickstart-console.md). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET). The following examples show how to run queries against this graph data using the Gremlin Console.
 
 First let's look at CRUD. The following Gremlin statement inserts the "Thomas" vertex into the graph:
 
@@ -155,5 +155,5 @@ Where graphs shine is when you need to answer questions like "What operating sys
 
 To learn more about graph support in Azure Cosmos DB, see:
 
-* Get started with the [Azure Cosmos DB graph tutorial](create-graph-dotnet.md).
+* Get started with the [Azure Cosmos DB graph tutorial](quickstart-dotnet.md).
 * Learn about how to [query graphs in Azure Cosmos DB by using Gremlin](gremlin-support.md).

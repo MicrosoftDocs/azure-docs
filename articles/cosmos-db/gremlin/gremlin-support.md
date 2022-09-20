@@ -22,12 +22,12 @@ The following table shows popular Gremlin drivers that you can use against Azure
 
 | Download | Source | Getting Started | Supported/Recommended connector version |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.4.13/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.13 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.4.13 |
-| [Python](https://tinkerpop.apache.org/docs/3.4.13/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.4.13 |
-| [Gremlin console](https://tinkerpop.apache.org/download.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-console.md) | 3.4.13 |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.4.13 |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.13/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](quickstart-dotnet.md) | 3.4.13 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](quickstart-java.md) | 3.4.13 |
+| [Python](https://tinkerpop.apache.org/docs/3.4.13/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](quickstart-python.md) | 3.4.13 |
+| [Gremlin console](https://tinkerpop.apache.org/download.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](quickstart-console.md) | 3.4.13 |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](quickstart-nodejs.md) | 3.4.13 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](quickstart-php.md) | 3.1.0 |
 | [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | This library is built by external contributors. The Azure Cosmos DB team doesn't offer any support or maintain the library. |
 
 > [!NOTE]
@@ -222,5 +222,5 @@ You can review the performance of the queries by using the [Gremlin `executionPr
 
 ## Next steps
 
-* Get started building a graph application [using our SDKs](create-graph-dotnet.md) 
+* Get started building a graph application [using our SDKs](quickstart-dotnet.md) 
 * Learn more about [graph support](graph-introduction.md) in Azure Cosmos DB

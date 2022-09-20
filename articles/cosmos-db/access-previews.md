@@ -26,8 +26,8 @@ Azure Cosmos DB offers several preview features that you can request access to. 
 ## Next steps
 
 - Learn [how to choose an API](choose-api.md) in Azure Cosmos DB
-- [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+- [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
 - [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
 - [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
-- [Get started with Azure Cosmos DB for Gremlin](create-graph-dotnet.md)
+- [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-dotnet.md)
 - [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)

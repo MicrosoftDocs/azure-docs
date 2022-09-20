@@ -14,12 +14,12 @@ ms.custom: devx-track-dotnet, mode-api
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
 > [!div class="op_single_selector"]
-> * [Gremlin console](create-graph-console.md)
-> * [.NET](create-graph-dotnet.md)
-> * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Gremlin console](quickstart-console.md)
+> * [.NET](quickstart-dotnet.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
+> * [PHP](quickstart-php.md)
 >  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases. All of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
@@ -107,7 +107,7 @@ Now go back to the Azure portal to get your connection string information and co
 
    **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 
-    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copy the endpoint":::
+    :::image type="content" source="./media/quickstart-dotnet/endpoint.png" alt-text="Copy the endpoint":::
 
    For this sample, record the *Host* value of the **Gremlin Endpoint**. For example, if the URI is ``https://graphtest.gremlin.cosmosdb.azure.com``, the *Host* value would be ``graphtest.gremlin.cosmosdb.azure.com``.
 
@@ -156,7 +156,7 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
     You can zoom in and out of the graph, you can expand the graph display space, add extra vertices, and move vertices on the display surface.
 
-    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="View the graph in Data Explorer in the Azure portal":::
+    :::image type="content" source="./media/quickstart-dotnet/graph-explorer.png" alt-text="View the graph in Data Explorer in the Azure portal":::
 
 ## Review SLAs in the Azure portal
 
