@@ -511,6 +511,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/table/how-to-use-python.md",
+      "redirect_url": "/azure/cosmos-db/table/quickstart-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false

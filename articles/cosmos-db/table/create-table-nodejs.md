@@ -17,7 +17,7 @@ ms.custom: devx-track-js, mode-api
 > * [.NET](quickstart-dotnet.md)
 > * [Java](quickstart-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](how-to-use-python.md)
+> * [Python](quickstart-python.md)
 > 
 
 In this quickstart, you create an Azure Cosmos DB for Table account, and use Data Explorer and a Node.js app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
