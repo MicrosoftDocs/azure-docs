@@ -145,7 +145,7 @@ az containerapp revision activate \
 
 # [PowerShell](#tab/powershell)
 
-```poweshell
+```azurecli
 az containerapp revision activate `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
