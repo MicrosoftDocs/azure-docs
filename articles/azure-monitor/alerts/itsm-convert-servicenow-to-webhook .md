@@ -31,7 +31,7 @@ If you are syncing work items between ServiceNow and an Azure Log Analytics work
 
     :::image type="content" source="media/itsmc-convert-servicenow-to-webhook/alerts-itsmc-service-now-parse-json.png" alt-text="Screenshot of a sample schema.  ":::
 
-1. Create a [Log Analytics workspace](../logs/quick-create-workspace.md#create-the-workspace).
+1. Create a [Log Analytics workspace](../logs/quick-create-workspace.md#create-a-workspace).
 1.	Create a `for each` loop to insert each row of the data returned from the API into the data in the Log Analytics workspace.
  -	In the **Select an output from previous steps** section, enter the data set returned by the JSON parse action you created in step 4.
  -	Construct each row from the set that enters the loop.
