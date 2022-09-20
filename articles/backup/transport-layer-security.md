@@ -52,7 +52,7 @@ The following registry keys configure .NET Framework to support strong cryptogra
     "SchUseStrongCrypto" = dword:00000001
 ```
 
-## Azure TLS certificate changes\
+## Azure TLS certificate changes
 
 Azure TLS/SSL endpoints now contain updated certificates chaining up to new root CAs. Ensure that the following changes include the updated root CAs.  [Learn more](../security/fundamentals/tls-certificate-changes.md#what-changed) about the possible impacts on your applications.
 
