@@ -134,19 +134,22 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 
 
 # [Latest version](#tab/current)
+Release note for `3.6.0-amd64`:
 
+**Features**
+* Security upgrade.
+
+| Image Tags                    | Notes | Digest                                                                   |
+|-------------------------------|:------|:-------------------------------------------------------------------------|
+| `latest`                      |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
+| `3.6.0-amd64`                 |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
+
+# [Previous version](#tab/previous)
 Release note for `3.5.0-amd64`:
 
 **Features**
 * Security upgrade.
 
-
-| Image Tags                    | Notes | Digest                                                                   |
-|-------------------------------|:------|:-------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:4900337eb93408064502dcaf2e5bdb16c0724ec6b4daacf140701f8d7e0e5061`|
-| `3.5.0-amd64`                 |       | `sha256:4900337eb93408064502dcaf2e5bdb16c0724ec6b4daacf140701f8d7e0e5061`|
-
-# [Previous version](#tab/previous)
 Release note for `3.4.0-amd64`:
 
 **Features**
