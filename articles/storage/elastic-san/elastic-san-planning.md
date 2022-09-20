@@ -39,12 +39,6 @@ Your SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,9
 
 The throughput of a SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity.
 
-### Recommendations
-
-How you configure your SAN depends on your storage and performance needs.
-
-15 TiB suggestion.
-
 ## Networking
 
 To configure network access, Elastic SAN integrates with Azure [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), which restrict access to specified virtual networks. You configure volume groups to allow access only from specific subnets. Once a volume group is configured to allow access to these subnets, these configurations are inherited by all volumes belonging to the volume group. You can then mount volumes to any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
