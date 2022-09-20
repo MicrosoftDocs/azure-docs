@@ -20,7 +20,7 @@ This article provides an overview of the Azure Cosmos DB for Gremlin and explain
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
 
 > [!NOTE]
-> Azure Cosmos DB graph engine closely follows Apache TinkerPop specification. However, there are some differences in the implementation details that are specific for Azure Cosmos DB. Some features supported by Apache TinkerPop are not available in Azure Cosmos DB, to learn more about the unsupported features, see [compatibility with Apache TinkerPop](gremlin-support.md) article.
+> Azure Cosmos DB graph engine closely follows Apache TinkerPop specification. However, there are some differences in the implementation details that are specific for Azure Cosmos DB. Some features supported by Apache TinkerPop are not available in Azure Cosmos DB, to learn more about the unsupported features, see [compatibility with Apache TinkerPop](support.md) article.
 
 ## Features of Azure Cosmos DB's Gremlin API
 
@@ -43,7 +43,7 @@ The following are the differentiated features that Azure Cosmos DB for Gremlin o
 
   Store heterogeneous vertices and edges and query them through a familiar Gremlin syntax. Gremlin is an imperative, functional query language that provides a rich interface to implement common graph algorithms.
   
-  Azure Cosmos DB enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query graphs by using Gremlin](gremlin-support.md).
+  Azure Cosmos DB enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query graphs by using Gremlin](support.md).
 
 * **Fully managed graph database**
 
@@ -156,4 +156,4 @@ Where graphs shine is when you need to answer questions like "What operating sys
 To learn more about graph support in Azure Cosmos DB, see:
 
 * Get started with the [Azure Cosmos DB graph tutorial](quickstart-dotnet.md).
-* Learn about how to [query graphs in Azure Cosmos DB by using Gremlin](gremlin-support.md).
+* Learn about how to [query graphs in Azure Cosmos DB by using Gremlin](support.md).

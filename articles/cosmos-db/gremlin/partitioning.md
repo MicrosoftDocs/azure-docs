@@ -79,5 +79,5 @@ Use the following guidelines to ensure performance and scalability when using pa
 Next you can proceed to read the following articles:
 
 * Learn about [Partition and scale in Azure Cosmos DB](../partitioning-overview.md).
-* Learn about the [Gremlin support in API for Gremlin](gremlin-support.md).
+* Learn about the [Gremlin support in API for Gremlin](support.md).
 * Learn about [Introduction to API for Gremlin](introduction.md).

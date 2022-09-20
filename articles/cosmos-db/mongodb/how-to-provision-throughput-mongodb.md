@@ -16,7 +16,7 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 
 This article explains how to provision throughput in Azure Cosmos DB for MongoDB. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [API for NoSQL](../how-to-provision-container-throughput.md), [API for Cassandra](../cassandra/how-to-provision-throughput-cassandra.md), [API for Gremlin](../how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for NoSQL](../how-to-provision-container-throughput.md), [API for Cassandra](../cassandra/how-to-provision-throughput-cassandra.md), [API for Gremlin](../gremlin/how-to-provision-throughput.md) articles to provision the throughput.
 
 ## <a id="portal-mongodb"></a> Azure portal
 

@@ -48,7 +48,7 @@ If you are maintaining a complex network of relationships in your database, you 
 
 :::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Database diagram shows several employees and departments connected to each other.":::
 
-Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [API for Gremlin (graph)](./gremlin-support.md) and NoSQL are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
+Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [API for Gremlin (graph)](./gremlin/support.md) and NoSQL are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
 
 ## Fluid schema
 

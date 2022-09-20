@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 # Tutorial: Query Azure Cosmos DB for Gremlin by using Gremlin
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
-The Azure Cosmos DB [API for Gremlin](introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [API for Gremlin](introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](support.md) article.
 
 This article covers the following tasks: 
 
@@ -64,7 +64,7 @@ The next query performs two hops to find all of Thomas' "friends of friends", by
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](support.md)!
 
 ## Next steps
 

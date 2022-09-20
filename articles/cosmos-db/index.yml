@@ -102,7 +102,7 @@ additionalContent:
         - title: Apache Gremlin
           links:
             - text: Wire protocol support
-              url: gremlin/gremlin-support.md
+              url: gremlin/support.md
             - text: Graph data modeling
               url: gremlin/modeling.md
             - text: Import graph data

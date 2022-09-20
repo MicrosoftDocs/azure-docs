@@ -611,6 +611,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/gremlin-support.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/how-to-provision-throughput-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/how-to-provision-throughput",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/access-system-properties-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/access-system-properties",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/diagnostic-queries-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/find-request-unit-charge-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/find-request-unit-charge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/gremlin-headers.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/headers",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/gremlin-limits.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/how-to-create-container-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/how-to-create-container",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/how-to-use-resource-tokens-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/how-to-use-resource-tokens",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false

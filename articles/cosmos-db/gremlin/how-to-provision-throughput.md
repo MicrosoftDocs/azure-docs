@@ -32,7 +32,7 @@ If you are using a different API, see [API for NoSQL](../how-to-provision-contai
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Screenshot of Data Explorer, when creating a new graph with database level throughput":::
+    :::image type="content" source="./media/how-to-provision-throughput/provision-database-throughput-portal-gremlin-api.png" alt-text="Screenshot of Data Explorer, when creating a new graph with database level throughput":::
 
 ## .NET SDK
 

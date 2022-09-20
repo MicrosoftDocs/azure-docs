@@ -384,5 +384,5 @@ These two queries reached the same result, however, the first one will require m
 - The `metrics[0].counts.resultsCount` value is higher as well in the first response, which indicates that the initial working dataset was larger.
 
 ## Next steps
-* Learn about the [supported Gremlin features](../gremlin-support.md) in Azure Cosmos DB. 
+* Learn about the [supported Gremlin features](../support.md) in Azure Cosmos DB. 
 * Learn more about the [Gremlin API in Azure Cosmos DB](../introduction.md).

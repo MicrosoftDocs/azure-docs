@@ -32,9 +32,9 @@ landingContent:
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
-            url: gremlin-support.md      
+            url: support.md      
           - text: API for Gremlin service limits
-            url: gremlin-limits.md                                     
+            url: limits.md                                     
       - linkListType: how-to-guide
         links:
           - text: Graph data modeling

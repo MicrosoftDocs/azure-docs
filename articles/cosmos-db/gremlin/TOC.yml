@@ -5,7 +5,7 @@
     - name: What is Azure Cosmos DB for Apache Gremlin?
       href: introduction.md
     - name: Wire protocol support
-      href: gremlin-support.md
+      href: support.md
     - name: FAQ
       href: gremlin-api-faq.yml
 - name: Quickstarts
@@ -221,25 +221,25 @@
         - name: Designing for partitioned graph data
           href: partitioning.md
         - name: Create a container - API for Apache Gremlin
-          href: how-to-create-container-gremlin.md
+          href: how-to-create-container.md
         - name: Allocate throughput - API for Apache Gremlin
           displayName: request units, RUs, RU, collection level
-          href: how-to-provision-throughput-gremlin.md
+          href: how-to-provision-throughput.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-gremlin.md
+          href: find-request-unit-charge.md
         - name: Optimize Gremlin queries
           href: execution-profile.md
         - name: Use regional endpoints
           href: use-regional-endpoints.md
         - name: Access system document properties
-          href: access-system-properties-gremlin.md
+          href: access-system-properties.md
         - name: Response Headers
-          href: gremlin-headers.md
+          href: headers.md
         - name: Limits
-          href: gremlin-limits.md
+          href: limits.md
         - name: Monitor using Diagnostics Logs
-          href: diagnostic-queries-gremlin.md
+          href: diagnostic-queries.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
@@ -373,7 +373,7 @@
 - name: Reference
   items:
     - name: Response Headers
-      href: gremlin-headers.md
+      href: headers.md
     - name: PowerShell
       href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
     - name: REST resource provider

@@ -18,7 +18,7 @@ Azure Cosmos DB for Gremlin is built on top of Azure Cosmos DB infrastructure. D
 
 ## Limits
 
-When Gremlin limit is reached, traversal is canceled with a **x-ms-status-code** of 429 indicating a throttling error. See [Gremlin server response headers](gremlin-limits.md) for more information.
+When Gremlin limit is reached, traversal is canceled with a **x-ms-status-code** of 429 indicating a throttling error. See [Gremlin server response headers](limits.md) for more information.
 
 **Resource**	| **Default limit** | **Explanation**
 --- | --- | ---
@@ -31,5 +31,5 @@ When Gremlin limit is reached, traversal is canceled with a **x-ms-status-code**
 *Resource token per hour* | **100** | Number of unique resource tokens used by Gremlin clients to connect to Gremlin account in a region. When the application exceeds hourly unique token limit, `"Exceeded allowed resource token limit of 100 that can be used concurrently"` will be returned on the next authentication request.
 
 ## Next steps
-* [Azure Cosmos DB for Gremlin response headers](gremlin-headers.md)
-* [Azure Cosmos DB Resource Tokens with Gremlin](how-to-use-resource-tokens-gremlin.md)
+* [Azure Cosmos DB for Gremlin response headers](headers.md)
+* [Azure Cosmos DB Resource Tokens with Gremlin](how-to-use-resource-tokens.md)

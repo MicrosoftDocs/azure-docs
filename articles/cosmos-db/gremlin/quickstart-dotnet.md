@@ -73,7 +73,7 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
     ```
     
 > [!NOTE]
-> The supported Gremlin.NET driver version for Gremlin API  is available [here](gremlin-support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
+> The supported Gremlin.NET driver version for Gremlin API  is available [here](support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
 
 ## Review the code
 

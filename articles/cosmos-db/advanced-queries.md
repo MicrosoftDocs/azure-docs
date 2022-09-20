@@ -18,7 +18,7 @@ ms.author: esarroyo
 > * [API for NoSQL](advanced-queries.md)
 > * [API for MongoDB](mongodb/diagnostic-queries-mongodb.md)
 > * [API for Cassandra](cassandra/diagnostic-queries-cassandra.md)
-> * [API for Gremlin](graph/diagnostic-queries-gremlin.md)
+> * [API for Gremlin](gremlin/diagnostic-queries.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview**) tables.
