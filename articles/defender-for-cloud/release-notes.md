@@ -18,6 +18,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## October 2022
+
+### Auto-provisioning is now available with an updated experience
+
+To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring component into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
+
+The Defender plans page:
+- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- You can access the monitoring component settings for each Defender plan from the Defender plan page.
+- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
+
+The Settings & monitoring page:
+- Settings & monitoring now includes installed and agentless monitoring components for Defender plans.
+- Each monitoring component indicates the Defender plans that it is related to.
+
+Learn more about [managing your monitoring settings](monitoring-components.md).
+
 ## September 2022
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
@@ -82,7 +99,6 @@ Learn more about [viewing vulnerabilities for running images](defender-for-conta
 Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
  
 In Defender for Cloud, when you [deploy AMA with Defender for Cloud](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
-
 
 ### Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster
 
