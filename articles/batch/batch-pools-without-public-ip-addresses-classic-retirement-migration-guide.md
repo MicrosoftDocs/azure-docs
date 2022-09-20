@@ -18,14 +18,14 @@ In late 2021, we launched a simplified compute node communication model for Azur
 [Simplified Compute Node Communication Pools without Public IPs](./simplified-node-communication-pool-no-public-ip.md) requires using simplified compute node communication. It provides customers with enhanced security for their workload environments on network isolation and data exfiltration to Azure Batch accounts. Its key benefits include:
 
 * Allow creating simplified node communication pool without public IP addresses.
-* Support Batch private pool using a new private endpoint (sub-resource nodeManagement) for Azure Batch account.
+* Support Batch private pool using a new private endpoint (sub-resource: **nodeManagement**) for Azure Batch account.
 * Simplified private link DNS zone for Batch account private endpoints: changed from **privatelink.\<region>.batch.azure.com** to **privatelink.batch.azure.com**.
 * Mutable public network access for Batch accounts.
 * Firewall support for Batch account public endpoints: configure IP address network rules to restrict public network access with Batch accounts.
 
 ## Migration steps
 
-Batch pool without public IP addresses (classic) will retire on **31/2023 and will be updated to simplified compute node communication pools without public IPs. For existing pools that use the previous preview version of Batch pool without public IP addresses (classic), it's only possible to migrate pools created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
+Batch pool without public IP addresses (classic) will retire on **31 March 2023** and will be updated to simplified compute node communication pools without public IPs. For existing pools that use the previous preview version of Batch pool without public IP addresses (classic), it's only possible to migrate pools created in a virtual network. To migrate the pool, follow the opt-in process for simplified compute node communication:
 
 1. Opt in to [use simplified compute node communication](./simplified-compute-node-communication.md#opt-your-batch-account-in-or-out-of-simplified-compute-node-communication).
 
@@ -59,7 +59,7 @@ Batch pool without public IP addresses (classic) will retire on **31/2023 and wi
 
 * How can I connect to my pool nodes for troubleshooting?
 
-    Similar to Batch pools without public IP addresses (classic). As there is no public IP address for the Batch pool, users will need to connect their pool nodes from within the virtual network. You can create a jump box VM in the virtual network or use other remote connectivity solutions like [Azure Bastion](../bastion/bastion-overview.md).
+    Similar to Batch pools without public IP addresses (classic). As there's no public IP address for the Batch pool, users will need to connect their pool nodes from within the virtual network. You can create a jump box VM in the virtual network or use other remote connectivity solutions like [Azure Bastion](../bastion/bastion-overview.md).
 
 * Will there be any change to how my workloads are downloaded from Azure Storage?
 
@@ -67,8 +67,8 @@ Batch pool without public IP addresses (classic) will retire on **31/2023 and wi
 
 * What if I don’t migrate to simplified compute node communication pools without public IPs?
 
-    After **31 March 2023**, we will stop supporting Batch pool without public IP addresses. The functionality of the existing pool in that configuration may break, such as scale out operations, or may be actively scaled down to zero at any point in time after that date.
+    After **31 March 2023**, we'll stop supporting Batch pool without public IP addresses. The functionality of the existing pool in that configuration may break, such as scale-out operations, or may be actively scaled down to zero at any point in time after that date.
 
 ## Next steps
 
-For more information, refer to [Simplified compute node communication](./simplified-compute-node-communication.md).
+For more information, see [Simplified compute node communication](./simplified-compute-node-communication.md).
