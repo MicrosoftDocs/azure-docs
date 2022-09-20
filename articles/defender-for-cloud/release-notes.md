@@ -20,9 +20,21 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in October include:
 
+- [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
-## MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
+### Agentless scanning for Azure and AWS machines
+
+Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
+
+With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+
+Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+
+- Learn more about [agentless scanning](concept-agentless-data-collection.md).
+- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+
+### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
 For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
 
