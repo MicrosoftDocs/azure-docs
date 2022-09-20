@@ -51,7 +51,7 @@ To make a payment with UPI or NetBanking:
 1. Select Add a new payment method when you’re making a payment.  
 2. Select UPI / NetBanking.  
 3. You’re redirected to your bank's website where you can process the payment.
-4. On the web page that you're redirected to, enter your credentials. You're prompted to enter a one-time password.
+4. On the web page that you're redirected to, enter your credentials. You're prompted to enter a one-time password. 
 
 After you submit the payment, allow time for the payment to appear in the Azure portal. 
 
