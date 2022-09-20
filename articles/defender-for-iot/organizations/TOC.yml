@@ -160,6 +160,8 @@
           href: connect-sensors.md
         - name: Connect OT sensors with a proxy (legacy)
           href: how-to-connect-sensor-by-proxy.md
+      - name: Create and manage on-premises users
+        href: how-to-create-and-manage-users.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Add support for proprietary protocols
@@ -181,30 +183,8 @@
       - name: Update OT monitoring software
         href: update-ot-software.md
         displayName: upgrade
-      - name: Manage OT sensors
-        items:
-        - name: Manage individual sensors
-          href: how-to-manage-individual-sensors.md
-        - name: Control OT traffic monitoring
-          href: how-to-control-what-traffic-is-monitored.md
-        - name: Detect Windows workstations and servers by script
-          href: detect-windows-endpoints-script.md
-        - name: Configure active monitoring
-          items:
-          - name: Planning and prerequisites
-            href: configure-active-monitoring.md
-          - name: Configure Windows Endpoint Monitoring
-            href: configure-windows-endpoint-monitoring.md
-          - name: Configure reverse DNS lookup
-            href: configure-reverse-dns-lookup.md
-        - name: Manage sensors from the on-premises management console
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: Manage on-premises OT system users
-        items:
-        - name: Create and manage on-premises users
-          href: how-to-create-and-manage-users.md
-        - name: Track on-premises user activity
-          href: track-user-activity.md
+      - name: Track on-premises user activity
+        href: track-user-activity.md
       - name: Enrich device information
         items:
         - name: Work with device notifications
