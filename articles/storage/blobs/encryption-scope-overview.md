@@ -18,6 +18,11 @@ Encryption scopes enable you to manage encryption with a key that is scoped to a
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
 
+> [!IMPORTANT]
+> Encryption scopes is currently in preview REST, HDFS, NFSv3 and SFTP protocols in an Azure Blob / Data Lake Gen2 storage account.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## How encryption scopes work
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. When you define an encryption scope, you specify a key that may be scoped to a container or an individual blob. When the encryption scope is applied to a blob, the blob is encrypted with that key. When the encryption scope is applied to a container, it serves as the default scope for blobs in that container, so that all blobs that are uploaded to that container may be encrypted with the same key. The container can be configured to enforce the default encryption scope for all blobs in the container, or to permit an individual blob to be uploaded to the container with an encryption scope other than the default.
