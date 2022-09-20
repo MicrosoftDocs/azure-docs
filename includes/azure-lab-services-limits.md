@@ -12,7 +12,7 @@ The following limits are for the number of Azure Lab Services resources.
 
 | Resource type | Limit |
 |------|-------|
-| Labs | 900 | 
+| Labs | 980 | 
 
 #### Per resource group
 
@@ -21,21 +21,43 @@ The following limits are for the number of Azure Lab Services resources.
 | Labs | 800 | 
 | Lab plans | 800 |
 
-#### Per region
+#### Per region - Lab plans
 
-| Subscription type | Type | Limit |
+| Subscription type | Limit |
 |------|------|-------|
-| Enterprise | Labs | 500 | 
-| Sponsored, Azure Pass, Free Trial and Azure for Student subscriptions | Lab plans | 100 |
+| Default | 2 |
+| Pay As You Go, MSDN DevTest, MPN, Azure In Open | 500 |
+| Enterprise Agreement | 500 | 
+| MSDN | 500 |
+| Internal | 500 |
+| Sponsored | 100 |
+| CSP, CSPDEVTEST | 500 |
+| Azure Pass | 100 |
+| Free Trial | 100 |
+| Azure for Students | 100|
+
+#### Per region - Labs
+
+| Subscription type | Limit |
+|------|------|-------|
+| Default | 2 |
+| Pay As You Go, MSDN DevTest, MPN, Azure In Open | 500 |
+| Enterprise Agreement | 500 | 
+| MSDN | 500 |
+| Internal | 500 |
+| Sponsored | 15 |
+| CSP, CSPDEVTEST | 500 |
+| Azure Pass | 25 |
+| Free Trial | 15 |
+| Azure for Students | 15|
+
 
 #### Per lab
 
 | Resource type | Limit |
 |------|-------|
 | Schedules | 250 | 
-| Virtual machines (VMs) | 600<sup>1</sup> |
-
-<sup>1</sup> Limit for VMs with custom templates. See [Virtual machine scale sets limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-scale-sets-limits).
+| Virtual machines (VMs) | 600 |
 
 
 For more information about Azure Lab Services capacity limits, see [Capacity limits in Azure Lab Services](../articles/lab-services/capacity-limits.md).
