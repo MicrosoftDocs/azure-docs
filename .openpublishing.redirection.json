@@ -29363,6 +29363,11 @@
             "source_path": "articles/aks/howto-deploy-java-liberty-app-with-postgresql.md",
             "redirect_url": "/azure/developer/java/ee/howto-deploy-java-liberty-app-manual",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/cloud-infrastructure-entitlement-management/product-integrations.md",
+            "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management",
+            "redirect_document_id": false
         }
     ]
 }
