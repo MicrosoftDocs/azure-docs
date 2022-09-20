@@ -129,15 +129,9 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue.
-
 ```azurepowershell
  $QueueConnectionString = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAcctName).Context.ConnectionString
 ```
-<!--
-
- $QueueConnectionString = (az storage account show-connection-string -g $ResourceGroupName --name $StorageAcctName --query connectionString --out json)  -replace '"',''
--->
 
 ---
 

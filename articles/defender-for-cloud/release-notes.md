@@ -4,7 +4,8 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: bmansheim
 ms.author: benmansheim
 ms.topic: reference
-ms.date: 08/31/2022
+ms.date: 09/20/2022
+---
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +22,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## September 2022
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
+- [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
+- [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
@@ -42,6 +45,24 @@ You can now suppress alerts based on these Kubernetes entities so you can use th
 
 Learn more about [alert suppression rules](alerts-suppression-rules.md).
 
+### Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent
+
+File integrity monitoring (FIM) examines operating system files and registries for changes that might indicate an attack.
+
+FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can [deploy through Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
+
+Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
+
+### Legacy Assessments APIs deprecation
+
+The following APIs are deprecated:
+
+- Security Tasks
+- Security Statuses
+- Security Summaries
+
+These three APIs exposed old formats of assessments and are replaced by the [Assessments APIs](/rest/api/defenderforcloud/assessments) and [SubAssessments APIs](/rest/api/defenderforcloud/sub-assessments). All data that is exposed by these legacy APIs are also available in the new APIs.
+
 ## August 2022
 
 Updates in August include:
@@ -59,7 +80,7 @@ When vulnerabilities are detected, Defender for Cloud generates the following se
 
 Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
 
-## Azure Monitor Agent integration now in preview
+### Azure Monitor Agent integration now in preview
  
 Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
  

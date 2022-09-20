@@ -41,7 +41,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ### Training resources
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts).
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -630,4 +630,4 @@ In this article, you learned how to use deployment scripts. To walk through a de
 > [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
 
 > [!div class="nextstepaction"]
-> [Learn module: Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/)
+> [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
