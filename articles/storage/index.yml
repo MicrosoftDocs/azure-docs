@@ -71,14 +71,10 @@ additionalContent:
         # Card
         - title: IaaS Storage
           items:
-          - title: Disk Storage
-            links:
-            - url: ../virtual-machines/managed-disks-overview.md
-              text: Learn about block-level storage volumes for Azure VMs
-            - url: ../virtual-machines/disks-types.md
-              text: Understand the available disk types
-        - title: Elastic SAN
-          links:
+          - url: ../virtual-machines/managed-disks-overview.md
+            text: Learn about Azure managed disks for Azure VMs
+          - url: ../virtual-machines/disks-types.md
+            text: Understand the available disk types
           - url: elastic-san/elastic-san-introduction.md
             text: Learn about Azure Elastic SAN
           - url: elastic-san/elastic-san-planning.md
