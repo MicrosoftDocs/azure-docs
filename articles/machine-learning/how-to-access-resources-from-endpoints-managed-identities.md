@@ -388,14 +388,7 @@ deployment = ManagedOnlineDeployment(
 
 To deploy an online endpoint with the Python SDK (v2), objects may be used to define the configuration as below. Alternatively, YAML files may be loaded using the `.load` method. 
 
-The following Python endpoint object: 
-
-* Assigns the name by which you want to refer to the endpoint to the variable `endpoint_name. 
-* Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
-
-```python
-endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-``` 
+For a user-assigned identity, we will define the endpoint configuration below once the User-Assigned Managed Identity has been created. 
 
 This deployment object: 
 
@@ -484,6 +477,7 @@ uai_identity = msi_client.user_assigned_identities.get(
     resource_group_name=resource_group,
     resource_name=uai_name,
 )
+uai_identity.as_dict()
 ``` 
 
 ---
@@ -709,18 +703,24 @@ If you encounter any issues, see [Troubleshooting online endpoints deployment an
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
-First, deploy the endpoint: 
+The following Python endpoint object: 
+
+* Assigns the name by which you want to refer to the endpoint to the variable `endpoint_name. 
+* Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
+* Defines its identity as a ManagedServiceIdentity and specifies the Managed Identity created above as user-assigned. 
+
+Define and deploy the endpoint: 
 
 ```python
-endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
-``` 
+from azure.ai.ml._restclient.v2022_05_01.models import ManagedServiceIdentity
 
-Then, update the identity configuration of the deployment to the User-assigned identity: 
-
-```python 
-endpoint = ml_client.online_endpoints.get(endpoint_name)
-endpoint.identity = endpoint.identity.from_dict(
-    {"type": "UserAssigned", "user_assigned_identities": {uai_identity.id: {}}}
+endpoint = ManagedOnlineEndpoint(
+    name=endpoint_name,
+    auth_mode="key",
+    identity=ManagedServiceIdentity(
+        type="user_assigned",
+        user_assigned_identities=[{"resource_id": uai_identity.id}],
+    ),
 )
 
 ml_client.online_endpoints.begin_create_or_update(endpoint)
