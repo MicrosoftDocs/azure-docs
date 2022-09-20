@@ -15,12 +15,11 @@ ms.date: 08/05/2022
 
 # Create and manage an Azure Machine Learning compute instance
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [CLI v1](v1/how-to-create-manage-compute-instance.md)
-> * [CLI v2 (current version)](how-to-create-manage-compute-instance.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [v1](v1/how-to-create-manage-compute-instance.md)
+> * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
 
@@ -43,7 +42,12 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+
+  [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
+
 
 ## Create
 
@@ -62,42 +66,14 @@ The following example demonstrates how to create a compute instance:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-```python
-import datetime
-import time
-
-from azureml.core.compute import ComputeTarget, ComputeInstance
-from azureml.core.compute_target import ComputeTargetException
-
-# Choose a name for your instance
-# Compute instance name should be unique across the azure region
-compute_name = "ci{}".format(ws._workspace_id)[:10]
-
-# Verify that instance does not exist already
-try:
-    instance = ComputeInstance(workspace=ws, name=compute_name)
-    print('Found existing instance, use it.')
-except ComputeTargetException:
-    compute_config = ComputeInstance.provisioning_configuration(
-        vm_size='STANDARD_D3_V2',
-        ssh_public_access=False,
-        # vnet_resourcegroup_name='<my-resource-group>',
-        # vnet_name='<my-vnet-name>',
-        # subnet_name='default',
-        # admin_user_ssh_public_key='<my-sshkey>'
-    )
-    instance = ComputeInstance.create(ws, compute_name, compute_config)
-    instance.wait_for_completion(show_output=True)
-```
+[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=ci_basic)]
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
-* [ComputeInstance class](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
-* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
-
+* [`AmlCompute` class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute)
+* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -545,47 +521,35 @@ You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 
-In the examples below, the name of the compute instance is **instance**
+In the examples below, the name of the compute instance is stored in the variable `ci_basic_name`.
 
 * Get status
 
-    ```python
-    # get_status() gets the latest status of the ComputeInstance target
-    instance.get_status()
-    ```
+  [!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=ci_basic_state)]
+
 
 * Stop
 
-    ```python
-    # stop() is used to stop the ComputeInstance
-    # Stopping ComputeInstance will stop the billing meter and persist the state on the disk.
-    # Available Quota will not be changed with this operation.
-    instance.stop(wait_for_completion=True, show_output=True)
-    ```
+  [!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=stop_compute)]
+
 
 * Start
 
-    ```python
-    # start() is used to start the ComputeInstance if it is in stopped state
-    instance.start(wait_for_completion=True, show_output=True)
-    ```
+  [!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=start_compute)]
+
 
 * Restart
 
-    ```python
-    # restart() is used to restart the ComputeInstance
-    instance.restart(wait_for_completion=True, show_output=True)
-    ```
+  [!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=restart_compute)]
+
 
 * Delete
 
-    ```python
-    # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name
-    instance.delete(wait_for_completion=True, show_output=True)
-    ```
+  [!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=delete_compute)]
+
 
 # [Azure CLI](#tab/azure-cli)
 
