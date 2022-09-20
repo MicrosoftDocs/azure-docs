@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/01/2022
+ms.date: 09/20/2022
 ms.author: chrupa
 ---
 
