@@ -19,7 +19,7 @@ Encryption scopes enable you to manage encryption with a key that is scoped to a
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
 
 > [!IMPORTANT]
-> Encryption scopes is generally available for Azure Blob storage accounts with a flat namespace enabled. It is currently in preview for Azure Data Lake Gen2 storage accounts with REST, HDFS, NFSv3 and SFTP protocols enabled.
+> Encryption scopes is generally available for Azure Blob storage accounts with a flat namespace (FNS) enabled. It is currently in preview for Azure Data Lake Gen2 storage accounts with REST, HDFS, NFSv3 and SFTP protocols enabled.
 > The preview version for HNS is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
