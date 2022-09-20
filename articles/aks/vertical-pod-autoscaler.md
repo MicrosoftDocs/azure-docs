@@ -108,7 +108,7 @@ The following steps creates a deployment with two pods, each running a single co
     hamster-c7d89d6db-znvz5   1/1     Running   0          48s
     ```
 
-1. Describe one of the pods to view its CPU and memory reservation. Replace <example ID> with one of the IDs returned in your output from the previous step.
+1. Use the [kubectl describe][kubectl-describe] command on one of the pods to view its CPU and memory reservation. Replace <example ID> with one of the IDs returned in your output from the previous step.
 
     ```bash
     kubectl describe pod hamster-<exampleID>
@@ -142,6 +142,17 @@ The following steps creates a deployment with two pods, each running a single co
 
     In the previous output, you can see that the CPU reservation increased to 587 millicpu, which is over five times the original value. The memory increased to 262,144 Kilobytes, which is around 250 mebibytes, or five times the original value. This pod was under-resourced, and the Vertical Pod Autoscaler corrected the estimate with a much more appropriate value.
 
+1. To view updated recommendations from VPA, run the [kubectl describe][kubectl-describe] command to describe the `hamster-vpa` resource information.
+
+    ```bash
+    kubectl describe vpa/hamster-vpa
+    ```
+
+    The example output resembles the following:
+
+    ```bash
+    
+    ```
 
 
 <!-- EXTERNAL LINKS -->
