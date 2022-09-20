@@ -76,4 +76,4 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).
