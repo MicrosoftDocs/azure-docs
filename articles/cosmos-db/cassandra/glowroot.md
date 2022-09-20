@@ -41,4 +41,4 @@ Open a support ticket if you have issues running or testing Glowroot. Providing 
 
 ## Next steps
 - Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application.
-- Learn about [supported features](cassandra-support.md) in the Azure Cosmos DB for Apache Cassandra.
+- Learn about [supported features](support.md) in the Azure Cosmos DB for Apache Cassandra.

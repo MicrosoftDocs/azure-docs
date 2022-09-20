@@ -24,7 +24,7 @@ The API for Cassandra enables you to interact with data stored in Azure Cosmos D
 
 **No operations management**: As a fully managed cloud service, Azure Cosmos DB for Apache Cassandra removes the overhead of managing and monitoring a myriad of settings across OS, JVM, and yaml files and their interactions. Azure Cosmos DB provides monitoring of throughput, latency, storage, availability, and configurable alerts.
 
-**Open source standard**: Despite being a fully managed service, API for Cassandra still supports a large surface area of the native [Apache Cassandra wire protocol](cassandra-support.md), allowing you to build applications on a widely used and cloud agnostic open source standard.
+**Open source standard**: Despite being a fully managed service, API for Cassandra still supports a large surface area of the native [Apache Cassandra wire protocol](support.md), allowing you to build applications on a widely used and cloud agnostic open source standard.
 
 **Performance management**: Azure Cosmos DB provides guaranteed low latency reads and writes at the 99th percentile, backed up by the SLAs. Users do not have to worry about operational overhead to ensure high performance and low latency reads and writes. This means that users do not need to deal with scheduling compaction, managing tombstones, setting up bloom filters and replicas manually. Azure Cosmos DB removes the overhead to manage these issues and lets you focus on the application logic.
 
@@ -53,6 +53,6 @@ The API for Cassandra enables you to interact with data stored in Azure Cosmos D
 
 * [Query data from the API for Cassandra account](query-data.md) by using a Java application.
 
-* To learn about Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra, see [Cassandra support](cassandra-support.md) article.
+* To learn about Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra, see [Cassandra support](support.md) article.
 
 * Read the [Frequently Asked Questions](cassandra-faq.yml).

@@ -14,7 +14,7 @@ ms.author: thvankra
 
 There are a variety of options to explore the elastic nature of the Azure Cosmos DB for Apache Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](../request-units.md) article. 
 
-For the API for Cassandra, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge-cassandra.md). This is helpful in determining the amount of RU/s you will need to provision in the service.
+For the API for Cassandra, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge.md). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
 :::image type="content" source="../media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
@@ -51,7 +51,7 @@ A disadvantage with this approach may be that you cannot respond to unpredictabl
 
 ## <a id="use-cql-queries"></a>Use CQL queries with a specific SDK
 
-You can scale the system dynamically with code by executing the [CQL ALTER commands](cassandra-support.md#keyspace-and-table-options) for the given database or container.
+You can scale the system dynamically with code by executing the [CQL ALTER commands](support.md#keyspace-and-table-options) for the given database or container.
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using autoscale. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
 

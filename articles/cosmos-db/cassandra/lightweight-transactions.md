@@ -94,4 +94,4 @@ WHERE name= 'Sara' AND userID = 103 IF vendor = 'vendor21';
 ## Next steps
 In this tutorial, you've learned how Lightweight Transaction works within Azure Cosmos DB for Apache Cassandra. You can proceed to the next article:
 - [Migrate your data to a API for Cassandra account](migrate-data.md)
-- [Run Glowroot on Azure Cosmos DB for Apache Cassandra](glowroot-cassandra.md)
+- [Run Glowroot on Azure Cosmos DB for Apache Cassandra](glowroot.md)

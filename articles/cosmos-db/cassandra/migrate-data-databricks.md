@@ -29,11 +29,11 @@ There are many ways to migrate database workloads from one platform to another. 
 
 * [Review the basics of connecting to an Azure Cosmos DB for Apache Cassandra](connect-spark-configuration.md).
 
-* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](cassandra-support.md) to ensure compatibility.
+* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](support.md) to ensure compatibility.
 
 * Ensure you've already created empty keyspaces and tables in your target Azure Cosmos DB for Apache Cassandra account.
 
-* [Use cqlsh for validation](cassandra-support.md#cql-shell).
+* [Use cqlsh for validation](support.md#cql-shell).
 
 ## Provision an Azure Databricks cluster
 

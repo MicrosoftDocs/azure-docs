@@ -5,7 +5,7 @@
     - name: What is Azure Cosmos DB for Apache Cassandra?
       href: introduction.md
     - name: Wire protocol support
-      href: cassandra-support.md
+      href: support.md
     - name: FAQ
       href: cassandra-faq.yml
 - name: Quickstarts
@@ -108,7 +108,7 @@
         - name: Partitioning overview
           href: ../partitioning-overview.md
         - name: Partitioning for API for Apache Cassandra
-          href: cassandra-partitioning.md
+          href: partitioning.md
     - name: Throughput (RU/s)
       items:
         - name: Request units
@@ -243,22 +243,22 @@
         - name: API for Apache Cassandra extensions overview
           href: driver-extensions.md
         - name: Create a table
-          href: how-to-create-container-cassandra.md
+          href: how-to-create-container.md
         - name: Allocate throughput
-          href: how-to-provision-throughput-cassandra.md
+          href: how-to-provision-throughput.md
         - name: Mapping Cassandra consistency levels
           href: consistency-mapping.md
         - name: Secondary indexes
           href: secondary-indexing.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-cassandra.md
+          href: find-request-unit-charge.md
         - name: Preventing rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Materialized View (Preview)
-          href: materialized-views-cassandra.md
+          href: materialized-views.md
         - name: Lightweight Transactions in API for Apache Cassandra
-          href: lwt-cassandra-api.md
+          href: lightweight-transactions.md
         - name: Change feed for API for Apache Cassandra
           href: change-feed.md
         - name: Store and manage Spring Data
@@ -341,13 +341,13 @@
           href: troubleshoot-nohostavailable-exception.md
         - name: Glowroot application performance monitoring (APM) with API for Apache Cassandra
           displayName: Glowroot, APM, monitor
-          href: glowroot-cassandra.md
+          href: glowroot.md
         - name: Understand API for Apache Cassandra error codes
           href: error-codes-solution.md
         - name: Monitor and debug with insights in API for Apache Cassandra
-          href: cassandra-monitor-insights.md
+          href: monitor-insights.md
         - name: Advanced diagnostics for API for Apache Cassandra
-          href: diagnostic-queries-cassandra.md
+          href: diagnostic-queries.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account

@@ -19,7 +19,7 @@ This article explains the different ways to create a collection in Azure Cosmos 
 >[!NOTE]
 > **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Azure Cosmos DB for NoSQL and throughout the Azure portal, while we use **collections** in the context of the Azure Cosmos DB for MongoDB to match the terminology used in MongoDB.
 
-This article explains the different ways to create a collection in Azure Cosmos DB for MongoDB. If you are using a different API, see [API for NoSQL](../how-to-create-container.md), [API for Cassandra](../cassandra/how-to-create-container-cassandra.md), [API for Gremlin](../gremlin/how-to-create-container.md), and [API for Table](../table/how-to-create-container.md) articles to create the collection.
+This article explains the different ways to create a collection in Azure Cosmos DB for MongoDB. If you are using a different API, see [API for NoSQL](../how-to-create-container.md), [API for Cassandra](../cassandra/how-to-create-container.md), [API for Gremlin](../gremlin/how-to-create-container.md), and [API for Table](../table/how-to-create-container.md) articles to create the collection.
 
 > [!NOTE]
 > When creating collections, make sure you don’t create two collections with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on collections with such names.

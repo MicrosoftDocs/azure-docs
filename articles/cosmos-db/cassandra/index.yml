@@ -32,13 +32,13 @@ landingContent:
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Apache Cassandra
-            url: cassandra-support.md 
+            url: support.md 
           - text: Elastic scaling
             url: scale-account-throughput.md 
           - text: Secondary indexes
             url: secondary-indexing.md   
           - text: Partitioning 
-            url: cassandra-partitioning.md                  
+            url: partitioning.md                  
       - linkListType: how-to-guide
         links:
           - text: From Apache Cassandra to API for Cassandra

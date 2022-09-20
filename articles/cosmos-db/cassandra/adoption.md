@@ -21,7 +21,7 @@ When you use the API for Cassandra, it's important to be aware of differences be
 
 ## Feature support
 
-The API for Cassandra supports a large number of Apache Cassandra features. Some features aren't supported or they have limitations. Before you migrate, be sure that the [Azure Cosmos DB for Apache Cassandra features](cassandra-support.md) you need are supported.
+The API for Cassandra supports a large number of Apache Cassandra features. Some features aren't supported or they have limitations. Before you migrate, be sure that the [Azure Cosmos DB for Apache Cassandra features](support.md) you need are supported.
 
 ## Replication
 
@@ -71,7 +71,7 @@ The benefit of using request units as a metric is that database capacity can be 
 We highly recommend that you profile your requests. Use that information to help you estimate the number of request units you'll need to provision. Here are some articles that might help you make the estimate:
 
 - [Request units in Azure Cosmos DB](../request-units.md)
-- [Find the request unit charge for operations executed in the Azure Cosmos DB for Apache Cassandra](find-request-unit-charge-cassandra.md)
+- [Find the request unit charge for operations executed in the Azure Cosmos DB for Apache Cassandra](find-request-unit-charge.md)
 - [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md)
 
 ## Capacity provisioning models
@@ -88,11 +88,11 @@ In general, steady-state workloads that have predictable throughput benefit most
 
 Partitioning in Azure Cosmos DB is similar to partitioning in Apache Cassandra. One of the main differences is that Azure Cosmos DB is more optimized for *horizontal scale*. In Azure Cosmos DB, limits are placed on the amount of *vertical throughput* capacity that's available in any physical partition. The effect of this optimization is most noticeable when an existing data model has significant throughput skew.
 
-Take steps to ensure that your partition key design results in a relatively uniform distribution of requests. For more information about how logical and physical partitioning work and limits on throughput capacity per partition, see [Partitioning in the Azure Cosmos DB for Apache Cassandra](cassandra-partitioning.md).
+Take steps to ensure that your partition key design results in a relatively uniform distribution of requests. For more information about how logical and physical partitioning work and limits on throughput capacity per partition, see [Partitioning in the Azure Cosmos DB for Apache Cassandra](partitioning.md).
 
 ## Scaling
 
-In native Apache Cassandra, increasing capacity and scale involves adding new nodes to a cluster and ensuring that the nodes are properly added to the Cassandra ring. In Azure Cosmos DB, adding nodes is transparent and automatic. Scaling is a function of how many [request units](../request-units.md) are provisioned for your keyspace or table. Scaling in physical machines occurs when either physical storage or required throughput reaches limits allowed for a logical or a physical partition. For more information, see [Partitioning in the Azure Cosmos DB for Apache Cassandra](cassandra-partitioning.md).
+In native Apache Cassandra, increasing capacity and scale involves adding new nodes to a cluster and ensuring that the nodes are properly added to the Cassandra ring. In Azure Cosmos DB, adding nodes is transparent and automatic. Scaling is a function of how many [request units](../request-units.md) are provisioned for your keyspace or table. Scaling in physical machines occurs when either physical storage or required throughput reaches limits allowed for a logical or a physical partition. For more information, see [Partitioning in the Azure Cosmos DB for Apache Cassandra](partitioning.md).
 
 ## Rate limiting
 

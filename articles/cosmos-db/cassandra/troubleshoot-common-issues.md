@@ -14,9 +14,9 @@ ms.devlang: java
 
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-The API for Cassandra in [Azure Cosmos DB](../introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
+The API for Cassandra in [Azure Cosmos DB](../introduction.md) is a compatibility layer that provides [wire protocol support](support.md) for the open-source Apache Cassandra database.
 
-This article describes common errors and solutions for applications that use the Azure Cosmos DB for Apache Cassandra. If your error isn't listed and you experience an error when you execute a [supported operation in Cassandra](cassandra-support.md), but the error isn't present when using native Apache Cassandra, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+This article describes common errors and solutions for applications that use the Azure Cosmos DB for Apache Cassandra. If your error isn't listed and you experience an error when you execute a [supported operation in Cassandra](support.md), but the error isn't present when using native Apache Cassandra, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 >[!NOTE]
 >As a fully managed cloud-native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for the API for Cassandra. The API for Cassandra also facilitates zero-maintenance platform operations and zero-downtime patching.
@@ -170,5 +170,5 @@ datastax-java-driver {
 
 ## Next steps
 
-- Learn about [supported features](cassandra-support.md) in the Azure Cosmos DB for Apache Cassandra.
+- Learn about [supported features](support.md) in the Azure Cosmos DB for Apache Cassandra.
 - Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB for Apache Cassandra](migrate-data-databricks.md).

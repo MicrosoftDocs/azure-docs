@@ -15,7 +15,7 @@ ms.date: 09/14/2020
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB for Apache Cassandra through the Cassandra Query Language (CQL) Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
 
-By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of the Apache Cassandra APIs and the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of the Apache Cassandra APIs and the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Cassandra protocol 
 

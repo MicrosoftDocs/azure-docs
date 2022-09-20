@@ -37,7 +37,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Install standalone CQLSH tool
 
-Refer to [CQL shell](cassandra-support.md#cql-shell) on steps on how to launch a standalone cqlsh tool.
+Refer to [CQL shell](support.md#cql-shell) on steps on how to launch a standalone cqlsh tool.
 
 
 ## Update your connection string

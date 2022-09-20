@@ -27,7 +27,7 @@ It's not advised to create an index on a frequently updated column. It is pruden
 > - Clustering keys
 
 > [!WARNING]
-> Partition keys are not indexed by default in API for Cassandra. If you have a [compound primary key](cassandra-partitioning.md#compound-primary-key) in your table, and you filter either on partition key and clustering key, or just partition key, this will give the desired behaviour. However, if you filter on partition key and any other non-indexed fields aside from the clustering key, this will result in a partition key fan-out - even if the other non-indexed fields have a secondary index. If you have a compound primary key in your table, and you want to filter on both the partition key value element of the compound primary key, plus another field that is not the partition key or clustering key, please ensure that you explicitly add a secondary index on the *partition key*. The index in this scenario should significantly improve query performance, even if the other non-partition key and non-clustering key fields have no index. Review our article on [partitioning](cassandra-partitioning.md) for more information.
+> Partition keys are not indexed by default in API for Cassandra. If you have a [compound primary key](partitioning.md#compound-primary-key) in your table, and you filter either on partition key and clustering key, or just partition key, this will give the desired behaviour. However, if you filter on partition key and any other non-indexed fields aside from the clustering key, this will result in a partition key fan-out - even if the other non-indexed fields have a secondary index. If you have a compound primary key in your table, and you want to filter on both the partition key value element of the compound primary key, plus another field that is not the partition key or clustering key, please ensure that you explicitly add a secondary index on the *partition key*. The index in this scenario should significantly improve query performance, even if the other non-partition key and non-clustering key fields have no index. Review our article on [partitioning](partitioning.md) for more information.
 
 ## Indexing example
 
@@ -75,4 +75,4 @@ drop index sampleks.t1_lastname_idx;
 
 ## Next steps
 * Learn how [automatic indexing](../index-overview.md) works in Azure Cosmos DB
-* [Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra](cassandra-support.md)
+* [Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra](support.md)

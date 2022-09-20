@@ -680,7 +680,56 @@
       "redirect_url": "/azure/cosmos-db/cassandra/introduction",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-monitor-insights.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/monitor-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-partitioning.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/partitioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-support.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/diagnostic-queries-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/diagnostic-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/find-request-unit-charge-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/find-request-unit-charge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/glowroot-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/glowroot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/how-to-create-container-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/how-to-create-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/how-to-provision-throughput-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/how-to-provision-throughput",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/lwt-cassandra-api.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/lightweight-transactions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/materialized-views-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/materialized-views",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",

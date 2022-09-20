@@ -92,9 +92,9 @@ additionalContent:
         - title: Apache Cassandra
           links:
             - text: Wire protocol support
-              url: cassandra/cassandra-support.md
+              url: cassandra/support.md
             - text: Partitioning
-              url: cassandra/cassandra-partitioning.md
+              url: cassandra/partitioning.md
             - text: Secondary indexing
               url: cassandra/secondary-indexing.md  
             - text: See more >            
