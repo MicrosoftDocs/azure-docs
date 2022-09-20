@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 09/11/2022
+ms.date: 09/20/2022
 ms.topic: overview
 ---
 
@@ -38,13 +38,13 @@ Defender for DevOps gives security teams the ability to set, evaluate, and enfor
 
 Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of all the issues that may exist within them.
 
-:::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard.":::
+:::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
 
 Here, you can add environments, open and customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and configure your pull request annotations.
 
 ### Understanding your metrics
 
-:::image type="content" source="media/defender-for-devops-introduction/devops-metrics.png" alt-text="Screenshot of the top of the Defender for DevOps page that shows all of your attached environments and their metrics.":::
+:::image type="content" source="media/defender-for-devops-introduction/devops-metrics.png" alt-text="Screenshot of the top of the Defender for DevOps page that shows all of your attached environments and their metrics." lightbox="media/defender-for-devops-introduction/devops-metrics.png":::
 
 |Page section| Description |
 |--|--|
@@ -56,9 +56,10 @@ Here, you can add environments, open and customize DevOps workbooks to show your
 
 The lower half of the page allows you to review all of the onboarded DevOps resources and the security information related to them.
 
-:::image type="content" source="media/defender-for-devops-introduction/results-section.png" alt-text="Screenshot of the lower half of a sample page of Defender for DevOps.":::
+:::image type="content" source="media/defender-for-devops-introduction/bottom-of-page.png" alt-text="Screenshot of the lower half of the Defender for DevOps overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
 
-In this example we see:
+
+On this part of the screen you will see:
 
 - **Repositories**: Lists all onboarded repositories from GitHub and Azure DevOps. You can get more information about specific resources by selecting it.
 
