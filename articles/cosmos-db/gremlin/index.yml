@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB for Gremlin?
-            url: graph-introduction.md
+            url: introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using using Gremlin Console
@@ -38,8 +38,8 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Graph data modeling
-            url: graph-modeling.md
+            url: modeling.md
           - text: Graph data partitioning best practices 
-            url: graph-partitioning.md
+            url: partitioning.md
           - text: Optimize Gremlin queries
-            url: graph-execution-profile.md
+            url: execution-profile.md

@@ -104,9 +104,9 @@ additionalContent:
             - text: Wire protocol support
               url: graph/gremlin-support.md
             - text: Graph data modeling
-              url: graph/graph-modeling.md
+              url: graph/modeling.md
             - text: Import graph data
-              url: graph/bulk-executor-graph-dotnet.md  
+              url: graph/bulk-executor-dotnet.md  
             - text: See more >            
               url: graph/index.yml
         - title: Table

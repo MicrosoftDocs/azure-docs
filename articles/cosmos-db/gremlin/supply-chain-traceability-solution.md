@@ -88,5 +88,5 @@ The preceding diagram is a simplified view of a complex process. However, gettin
 ## Next steps
 
 * Learn about [Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-integrate-for-azure).
-* To visualize graph data, see the [API for Gremlin visualization solutions](graph-visualization-partners.md).
-* To model your graph data, see the [API for Gremlin modeling solutions](graph-modeling-tools.md).
+* To visualize graph data, see the [API for Gremlin visualization solutions](visualization-partners.md).
+* To model your graph data, see the [API for Gremlin modeling solutions](modeling-tools.md).

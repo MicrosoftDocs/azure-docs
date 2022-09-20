@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is Azure Cosmos DB for Apache Gremlin?
-      href: graph-introduction.md
+      href: introduction.md
     - name: Wire protocol support
       href: gremlin-support.md
     - name: FAQ
@@ -25,7 +25,7 @@
 - name: Tutorials
   items:
     - name: Query data using Gremlin
-      href: tutorial-query-graph.md
+      href: tutorial-query.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -94,9 +94,9 @@
         - name: Partitioning overview
           href: ../partitioning-overview.md
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: modeling.md
         - name: Designing for partitioned graph data
-          href: graph-partitioning.md
+          href: partitioning.md
     - name: Throughput (RU/s)
       items:
         - name: Request units
@@ -217,9 +217,9 @@
     - name: Develop applications
       items:
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: modeling.md
         - name: Designing for partitioned graph data
-          href: graph-partitioning.md
+          href: partitioning.md
         - name: Create a container - API for Apache Gremlin
           href: how-to-create-container-gremlin.md
         - name: Allocate throughput - API for Apache Gremlin
@@ -229,7 +229,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-gremlin.md
         - name: Optimize Gremlin queries
-          href: graph-execution-profile.md
+          href: execution-profile.md
         - name: Use regional endpoints
           href: use-regional-endpoints.md
         - name: Access system document properties
@@ -361,13 +361,13 @@
     - name: Migrate data to API for Apache Gremlin
       items:
         - name: Import using graph bulk executor
-          href: bulk-executor-graph-dotnet.md
+          href: bulk-executor-dotnet.md
     - name: Gremlin partner solutions
       items:
         - name: Visualization solutions
-          href: graph-visualization-partners.md
+          href: visualization-partners.md
         - name: Modeling solutions
-          href: graph-modeling-tools.md
+          href: modeling-tools.md
         - name: Supply chain traceability solution
           href: supply-chain-traceability-solution.md
 - name: Reference

@@ -205,4 +205,4 @@ Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter. No
 In this article, you learned how to create an Azure Cosmos DB account, create a graph by using Data Explorer, and run a Node.js app to add data to the graph. You can now build more complex queries and implement powerful graph traversal logic by using Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Query by using Gremlin](tutorial-query-graph.md)
+> [Query by using Gremlin](tutorial-query.md)

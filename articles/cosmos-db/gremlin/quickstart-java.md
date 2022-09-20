@@ -70,7 +70,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 The following snippets are all taken from the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java* file.
 
-This Java console app uses a [Gremlin API](graph-introduction.md) database with the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. 
+This Java console app uses a [Gremlin API](introduction.md) database with the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. 
 
 - The Gremlin `Client` is initialized from the configuration in the *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml* file.
 
@@ -207,7 +207,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 11. Select the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
-    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
+    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
 
 12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select :::image type="content" source="./media/quickstart-java/edit-pencil-button.png" alt-text="Change the target of a vertex in a graph":::  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
@@ -236,4 +236,4 @@ That completes the resource creation part of this tutorial. You can continue to 
 In this quickstart, you learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run a Java app that adds data to the graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query-graph.md)
+> [Query using Gremlin](tutorial-query.md)

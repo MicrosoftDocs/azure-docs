@@ -23,7 +23,7 @@ ms.custom: mode-api, kr2b-contr-experiment
 > * [PHP](quickstart-php.md)
 >  
 
-In this quickstart, you create and use an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
+In this quickstart, you create and use an Azure Cosmos DB [Gremlin (Graph) API](introduction.md) database by using PHP and the Azure portal.
 
 Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: Core (SQL), MongoDB, Gremlin, Azure Table, and Cassandra.
 
@@ -118,7 +118,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
    - **Database Throughput**: Select **Manual**, so you can set the throughput to a low value.
    - **Database Max RU/s**: Change the throughput to *400* request units per second (RU/s). If you want to reduce latency, you can scale up throughput later.
    - **Graph id**: Enter *sample-graph*. Graph names have the same character requirements as database IDs.
-   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
+   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../partitioning.md).
 
    :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="Screenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
 
@@ -292,7 +292,7 @@ You can now go back to Data Explorer in the Azure portal, see the vertices added
 
 1. Select **Execute Gremlin Query** with the default `g.V()` filter to display all the values in the graph. All the users now show in the **Results** list.
 
-   As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Execute Gremlin Query** to display all the results again.
+   As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change to a different [graph query](tutorial-query.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Execute Gremlin Query** to display all the results again.
 
 1. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select the edit icon next to **Targets** at lower right.
 
@@ -325,5 +325,5 @@ This action deletes the resource group and all resources within it, including th
 In this quickstart, you learned how to create an Azure Cosmos DB for Gremlin (Graph) account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query-graph.md)
+> [Query using Gremlin](tutorial-query.md)
 

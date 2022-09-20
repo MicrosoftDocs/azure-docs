@@ -38,13 +38,13 @@ The animation at Figure-2 provides a demonstration of reverse engineering, extra
 Sample DDL for source as SQL Server available at [here](https://github.com/Azure-Samples/northwind-ddl-sample/blob/main/nw.sql)   
 
 
-:::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graph Diagram":::
+:::image type="content" source="./media/modeling-tools/hackolade-screenshot.jpg" alt-text="Graph Diagram":::
 **Figure-1:** Graph Diagram (extracted the graph data model)
 
 After modification of data model, the tool can generate the gremlin script, which may include custom Azure Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
 
 The following image demonstrates reverse engineering from RDBMS & Hackolade in action:
-:::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
+:::image type="content" source="./media/modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
 
 **Figure-2:** Hackolade in action (demonstrating SQL to Gremlin data model conversion)
 ### Useful links 
@@ -53,4 +53,4 @@ The following image demonstrates reverse engineering from RDBMS & Hackolade in a
 -  [Documentation of Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## Next steps
-- [Visualizing the data](./graph-visualization-partners.md)
+- [Visualizing the data](./visualization-partners.md)

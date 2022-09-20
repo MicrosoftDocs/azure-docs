@@ -571,6 +571,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-introduction.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-modeling.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/modeling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-modeling-tools.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/modeling-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-partitioning.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/partitioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-visualization-partners.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/visualization-partners",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/bulk-executor-graph-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/bulk-executor-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/graph-execution-profile.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/execution-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/tutorial-query-graph.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/tutorial-query",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false

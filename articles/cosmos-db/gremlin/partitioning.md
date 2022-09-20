@@ -19,7 +19,7 @@ Partitioning is done internally if the container is expected to store more than 
 
 The same general principles from the [Azure Cosmos DB partitioning mechanism](../partitioning-overview.md) apply with a few graph-specific optimizations described below.
 
-:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Graph partitioning." border="false":::
+:::image type="content" source="./media/partitioning/graph-partitioning.png" alt-text="Graph partitioning." border="false":::
 
 ## Graph partitioning mechanism
 
@@ -80,4 +80,4 @@ Next you can proceed to read the following articles:
 
 * Learn about [Partition and scale in Azure Cosmos DB](../partitioning-overview.md).
 * Learn about the [Gremlin support in API for Gremlin](gremlin-support.md).
-* Learn about [Introduction to API for Gremlin](graph-introduction.md).
+* Learn about [Introduction to API for Gremlin](introduction.md).

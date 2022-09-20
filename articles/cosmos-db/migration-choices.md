@@ -99,7 +99,7 @@ For APIs other than the API for NoSQL, API for MongoDB and the API for Cassandra
 
 **API for Gremlin**
 
-* [Graph bulk executor library](bulk-executor-graph-dotnet.md)
+* [Graph bulk executor library](bulk-executor-dotnet.md)
 * [Gremlin Spark](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
 
 ## Next steps
