@@ -95,6 +95,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Create an Azure Database for PostgreSQL - Flexible Server
+
 Create a flexible server with the [az postgreSQL flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
@@ -107,13 +108,11 @@ The server created has the below attributes:
 - Using public-access argument allow you to create a server with public access to any client with correct username and password.
 - Since the command is using local context it will create the server in the resource group ```django-project``` and in the region ```eastus```.
 
-
 ## Build your Django docker image
 
 Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
 
-
-```
+```python
 └───my-djangoapp
     └───views.py
     └───models.py
@@ -130,8 +129,8 @@ Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) 
     └─── Dockerfile
     └─── requirements.txt
     └─── manage.py
-    
 ```
+
 Update ```ALLOWED_HOSTS``` in ```settings.py``` to make sure the Django application uses the external IP that gets assigned to kubernetes app.
 
 ```python
@@ -171,42 +170,35 @@ Create a new file named ```Dockerfile``` and copy the code snippet below. This D
 ```docker
 # Use the official Python image from the Docker Hub
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 FROM python:3.8.2
 
 # Make a new directory to put our code in.
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN mkdir /code
 
 # Change the working directory.
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 WORKDIR /code
 
 # Copy to code folder
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 COPY . /code/
 
 # Install the requirements.
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 RUN pip install -r requirements.txt
 
 # Run the application:
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 CMD python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Build your image
 Make sure you're in the directory ```my-django-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
 
-``` bash
-
+```bash
 docker build --tag myblog:latest .
-
 ```
 
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
@@ -217,7 +209,6 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 >```azurecli-interactive
 >az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
 > ```
->
 
 ## Create Kubernetes manifest file
 
@@ -327,13 +318,14 @@ Now open a web browser to the external IP address of your service (http://\<serv
 
 ## Run database migrations
 
-For any django application, you would need to run database migration or collect static files. You can run these django shell commands using ```$ kubectl exec <pod-name> -- [COMMAND]```.  Before running the command you need to find the pod name using ```kubectl get pods```. 
+For any django application, you would need to run database migration or collect static files. You can run these django shell commands using `$ kubectl exec <pod-name> -- [COMMAND]`.  Before running the command you need to find the pod name using `kubectl get pods`. 
 
 ```bash
 $ kubectl get pods
 ```
 
-You will see an output like this
+You will see an output like this:
+
 ```output
 NAME                             READY   STATUS          RESTARTS   AGE
 django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
