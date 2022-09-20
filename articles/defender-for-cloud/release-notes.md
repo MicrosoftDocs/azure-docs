@@ -34,7 +34,7 @@ The MITRE ATT&CK framework has been integrated in three ways:
 - Filter recommendations by MITRE ATT&CK tactic.
 - Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
 
-:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the M I T R E attack exists in the Azure portal. "::: 
+:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
 
 ## September 2022
 
