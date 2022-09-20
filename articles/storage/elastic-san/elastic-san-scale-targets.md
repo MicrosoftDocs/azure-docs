@@ -3,8 +3,8 @@ title: Elastic SAN scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN.
 author: roygara
 ms.service: storage
-ms.topic: overview
-ms.date: 09/13/2022
+ms.topic: conceptual
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---

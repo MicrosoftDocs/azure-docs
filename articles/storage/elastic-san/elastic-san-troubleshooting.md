@@ -3,7 +3,7 @@ title: Elastic SAN troubleshooting
 description: Troubleshoot issues with an Azure Elastic SAN.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
@@ -20,5 +20,5 @@ If you can create the SAN itself, and volume groups, but not volumes, your SAN m
 To remedy this, make sure that the **Microsoft.Storage** endpoint is registered in your virtual network's subnet and use the following PowerShell command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "AllowGlobalTagsForStorage" -ProviderNamespace "Microsoft.Storage"
+Register-AzProviderFeature -FeatureName "AllowGlobalTagsForStorage" -ProviderNamespace "Microsoft.Network"
 ```

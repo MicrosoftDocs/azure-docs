@@ -3,8 +3,8 @@ title: Azure Elastic SAN Networking
 description: An overview of Azure Elastic SAN, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
-ms.topic: overview
-ms.date: 08/29/2022
+ms.topic: how-to
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
