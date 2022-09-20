@@ -2,7 +2,7 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 10/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
