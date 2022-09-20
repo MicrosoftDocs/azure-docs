@@ -95,7 +95,7 @@ Customer-initiated conversion is only available from the Azure portal, not from 
 1. Update the **Redundancy** setting.
 1. Select **Save**.
 
-    :::image type="content" source="media/migration-guides/storage-change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/migration-guides/storage-change-replication-option.png":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="../storage/common/media/redundancy-migration/change-replication-option.png":::
 
 #### Request a conversion by creating a support request
 
