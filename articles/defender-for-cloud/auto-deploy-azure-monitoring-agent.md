@@ -40,24 +40,15 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
-
-    :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/select-auto-provisioning.png" alt-text="Screenshot of the auto provisioning menu item for enabling the Azure Monitor Agent.":::
-
 1. Enable deployment of the Azure Monitor Agent:
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select the **On** status.
 
-        In the Configuration column, you can see the enabled agent type. When you enable auto provisioning, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
-
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="Screenshot of the auto provisioning page for enabling the Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
+        In the Configuration column, you can see the enabled agent type. When you enable Defender plans, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png " alt-text="Screenshot of editing the Azure Monitor Agent configuration." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
-
     1. For the Auto-provisioning configuration agent type, select **Azure Monitor Agent**.
-
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot of selecting the Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::
 
     By default:
 

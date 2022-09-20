@@ -181,9 +181,6 @@ sections:
           1. Select the relevant subscription.
           1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
           1. Turn off the extension you want to stop being automatically provisioned.
-          
-              :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto provisioning for the Log Analytics agent":::
-          
           1. Select **Save**.
           
           
@@ -261,7 +258,7 @@ sections:
       - question: |
           How do I enable data collection?
         answer: |
-          You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Defender for Cloud**, and select **Security policy**. Select the subscription that you wish to enable auto provisioning. When you select a subscription **Security policy - Data collection** opens.
+          Data collection is automatically turned on when you enable a Defender plan that requires a [monitoring component](monitoring-components.md).
           
           
       - question: |

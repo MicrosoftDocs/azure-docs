@@ -18,9 +18,6 @@ To configure integration with the Log Analytics agent:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring Coverage column of the Defender plans, select **Settings**.
-
-    <!-- :::image type="content" source="./media/enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto provisioning of the Log Analytics agent." lightbox="./media/enable-data-collection/enable-automatic-provisioning.png"::: -->
-
 1. From the configuration options pane, define the workspace to use.
 
     :::image type="content" source="./media/enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for Log Analytics agents for VMs." lightbox="./media/enable-data-collection/log-analytics-agent-deploy-options.png":::
