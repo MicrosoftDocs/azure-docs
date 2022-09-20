@@ -290,7 +290,7 @@ with:
 
 In the Azure portal, go to your user-assigned managed identity resource and select **Overview** to find the `<principal_id>` and `<client_id>` values:
 
-:::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields higlighted.":::
+:::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields highlighted.":::
 
 ## Grant the event hub permission to the data collection rule
 
