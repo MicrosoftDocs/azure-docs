@@ -73,7 +73,7 @@ spec:
 ```
 
 > [!NOTE]
-> Alternatively you can use [Azure AD workload identity][migrate-workload-identity] (preview).
+> We recommend you review [Azure AD workload identity][workload-identity-overview] (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
@@ -383,3 +383,4 @@ For Windows Server nodes, regularly perform a node image upgrade operation to sa
 [aks-ssh]: ssh.md
 [security-center-aks]: ../defender-for-cloud/defender-for-kubernetes-introduction.md
 [node-image-upgrade]: node-image-upgrade.md
+[workload-identity-overview]: workload-identity-overview.md

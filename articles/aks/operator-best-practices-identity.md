@@ -128,8 +128,8 @@ To access other Azure resources, like Cosmos DB, Key Vault, or Blob Storage, the
 With pod-managed identities (preview) for Azure resources, you automatically request access to services through Azure AD. Pod-managed identities is now currently in preview for AKS. Refer to the [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](./use-azure-ad-pod-identity.md) documentation to get started.
 
 > [!NOTE]
-> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
-> we recommend you first review [Migrate to workload identity][migrate-workload-identity] to understand our
+> If you have enabled [Azure AD pod-managed identity][aad-pod-identity] on your AKS cluster or are considering implementing it,
+> we recommend you first review [Migrate to workload identity][workload-identity-overview] to understand our
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
@@ -194,7 +194,6 @@ For more information about cluster operations in AKS, see the following best pra
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 
 <!-- EXTERNAL LINKS -->
-[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
@@ -205,3 +204,6 @@ For more information about cluster operations in AKS, see the following best pra
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[aad-pod-identity]: ./use-azure-ad-pod-identity.md
+[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md#create-an-identity
+[workload-identity-overview]: workload-identity-overview.md

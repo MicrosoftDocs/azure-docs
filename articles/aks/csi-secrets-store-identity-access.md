@@ -15,14 +15,47 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variet
 
 ## Use pod identities
 
-Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You can use these identities to grant access to the Azure Key Vault Secrets Provider for Secrets Store CSI driver.
+Azure Active Directory (Azure AD) pod-managed identities (preview) use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You can use these identities to grant access to the Azure Key Vault Secrets Provider for Secrets Store CSI driver.
+
+> [!NOTE]
+> Alternatively you can use [Azure AD workload identity][workload-identity-overview] (preview). This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 
 ### Prerequisites
 
 - Ensure that the [Azure AD pod identity add-on][aad-pod-identity] has been enabled on your cluster.
 - You must be using a Linux-based cluster.
 
-### Usage
+### Use an Azure AD workload identity
+
+1. Create an Azure AD application by running the following commands. The `az ad sp create-for-rbac` command creates a new application with a secret. However, the secret is not required for workload identity federation.
+
+    ```bash
+    export APPLICATION_NAME="<your application name>"
+    ```
+
+    ```azurecli
+    az ad sp create-for-rbac --name "${APPLICATION_NAME}"
+    ```
+
+    ```bash
+    export APPLICATION_CLIENT_ID=$(az ad sp list --display-name ${APPLICATION_NAME} --query '[0].appId' -otsv)
+    ```
+
+2. Grant workload identity permission to access to the Key Vault to ensure that your Azure AD Application has the role assignments required to access content in the Key Vault resource. The following Azure CLI commands assign rights to access keys, secrets, and certificates using the [az keyvault set-policy][az-keyvault-set-policy] command.
+
+    ```azurecli
+    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $APPLICATION_CLIENT_ID
+    ```
+
+    ```azurecli
+    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $APPLICATION_CLIENT_ID
+    ```
+
+    ```azurecli
+    az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $APPLICATION_CLIENT_ID
+    ```
+
+### Use an Azure AD pod-managed identity
 
 1. Follow the instructions in [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)][aad-pod-identity-create] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly created identity's `clientId` and `name`.
 
@@ -310,5 +343,6 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [use-managed-identity]: ./use-managed-identity.md
 [validate-secrets]: ./csi-secrets-store-driver.md#validate-the-secrets
 [enable-system-assigned-identity]: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-azure-vm
+[workload-identity-overview]: workload-identity-overview.md
 
 <!-- LINKS EXTERNAL -->
