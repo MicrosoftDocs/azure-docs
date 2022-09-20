@@ -51,7 +51,7 @@ An elastic SAN can have a maximum of 20 volume groups, and a volume group can co
 
 ## Volume
 
-The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s. The combined IOPS and throughput of your volumes can't exceed the IOPS and throughput of your SAN.
+The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
 
 ### Volume scale targets
 

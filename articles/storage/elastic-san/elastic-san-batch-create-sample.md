@@ -1,22 +1,26 @@
 ---
-title: Create more than one elastic SAN volume
-description: Azure PowerShell Script Sample - Create more than one elastic SAN volume
+title: Create multiple Azure Elastic SAN volumes
+description: Azure PowerShell Script Sample - Create multiple elastic SAN volumes.
 author: roygara
 ms.service: storage
 ms.topic: sample
-ms.date: 08/01/2022
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
+# Create multiple elastic SAN volumes
+
+This script creates a set number of volumes in your elastic storage area network (SAN). Use this script to create a large amount of volumes that are the same size without having to create each individual volume. The size of a volume can be increased after it's created but can't be decreased, to prevent data loss.
+
 ```azurepowershell
 $volumeCount = 5
 
-$resourceGroupName = "sandemo"
+$resourceGroupName = "yourResourceGroup"
 
-$sanName = "esan"
+$sanName = "yourSanName"
 
-$volumeGroupName = "demovg"
+$volumeGroupName = "yourVGroupName"
 
 $volumes = @()
 

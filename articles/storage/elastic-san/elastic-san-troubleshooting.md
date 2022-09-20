@@ -4,7 +4,7 @@ description: Troubleshoot issues with an Azure Elastic SAN.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 09/19/2022
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---

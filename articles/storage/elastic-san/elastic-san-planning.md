@@ -23,21 +23,21 @@ Answering those three questions can help you to successfully provision a SAN tha
 
 ## Storage and performance
 
-There are two ways to provision storage for an Elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput. The maximum total capacity an elastic SAN can have is 1 pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1 TiB increments.
+There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput. The maximum total capacity an elastic SAN can have is 1 pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1 TiB increments.
 
-When you provision this storage into an individual volume, you'll determine that volume's maximum performance.
+When you provision this storage into an individual volume, that volume's potential maximum performance is determined.
 
 ### IOPS
 
 Your SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
 
-The IOPS of a SAN is distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS.
+The IOPS of a SAN is distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your SAN.
 
 ### Throughput
 
 Your SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
-The throughput of a SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity.
+The throughput of a SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
 
 ## Networking
 
@@ -52,10 +52,8 @@ To protect the data in your Elastic SAN against data loss or corruption, all SAN
 
 ## Encryption
 
-All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis.
+All data stored in an Elastic SAN is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. SSE protects your data and to help you to meet your organizational security and compliance commitments. Data stored in Elastic SAN is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis.
 
-Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
+Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Elastic SANs and can't be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of SSE. There is no additional cost for SSE.
 
-Azure Storage encryption is enabled for all Elastic SANs. Azure Storage encryption can't be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption. There is no additional cost for Azure Storage encryption.
-
-For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
+For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
