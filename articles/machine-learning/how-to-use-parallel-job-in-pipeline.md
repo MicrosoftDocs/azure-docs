@@ -161,41 +161,7 @@ Sample code to update these settings:
 
 # [Python](#tab/python)
 
-```python
-    file_batch_inference = parallel_run_function(
-        name="file_batch_score",
-        display_name="Batch Score with File Dataset",
-        description="parallel component for batch score",
-        inputs=dict(
-            job_data_path=Input(
-                type=AssetTypes.MLTABLE,
-                description="The data to be split and scored in parallel",
-            )
-        ),
-        outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
-        input_data="${{inputs.job_data_path}}",
-        instance_count=2,
-        mini_batch_size="1",
-        <mark>mini_batch_error_threshold=1,</mark>
-        <mark>retry_settings=dict(max_retries=2, timeout=60),</mark>
-        <mark>logging_level="DEBUG",</mark>
-        max_concurrency_per_instance=1,
-        task=RunFunction(
-            code="./src",
-            entry_script="file_batch_inference.py",
-            program_arguments="--job_output_path ${{outputs.job_output_path}} "\
-                              <mark>"--error_threshold 5 "\</mark>
-                              <mark>"--allowed_failed_percent 30 "\</mark>
-                              <mark>"--task_overhead_timeout 1200 "\</mark>
-                              <mark>"--progress_update_timeout 600 "\</mark>
-                              <mark>"--first_task_creation_timeout 600 "\</mark>
-                              <mark>"--copy_logs_to_parent True "\</mark>
-                              <mark>"--resource_monitor_interva 20 "\,</mark>
-            environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
-            <mark>append_row_to="${{outputs.job_output_path}}",</mark>
-        ),
-```
-
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
 ---
 
 ## Create parallel job in pipeline
