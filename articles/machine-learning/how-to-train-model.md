@@ -243,7 +243,7 @@ When you submit the job, a URL is returned to the job status in the AzureML stud
 
 The `az ml job create` command used in this example requires a YAML job definition file. The contents of the file used in this example are:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml"":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
 To submit the job, use the following command. The run ID (name) of the training job is stored in the `$run_id` variable:
 
