@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # The elements of the B2B collaboration invitation email - Azure Active Directory
 
-Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. While it’s [not required that you send an email to invite someone using B2B collaboration](add-user-without-invite.md), doing so gives the user all the information they need to make a decision about whether to accept your invite. It also gives them a link they can always refer to in the future when they need to return to your resources.
+Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. While it’s [not required that you send an email to invite someone using B2B collaboration](add-user-without-invite.md), doing so gives the user all the information they need to make a decision about whether to accept your invite or not. It also gives them a link they can always refer to in the future when they need to return to your resources.
 
 ![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 
@@ -37,8 +37,8 @@ The subject of the email follows this pattern:
 We use a LinkedIn-like pattern for the From address. This pattern should make it clear that although the email comes from invites@microsoft.com, the invitation is from another organization. The format is: Microsoft Invitations <invites@microsoft.com> or Microsoft invitations on behalf of &lt;tenantname&gt; <invites@microsoft.com>. 
 
 > [!NOTE]
-> For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.  
-> For the Azure AD Government, the sender address is invites@azuread.us.
+> For the Azure service operated by [21Vianet in China](https://github.com/MicrosoftDocs/azure-china-pr/blob/main/azure-china/overview-operations.md), the sender address is Invites@oe.21vianet.com.  
+> For the [Azure AD Government](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/azure-government/documentation-government-plan-identity.md), the sender address is invites@azuread.us.
 
 ### Reply To
 
@@ -52,13 +52,13 @@ The email starts with a brief warning to the user about phishing, alerting them 
 
 ### Inviter's information and invitation message
 
-The email includes the name and primary domain associated with the organization sending the invitation. This information should help the invitee make an informed decision about accepting the invitation. If the inviter includes a message as part of their invitation when they [invite a guest user to the directory, group, or app](add-users-administrator.md) or when they [use the invitation API](customize-invitation-api.md), the message is highlighted in the main section of the email. Also included are the inviter’s name and profile image if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
+The email includes the name and primary domain associated with the organization sending the invitation. This information should help the invitee make an informed decision about accepting the invitation. If the inviter includes a message as part of their invitation when they [invite a guest user to the directory, group, or app](add-users-administrator.md), or when they [use the invitation API](customize-invitation-api.md), the message is highlighted in the main section of the email. Also included are the inviter’s name and profile image if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
 
 ![Image of the invitation message in the email](media/invitation-email-elements/invitation-message-inviters-info.png)
 
-### Accept button and redirect URL
+### Accept invitation button or link and redirect URL
 
-The next section of the email contains information about where the invitee will be taken after they accept the invitation, as well as a button to do so.  In the future, the invitee can always use this link to return to your resources directly.
+The next section of the email contains information about where the invitee will be taken after they accept the invitation, as well as a button or link to do so.  In the future, the invitee can always use this link to return to your resources directly.
 
 ![Image of the accept button and redirect URL in the email](media/invitation-email-elements/accept-button.png)
 
