@@ -270,6 +270,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
+> [!Note]
+>Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
 
 ### Performance log
 
