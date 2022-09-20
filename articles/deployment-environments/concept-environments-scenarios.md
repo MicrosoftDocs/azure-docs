@@ -5,17 +5,20 @@ ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg
-ms.date: 07/29/2022
+ms.date: 09/20/2022
 ---
-# Scenarios for using Azure Deployment Environments
+# Scenarios for using Azure Deployment Environments Preview
 
-This article discusses a few possible scenarios and benefits of Azure Deployment Environments, and the resources used to implement those scenarios. Depending on the needs of an enterprise, Azure Deployment Environments can be configured to meet different requirements. 
+This article discusses a few possible scenarios and benefits of Azure Deployment Environments Preview, and the resources used to implement those scenarios. Depending on the needs of an enterprise, Azure Deployment Environments can be configured to meet different requirements. 
 
 Some possible scenarios are:
 - Environments as part of a CI/CD pipeline
 - Sandbox environments for investigations
 - On-demand test environments
 - Training sessions, hands-on labs, and hackathons
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Environments as part of a CI/CD pipeline
 

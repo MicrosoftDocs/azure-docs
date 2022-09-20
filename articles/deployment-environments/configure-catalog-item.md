@@ -5,27 +5,27 @@ services: Azure Deployment Environments
 author: anandmeg
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 09/20/2022
 ms.custom: devdivchpfy22
 ms.author: meghaanand
 ---
 # Configure a Catalog Item in GitHub repo or Azure DevOps repo
 
-In Azure Deployment Environments service, you can use a dev center Catalog to provide your development teams with a curated set of 'infra-as-code' templates called Catalog Items. A Catalog Item is a combination of an 'infra-as-code' template 
-(Azure Resource Manager (ARM) templates during Azure Deployment Environments preview) and a manifest file. 
+In Azure Deployment Environments Preview service, you can use a dev center Catalog to provide your development teams with a curated set of predefined Catalog Items. A Catalog Item is a combination of an 'infra-as-code' template 
+(Azure Resource Manager (ARM) templates during Azure Deployment Environments Preview) and a manifest file. 
 
-The environment definition will be defined in the ARM Template, and the *manifest.yaml* file will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to spin-up environments in Azure.
+The environment definition will be in the ARM Template, and the *manifest.yaml* file will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to spin-up environments in Azure.
 
 We offer a Sample Catalog that you can attach as-is, or you can fork and customize the Catalog Items. You can attach your private repo to use your own Catalog Items.
 
-After you attach a Catalog to your dev center, the service will scan through the specified folder path to identify folders containing an ARM Template and the associated manifest file. 
+After you attach a Catalog to your dev center, the service will scan through the specified folder path to identify folders containing an ARM Template and the associated manifest file. The specified folder path should be a folder that contains subfolders with Catalog Item files.
 
-> [!NOTE]
-> The specified folder path should be a folder that contains subfolders with Catalog Item files.
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Adding a new Catalog Item
 
-Provide a new Catalog Item to your development as follows: 
+Provide a new Catalog Item to your development team as follows: 
 
 1. Create a subfolder in the specified folder path and add the *ARM_template.json* file and the associated *manifest.yaml* file.
  

@@ -5,19 +5,22 @@ description: Learn how to configure a managed identity that'll be used to deploy
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 08/18/2022
+ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
 # Configure a managed identity
 
-A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments service will use the managed identity attached to the dev center to deploy an environment. This managed identity will need to have appropriate access to the subscriptions in which the Azure resources are created. You won't need to grant access to the development teams to the target subscriptions.
+A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service will use the managed identity attached to the dev center to deploy an environment. This managed identity will need to have appropriate access to the subscriptions in which the Azure resources are created. You won't need to grant access to the development teams to the target subscriptions.
 
 In this article, you'll learn about:
 
 * Types of managed identities
 * Assigning a role assignment to the managed identity
 * Assigning the identity with access to the Key Vault secret
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Types of managed identities
 

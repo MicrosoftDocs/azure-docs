@@ -5,13 +5,13 @@ description: Learn how to configure environment types to define deployment setti
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/12/2022
+ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
 # Configure environment types
 
-[Environment types](./concept-environments-key-concepts.md#environment-types) are used to define the types of environments that are available to development teams when they deploy environments. You can specify deployment settings and the permissions available to developers for each environment type in your Project.
+In Azure Deployment Environments Preview, [Environment types](./concept-environments-key-concepts.md#environment-types) are used to define the types of environments that are available to development teams when they deploy environments. You can specify deployment settings and the permissions available to developers for each environment type in your Project.
 
 In this article, you'll learn how to:
 
@@ -19,6 +19,9 @@ In this article, you'll learn how to:
 * Delete an environment type
 
 :::image type="content" source="./media/configure-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example Environment types.":::
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Add a new environment type
 

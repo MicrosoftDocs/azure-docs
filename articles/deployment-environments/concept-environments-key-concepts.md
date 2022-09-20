@@ -5,12 +5,15 @@ ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg
-ms.date: 07/29/2022
+ms.date: 09/20/2022
 ---
 
-# Key concepts for new Azure Deployment Environments users
+# Key concepts for new Azure Deployment Environments Preview users
 
 Learn about the key concepts and components of Azure Deployment Environments preview. This can help you to more effectively deploy environments for your scenarios.
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Dev centers
 
