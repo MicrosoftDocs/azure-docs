@@ -80,10 +80,10 @@ The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs ar
     
 # [Python SDK](#tab/python)
 
-To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
+To create a persistent Azure Machine Learning Compute resource in Python, specify the **size** and **max_instance** properties. Azure Machine Learning then uses smart defaults for the other properties.
     
-* **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
-* **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
+* *size**: The VM family of the nodes created by Azure Machine Learning Compute.
+* **max_instance**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
