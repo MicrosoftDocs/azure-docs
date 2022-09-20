@@ -1,10 +1,10 @@
 ---
 title: Introduction to Azure Elastic SAN
-description: An overview of Azure Elastic SAN, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+description: An overview of Azure Elastic SAN, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/29/2022
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -22,11 +22,11 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ### Compatibility
 
-Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
+Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options and manage it separately from each option.
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. Rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options and manage it separately from each option.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement.
 
 ### Performance
 
@@ -40,7 +40,7 @@ Cost optimization can be achieved with Elastic SAN since you can increase your S
 
 Elastic SAN has three resources:
 
-- The Elastic SAN itself
+- The elastic SAN itself
 - Volume groups
 - Volumes
 
@@ -56,7 +56,7 @@ When you configure an elastic SAN, you select the redundancy of the entire SAN a
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
- Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
+Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
 
 ### Volumes resources
 
@@ -77,7 +77,6 @@ The status of items in this table may change over time.
 | [LRS or ZRS redundancy types](elastic-san-planning.md#redundancy)|	✔️ |
 | Private endpoints | ⛔  |
 | Grant network access to specific Azure virtual networks|  ✔️  |
-| Access same data from Windows and Linux client|  ✔️   |
 | Soft delete | ⛔  |
 | Backups| ⛔ |
 | Snapshots | ⛔ |

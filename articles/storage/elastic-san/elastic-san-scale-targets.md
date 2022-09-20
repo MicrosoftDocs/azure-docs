@@ -25,11 +25,11 @@ The maximum total capacity of your SAN is determined by the region where it's lo
 
 ### IOPS
 
-The IOPS of an elastic SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
+The IOPS of an elastic SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still provide 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an elastic SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+The throughput of an elastic SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
 ### Elastic SAN scale targets
 
@@ -51,7 +51,7 @@ An elastic SAN can have a maximum of 20 volume groups, and a volume group can co
 
 ## Volume
 
-The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To receive the maximum IOPS, you'd need an 86 GiB volume, and for maximum throughput, you'd need a 18 GiB volume.
+The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s.
 
 ### Volume scale targets
 
