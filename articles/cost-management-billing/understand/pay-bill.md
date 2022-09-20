@@ -14,7 +14,7 @@ ms.author: banders
 
 # Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for an Microsoft Online Services Program account also called pay-as-you-go account).
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for a Microsoft Online Services Program account also called pay-as-you-go account).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -30,11 +30,11 @@ If you have Azure credits, they automatically apply to your invoice each billing
 
 **The Reserve Bank of India has issued new directives.**
 
-On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this you may need to make payments manually in the Azure portal. This directive will not affect the total amount you will be charged for your Azure usage. 
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive won't affect the total amount you'll be charged for your Azure usage. 
 
 [Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
-On 30 September 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add and verify your payment method to make a payment in the Azure portal for all invoices.
+On 30 September 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you'll need to add and verify your payment method to make a payment in the Azure portal for all invoices.
 
 [Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
 
@@ -68,7 +68,7 @@ If the default payment method for your billing profile is a credit or debit card
 
 If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
 
-If have an Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
+If you have a Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
 
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
@@ -258,7 +258,7 @@ The invoice status shows *paid* within 24 hours.
 
 ## Pay now might be unavailable
 
-If you have an Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
+If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
