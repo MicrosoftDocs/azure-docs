@@ -42,9 +42,9 @@ On 30 September 2022, Microsoft and other online merchants will no longer be sto
 
 Azure supports two alternate payment options for customers in India. UPI (Unified Payments Interface) payment is a real-time fund transfer and payment system regulated by the Reserve Bank of India. NetBanking (Internet Banking) facilitates customers with access to banking services on an online platform. 
 
-**How do I make a payment with UPI or NetBanking?**
+#### How do I make a payment with UPI or NetBanking?
 
-UPI and NetBanking isare only supported for one-time transactions.  
+UPI and NetBanking are only supported for one-time transactions.  
 
 To make a payment with UPI or NetBanking: 
 
@@ -54,7 +54,7 @@ To make a payment with UPI or NetBanking:
 
 After you submit the payment, allow time for the payment to appear in the Azure portal. 
 
-**How am I refunded if I made a payment with UPI or NetBanking?** 
+#### How am I refunded if I made a payment with UPI or NetBanking?
 
 Refunds are treated as a regular charge. They’re refunded to your bank account. 
 
