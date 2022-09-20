@@ -21,7 +21,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 - Storage Account
   
 > [!NOTE]
-> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
+> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) [following our instructions for creating diagnostics setting via REST API](monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
 
 ## <a id="create-setting-portal"></a> Create diagnostics settings via the Azure portal
 

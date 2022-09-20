@@ -427,7 +427,7 @@
         - name: Use Azure monitor logs
           items:
             - name: Monitor with diagnostic logs
-              href: ../cosmosdb-monitor-resource-logs.md
+              href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries

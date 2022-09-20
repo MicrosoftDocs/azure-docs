@@ -70,7 +70,7 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](cosmosdb-monitor-resource-logs.md) for the detailed process for creating a diagnostic setting using the Azure portal and some diagnostic query examples. When you create a diagnostic setting, you specify which categories of logs to collect.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](monitor-resource-logs.md) for the detailed process for creating a diagnostic setting using the Azure portal and some diagnostic query examples. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 The metrics and logs you can collect are discussed in the following sections.
 

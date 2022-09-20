@@ -61,5 +61,5 @@ You can also group the metrics by using the **Apply splitting** option.
 
 ## Next steps
 
-* Monitor Azure Cosmos DB data by using [diagnostic settings](cosmosdb-monitor-resource-logs.md) in Azure.
+* Monitor Azure Cosmos DB data by using [diagnostic settings](monitor-resource-logs.md) in Azure.
 * [Audit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)

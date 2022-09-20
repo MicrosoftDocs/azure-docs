@@ -430,7 +430,7 @@ When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature
 
 ## Audit data requests
 
-When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
+When using the Azure Cosmos DB RBAC, [diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 

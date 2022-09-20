@@ -158,7 +158,7 @@ A permission resource is associated with a user and assigned to a specific resou
 > [!NOTE]
 > In order to run stored procedures the user must have the All permission on the container in which the stored procedure will be run.
 
-If you enable the [diagnostic logs on data-plane requests](cosmosdb-monitor-resource-logs.md), the following two properties corresponding to the permission are logged:
+If you enable the [diagnostic logs on data-plane requests](monitor-resource-logs.md), the following two properties corresponding to the permission are logged:
 
 * **resourceTokenPermissionId** - This property indicates the resource token permission ID that you have specified. 
 

@@ -23,9 +23,9 @@ ms.author: esarroyo
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB Cassansra API account by using diagnostics logs sent to **resource-specific** tables.
 
-For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
+For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
-For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode because it:
+For [resource-specific tables](../monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode because it:
 
 - Makes it much easier to work with the data. 
 - Provides better discoverability of the schemas.
@@ -36,7 +36,7 @@ For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setti
 
 - Create [API for Cassandra account](create-account-java.md)
 - Create a [Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md).
-- Create [Diagnostic Settings](../cosmosdb-monitor-resource-logs.md).
+- Create [Diagnostic Settings](../monitor-resource-logs.md).
 
 > [!WARNING]
 > When creating a Diagnostic Setting for the API for Cassandra account, ensure that "DataPlaneRequests" remain unselected. In addition, for the Destination table, ensure "Resource specific" is chosen as it offers significant cost savings over "Azure diagnostics.

@@ -209,7 +209,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `SERIAL CONSISTENCY` * | N/A |
 | `SHOW` | Yes |
 | `SOURCE` | Yes |
-| `TRACING` | N/A (API for Cassandra is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+| `TRACING` | N/A (API for Cassandra is backed by Azure Cosmos DB - use [diagnostic logging](../monitor-resource-logs.md) for troubleshooting) |
 
 > [!NOTE] 
 > Consistency works differently in Azure Cosmos DB, see [here](apache-cassandra-consistency-mapping.md) for more information.  

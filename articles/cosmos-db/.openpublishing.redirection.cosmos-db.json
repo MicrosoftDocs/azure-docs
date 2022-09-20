@@ -2426,6 +2426,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/cosmosdb-monitor-resource-logs.md",
+      "redirect_url": "/azure/cosmos-db/monitor-resource-logs",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-query-contains.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-query-contains",
       "redirect_document_id": true

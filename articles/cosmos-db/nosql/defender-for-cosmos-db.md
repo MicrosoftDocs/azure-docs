@@ -50,4 +50,4 @@ When Azure Cosmos DB activity anomalies occur, a security alert is triggered wit
 ## Next steps
 
 * Learn more about [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/concept-defender-for-cosmos.md)
-* Learn more about [Diagnostic logging in Azure Cosmos DB](../cosmosdb-monitor-resource-logs.md)
+* Learn more about [Diagnostic logging in Azure Cosmos DB](../monitor-resource-logs.md)

@@ -70,7 +70,7 @@ Each PartitionKeyRangeId maps to one physical partition. If there's one Partitio
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
 To see which logical partition keys are consuming the most RU/s,
-use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key.
+use [Azure Diagnostic Logs](../monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key.
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on the volume of data ingested. It's recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
@@ -123,7 +123,7 @@ If there's high percent of rate limited requests and there's an underlying hot p
 ### Step 3: Determine what requests are returning 429 responses
 
 #### How to investigate requests with 429 responses
-Use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429 responses and how many RUs they consumed. This sample query aggregates at the minute level.
+Use [Azure Diagnostic Logs](../monitor-resource-logs.md) to identify which requests are returning 429 responses and how many RUs they consumed. This sample query aggregates at the minute level.
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
