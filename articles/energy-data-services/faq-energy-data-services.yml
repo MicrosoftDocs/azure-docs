@@ -26,7 +26,7 @@ sections:
 
     - name: Pricing and Billing
       questions:
-        - question: Where can I learn about the pricign for Microsoft Energy Data Services?
+        - question: Where can I learn about the pricing for Microsoft Energy Data Services?
           answer: >
             Pricing for Microsoft Energy Data Services will be made available by November 1st, 2022. 
 
@@ -44,5 +44,5 @@ sections:
       questions:
         - question: How do we get the latest updates on Microsoft Energy Data Services Preview?
           answer: > 
-            Microsoft Energy Data Services Preview is a fully managed data platform. This means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
+            Microsoft Energy Data Services Preview is a fully managed OSDU&trade; data platform. It means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
 
