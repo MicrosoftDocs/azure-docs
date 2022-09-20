@@ -92,7 +92,7 @@ See [Network requirements](./azure-monitor/agents/agent-windows-troubleshoot.md#
 
 To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics `Heartbeat | where Computer =~ ""`
 
-### WU service status
+### Windows update service status
 
  To fix this issue, start **wuaserv** service.
 
@@ -108,7 +108,7 @@ Use the below commands to check the permissions on the folder:
 
 `(Get-Acl $folder).Access |? {($_.IdentityReference -match $User) -or ($_.IdentityReference -match "Everyone")} | Select IdentityReference, FileSystemRights`
 
-### ARAI
+### Automatically reboot after install
 
 Remove the registry keys from: 
 
@@ -122,14 +122,14 @@ Configure reboot according to Update Management schedule configuration.
 For more information, see [Configure reboot settings](./automation/update-management/configure-wuagent.md#configure-reboot-settings)
 
 
-### WSUS
+### WSUS Server configuration
 
 If the environment is set to get updates from WSUS, ensure that iot is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](./automation/update-management/configure-wuagent.md#make-wsus-configuration-settings).
 
 If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows Update Component](./windows/deployment/update/windows-update-resources.md#how-do-i-reset-windows-update-components).
 
 
-### ADAI
+### Automatically download and install
 
 To fix the issue, disable the AutoUpdate feature. Set it to Disabled in the local group policy **Configure Automatic Updates**.
 
@@ -163,7 +163,7 @@ Allow the [prerequisite URLs](../automation-network-configuration.md#update-mana
 `# $jrdsEndpointLocationMoniker should be based on automation account location (jpe/ase/scus) etc.` 
 `Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded`
 
-### HC
+### Https connection
 Simplifies the ongoing management of your network security rules. Allow the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
@@ -172,7 +172,7 @@ After the network changes, you can either rerun the Troubleshooter or run the be
 `*Invoke-WebRequest -URI $uri -UseBasicParsing > $null`
 
 
-### PS
+### Proxy settings
 
 If the proxy is enabled, ensure that you have access to the [prerequisite URLs](../automation-network-configuration#update-management-and-change-tracking-and-inventory). 
 
@@ -180,7 +180,7 @@ To check if the proxy is set correctly, use the below commands:
 `netsh winhttp show proxy` or check the registry key **ProxyEnable** is set to 1 in `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings` 
 
 
-### IMDS
+### IMDS endpoint connectivity
 
 To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service). 
 
