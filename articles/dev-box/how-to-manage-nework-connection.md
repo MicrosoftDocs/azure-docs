@@ -16,7 +16,7 @@ Network connections allow dev boxes to connect to existing virtual networks, and
 
 When planning network connectivity for your dev boxes, you must:
 - Ensure you have sufficient permissions to create and configure network connections.
-- Ensure yo have at least one virtual network (VNet) and subnet available for your dev boxes.
+- Ensure you have at least one virtual network (VNet) and subnet available for your dev boxes.
 - Identify the region or location closest to your dev boxes users. Deploying dev boxes into a region close to the users provides them with a better experience.
 - Determine whether dev boxes should connect to your existing networks using an Azure Active Directory (Azure AD) join, or a Hybrid Azure AD join.
 ## Permissions 
@@ -102,6 +102,12 @@ You can learn more about each type of join and how to plan for them here:
 
    :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Azure Active Directory join highlighted.":::
 
+1. Select **Review + Create**.
+
+1. On the **Review** tab, select **Create**.
+
+1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+
    #### [Hybrid Azure AD join](#tab/HybridAzureADJoin/)
 
    On the **Create a network connection** page, on the **Basics** tab, enter the following values:
@@ -121,13 +127,12 @@ You can learn more about each type of join and how to plan for them here:
 
    :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
 
-   ---
-
 1. Select **Review + Create**.
 
 1. On the **Review** tab, select **Create**.
 
 1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+   ---
 
 ## Attach network connection to dev center
 You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
