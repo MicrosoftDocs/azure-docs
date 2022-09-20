@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false
+        },
+        {
             "source_path":  "articles/backup/sap-hana-db-about.md",
             "redirect_url":  "/azure/backup/sap-hana-database-about",
             "redirect_document_id":  false
