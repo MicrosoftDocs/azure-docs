@@ -63,7 +63,7 @@ Both are tools, which enable quick setting up of application deployment to Azure
 
 Azure Developer CLI provides more developer-friendly commands in contrast to the UI wizard for DevOps Starter. This also means better clarity with config-as-code.
 
-2. Will I lose my application or the Azure resources if I am not able to access DevOps starter?
+### Will I lose my application or the Azure resources if I am not able to access DevOps starter?
 
 No. Application code, deployments, and Azure resources that host the application will still be available. DevOps Starter does not store any of these resources.
 
