@@ -91,6 +91,7 @@ az containerapp revision show \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
+az containerapp revision show `
   --name <APPLICATION_NAME> `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
