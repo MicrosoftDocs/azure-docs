@@ -296,7 +296,7 @@ if ($found) {
 } else {
     # If the file cannot be found, that means there hasn't been an update in
     # more than a week. Please verify the download URIs are still accurate
-    # by checking https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+    # by checking https://learn.microsoft.com/azure/virtual-network/service-tags-overview
     Write-Verbose -Message "JSON service tag file not found."
     return
 }
