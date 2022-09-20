@@ -50,14 +50,14 @@ In this scenario, the frontends are configured as follows:
 | ![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![purple frontend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
-The backend instance IP (BIP) is the IP address of the backend service in the backend pool, each VM exposes the desired service on a unique port on the backend instance IP. This service is associated with the frontend through a rule definition. 
+The backend instance IP (BIP) is the IP address of the backend service in the backend pool, each VM exposes the desired service on a unique port on the backend instance IP. This service is associated with the frontend IP (FIP) through a rule definition. 
 
 We define two rules:
 
 | Rule | Map frontend | To backend pool |
 | --- | --- | --- |
-| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) BIP1:80, ![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) BIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) BIP1:81, ![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) BIP2:81 |
+| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) FIP1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) BIP1:80, ![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) BIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) FIP2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) BIP1:81, ![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) BIP2:81 |
 
 The complete mapping in Azure Load Balancer is now as follows:
 
@@ -86,9 +86,9 @@ The following diagram illustrates floating IP configuration:
 
 For this scenario, every VM in the backend pool has three network interfaces:
 
-* Backend IP: a Virtual NIC associated with the VM (IP configuration of Azure's NIC resource)
-* Frontend 1: a loopback interface within guest OS that is configured with IP address of Frontend 1
-* Frontend 2: a loopback interface within guest OS that is configured with IP address of Frontend 2
+* Backend IP: a Virtual NIC associated with the VM (IP configuration of Azure's NIC resource).
+* Frontend 1 (FIP1): a loopback interface within guest OS that is configured with IP address of FIP1.
+* Frontend 2 (FIP2): a loopback interface within guest OS that is configured with IP address of FIP2.
 
 Let's assume the same frontend configuration as in the previous scenario:
 
@@ -101,8 +101,8 @@ We define two floating IP rules:
 
 | Rule | Frontend | Map to backend pool |
 | --- | --- | --- |
-| 1 |![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 and VM2) |
-| 2 |![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 and VM2) |
+| 1 |![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) FIP1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) FIP1:80 (in VM1 and VM2) |
+| 2 |![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) FIP2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) FIP2:80 (in VM1 and VM2) |
 
 The following table shows the complete mapping in the load balancer:
 
