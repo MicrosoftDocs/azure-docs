@@ -375,20 +375,20 @@ Enabling inference explainability will add a collection to the JSON response fro
   ],
  "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
  "rewardActionId": "EntertainmentArticle",
- "inferenceExplanation”: [
+ "inferenceExplanation": [
     {
-        "id”: "EntertainmentArticle”,
-        "features”: [
+        "id”: "EntertainmentArticle",
+        "features": [
             {
-                "name”: "user.profileType”,
-                "score" 3.0
+                "name": "user.profileType",
+                "score": 3.0
             },
             {
-                "name”: "user.latLong”,
-                "score”: -4.3
+                "name": "user.latLong",
+                "score": -4.3
             },
             {
-                "name”: "user.profileType^user.latLong”,
+                "name": "user.profileType^user.latLong",
                 "score" : 12.1
             },
         ]
