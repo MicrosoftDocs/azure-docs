@@ -15,7 +15,7 @@ This article describes how to restore SAP HANA databases running on an Azure Vir
 For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
 
 >[!Note]
->- The restore process of HANA databases with HANA System Replication (HSR) is the same as restore of HANA databases without HSR. As per SAP advisories, you can restore databases with HANA System Replication mode as *standalone* databases. If the target system has the HANA System Replication mode enabled, you must disable it and then restore the database.
+>- The restore process of HANA databases with HANA System Replication (HSR) is the same as restore of HANA databases without HSR. As per SAP advisories, you can restore databases with HANA System Replication mode as *standalone* databases. If the target system has the HANA System Replication mode enabled, first disable this mode, and then restore the database.
 >- For information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## Restore to a point in time or to a recovery point
