@@ -107,6 +107,12 @@ Use the highest priority (lowest number) binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
 1. If a match is not found on all the configured username bindings, user authentication fails.
 
+## Certificate-based authentication in MostRecentlyUsed (MRU) methods
+ 
+Once a user authenticates successfully using CBA, the user's MostRecentlyUsed (MRU) authentication method will be CBA. Next time, when the user enters their UPN and clicks **Next**, the user will be taken to the CBA method directly, and doesn't need to select **Use the certificate or smart card** to use CBA.
+
+To exit the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user.
+
 ## Understanding the certificate revocation process
 
 The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation will not revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
@@ -149,7 +155,7 @@ There is no way for the administrator to manually force or re-trigger the downlo
 
 [!INCLUDE [Configure revocation](../../../includes/active-directory-authentication-configure-revocation.md)]
 
-## Understanding Sign in logs
+## Understanding Sign-in logs
 
 Sign-in logs provide information about sign-ins and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
 
