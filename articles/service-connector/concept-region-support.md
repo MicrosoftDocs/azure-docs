@@ -54,7 +54,7 @@ In regions where Service Connector isn't supported, you will still find Service 
 
 ## Next steps
 
-Go the concept article below to learn more about Service Connector.
+Go to the concept article below to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
 > [High availability](./concept-availability.md)
