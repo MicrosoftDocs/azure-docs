@@ -1,13 +1,13 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
 description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
-ms.date: 09/08/2022
+ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
 # Discover misconfigurations in Infrastructure as Code (IaC)
 
-Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, extra support is located in the YAML configuration that can be used to run a specific tool, or several of the tools. For example, setting up the action or extension to run _only_ Infrastructure as Code (IaC) scanning. This can help reduce pipeline run time.
+Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, extra support is located in the YAML configuration that can be used to run a specific tool, or several of the tools. For example, setting up the action or extension to run Infrastructure as Code (IaC) scanning only. This can help reduce pipeline run time.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1. Select **Edit file**.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the edit button for the msdevopssec.yml file.":::
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the edit button for the msdevopssec.yml file." lightbox="media/tutorial-iac-vulnerabilities/workflow-yaml.png":::
 
 1. Under the Run Analyzers section, add:
 
@@ -30,6 +30,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
     with:
         categories: 'Iac"
     ```
+
     > [!NOTE] 
     > Categories are case sensitive.
     :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information that needs to be added to the yaml file.":::
@@ -129,7 +130,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
     
     1. **Select Add file** > **Create new file**.
     
-        :::image type="content" source="media/tutorial-iac-vulnerabilities/create-file.png" alt-text="Screenshot that shows you where to navigate to, to create a new file.":::
+        :::image type="content" source="media/tutorial-iac-vulnerabilities/create-file.png" alt-text="Screenshot that shows you where to navigate to, to create a new file." lightbox="media/tutorial-iac-vulnerabilities/create-file.png":::
 
     1. Enter a name for the file.
     
@@ -147,11 +148,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1. Navigate in the results to the scan results section.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/scan-results.png" alt-text="Screenshot showing you where to navigate to, to see the scan results.":::
-
-1. To see the results in the GitHub Code scanning interface, navigate to **Security** > **Code scanning alerts**.
-
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/code-scan-results.png" alt-text="Screenshot that shows you how to find the results of your scan.":::
+1. Navigate to **Security** > **Code scanning alerts** to view the results of the scan.
 
 ## View the results of the IaC scan in Azure DevOps
 
@@ -163,31 +160,31 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
 
-2. Select **Edit**.
+1. Select **Edit**.
 
-3. Add the following lines to the YAML file
+1. Add the following lines to the YAML file
 
     ```yml
     inputs:
         categories: 'IaC'
     ```
+
     :::image type="content" source="media/tutorial-iac-vulnerabilities/addition-to-yaml.png" alt-text="Screenshot showing you where to add this line to the YAML file.":::
 
-4.  Select **Save**.
+1.  Select **Save**.
 
-5.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
+1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
 
-6.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and select on 
-
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/your-pipeline.png" alt-text="Screenshot showing you where your pipeline is located.":::
+1.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and select on 
 
 1. Select any result to see the details.
-
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/results-from-scan.png" alt-text="Screenshot that shows you where the results from your scan can be found.":::
 
 ## Remediate PowerShell based rules:
 
 Information about the PowerShell-based rules included by our integration with [PSRule for Azure](https://aka.ms/ps-rule-azure/rules). The tool will only evaluate the rules under the [Security pillar](https://azure.github.io/PSRule.Rules.Azure/en/rules/module/#security) unless the option `--include-non-security-rules` is used.
+
+> [!NOTE]
+> Severity levels are scaled from 1 to 3. Where 1 = High, 2 = Medium, 3 = Low.
 
 ### JSON-Based Rules:
 

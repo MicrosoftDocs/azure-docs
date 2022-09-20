@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
-ms.date: 09/11/2022
+ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **New pipeline**.
 
-    :::image type="content" source="../batch/media/run-python-batch-azure-data-factory/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in DevOps.":::
+    :::image type="content" source="media/msdo-azure-devops-extension/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in DevOps." lightbox="media/msdo-azure-devops-extension/create-pipeline.png":::
 
 1. Select **Azure Repos Git**.
 

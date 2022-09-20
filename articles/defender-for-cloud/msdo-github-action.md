@@ -103,7 +103,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Select **Actions** and  verify the new action is running.
 
-    :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running.":::
+    :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running." lightbox="media/msdo-github-action/verify-actions.png":::
 
 ## View Scan Results
 
@@ -115,7 +115,7 @@ Security DevOps uses the following Open Source tools:
 
 1. From the dropdown menu, select **Filter by tool**.
 
-:::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
+    :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
 
 Code scanning findings will be filtered by specific MSDO tools in GitHub. These code scanning results are also pulled into Defender for Cloud recommendations.
 
