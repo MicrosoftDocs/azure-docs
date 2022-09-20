@@ -23,7 +23,7 @@ Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that 
 
 Workflows contain specific processes, which run automatically against users as they move through their life cycle. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](understanding-lifecycle-workflows.md#understanding-lifecycle-workflows). 
 
-Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of “who” and the 'Trigger' of “when” a workflow will be performed. For example, send a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees, can be described as a workflow.  It consists of:
+Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "who" and the 'Trigger' of "when" a workflow will be performed. For example, sending a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees can be described as a workflow.  It consists of:
    - Task:  send email
    - When (trigger):  Seven days before the NewEmployeeHireDate attribute value
    - Who (scope):  new employees
