@@ -2142,7 +2142,7 @@ Release notes for `v2.5.0`:
 
 **Features**
 * Security upgrade.
-* Added dupport for 
+* Added support for 
    * `az-az-babekneural`
    * `az-az-banuneural`
    * `fa-ir-dilaraneural`
