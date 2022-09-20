@@ -183,4 +183,4 @@ The Managed Disk snapshots don't get transferred to Recovery Services vault. The
 ## Next steps
 
 - [About SAP HANA database backup in Azure VMs](sap-hana-db-about.md).
-- [Manage SAP HANA database instances in Azure VMs (preview)](sap-hana-database-instances-manage.md).
+- [Manage SAP HANA database instances in Azure VMs (preview)](sap-hana-database-manage.md).
