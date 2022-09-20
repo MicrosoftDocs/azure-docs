@@ -872,7 +872,7 @@ role_assignment_client = AuthorizationManagementClient(
 )
 ```
 
-Then, get the Principal ID and Client ID of the System-assigned managed identity. To assign roles, we only need the Principal ID. However, we will use the Client ID to fill the `UAI_CLIENT_ID` placeholder environment variable before creating the deployment.
+Then, get the Principal ID and Client ID of the User-assigned managed identity. To assign roles, we only need the Principal ID. However, we will use the Client ID to fill the `UAI_CLIENT_ID` placeholder environment variable before creating the deployment.
 
 ```python
 uai_identity = msi_client.user_assigned_identities.get(
