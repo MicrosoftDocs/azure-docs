@@ -203,7 +203,7 @@ additionalContent:
         - text: Regions
           url: regions.md
         - text: Learn
-          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help
