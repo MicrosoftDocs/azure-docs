@@ -100,24 +100,29 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
 1. In Microsoft Sentinel, go to the **Incidents** page.
 
-1. Above the incident grid, select the **Product name** filter and clear the  **Select all** option. Then, select only **Microsoft Defender for IoT** to view only incidents triggered by Defender for IoT alerts.
+1. Above the incident grid, select the **Product name** filter and clear the  **Select all** option. Then, select **Microsoft Defender for IoT** to view only incidents triggered by Defender for IoT alerts. For example: 
+    
+    :::image type="content" source="media/iot-solution/filter-incidents-defender-for-iot.png" alt-text="Screenshot of filtering incidents by product name for Defender for IoT devices.":::
 
 1. Select a specific incident to begin your investigation.
 
     In the incident details pane on the right, view details such as incident severity, a summary of the entities involved, any mapped MITRE ATT&CK tactics or techniques, and more.
 
-**To investigate further, do one or both of the following**:
-
-- Select an entity from the **Entities** list in the incident details pane to open an IoT device's entity page. For example:
-        
     :::image type="content" source="media/iot-solution/investigate-iot-incidents.png" alt-text="Screenshot of a Microsoft Defender for IoT incident in Microsoft Sentinel.":::
 
-     The IoT device entity page provides contextual device information, including basic device details and device owner contact information, and helps to prioritize remediation based on device importance and business impact per the alert site, zone, and sensor.
+**To investigate further, do one or both of the following**:
+
+- Select an entity from the **Entities** list in the incident details pane to open an IoT device's entity page. 
+
+    The IoT device entity page provides contextual device information, including basic device details and device owner contact information, and helps to prioritize remediation based on device importance and business impact per the alert's site, zone, and sensor. For example:
+
+    :::image type="content" source="media/iot-solution/iot-device-entity-page.png" alt-text="Screenshot of the IoT device entity page.":::
     
     For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
 
 - Hunt for vulnerable devices on the **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name:
 
+    :::image type="content" source="media/iot-solution/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of IoT devices by number of alerts on entity behavior page.":::
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
@@ -156,7 +161,7 @@ For more information, see:
 
 ### Playbook prerequisites
 
-This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot), [AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves), [AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner), and [AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices) playbooks only. 
+This procedure is required for the [AD4IoT-AutoAlertStatusSync](#update-alert-statuses-in-defender-for-iot), [AD4IoT-CVEAutoWorkflow](#automate-workflows-for-incidents-with-active-cves), [AD4IoT-SendEmailtoIoTOwner](#send-email-to-the-iotot-device-owner), and [AD4IoT-AutoTriageIncident](#triage-incidents-involving-highly-important-devices) playbooks only.
 
 Details will differ for each playbook, but the main steps remain the same.
 
@@ -196,8 +201,10 @@ Details will differ for each playbook, but the main steps remain the same.
 1. With the playbook opened as a Logic app, select **Logic app designer**. Expand each step in the logic app to check for invalid connections, which are indicated by an orange warning triangle. For example:
 
     :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default AD4IOT AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png"::: 
-> [!IMPORTANT]
-> Make sure to expand each step in the logic app. Invalid connections may be hiding inside other steps.
+
+    > [!IMPORTANT]
+    > Make sure to expand each step in the logic app. Invalid connections may be hiding inside other steps.
+
 1. Select **Save**. 
 
 **Connect your incidents, relevant analytics rules, and the playbook**:
@@ -228,8 +235,6 @@ Add a new Microsoft Sentinel analytics rule, defined as follows:
 1. In the **Actions** area, select **Run playbook** > *playbook name*.
 
 1. Select **Run**.
-
-
 
 > [!TIP]
 > You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).

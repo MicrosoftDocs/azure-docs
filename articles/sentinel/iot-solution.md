@@ -140,7 +140,7 @@ For more information, see [View alerts on the Defender for IoT portal](../defend
 
 ## Next steps
 
-Install the **IoT OT Threat Monitoring with Defender for IoT** solution to your Microsoft Sentinel workspace. 
+[Install the **IoT OT Threat Monitoring with Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
 
 The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
