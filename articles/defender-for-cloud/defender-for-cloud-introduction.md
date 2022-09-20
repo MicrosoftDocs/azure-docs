@@ -47,7 +47,7 @@ As soon as you open Defender for Cloud for the first time, Defender for Cloud:
     
     By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
 
-    Learn more about [attack path analysis](azure/defender-for-cloud/concept-attack-path.#what-is-attack-path-analysis).
+    Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
 Defender for CSPM offers two options to protect your environments and resources, a free option and a premium option. We recommend enabling the premium option to gain the full coverage and benefits of CSPM. You can learn more about the benefits offered by CSPM premium and [the differences between the two plans](concept-cloud-security-posture-management.md).
 
