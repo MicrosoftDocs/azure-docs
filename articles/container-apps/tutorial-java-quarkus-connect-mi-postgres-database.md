@@ -29,7 +29,7 @@ What you will learn:
 
 ## 1. Prerequisites
 
-* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform. 
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
@@ -146,12 +146,14 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ### Build and push a Docker image to the container registry.
 
+
 1. Build the container image.
 
     Run the following command to build the Quarkus app image. You must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *myContainerRegistry007.azurecr.io*. Replace the name with your own registry name.
 
     ```
-    docker build -t myContainerRegistry007.azurecr.io/quarkus-postgres-passwordless-app:v1
+    mvnw quarkus:add-extension -Dextensions="container-image-jib"
+    mvnw clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=myContainerRegistry007 -Dquarkus.container-image.name=quarkus-postgres-passwordless-app -Dquarkus.container-image.tag=v1
     ```
 
 1. Log in to registry
@@ -252,10 +254,10 @@ Next, create a PostgreSQL database and configure your container app to connect t
 
     ```azurecli
     az containerapp connection create postgres -g $RESOURCE_GROUP \
-    -n my-container-app 
+    -n my-container-app \
     --tg $RESOURCE_GROUP \
-    --server DB_SERVER_NAME 
-    --database fruits 
+    --server $DB_SERVER_NAME \
+    --database fruits \
     --managed-identity
     ```
 
