@@ -3740,40 +3740,6 @@ range(1, 4)
 
 And returns this result: `[1, 2, 3, 4]`
 
-<a name="replace"></a>
-
-### replace
-
-Replace a substring with the specified string,
-and return the result string. This function
-is case-sensitive.
-
-```
-replace('<text>', '<oldText>', '<newText>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | The string that has the substring to replace |
-| <*oldText*> | Yes | String | The substring to replace |
-| <*newText*> | Yes | String | The replacement string |
-|||||
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
-||||
-
-*Example*
-
-This example finds the "old" substring in "the old string" and replaces "old" with "new":
-
-```
-replace('the old string', 'old', 'new')
-```
-
-And returns this result: `"the new string"`
-
 <a name="removeProperty"></a>
 
 ### removeProperty
@@ -3870,6 +3836,38 @@ Here's the updated JSON object:
    }
 }
 ```
+
+<a name="replace"></a>
+
+### replace
+
+Replace a substring with the specified string, and return the result string. This function is case-sensitive.
+
+```
+replace('<text>', '<oldText>', '<newText>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*text*> | Yes | String | The string that has the substring to replace |
+| <*oldText*> | Yes | String | The substring to replace |
+| <*newText*> | Yes | String | The replacement string |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
+||||
+
+*Example*
+
+This example finds the "old" substring in "the old string" and replaces "old" with "new":
+
+```
+replace('the old string', 'old', 'new')
+```
+
+And returns this result: `"the new string"`
 
 <a name="result"></a>
 
