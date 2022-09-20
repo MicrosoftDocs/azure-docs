@@ -121,7 +121,7 @@ Sample code to set two attributes:
 
 # [Azure CLI](#tab/cliv2)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="28-58" highlight="49,50":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-61" highlight="32-33":::
 
 # [Python](#tab/python)
 
