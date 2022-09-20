@@ -20,7 +20,7 @@ For more information about working with encryption scopes, see [Create and manag
 
 > [!IMPORTANT]
 > Encryption scopes are in preview for storage accounts with a hierarchical namespace enabled. The preview supports REST, HDFS, NFSv3 and SFTP protocols.
-> The preview version for HNS is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> The preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How encryption scopes work
