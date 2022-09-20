@@ -41,6 +41,8 @@
     href: how-to-learning-behavior.md
   - name: Use multi-slot
     href: how-to-multi-slot.md
+  - name: Use local inference
+    href: how-to-thick-client.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
@@ -140,7 +142,7 @@
       - name: Compliance and certification
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Learn modules
-    href: /learn/browse/?terms=personalizer
+    href: /training/browse/?terms=personalizer
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Azure updates

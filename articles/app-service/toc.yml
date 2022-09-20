@@ -450,8 +450,8 @@
   items:
     - name: App Service Blog
       href: https://aka.ms/appserviceblog
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
