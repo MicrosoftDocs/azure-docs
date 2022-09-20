@@ -54,7 +54,7 @@ This guide shows you how to create and manage self-service access workflows in M
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-data-access-request.png" alt-text="Screenshot that shows the new workflow panel, with the data access request template selected.":::
 
-1. Enter workflow a name and optionally add a description. Then select **Continue**.
+1. Enter a workflow name, optionally add a description, and then select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/name-and-continue.png" alt-text="Screenshot that shows the name and description boxes for a new workflow.":::
 
@@ -115,13 +115,13 @@ This guide shows you how to create and manage self-service access workflows in M
 
 ## Edit an existing workflow
 
-To modify an existing workflow, select the workflow and then select the **Edit** button. You're presented with the canvas that contains the workflow definition. Modify the workflow and then select **Save** to commit the changes.
+To modify an existing workflow, select the workflow, and then select the **Edit** button. You're presented with the canvas that contains the workflow definition. Modify the workflow, and then select **Save** to commit the changes.
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Screenshot that shows the workflow authoring page, with the Edit button highlighted on the top menu.":::
 
 ## Disable a workflow
 
-To disable a workflow, select the workflow and then select **Disable**.
+To disable a workflow, select the workflow, and then select **Disable**.
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Screenshot that shows the workflow authoring page, with the Disable button highlighted on the top menu.":::
 
@@ -129,7 +129,7 @@ Another way is to select the workflow, select **Edit**, turn off the **Enable** 
 
 ## Delete a workflow
 
-To delete a workflow, select the workflow and then select **Delete**.
+To delete a workflow, select the workflow, and then select **Delete**.
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-delete.png" alt-text="Screenshot that shows the workflow authoring page, with the Delete button highlighted on the top menu.":::
 
