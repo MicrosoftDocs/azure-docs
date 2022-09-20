@@ -27,7 +27,7 @@ Azure Firewall scales up\down based on throughput and CPU usage. Scale down is p
 
 ### Drops during maintenance
 
-The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://azure.microsoft.com/en-us/blog/deployment-strategies-defined/). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
+The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://azure.microsoft.com/blog/deployment-strategies-defined/). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
 
 ### Drops due to idle timeout
 
