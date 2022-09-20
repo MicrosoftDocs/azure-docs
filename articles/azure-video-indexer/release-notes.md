@@ -47,7 +47,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
 
-- The [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 - Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
 - Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
  
@@ -58,6 +58,10 @@ To create an ARM-based account, see [create an account](create-account-portal.md
 Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
 
 For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
 
 ## August 2022
 
