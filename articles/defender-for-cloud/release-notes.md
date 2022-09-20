@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 09/19/2022
+ms.date: 09/20/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -32,7 +32,9 @@ The MITRE ATT&CK framework has been integrated in three ways:
 
 - Recommendations map to MITRE ATT&CK tactics and techniques.
 - Filter recommendations by MITRE ATT&CK tactic.
-- Query MITRE ATT&CK® tactics and techniques on recommendations using the Azure Resource Graph.
+- Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
+
+:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the M I T R E attack exists in the Azure portal. "::: 
 
 ## September 2022
 
