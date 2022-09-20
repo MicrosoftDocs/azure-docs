@@ -272,7 +272,7 @@ This playbook opens a ticket in ServiceNow each time a new Engineering Workstati
 
 **Playbook name**: AD4IoT-AutoAlertStatusSync
 
-**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) when using this playbook.
+**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) to use this playbook.
 
 This playbook updates alert statuses in Defender for IoT whenever a related alert in Microsoft Sentinel has a **Status** update.
 
@@ -282,7 +282,7 @@ This synchronization overrides any status defined in Defender for IoT, in the Az
 
 **Playbook name**: AD4IoT-CVEAutoWorkflow
 
-**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) when using this playbook.
+**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) to use this playbook.
 
 This playbook adds active CVEs into the incident comments of affected devices. An automated triage is performed if the CVE is critical, and an email notification is sent to the device owner, as defined on the site level in Defender for IoT.
 
@@ -292,7 +292,7 @@ To add a device owner, edit the site owner on the **Sites and sensors** page in 
 
 **Playbook name**: AD4IoT-SendEmailtoIoTOwner
 
-**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) when using this playbook.
+**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) to use this playbook.
 
 This playbook sends an email with the incident details to the device owner as defined on the site level in Defender for IoT, so that they can start investigating, even responding directly from the automated email. Response options include:
 
@@ -308,7 +308,7 @@ To add a device owner, edit the site owner on the **Sites and sensors** page in 
 
 **Playbook name**: AD4IoT-AutoTriageIncident
 
-**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) when using this playbook.
+**Prerequisites**: Make sure to complete the [playbook prerequisite procedure](#playbook-prerequisites) to use this playbook.
 
 This playbook updates the incident severity according to the importance level of the devices involved.
 
