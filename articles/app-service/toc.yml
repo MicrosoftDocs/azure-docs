@@ -243,12 +243,6 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Application Gateway integration
-          href: networking/app-gateway-with-service-endpoints.md
-        - name: NAT gateway integration
-          href: networking/nat-gateway-integration.md
-        - name: Traffic Manager integration
-          href: web-sites-traffic-manager.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics
@@ -335,7 +329,7 @@
               href: configure-authentication-provider-twitter.md
             - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
-            - name: Authenticate using Sign in with Apple (Preview)
+            - name: Authenticate using Sign-in with Apple (Preview)
               href: configure-authentication-provider-apple.md
         - name: Customize sign-ins/outs
           href: configure-authentication-customize-sign-in-out.md
@@ -391,7 +385,7 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Backup and restore
+        - name: Back up and restore
           href: manage-backup.md
         - name: Clone an app
           href: app-service-web-app-cloning.md
@@ -401,12 +395,18 @@
           href: manage-create-arc-environment.md
     - name: Networking
       items:
-        - name: Enable VNet integration
+        - name: Enable virtual network integration
           href: configure-vnet-integration-enable.md
-        - name: Configure VNet integration routing
+        - name: Configure network routing
           href: configure-vnet-integration-routing.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
+        - name: Integrate with Application Gateway
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: Configure NAT gateway integration
+          href: networking/nat-gateway-integration.md
+        - name: Integrate with Traffic Manager
+          href: web-sites-traffic-manager.md
     - name: Move app
       items:
         - name: Move between regions
