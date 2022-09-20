@@ -518,7 +518,6 @@ Parameter | Detail
 
 You can configure all the sweep related parameters as shown in the example below.
 
-# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
