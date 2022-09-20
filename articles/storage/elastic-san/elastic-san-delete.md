@@ -1,6 +1,6 @@
 ---
 title: Delete an Azure Elastic SAN
-description: Learn how to delete an Azure Elastic SAN with the Azure portal or the Azure PowerShell module.
+description: Learn how to delete an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -23,6 +23,51 @@ When your SAN has no active connections, you may delete it using the Azure porta
 
 First, delete each volume.
 
+# [Portal](#tab/azure-portal)
+
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzElasticSanVolumeGroup -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $volumeGroupName -Name $volumeName
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az elastic-san delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName
+```
+---
+
 Then, delete each volume group.
 
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzElasticSanVolumeGroup -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $volumeGroupName
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az elastic-san delete -e $sanName -g $resourceGroupName -n $volumeGroupName
+```
+---
+
 Finally, delete the elastic SAN itself.
+
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName
+```
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az elastic-san delete -n $sanName -g $resourceGroupName
+```
+---
