@@ -5,12 +5,59 @@ ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### 2022-July release
+
+#### New Speech-to-text-locales:
+
+Added 7 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bs-BA`         | Bosnian (Bosnia and Herzegovina) |
+| `yue-CN`        | Chinese (Cantonese, Simplified)  |
+| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) |
+| `wuu-CN`        | Chinese (Wu, Simplified)  |
+| `ps-AF`         | Pashto (Afghanistan)      |
+| `so-SO`         | Somali (Somalia)          |
+| `cy-GB`         | Welsh (United Kingdom)    |
+
+
+### 2022-Jun release
+
+#### New Speech-to-text-locales:
+
+Added 10 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `sq-AL`         | Albanian (Albania)                |
+|  `hy-AM`         | Armenian (Armenia)                |
+|  `az-AZ`         | Azerbaijani (Azerbaijan)          |
+|  `eu-ES`         | Basque (Spain)                    |
+|  `gl-ES`         | Galician (Spain)                  |
+| `ka-GE`         | Georgian (Georgia)                |
+|  `it-CH`         | Italian (Switzerland)             |
+|  `kk-KZ`         | Kazakh (Kazakhstan)               |
+|  `mn-MN`         | Mongolian (Mongolia)              |
+|  `ne-NP`         | Nepali (Nepal)                    |
+
+
+### 2022-April release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bn-IN` | Bengali (India)                   |
+
 
 ### 2022-January release
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -38,7 +85,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -66,7 +113,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -91,7 +138,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 ### 2020-August Release
 
 #### New speech-to-text locales:
-Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|

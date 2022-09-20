@@ -15,6 +15,8 @@ We've also provided manual download instructions in case you don't have internet
 
 To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Run PowerShell as Admin with an elevated execution policy
 
 ### Run as Admin
@@ -34,10 +36,8 @@ Install-Module : The 'Install-Module' command was found in the module 'PowerShel
 loaded. For more information, run 'Import-Module PowerShellGet'.
 
 Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.3.1\PackageManagement.psm1 cannot
-be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at
-https:/go.microsoft.com/fwlink/?LinkID=135170.
+be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https://go.microsoft.com/fwlink/?LinkID=135170.
 ```
-
 
 ## Prerequisites for PowerShell
 

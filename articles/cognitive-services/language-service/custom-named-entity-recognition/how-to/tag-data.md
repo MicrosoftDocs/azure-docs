@@ -1,89 +1,108 @@
 ---
-title: How to tag your data for Custom Named Entity Recognition (NER)
+title: How to label your data for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn how to tag your data for use with Custom Named Entity Recognition (NER).
+description: Learn how to label your data for use with Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/24/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Tag your data for Custom Named Entity Recognition (NER) in language studio
+# Label your data in Language Studio
 
-Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio. To tag your data, you must have [created a project](../quickstart.md).
+Before training your model you need to label your documents with the custom entities you want to extract. Data labeling is a crucial step in development lifecycle. In this step you can create the entity types you want to extract from your data and label these entities within your documents. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md#import-project) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md). See [create project](create-project.md#import-project) to learn more about importing labeled data into your project.
+
+Before creating a custom NER model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
 
 ## Prerequisites
 
-Before you can tag data, you need:
+Before you can label your data, you need:
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-## Tag your data
+## Data labeling guidelines
 
-After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
+After [preparing your data, designing your schema](design-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entity types you need to extract. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON document in your storage container that you have connected to this project. 
 
-As you tag your data, remember the following:
+As you label your data, keep in mind:
 
-* **Tag precisely**: Tag each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your tag.
-* **Tag consistently**:  The same entity should have the same tag across all the files.
-* **Tag completely**: Tag all the instances of the entity in all your files.
+* In general, more labeled data leads to better results, provided the data is labeled accurately.
 
-The precision, consistency and completeness of your tagged data are key factors to determining model performance. To tag your data:
+* The precision, consistency and completeness of your labeled data are key factors to determining model performance. 
 
-1. Go to the projects page in [Language Studio](https://aka.ms/custom-extraction) and select your project.
+    * **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
+    * **Label consistently**:  The same entity should have the same label across all the documents.
+    * **Label completely**: Label all the instances of the entity in all your documents. You can use the [auto-labeling feature](use-autotagging.md) to ensure complete labeling.
 
-2. From the left side menu, select **Tag data**
+   > [!NOTE]
+   > There is no fixed number of labels that can guarantee your model will perform the best. Model performance is dependent on possible ambiguity in your [schema](design-schema.md), and the quality of your labeled data. Nevertheless, we recommend having around 50 labeled instances per entity type.
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
+## Label your data
 
-4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
+Use the following steps to label your data:
 
->[!TIP]
-> * There is no standard number of tags you will need, Consider starting with 50 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
 
-:::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
+2. From the left side menu, select **Data labeling**. You can find a list of all documents in your storage container.
 
-If you enabled multiple languages for your project, you will find a **Language** dropdown, which lets you select the language of each document.
+    <!--:::image type="content" source="../media/tagging-files-view.png" alt-text="A screenshot showing the Language Studio screen for labeling data." lightbox="../media/tagging-files-view.png":::-->
 
-While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
+    >[!TIP]
+    > You can use the filters in top menu to view the unlabeled documents so that you can start labeling them.
+    > You can also use the filters to view the documents that are labeled with a specific entity type.
 
-## Tagging options
+3. Change to a single document view from the left side in the top menu or select a specific document to start labeling. You can find a list of all `.txt` documents available in your project to the left. You can use the **Back** and **Next** button from the bottom of the page to navigate through your documents.
 
-You have two options to tag your document:
+    > [!NOTE]
+    > If you enabled multiple languages for your project, you will find a **Language** dropdown in the top menu, which lets you select the language of each document.
 
+4. In the right side pane, **Add entity type** to your project so you can start labeling your data with them.
 
-|Option |Description  |
-|---------|---------|
-|Tag using a brush     | Select the brush icon next to an entity in the top-right corner of the screen, then highlight words in the document you want to associate with the entity           |
-|Tag using a menu    | Highlight the word you want to tag as an entity, and a menu will appear. Select the tag you want to assign for this entity.        |
+    <!--:::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing complete data labeling." lightbox="../media/tag-1.png":::-->
 
-The below screenshot shows tagging using a brush.
+6. You have two options to label your document:
+    
+    |Option |Description  |
+    |---------|---------|
+    |Label using a brush     | Select the brush icon next to an entity type in the right pane, then highlight the text in the document you want to annotate with this entity type.           |
+    |Label using a menu    | Highlight the word you want to label as an entity, and a menu will appear. Select the entity type you want to assign for this entity.        |
+    
+    The below screenshot shows labeling using a brush.
+    
+    :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the labeling options offered in Custom NER." lightbox="../media/tag-options.png":::
+    
+6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each.
 
-:::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
+6. In the bottom section of the right side pane you can add the current document you are viewing to the training set or the testing set. By default all the documents are added to your training set. Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.
 
-## Remove tags
+    > [!TIP]
+    > If you are planning on using **Automatic** data splitting, use the default option of assigning all the documents into your training set.
 
-To remove a tag
+7. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
+   * *Total instances* where you can view count of all labeled instances of a specific entity type.
+   * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
+  
+7. When you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 
-1. Select the entity you want to remove a tag from.
-2. Scroll through the menu that appears, and select **Remove Tag**.
+## Remove labels
 
-## Delete or rename entities
+To remove a label
 
-To delete or rename an entity:
+1. Select the entity you want to remove a label from.
+2. Scroll through the menu that appears, and select **Remove label**.
 
-1. Select the entity you want to edit in the top-right corner of the menu.
-2. Click on the three dots next to the entity, and select the option you want from the drop-down menu.
+## Delete entities
 
+To delete an entity, select the delete icon next to the entity you want to remove. Deleting an entity will remove all its labeled instances from your dataset.
 
-## Next Steps
+## Next steps
 
-After you've tagged your data, you can begin [training a model](train-model.md) that will learn based on your data.
+After you've labeled your data, you can begin [training a model](train-model.md) that will learn based on your data.

@@ -1,17 +1,12 @@
 ---
 author: eric-urban
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 03/29/2022
 ms.author: eur
 ---
 
-In this quickstart, you learn common design patterns for doing text-to-speech synthesis. 
+In this quickstart, you run an application that does text to speech synthesis. 
 
-See the text-to-speech [overview](../../../text-to-speech.md) for more information about:
-
-* Getting responses as in-memory streams.
-* Customizing output sample rate and bit rate.
-* Submitting synthesis requests by using Speech Synthesis Markup Language (SSML).
-* Using neural voices.
+> [!TIP]
+> You can try text-to-speech in [Speech Studio](https://aka.ms/speechstudio/voicegallery) without signing up or writing any code.

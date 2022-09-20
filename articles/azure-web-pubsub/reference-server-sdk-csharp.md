@@ -26,7 +26,7 @@ Use this library to:
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/src) |
 [Package](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) |
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/messaging.webpubsub-readme-pre) |
+[API reference documentation](/dotnet/api/overview/azure/messaging.webpubsub-readme) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 

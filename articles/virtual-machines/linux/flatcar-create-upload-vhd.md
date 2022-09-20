@@ -1,8 +1,8 @@
 ---
 title: Create and upload a Flatcar Container Linux VHD for use in Azure 
 description: Learn to create and upload a VHD that contains a Flatcar Container Linux operating system.
-author: marga-kinvolk
-ms.author: danis
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
@@ -21,7 +21,7 @@ Linux for each of the Flatcar supported channels:
 - [stable](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [edge](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [LTS](https://lts.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 This image is already fully set up and optimized to run on Azure. You only
 need to decompress it.
@@ -32,7 +32,7 @@ Alternatively, you can choose to build your own Flatcar Container Linux
 image.
 
 On any linux based machine, follow the instructions detailed in the
-[Flatcar Container Linux developer SDK guide](https://docs.flatcar-linux.org/os/sdk-modifying-flatcar/). When
+[Flatcar Container Linux developer SDK guide](https://www.flatcar.org/docs/latest/reference/developer-guides/). When
 running the `image_to_vm.sh` script, make sure you pass `--format=azure` to
 create an Azure virtual hard disk.
 

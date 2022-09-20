@@ -1,11 +1,11 @@
 ---
-title: CollectionContentTemplate mappings in IoT Connector Device mappings - Azure Health Data Services
+title: CollectionContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
 description: This article describes how to use CollectionContentTemplate mappings with MedTech service Device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 

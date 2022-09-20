@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/16/2022
 ms.author: kendownie
 ---
 
@@ -13,7 +13,8 @@ ms.author: kendownie
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the Azure RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. The Azure RBAC share-level permissions act as a high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -52,27 +53,29 @@ To configure ACLs with superuser permissions, you must mount the share by using 
 
 The following permissions are included on the root directory of a file share:
 
-- BUILTIN\Administrators:(OI)(CI)(F)
-- BUILTIN\Users:(RX)
-- BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
-- NT AUTHORITY\Authenticated Users:(OI)(CI)(M)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
-- NT AUTHORITY\SYSTEM:(F)
-- CREATOR OWNER:(OI)(CI)(IO)(F)
+- `BUILTIN\Administrators:(OI)(CI)(F)`
+- `BUILTIN\Users:(RX)`
+- `BUILTIN\Users:(OI)(CI)(IO)(GR,GE)`
+- `NT AUTHORITY\Authenticated Users:(OI)(CI)(M)`
+- `NT AUTHORITY\SYSTEM:(OI)(CI)(F)`
+- `NT AUTHORITY\SYSTEM:(F)`
+- `CREATOR OWNER:(OI)(CI)(IO)(F)`
 
 |Users|Definition|
 |---|---|
-|BUILTIN\Administrators|All users who are domain administrators of the on-prem AD DS environment.
-|BUILTIN\Users|Built-in security group in AD. It includes NT AUTHORITY\Authenticated Users by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence BUILTIN\Users includes the same set of users as NT AUTHORITY\Authenticated Users.|
-|NT AUTHORITY\SYSTEM|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
-|NT AUTHORITY\Authenticated Users|All users in AD that can get a valid Kerberos token.|
-|CREATOR OWNER|Each object either directory or file has an owner for that object. If there are ACLs assigned to "CREATOR OWNER" on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
-
+|`BUILTIN\Administrators`|Built-in security group representing administrators of the file server. This group is empty, and no one can be added to it.
+|`BUILTIN\Users`|Built-in security group representing users of the file server. It includes `NT AUTHORITY\Authenticated Users` by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence `BUILTIN\Users` includes the same set of users as `NT AUTHORITY\Authenticated Users`.|
+|`NT AUTHORITY\SYSTEM`|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
+|`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
+|`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
 
 ## Mount a file share from the command prompt
 
-Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
+Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+
+> [!NOTE]
+> You may see the *Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share-level and the file-level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key, first.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

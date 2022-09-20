@@ -3,11 +3,11 @@ title: 'Troubleshooting issues with provisioning to on-premises applications'
 description: Describes how to troubleshoot various issues you might encounter when you install and use the ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/03/2022
+ms.date: 04/04/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -97,7 +97,27 @@ The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wiz
           <listeners> 
             <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
   ```
+## Query the ECMA Host Cache
 
+The ECMA Host has a cache of users in your application that is updated according to the schedule you specify in the properties page of the ECMA Host wizard. In order to query the cache, perform the steps below:
+1. Set the Debug flag to `true`.
+2. Restart the ECMA Host service.
+3. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
+
+Please be aware that setting the debug flag to  `true` disables authentication on the ECMA Host. You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache. 
+
+The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
+  ```
+  <?xml version="1.0" encoding="utf-8"?> 
+  <configuration> 
+      <startup>  
+          <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
+      </startup> 
+      <appSettings> 
+        <add key="Debug" value="true" /> 
+      </appSettings> 
+
+  ```
 ## Target attribute is missing 
 The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure portal, perform the following troubleshooting step:
 

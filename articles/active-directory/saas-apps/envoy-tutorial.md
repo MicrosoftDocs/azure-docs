@@ -55,6 +55,8 @@ To configure the integration of Envoy into Azure AD, you need to add Envoy from 
 1. In the **Add from the gallery** section, type **Envoy** in the search box.
 1. Select **Envoy** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Envoy
 
 Configure and test Azure AD SSO with Envoy using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Envoy.
@@ -153,9 +155,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Envoy test user
 
-In this section, a user called Britta Simon is created in Envoy. Envoy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Envoy, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Envoy. 
 
-Envoy also supports automatic user provisioning, you can find more details [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
+Envoy supports automatic user provisioning, which you can read about [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

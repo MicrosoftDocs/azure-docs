@@ -64,7 +64,7 @@ Include the following JSON to update the `exportPolicy` status and set the `publ
 
 ### Azure CLI
 
-Run [az resource update](/cli/azure/resource/#az_resource_update) to set the `exportPolicy` status in an existing registry to `disabled`. Substitute the names of your registry and resource group.
+Run [az resource update](/cli/azure/resource/#az-resource-update) to set the `exportPolicy` status in an existing registry to `disabled`. Substitute the names of your registry and resource group.
 
 As shown in this example, when disabling the `exportPolicy` property, also set the `publicNetworkAccess` property to `disabled`.
 
@@ -146,7 +146,7 @@ Include the following JSON to update the `exportPolicy` status to `enabled`. Lea
 
 ### Azure CLI
 
-Run [az resource update](/cli/azure/resource/#az_resource_update) to set the `exportPolicy` status to `enabled`. Substitute the names of your registry and resource group.
+Run [az resource update](/cli/azure/resource/#az-resource-update) to set the `exportPolicy` status to `enabled`. Substitute the names of your registry and resource group.
 
 ```azurecli
 az resource update --resource-group myResourceGroup \

@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins Explorer
+title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use the features of Azure Digital Twins Explorer
+description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,10 +18,7 @@ ms.service: digital-twins
 
 # Use Azure Digital Twins Explorer (preview)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
-
->[!NOTE]
->This tool is currently in public preview.
+[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 ## How to access
 
@@ -41,7 +39,7 @@ Doing so will bring up the **Azure Digital Twins URL modal**, where you can ente
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app isn't available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app isn't available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment-and-specific-query).
 
 
 ## Query your digital twin graph
@@ -530,11 +528,11 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
-## Link to your environment
+## Link to your environment and specific query
 
 You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
 
-To share your environment, you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
+To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
 
 `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
 
@@ -547,7 +545,7 @@ Here's an example of a URL with the placeholder values filled in:
 
 For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Link with a query
+### Link to a specific query
 
 You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
 

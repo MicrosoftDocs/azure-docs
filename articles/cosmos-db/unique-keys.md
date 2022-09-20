@@ -1,13 +1,13 @@
 ---
 title: Use unique keys in Azure Cosmos DB
 description: Learn how to define and use unique keys for an Azure Cosmos database. This article also describes how unique keys add a layer of data integrity.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: sngun
 ---
 
 # Unique key constraints in Azure Cosmos DB
@@ -36,13 +36,13 @@ If you attempt to insert another item with the combinations listed in the previo
 
 ## Define a unique key
 
-You can define unique keys only when you create an Azure Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you end up with duplicated items in each logical partition. Consider the following properties when you create unique keys:
+You can define unique keys only when you create an Azure Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you can have the same items in each logical partition. Consider the following properties when you create unique keys:
 
 * You can't update an existing container to use a different unique key. In other words, after a container is created with a unique key policy, the policy can't be changed.
 
 * To set a unique key for an existing container, create a new container with the unique key constraint. Use the appropriate data migration tool to move the data from the existing container to the new container. For SQL containers, use the [Data Migration tool](import-data.md) to move data. For MongoDB containers, use [mongoimport.exe or mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) to move data.
 
-* A unique key policy can have a maximum of 16 path values. For example, the values can be `/firstName`, `/lastName`, and `/address/zipCode`. Each unique key policy can have a maximum of 10 unique key constraints or combinations. The combined paths for each unique index constraint must not exceed 60 bytes. In the previous example, first name, last name, and email address together are one constraint. This constraint uses 3 out of the 16 possible paths.
+* A unique key policy can have a maximum of 16 path values. For example, the values can be `/firstName`, `/lastName`, and `/address/zipCode`. Each unique key policy can have a maximum of 10 unique key constraints or combinations. In the previous example, first name, last name, and email address together are one constraint. This constraint uses 3 out of the 16 possible paths.
 
 * When a container has a unique key policy, [Request Unit (RU)](request-units.md) charges to create, update, and delete an item are slightly higher.
 

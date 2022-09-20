@@ -60,11 +60,14 @@ Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/Hu
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Screenshot of the 'Logic Apps Custom Connector' page in the Azure portal. The 'Add' button is highlighted.":::
 
-In the **Create logic apps custom connector** page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Select **Review + create**. 
+In the **Create logic apps custom connector** page that follows, select your subscription and resource group, and a name and deployment region for your new connector. Select **Review + create**. 
+
+>[!IMPORTANT]
+> The custom connector and the logic app that you'll create later will need to be in the same deployment region.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Screenshot of the 'Create logic apps custom connector' page in the Azure portal.":::
 
-Doing so will take you to the **Review + create** tab, where you can select **Create** at the bottom to create your resource.
+Doing so will take you to the **Review + create** tab, where you can select **Create** at the bottom to create your custom connector.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Screenshot of the 'Review + create' tab of the 'Review Logic Apps Custom Connector' page in the Azure portal.":::
 
@@ -93,12 +96,12 @@ In the **Edit Logic Apps Custom Connector** page that follows, configure this in
 * **Custom connectors**
     - **API Endpoint**: **REST** (leave default)
     - **Import mode**: **OpenAPI file** (leave default)
-    - **File**: This configuration will be the custom Swagger file you downloaded earlier. Select **Import**, locate the file on your machine (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json*), and select **Open**.
+    - **File**: This configuration will be the custom Swagger file you downloaded earlier. Select **Import**, locate the file on your machine (*digital-twins-custom-swaggers-main\LogicApps\...\digitaltwins.json*), and select **Open**.
 * **General information**
-    - **Icon**: Upload an icon that you like.
-    - **Icon background color**: Enter hexadecimal code in the format '#xxxxxx' for your color.
-    - **Description**: Fill whatever values you want.
-    - **Connect via on-premises data gateway**: **Toggled off** (leave default)
+    - **Icon**: If you want, upload an icon.
+    - **Icon background color**: If you want, enter a background color.
+    - **Description**: If you want, customize a description for your connector.
+    - **Connect via on-premises data gateway**: Toggled off (leave default)
     - **Scheme**: **HTTPS** (leave default)
     - **Host**: The host name of your Azure Digital Twins instance.
     - **Base URL**: */* (leave default)
@@ -111,26 +114,26 @@ In the Security step, select **Edit** and configure this information:
 * **Authentication type**: **OAuth 2.0**
 * **OAuth 2.0**:
     - **Identity provider**: **Azure Active Directory**
-    - **Client ID**: The Application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
-    - **Client secret**: The Client secret from the app registration 
+    - **Client ID**: The application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
+    - **Client secret**: The client secret value from the app registration 
     - **Login URL**: `https://login.windows.net` (leave default)
-    - **Tenant ID**: The Directory (tenant) ID for your Azure AD app registration
+    - **Tenant ID**: The directory (tenant) ID from the app registration
     - **Resource URL**: *0b07f429-9f4b-4714-9392-cc5e8e80c8b0*
+    - **Enable on-behalf-of login**: *false* (leave default)
     - **Scope**: *Directory.AccessAsUser.All*
-    - **Redirect URL**: (leave default for now)
 
-The Redirect URL field says **Save the custom connector to generate the redirect URL**. Generate it now by selecting **Update connector** across the top of the pane to confirm your connector settings.
+The **Redirect URL** field says **Save the custom connector to generate the redirect URL**. Generate it now by selecting **Update connector** across the top of the pane to confirm your connector settings.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button.":::
 
-Return to the Redirect URL field and copy the value that has been generated. You'll use it in the next step.
+Return to the **Redirect URL** field and copy the value that has been generated. You'll use it in the next step.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Screenshot of the Redirect URL field in the 'Edit Logic Apps Custom Connector' page. The button to copy the value is highlighted.":::
 
-Now you've entered all the information that is required to create your connector (no need to continue past Security to the Definition step). You can close the **Edit Logic Apps Custom Connector** pane.
+Now you've entered all the information that is required to create your connector (no need to continue past **Security** to the **Definition** step). You can close the **Edit Logic Apps Custom Connector** pane.
 
 >[!NOTE]
->Back on your connector's Overview page where you originally selected **Edit**, note that selecting Edit again will restart the entire process of entering your configuration choices. It will not populate your values from the last time you went through it, so if you want to save an updated configuration with any changed values, you must re-enter all the other values as well to avoid their being overwritten by the defaults.
+>Back on your connector's Overview page where you originally selected **Edit**, if you select Edit again, it will restart the entire process of entering your configuration choices. It will not populate your values from the last time you went through it, so if you want to save an updated configuration with any changed values, you must re-enter all the other values as well to keep them from being overwritten by the defaults.
 
 ### Grant connector permissions in the Azure AD app
 
@@ -142,11 +145,9 @@ Under **Authentication** from the registration's menu, add a URI.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the 'Add a URI' button and the 'Authentication' menu."::: 
 
-Enter the custom connector's redirect URL into the new field, and select the **Save** icon.
+Enter the custom connector's redirect URL into the new field, and select **Save** at the bottom of the page.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the new redirect URL and the 'Save' button.":::
-
-You're now done setting up a custom connector that can access the Azure Digital Twins APIs. 
+Now you're done setting up a custom connector that can access the Azure Digital Twins APIs. 
 
 ## Create logic app
 
@@ -156,11 +157,14 @@ In the [Azure portal](https://portal.azure.com), search for *Logic apps* in the 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Screenshot of the 'Logic Apps' page in the Azure portal, highlighting the 'Create logic app' button.":::
 
-In the **Logic App** page that follows, enter your subscription and resource group. Under **Instance Details** select a **Consumption** instance type, choose a name for your logic app, and select the deployment location. Choose whether you want to enable or disable log analytics.
+In the **Create Logic App** page that follows, enter your subscription, resource group, and a name and region for your logic app. Choose whether you want to enable or disable log analytics. Under **Plan**, select a **Consumption** plan type. 
+
+>[!IMPORTANT]
+> The logic app should be in the same deployment region as the custom connector you created earlier.
 
 Select the **Review + create** button.
 
-Doing so will take you to the **Review + create** tab, where you can review your details and select **Create** at the bottom to create your resource.
+Doing so will take you to the **Review + create** tab, where you can review your details and select **Create** at the bottom to create your logic app.
 
 You'll be taken to the deployment page for the logic app. When it's finished deploying, select the **Go to resource** button to continue to the **Logic Apps Designer**, where you'll fill in the logic of the workflow.
 
@@ -170,36 +174,35 @@ In the Logic Apps Designer, under **Start with a common trigger**, select **Recu
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Screenshot of the 'Logic Apps Designer' page in the Azure portal, highlighting the 'Recurrence' common trigger.":::
 
-In the Logic Apps Designer page that follows, change the **Recurrence** Frequency to **Second**, so that the event is triggered every 3 seconds. Selecting this frequency will make it easy to see the results later without having to wait long.
+In the Logic Apps Designer page that follows, change the Recurrence **Frequency** to **Second**, so that the event is triggered every 3 seconds. Selecting this frequency will make it easy to see the results later without having to wait long.
 
 Select **+ New step**.
 
-Doing so will open a Choose an action box. Switch to the **Custom** tab. You should see your custom connector from earlier in the top box.
+Doing so will open a box to choose an operation. Switch to the **Custom** tab. You should see your custom connector from earlier in the top box.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Screenshot of creating a flow in the Logic Apps Designer in the Azure portal. The custom connector is highlighted.":::
+Select it to display the list of APIs contained in that connector. Use the search bar or scroll through the list to select **DigitalTwins_Update**. (The **DigitalTwins_Update** action is the API call used in this article, but you could also select any other API as a valid choice for a Logic Apps connection).
 
-Select it to display the list of APIs contained in that connector. Use the search bar or scroll through the list to select **DigitalTwins_Add**. (The **DigitalTwins_Add** action is the API call used in this article, but you could also select any other API as a valid choice for a Logic Apps connection).
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Screenshot of the Logic Apps Designer in the Azure portal. The custom connector and Digital Twins Update action are highlighted.":::
 
 You may be asked to sign in with your Azure credentials to connect to the connector. If you get a **Permissions requested** dialogue, follow the prompts to grant consent for your app and accept.
 
-In the new **DigitalTwinsAdd** box, fill the fields as follows:
-* **id**: Fill the *Twin ID* of the digital twin in your instance that you want the Logic App to update.
-* **twin**: This field is where you'll enter the body that the chosen API request requires. For **DigitalTwinsUpdate**, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
-* **api-version**: The latest API version. Currently, this value is *2020-10-31*.
+In the new **DigitalTwins Update** box, fill the fields as follows:
+* **id**: Fill the *twin ID* of the digital twin in your instance that you want the Logic App to update.
+* **Item - 1**: This field is for the body of the **DigitalTwins Update** API request. Enter JSON Patch code to update one of the fields on your twin. For more information about creating JSON Patch to update your twin, see [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin).
+* **api-version**: Select the latest API version.
+
+>[!TIP]
+>You can add additional operations to the logic app by selecting **+ New step** from this page.
 
 Select **Save** in the Logic Apps Designer.
 
-You can choose other operations by selecting **+ New step** on the same window.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Screenshot of the finished view of the app in the Logic App Connector. The DigitalTwinsAdd box is filled with the values described above.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Screenshot of the finished view of the app in the Logic Apps Designer. The Save button is highlighted.":::
 
 ## Query twin to see the update
 
 Now that your logic app has been created, the twin update event you defined in the Logic Apps Designer should occur on a recurrence of every three seconds. This configured frequency means that after three seconds, you should be able to query your twin and see your new patched values reflected.
 
-You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), the [SDKs and APIs](concepts-apis-sdks.md), or the [CLI](concepts-cli.md)). 
-
-For more about querying your Azure Digital Twins instance, see [Query the twin graph](how-to-query-graph.md).
+There are many ways to query for your twin information, including the Azure Digital Twins [APIs and SDKs](concepts-apis-sdks.md), [CLI commands](concepts-cli.md), or [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). For more information about querying your Azure Digital Twins instance, see [Query the twin graph](how-to-query-graph.md).
 
 ## Next steps
 

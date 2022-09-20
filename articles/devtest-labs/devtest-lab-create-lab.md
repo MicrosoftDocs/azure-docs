@@ -2,6 +2,8 @@
 title: 'Quickstart: Create a lab in the Azure portal'
 description: Learn how to quickly create a lab in Azure DevTest Labs by using the Azure portal.
 ms.topic: quickstart
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ms.custom: mode-ui
 ---
@@ -12,7 +14,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Prerequisite
 
-- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- At least [Contributor](../role-based-access-control/built-in-roles.md#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a lab
 
@@ -23,7 +25,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
    - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.
    - **Lab Name**: Enter a name for the lab.
    - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
-   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
+   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
 
    :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 

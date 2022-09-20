@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-First, sign in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -16,47 +16,69 @@ First, sign in to Azure from the CLI. Run the following command, and follow the 
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az login
+```azurepowershell
+Connect-AzAccount
 ```
 
 ---
+
+# [Bash](#tab/bash)
 
 Next, install the Azure Container Apps extension for the CLI.
 
-# [Bash](#tab/bash)
-
 ```azurecli
-az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl
+az extension add --name containerapp --upgrade
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.4-py2.py3-none-any.whl
+You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
+
+```azurepowershell
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+
+Now install the Az.App module.
+
+```azurepowershell
+Install-Module -Name Az.App
 ```
 
 ---
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.App
+```
+
+---
+
+Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before.
+
+# [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
 ---
@@ -68,17 +90,15 @@ Next, set the following environment variables:
 ```azurecli
 RESOURCE_GROUP="my-container-apps"
 LOCATION="canadacentral"
-LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$RESOURCE_GROUP="my-container-apps"
-$LOCATION="canadacentral"
-$LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
-$CONTAINERAPPS_ENVIRONMENT="my-environment"
+```azurepowershell
+$ResourceGroupName = 'my-container-apps'
+$Location = 'canadacentral'
+$ContainerAppsEnvironment = 'my-environment'
 ```
 
 ---
@@ -93,12 +113,10 @@ az group create \
   --location $LOCATION
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location $LOCATION
+```azurepowershell
+New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 
 ---
@@ -108,51 +126,3 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 ## Create an environment
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-Container apps are monitored with Azure Log Analytics, which is required when you create a Container Apps environment.
-
-Create a Log Analytics workspace with the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az monitor log-analytics workspace create \
-  --resource-group $RESOURCE_GROUP \
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
----
-
-Next, retrieve the Log Analytics Client ID and client secret.
-
-# [Bash](#tab/bash)
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
----
-
-The Log Analytics values are used as you create the Container Apps environment.

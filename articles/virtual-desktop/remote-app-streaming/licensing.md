@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/14/2021
+ms.date: 04/27/2022
 ms.author: helohr
 manager: femila
 ---
@@ -62,6 +62,9 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Pay-as-you-go through an Azure meter
   - Cost per user each month depends on user behavior
   - Only includes access rights to Azure Virtual Desktop
+
+> [!IMPORTANT]
+> Per-user access pricing only supports Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Per-user access pricing currently doesn't support Windows Server session hosts.
 
 ## Licensing other products and services for use with Azure Virtual Desktop
 

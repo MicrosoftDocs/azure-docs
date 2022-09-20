@@ -6,16 +6,16 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 06/20/2022
 ms.author: banders
 ---
 
 # Self-service exchanges and refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. In other words,  In an other example, you can exchange multiple SQL database reservation types including Managed Instances and Elastic Pool with each other.
+Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. In an other example, you can exchange multiple SQL database reservation types including Managed Instances and Elastic Pool with each other.
 However, you can't exchange dissimilar reservations. For example, you can't exchange a Cosmos DB reservation for SQL Database.
 
-You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 for one that's in West Europe.
+You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
 
 When you exchange a reservation, you can change your term from one-year to three-year.
 
@@ -64,7 +64,7 @@ If you are exchanging for a different size, series, region or payment frequency,
 
 ## How transactions are processed
 
-First, Microsoft cancels the existing reservation and refunds the pro-rated amount for that reservation. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method:
+First, Microsoft cancels the existing reservation and refunds the pro-rated amount for that reservation. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method.
 
 ### Enterprise agreement customers
 
@@ -99,12 +99,16 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Refund policies**
 
 - We're currently not charging an early termination fee, but in the future there might be a 12% early termination fee for cancellations.
-- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation that's 100 USD per month and it's refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from the refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
+- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation (36 months) that's 100 USD per month and it's refunded in the 12th month, the canceled commitment is 2,400 USD (for the remaining 24 months). After the refund, your new available limit for refund will be 47,600 USD (50,000-2,400). In 365 days from the refund, the 47,600 USD limit will be increased by 2,400 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
 - Azure won't process any refund that will exceed the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
     - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - For CSP program, the 50,000 USD limit is per customer.
+
+Let's look at an example with the previous points in mind. If you bought a $300,000 reservation, you can exchange it at any time for another reservation that equals or costs more (of the remaining reservation balance, not the original purchase price). For this example:
+- There's no penalty or annual limits for exchanges. 
+- The refund that results from the exchange doesn't count against the refund limit. 
 
 ## Need help? Contact us.
 

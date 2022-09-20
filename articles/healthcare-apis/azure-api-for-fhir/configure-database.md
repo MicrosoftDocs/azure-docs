@@ -1,12 +1,12 @@
 ---
 title: Configure database settings in Azure API for FHIR
 description: This article describes how to configure Database settings in Azure API for FHIR
-author: matjazl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: ranku
 ---
 # Configure database settings 
 
@@ -41,3 +41,5 @@ Or you can deploy a fully managed Azure API for FHIR:
  
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

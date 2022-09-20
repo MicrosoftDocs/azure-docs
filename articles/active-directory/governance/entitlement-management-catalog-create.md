@@ -3,8 +3,8 @@ title: Create and manage a catalog of resources in entitlement management - Azur
 description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 8/31/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 
@@ -26,7 +26,7 @@ This article shows you how to create and manage a catalog of resources and acces
 
 ## Create a catalog
 
-A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more catalog owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. A user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
@@ -75,11 +75,22 @@ $catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketi
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. For example:
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
 
-* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
-* Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
+* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
+
+  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
+
+  * Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either, so cannot be added to catalogs.
+
+* Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD.
+
+  * If your application has not yet been integrated with Azure AD, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Azure AD](identity-governance-applications-integrate.md).
+
+  * For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 * Sites can be SharePoint Online sites or SharePoint Online site collections.
+> [!NOTE]
+> Search SharePoint Site by site name or an exact URL as the search box is case sensitive.
 
 **Prerequisite roles:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
@@ -105,7 +116,7 @@ To add resources to a catalog:
 
     These resources can now be included in access packages within the catalog.
 
-### Add resource attributes (preview) in the catalog
+### Add resource attributes in the catalog
 
 Attributes are required fields that requestors will be asked to answer before they submit their access request. Their answers for these attributes will be shown to approvers and also stamped on the user object in Azure AD. 
 
@@ -116,9 +127,9 @@ To require attributes for access requests:
 
 1. Select **Resources** on the left menu, and a list of resources in the catalog appears. 
 
-1. Select the ellipsis next to the resource where you want to add attributes, and then select **Require attributes (Preview)**. 
+1. Select the ellipsis next to the resource where you want to add attributes, and then select **Require attributes**. 
 
-    ![Screenshot that shows selecting Require attributes (Preview).](./media/entitlement-management-catalog-create/resources-require-attributes.png)
+    ![Screenshot that shows selecting Require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
 1.	Select the attribute type:
 
@@ -153,7 +164,7 @@ To require attributes for access requests:
 
        ![Screenshot that shows saving the localizations.](./media/entitlement-management-catalog-create/attributes-add-localization.png)
 
-1.	After all attribute information is completed on the **Require attributes (Preview)** page, select **Save**.
+1.	After all attribute information is completed on the **Require attributes** page, select **Save**.
 
 ### Add a Multi-Geo SharePoint site
 

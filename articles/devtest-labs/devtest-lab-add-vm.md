@@ -2,6 +2,8 @@
 title: Create and add a virtual machine to a lab
 description: Learn how to use the Azure portal to add a virtual machine (VM) to a lab in Azure DevTest Labs. Configure basic settings, artifacts, and advanced settings.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ---
 
@@ -40,7 +42,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
 <a name="add-artifacts-during-installation"></a>
 ## Add optional artifacts
 
-Artifacts are tools, actions, or software you can add to lab VMs. You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/Artifacts), or from private artifact repositories connected to the lab. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+Artifacts are tools, actions, or software you can add to lab VMs. You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), or from private artifact repositories connected to the lab. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
 
 To add or modify artifacts during VM creation:
 
@@ -85,5 +87,5 @@ Or, if you chose **Make this machine claimable** during VM creation, select **Cl
 
 - [Add artifacts to VMs after creation](add-artifact-vm.md#add-artifacts-to-vms-from-the-azure-portal).
 - Create DevTest Labs VMs by using [PowerShell](devtest-lab-vm-powershell.md), [Azure CLI](devtest-lab-vmcli.md), an [ARM template](devtest-lab-use-resource-manager-template.md), or from a [shared image gallery](add-vm-use-shared-image.md).
-- Explore the DevTest Labs public repositories of [artifacts](https://github.com/Azure/azure-devtestlab/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/Environments), and [QuickStart ARM templates](https://github.com/Azure/azure-devtestlab/samples/DevTestLabs/QuickStartTemplates).
+- Explore the DevTest Labs public repositories of [artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/tree/master/Environments), and [QuickStart ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
 

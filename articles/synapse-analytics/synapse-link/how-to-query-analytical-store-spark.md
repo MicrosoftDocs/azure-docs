@@ -25,7 +25,7 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
 * Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source as well as a sink. 
 
-The following sections walk you through the syntax of above capabilities. You can also checkout the learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
+The following sections walk you through the syntax of above capabilities. You can also checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 > [!IMPORTANT]
 > You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
@@ -177,14 +177,22 @@ The syntax in **Python** would be the following:
 
 # If you are using managed private endpoints for Azure Cosmos DB analytical store and using batch writes/reads and/or streaming writes/reads to transactional store you should set connectionMode to Gateway. 
 
+def writeBatchToCosmos(batchDF, batchId):
+  batchDF.persist()
+  print("--> BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.write.format("cosmos.oltp")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .option("spark.cosmos.write.upsertEnabled", "true")\
+    .mode('append')\
+    .save()
+  print("<-- BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.unpersist()
+
 streamQuery = dfStream\
         .writeStream\
-        .format("cosmos.oltp")\
-        .outputMode("append")\
+        .foreachBatch(writeBatchToCosmos) \
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
-        .option("spark.synapse.linkedService", "<enter linked service name>")\
-        .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "Gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -198,12 +206,19 @@ The equivalent syntax in **Scala** would be the following:
 
 val query = dfStream.
             writeStream.
-            format("cosmos.oltp").
-            outputMode("append").
+            foreachBatch { (batchDF: DataFrame, batchId: Long) =>
+              batchDF.persist()
+              batchDF.write.format("cosmos.oltp").
+                option("spark.synapse.linkedService", "<enter linked service name>").
+                option("spark.cosmos.container", "<enter container name>"). 
+                option("spark.cosmos.write.upsertEnabled", "true").
+                mode(SaveMode.Overwrite).
+                save()
+              println(s"BatchId: $batchId, Document count: ${batchDF.count()}")
+              batchDF.unpersist()
+              ()
+            }.        
             option("checkpointLocation", "/localWriteCheckpointFolder").
-            option("spark.synapse.linkedService", "<enter linked service name>").
-            option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "Gateway").
             start()
 
 query.awaitTermination()
@@ -215,4 +230,4 @@ query.awaitTermination()
 * [Samples to get started with Azure Synapse Link on GitHub](https://aka.ms/cosmosdb-synapselink-samples)
 * [Learn what is supported in Azure Synapse Link for Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* Checkout the learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).
+* Checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).

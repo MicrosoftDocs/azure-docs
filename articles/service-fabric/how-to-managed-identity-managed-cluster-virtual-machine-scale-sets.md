@@ -2,8 +2,11 @@
 title: Add a managed identity to a Service Fabric managed cluster node type
 description: This article shows how to add a managed identity to a Service Fabric managed cluster node type
 ms.topic: how-to
-ms.date: 5/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Add a managed identity to a Service Fabric managed cluster node type

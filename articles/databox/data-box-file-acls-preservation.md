@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 09/12/2022
 ms.author: alkohli
 ---
 
@@ -15,15 +15,15 @@ ms.author: alkohli
 
 Azure Data Box lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. 
 
-Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
-
-In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
-
 ## Transferred metadata
 
-The following metadata is transferred when data from the Data Box is uploaded to Azure Files.
+ACLs, timestamps, and file attributes are the metadata that is transferred when the data from Data Box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
 
-#### Timestamps
+The metadata can be copied with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage. Metadata is also not transferred when copying data over NFS. 
+
+The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box is uploaded to Azure Files. 
+
+## Timestamps
 
 The following timestamps are transferred:
 - CreationTime
@@ -31,8 +31,8 @@ The following timestamps are transferred:
 
 The following timestamp isn't transferred:
 - LastAccessTime
-  
-#### File attributes
+
+## File attributes
 
 File attributes on both files and directories are transferred unless otherwise noted.
 
@@ -51,7 +51,11 @@ The following file attributes aren't transferred:
   
 Read-only attributes on directories aren't transferred.
 
-#### ACLs
+## Alternate data streams and extended attributes
+
+[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files, page blob, or block blob storage, so they are not transferred when copying data. 
+
+## ACLs
 
 <!--ACLs DEFINITION
 
@@ -78,16 +82,33 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
 
-**ACLs transfer over SMB** 
+### ACLs transfer over SMB
 
 During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
 
-- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box.
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+### ACLs transfer over Data Copy Service
 
-**Default ACLs transfer**  
+During a [data copy service file transfer](data-box-deploy-copy-data-via-copy-service.md), the following ACLs are transferred:
+
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box.
+
+To copy SACLs from your files, you must provide credentials for a user with **SeBackupPrivilege**. Users in the Administrators or Backup Operators group will have this privilege by default
+
+If you do not have **SeBackupPrivilege**:
+- You will not be able to copy SACLs for Azure Files copy service jobs.
+- You may experience access issues and receive this error in the error log: *Could not read SACLs from share due to insufficient privileges*.
+
+ For more information, learn more about [SeBackupPrivilege](/windows/win32/secauthz/privilege-constants). 
+
+### ACLs transfer over NFS
+ 
+ACLs (and metadata attributes) aren't transferred when you copy data over [NFS](data-box-deploy-copy-data-via-nfs.md).
+
+
+### Default ACLs transfer
 
 Even if your data copy tool doesn't copy ACLs, the default ACLs on directories and files are transferred to Azure Files when you use a Windows client. The default ACLs aren't transferred when you use a Linux client.
 

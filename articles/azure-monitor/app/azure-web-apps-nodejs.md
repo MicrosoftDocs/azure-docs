@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: javascript
 ms.custom: "devx-track-js"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Node.js
@@ -56,7 +57,7 @@ In order to enable telemetry collection with Application Insights, only the foll
 | App setting name | Definition | Value |
 |------------------|------------|------:|
 | ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` in Windows or `~3` in Linux. |
-| XDT_MicrosoftApplicationInsights_NodeJS | Flag to control if node.js agent is included. | 0 or 1 (only applicable in Windows). |
+| XDT_MicrosoftApplicationInsights_NodeJS | Flag to control if Node.js agent is included. | 0 or 1 (only applicable in Windows). |
 
 > [!NOTE]
 > Profiler and snapshot debugger are not available for Node.js applications

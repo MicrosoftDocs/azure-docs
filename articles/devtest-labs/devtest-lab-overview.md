@@ -2,6 +2,8 @@
 title: What is Azure DevTest Labs?
 description: Learn how DevTest Labs makes it easy to create, manage, and monitor Azure virtual machines and environments.
 ms.topic: overview
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ---
 

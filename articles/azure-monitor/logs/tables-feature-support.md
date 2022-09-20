@@ -3,12 +3,12 @@ title: Tables that support ingestion-time transformations in Azure Monitor Logs 
 description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs (preview).
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.date: 02/22/2022
+ms.date: 07/10/2022
 ---
 
-# Tables that support ingestion-time transformations in Azure Monitor Logs (preview)
+# Tables that support transformations in Azure Monitor Logs (preview)
 
-The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [Ingest-time transformations](ingestion-time-transformations.md).
+The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md).
 
 
 | Table | Limitations |
@@ -70,14 +70,25 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AlertEvidence](/azure/azure-monitor/reference/tables/alertevidence) | |
 | [AmlOnlineEndpointConsoleLog](/azure/azure-monitor/reference/tables/amlonlineendpointconsolelog) | |
 | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/apimanagementgatewaylogs) | |
+| [AppAvailabilityResults](/azure/azure-monitor/reference/tables/appavailabilityresults) | |
+| [AppBrowserTimings](/azure/azure-monitor/reference/tables/appbrowsertimings) | |
 | [AppCenterError](/azure/azure-monitor/reference/tables/appcentererror) | |
+| [AppDependencies](/azure/azure-monitor/reference/tables/appdependencies) | |
+| [AppEvents](/azure/azure-monitor/reference/tables/appevents) | |
+| [AppExceptions](/azure/azure-monitor/reference/tables/appexceptions) | |
+| [AppMetrics](/azure/azure-monitor/reference/tables/appmetrics) | |
+| [AppPageViews](/azure/azure-monitor/reference/tables/apppageviews) | |
+| [AppPerformanceCounters](/azure/azure-monitor/reference/tables/appperformancecounters) | |
 | [AppPlatformSystemLogs](/azure/azure-monitor/reference/tables/appplatformsystemlogs) | |
+| [AppRequests](/azure/azure-monitor/reference/tables/apprequests) | |
 | [AppServiceAppLogs](/azure/azure-monitor/reference/tables/appserviceapplogs) | |
 | [AppServiceAuditLogs](/azure/azure-monitor/reference/tables/appserviceauditlogs) | |
 | [AppServiceConsoleLogs](/azure/azure-monitor/reference/tables/appserviceconsolelogs) | |
 | [AppServiceFileAuditLogs](/azure/azure-monitor/reference/tables/appservicefileauditlogs) | |
 | [AppServiceHTTPLogs](/azure/azure-monitor/reference/tables/appservicehttplogs) | |
 | [AppServicePlatformLogs](/azure/azure-monitor/reference/tables/appserviceplatformlogs) | |
+| [AppSystemEvents](/azure/azure-monitor/reference/tables/appsystemevents) | |
+| [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | |
 | [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | |
 | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | |
 | [AutoscaleEvaluationsLog](/azure/azure-monitor/reference/tables/autoscaleevaluationslog) | |
@@ -122,7 +133,6 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [DeviceNetworkInfo](/azure/azure-monitor/reference/tables/devicenetworkinfo) | |
 | [DnsEvents](/azure/azure-monitor/reference/tables/dnsevents) | |
 | [DnsInventory](/azure/azure-monitor/reference/tables/dnsinventory) | |
-| [DummyHydrationFact](/azure/azure-monitor/reference/tables/dummyhydrationfact) | |
 | [Dynamics365Activity](/azure/azure-monitor/reference/tables/dynamics365activity) | |
 | [EmailAttachmentInfo](/azure/azure-monitor/reference/tables/emailattachmentinfo) | |
 | [EmailEvents](/azure/azure-monitor/reference/tables/emailevents) | |
@@ -177,8 +187,8 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [MicrosoftHealthcareApisAuditLogs](/azure/azure-monitor/reference/tables/microsofthealthcareapisauditlogs) | |
 | [NWConnectionMonitorPathResult](/azure/azure-monitor/reference/tables/nwconnectionmonitorpathresult) | |
 | [NWConnectionMonitorTestResult](/azure/azure-monitor/reference/tables/nwconnectionmonitortestresult) | |
-| [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | || 
-| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | |
+| [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | |
+| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | 
 | [PowerBIDatasetsWorkspace](/azure/azure-monitor/reference/tables/powerbidatasetsworkspace) | |
 | [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |

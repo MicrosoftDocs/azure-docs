@@ -1,29 +1,29 @@
 ---
-title: Migrate Azure Data Lake Storage from Gen1 to Gen2
-description: Migrate Azure Data Lake Storage from Gen1 to Gen2, which is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics.
+title: Guidelines and patterns for migrating Azure Data Lake Storage from Gen1 to Gen2
+description: Learn how to migrate Azure Data Lake Storage from Gen1 to Gen2, which is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics.
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 12/16/2021
+ms.date: 05/11/2022
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Migrate Azure Data Lake Storage from Gen1 to Gen2
+# Azure Data Lake Storage migration guidelines and patterns
 
-You can migrate your data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+You can migrate your data, workloads, and applications from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. This article explains the recommended migration approach and covers the different migration patterns and when to use each. For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
 
 On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. This article shows you how to do that.
 
 Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
+> Because Gen1 and Gen2 are different services, there is no in-place upgrade experience. To simplify the migration to Gen2 by using the Azure portal, see [Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md).
 
 ## Recommended approach
 
-To migrate to Gen2, we recommend the following approach.
+To migrate from Gen1 to Gen2, we recommend the following approach.
 
 :heavy_check_mark: Step 1: Assess readiness
 
@@ -33,12 +33,9 @@ To migrate to Gen2, we recommend the following approach.
 
 :heavy_check_mark: Step 4: Cutover from Gen1 to Gen2
 
-> [!NOTE]
-> Gen1 and Gen2 are different services, there is no in-place upgrade experience, intentional migration effort required.
-
 ### Step 1: Assess readiness
 
-1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture.
+1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); its benefits, costs, and general architecture.
 
 2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2.
 
@@ -124,7 +121,7 @@ This table compares the capabilities of Gen1 to that of Gen2.
 |VNET Support|[VNET Integration](../../data-lake-store/data-lake-store-network-security.md)|[Service Endpoints](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Private Endpoints](../common/storage-private-endpoints.md)|
 |Developer experience|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Generally available - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Public preview - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Resource logs|Classic logs<br>[Azure Monitor integrated](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Classic logs](../common/storage-analytics-logging.md) - Generally available<br>[Azure Monitor integrated](monitor-blob-storage.md) - Preview|
-|Ecosystem|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 and above)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 and above)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ecosystem|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 and above)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 and above)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](/azure/azure-sql/database/vnet-service-endpoint-rule-overview), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns"></a>
 

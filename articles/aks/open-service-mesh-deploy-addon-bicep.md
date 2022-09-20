@@ -12,14 +12,16 @@ ms.author: pgibson
 This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS) by using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *1.0.0* of OSM on your cluster.
+> Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM:
+> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.0* of OSM.
+> - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.1* of OSM.
+> - If your cluster is running a version of Kubernetes below 1.23.5, the OSM add-on installs version *1.0.0* of OSM.
 
 [Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language that uses declarative syntax to deploy Azure resources. You can use Bicep in place of creating [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to deploy your infrastructure-as-code Azure resources.
 
 ## Prerequisites
 
 - Azure CLI version 2.20.0 or later
-- OSM version 0.11.1 or later
 - An SSH public key used for deploying AKS
 - [Visual Studio Code](https://code.visualstudio.com/) with a Bash terminal
 - The Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
@@ -30,7 +32,7 @@ For deployment of a new AKS cluster, you enable the OSM add-on at cluster creati
 
 ### Create a resource group
 
-In Azure, you can associate related resources by using a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *my-osm-bicep-aks-cluster-rg* in a specified Azure location (region):
+In Azure, you can associate related resources by using a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *my-osm-bicep-aks-cluster-rg* in a specified Azure location (region):
 
 ```azurecli-interactive
 az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>
@@ -54,7 +56,7 @@ touch osm.aks.bicep && touch osm.aks.parameters.json
 Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
 ```azurecli-interactive
-// https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
+// https://learn.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
 @minLength(3)
 @maxLength(63)
 @description('Provide a name for the AKS cluster. The only allowed characters are letters, numbers, dashes, and underscore. The first and last character must be a letter or a number.')

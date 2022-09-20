@@ -26,7 +26,7 @@ To change your pricing tier commitment, select one of the other tiers on the pri
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
-The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
+The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Change pricing tier](../azure-monitor/logs/change-pricing-tier.md).
 
 ## Separate non-security data in a different workspace
 
@@ -60,7 +60,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 
-For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
+For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
 
 ## Reduce long-term data retention costs with Azure Data Explorer or archived logs (preview)
 
@@ -89,5 +89,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-- For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](../azure-monitor/logs/manage-cost-storage.md#tips-for-reducing-data-volume).
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).

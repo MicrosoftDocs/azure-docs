@@ -1,11 +1,12 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for MySQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for MySQL - Flexible Server using Azure CLI command line.
-author: savjani
-ms.author: pariks
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: how-to
+author: vivgk
+ms.author: vivgk
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
 ---
@@ -32,13 +33,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to sign in to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
+You'll need to sign in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az_account_set) command. Make a note of the **ID** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az_account_list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **ID** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>

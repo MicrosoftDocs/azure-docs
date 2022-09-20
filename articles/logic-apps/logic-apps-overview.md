@@ -23,7 +23,7 @@ The following list describes just a few example tasks, business processes, and w
 
 * Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
 
 Based on the logic app resource type that you choose and create, your logic apps run in multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
@@ -47,9 +47,9 @@ For more information about the ways workflows can access and work with apps, dat
 
 * [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 
-* [Managed connectors for Azure Logic Apps](../connectors/built-in.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
 
-* [Built-in triggers and actions for Azure Logic Apps](../connectors/managed.md)
+* [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md)
 
 * [B2B enterprise integration solutions with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)
 
@@ -217,7 +217,7 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 Learn more about the Azure Logic Apps platform with these introductory videos:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
 
 ## Next steps
 

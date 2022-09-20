@@ -72,7 +72,7 @@ It is important to note that custom partitioning ensures complete transactional 
 
 If you configured [managed private endpoints](analytical-store-private-endpoints.md) for your analytical store, to ensure network isolation for partitioned store, we recommend that you also add managed private endpoints for the partitioned store. The partitioned store is primary storage account associated with your Synapse workspace.
 
-Similarly, if you configured [customer-managed keys on analytical store](how-to-setup-cmk.md#is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store), you must directly enable it on the Synapse workspace primary storage account, which is the partitioned store, as well.
+Similarly, if you configured [customer-managed keys on analytical store](how-to-setup-cmk.md#is-it-possible-to-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store), you must directly enable it on the Synapse workspace primary storage account, which is the partitioned store, as well.
 
 ## Partitioning strategies
 You could use one or more partition keys for your analytical data. If you are using multiple partition keys, below are some recommendations on how to partition the data: 

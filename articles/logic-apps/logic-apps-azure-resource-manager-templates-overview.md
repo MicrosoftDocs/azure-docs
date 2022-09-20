@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 08/20/2022
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
@@ -311,7 +313,7 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
          "tags": {
            "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
          ]
       }
@@ -914,7 +916,7 @@ Here is an example that provides the account name and access key for an Azure Bl
             "tags": {
                "displayName": "LogicApp"
             },
-            "apiVersion": "2016-06-01",
+            "apiVersion": "2019-05-01",
             // Template parameter reference for value to use at deployment
             "dependsOn": [
                "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]"
@@ -1244,7 +1246,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "tags": {
             "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
             "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"

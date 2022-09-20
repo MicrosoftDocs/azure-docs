@@ -1,8 +1,8 @@
 ---
 title: Useful diagnostic queries - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Queries to learn about distributed data and more
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.date: 8/23/2021
 ---
 
 # Useful Diagnostic Queries
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Finding which node contains data for a specific tenant
 

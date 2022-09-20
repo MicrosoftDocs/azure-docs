@@ -1,13 +1,13 @@
 ---
-title: Monitor mobile apps with Azure Monitor Application Insights
-description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
+title: Monitor mobile or universal Windows apps with Azure Monitor Application Insights
+description: Provides instructions to quickly set up a mobile or universal Windows app for monitoring with Azure Monitor Application Insights and App Center
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 07/21/2022
 ms.custom: mvc
 ms.devlang: java, swift
 ---
 
-# Start analyzing your mobile app with App Center and Application Insights
+# Start analyzing your mobile or UWP app with App Center and Application Insights
 
 This tutorial guides you through connecting your app's App Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](/mobile-center/analytics/) service of App Center.
 
@@ -28,6 +28,8 @@ To complete this tutorial, you need:
 - An iOS, Android, Xamarin, Universal Windows, or React Native app.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Sign up with App Center
 To begin, create an account and [sign up with App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).

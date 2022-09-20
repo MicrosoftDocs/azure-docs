@@ -99,9 +99,9 @@ Add Meta Networks Connector from the Azure AD application gallery to start manag
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Meta Networks Connector, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 
@@ -149,10 +149,10 @@ This section guides you through the steps to configure the Azure AD provisioning
     |Attribute|Type|Supported for filtering|Required by Meta Networks Connector|
     |---|---|---|---|
     |userName|String|&check;|&check;
+	|active|Boolean||
+	|phonenumbers[type eq "work"].value|String||
     |name.givenName|String||&check;
     |name.familyName|String||&check;
-    |active|Boolean||
-    |phonenumbers[type eq "work"].value|String||
 
 	> [!NOTE]
 	> phonenumbers value should be in E164 format. For example +16175551212
@@ -189,8 +189,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
+## Change Log
+04/06/2022 - Added support for **phoneNumbers[type eq "work"].value**. Removed support for **emails[type eq "work"].value** and **manager** . **name.givenName** and **name.familyName** made required attributes.
 
 ## More resources
 

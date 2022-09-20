@@ -38,7 +38,7 @@ Create a new Java project using Maven or your favorite build automation tool. As
         <version>1.4.0</version>
         <configuration>
           <!--Your comment
-            Replace the mainClass with the path to your java application.
+            Replace the mainClass with the path to your Java application.
             It should begin with com and doesn't require the .java extension.
             For example: com.bingwebsearch.app.BingWebSearchSample. This maps to
             The following directory structure:
@@ -70,7 +70,7 @@ Create a new Java project using Maven or your favorite build automation tool. As
               <archive>
                 <manifest>
                   <!--Your comment
-                    Replace the mainClass with the path to your java application.
+                    Replace the mainClass with the path to your Java application.
                     For example: com.bingwebsearch.app.BingWebSearchSample.java.
                     This maps to the following directory structure:
                     src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.

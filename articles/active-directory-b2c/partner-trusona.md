@@ -39,7 +39,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 | Step | Description |
 |------|------|
 |1     | A user attempts to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign-up and sign-in policy. During sign-up, the user's previously verified email address from the Trusona app is used.     |
-|2     | Azure B2C redirects the user to the Trusona OpenID Connect (OIDC) identity provider using the implicit flow.     |
+|2     | Azure B2C redirects the user to the Trusona OpenID Connect (OIDC) identity provider.     |
 |3     | For desktop PC-based logins, Trusona displays a unique, stateless, animated, and dynamic QR code for scanning with the Trusona app. For mobile-based logins, Trusona uses a "deep link" to open the Trusona app. These two methods are used for device and ultimately user discovery.     |
 |4     | The user scans the displayed QR code with the Trusona app.     |
 |5     | The user's account is found in the Trusona cloud service and the authentication is prepared.     |

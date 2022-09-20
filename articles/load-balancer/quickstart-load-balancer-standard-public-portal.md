@@ -2,18 +2,18 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 08/09/2021
-ms.author: allensu
+ms.date: 03/16/2022
+ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and three virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and two virtual machines.
 
 ## Prerequisites
 
@@ -23,22 +23,15 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
----
-
-# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
-
->[!NOTE]
->Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
-
 ## Create the virtual network
 
-In this section, you'll create a virtual network and subnet.
+In this section, you'll create a virtual network, subnet, and Azure Bastion host. The virtual network and subnet contains the load balancer and virtual machines. The bastion host is used to securely manage the virtual machines and install IIS to test the load balancer.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
 
 2. In **Virtual networks**, select **+ Create**.
 
-3. In **Create virtual network**, enter or select this information in the **Basics** tab:
+3. In **Create virtual network**, enter or select the following information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -47,9 +40,9 @@ In this section, you'll create a virtual network and subnet.
     | Resource Group   | Select **Create new**. </br> In **Name** enter **CreatePubLBQS-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(Europe) West Europe** |
+    | Region           | Select **East US** |
 
-4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+4. Select the **IP Addresses** tab or select **Next: IP Addresses** at the bottom of the page.
 
 5. In the **IP Addresses** tab, enter this information:
 
@@ -57,7 +50,7 @@ In this section, you'll create a virtual network and subnet.
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16** |
 
-6. Under **Subnet name**, select the word **default**.
+6. Under **Subnet name**, select the word **default**. If a subnet isn't present, select **+ Add subnet**.
 
 7. In **Edit subnet**, enter this information:
 
@@ -66,7 +59,7 @@ In this section, you'll create a virtual network and subnet.
     | Subnet name | Enter **myBackendSubnet** |
     | Subnet address range | Enter **10.1.0.0/24** |
 
-8. Select **Save**.
+8. Select **Save** or **Add**.
 
 9. Select the **Security** tab.
 
@@ -75,53 +68,17 @@ In this section, you'll create a virtual network and subnet.
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+    
+    > [!NOTE]
+    > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
 
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **CreatePubLBQS-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATGatewayIP** in **Name** in **Add a public IP address**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
-
-9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
-
-12. Select **Create**.
-
-## <a name="create-load-balancer-resources"></a> Create load balancer
+## Create load balancer
 
 In this section, you'll create a zone redundant load balancer that load balances virtual machines. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
@@ -130,12 +87,13 @@ During the creation of the load balancer, you'll configure:
 * Frontend IP address
 * Backend pool
 * Inbound load-balancing rules
+* Health probe
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-2. In the **Load balancer** page, select **Create**.
+2. In the **Load balancer** page, select **+ Create**.
 
-3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+3. In the **Basics** tab of the **Create load balancer** page, enter or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -144,23 +102,20 @@ During the creation of the load balancer, you'll configure:
     | Resource group         | Select **CreatePubLBQS-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **(Europe) West Europe**.                                        |
-    | Type          | Select **Public**.                                        |
+    | Region         | Select **East US**.                                        |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
-6. Enter **LoadBalancerFrontend** in **Name**.
+6. Enter **myFrontend** in **Name**.
 
-7. Select **IPv4** or **IPv6** for the **IP version**.
-
-    > [!NOTE]
-    > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
+7. Select **IPv4** for the **IP version**.
 
 8. Select **IP address** for the **IP type**.
 
@@ -190,15 +145,13 @@ During the creation of the load balancer, you'll configure:
 
 18. Select **myVNet** in **Virtual network**.
 
-19. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+19. Select **IP Address** for **Backend Pool Configuration**.
 
-20. Select **IPv4** or **IPv6** for **IP version**.
+21. Select **Save**.
 
-21. Select **Add**.
+22. Select **Next: Inbound rules** at the bottom of the page.
 
-22. Select the **Next: Inbound rules** button at the bottom of the page.
-
-23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+23. Under **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
 24. In **Add load balancing rule**, enter or select the following information:
 
@@ -206,11 +159,11 @@ During the creation of the load balancer, you'll configure:
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Frontend IP address | Select **myFrontend (To be created)**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
@@ -225,20 +178,59 @@ During the creation of the load balancer, you'll configure:
 27. Select **Create**.
 
     > [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example we'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
+
+## Create NAT gateway
+
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
+
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+2. In **NAT gateways**, select **+ Create**.
+
+3. In **Create network address translation (NAT) gateway**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **CreatePubLBQS-rg**. |
+    | **Instance details** |    |
+    | NAT gateway name | Enter **myNATgateway**. |
+    | Region | Select **East US**. |
+    | Availability zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **15**. |
+
+4. Select the **Outbound IP** tab or select **Next: Outbound IP** at the bottom of the page.
+
+5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
+
+6. Enter **myNATgatewayIP** in **Name**.
+
+7. Select **OK**.
+
+8. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+
+9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
+
+10. Select **myBackendSubnet** under **Subnet name**.
+
+11. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
+
+12. Select **Create**.
 
 ## Create virtual machines
 
-In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) in three different zones (**Zone 1**, **Zone 2**, and **Zone 3**). 
+In this section, you'll create two VMs (**myVM1** and **myVM2**) in two different zones (**Zone 1**, and **Zone 2**). 
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
+2. In **Virtual machines**, select **+ Create** > **Azure virtual machine**.
    
-3. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+3. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -247,10 +239,11 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(Europe) West Europe** |
+    | Region | Select **((US) East US)** |
     | Availability Options | Select **Availability zones** |
-    | Availability zone | Select **1** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
+    | Availability zone | Select **Zone 1** |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Choose VM size or take default setting |
     | **Administrator account** |  |
@@ -262,259 +255,38 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-5. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter the following information:
 
     | Setting | Value |
-    |-|-|
+    | ------- | ----- |
     | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **myBackendSubnet** |
+    | Virtual network | Select **myVNet** |
+    | Subnet | Select **myBackendSubnet** |
     | Public IP | Select **None**. |
-    | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
+    | NIC network security group | Select **Advanced** |
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.|
+    | Delete NIC when VM is deleted | Leave the default of **unselected**. |
+    | Accelerated networking | Leave the default of **selected**. |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
-    | **Load balancing settings** |
-    | Load-balancing options | Select **Azure load balancing** |
+    | **Load balancing options** |
+    | Load-balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
    
 6. Select **Review + create**. 
   
 7. Review the settings, and then select **Create**.
 
-8. Follow the steps 1 through 7 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 7 to create another VM with the following values and all the other settings the same as **myVM1**:
 
-    | Setting | VM 2| VM 3|
-    | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
-    | Availability zone | **2** |**3**|
-    | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-# [**Basic SKU**](#tab/option-2-create-load-balancer-basic)
-
->[!NOTE]
->Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
-
-## Create the virtual network
-
-In this section, you'll create a virtual network and subnet.
-
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
-
-2. In **Virtual networks**, select **+ Create**.
-
-3. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**. </br> In **Name** enter **CreatePubLBQS-rg**. </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(Europe) West Europe** |
-
-4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
-
-5. In the **IP Addresses** tab, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
-
-6. Under **Subnet name**, select the word **default**.
-
-7. In **Edit subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **myBackendSubnet** |
-    | Subnet address range | Enter **10.1.0.0/27** |
-
-8. Select **Save**.
-
-9. Select the **Security** tab.
-
-10. Under **BastionHost**, select **Enable**. Enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-
-11. Select the **Review + create** tab or select the **Review + create** button.
-
-12. Select **Create**.
-
-## Create virtual machines
-
-In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**).
-
-The three VMs will be added to an availability set named **myAvailabilitySet**.
-
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
-   
-3. In **Create a virtual machine**, type or select the values in the **Basics** tab:
-
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreatePubLBQS-rg** |
-    | **Instance details** |  |
-    | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(Europe) West Europe** |
-    | Availability Options | Select **Availability set** |
-    | Availability set | Select **Create new**. </br> Enter **myAvailabilitySet** in **Name**. </br> Select **OK** |
-    | Image | **Windows Server 2019 Datacenter - Gen1** |
-    | Azure Spot instance | Leave the default of unchecked. |
-    | Size | Choose VM size or take default setting |
-    | **Administrator account** |  |
-    | Username | Enter a username |
-    | Password | Enter a password |
-    | Confirm password | Reenter password |
-    | **Inbound port rules** |   |
-    | Public inbound ports | Select **None**. |
-
-4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
-  
-5. In the Networking tab, select or enter:
-
-    | Setting | Value |
-    |-|-|
-    | **Network interface** |  |
-    | Virtual network | Select **myVNet** |
-    | Subnet | Select **myBackendSubnet** |
-    | Public IP | Select **None** |
-    | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
-    | **Load balancing**  |
-    | Place this virtual machine behind an existing load-balancing solution? | Leave the default of unselected. |
- 
-6. Select the **Management** tab, or select **Next** > **Management**.
-
-7. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |---|---|
-    | **Monitoring** | |
-    | Boot diagnostics | Select **Off** |
-
-8. Select **Review + create**. 
-  
-9. Review the settings, and then select **Create**.
-
-10. Follow the steps 1 through 9 to create two more VMs with the following values and all the other settings the same as **myVM1**:
-
-    | Setting | VM 2 | VM 3 |
-    | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
-    | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
-    | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## Create load balancer
-
-In this section, you create a load balancer that load balances virtual machines.
-
-During the creation of the load balancer, you'll configure:
-
-* Frontend IP address
-* Backend pool
-* Inbound load-balancing rules
-
-1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
-
-2. In the **Load balancer** page, select **+ Create**.
-
-3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
-
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
-    | **Project details** |   |
-    | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **CreatePubLBQS-rg**. |
-    | **Instance details** |   |
-    | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **(Europe) West Europe**.                                        |
-    | Type          | Select **Public**.                                        |
-    | SKU           | Select **Basic**. |
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Screenshot of create basic load balancer basics tab." border="true":::
- 
-4. Select **Next: Frontend IP configuration** at the bottom of the page.
-
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
-
-6. Enter **LoadBalancerFrontend** in **Name**.
-
-7. Select **IPv4** or **IPv6** for the **IP version**.
-
-8. Select **Create new** in **Public IP address**.
-
-9. In **Add a public IP address**, enter **myPublicIP** for **Name**.
-
-10. In **Assignment**, select **Static**.
-
-11. Select **OK**.
-
-12. Select **Add**.
-
-13. Select **Next: Backend pools** at the bottom of the page.
-
-14. In the **Backend pools** tab, select **+ Add a backend pool**.
-
-15. Enter **myBackendPool** for **Name** in **Add backend pool**.
-
-16. Select **myVNet** in **Virtual network**.
-
-17. In **Associated to**, select **Virtual machines**.
-
-18. Select **IPv4** or **IPv6** for **IP version**.
-
-19. In **Virtual machines**, select the blue **+ Add** button.
-
-20. In **Add virtual machines to backend pool**, select the boxes next to **myVM1**, **myVM2**, and **myVM3**.
-
-21. Select **Add**.
-
-22. Select **Add** in **Add backend pool**.
-
-23. Select the **Next: Inbound rules** button at the bottom of the page.
-
-24. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
-
-25. In **Add load balancing rule**, enter or select the following information:
-
-    | Setting | Value |
+    | Setting | VM 2 
     | ------- | ----- |
-    | Name | Enter **myHTTPRule** |
-    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
-    | Protocol | Select **TCP**. |
-    | Port | Enter **80**. |
-    | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
-    | Session persistence | Select **None**. |
-    | Idle timeout (minutes) | Enter or select **15**. |
-    | Floating IP | Select **Disabled**. |
+    | Name |  **myVM2** |
+    | Availability zone | **Zone 2** |
+    | Network security group | Select the existing **myNSG** |
 
-26. Select **Add**.
-
-27. Select the blue **Review + create** button at the bottom of the page.
-
-28. Select **Create**.
-
----
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -522,15 +294,13 @@ During the creation of the load balancer, you'll configure:
 
 2. Select **myVM1**.
 
-2. On the **Overview** page, select **Connect**, then **Bastion**.
-
-3. Select **Use Bastion**.
+3. On the **Overview** page, select **Connect**, then **Bastion**.
 
 4. Enter the username and password entered during VM creation.
 
 5. Select **Connect**.
 
-6. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+6. On the server desktop, navigate to **Start** > **Windows PowerShell** > **Windows PowerShell**.
 
 7. In the PowerShell Window, run the following commands to:
 
@@ -547,19 +317,20 @@ During the creation of the load balancer, you'll configure:
     
     # Add a new htm file that displays server name
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-   ```
+    
+    ```
 
 8. Close the Bastion session with **myVM1**.
 
-9. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
+9. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2**.
 
 ## Test the load balancer
 
-1. In the search box at the top of the page, enter **Load balancer**.  Select **Load balancers** in the search results.
+1. In the search box at the top of the page, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-2. Find the public IP address for the load balancer on the **Overview** page under **Public IP address**.
+2. In **Public IP addresses**, select **myPublicIP**.
 
-3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
+3. Copy the item in **IP address**. Paste the public IP into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
 
@@ -571,9 +342,9 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 In this quickstart, you:
 
-* Created an Azure Standard or Basic Load Balancer
-* Attached 3 VMs to the load balancer.
-* Tested the load balancer.
+* Created an Azure Load Balancer
+* Attached 2 VMs to the load balancer
+* Tested the load balancer
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]

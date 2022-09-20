@@ -1,8 +1,8 @@
 ---
 title: Azure CLI script - Scale and monitor Azure Database for PostgreSQL
 description: Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
@@ -11,7 +11,9 @@ ms.date: 01/26/2022
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 
-This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. \
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
+This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. 
 
 > [!IMPORTANT]
 > Storage can only be scaled up, not down.
@@ -43,8 +45,8 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server update](/cli/azure/postgres/server#az_postgres_server_update) | Updates properties of the PostgreSQL server. |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | Updates properties of the PostgreSQL server. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | List the metric value for the resources. |
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 

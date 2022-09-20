@@ -3,15 +3,13 @@ title: include file
 description: include file
 services: batch
 documentationcenter:
-author: JnHs
-manager: evansma
-editor: ''
+author: prkannap
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 06/09/2021
-ms.author: jenhayes
+ms.date: 04/20/2022
+ms.author: prkannap
 ms.custom: include file
 ---
 
@@ -77,7 +75,7 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 | Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
 | Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
 
-Outbound to `BatchNodeManagement` is required for contacting the Batch service from the compute nodes such as for Job Manager tasks.
+For more information about outbound security rules for the `BatchNodeManagement` service tag, see [Use simplified compute node communication](../articles/batch/simplified-compute-node-communication.md).
 
 ### Pools in the Cloud Services configuration
 

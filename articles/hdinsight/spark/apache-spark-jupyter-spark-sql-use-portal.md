@@ -4,7 +4,7 @@ description: This quickstart shows how to use the Azure portal to create an Apac
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 02/25/2020
+ms.date: 04/01/2022
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 
@@ -88,7 +88,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 1. Verify the kernel is ready. The kernel is ready when you see a hollow circle next to the kernel name in the notebook. Solid circle denotes that the kernel is busy.
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Screenshot shows a Jupyter window with a PySpark indicator." border="true":::ark indicator." border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Screenshot shows a Jupyter window with a PySpark indicator." border="true":::
 
     When you start the notebook for the first time, the kernel performs some tasks in the background. Wait for the kernel to be ready.
 

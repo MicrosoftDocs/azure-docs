@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-
+ms.reviewer: shijain
 ---
 
 # Wire Data 2.0 (Preview) solution in Azure Monitor (Retired)
@@ -119,7 +119,7 @@ VMConnection
 
 ### More examples queries
 
-Refer to the [VM insights log search documentation](../vm/vminsights-log-search.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
+Refer to the [VM insights log search documentation](../vm/vminsights-log-query.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
 
 ## Uninstall Wire Data 2.0 Solution
 

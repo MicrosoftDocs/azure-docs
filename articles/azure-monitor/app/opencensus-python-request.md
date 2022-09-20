@@ -2,9 +2,10 @@
 title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 8/19/2022
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Track incoming requests with OpenCensus Python
@@ -41,6 +42,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     }
     ```
 
+You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/givenscj/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 ## Tracking Flask applications
 
 1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/) and instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application will be tracked.
@@ -85,6 +87,8 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     > [!NOTE]
     > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
     
+You can find a Flask sample application that tracks requests in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/flask_sample).
+
 ## Tracking Pyramid applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) and instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application will be tracked.
@@ -145,11 +149,14 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
     
-    tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+    APPINSIGHTS_CONNECTION_STRING='<your-appinsights_connection-string-here>'
+    exporter=AzureExporter(connection_string=f'{APPINSIGHTS_CONNECTION_STRING}')
+    sampler=ProbabilitySampler(1.0)
 
     # fastapi middleware for opencensus
     @app.middleware("http")
-    async def middlewareOpencensus(request: Request, call_next):        
+    async def middlewareOpencensus(request: Request, call_next):  
+        tracer = Tracer(exporter=exporter, sampler=sampler)       
         with tracer.span("main") as span:
             span.span_kind = SpanKind.SERVER
 

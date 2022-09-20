@@ -4,8 +4,8 @@ description: Learn how to create an Azure Files StorageClass on Azure Red Hat Op
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
-author: georgewallace
-ms.author: gwallace
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure file
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a StorageClass on Azure Red Hat OpenShift using Azure File dynamic provisioner
@@ -30,7 +30,7 @@ Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create 
 
 This step will create a resource group outside of the Azure Red Hat OpenShift (ARO) cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
 
-```bash
+```azurecli
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files
 LOCATION=eastus
 
@@ -50,7 +50,7 @@ az storage account create \
 
 The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this.
 
-```bash
+```azurecli
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
 ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
@@ -61,7 +61,7 @@ az role assignment create --role Contributor --scope /subscriptions/mySubscripti
 ### Set ARO cluster permissions
 
 The OpenShift persistent volume binder service account will require the ability to read secrets. Create and assign an OpenShift cluster role to achieve this.
-```bash
+```azurecli
 ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
 oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $ARO_API_SERVER

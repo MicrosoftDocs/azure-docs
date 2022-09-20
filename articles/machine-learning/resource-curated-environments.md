@@ -17,7 +17,7 @@ ms.date: 10/21/2021
 This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
 
 ## Why should I use curated environments?
 
@@ -29,7 +29,25 @@ This article lists the curated environments with latest framework versions in Az
 >[!IMPORTANT] 
 > To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md). 
 
-## Training curated environments
+## Curated environments
+
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### Azure Container for PyTorch (ACPT) (preview)
+
+**Name**: AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu  
+**Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc. 
+
+The following configurations are supported: 
+
+| Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.1 | 1.11.0 | 
+| AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.1 | 1.11.0 |
 
 ### PyTorch
 
@@ -57,7 +75,7 @@ Other available PyTorch environments:
 
 
 ### Sklearn
-**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu
+**Name**: AzureML-sklearn-1.0-ubuntu20.04-py38-cpu  
 **Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other Python packages.  
 * OS: Ubuntu20.04
 * Scikit-learn: 1.0
@@ -87,11 +105,7 @@ Azure ML pipeline training workflows that use AutoML automatically selects a cur
 | AzureML-AutoML-GPU | GPU | No |
 | AzureML-AutoML-DNN-GPU | GPU | Yes |
 
-For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
-
-## Inference curated environments and prebuilt docker images
-
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
 Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

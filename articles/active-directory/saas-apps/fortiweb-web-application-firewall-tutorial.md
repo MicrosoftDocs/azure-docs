@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/11/2020
+ms.date: 07/14/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of FortiWeb Web Application Firewall into Azure AD,
 1. In the **Add from the gallery** section, type **FortiWeb Web Application Firewall** in the search box.
 1. Select **FortiWeb Web Application Firewall** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD SSO for FortiWeb Web Application Firewall
 
@@ -69,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **FortiWeb Web Application Firewall** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -126,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
+    ![Screenshot for SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
 
     a.	In the left-hand menu, click **User**.
 
@@ -138,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e.	In the **Name** field, provide the value for `<fwName>` used in the Configure Azure AD section.
 
-    f.	In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    f.	In the **Entity ID** textbox, Enter the **Identifier (Entity ID)** value, like `https://www.<CUSTOMER_DOMAIN>.com/samlsp`
 
     g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file which you have downloaded from the Azure portal.
 
@@ -151,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
+    ![Screenshot for Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
     
@@ -186,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
+    ![Screenshot for Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
 
@@ -221,7 +223,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 8.	Next to **Site Publish**, select the site publishing policy you created earlier.
 9.	Click **OK**.
  
-    ![site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
+    ![Screenshot for site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
 
 10.	In the left-hand menu, click **Policy**.
 11.	Under **Policy**, click **Server Policy**.

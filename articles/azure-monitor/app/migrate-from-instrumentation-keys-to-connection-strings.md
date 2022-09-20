@@ -3,6 +3,7 @@ title: Migrate from Application Insights instrumentation keys to connection stri
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings
 ms.topic: conceptual
 ms.date: 02/14/2022
+ms.reviewer: cogoodson
 ---
 
 # Migrate from Application Insights instrumentation keys to connection strings
@@ -24,7 +25,7 @@ This guide walks through migrating from [instrumentation keys](separate-resource
 
 1. Hover over the connection string and select the “Copy to clipboard” icon.
 
-1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#how-to-set-a-connection-string).
+1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
 
 > [!IMPORTANT]
 > Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence.
@@ -91,7 +92,7 @@ Connection strings provide a single configuration setting and eliminate the need
 
 - **Security:** Connection strings allow authenticated telemetry ingestion by using [Azure AD authentication for Application Insights](azure-ad-authentication.md).
 
-- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure Government region](custom-endpoints.md#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#how-to-set-a-connection-string))
+- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure Government region](custom-endpoints.md#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#set-a-connection-string))
 
 - **Privacy (regional endpoints)** – Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
@@ -103,7 +104,9 @@ Connection strings provide a single configuration setting and eliminate the need
 - NodeJS v1.5.0+
 - Python v1.0.0+
 ## Troubleshooting
+### Alert: "Transition to using connection strings for data ingestion"
 
+Follow the [migration steps](#migration) in this article to resolve this alert.
 ### Missing data
 
 - Confirm you're using a [supported SDK version](#supported-sdk-versions). If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
@@ -138,4 +141,4 @@ Billing isn't impacted.
 
 ### Microsoft Q&A
 
-Post questions to the [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the [answers forum](/answers/topics/24223/azure-monitor.html).

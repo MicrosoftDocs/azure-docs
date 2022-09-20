@@ -37,6 +37,8 @@ To complete this quickstart, make sure you have:
   - Additional device drivers may be required for your computer to communicate with your Android device. See [here](https://developer.android.com/studio/run/device.html) for additional information and instructions.
 - Your app must target ARCore **1.11.0**.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project

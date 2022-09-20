@@ -2,6 +2,7 @@
 title: Monitor and protect VMs with Azure native services
 description: Learn how to integrate and deploy Microsoft Azure native tools to monitor and manage your Azure VMware Solution workloads.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 08/15/2021
 ---
 
@@ -15,7 +16,7 @@ The Azure native services that you can integrate with Azure VMware Solution incl
 
 - **Azure Monitor** collects, analyzes, and acts on telemetry from your cloud and on-premises environments. It requires no deployment.  You can monitor guest operating system performance to discover and map application dependencies for Azure VMware Solution or on-premises VMs. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. 
 
-   With Azure Monitor, you can collect data from different [sources to monitor and analyze](../azure-monitor/agents/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
+   With Azure Monitor, you can collect data from different [sources to monitor and analyze](../azure-monitor/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
 
 - **Microsoft Defender for Cloud** strengthens data centers' security and provides advanced threat protection across hybrid workloads in the cloud or on-premises. It assesses Azure VMware Solution VMs' vulnerability, raises alerts as needed, and forwards them to Azure Monitor for resolution. For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md). You can also define security policies in [Microsoft Defender for Cloud](azure-security-integration.md).
 
@@ -60,7 +61,7 @@ You can configure the Log Analytics workspace with Microsoft Sentinel for alert 
 If you are new to Azure or unfamiliar with any of the services previously mentioned, review the following articles:
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
-- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
+- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md) and [Azure Monitor](../azure-monitor/overview.md)
 - [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Microsoft Defender for Cloud
 - [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
@@ -128,12 +129,12 @@ Deploy the Log Analytics agent by using [Azure Arc-enabled servers VM extension 
 
 ## Enable Azure Monitor
 
-Can collect data from different [sources to monitor and analyze](../azure-monitor/agents/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
+Can collect data from different [sources to monitor and analyze](../azure-monitor/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
 
 Monitor guest operating system performance to discover and map application dependencies for Azure VMware Solution or on-premises VMs. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. 
 
 
-1. [Design your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md)
+1. [Design your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md)
 
 1. [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 

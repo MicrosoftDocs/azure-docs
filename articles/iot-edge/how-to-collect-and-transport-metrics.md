@@ -17,6 +17,12 @@ services: iot-edge
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
 
+To configure monitoring on your IoT Edge device follow the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md). You'll learn how to add the metrics-collector module to your device. Otherwise, the information in this article (Collect and transport metrics) gives you an overview of the monitoring architecture and explains options you have for when it's time to configure metrics on your device.
+
+> [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
+
+<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
+
 ## Architecture
 
 # [IoT Hub](#tab/iothub)
@@ -50,7 +56,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 ## Metrics collector module
 
-A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/azure-monitor).
+A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/metrics-collector).
 
 The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
 
@@ -110,7 +116,7 @@ You can find the resource ID in the **Properties** page of the IoT hub in the Az
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
@@ -130,7 +136,7 @@ You can find the resource ID in the **Properties** page of the IoT Central appli
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id-iot-central.png" alt-text="Retrieve resource ID from the IoT Central properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"
@@ -271,7 +277,7 @@ This option does require [extra setup](how-to-collect-and-transport-metrics.md#s
 
 ### Sample cloud workflow
 
-A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
+A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/CloudWorkflow.md). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
 
 # [IoT Central](#tab/iotcentral)
 

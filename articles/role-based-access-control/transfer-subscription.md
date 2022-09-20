@@ -3,11 +3,11 @@ title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/04/2021
+ms.date: 07/26/2022
 ms.author: rolyon
 ---
 
@@ -70,7 +70,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-key-vaults) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Azure AD authentication enabled to a different directory. For more information, see [Use Azure Active Directory authentication](../azure-sql/database/authentication-aad-overview.md). | 
+| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Azure AD authentication enabled to a different directory. For more information, see [Use Azure Active Directory authentication](/azure/azure-sql/database/authentication-aad-overview). | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
@@ -100,13 +100,13 @@ To complete these steps, you will need:
 
 1. Sign in to Azure as an administrator.
 
-1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az_account_list) command.
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](/cli/azure/account#az_account_set) to set the active subscription you want to transfer.
+1. Use [az account set](/cli/azure/account#az-account-set) to set the active subscription you want to transfer.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -116,13 +116,19 @@ To complete these steps, you will need:
 
  The Azure CLI extension for [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, enables you to use the [az graph](/cli/azure/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
 
-1. Use [az extension list](/cli/azure/extension#az_extension_list) to see if you have the *resource-graph* extension installed.
+1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
 
     ```azurecli
     az extension list
     ```
 
-1. If not, install the *resource-graph* extension.
+1. If you are using a preview version or an older version of the *resource-graph* extension, use [az extension update](/cli/azure/extension#az-extension-update) to update the extension.
+
+    ```azurecli
+    az extension update --name resource-graph
+    ```
+
+1. If the *resource-graph* extension is not installed, use [az extension add](/cli/azure/extension#az-extension-add) to install the extension.
 
     ```azurecli
     az extension add --name resource-graph
@@ -130,7 +136,7 @@ To complete these steps, you will need:
 
 ### Save all role assignments
 
-1. Use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) to list all the role assignments (including inherited role assignments).
+1. Use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to list all the role assignments (including inherited role assignments).
 
     To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md).
 
@@ -148,7 +154,7 @@ To complete these steps, you will need:
 
 ### Save custom roles
 
-1. Use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) to list your custom roles. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
+1. Use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -192,7 +198,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 1. Review the [list of Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) to note where you might be using managed identities.
 
-1. Use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) to list your system-assigned and user-assigned managed identities.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list your system-assigned and user-assigned managed identities.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -206,7 +212,7 @@ Managed identities do not get updated when a subscription is transferred to anot
     | `alternativeNames` property does not include `isExplicit` | System-assigned |
     | `alternativeNames` property includes `isExplicit=True` | User-assigned |
 
-    You can also use [az identity list](/cli/azure/identity#az_identity_list) to just list user-assigned managed identities. For more information, see [Create, list, or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    You can also use [az identity list](/cli/azure/identity#az-identity-list) to just list user-assigned managed identities. For more information, see [Create, list, or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -223,7 +229,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
-- If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az_keyvault_show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
+- If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -231,10 +237,10 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List Azure SQL databases with Azure AD authentication
 
-- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](/azure/azure-sql/database/authentication-aad-configure).
 
     ```azurecli
-    az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
+    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" --query data[*].[id] -o tsv)
     ```
 
 ### List ACLs
@@ -247,7 +253,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List other known resources
 
-1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID (in `bash`).
+1. Use [az account show](/cli/azure/account#az-account-show) to get your subscription ID (in `bash`).
 
     ```azurecli
     subscriptionId=$(az account show --output tsv --query id)
@@ -286,13 +292,13 @@ In this step, you transfer the subscription from the source directory to the tar
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
 
-1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az_account_list) command.
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](/cli/azure/account#az_account_set) to set the active subscription you want to use.
+1. Use [az account set](/cli/azure/account#az-account-set) to set the active subscription you want to use.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +306,7 @@ In this step, you transfer the subscription from the source directory to the tar
 
 ### Create custom roles
         
-- Use [az role definition create](/cli/azure/role/definition#az_role_definition_create) to create each custom role from the files you created earlier. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
+- Use [az role definition create](/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +314,7 @@ In this step, you transfer the subscription from the source directory to the tar
 
 ### Assign roles
 
-- Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign roles to users, groups, and service principals. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md).
+- Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to users, groups, and service principals. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +330,7 @@ In this step, you transfer the subscription from the source directory to the tar
     | Virtual machine scale sets | [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Other services | [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign roles to system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +346,7 @@ In this step, you transfer the subscription from the source directory to the tar
     | Virtual machine scale sets | [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Other services | [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Create, list, or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign roles to user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

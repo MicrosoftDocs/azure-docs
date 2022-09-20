@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a gateway load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
@@ -23,11 +23,6 @@ In this tutorial, you learn how to:
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
 
-> [!IMPORTANT]
-> Azure Gateway Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
@@ -41,7 +36,7 @@ In this tutorial, you learn how to:
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
   az group create \
@@ -56,7 +51,7 @@ A virtual network is needed for the resources that are in the backend pool of th
 
 ### Create virtual network
 
-Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
+Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network.
 
 ```azurecli-interactive
   az network vnet create \
@@ -70,7 +65,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to 
 
 ### Create bastion public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the Azure Bastion host
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host
 
 ```azurecli-interactive
 az network public-ip create \
@@ -82,7 +77,7 @@ az network public-ip create \
 
 ### Create bastion subnet
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the bastion subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create the bastion subnet.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -94,7 +89,7 @@ az network vnet subnet create \
 
 ### Create bastion host
 
-Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to deploy a bastion host for secure management of resources in virtual network.
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to deploy a bastion host for secure management of resources in virtual network.
 
 ```azurecli-interactive
 az network bastion create \
@@ -113,7 +108,7 @@ Use the following example to create a network security group. You'll configure t
 
 ### Create NSG
 
-Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the NSG.
+Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the NSG.
 
 ```azurecli-interactive
   az network nsg create \
@@ -123,7 +118,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to cre
 
 ### Create NSG Rules
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create rules for the NSG.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create rules for the NSG.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -159,7 +154,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 ### Create Gateway Load Balancer
 
-To create the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+To create the load balancer, use [az network lb create](/cli/azure/network/lb#az-network-lb-create).
 
 ```azurecli-interactive
   az network lb create \
@@ -176,7 +171,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
 
 An internal interface is automatically created with Azure CLI with the **`--identifier`** of **900** and **`--port`** of **10800**.
 
-You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create external tunnel interface for the load balancer. 
+You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az-network-lb-address-pool-tunnel-interface-add) to create external tunnel interface for the load balancer. 
 
 ```azurecli-interactive
   az network lb address-pool tunnel-interface add \
@@ -190,7 +185,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
 ```
 
 ### Create health probe
-A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) to create the health probe.
+A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) to create the health probe.
 
 ```azurecli-interactive
   az network lb probe create \
@@ -207,7 +202,7 @@ A health probe is required to monitor the health of the backend instances in the
 
 ### Create load-balancing rule
 
-Traffic destined for the backend instances is routed with a load-balancing rule. Use [az network lb rule create](/cli/azure/network/lb/probe#az_network_lb_rule_create)  to create the load-balancing rule.
+Traffic destined for the backend instances is routed with a load-balancing rule. Use [az network lb rule create](/cli/azure/network/lb/probe#az-network-lb-rule-create)  to create the load-balancing rule.
 
 ```azurecli-interactive
   az network lb rule create \
@@ -223,7 +218,7 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 ```
 
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
-Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add).
 
 ## Chain load balancer frontend to Gateway Load Balancer
 
@@ -231,9 +226,9 @@ In this example, you'll chain the frontend of a standard load balancer to the ga
 
 You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
 
-Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_az_network_lb_frontend_ip_show) to place the resource ID of your gateway load balancer frontend into a variable.
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
 
-Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) to chain the gateway load balancer frontend to your existing load balancer.
+Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-update) to chain the gateway load balancer frontend to your existing load balancer.
 
 ```azurecli-interactive
   feid=$(az network lb frontend-ip show \
@@ -258,7 +253,7 @@ Alternatively, you can chain a VM's NIC IP configuration to the gateway load bal
 
 You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
 
-Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_az_network_lb_frontend_ip_show) to place the resource ID of your gateway load balancer frontend into a variable.
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
 
 Use [az network lb frontend-ip update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
 
@@ -280,7 +275,7 @@ Use [az network lb frontend-ip update](/cli/azure/network/nic/ip-config#az-netwo
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and the remaining resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and the remaining resources.
 
 ```azurecli-interactive
   az group delete \

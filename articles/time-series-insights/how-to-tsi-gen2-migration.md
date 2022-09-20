@@ -2,10 +2,8 @@
 title: 'Time Series Insights Gen2 migration to Azure Data Explorer | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 2 environments to Azure Data Explorer.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
-manager: 
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 3/15/2022
@@ -13,6 +11,8 @@ ms.custom: tvilutis
 ---
 
 # Migrating Time Series Insights (TSI) Gen2 to Azure Data Explorer
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 ## Overview
 
@@ -146,7 +146,7 @@ For more references, check [ADX Data Partitioning Policy](/azure/data-explorer/k
 
 1.	Select Next: Schema
     > [!NOTE]
-    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules, https://docs.microsoft.com/azure/time-series-insights/ingestion-rules-update.
+    > TSI applies some flattening and escaping when persisting columns in Parquet files. See these links for more details: [flattening and escaping rules](concepts-json-flattening-escaping-rules.md), [ingestion rules updates](ingestion-rules-update.md).
 - If schema is unknown or varying
     1. Remove all columns that are infrequently queried, leaving at least timestamp and TSID column(s).
 
@@ -188,22 +188,24 @@ The command generated from One-Click tool includes a SAS token. It’s best to g
     :::image type="content" source="media/gen2-migration/adx-ingest-sas-blob.png" alt-text="Screenshot of the Azure Data Explorer ingestion for SAS Blob URL" lightbox="media/gen2-migration/adx-ingest-sas-blob.png":::
 
 1. Go to the LightIngest command that you copied previously. Replace the -source parameter in the command with this ‘SAS Blob URL’
-1. `Option 1: Ingest All Data`. For smaller environments, you can ingest all of the data with a single command.
+1. **Option 1: Ingest All Data**. For smaller environments, you can ingest all of the data with a single command.
     1. Open a command prompt and change to the directory where the LightIngest tool was extracted to. Once there, paste the LightIngest command and execute it.
 
     :::image type="content" source="media/gen2-migration/adx-ingest-lightingest-prompt.png" alt-text="Screenshot of the Azure Data Explorer ingestion for command prompt" lightbox="media/gen2-migration/adx-ingest-lightingest-prompt.png":::
 
-1. `Option 2: Ingest Data by Year or Month`. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
-    1. By Year
-        > Change your -prefix parameter
-	    >    Before: -prefix:"V=1/PT=Time"
-	    >    After: -prefix:"V=1/PT=Time/Y=<Year>"
-    	>    Example: -prefix:"V=1/PT=Time/Y=2021"
-     1. By Month
-        > Change your -prefix parameter
-	    >    Before: -prefix:"V=1/PT=Time"
-    	>    After: -prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"
-	    >    Example: -prefix:"V=1/PT=Time/Y=2021/M=03"
+1. **Option 2: Ingest Data by Year or Month**. For larger environments or to test on a smaller data set you can filter the Lightingest command further.
+
+   1. By Year: Change your -prefix parameter
+       
+      - Before: `-prefix:"V=1/PT=Time"`
+      - After: `-prefix:"V=1/PT=Time/Y=<Year>"`
+      - Example: `-prefix:"V=1/PT=Time/Y=2021"`
+
+   1. By Month: Change your -prefix parameter
+
+      - Before: `-prefix:"V=1/PT=Time"`
+      - After: `-prefix:"V=1/PT=Time/Y=<Year>/M=<month #>"`
+      - Example: `-prefix:"V=1/PT=Time/Y=2021/M=03"`
 
 Once you’ve modified the command, execute it like above. One the ingestion is complete (using monitoring option below) modify the command for the next year and month you want to ingest.
 
@@ -476,7 +478,7 @@ The Power BI query copied from TSI UX Explorer looks like as shown below
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert it to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/azure/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
+- To convert it to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
 -	The converted TSQ looks like as shown below. It's the JSON payload inside “queries”
 ```
 {

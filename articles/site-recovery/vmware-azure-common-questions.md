@@ -8,6 +8,9 @@ ms.topic: conceptual
 
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
 
+>[!NOTE]
+>You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
 ## General
 
 ### How do I use the classic experience in the Recovery Services vault rather than the preview experience? 

@@ -28,7 +28,7 @@ The [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/tre
 
 Additional resources:
 
-[API reference](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
 ## Prerequisites
 
@@ -270,7 +270,7 @@ This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-
 
 ## Use the storage emulator
 
-This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](/azure/storage/common/storage-use-emulator) for development and testing. 
+This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](../common/storage-use-emulator.md) for development and testing. 
 
 ## Clean up resources
 

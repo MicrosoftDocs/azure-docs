@@ -1,13 +1,13 @@
 ---
 title: Configure F5 BIG-IP’s Access Policy Manager for form-based SSO
 description: Learn how to configure F5's BIG-IP Access Policy Manager and Azure Active Directory for secure hybrid access to form-based applications.
-author: CelesteDG
+author: gargi-sinha
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/20/2021
-ms.author: celested
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -17,7 +17,7 @@ In this article, you'll learn how to configure F5's BIG-IP Access Policy Manager
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-- Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+- Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 - Full single sign-on (SSO) between Azure AD and BIG-IP published services
 - Identities and access are managed from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
@@ -437,6 +437,6 @@ For more information, see the F5 BIG-IP [Session Variables reference](https://te
 
 * [Forget passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-* [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+* [What is Conditional Access?](../conditional-access/overview.md)
 
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

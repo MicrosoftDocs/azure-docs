@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt, devx-track-js]
 
 # Connect a downstream device to an Azure IoT Edge gateway
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub.
 
@@ -44,13 +44,13 @@ A downstream device can be any application or platform that has an identity crea
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 
 This article provides the steps for connecting an IoT device as a downstream device. If you have an IoT Edge device as a downstream device, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 >[!NOTE]
 >IoT devices registered with IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different processes, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication.
@@ -198,7 +198,7 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway.
 
-1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-edge-scenarios).
+1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-edge-scenarios).
 2. Set the `IOTHUB_DEVICE_CONNECTION_STRING` and `IOTEDGE_ROOT_CA_CERT_PATH` environment variables as specified in the Python script comments.
 3. Refer to the SDK documentation for any additional instructions on how to run the sample on your device.
 
@@ -210,7 +210,7 @@ Use this sample command on the downstream device to test that it can connect to 
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-This command tests connections over MQTTS (port 8883). If you're using a different protocol, adjust the command as necessary for AMQPS (5671) or HTTPS (433)
+This command tests connections over MQTTS (port 8883). If you're using a different protocol, adjust the command as necessary for AMQPS (5671) or HTTPS (443)
 
 The output of this command may be long, including information about all the certificates in the chain. If your connection is successful, you'll see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
 

@@ -6,26 +6,29 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 12/01/2021
+ms.date: 08/30/2022
 ms.author: banders
 ---
 
 # Troubleshoot a declined card at Azure sign-up
 
-You may experience an issue or error in which a credit card is declined at Azure sign-up in the Microsoft Azure portal.
+You may experience an issue or error in which a card is declined at Azure sign-up in the Microsoft Azure portal.
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
-## The credit card provider is not accepted for your country/region
+## The card provider is not accepted for your country/region
 
 When you choose a card, Azure displays the card options that are valid in the country/region that you select. Contact your bank or card issuer to verify that your credit card is enabled for international transactions. For more information about supported countries/regions and currencies, see the [Azure Purchase FAQ](https://azure.microsoft.com/pricing/faq/).
 
->[!Note]
->American Express credit cards are not currently supported as a payment instrument in India. We have no time frame as to when it may be an accepted form of payment.
+> [!Note]
+> - American Express credit cards are not currently supported as a payment instrument in India. We have no time frame as to when it may be an accepted form of payment.
+> - Credit cards are accepted and debit cards are accepted by most countries or regions.
+>    - Hong Kong and Brazil only support credit cards.
+>    - India supports debit and credit cards through Visa and Mastercard.
 
 ## You're using a virtual or prepaid card
 
-Prepaid and virtual cards aren't accepted as payment for Azure subscriptions.
+Prepaid and virtual cards are not accepted as payment for Azure subscriptions.
 
 ## Your credit information is inaccurate or incomplete
 
@@ -47,7 +50,7 @@ If you represent a business, you can use invoice payment methods such as checks,
 
 For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md).
 
-## Your credit card information is outdated
+## Your card information is outdated
 
 For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit for Azure](change-credit-card.md).
 

@@ -58,7 +58,7 @@ To get started, you'll need:
 
 ### Part - 1 Create an application registration in Haventec
 
-If you haven't already done so, [register](tutorial-register-applications.md) a web application, and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
+If you haven't already done so, [register](tutorial-register-applications.md) a web application.
 
 ### Part - 2 Add a new Identity provider in Azure AD B2C
 

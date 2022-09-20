@@ -19,11 +19,11 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
-:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Azure Private Link center in Azure portal" border="false":::
+:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
-- **Privately access services on the Azure platform**: Connect your virtual network to services in Azure without a public IP address at the source or destination. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
+- **Privately access services on the Azure platform**: Connect your virtual network using private endpoints to all services that can be used as application components in Azure. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
  
 - **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to configure ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
  
@@ -74,4 +74,4 @@ For SLA, see [SLA for Azure Private Link](https://azure.microsoft.com/support/le
 
 - [Quickstart: Create a Private Endpoint using Azure portal](create-private-endpoint-portal.md)
 - [Quickstart: Create a Private Link service by using the Azure portal](create-private-link-service-portal.md)
-- [Learn module: Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
+- [Learn module: Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/)

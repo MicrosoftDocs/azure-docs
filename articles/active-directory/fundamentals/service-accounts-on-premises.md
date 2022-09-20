@@ -1,21 +1,20 @@
 ---
-title: Introduction to Active Directory service accounts | Azure Active Directory
+title: Introduction to Active Directory service accounts
 description: An introduction to the types of service accounts in Active Directory, and how to secure them.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 2/15/2021
-ms.author: baselden
+ms.date: 08/26/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
-
-# Introduction to Active Directory service accounts
+# Securing on-premises service accounts
 
 A service has a primary security identity that determines the access rights for local and network resources. The security context for a Microsoft Win32 service is determined by the service account that's used to start the service. You use a service account to:
 * Identify and authenticate a service.
@@ -57,7 +56,6 @@ A local user account (name format: *.\UserName*) exists only in the Security Acc
 
 ## Choose the right type of service account
 
-
 | Criterion| gMSA| sMSA| Computer&nbsp;account| User&nbsp;account |
 | - | - | - | - | - |
 | App runs on a single server| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
@@ -67,7 +65,6 @@ A local user account (name format: *.\UserName*) exists only in the Security Acc
 | App runs on Windows Server 2012| Yes| Yes. Use a gMSA if possible.| Yes. Use an MSA if possible.| Yes. Use an MSA if possible. |
 | Requirement to restrict service account to single server| No| Yes| Yes. Use an sMSA if possible.| No |
 | | |
-
 
 ### Use server logs and PowerShell to investigate
 
@@ -113,8 +110,6 @@ After you've found the service accounts in your on-premises environment, documen
 
 * **Password security**: For user and local computer accounts, where the password is stored. Ensure that passwords are kept secure, and document who has access. Consider using [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to secure stored passwords. 
 
-  
-
 ## Next steps
 
 To learn more about securing service accounts, see the following articles:
@@ -124,4 +119,3 @@ To learn more about securing service accounts, see the following articles:
 * [Secure computer accounts](service-accounts-computer.md)  
 * [Secure user accounts](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
-

@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
+author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 11/15/2021
-ms.author: cshoe
+ms.author: glenga
 ---
 
 Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string. 
@@ -18,7 +18,7 @@ The following example shows a [C# function](../articles/azure-functions/function
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
+public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
 {
     log.LogInformation($"C# function triggered to process a message: {myEventHubMessage}");
 }
@@ -28,7 +28,7 @@ To get access to [event metadata](#event-metadata) in function code, bind to an 
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run(
+public void Run(
     [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage,
     DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
@@ -54,7 +54,7 @@ To receive events in a batch, make `string` or `EventData` an array.
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, ILogger log)
+public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, ILogger log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -106,7 +106,7 @@ using System;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.EventHubs;
 
-public static void Run(EventData myEventHubMessage,
+public void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
@@ -284,9 +284,66 @@ public void eventHubProcessor(
  }
 ```
 
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value would come from Event Hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value comes from the event hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+
+
+The following example illustrates extensive use of `SystemProperties` and other Binding options for further introspection of the Event along with providing a well-formed `BlobOutput` path that is Date hierarchical.
+
+```java
+package com.example;
+import java.util.Map;
+import java.time.ZonedDateTime;
+
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+/**
+ * Azure Functions with Event Hub trigger.
+ * and Blob Output using date in path along with message partition ID
+ * and message sequence number from EventHub Trigger Properties
+ */
+public class EventHubReceiver {
+
+    @FunctionName("EventHubReceiver")
+    @StorageAccount("bloboutput")
+                                
+    public void run(
+            @EventHubTrigger(name = "message",
+                eventHubName = "%eventhub%",
+                consumerGroup = "%consumergroup%",
+                connection = "eventhubconnection",
+                cardinality = Cardinality.ONE)
+            String message,
+            
+            final ExecutionContext context,
+            
+            @BindingName("Properties") Map<String, Object> properties,
+            @BindingName("SystemProperties") Map<String, Object> systemProperties,
+            @BindingName("PartitionContext") Map<String, Object> partitionContext,
+            @BindingName("EnqueuedTimeUtc") Object enqueuedTimeUtc,
+
+            @BlobOutput(
+                name = "outputItem",
+                path = "iotevents/{datetime:yy}/{datetime:MM}/{datetime:dd}/{datetime:HH}/" +
+                       "{datetime:mm}/{PartitionContext.PartitionId}/{SystemProperties.SequenceNumber}.json")
+            OutputBinding<String> outputItem) {
+
+        var et = ZonedDateTime.parse(enqueuedTimeUtc + "Z"); // needed as the UTC time presented does not have a TZ
+                                                             // indicator
+        context.getLogger().info("Event hub message received: " + message + ", properties: " + properties);
+        context.getLogger().info("Properties: " + properties);
+        context.getLogger().info("System Properties: " + systemProperties);
+        context.getLogger().info("partitionContext: " + partitionContext);
+        context.getLogger().info("EnqueuedTimeUtc: " + et);
+
+        outputItem.setValue(message);
+    }
+}
+
+```
 
 ::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -452,14 +509,12 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|The `PartitionContext` instance.|
 |`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`Offset`|`string`|The offset of the data relative to the Event Hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
+|`Offset`|`string`|The offset of the data relative to the event hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
 |`PartitionKey`|`string`|The partition to which event data should be sent.|
 |`Properties`|`IDictionary<String,Object>`|The user properties of the event data.|
 |`SequenceNumber`|`Int64`|The logical sequence number of the event.|
 |`SystemProperties`|`IDictionary<String,Object>`|The system properties, including the event data.|
 
 See [code examples](#example) that use these properties earlier in this article.
-
-[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
 
 [EventHubTriggerAttribute]: /dotnet/api/microsoft.azure.webjobs.eventhubtriggerattribute

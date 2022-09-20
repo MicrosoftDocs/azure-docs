@@ -1,10 +1,10 @@
 ---
 title: StorageBlobSelector UI element
 description: Describes the Microsoft.Storage.StorageBlobSelector UI element for Azure portal.
-author: tfitzmac
+author: davidsmatlak
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # Microsoft.Storage.StorageBlobSelector UI element

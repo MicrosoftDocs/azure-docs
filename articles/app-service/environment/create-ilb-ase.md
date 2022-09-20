@@ -4,15 +4,16 @@ description: Learn how to create an App Service environment with an internal loa
 author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 09/16/2020
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: mvc, seodec18, mode-other
 ---
 
 # Create and use an Internal Load Balancer App Service Environment 
-> [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
-> 
+
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
 

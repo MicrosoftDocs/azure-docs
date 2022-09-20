@@ -3,13 +3,13 @@ title: Scoped synchronization using PowerShell for Azure AD Domain Services | Mi
 description: Learn how to use Azure AD PowerShell to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 08/17/2022
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -32,7 +32,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
-* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Azure AD roles in your tenant to change the Azure AD DS synchronization scope.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to change the Azure AD DS synchronization scope.
 
 ## Scoped synchronization overview
 

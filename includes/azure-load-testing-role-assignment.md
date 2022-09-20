@@ -10,7 +10,7 @@ ms.topic: "include"
 ms.date: 02/15/2022
 ---
 
-Before you can manage load tests in the Azure Load Testing resource, you need to have the right access permissions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones.
+Before you can manage load tests in the Azure Load Testing resource, you need to have the right access permissions. [Azure role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 

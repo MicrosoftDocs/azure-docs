@@ -23,7 +23,13 @@ Microsoft Corporation is making images of FreeBSD available on Azure with the [A
 
 - FreeBSD 10.4 on the Azure Marketplace
 - FreeBSD 11.2 on the Azure Marketplace
+- FreeBSD 11.3 on the Azure Marketplace
 - FreeBSD 12.0 on the Azure Marketplace
+
+The following FreeBSD versions also include the [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/), however, they are offered as images by the FreeBSD Foundation:
+- FreeBSD 11.4 on the Azure Marketplace
+- FreeBSD 12.2 on the Azure Marketplace
+- FreeBSD 13.0 on the Azure Marketplace
 
 The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
 

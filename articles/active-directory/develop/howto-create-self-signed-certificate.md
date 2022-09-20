@@ -1,9 +1,8 @@
 ---
-title: Create a self-signed public certificate to authenticate your application | Azure
-titleSuffix: Microsoft identity platform
+title: Create a self-signed public certificate to authenticate your application
 description: Create a self-signed public certificate to authenticate your application.
 services: active-directory
-author: FaithOmbongi
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/10/2021
-ms.author: ombongifaith
+ms.author: henrymbugua
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication and authorization in the Microsoft identity platform.
@@ -24,7 +23,7 @@ Azure Active Directory (Azure AD) supports two types of authentication for servi
 For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. This article shows you how to use Windows PowerShell to create and export a self-signed certificate.
 
 > [!CAUTION]
-> Using a self-signed certificate is only recommended for development, not production.
+> Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
 
 You configure various parameters for the certificate. For example, the cryptographic and hash algorithms, the certificate validity period, and your domain name. Then export the certificate with or without its private key depending on your application needs. 
 
@@ -51,8 +50,8 @@ Use the certificate you create using this method to authenticate from an applica
 In an elevated PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
 
 ```powershell
-
-$cert = New-SelfSignedCertificate -Subject "CN={certificateName}" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256    ## Replace {certificateName}
+$certname = "{certificateName}"    ## Replace {certificateName}
+$cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
 
 ```
 
@@ -60,7 +59,7 @@ The **$cert** variable in the previous command stores your certificate in the cu
 
 ```powershell
 
-Export-Certificate -Cert $cert -FilePath "C:\Users\admin\Desktop\{certificateName}.cer"   ## Specify your preferred location and replace {certificateName}
+Export-Certificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.cer"   ## Specify your preferred location
 
 ```
 
@@ -74,8 +73,8 @@ Use this option to create a certificate and its private key if your application 
 In an elevated PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with name that you wish to give your certificate.
 
 ```powershell
-
-$cert = New-SelfSignedCertificate -Subject "CN={certificateName}" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256    ## Replace {certificateName}
+$certname = "{certificateName}"    ## Replace {certificateName}
+$cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
 
 ```
 
@@ -84,7 +83,7 @@ The **$cert** variable in the previous command stores your certificate in the cu
 
 ```powershell
 
-Export-Certificate -Cert $cert -FilePath "C:\Users\admin\Desktop\{certificateName}.cer"   ## Specify your preferred location and replace {certificateName}
+Export-Certificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.cer"   ## Specify your preferred location
 
 ```
 
@@ -100,7 +99,7 @@ Now, using the password you stored in the `$mypwd` variable, secure, and export 
 
 ```powershell
 
-Export-PfxCertificate -Cert $cert -FilePath "C:\Users\admin\Desktop\{privateKeyName}.pfx" -Password $mypwd   ## Specify your preferred location and replace {privateKeyName}
+Export-PfxCertificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.pfx" -Password $mypwd   ## Specify your preferred location
 
 ```
 
@@ -113,7 +112,7 @@ If you created the certificate using Option 2, you can delete the key pair from 
 
 ```powershell
 
-Get-ChildItem -Path "Cert:\CurrentUser\My" | Where-Object {$_.Subject -Match "{certificateName}"} | Select-Object Thumbprint, FriendlyName    ## Replace {privateKeyName} with the name you gave your certificate
+Get-ChildItem -Path "Cert:\CurrentUser\My" | Where-Object {$_.Subject -Match "$certname"} | Select-Object Thumbprint, FriendlyName
 
 ```
 

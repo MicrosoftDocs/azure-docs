@@ -1,11 +1,8 @@
 ---
 title: COVID-19 Data Lake
-titleSuffix: Azure Open Datasets
 description: Learn how to use the COVID-19 Data Lake in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

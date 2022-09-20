@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 03/24/2022
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements

@@ -8,8 +8,11 @@
   items:
   - name: Create a lab - Portal
     href: devtest-lab-create-lab.md
+  - name: Create a lab - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-lab-windows-vm-bicep.md
   - name: Create a lab - ARM template
-    displayName: ARM template
+    displayName: Resource Manager
     href: create-lab-windows-vm-template.md
   - name: Create a lab - PowerShell with REST API
     href: quickstarts/create-lab-rest.md
@@ -71,6 +74,8 @@
       href: devtest-lab-auto-shutdown.md
     - name: Set auto startup for lab VMs
       href: devtest-lab-auto-startup-vm.md
+    - name: Manage lab storage account
+      href: encrypt-storage.md
     - name: Scale your lab
       href: devtest-lab-scale-lab.md
     - name: Manage virtual machine bases
@@ -137,7 +142,7 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Attach and detach data disks
       href: devtest-lab-attach-detach-data-disk.md
-    - name: Start VMs using Automation runbooks
+    - name: Define start order for lab VMs
       href: start-machines-use-automation-runbooks.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
@@ -200,12 +205,8 @@
       href: devtest-lab-mandatory-artifacts.md
     - name: Troubleshoot issues with applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
-  - name: Encrypt lab resources
-    items:
-    - name: Encrypt storage used by a lab
-      href: encrypt-storage.md
-    - name: Encrypt OS disks using customer-managed keys
-      href: encrypt-disks-customer-managed-keys.md
+  - name: Encrypt OS disks using customer-managed keys
+    href: encrypt-disks-customer-managed-keys.md
   - name: Integrate with CI/CD
     items:
     - name: Integrate labs into your Azure Pipelines CI/CD pipeline
@@ -242,14 +243,12 @@
         href: devtest-lab-guidance-governance-policy-compliance.md
       - name: Application migration and integration
         href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Test your app in Azure
+  - name: Set up an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot VM and environment creation failures
       href: troubleshoot-vm-environment-creation-failures.md
-    - name: Troubleshoot artifact failures
-      href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Monitor
@@ -260,6 +259,8 @@
       href: create-alerts.md
   - name: Move to new region
     href: how-to-move-labs.md
+  - name: Move schedules to another region
+    href: how-to-move-schedule-to-new-region.md
 - name: Reference
   items:
   - name: CLI

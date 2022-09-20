@@ -1,18 +1,21 @@
 ---
 title: Azure API Management caching policies | Microsoft Docs
-description: Learn about the caching policies available for use in Azure API Management. See examples and view additional available resources.
+description: Reference for the caching policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 03/08/2021
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
+
 # API Management caching policies
 
-This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies used for caching responses. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
+
 
 > [!IMPORTANT]
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
@@ -20,7 +23,7 @@ This article provides a reference for the following API Management policies. For
 ## <a name="CachingPolicies"></a> Caching policies
 
 - Response caching policies
-    - [Get from cache](#GetFromCache) - Perform cache look up and return a valid cached responses when available.
+    - [Get from cache](#GetFromCache) - Perform cache lookup and return a valid cached response when available.
     - [Store to cache](#StoreToCache) - Caches responses according to the specified cache control configuration.
 - Value caching policies
     - [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key.
@@ -28,10 +31,12 @@ This article provides a reference for the following API Management policies. For
     - [Remove value from cache](#RemoveCacheByKey) - Remove an item in the cache by key.
 
 ## <a name="GetFromCache"></a> Get from cache
-Use the `cache-lookup` policy to perform cache look up and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
+Use the `cache-lookup` policy to perform cache lookup and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > This policy must have a corresponding [Store to cache](#StoreToCache) policy.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -126,6 +131,8 @@ The `cache-store` policy caches responses according to the specified cache setti
 > [!NOTE]
 > This policy must have a corresponding [Get from cache](api-management-caching-policies.md#GetFromCache) policy.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -199,6 +206,8 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 > [!NOTE]
 > This policy must have a corresponding [Store value in cache](#StoreToCacheByKey) policy.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -243,7 +252,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
-> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress. 
+> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)] 
 
 ### Policy statement
 
@@ -284,6 +295,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 #### Policy statement
 
 ```xml
@@ -319,11 +332,4 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
 
-## Next steps
-
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

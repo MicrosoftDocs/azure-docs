@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 04/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: calebb, vmahtani
+manager: amycolannino
+ms.reviewer: calebb, vmahtani, ripull
 
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ Organizations can use this control to require Azure AD to pass device informatio
 For more information on the use and configuration of app-enforced restrictions, see the following articles:
 
 - [Enabling limited access with SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
-- [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
+- [Enabling limited access with Exchange Online](/microsoft-365/security/office-365-security/secure-email-recommended-policies?view=o365-worldwide#limit-access-to-exchange-online-from-outlook-on-the-web&preserve-view=true)
 
 ## Conditional Access application control
 
@@ -47,7 +47,7 @@ For more information, see the article [Deploy Conditional Access App Control for
 
 ## Sign-in frequency
 
-Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
+Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource. Administrators can select a period of time (hours or days) or choose to require reauthentication every time.
 
 Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications follow the setting.
 
@@ -80,7 +80,7 @@ For more information, see the article [Configure authentication session manageme
 
 ## Disable resilience defaults (Preview)
 
-During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
+During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy can't be evaluated, access is determined by resilience settings. 
 
 If resilience defaults are disabled, access is denied once existing sessions expire. For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 

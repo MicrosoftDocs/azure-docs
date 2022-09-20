@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 03/27/2021
+ms.date: 08/18/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -30,7 +30,7 @@ The following diagram shows the relationship between these resources.
 
 ### Storage accounts
 
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage blob endpoint forms the base address for the objects in your storage account.
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Blob Storage endpoint forms the base address for the objects in your storage account.
 
 For example, if your storage account is named *mystorageaccount*, then the default endpoint for Blob storage is:
 
@@ -38,14 +38,33 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-account-create.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+The following table describes the different types of storage accounts that are supported for Blob Storage:
+
+| Type of storage account | Performance tier | Usage |
+|--|--|--|
+| General-purpose v2 | Standard | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Blob Storage or one of the other Azure Storage services. |
+| Block blob | Premium | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency. [Learn more about workloads for premium block blob accounts...](../blobs/storage-blob-block-blob-premium.md) |
+| Page blob | Premium | Premium storage account type for page blobs only. [Learn more about workloads for premium page blob accounts...](../blobs/storage-blob-pageblob-overview.md) |
+
+To learn more about types of storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). For information about legacy storage account types, see [Legacy storage account types](../common/storage-account-overview.md#legacy-storage-account-types).
+
+To learn how to create a storage account, see [Create a storage account](../common/storage-account-create.md).
 
 ### Containers
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-> [!NOTE]
-> The container name must be lowercase. For more information about naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+
+- Container names can be between 3 and 63 characters long.
+- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
+- Two or more consecutive dash characters aren't permitted in container names.
+
+The URI for a container is similar to:
+
+`https://myaccount.blob.core.windows.net/mycontainer`
+
+For more information about naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
 ### Blobs
 
@@ -56,6 +75,27 @@ Azure Storage supports three types of blobs:
 - **Page blobs** store random access files up to 8 TiB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+The URI for a blob is similar to:
+
+`https://myaccount.blob.core.windows.net/mycontainer/myblob`
+
+or
+
+`https://myaccount.blob.core.windows.net/mycontainer/myvirtualdirectory/myblob`
+
+Follow these rules when naming a blob:  
+  
+- A blob name can contain any combination of characters.  
+- A blob name must be at least one character long and cannot be more than 1,024 characters long, for blobs in Azure Storage. 
+- Blob names are case-sensitive.  
+- Reserved URL characters must be properly escaped.  
+- The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (*e.g.*, the forward slash '/') that corresponds to the name of a virtual directory.  
+  
+> [!NOTE]
+> Avoid blob names that end with a dot (.), a forward slash (/), or a sequence or combination of the two. No path segments should end with a dot (.).
+
+For more information about naming blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
 ## Move data to Blob storage
 

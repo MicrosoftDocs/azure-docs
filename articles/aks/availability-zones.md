@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 12/10/2021
+ms.date: 03/31/2022
 
 ---
 
@@ -39,8 +39,10 @@ AKS clusters can currently be created using availability zones in the following 
 * North Europe
 * Norway East
 * Southeast Asia
+* South Africa North
 * South Central US
 * Sweden Central
+* Switzerland North
 * UK South
 * US Gov Virginia
 * West Europe
@@ -200,19 +202,19 @@ This article detailed how to create an AKS cluster that uses availability zones.
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 [arm-template-null]: ../azure-resource-manager/templates/template-expressions.md#null-values
 

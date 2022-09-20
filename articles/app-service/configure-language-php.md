@@ -32,7 +32,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep php
+az webapp list-runtimes --os windows | grep PHP
 ```
 
 ::: zone-end
@@ -247,7 +247,7 @@ getenv("DB_HOST")
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the *public/* subdirectory as the site root.
 
-To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. The following example sets the site root to the *public/* subdirectory in your repository.
+To customize the site root, set the virtual application path for the app by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. The following example sets the site root to the *public/* subdirectory in your repository.
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 06/24/2022
 ms.author: sipastak
 ---
 
@@ -24,11 +24,11 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)**DANGER:**
 * Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.
-* Inspect the as-received equipment for damages. If the equipment enclosure is damaged, [contact Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT) to obtain a replacement. Don’t attempt to operate the device.
+* Inspect the as-received equipment for damages. If the equipment enclosure is damaged, [contact Microsoft Support](./index.yml) to obtain a replacement. Don’t attempt to operate the device.
 
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)**CAUTION:**
-* If you suspect the device is malfunctioning, [contact Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT) to obtain a replacement. Don’t attempt to service the equipment. 
+* If you suspect the device is malfunctioning, [contact Microsoft Support](./index.yml) to obtain a replacement. Don’t attempt to service the equipment. 
 * Always wear the appropriate clothing to protect skin from sharp metal edges and avoid sliding any metal edges against skin. Always wear appropriate eye protection to avoid injury from objects that may become airborne.
 * Laser peripherals or devices may be present. To avoid risk or radiation exposure and/or personal injury, don’t open the enclosure of any laser peripheral or device. Laser peripherals or devices aren’t serviceable. Only use certified and rated Laser Class I for optical transceiver products.
 
@@ -41,7 +41,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * This equipment is not to be used as shelves or work spaces. Do not place objects on top of the equipment. Adding any type of load to a rack or wall mounted equipment can create a potential tip or crush hazard which could lead to injury, death, or product damage. 
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard icon](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)![Do not access](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access.png)**CAUTION:**
-* Parts enclosed within panels containing this symbol ![Do not access 2](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access-tiny.png) contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don’t open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT). 
+* Parts enclosed within panels containing this symbol ![Do not access 2](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access-tiny.png) contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don’t open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](./index.yml). 
 * The equipment contains coin cell batteries. There’s a risk of explosion if the battery is replaced by an incorrect type. Dispose of used batteries according to the instructions.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Hot component surface](./media/azure-stack-edge-pro-2-safety/icon-hot-component-surface.png)**CAUTION:**
@@ -124,6 +124,7 @@ This equipment is designed to operate in the following environment:
 * Relative humidity specifications
     * Storage: 5% to 95% relative humidity
     * Operating: 5% to 85% relative humidity
+      * For models with GPU(s), derate allowable max operating temperature by 1°C/210m (2.6°F/1000ft) above 950m (3,117ft).
 * Maximum altitude specifications
     * Operating: 3,050 meters (10,000 feet)
     * Storage: 9,150 meters (30,000 feet)

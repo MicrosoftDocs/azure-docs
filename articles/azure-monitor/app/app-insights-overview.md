@@ -129,7 +129,7 @@ Application Insights helps development teams understand app performance and usag
 
 There are many ways to explore Application Insights telemetry. For more information, see the following articles:
 
-- [Smart detection in Application Insights](./proactive-diagnostics.md)
+- [Smart detection in Application Insights](../alerts/proactive-diagnostics.md)
 
   Set up automatic alerts that adapt to your app's normal telemetry patterns and trigger when something is outside the usual pattern. You can also set alerts on specified levels of custom or standard metrics. For more information, see [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md).
 
@@ -187,7 +187,6 @@ There are many ways to explore Application Insights telemetry. For more informat
 
 ## Next steps
 
-- [Manage usage and costs for Application Insights](pricing.md#manage-usage-and-costs-for-application-insights)
 - [Instrument your web pages](./javascript.md) for page view, AJAX, and other client-side telemetry.
 - [Analyze mobile app usage](../app/mobile-center-quickstart.md) by integrating with Visual Studio App Center.
 - [Monitor availability with URL ping tests](./monitor-web-app-availability.md) to your website from Application Insights servers.
@@ -199,7 +198,7 @@ There are many ways to explore Application Insights telemetry. For more informat
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](https://docs.microsoft.com/answers/topics/24223/azure-monitor.html).
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 

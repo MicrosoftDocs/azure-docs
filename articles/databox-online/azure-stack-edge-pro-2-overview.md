@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/04/2022
+ms.date: 06/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -34,7 +34,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the compute acceleration card. Depending on your compute needs, you may choose a model that comes with or without Graphical Processing Units (GPUs). <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
+|Accelerated AI inferencing| Enabled by the compute acceleration card. Depending on your compute needs, you may choose a model that comes with one, two or no Graphical Processing Units (GPUs). <br> For more information, see [Technical specifications for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-technical-specifications-compliance.md).|
 |Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. <br>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).<br>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.|
@@ -45,7 +45,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
 |Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).|
 |Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions. The functions deployed on Azure Stack Edge include mobile packet core, SD-WAN edge, and VPN services. <br>For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
-|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-placeholder.md).|
+|Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-gpu-clustering-overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 

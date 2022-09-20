@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 08/24/2022
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -24,8 +24,8 @@ See the list of [languages supported](../language-support.md) when using Transla
 
 > [!IMPORTANT]
 >
-> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See [Request approval to run container](#request-approval-to-run-container) below for more information.
-> * Translator container supports limited features compared to the cloud offerings.  *See* [**Container translate methods**](translator-container-supported-parameters.md) for more details.
+> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
+> * Translator container supports limited features compared to the cloud offerings.  Form more information, _see_ [**Container translate methods**](translator-container-supported-parameters.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -33,19 +33,18 @@ See the list of [languages supported](../language-support.md) when using Transla
 
 To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-You'll also need the following:
+You'll also need to have:
 
 | Required | Purpose |
 |--|--|
 | Familiarity with Docker | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
 | Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
 | Translator resource | <ul><li>An Azure [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource with region other than 'global', associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
-|||
 
 |Optional|Purpose|
 |---------|----------|
-|Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
-|||
+|Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
+
 
 ## Required elements
 
@@ -53,11 +52,11 @@ All Cognitive Services containers require three primary elements:
 
 * **EULA accept setting**. An end-user license agreement (EULA) set with a value of `Eula=accept`.
 
-* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource _Keys and Endpoint_ page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
+* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource **Keys and Endpoint** page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
 > [!IMPORTANT]
 >
-> * Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+> * Keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ## Host computer
 
@@ -65,14 +64,17 @@ All Cognitive Services containers require three primary elements:
 
 ## Container requirements and recommendations
 
-The following table describes the minimum and recommended specifications for Translator containers. At least 2 gigabytes (GB) of memory are required and each CPU must be at least 2.6 gigahertz (GHz) or faster. and memory, in gigabytes (GB), to allocate for each Translator. The following table describes the minimum and recommended allocation of resources for each Translator container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for the Translator container.
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
 | Translator connected |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
-|||
 
-For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster. 
+
+* For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. 
+
+* The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
 >
@@ -97,13 +99,13 @@ Application for Gated Services**](https://aka.ms/csgate-translator) to request a
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to download a container image from Microsoft Container registry and run it.
 
 ```Docker
-docker run --rm -it -p 5000:80 --memory 12g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 -v /mnt/d/TranslatorContainer:/usr/local/models \
 -e apikey={API_KEY} \
 -e eula=accept \
 -e billing={ENDPOINT_URI} \
 -e Languages=en,fr,es,ar,ru  \
-mcr.microsoft.com/azure-cognitive-services/translator/text-translation
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview
 ```
 
 The above command:
@@ -124,7 +126,7 @@ You can have this container and a different Azure Cognitive Services container r
 
 ## Query the container's Translator endpoint
 
- The container provides a REST-based Translator endpoint API. Here is an example request:
+ The container provides a REST-based Translator endpoint API. Here's an example request:
 
 ```curl
 curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS"
@@ -165,7 +167,7 @@ There are several ways to validate that the container is running:
 
 #### English &leftrightarrow; German
 
-Navigate to the swagger page: `<http://localhost:5000/swagger/index.html>`
+Navigate to the swagger page: `http://localhost:5000/swagger/index.html`
 
 1. Select **POST /translate**
 1. Select **Try it out**
@@ -217,7 +219,7 @@ print(json.dumps(
 
 Launch Visual Studio, and create a new console application. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node—specifies C# 7.1. Add the [Newtoonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
 
-In the `Program.cs` replace all the existing code with the following:
+In the `Program.cs` replace all the existing code with the following script:
 
 ```csharp
 using Newtonsoft.Json;

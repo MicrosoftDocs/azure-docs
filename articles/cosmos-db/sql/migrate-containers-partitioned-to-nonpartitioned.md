@@ -1,12 +1,13 @@
 ---
 title: Migrate non-partitioned Azure Cosmos containers to partitioned containers
 description: Learn how to migrate all the existing non-partitioned containers into partitioned containers.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-csharp
 ---
 
@@ -46,6 +47,8 @@ Choosing the right partition key is important to utilize the provisioned through
 The following example shows a sample code to create a document with the system defined partition key and read that document:
 
 **JSON representation of the document**
+
+### [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 DeviceInformationItem = new DeviceInformationItem
@@ -108,7 +111,57 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples][1] GitHub repository. 
+### [Java SDK V4](#tab/javav4)
+
+```java
+static class Family {
+  public String id;
+  public String firstName;
+  public String lastName;
+  public String _partitionKey;
+
+  public Family(String id, String firstName, String lastName, String _partitionKey) {
+      this.id = id;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this._partitionKey = _partitionKey;
+  }
+}
+
+...
+
+CosmosDatabase cosmosDatabase = cosmosClient.getDatabase("testdb");
+CosmosContainer cosmosContainer = cosmosDatabase.getContainer("testcontainer");
+
+//  Create single item
+Family family = new Family("id-1", "John", "Doe", "Doe");
+cosmosContainer.createItem(family, new PartitionKey(family._partitionKey), new CosmosItemRequestOptions());
+
+//  Create items through bulk operations
+family = new Family("id-2", "Jane", "Doe", "Doe");
+CosmosItemOperation createItemOperation = CosmosBulkOperations.getCreateItemOperation(family,
+    new PartitionKey(family._partitionKey));
+cosmosContainer.executeBulkOperations(Collections.singletonList(createItemOperation));
+```
+
+For the complete sample, see the [Java samples][2] GitHub repository.
+                      
+## Migrate the documents
+
+While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path is not automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
+
+## Access documents that don't have a partition key
+
+Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
+
+```java
+CosmosItemResponse<JsonNode> cosmosItemResponse = 
+  cosmosContainer.readItem("itemId", PartitionKey.NONE, JsonNode.class);
+```
+
+For the complete sample on how to repartition the documents, see the [Java samples][2] GitHub repository.
+
+---
 
 ## Compatibility with SDKs
 
@@ -135,3 +188,4 @@ If new items are inserted with different values for the partition key, querying 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration
+[2]: https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/nonpartitioncontainercrud

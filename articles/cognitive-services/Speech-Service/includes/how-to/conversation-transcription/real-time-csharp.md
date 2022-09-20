@@ -6,23 +6,20 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
-## Install the Speech SDK
+## Prerequisites
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
+## Set up the environment
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
 
 ## Create voice signatures
 
-If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This is not required if you do not want to use pre-enrolled user profiles to identify specific participants.
+If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
 
-The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
+The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
-The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you need to insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
+The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
 ```csharp
 using System;
@@ -94,7 +91,7 @@ Running the function `GetVoiceSignatureString()` returns a voice signature strin
 
 The following sample code demonstrates how to transcribe conversations in real time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
-If you do not use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
+If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
 > [!NOTE]
 > Make sure the same `subscriptionKey` is used across your application for signature creation, or you will encounter errors. 
@@ -106,7 +103,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
-* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
+* If you want to differentiate speakers without providing voice samples, enable the `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 > [!NOTE]
 > `AudioStreamReader` is a helper class you can get on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
@@ -171,7 +168,7 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         stopRecognition.TrySetResult(0);
                     }
                 };

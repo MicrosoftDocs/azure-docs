@@ -3,7 +3,7 @@ title: Run Azure Machine Learning workloads on Apache Spark in HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 09/15/2022
 ---
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight
@@ -25,7 +25,7 @@ You can use Zeppelin notebooks to use AutoML as well.
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](/azure/python/python-sdk-azure-authenticate) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Azure AD application**.
 

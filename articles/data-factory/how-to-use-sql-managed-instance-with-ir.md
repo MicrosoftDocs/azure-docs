@@ -1,12 +1,12 @@
 ---
 title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 08/10/2022
 ---
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics
 
@@ -18,7 +18,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
 - [Azure-SSIS IR failover with Azure SQL Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md)
-- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Managed Instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
+- [Migrate on-premises SSIS workloads to SSIS in ADF](scenario-ssis-migration-overview.md)
 
 ## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Managed Instance
 
@@ -34,13 +34,13 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             - Inside the same virtual network as the managed instance, with **different subnet**.
             - Inside a different virtual network than the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
         1. [Configure virtual network](#configure-virtual-network).
 
     - Over public endpoint
 
-        Azure SQL Managed Instances can provide connectivity over [public endpoints](../azure-sql/managed-instance/public-endpoint-configure.md). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
+        Azure SQL Managed Instances can provide connectivity over [public endpoints](/azure/azure-sql/managed-instance/public-endpoint-configure). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
         - when Azure-SSIS IR not inside a virtual network (preferred)
 
@@ -50,7 +50,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             |---|---|---|---|---|
             |TCP|Azure Cloud service tag|*|VirtualNetwork|3342|
 
-            For more information, see [Allow public endpoint traffic on the network security group](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+            For more information, see [Allow public endpoint traffic on the network security group](/azure/azure-sql/managed-instance/public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - when Azure-SSIS IR inside a virtual network
 
@@ -66,7 +66,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
+                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](/azure/azure-sql/managed-instance/management-endpoint-find-ip-address)|3342|
 
 ### Configure virtual network
 

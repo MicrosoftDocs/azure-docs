@@ -81,9 +81,9 @@ exports.data = methods;
   
 ## Install debug support
 
-To debug, you must [download](https://nodejs.org/en/download/) and install **node.js**. Install the correct version according to the platform you're using. After you install the node.js runtime, restart Visual Studio Code to implement the changes. 
+To debug, you must [download](https://nodejs.org/en/download/) and install **node.js**. Install the correct version according to the platform you're using. After you install the Node.js runtime, restart Visual Studio Code to implement the changes. 
 
-Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11. 
+Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have Node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11. 
 
 > [!div class="mx-imgBorder"]
 > ![Stream Analytics run and debug udf](./media/debug-user-defined-functions/run-debug-udf.png)
@@ -116,7 +116,7 @@ exports.data = methods;
 > [!div class="mx-imgBorder"]
 > ![Code added to UDA](./media/debug-user-defined-functions/uda-expose-methods.png)
 
-Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11.
+Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have Node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11.
 
 > [!div class="mx-imgBorder"]
 > ![Stream Analytics run and debug uda](./media/debug-user-defined-functions/run-debug-uda.png)

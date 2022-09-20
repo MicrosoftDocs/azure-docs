@@ -211,7 +211,7 @@ Next, create a SAS token for your storage account that the endpoint can use to a
     > [!NOTE]
     > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
     >
-    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az_storage_account_generate_sas).
+    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az-storage-account-generate-sas).
 
 ---
 

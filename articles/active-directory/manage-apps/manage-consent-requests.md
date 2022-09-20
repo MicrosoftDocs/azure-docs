@@ -1,7 +1,6 @@
 ---
 title: Manage consent to applications and evaluate consent requests
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
 author: psignoret
 manager: CelesteDG
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/25/2021
+ms.date: 07/14/2022
 ms.author: phsignor
 ---
 
@@ -17,7 +16,7 @@ ms.author: phsignor
 
 Microsoft recommends that you [restrict user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for apps from verified publishers, and only for permissions that you select. For apps that don't meet these criteria, the decision-making process will be centralized with your organization's security and identity administrator team.
 
-After you've disabled or restricted user consent, you have several important steps to take to help keep your organization secure as you continue to allow business-critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, and to help prevent the use of unmanaged accounts in third-party applications.
+After you've disabled or restricted user consent, you have several important steps to take to help keep your organization secure as you continue to allow business-critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, and to help prevent the use of un-managed accounts in third-party applications.
 
 ## Process changes and education
 
@@ -56,7 +55,7 @@ To minimize impact on trusted, business-critical applications that are already i
 
 Granting tenant-wide admin consent is a sensitive operation.  Permissions will be granted on behalf of the entire organization, and they can include permissions to attempt highly privileged operations. Examples of such operations are role management, full access to all mailboxes or all sites, and full user impersonation.
 
-Before you grant tenant-wide admin consent, it's important to ensure that you trust the application and the application publisher for the level of access you're granting. If you aren't confident that you understand who controls the application and why the application is requesting the permissions, do *not* grant consent.
+Before you grant tenant-wide admin consent, it's important to ensure that you trust the application, and the application publisher for the level of access you're granting. If you aren't confident that you understand who controls the application and why the application is requesting the permissions, do *not* grant consent.
 
 When you're evaluating a request to grant admin consent, here are some recommendations to consider:
 
@@ -68,7 +67,7 @@ When you're evaluating a request to grant admin consent, here are some recommend
 
 * Understand the permissions that are being requested.
 
-   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title displays the permission’s description. The description for application permissions generally end in "without a signed-in user." The description for delegated permissions generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference](/graph/permissions-reference). Refer to the documentation for other APIs to understand the permissions they expose.
+   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title displays the permission’s description. The description for application permissions generally ends in "without a signed-in user." The description for delegated permissions generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference](/graph/permissions-reference). Refer to the documentation for other APIs to understand the permissions they expose.
 
    If you don't understand a permission that's being requested, do *not* grant consent.
 
@@ -88,13 +87,17 @@ When you're evaluating a request to grant admin consent, here are some recommend
 
 For step-by-step instructions for granting tenant-wide admin consent from the Azure portal, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
 
+## Revoke tenant wide admin consent
+
+To revoke tenant-wide admin consent, you can review and revoke the permissions previously granted to the application. For more information, see [review permissions granted to applications](manage-application-permissions.md). You can also remove user’s access to the application by [disabling user sign-in to application](disable-user-sign-in-portal.md) or by [hiding the application](hide-application-from-user-portal.md) so that it doesn’t appear in the My apps portal.
+
 ### Grant consent on behalf of a specific user
 
 Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For a detailed example that uses Microsoft Graph PowerShell, see [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md).
 
 ## Limit user access to applications
 
-User access to applications can still be limited even when tenant-wide admin consent has been granted. For more information about how to require user assignment to an application, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md). Administrators can also limit user access to applications by disabling all future user consent operations to any application.
+User access to applications can still be limited even when tenant-wide admin consent has been granted. To limit user access, require user assignment to an application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md). Administrators can also limit user access to applications by disabling all future user consent operations to any application.
 
 For a broader overview, including how to handle more complex scenarios, see [Use Azure Active Directory (Azure AD) for application access management](what-is-access-management.md).
 

@@ -6,8 +6,8 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/24/2022
-ms.author: aersoy
+ms.date: 06/10/2022
+ms.author: v-smcevoy
 ---
 
 # DICOM Conformance Statement
@@ -22,7 +22,14 @@ Additionally, the following non-standard API(s) are supported:
 
 - [Delete](#delete)
 
-Our service also makes use of REST API versioning. For information on how to specify the version when making requests visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+Our service makes use of REST API versioning. 
+
+> [!NOTE]
+> The version of the REST API must be explicitly specified in the request URL as in the following example:
+>
+> `https://<service_url>/v<version>/studies`
+
+For information on how to specify the version when making requests visit the [API Versioning for DICOM service documentation](api-versioning-dicom-service.md).
 
 ## Store (STOW-RS)
 
@@ -92,7 +99,7 @@ Each dataset in the `FailedSOPSequence` will have the following elements (if the
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1197) | FailureReason            | The reason code why this instance failed to store. |
 
 Each dataset in the `ReferencedSOPSequence` will have the following elements:
@@ -100,7 +107,7 @@ Each dataset in the `ReferencedSOPSequence` will have the following elements:
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1190) | RetrieveURL              | The retrieve URL of this instance on the DICOM server. |
 
 Below is an example response with `Accept` header `application/dicom+json`:

@@ -3,6 +3,7 @@ title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 ms.topic: conceptual
 ms.date: 09/08/2020
+ms.reviewer: newylie
 ---
 
 # Monitor a SharePoint site with Application Insights
@@ -65,6 +66,8 @@ Check out the master page and edit it using SharePoint Designer or any other edi
 Add the code just before the </head> tag. 
 
 ![Screenshot that shows where to add the code to your site page.](./media/sharepoint/04-code.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 #### Or on individual pages
 To monitor a limited set of pages, add the script separately to each page. 

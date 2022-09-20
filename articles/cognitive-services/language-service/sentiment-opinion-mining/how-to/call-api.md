@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 07/27/2022
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -52,7 +52,7 @@ If you're using the REST API, to get Opinion Mining in your results, you must in
 
 By default, sentiment analysis will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
-### Using a preview model version
+<!--### Using a preview model version
 
 To use the a preview model version in your API calls, you must specify the model version using the model version parameter. For example, if you were sending a request using Python:
 
@@ -73,6 +73,7 @@ See the reference documentation for more information.
 * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient#analyze-sentiment-documents----kwargs-)
 * [Java](/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
 * [JavaScript](/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions)
+-->
 
 ### Input languages
 

@@ -17,6 +17,10 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [How to deploy resources with Bicep and Azure CLI](../bicep/deploy-cli.md).
+
+
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment scope
@@ -74,6 +78,8 @@ az deployment group create \
   --template-file <path-to-template> \
   --parameters storageAccountType=Standard_GRS
 ```
+
+The value of the `--template-file` parameter must be a Bicep file or a `.json` or `.jsonc` file. The `.jsonc` file extension indicates the file can contain `//` style comments. The ARM system accepts `//` comments in `.json` files. It does not care about the file extension. For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
 
 The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
@@ -244,7 +250,7 @@ az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-template> \
   --parameters $params
-``` 
+```
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
@@ -264,9 +270,20 @@ az deployment group create \
   --parameters '@storage.parameters.json'
 ```
 
-## Handle extended JSON format
+## Comments and the extended JSON format
 
-To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
+You can include `//` style comments in your parameter file, but you must name the file with a `.jsonc` extension.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters '@storage.parameters.jsonc'
+```
+For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
+
+If you are using Azure CLI with version 2.3.0 or older, you can deploy a template with multi-line strings or comments using the `--handle-extended-json-format` switch.  For example:
 
 ```json
 {

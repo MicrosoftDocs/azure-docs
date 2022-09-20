@@ -1,75 +1,81 @@
 ### YamlMime:Hub
 
-title: Microsoft Defender for IoT 
-summary: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
-brand: azure ## Used for color theming of icons and hero area
+title: Microsoft Defender for IoT
+summary: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud, on-premises, or hybrid.
 
 metadata:
   title: Microsoft Defender for IoT documentation
-  description: Learn how Microsoft Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
+  description: Learn how Microsoft Defender for IoT, an Azure-based, cloud security service provides comprehensive IoT device threat protection.
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
-  ms.collection: M365-security-compliance
-  author: elazark
-  ms.author: v-ekrieg
+  author: batamig
   manager: raynew
-  ms.date: 11/09/2021
+  ms.date: 07/10/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Microsoft Defender for IoT for end-user organizations?
+    - title: Microsoft Defender for IoT support for end-user organizations
       itemType: overview # controls the icon image and super-title text
       url: organizations/overview.md
     - title: What's new for end-user organizations?
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Agentless solution architecture for end-user organizations
-      itemType: architecture 
+    - title: Agentless system architecture
+      itemType: architecture
       url: organizations/architecture.md
-    - title: What is Microsoft Defender for IoT for device builders?
+    - title: Microsoft Defender for IoT support for device builders
       itemType: overview
       url: device-builders/overview.md
     - title: What's new for device builders?
       itemType: whats-new
       url: device-builders/release-notes.md
-    - title: Agent-based solution architecture for device builders
-      itemType: architecture
-      url: device-builders/architecture-agent-based.md
+    - title: Configure Microsoft Defender for IoT on your Azure IoT Hub
+      itemType: quickstart
+      url: device-builders/quickstart-onboard-iot-hub.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Microsoft Defender for IoT for end-user organizations 
+    - title: Microsoft Defender for IoT documentation for end-user organizations
       links:
         - url: organizations/getting-started.md
           itemType: quickstart
-          text: Get started with Defender for IoT for end-user organizations
-        - url: organizations/concept-key-concepts.md
-          itemType: quickstart
-          text: Key concepts
-        - url: organizations/how-to-set-up-your-network.md
-          itemType: how-to-guide
-          text: About Microsoft Defender for IoT network setup
+          text: Get started with Defender for IoT
+        - url: organizations/tutorial-onboarding.md
+          itemType: tutorial
+          text: Get started with for OT security monitoring
+        - url: organizations/tutorial-getting-started-eiot-sensor.md
+          itemType: tutorial
+          text: Get started with Enterprise IoT security monitoring
+        - url: organizations/best-practices/understand-network-architecture.md
+          itemType: concept
+          text: Understand your OT network architecture
+        - url: organizations/concept-sentinel-integration.md
+          itemType: concept
+          text: OT threat monitoring in enterprise SOCs
       footerLink:
         url: organizations/index.yml
         text: See more
 
-    - title: Microsoft Defender for IoT for device builders
+    - title: Microsoft Defender for IoT documentation for device builders
       links:
-        - url: device-builders/quickstart-onboard-iot-hub.md
-          itemType: quickstart
-          text: Onboard Defender for IoT to an agent-based solution
-        - url: device-builders/quickstart-configure-your-solution.md
-          itemType: quickstart
-          text: Configure your Microsoft Defender for IoT solution
-        - url: device-builders/concept-recommendations.md
-          itemType: concept
-          text: Security recommendations for IoT Hub
-        - url: device-builders/how-to-configure-agent-based-solution.md
-          itemType: how-to-guide
-          text: Configure Microsoft Defender for IoT
+        - url: device-builders/tutorial-configure-your-solution.md
+          itemType: tutorial
+          text: Add a resource group to your IoT solution
+        - url: device-builders/tutorial-create-micro-agent-module-twin.md
+          itemType: tutorial
+          text: Create a DefenderIotMicroAgent module twin
+        - url: device-builders/tutorial-standalone-agent-binary-installation.md
+          itemType: tutorial
+          text: Install the Defender for IoT micro agent
+        - url: device-builders/tutorial-investigate-security-recommendations.md
+          itemType: tutorial
+          text: Investigate security recommendations
+        - url: device-builders/tutorial-investigate-security-alerts.md
+          itemType: tutorial
+          text: Investigate security alerts
       footerLink:
         url: device-builders/index.yml
         text: See more

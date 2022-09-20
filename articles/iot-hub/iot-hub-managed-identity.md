@@ -7,19 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: lizross
+ms.custom: subject-rbac-steps
 ---
 
 # IoT Hub support for managed identities 
 
-Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. IoT Hub supports both. 
+Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the need for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. IoT Hub supports both. 
 
 In IoT Hub, managed identities can be used for egress connectivity from IoT Hub to other Azure services for features such as [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). In this article, you learn how to use system-assigned and user-assigned managed identities in your IoT hub for different functionalities.
 
 ## Prerequisites
 
-- Read the documentation of [managed identities for Azure resources](./../active-directory/managed-identities-azure-resources/overview.md) to understand the differences between system-assigned and user-assigned managed identity.
+- Understand the managed identity differences between *system-assigned* and *user-assigned* in [What are managed identities for Azure resources?](./../active-directory/managed-identities-azure-resources/overview.md)
 
-- If you don’t have an IoT hub, [create one](iot-hub-create-through-portal.md) before continuing.
+- An [IoT hub](iot-hub-create-through-portal.md) 
 
 ## System-assigned managed identity
 
@@ -226,28 +227,38 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 Managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs, and service bus endpoints.
 
 > [!NOTE]
-> Use a system-assigned managed identity to access private resources.
+> Only system-assigned managed identity gives IoT Hub access to private resources. If you want to use user-assigned managed identity, then the public access on those private resources needs to be enabled in order to allow connectivity. 
 
 ## Configure message routing with managed identities
 
-In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an event hub custom endpoint as an example. The example applies to other routing custom endpoints. 
+In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an event hub custom endpoint as an example. The example applies to other routing custom endpoints.
 
-1. First we need to go to your event hub in Azure portal, to assign the managed identity the right access. In your event hub, navigate to the **Access control (IAM)** tab and click **Add** then **Add a role assignment**. If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+1. Go to your event hub in the Azure portal to assign the managed identity the right access.
 
-2. Select **Event Hubs Data Sender as role**.
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Role** tab, select **Azure Event Hubs Data Sender**.
 
     > [!NOTE]
-    > For storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as **role**. For service bus, select **Service bus Data Sender** as **role**.
+    > For a storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as the role. For a service bus, select **Azure Service Bus Data Sender**.
 
-3. For user-assigned, choose **User-assigned managed identity** under **Assign access to**. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="Screenshot that shows message routing with user assigned.":::
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT Hub's resource name in the drop-down list. Click **Save**.
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="Screenshot that shows message routing with system assigned.":::
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
 
-    If you need to restrict the connectivity to your custom endpoint through a VNet, you need to turn on the trusted Microsoft first party exception, to give your IoT hub access to the specific endpoint. For example, if you're adding an event hub custom endpoint, navigate to the **Firewalls and virtual networks** tab in your event hub and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**. Click the **Save** button. This also applies to storage account and service bus. Learn more about [IoT Hub support for virtual networks](./virtual-network-support.md).
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+
+1. If you need to restrict the connectivity to your custom endpoint through a VNet, you need to turn on the trusted Microsoft first party exception, to give your IoT hub access to the specific endpoint. For example, if you're adding an event hub custom endpoint, navigate to the **Firewalls and virtual networks** tab in your event hub and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**. Click the **Save** button. This also applies to storage account and service bus. Learn more about [IoT Hub support for virtual networks](./virtual-network-support.md).
 
     > [!NOTE]
     > You need to complete above steps to assign the managed identity the right access before adding the event hub as a custom endpoint in IoT Hub. Please wait a few minutes for the role assignment to propagate.
@@ -266,12 +277,27 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
 ## Configure file upload with managed identities
 
-IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub needs to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account. 
+IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub needs to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account.
 
-1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
-2. Select **Storage Blob Data Contributor** (not Contributor or Storage Account Contributor) as role.
-3. For user-assigned, choose **User-assigned managed identity** under Assign access to. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
-4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT hub's resource name in the drop-down list. Click **Save**.
+1. In the Azure portal, navigate to your storage account.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
+
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
     If you need to restrict the connectivity to your storage account through a VNet, you need to turn on the trusted Microsoft first party exception, to give your IoT hub access to the storage account. On your storage account resource page, navigate to the **Firewalls and virtual networks** tab and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button. Learn more about [IoT Hub support for virtual networks](./virtual-network-support.md). 
 
@@ -287,12 +313,27 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 ## Configure bulk device import/export with managed identities
 
-IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-identity-mgmt.md)' information in bulk from/to a customer-provided storage blob. This functionality requires connectivity from IoT Hub to the storage account. 
+IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-identity-mgmt.md)' information in bulk from/to a customer-provided storage blob. This functionality requires connectivity from IoT Hub to the storage account.
 
-1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
-2. Select **Storage Blob Data Contributor** (not Contributor or Storage Account Contributor) as role.
-3. For user-assigned, choose **User-assigned managed identity** under Assign access to. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
-4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT hub's resource name in the drop-down list. Click **Save**.
+1. In the Azure portal, navigate to your storage account.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
+
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ### Using REST API or SDK for import and export jobs
 
@@ -376,7 +417,7 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 ## SDK samples
 - [.NET SDK sample](https://aka.ms/iothubmsicsharpsample)
 - [Java SDK sample](https://aka.ms/iothubmsijavasample)
-- [Python SDK sample](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-hub/samples)
+- [Python SDK sample](https://github.com/Azure/azure-iot-hub-python/tree/main/samples)
 - Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
 
 ## Next steps

@@ -8,22 +8,22 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 07/05/2022
 ms.author: patricka
 ---
 
 # What is Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
-Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
+Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows deployments. Businesses that rely on Windows to power their edge devices and solutions can now take advantage of the cloud-native analytics solutions being built in Linux.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 >[!NOTE]
 >The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 Azure IoT Edge for Linux on Windows works by running a Linux virtual machine on a Windows device. The Linux virtual machine comes pre-installed with the Azure IoT Edge runtime. Any Azure IoT Edge modules deployed to the device run inside the virtual machine. Meanwhile, Windows applications running on the Windows host device can communicate with the modules running in the Linux virtual machine.
 
@@ -39,24 +39,25 @@ Azure IoT Edge for Linux on Windows uses the following components to enable Linu
 
 * **Windows Admin Center**: An Azure IoT Edge extension for Windows Admin Center facilitates installation, configuration, and diagnostics of Azure IoT Edge on the Linux virtual machine. Windows Admin Center can deploy Azure IoT Edge for Linux on Windows on the local device, or can connect to target devices and manage them remotely.
 
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date.
+* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
+
 
 ![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-and-communication.png)
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 * **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.
 
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date.
+* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 
 > [!NOTE]
 > Azure IoT Edge for Linux on Windows extension for Windows Amin Center (WAC) is not supported with this EFLOW version.
 
 [ ![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-eflow1-2.png) ](./media/iot-edge-for-linux-on-windows/architecture-eflow1-2.png#lightbox)
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 Bi-directional communication between Windows process and the Linux virtual machine means that Windows processes can provide user interfaces or hardware proxies for workloads run in the Linux containers.
 
@@ -74,19 +75,20 @@ A Windows device with the following minimum requirements:
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
-## Platform support
-Azure IoT Edge for Linux on Windows supports the following architectures:
+For more information about IoT Edge for Linux on Windows requirements, see [Azure IoT Edge for Linux on Windows supported systems](./iot-edge-for-linux-on-windows-support.md).
 
-| Version | AMD64 | ARM64 |
-| ---------------- | ----- |  ----- |
-| EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
-| EFLOW CR (public preview) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+## Platform support
+
+Azure IoT Edge for Linux on Windows supports both AMD64 and ARM64 architectures. For more information about EFLOW platform support, see [Azure IoT Edge for Linux on Windows supported systems](./iot-edge-for-linux-on-windows-support.md)
+
 
 ## Samples
 
 Azure IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.
 
 For samples that demonstrate communication between Windows applications and Azure IoT Edge modules, see [EFLOW GitHub](https://aka.ms/AzEFLOW-Samples).
+
+Also, you can use your IoT Edge for Linux on Windows device to act as a transparent gateway for other edge devices. For more information on how to configure EFLOW as a transparent gateway, see [Configure an IoT Edge device to act as a transparent gateway](./how-to-create-transparent-gateway.md).
 
 ## Support
 

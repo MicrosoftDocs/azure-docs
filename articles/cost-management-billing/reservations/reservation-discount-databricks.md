@@ -12,7 +12,7 @@ ms.author: banders
 
 # How Azure Databricks pre-purchase discount is applied
 
-You can use pre-purchased Azure Databricks commit units (DBCU) at any time during the purchase term. Any Azure Databricks usage is deducts from the pre-purchased DBCUs automatically.
+You can use pre-purchased Azure Databricks commit units (DBCU) at any time during the purchase term. Any Azure Databricks usage is deducted from the pre-purchased DBCUs automatically.
 
 Unlike VMs, pre-purchased units don't expire on an hourly basis. You can use them at any time during the term of the purchase. To get the pre-purchase discounts, you don't need to redeploy or assign a pre-purchased plan to your Azure Databricks workspaces for the usage.
 
@@ -28,6 +28,7 @@ Databricks pre-purchase applies to all Databricks workloads and tiers. You can t
 | Jobs Compute | 0.15 | 0.30 |
 | Jobs Light Compute | 0.07 | 0.22 |
 | SQL Compute | NA | 0.22 |
+| Delta Live Tables | NA | 0.30 (core), 0.38 (pro), 0.54 (advanced) |
 
 For example, when a quantity of Data Analytics – Standard tier is consumed, the pre-purchased Databricks commit units is deducted by 0.4 units. When a quantity of Data Engineering Light – Standard tier is used, the pre-purchased Databricks commit unit is deducted by 0.07 units.
 
@@ -35,7 +36,7 @@ Note: enabling Photon will increase the DBU count.
 
 ## Determine plan use
 
-To determine your DBCU plan use, go to the Azure portal > **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](reservation-apis.md#see-reservation-usage) article.
+To determine your DBCU plan use, go to the Azure portal > **Reservations** and select the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](reservation-apis.md#see-reservation-usage) article.
 
 ## How discount application shows in usage data
 
