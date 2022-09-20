@@ -58,7 +58,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    In the actions menu within the project's details pane, select **Create job definition** to open the **Create a migration job** window. If no job definitions exist within the project, you can also select **Create a job definition** near the bottom of the pane, as shown in the example below.
 
-   :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/project-manage/project-selected-lrg.png":::
+   :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/job-definition-create/project-selected-lrg.png":::
 
 1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You may also add an optional description value of less than 1024 characters. Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
 
