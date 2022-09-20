@@ -11,7 +11,7 @@
     - name: .NET
       href: quickstart-dotnet.md
     - name: Java
-      href: create-table-java.md
+      href: quickstart-java.md
     - name: Node.js
       href: create-table-nodejs.md
     - name: Python

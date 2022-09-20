@@ -506,6 +506,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/table/create-table-java.md",
+      "redirect_url": "/azure/cosmos-db/table/quickstart-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false
