@@ -59,7 +59,7 @@ You can declare your major input data with `input_data` attribute in parallel jo
 
 # [Azure CLI](#tab/cliv2)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="29-41" highlight="5,10,13":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-41" highlight="5-8,18-19":::
 
 # [Python](#tab/python)
 
