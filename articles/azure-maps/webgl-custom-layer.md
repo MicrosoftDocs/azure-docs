@@ -13,8 +13,8 @@ services: azure-maps
 # Add a custom WebGL layer to a map
 
 The Azure Maps Web SDK supports creating custom layers
-using [WebGL](getting_started_with_webgl). WebGL is based
-on [OpenGL ES](OpenGL ES) and enables rendering 2D and 3D
+using [WebGL][getting_started_with_webgl]. WebGL is based
+on [OpenGL ES][OpenGL ES] and enables rendering 2D and 3D
 graphics in web browsers.
 
 Using WebGL, you can build high-performance interactive
@@ -24,7 +24,7 @@ scenarios like simulations, data visualization, animations and
 
 Developers can access the WebGL context of the map during
 rendering and use custom WebGL layers to integrate with other
-libraries such as [three.js](threejs) and [deck.gl](deckgl)
+libraries such as [three.js][threejs] and [deck.gl][deckgl]
 to provide enriched and interactive content on the map.
 
 ## Add a WebGL layer
@@ -136,7 +136,7 @@ methods can be used to project a Mercator point to a Position.
 ## Render a 3D model
 
 Use a WebGL layer to render 3D models. The following example shows how
-to load a [glTF](glTF) file and render it on the map using [three.js](threejs).
+to load a [glTF][glTF] file and render it on the map using [three.js][threejs].
 
 You need to add the following script files.
 
@@ -167,7 +167,7 @@ one of the style options while creating the map.
 
 ## Render a deck.gl layer
 
-A WebGL layer can be used to render layers from the [deck.gl](deckgl)
+A WebGL layer can be used to render layers from the [deck.gl][deckgl]
 library. The following sample demonstrates the data visualization of
 people migration flow in the United States from county to county
 within a certain time range.
@@ -210,7 +210,7 @@ class DeckGLLayer extends atlas.layer.WebGLLayer {
 } 
 ```
 
-This sample renders an arc-layer from the [deck.gl](deckgl) library.
+This sample renders an arc-layer from the [deck.gl][deckgl] library.
 
 ![A screenshot showing an arc-layer from the Deck G L library.](./media/how-to-webgl-custom-layer/arc-layer.png)
 
@@ -221,16 +221,16 @@ Learn more about the classes and methods used in this article:
 TODO: Need links for all of the following:
 
 > [!div class="nextstepaction"]
-> (WebGLLayer)[getting_started_with_webgl]
+> [WebGLLayer][getting_started_with_webgl)
 
 > [!div class="nextstepaction"]
-> (WebGLLayerOptions)[getting_started_with_webgl]
+> [WebGLLayerOptions][getting_started_with_webgl)
 
 > [!div class="nextstepaction"]
-> (WebGLRenderer interface)[getting_started_with_webgl]
+> [WebGLRenderer interface][getting_started_with_webgl)
 
 > [!div class="nextstepaction"]
-> (MercatorPoint)[getting_started_with_webgl]
+> [MercatorPoint][getting_started_with_webgl)
 
 [getting_started_with_webgl]: https://developer.mozilla.org/en-US/docs/web/api/webgl_api/tutorial/getting_started_with_webgl
 [threejs]: https://threejs.org/
