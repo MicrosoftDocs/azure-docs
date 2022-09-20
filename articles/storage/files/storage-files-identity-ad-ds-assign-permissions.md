@@ -64,7 +64,7 @@ In order for share-level permissions to work, you must:
 Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication.
 
 > [!TIP]
-> Customers who want to migrate SMB server share-level permissions to RBAC permissions can use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet to migrate directory and file-level permissions from on-premises to Azure. This cmdlet evaluates the groups of a particular share on premises, then writes the appropriate users and groups to the Azure file share using the three RBAC roles. You provide the information for the on-premises share and the Azure file share when invoking the cmdlet.
+> Optional: Customers who want to migrate SMB server share-level permissions to RBAC permissions can use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet to migrate directory and file-level permissions from on-premises to Azure. This cmdlet evaluates the groups of a particular on-premises file share, then writes the appropriate users and groups to the Azure file share using the three RBAC roles. You provide the information for the on-premises share and the Azure file share when invoking the cmdlet.
 
 You can use the Azure portal, Azure PowerShell module, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
