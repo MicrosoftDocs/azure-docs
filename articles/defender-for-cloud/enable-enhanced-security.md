@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 In this quickstart, you'll learn how to enable the enhanced security features by enabling the Defender for Cloud plans through the Azure portal.
 
-Microsoft Defender for Cloud uses [monitoring extensions](monitoring-components.md) to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.
+Microsoft Defender for Cloud uses [monitoring components](monitoring-components.md) to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring components, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.
 
 The Defender plans show you the monitoring coverage for each Defender plan. If the monitoring coverage is **Full**, all of the necessary extensions are installed. If the monitoring coverage is **Partial**, the information tooltip tells you what extensions are missing. For some plans, you can configure specific monitoring settings.
 
@@ -53,7 +53,7 @@ When you enabled Defender plans on an entire Azure subscription, the protections
     
 1. Select **Save**.
 
-All of the plans are turned on and the monitoring extensions required by each plan are deployed to the protected resources.
+All of the plans are turned on and the monitoring components required by each plan are deployed to the protected resources.
 
 If you want to disable any of the plans, turn the plan off. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
 
@@ -88,4 +88,4 @@ Certain plans allow you to customize your protection.
 - Learn about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which plan you want to apply to your subscription.
 - Defender for Databases lets you [select which type of resources you want to protect](quickstart-enable-database-protections.md).
 - Learn more about [how to enable Defender for Containers](defender-for-containers-enable.md) for different Kubernetes environments.
-- Learn about the [monitoring extensions](monitoring-components.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.
+- Learn about the [monitoring components](monitoring-components.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.

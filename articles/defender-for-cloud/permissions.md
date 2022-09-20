@@ -34,7 +34,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 
 
-The specific role required to deploy monitoring extensions depends on the extension you're deploying. Learn more about [monitoring extensions](monitoring-components.md).
+The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

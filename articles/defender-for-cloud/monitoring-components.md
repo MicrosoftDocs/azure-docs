@@ -20,9 +20,9 @@ Data is collected using:
 - The **Log Analytics agent**, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
 - **Security extensions**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), which can also provide data to Defender for Cloud regarding specialized resource types.
 
-## Why use Defender for Cloud to deploy monitoring extensions?
+## Why use Defender for Cloud to deploy monitoring components?
 
-The security of your workloads depends on the data that the monitoring extensions collects. The extensions ensure security coverage for all supported resources.
+The security of your workloads depends on the data that the monitoring components collect. The extensions ensure security coverage for all supported resources.
 
 To save you the process of manually installing the extensions, such as [the manual installation of the Log Analytics agent](working-with-log-analytics-agent.md#manual-agent-provisioning), Defender for Cloud reduces management overhead by installing all required extensions on existing and new machines. 
 
@@ -31,9 +31,9 @@ Defender for Cloud assigns the appropriate **Deploy if not exists** policy to th
 > [!TIP]
 > Learn more about Azure Policy effects including **Deploy if not exists** in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
-## What plans use monitoring extensions?
+## What plans use monitoring components?
 
-These plans use monitoring extensions to collect data:
+These plans use monitoring components to collect data:
 
 - Defender for Servers
   - [Azure Arc agent](../azure-arc/servers/manage-vm-extensions.md) (For multicloud and on-premises servers)
@@ -150,7 +150,7 @@ By default, the required extensions are enabled when you enable Defender for Con
 
 ## Next steps
 
-This page explained how to enable monitoring extensions. Learn more about:
+This page explained how to enable monitoring components. Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
 - Protecting workloads with [enhanced security features](enhanced-security-features-overview.md)

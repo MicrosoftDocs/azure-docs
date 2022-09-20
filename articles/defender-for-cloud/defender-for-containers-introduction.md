@@ -43,7 +43,7 @@ You can use the resource filter to review the outstanding recommendations for yo
 
 ### Kubernetes data plane hardening
 
-To protect the workloads of your Kubernetes containers with tailored recommendations, you can install the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md). Learn more about [monitoring extensions](monitoring-components.md) for Defender for Cloud.
+To protect the workloads of your Kubernetes containers with tailored recommendations, you can install the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md). Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
 With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure it to enforce the best practices and mandate them for future workloads.
 

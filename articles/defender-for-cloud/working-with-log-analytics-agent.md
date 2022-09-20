@@ -158,7 +158,7 @@ To manually install the Log Analytics agent:
 
 <a name="offprovisioning"></a>
 
-To turn off monitoring extensions of an agent:
+To turn off monitoring components:
 
 - Go to the Defender plans and turn off the plan that uses the extension and select **Save**.
 - For Defender plans that have monitoring settings, go to the settings of the Defender plan, turn off the extension, and select **Save**.
