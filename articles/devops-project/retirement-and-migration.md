@@ -67,7 +67,7 @@ Azure Developer CLI provides more developer-friendly commands in contrast to the
 
 No. Application code, deployments, and Azure resources that host the application will still be available. DevOps Starter does not store any of these resources.
 
-3. Will I lose the CI/CD pipeline that I created using DevOps Starter?
+### Will I lose the CI/CD pipeline that I created using DevOps Starter?
 
 No. You can still manage CI/CD pipelines in GitHub Actions or Azure Pipelines.
 
