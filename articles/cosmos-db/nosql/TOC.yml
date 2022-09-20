@@ -1252,7 +1252,7 @@
     - name: Whitepapers
       href: ../whitepapers.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Partners
-      href: ../partners-migration-cosmosdb.md?toc=/azure/cosmos-db/sql/toc.json
+      href: ../partners-migration.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos

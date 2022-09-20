@@ -2446,6 +2446,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/partners-migration-cosmosdb.md",
+      "redirect_url": "/azure/cosmos-db/partners-migration",
+      "redirect_document_id": true
+    }
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-query-contains.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-query-contains",
       "redirect_document_id": true

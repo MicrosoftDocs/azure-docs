@@ -412,7 +412,7 @@
     - name: Whitepapers
       href: ../whitepapers.md
     - name: Partners
-      href: ../partners-migration-cosmosdb.md
+      href: ../partners-migration.md
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos
