@@ -76,7 +76,7 @@ To set up an SAP CDC (preview) linked service:
 
 ## Set up a mapping data flow using the SAP CDC dataset as a source
 
-To set up a mapping data flow using the SAP CDC dataset as a source, follow [Transform data with the SAP CDC connector](connector-sap-cdc.md#transform-data-with-the-sap-cdc-connector)
+To set up a mapping data flow using the SAP CDC dataset as a source, follow [Transform data with the SAP CDC connector](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
 
 ## Next steps
 

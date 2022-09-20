@@ -31,3 +31,7 @@ If you want Microsoft to debug Azure Data Factory issues with your SAP CDC conne
 After you've uploaded and sent your self-hosted integration runtime logs, contact Microsoft support. In your support request, include the Report ID and Timestamp values that are shown in the confirmation:
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-diagnostics-report-id.png" alt-text="Screenshot of the self-hosted integration runtime's diagnostic log confirmation, with Report ID and Timestamp highlighted.":::
+
+## Next steps
+
+[SAP CDC (Change Data Capture) Connector](connector-sap-change-data-capture.md)

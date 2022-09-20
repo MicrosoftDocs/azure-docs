@@ -39,7 +39,7 @@ To set up your SAP systems to use the SAP ODP framework, follow the guidelines t
 
 ### SAP system requirements
 
-The ODP framework is available by default in most recent software releases of most SAP systems, including SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. To ensure that your SAP systems have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP DS as subscribers or consumers in data extraction via ODP, the guidance also applies to Data Factory as a subscriber or consumer.
+The ODP framework is part of many SAP systems, including SAP ECC and SAP S/4HANA. It is also contained in SAP BW and SAP BW/4HANA. To ensure that your SAP releases have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
 - To support ODP, run your SAP systems on SAP NetWeaver 7.0 SPS 24 or later. For more information, see [Transferring Data from SAP Source Systems via ODP (Extractors)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/327833022dcf42159a5bec552663dc51.html).
 - To support SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).

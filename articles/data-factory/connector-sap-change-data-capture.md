@@ -44,7 +44,7 @@ To use this SAP CDC connector, you need to:
 
 - Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
 
-  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Install SAP Connector for .NET":::
+  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Screenshot showing installation of SAP Connector for .NET.":::
 
 - The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#set-up-the-sap-user):
 
@@ -71,20 +71,20 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
 1.	In ADF Studio, go to the **Data flows** section of the **Author** hub, select the **…** button to drop down the **Data flow actions** menu, and select the **New data flow** item. Turn on debug mode by using the **Data flow debug** button in the top bar of data flow canvas.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-data-flow-debug.png" alt-text="Screenshot of the data flow debug button in mapping data flow.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-data-flow-debug.png" alt-text="Screenshot of the data flow debug button in mapping data flow.":::
 
 1. In the mapping data flow editor, select **Add Source**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
 
 1. On the tab **Source settings** select a prepared SAP CDC dataset or select the **New** button to create a new one. Alternatively, you can also select **Inline** in the **Source type** property and continue without defining an explicit dataset.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
 1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-mdf-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
 
 1. For details on the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
