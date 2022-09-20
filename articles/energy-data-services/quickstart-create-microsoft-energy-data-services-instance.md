@@ -73,7 +73,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Select Next: **Review + Create**.
 
-1. Once the basic validation tests have been passed, review the Terms and Basic Details. 
+1. Once the basic validation tests pass (validation takes a few seconds), review the Terms and Basic Details. 
 
     [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png#lightbox)
 
