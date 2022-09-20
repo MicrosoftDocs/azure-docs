@@ -40,7 +40,7 @@ In comparison to the dedicated offering, the premium tier provides the following
 Therefore, the premium tier is often a more cost effective option for event streaming workloads up to 160 MB/sec (per namespace), especially with changing loads throughout the day or week, when compared to the dedicated tier. 
 
 > [!NOTE]
-> For the extra robustness gained by availability-zone support, the minimal deployment scale for the dedicated tier is 8 capacity units (CU), but you'll have availability zone support in the premium tier from the first PU in all availability zone regions. 
+> For the extra robustness gained by **availability-zone** support, the minimal deployment scale for the dedicated tier is **8 capacity units (CU)**, but you'll have availability zone support in the premium tier from the first PU in all availability zone regions. 
 
 You can purchase 1, 2, 4, 8 and 16 processing units for each namespace. As the premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle as it is in the standard tier, but depends on the work you ask Event Hubs to do, similar to the dedicated tier. The effective ingest and stream throughput per PU will depend on various factors, including:
 
