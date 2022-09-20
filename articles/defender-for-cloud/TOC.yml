@@ -218,7 +218,7 @@
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities and software inventory with agentless scanning
-        href: deploy-vulnerability-assessment-agentless.md
+        href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid
         href: deploy-vulnerability-assessment-tvm.md
