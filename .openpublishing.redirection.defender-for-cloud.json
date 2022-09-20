@@ -712,7 +712,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/enable-data-collection.md",
-            "redirect_url": "/azure/defender-for-cloud/monitoring-extensions",
+            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
             "redirect_document_id": true
         },
         {
