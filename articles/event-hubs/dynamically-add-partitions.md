@@ -15,7 +15,7 @@ You can specify the number of partitions at the time of creating an event hub. I
 > Dynamic additions of partitions is available only in **premium** and **dedicated** tiers of Event Hubs. 
 
 > [!NOTE]
-> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)
+> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hubs-conceptual-mapping)
 
 
 ## Update the partition count

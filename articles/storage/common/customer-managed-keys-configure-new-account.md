@@ -34,11 +34,11 @@ A user-assigned is a standalone Azure resource. To learn more about user-assigne
 
 Both new and existing storage accounts can use a user-assigned identity to authorize access to the key vault. You must create the user-assigned identity before you configure customer-managed keys.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account).
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To authorize access to the key vault with a user-assigned managed identity, you'll need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity and assign it to a variable that you'll reference in subsequent steps:
 
@@ -61,11 +61,11 @@ principalId=$(az identity show --name sample-user-assigned-identity --resource-g
 
 The next step is to configure the key vault access policy. The key vault access policy grants permissions to the user-assigned managed identity that will be used to authorize access to the key vault. To learn more about key vault access policies, see [Azure Key Vault Overview](../../key-vault/general/overview.md#securely-store-secrets-and-keys) and [Azure Key Vault security overview](../../key-vault/general/security-features.md#key-vault-authentication-options).
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To learn how to configure the key vault access policy with the Azure portal, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To configure the key vault access policy with PowerShell, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), providing the variable for the principal ID that you previously retrieved for the user-assigned managed identity.
 
@@ -107,7 +107,7 @@ Azure Storage can automatically update the customer-managed key that is used for
 > [!IMPORTANT]
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To configure customer-managed keys for a new storage account with automatic updating of the key version, follow these steps:
 
@@ -124,7 +124,7 @@ To configure customer-managed keys for a new storage account with automatic upda
 
 You can also configure customer-managed keys with manual updating of the key version when you create a new storage account. Follow the steps described in [Configure encryption for manual updating of key versions](#configure-encryption-for-manual-updating-of-key-versions).
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To configure customer-managed keys for a new storage account with automatic updating of the key version, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You'll also need the key vault URI and key name:
 
@@ -168,7 +168,7 @@ If you prefer to manually update the key version, then explicitly specify the ve
 
 You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/azure-portal)
 
 To configure customer-managed keys with manual updating of the key version in the Azure portal, specify the key URI, including the version, while creating the storage account. To specify a key as a URI, follow these steps:
 
@@ -189,7 +189,7 @@ To configure customer-managed keys with manual updating of the key version in th
 
 1. Select the **Review** button to validate and create the account.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption while creating the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
