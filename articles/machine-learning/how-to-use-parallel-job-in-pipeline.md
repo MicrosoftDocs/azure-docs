@@ -63,26 +63,8 @@ You can declare your major input data with `input_data` attribute in parallel jo
 
 # [Python](#tab/python)
 
-``` python
-
-file_batch_inference = parallel_run_function(
-    name="file_batch_score",
-    inputs=dict(
-        <mark><b>job_data_path</b>=Input(</mark>
-            <mark>type=AssetTypes.MLTABLE,</mark>
-            <mark>description="The data to be split and scored in parallel",</mark>
-        <mark>)</mark>
-    ),
-    outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
-    <mark>input_data="${{inputs.<b>job_data_path</b>}}",</mark>
-    task=RunFunction(
-        code="./src",
-        entry_script="file_batch_inference.py",
-        program_arguments="--job_output_path ${{outputs.job_output_path}}",
-        environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
-    ),
-)
-```
+Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 
 ---
 
