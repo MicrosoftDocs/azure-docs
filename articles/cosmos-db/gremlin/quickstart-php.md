@@ -118,7 +118,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
    - **Database Throughput**: Select **Manual**, so you can set the throughput to a low value.
    - **Database Max RU/s**: Change the throughput to *400* request units per second (RU/s). If you want to reduce latency, you can scale up throughput later.
    - **Graph id**: Enter *sample-graph*. Graph names have the same character requirements as database IDs.
-   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../partitioning.md).
+   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](partitioning.md).
 
    :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="Screenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
 

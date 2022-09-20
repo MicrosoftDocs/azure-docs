@@ -102,11 +102,11 @@ additionalContent:
         - title: Apache Gremlin
           links:
             - text: Wire protocol support
-              url: graph/gremlin-support.md
+              url: gremlin/gremlin-support.md
             - text: Graph data modeling
-              url: graph/modeling.md
+              url: gremlin/modeling.md
             - text: Import graph data
-              url: graph/bulk-executor-dotnet.md  
+              url: gremlin/bulk-executor-dotnet.md  
             - text: See more >            
               url: graph/index.yml
         - title: Table

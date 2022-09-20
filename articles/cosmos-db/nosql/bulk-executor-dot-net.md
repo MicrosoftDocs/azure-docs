@@ -22,7 +22,7 @@ ms.custom: devx-track-csharp
 
 This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos DB container. To learn about the bulk executor library and how it helps you use massive throughput and storage, see the [bulk executor library overview](../bulk-executor-overview.md) article. In this tutorial, you'll see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing the data, the library shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
-Currently, bulk executor library is supported by the Azure Cosmos DB for NoSQL and API for Gremlin accounts only. This article describes how to use the bulk executor .NET library with API for NoSQL accounts. To learn about using the bulk executor .NET library with API for Gremlin accounts, see [perform bulk operations in the Azure Cosmos DB for Gremlin](../graph/bulk-executor-dotnet.md).
+Currently, bulk executor library is supported by the Azure Cosmos DB for NoSQL and API for Gremlin accounts only. This article describes how to use the bulk executor .NET library with API for NoSQL accounts. To learn about using the bulk executor .NET library with API for Gremlin accounts, see [perform bulk operations in the Azure Cosmos DB for Gremlin](../gremlin/bulk-executor-dotnet.md).
 
 ## Prerequisites
 
