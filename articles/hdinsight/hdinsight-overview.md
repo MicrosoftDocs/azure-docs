@@ -10,15 +10,15 @@ ms.date: 09/20/2022
 
 # What is Azure HDInsight?
 
-Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as , Apache Spark, Apache Hive, LLAP, Apache Kafka, Hadoop and more, in your Azure environment.
+Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as, Apache Spark, Apache Hive, LLAP, Apache Kafka, Hadoop and more, in your Azure environment.
 
-## Before you bigin
+## Before you start
 
 The following points should be considered before starting to create a cluster
 
 1. Bring Your Own Database
 
-By default, HDInsight creates a default database during creation. Databases cannot be changed after the cluster is created.
+By default, HDInsight creates a default database during creation. Databases cant' be changed after the cluster is created.
 
 We recommend using custom databases for Ambari, Hive, and Ranger. 
 
@@ -26,7 +26,7 @@ To learn more on how to [Set up HDInsight clusters with a custom Ambari DB](/azu
           
 1. Keep your cluster up to date
 
-To take advantage of the latest HDInsight features, we recommend regularly migrating your HDInsight clusters to the latest version. HDInsight does not support in-place upgrades where existing clusters are upgraded to new component versions. You need to create a new cluster with the desired components and platform version and migrate your application to use the new cluster.
+To take advantage of the latest HDInsight features, we recommend regularly migrating your HDInsight clusters to the latest version. HDInsight doesn't support in-place upgrades where existing clusters are upgraded to new component versions. You need to create a new cluster with the desired components and platform version and migrate your application to use the new cluster.
 
 We recommend updating each version (updates every 30-45 days). The recommended period is less than six months.
 
@@ -129,13 +129,11 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Connect Excel to Apache Hadoop with the Microsoft Hive ODBC Driver](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requires Windows)
 
-
 ## In-region data residency 
 
-Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements including those criterias specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
-Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
-
+Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those criterias specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
 Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 
