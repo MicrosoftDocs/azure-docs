@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -12,7 +12,7 @@ ms.subservice: files
 # What's new in Azure Files
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
-## 2022
+## What's new in 2022
 
 ### 2022 quarter 3 (July, August, September)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files (public preview)
@@ -20,7 +20,7 @@ This [preview release](storage-files-identity-auth-azure-active-directory-enable
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
-Azure customers can now deploy a highly available SAP HANA system in a scale-out configuration with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
+Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](../../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
 
 ### 2022 quarter 1 (January, February, March)
 #### Azure File Sync TCO improvements
@@ -30,7 +30,7 @@ To offer sync and tiering, Azure File Sync performs two types of transactions on
 
 To improve TCO, we markedly decreased the number of transactions needed to fully scan an Azure file share. Prior to this change, most customers were best off in the hot tier. Now most customers are best off in the cool tier.
 
-## 2021
+## What's new in 2021
 
 ### 2021 quarter 4 (October, November, December)
 #### Increased IOPS for premium file shares
