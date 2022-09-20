@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 
-This article provides a way that allow you to secure outbound traffic from your Azure Spring Apps (ASA). The following two articles are highly recommended to read before you start this article. 
+This article provides a way that allow you to secure outbound traffic from your Azure Spring Apps (ASA). The following two articles are highly recommended to read before you start this article. It provides a simple example of a UDR instance. UDR is an advanced feature which enable our customers to fully control the egress traffic. It may be used in scenarios like disallowing ASA auto-generated public IP
 * [Introduction to Azure Spring Apps VNet](how-to-deploy-in-azure-virtual-network.md)
 * [Customer Responsibilities for Running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
 * [Introduction to outbound type of ASA](concept-outbound-type.md)
@@ -24,11 +24,13 @@ This article provides a way that allow you to secure outbound traffic from your 
 * All prerequisites of [Azure Spring Apps VNet instance](how-to-deploy-in-azure-virtual-network.md)
 * API version of `2022-09-01 preview` or greater
 * CLI version extension of 1.1.7 or greater
-  
+
+##An Example of Azure Spring Apps UDR Instance
 In this article, we will provide an example(as the following image) of Azure Spring Apps VNet instance using user-defined-routing
 ![Screenshot that shows arch of the udr example](./media/how-to-create-udr-instance/udr-example-arch.png)
 
-## Restrict egress traffic using Azure firewall
+### Set configuration via environment variables
+Define a set of environment variables to be used in resource creations.
 ```bash
 PREFIX="asa-egress"
 RG="${PREFIX}-rg"
@@ -190,3 +192,10 @@ az role assignment create \
 ```azurecli
 az spring create -n $ASA_NAME -g $RG --vnet $VNET_NAME --app-subnet $ASA_APP_SUBNET_NAME --service-runtime-subnet $ASA_SERVICE_RUNTIME_SUBNET_NAME --outbound-type userDefinedRouting
 ```
+
+Now you can access the public IP of the firewall from the internet, and the firewall will route the traffic into the ASA subnets according to your routing rules.
+
+## Next steps
+
+* [Troubleshooting Azure Spring Apps in VNET](troubleshooting-vnet.md)
+
