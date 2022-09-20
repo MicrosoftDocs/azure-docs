@@ -33,7 +33,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant (all users, service principals and managed identities) |
 | [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
@@ -47,6 +47,7 @@ During the preview:
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 - PowerShell, Ansible, and Terraform aren't supported at this time.
 - Not available in Government clouds
+- For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
@@ -225,4 +226,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) image from a direct shared image in the target subscription or tenant.

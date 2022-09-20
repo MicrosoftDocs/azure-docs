@@ -276,7 +276,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 
 ## Use a custom endpoint
@@ -320,11 +320,11 @@ speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "2000")
 **Example:** a recorded presenter's speech is fast enough that several sentences in a row get combined, with big recognition results only arriving once or twice per minute. In this case, setting the segmentation silence timeout to a lower value like 300ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
+speechConfig.SetProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "300");
 ```
 
 **Example:** a single-shot recognition asking a speaker to find and read a serial number ends too quickly while the number is being found. In this case, a longer initial silence timeout like 10000ms could help:
 
 ```csharp
-speechConfig.setProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
+speechConfig.SetProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "10000");
 ```

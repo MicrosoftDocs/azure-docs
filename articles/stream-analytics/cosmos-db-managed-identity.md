@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/30/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -43,19 +43,15 @@ For the Stream Analytics job to access your Cosmos DB using managed identity, th
 |---------|
 |Cosmos DB Built-in Data Contributor|
 
-1. Select **Access control (IAM)**.
+> [!IMPORTANT]
+> Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Azure Active Directory for your Azure Cosmos DB account please visit the: [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account documentation.](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac/)
 
-2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+The following command can be used to authenticate your ASA job with Cosmos DB. The `$accountName` and `$resourceGroupName` are for your Cosmos DB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your Cosmos DB account for this command to work as intended. 
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+```azurecli-interactive
+New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $resourceGroupName -RoleDefinitionId '00000000-0000-0000-0000-000000000002' -Scope "/" -PrincipalId $principalId
 
-    | Setting | Value |
-    | --- | --- |
-    | Role | Cosmos DB Built-in Data Contributor |
-    | Assign access to | User, group, or service principal |
-    | Members | \<Name of your Stream Analytics job> |
-
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+```
 
 > [!NOTE]
 > Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.

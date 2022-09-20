@@ -7,13 +7,13 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 08/25/2022
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Single sign-on using Azure AD authentication is currently in public preview.
+> Single sign-on using Azure AD authentication is currently in Insider preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

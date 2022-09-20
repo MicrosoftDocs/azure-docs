@@ -157,7 +157,7 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 The deployment task supports 3 types of operations,  validate only, deploy and validate and deploy.
 
    > [!NOTE]
-   > This workspace deployment extension in is not backward compatible. Please make sure that the latest version is installed and used. You can read the release note in [overview] (https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy&ssr=false#overview) in Azure DevOps and the [latest version](https://github.com/marketplace/actions/synapse-workspace-deployment) in GitHub action. 
+   > This workspace deployment extension in is not backward compatible. Please make sure that the latest version is installed and used. You can read the release note in [overview](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy&ssr=false#overview)in Azure DevOps and the [latest version](https://github.com/marketplace/actions/synapse-workspace-deployment) in GitHub action. 
 
 **Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline. The sample YAML file is as below: 
 

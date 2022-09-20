@@ -2,12 +2,12 @@
 title: Use a managed identity in Azure Kubernetes Service
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 06/14/2022
+ms.date: 09/16/2022
 ---
 
 # Use a managed identity in Azure Kubernetes Service
 
-An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster a system-assigned managed identity automatically created. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources][managed-identity-resources-overview].
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster a system-assigned managed identity is automatically created. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources][managed-identity-resources-overview].
 
 To use a [service principal](kubernetes-service-principal.md), you have to create one, as AKS does not create one automatically. Clusters using a service principal eventually expire and the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, thus it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
 

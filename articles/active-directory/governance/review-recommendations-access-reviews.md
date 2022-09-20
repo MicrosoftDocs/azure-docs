@@ -3,7 +3,7 @@ title: Review recommendations for Access reviews - Azure AD
 description: Learn how to review access of group members with review recommendations in Azure Active Directory access reviews.
 services: active-directory
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

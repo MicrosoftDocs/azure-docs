@@ -3,7 +3,7 @@ title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
 ms.custom: event-tier1-build-2022
-ms.date: 05/11/2022
+ms.date: 08/25/2022
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -50,7 +50,7 @@ Published events are removed from an event hub based on a configurable, timed-ba
 - The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
-- If you change the retention period, it applies to all messages including messages that are already in the event hub. 
+- If you change the retention period, it applies to all events including events that are already in the event hub. 
 
 Event Hubs retains events for a configured retention time that applies across
 all partitions. Events are automatically removed when the retention period has
@@ -126,7 +126,7 @@ The publish/subscribe mechanism of Event Hubs is enabled through *consumer group
 
 In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There's always a default consumer group in an event hub, and you can create up to the [maximum number of consumer groups](event-hubs-quotas.md) for the corresponding pricing tier. 
 
-There can be at most 5 concurrent readers on a partition per consumer group; however **it's recommended that there's only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all of the messages. If you have multiple readers on the same partition, then you process duplicate messages. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
+There can be at most 5 concurrent readers on a partition per consumer group; however **it's recommended that there's only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all events. If you have multiple readers on the same partition, then you process duplicate events. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
 
 Some clients offered by the Azure SDKs are intelligent consumer agents that automatically manage the details of ensuring that each partition has a single reader and that all partitions for an event hub are being read from. This allows your code to focus on processing the events being read from the event hub so it can ignore many of the details of the partitions. For more information, see [Connect to a partition](#connect-to-a-partition).
 
@@ -205,7 +205,6 @@ For more information about Event Hubs, visit the following links:
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
-* [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples](event-hubs-samples.md)

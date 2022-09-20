@@ -17,7 +17,7 @@ The FHIR specification defines a set of search parameters that apply to all reso
 
 ## Create new search parameter
 
-To create a new search parameter, you `POST` a `SearchParameter` resource to the FHIR service database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
+To create a new search parameter, you need to `POST` a `SearchParameter` resource to the FHIR service database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
 
 ```rest
 POST {{FHIR_URL}}/SearchParameter
@@ -70,7 +70,7 @@ Important elements of a `SearchParameter` resource:
 
 * `url`: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* `code`: The value stored in **code** is what you’ll use when searching. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` to retrieve all patients of a certain race. The coding system must be unique for the resource type(s) that the search parameter applies to.
+* `code`: The value stored in the **code** element is the name used for the search parameter when it is included in an API call. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` where `<code>` is in the value set from the specified coding system. This call would retrieve all patients of a certain race. 
 
 * `base`: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
  
@@ -148,17 +148,17 @@ See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on 
 
 ## Update a search parameter
 
-To update a search parameter, use `PUT` to create a new version of the search parameter. You must include the `SearchParameter` ID in the `id` field in the body of the `PUT` request as well as the `PUT` request string.
+To update a search parameter, use `PUT` to create a new version of the search parameter. You must include the search parameter ID in the `id` field in the body of the `PUT` request as well as the `PUT` request string.
 
 > [!NOTE]
-> If you don't know the ID for your search parameter, you can search for it using `GET {{FHIR_URL}}/SearchParameter`. This will return all custom search parameters, and you can scroll through the search parameter list to find the search parameter you need. You could also limit the search by name. With the example response below, you could search by name using `USCoreRace`: `GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
+> If you don't know the ID for your search parameter, you can search for it using `GET {{FHIR_URL}}/SearchParameter`. This will return all custom as well as standard search parameters, and you can scroll through the list to find the search parameter you need. You could also limit the search by name. As shown in the example request below, the name of the custom `SearchParameter` resource instance is `USCoreRace`. You could search for this `SearchParameter` resource by name using `GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
 PUT {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 {
   "resourceType" : "SearchParameter",
-  "id" : "{SearchParameter ID}",
+  "id" : "{{SearchParameter_ID}}",
   "url" : "http://hl7.org/fhir/us/core/SearchParameter/us-core-race",
   "version" : "3.1.1",
   "name" : "USCoreRace",
@@ -197,7 +197,7 @@ PUT {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 ```
 
-The result will be an updated `SearchParameter` and the version will increment.
+The result of the above request will be an updated `SearchParameter` resource. 
 
 > [!Warning]
 > Be careful when updating search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
