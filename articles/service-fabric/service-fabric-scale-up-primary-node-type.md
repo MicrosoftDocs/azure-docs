@@ -19,7 +19,7 @@ This article describes how to scale up a Service Fabric cluster primary node typ
 The following will walk you through the process for updating the VM size and operating system of primary node type VMs of a sample cluster with [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes. We'll be upgrading the primary node type:
 
 - From VM size *Standard_D2_V2* to *Standard D4_V2*, and
-- From VM operating system *Windows Server 2016 Datacenter with Containers* to *Windows Server 2019 Datacenter with Containers*.
+- From VM operating system *Windows Server 2019 Datacenter* to *Windows Server 2022 Datacenter*.
 
 > [!WARNING]
 > Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster may also be unavailable for a short period of time.
@@ -535,7 +535,7 @@ Remove all other resources related to the original node type from the ARM templa
       "value": "WindowsServer"
     },
     "vmImageSku": {
-      "value": "2016-Datacenter-with-Containers"
+      "value": "2019-Datacenter"
     },
     "vmImageVersion": {
       "value": "latest"

@@ -22,17 +22,17 @@ This article describes how to scale up a Service Fabric cluster non-primary node
 The following will walk you through the process for updating the VM size and operating system of non-primary node type VMs of a sample cluster with [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes used as a secondary node type. The primary node type with Service Fabric system services will remain untouched. We'll be upgrading the non-primary node type:
 
 - From VM size *Standard_D2_V2* to *Standard D4_V2*, and
-- From VM operating system *Windows Server 2016 Datacenter with Containers* to *Windows Server 2019 Datacenter with Containers*.
+- From VM operating system *Windows Server 2019 Datacenter* to *Windows Server 2022 Datacenter*.
 
 > [!WARNING]
 > Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. 
 >
 > Do not attempt a non-primary node type scale up procedure if the cluster status is unhealthy, as this will only destabilize the cluster further.
-We'll make use of the step-by-step Azure deployment templates used in the [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md) guide. However, we'll modify them so they aren't specific to primary node types. The templates are [available on GitHub](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade).
+We'll make use of the step-by-step Azure deployment templates used in the [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md) guide. However, we'll modify them so they aren't specific to primary node types. The templates are [available on GitHub](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-nonprimary).
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) the Azure Resource Manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-nonprimary) the Azure Resource Manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
@@ -41,7 +41,7 @@ Next, sign in to your Azure account.
 Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
 
-Next open the [*parameters.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/parameters.json) file and update the value for `clusterName` to something unique (within Azure).
+Next open the [*parameters.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-nonprimary/parameters.json) file and update the value for `clusterName` to something unique (within Azure).
 
 The following commands will guide you through generating a new self-signed certificate and deploying the test cluster. If you already have a certificate you'd like to use, skip to [Use an existing certificate to deploy the cluster](#use-an-existing-certificate-to-deploy-the-cluster).
 
@@ -153,7 +153,7 @@ In order to upgrade (vertically scale) a node type, we'll first need to deploy a
 
 Here are the section-by-section modifications of the original cluster deployment template for adding a new node type and supporting resources.
 
-Most of the required changes for this step have already been made for you in the [*Step1-AddPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step1-AddPrimaryNodeType.json) template file. However, an additional change must be made so the template file works for non-primary node types. The following sections will explain these changes in detail, and call outs will be made when you must make a change.
+Most of the required changes for this step have already been made for you in the [*Step1-AddPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-nonprimary/Step1-AddPrimaryNodeType.json) template file. However, an additional change must be made so the template file works for non-primary node types. The following sections will explain these changes in detail, and call outs will be made when you must make a change.
 
 > [!Note]
 > Ensure that you use names that are unique from the original node type, scale set, load balancer, public IP, and subnet of the original non-primary node type, as these resources will be deleted at a later step in the process.
@@ -408,7 +408,7 @@ Service Fabric Explorer should now reflect only the five nodes of the new node t
 
 ### Update the deployment template to reflect the newly scaled-up non-primary node type
 
-Most of the required changes for this step have already been made for you in the [*Step3-CleanupOriginalPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step3-CleanupOriginalPrimaryNodeType.json) template file. However, an additional change must be made so the template file works for non-primary node types. The following sections will explain these changes in detail, and call outs will be made when you must make a change.
+Most of the required changes for this step have already been made for you in the [*Step3-CleanupOriginalPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-nonprimary/Step3-CleanupOriginalPrimaryNodeType.json) template file. However, an additional change must be made so the template file works for non-primary node types. The following sections will explain these changes in detail, and call outs will be made when you must make a change.
 
 #### Update the cluster management endpoint
 
@@ -491,7 +491,7 @@ Remove all other resources related to the original node type from the ARM templa
       "value": "WindowsServer"
     },
     "vmImageSku": {
-      "value": "2016-Datacenter-with-Containers"
+      "value": "2019-Datacenter"
     },
     "vmImageVersion": {
       "value": "latest"
