@@ -75,7 +75,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-To verify that the Vertical Pod Autoscaler pods have been created successfully, run the following [kubectl] command:
+4. To verify that the Vertical Pod Autoscaler pods have been created successfully, use the [kubectl get][kubectl-get] command.
 
 ```bash
 kubectl get pods -n kube-system
