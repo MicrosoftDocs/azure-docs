@@ -19,7 +19,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 - Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for your new site.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If the new site will support 4G technology, you must have [created a network slice](manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and empty slice differentiator (SD).
+- If the new site will support 4G user equipment (UEs), you must have [created a network slice](manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and empty slice differentiator (SD).
 
 ## Create the mobile network site resource
 
@@ -50,7 +50,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
-    - If this site will support 5G user equipment (UEs):
+    - If this site will support 5G UEs:
         - **N2 interface name** and **N3 interface name** must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
         - **N2 subnet** must match **N3 subnet**.
         - **N2 gateway** must match **N3 gateway**.
