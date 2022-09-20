@@ -61,7 +61,9 @@ To create a network connection, you need an existing VNet and subnet. If you don
 
  
 ## Allow access to Dev Box endpoints from your network
-Network ingress and egress can be controlled using a firewall, network security groups, and even microsoft defender. If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+Network ingress and egress can be controlled using a firewall, network security groups, and even microsoft defender. 
+
+If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
 The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
