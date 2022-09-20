@@ -15,10 +15,7 @@ This article describes common tasks for managing and monitoring SAP HANA databas
 >[!Note]
 >Support for HANA Instance snapshot and support for HANA System Replication mode are in preview.
 
-If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
-
->[!Note]
->See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
+If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). Learn more about the [supported configurations and scenarios](sap-hana-backup-support-matrix.md).
 
 ## Monitor manual backup jobs using the Azure portal
 
