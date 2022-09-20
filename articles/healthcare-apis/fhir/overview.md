@@ -21,8 +21,8 @@ The FHIR service offers the following:
 - High performance, low latency
 - Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web clients
-- Controlled access to FHIR data at scale with Azure Active Directory-backed Role-Based Access Control (RBAC)
-- Audit log tracking for access, creation, and modification within the FHIR service data store
+- Controlled access to FHIR data at scale with Azure Active Directory Role-Based Access Control (RBAC)
+- Audit log tracking for access, creation, and modification events within the FHIR service data store
 
 The FHIR service allows you to quickly create and deploy a FHIR server to leverage the elastic scale of the cloud for ingesting, persisting, and querying FHIR data. The Azure services that power the FHIR service are designed for high performance no matter how much data you're working with.
 
