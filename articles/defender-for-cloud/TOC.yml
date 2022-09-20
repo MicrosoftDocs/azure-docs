@@ -410,8 +410,8 @@
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=defender%20for%20cloud
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?term=defender%20for%20cloud
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
@@ -446,6 +446,8 @@
       href: episode-fifteen.md
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
+    - name: Defender for Servers integration with Microsoft Entra
+      href: episode-seventeen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

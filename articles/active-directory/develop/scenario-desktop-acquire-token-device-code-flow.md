@@ -122,7 +122,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
     {
         // If you use a CancellationToken, and call the Cancel() method on it, then this *may* be triggered
         // to indicate that the operation was cancelled.
-        // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
+        // See https://learn.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
         // for more detailed information on how C# supports cancellation in managed threads.
     }
     catch (MsalClientException ex)

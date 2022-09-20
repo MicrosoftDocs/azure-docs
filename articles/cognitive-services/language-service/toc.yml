@@ -918,7 +918,7 @@ items:
   - name: Tutorials
     items:
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /learn/modules/python-flask-build-ai-web-app/
+      href: /training/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API
@@ -1148,10 +1148,10 @@ items:
     - name: Learn modules
       items:
       - name: Explore natural language processing
-        href: /learn/paths/explore-natural-language-processing
+        href: /training/paths/explore-natural-language-processing
       - name: Build a question answering solution
-        href: /learn/paths/build-qna-solution
+        href: /training/paths/build-qna-solution
       - name: Extract insights from text with the Language service
-        href: /learn/modules/extract-insights-text-with-text-analytics-service/
+        href: /training/modules/extract-insights-text-with-text-analytics-service/
       - name: Build custom text analytics solutions
-        href: /learn/paths/build-custom-text-analytics
+        href: /training/paths/build-custom-text-analytics

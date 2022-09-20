@@ -40,7 +40,7 @@ For technical information based on the connector's Swagger description, such as 
 
 * A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, review the following resources:
 
-  * [Learn: Create and manage Dataverse environments](/learn/modules/create-manage-environments/)
+  * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
 
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
