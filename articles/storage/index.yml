@@ -70,7 +70,7 @@ additionalContent:
             text: Use volumes provided by NetApp ONTAP (Azure NetApp Files)
         # Card
         - title: IaaS Storage
-          items:
+          links:
           - url: ../virtual-machines/managed-disks-overview.md
             text: Learn about Azure managed disks for Azure VMs
           - url: ../virtual-machines/disks-types.md
