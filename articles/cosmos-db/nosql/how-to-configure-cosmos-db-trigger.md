@@ -97,7 +97,7 @@ If your Azure Functions project is working with Azure Functions V1 runtime, the 
 
 ## Customizing the user agent
 
-The Azure Functions trigger for Azure Cosmos DB performs requests to the service that will be reflected on your [monitoring](../monitor-cosmos-db.md). You can customize the user agent used for the requests from an Azure Function by changing the `userAgentSuffix` in the `host.json` [extra settings](../../azure-functions/functions-bindings-cosmosdb-v2.md?tabs=extensionv4#hostjson-settings):
+The Azure Functions trigger for Azure Cosmos DB performs requests to the service that will be reflected on your [monitoring](../monitor.md). You can customize the user agent used for the requests from an Azure Function by changing the `userAgentSuffix` in the `host.json` [extra settings](../../azure-functions/functions-bindings-cosmosdb-v2.md?tabs=extensionv4#hostjson-settings):
 
 ```js
 {

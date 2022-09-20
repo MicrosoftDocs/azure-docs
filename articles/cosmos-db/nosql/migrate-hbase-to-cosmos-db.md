@@ -823,7 +823,7 @@ Data security is a shared responsibility of the customer and the database provid
 | Local data  replication within a data center                 | The HDFS  mechanism allows you to have multiple replicas across nodes within a single  file system. | Azure Cosmos DB  automatically replicates data to maintain high availability, even within a  single data center. You can choose the consistency level yourself. |
 | Automatic data  backups                                      | There is no automatic  backup function. You need to implement data backup yourself. | Azure Cosmos DB is  backed up regularly and stored in the geo redundant storage. |
 | Protect and  isolate sensitive data                          | For example, if  you are using Apache Ranger, you can use Ranger policy to apply the policy to  the table. | You can separate  personal and other sensitive data into specific containers and read / write,  or limit read-only access to specific users. |
-| Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor-cosmos-db.md), you can monitor your account  for normal and abnormal activity. |
+| Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor.md), you can monitor your account  for normal and abnormal activity. |
 | Responding to  attacks                                       | It needs to be  implemented using third party products.        | When you contact  Azure support and report a potential attack, a five-step incident response  process begins. |
 | Ability to  geo-fence data to adhere to data governance restrictions | You need to check  the restrictions of each country and implement it yourself. | Guarantees data  governance for sovereign regions (Germany, China, US Gov, etc.). |
 | Physical  protection of servers in protected data centers    | It depends on the  data center where the system is located.  | For a list of the latest certifications,  see the global [Azure compliance site](/compliance/regulatory/offering-home?view=o365-worldwide&preserve-view=true). |
@@ -833,7 +833,7 @@ For more information on security, please refer to [Security in Azure Cosmos DB -
 
 ## Monitoring
 
-HBase typically monitors the cluster using the cluster metric web UI or with Ambari, Cloudera Manager, or other monitoring tools. Azure Cosmos DB allows you to use the monitoring mechanism built into the Azure platform. For more information on Azure Cosmos DB monitoring, see [Monitor Azure Cosmos DB](../monitor-cosmos-db.md).
+HBase typically monitors the cluster using the cluster metric web UI or with Ambari, Cloudera Manager, or other monitoring tools. Azure Cosmos DB allows you to use the monitoring mechanism built into the Azure platform. For more information on Azure Cosmos DB monitoring, see [Monitor Azure Cosmos DB](../monitor.md).
 
 If your environment implements HBase system monitoring to send alerts, such as by email, you may be able to replace it with Azure Monitor alerts. You can receive alerts based on metrics or activity log events for your Azure Cosmos DB account.
 

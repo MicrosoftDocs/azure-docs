@@ -93,7 +93,7 @@ Network timeouts and connectivity failures are among the most common errors. The
 
 If the account has multiple regions available, the SDKs will also attempt a [cross-region retry](troubleshoot-sdk-availability.md#transient-connectivity-issues-on-tcp-protocol).
 
-Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor-cosmos-db.md), as they only cover failures happening on the service side.
+Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor.md), as they only cover failures happening on the service side.
 
 It's recommended for applications to have their own retry policy for these scenarios and take into consideration how to resolve write timeouts. For example, retrying on a Create timeout can yield an HTTP 409 (Conflict) if the previous request did reach the service, but it would succeed if it didn't.
 

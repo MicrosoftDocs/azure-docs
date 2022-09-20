@@ -489,7 +489,7 @@ That's it, build it, and you're on your way!
 
 * Want a more complex ASP.NET MVC tutorial? See [Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK](sql-api-dotnet-application.md).
 * Want to do scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
-* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](../monitor-cosmos-db.md).
+* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](../monitor.md).
 * To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

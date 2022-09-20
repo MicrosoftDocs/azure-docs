@@ -133,7 +133,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
-* Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
+* Use [Azure Monitor](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
 * Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.

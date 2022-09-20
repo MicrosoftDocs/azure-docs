@@ -129,7 +129,7 @@ You can programmatically check the scaling progress by reading the [current prov
 * [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) on the .NET SDK.
 * [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) on the Java SDK.
 
-You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+You can use [Azure Monitor metrics](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 ## <a id="high-storage-low-throughput-program"></a> High storage / low throughput program
 

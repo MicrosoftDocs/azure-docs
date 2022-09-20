@@ -13,7 +13,7 @@ ms.custom: subject-monitoring
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See the [Monitor Azure Cosmos DB](monitor-cosmos-db.md) article for details on collecting and analyzing monitoring data for Azure Cosmos DB.
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See the [Monitor Azure Cosmos DB](monitor.md) article for details on collecting and analyzing monitoring data for Azure Cosmos DB.
 
 ## Metrics
 
@@ -103,5 +103,5 @@ Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these t
 
 ## See Also
 
-- See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
+- See [Monitoring Azure Cosmos DB](monitor.md) for a description of monitoring Azure Cosmos DB.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

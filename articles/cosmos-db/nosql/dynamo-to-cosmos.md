@@ -519,5 +519,5 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](../key-value-store-cost.md)
-- Learn about [Monitoring in Azure Cosmos DB](../monitor-cosmos-db.md)
+- Learn about [Monitoring in Azure Cosmos DB](../monitor.md)
 

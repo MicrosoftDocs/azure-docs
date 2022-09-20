@@ -223,7 +223,7 @@ When you access Azure Cosmos DB resources by using SDKs from machines that are n
 
 ### Source IPs in blocked requests
 
-Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md).
+Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](./monitor.md).
 
 ### Requests from a subnet with a service endpoint for Azure Cosmos DB enabled
 

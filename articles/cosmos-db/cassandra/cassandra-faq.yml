@@ -79,7 +79,7 @@ sections:
           
           Metrics are available that show you how throughput is used over hours, over days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](../use-metrics.md).
           
-          Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](../monitor-cosmos-db.md) article.
+          Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](../monitor.md) article.
           
       - question: |
           Does the primary key map to the partition key concept of Azure Cosmos DB?
@@ -153,9 +153,9 @@ sections:
         answer: |
           Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. For example, you don't need to monitor node status, replica status, gc, and OS parameters earlier with various tools. You just need to take care of throughput that's available in portal metrics to see if you're getting throttled, and then increase or decrease that throughput. You can:
           
-          - Monitor [SLAs](../monitor-cosmos-db.md)
+          - Monitor [SLAs](../monitor.md)
           - Use [metrics](../use-metrics.md)
-          - Use [diagnostic logs](../monitor-cosmos-db.md)
+          - Use [diagnostic logs](../monitor.md)
           
       - question: |
           Which client SDKs can work with the API for Cassandra?

@@ -256,6 +256,6 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Monitor an Azure Cosmos DB account](../monitor-cosmos-db.md)
+> [Monitor an Azure Cosmos DB account](../monitor.md)
 
 [create-account]: quickstart-dotnet.md#create-account
