@@ -360,7 +360,7 @@
     - name: Migrate data to Azure Cosmos DB
       items:
         - name: Options to migrate data into Azure Cosmos DB
-          href: ../cosmosdb-migrationchoices.md
+          href: ../migration-choices.md
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: estimate-ru-capacity-planner.md

@@ -88,7 +88,7 @@ The following JSON object represents the data format in Azure Cosmos DB
 
 ## Migrate your data
 
-There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../cosmosdb-migrationchoices.md) article.
+There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md) article.
 
 ## Migrate your code
 

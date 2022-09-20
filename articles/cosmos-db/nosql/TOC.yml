@@ -1146,7 +1146,7 @@
     - name: Migrate data
       items:
         - name: Options to migrate data into Azure Cosmos DB
-          href: ../cosmosdb-migrationchoices.md
+          href: ../migration-choices.md
         - name: Using .NET bulk support
           href: tutorial-sql-api-dotnet-bulk-import.md
         - name: Using the Data Migration tool
