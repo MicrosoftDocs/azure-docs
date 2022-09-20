@@ -69,15 +69,15 @@
         - name: Overview
           href: cli-samples.md
         - name: Create account, database and container
-          href: ../scripts/cli/sql/create.md
+          href: ../scripts/cli/nosql/create.md
         - name: Create serverless
-          href: ../scripts/cli/sql/serverless.md
+          href: ../scripts/cli/nosql/serverless.md
         - name: Create with autoscale
-          href: ../scripts/cli/sql/autoscale.md
+          href: ../scripts/cli/nosql/autoscale.md
         - name: Perform throughput operations
-          href: ../scripts/cli/sql/throughput.md
+          href: ../scripts/cli/nosql/throughput.md
         - name: Lock resources from deletion
-          href: ../scripts/cli/sql/lock.md
+          href: ../scripts/cli/nosql/lock.md
         - name: Add or fail over regions
           href: ../scripts/cli/common/regions.md
         - name: Perform account key operations
@@ -95,19 +95,19 @@
         - name: Overview
           href: powershell-samples.md
         - name: Create account, database and container
-          href: ../scripts/powershell/sql/create.md
+          href: ../scripts/powershell/nosql/create.md
         - name: Create with autoscale
-          href: ../scripts/powershell/sql/autoscale.md
+          href: ../scripts/powershell/nosql/autoscale.md
         - name: Perform throughput operations
-          href: ../scripts/powershell/sql/throughput.md
+          href: ../scripts/powershell/nosql/throughput.md
         - name: Lock resources from deletion
-          href: ../scripts/powershell/sql/lock.md
+          href: ../scripts/powershell/nosql/lock.md
         - name: List and get databases and containers
-          href: ../scripts/powershell/sql/list-get.md
+          href: ../scripts/powershell/nosql/list-get.md
         - name: Create a container with indexing turned off
-          href: ../scripts/powershell/sql/create-index-none.md
+          href: ../scripts/powershell/nosql/create-index-none.md
         - name: Create a container with a large partition key
-          href: ../scripts/powershell/sql/create-large-partition-key.md
+          href: ../scripts/powershell/nosql/create-large-partition-key.md
         - name: Account keys or connection strings
           href: ../scripts/powershell/common/keys-connection-strings.md
         - name: Change failover priority or trigger failover
