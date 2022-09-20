@@ -51,7 +51,7 @@ Once you have an Azure account, go to [https://portal.azure.com/#home](https://p
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
-To create one, select the "Create a resource" button:
+To create one, select "Create a resource":
 
 ![Azure - add resource](media/azure-add-a-resource.png)
 
@@ -74,7 +74,7 @@ Fill out the form in the following manner:
 
 None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
-The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select the **"Go to resource"** button for the next steps:
+The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select **"Go to resource"** for the next steps:
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
@@ -82,7 +82,7 @@ The website now informs you about the progress of your deployment and reports "Y
 
 Next we need two blob containers, one for input and one for output.
 
-From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select the **"Containers"** button:
+From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select **"Containers"**:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
@@ -151,7 +151,7 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
 The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
 Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
-Note that the value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
+The value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
 Change **localAssetDirectoryPath** to point to the directory on your disk, which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
