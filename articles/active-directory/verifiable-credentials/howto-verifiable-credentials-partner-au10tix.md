@@ -33,7 +33,7 @@ Before you can continue with the steps below you need to meet the following requ
 
 ## Scenario description
 
-When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access. Learn more about [account onboarding](https://docs.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
+When onboarding users you can remove the need for error prone manual onboarding steps by using Verified ID with A10TIX account onboarding. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access. Learn more about [account onboarding](https://learn.microsoft.com/azure/active-directory/verifiable-credentials/plan-verification-solution#account-onboarding).
 
 
 

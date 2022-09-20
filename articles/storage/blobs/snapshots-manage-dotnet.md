@@ -3,12 +3,13 @@ title: Create and manage a blob snapshot in .NET
 titleSuffix: Azure Storage
 description: Learn how to use the .NET client library to create a read-only snapshot of a blob to back up blob data at a given moment in time.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/27/2020
-ms.author: normesta
+
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
