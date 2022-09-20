@@ -22,8 +22,10 @@ Updates in October include:
 
 - [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
+- [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
 
-## Defender CSPM P1 (Preview)
+- 
+### Defender CSPM P1 (Preview)
 
 One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
@@ -40,7 +42,7 @@ We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. C
 
 You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
 
-## MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
+### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
 For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
 
@@ -53,6 +55,19 @@ The MITRE ATT&CK framework has been integrated in three ways:
 - Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
 
 :::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
+
+### Agentless scanning for Azure and AWS machines
+
+Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
+
+With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+
+Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+
+- Learn more about [agentless scanning](concept-agentless-data-collection.md).
+- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+
+
 
 ## September 2022
 

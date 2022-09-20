@@ -101,6 +101,8 @@
       
   - name: Cloud Workload Protection concepts
     items:
+    - name: Agentless scanning
+      href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
@@ -219,6 +221,8 @@
       href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
+      - name: Find vulnerabilities and software inventory with agentless scanning
+        href: enable-vulnerability-assessment-agentless.md
       - name: Find vulnerabilities with threat and vulnerability management
         displayName: mde, tvm, vulnerability, va, arc, hybrid
         href: deploy-vulnerability-assessment-tvm.md
