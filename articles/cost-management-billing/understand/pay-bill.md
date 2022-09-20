@@ -38,6 +38,26 @@ On 30 September 2022, Microsoft and other online merchants will no longer be sto
 
 [Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
 
+### UPI and NetBanking payment options 
+
+Azure supports two alternate payment options for customers in India. UPI (Unified Payments Interface) payment is a real-time fund transfer and payment system regulated by the Reserve Bank of India. NetBanking (Internet Banking) facilitates customers with access to banking services on an online platform. 
+
+**How do I make a payment with UPI or NetBanking?**
+
+UPI and NetBanking isare only supported for one-time transactions.  
+
+To make a payment with UPI or NetBanking: 
+
+1. Select Add a new payment method when you’re making a payment.  
+2. Select UPI / NetBanking.  
+3. You’re redirected to your bank's website where you can process the payment.  
+
+After you submit the payment, allow time for the payment to appear in the Azure portal. 
+
+**How am I refunded if I made a payment with UPI or NetBanking?** 
+
+Refunds are treated as a regular charge. They’re refunded to your bank account. 
+
 ## Pay by default payment method
 
 The default payment method of your billing profile can either be a credit card, debit card, or check wire transfer.
