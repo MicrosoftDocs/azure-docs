@@ -163,4 +163,4 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 ## Next steps
 
 - [Learn how restore SAP HANA databases instances on Azure VMs (preview)](sap-hana-database-instances-restore.md).
-- [Learn how manage SAP HANA databases instances on Azure VMs (preview)](sap-hana-database-instances-manage.md).
+- [Learn how manage SAP HANA databases instances on Azure VMs (preview)](sap-hana-database-manage.md).
