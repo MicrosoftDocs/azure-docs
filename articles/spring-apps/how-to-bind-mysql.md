@@ -72,9 +72,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
     ```
 
-#### [Passwordless Connection using Managed Identity](#tab/Passwordless)
+#### [Passwordless connection using a managed identity](#tab/Passwordless)
 
-You configure your Spring app to connect to MySQL Database with a system-assigned managed identity using the [az spring connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+Configure your Spring app to connect to a MySQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
 ```azurecli-interactive
 az spring connection create mysql -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $MYSQL_RESOURCE_GROUP --server $MYSQL_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity

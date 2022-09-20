@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access data with managed identity in Java'
-description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and also how to apply it to other Azure services.
+description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 
 ms.devlang: java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.date: 09/22/2022
 ---
 # Tutorial: Connect to PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Create a Postgres database.
+> * Create a PostgreSQL database
 > * Deploy the sample app to Azure App Service on Tomcat using WAR packaging
-> * Configure Spring Boot web application to use Azure AD authentication with PostgreSQL Database
+> * Configure a Spring Boot web application to use Azure AD authentication with PostgreSQL Database
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -37,7 +37,7 @@ cd azure-sdk-for-java/sdk/spring-experimental/samples/spring-credential-free
 ## Create an Azure Postgres DB
 Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
     ```azurecli-interactive
     az login
@@ -53,15 +53,15 @@ Follow these steps to create an Azure Database for Postgres in your subscription
     az group create --name $RESOURCE_GROUP --location $LOCATION
     ```
 
-1. Create Azure Postgres Database server. It is created with an administrator account, but it won't be used as it wil be used the Azure AD admin account to perform the administrative tasks.
+1. Create an Azure Postgres Database server. The server is created with an administrator account, but it won't be used as we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
 
     ```azurecli-interactive
     POSTGRESQL_ADMIN_USER=azureuser
-    # postgres admin won't be used as Azure AD authentication is leveraged also for administering the database
+    # PostgreSQL admin access rights won't be used as Azure AD authentication is leveraged to administer the database.
     POSTGRESQL_ADMIN_PASSWORD=[YOUR ADMIN PASSWORD]
     POSTGRESQL_HOST=[YOUR POSTGRESQL HOST] 
 
-    # create postgresql server
+    # Create a PostgreSQL server.
     az postgres server create \
         --name $POSTGRESQL_HOST \
         --resource-group $RESOURCE_GROUP \
@@ -72,7 +72,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
         --sku-name B_Gen5_1 
     ```
 
-1. Create a database for the application
+1. Create a database for the application.
 
     ```azurecli-interactive
     DATABASE_NAME=checklist
@@ -80,10 +80,10 @@ Follow these steps to create an Azure Database for Postgres in your subscription
     az postgres db create -g $RESOURCE_GROUP -s $POSTGRESQL_HOST -n $DATABASE_NAME
     ```
 
-## Deploy the application on App Service
-Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using WAR packaging.
+## Deploy the application to App Service
+Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using a WAR packaging.
 
-Remember that the same changes you made in `application.properties` works with the managed identity, so the only thing to do is to remove the existing application settings in App Service.
+The changes you made in `application.properties` also apply to the managed identity, so the only thing to do is to remove the existing application settings in App Service.
 
 1. The sample app contains a `pom-war.xml` file that can generate the WAR file. Run the following command to build the app.
 
@@ -91,39 +91,35 @@ Remember that the same changes you made in `application.properties` works with t
     mvn clean package -f pom-war.xml
     ```
 
-1. Create Azure App Service on Linux using Tomcat 9.0.
+1. Create an Azure App Service resource on Linux using Tomcat 9.0.
 
 
     ```azurecli-interactive
-    # Create app service plan
+    # Create an App Service plan
     az appservice plan create --name $APPSERVICE_PLAN --resource-group $RESOURCE_GROUP --location $LOCATION --sku B1 --is-linux
-    # Create application service
+    # Create an App Service resource.
     az webapp create --name $APPSERVICE_NAME --resource-group $RESOURCE_GROUP --plan $APPSERVICE_PLAN --runtime "TOMCAT:9.0-jre8" 
     ```
 
-1. Deploy the war package to App Service.
+1. Deploy the WAR package to App Service.
 
 
     ```azurecli-interactive
-    # Create webapp deployment
     az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/app.war --type war
     ```
 
 
 ## Connect Postgres Database with identity connectivity
 
-Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity using Service Connector.
+Next, connect your app to an SQL Database with a system-assigned managed identity using Service Connector. To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
 
-To enable a managed identity for your Azure app, use the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
 
 ```azurecli-interactive
 az webapp connection create postgres --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --system-assigned-identity
 ```
 
-This command will do the following things,
-    - TODO
-    - TODO
-    - TODO
+This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
+    - Creates a connection between your web app and your PostgreSQL server
 
 ## View sample web app
 
