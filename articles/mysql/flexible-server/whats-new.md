@@ -28,6 +28,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
     With data encryption with customer-managed keys (CMKs) for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. Data encryption with CMKs is set at the server level. For a given server, a CMK, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. [Learn More](concepts-customer-managed-key.md)
 
+- **Change Timezone of your Azure Database for MySQL - Flexible Server in a single step**
+
+   Previously to change time_zone of your Azure Database for MySQL - Flexible Server required two steps to take effect. Now you no longer need to call the procedure mysql.az_load_timezone() to populate the mysql.time_zone_name table. Flexible Server timezone can be changed directly by just changing the server parameter time_zone from [portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter). 
 ## August 2022
 
 - **Server logs for Azure Database for MySQL - Flexible Server**

@@ -446,6 +446,8 @@
       href: episode-fifteen.md
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
+    - name: Defender for Servers integration with Microsoft Entra
+      href: episode-seventeen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
