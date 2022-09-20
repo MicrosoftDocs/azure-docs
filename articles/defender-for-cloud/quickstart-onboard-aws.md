@@ -130,7 +130,7 @@ The native cloud connector requires:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account.":::
 
-    > [!IMPORTANT](#cloudtrail-implications-note)
+    > [!IMPORTANT]<a name="cloudtrail-implications-note"></a>
     > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
 
 1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
