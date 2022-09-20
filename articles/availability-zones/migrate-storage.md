@@ -140,7 +140,7 @@ Follow these steps to request a conversion from Microsoft:
 
 ## Option 2: Manual migration
 
-A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is [not supported for your scenario](#limitations-for-changing-replication-types). Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
+A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is [not supported for your scenario](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types). Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](../storage/common/storage-account-move.md) for more details.
 
 ### When to use a manual migration
 
