@@ -49,12 +49,13 @@ To analyze an image for various visual features, do the following steps:
     #### [Version 3.2](#tab/3-2)
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     ```
+
     #### [Version 4.0](#tab/4-0)
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v4.0-preview.1/operations/imageanalysis:analyze?features=Tags" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: 9628575870314fdc909295d965e4ec40" -H "Content-Type: application/json" "https://pafarley-computer-vision.cognitiveservices.azure.com/vision/v4.0-preview.1/operations/imageanalysis:analyze?visualFeatures=Description,Tags" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     ```
     ---
 
@@ -65,45 +66,139 @@ To analyze an image for various visual features, do the following steps:
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
+#### [Version 3.2](#tab/3-2)
+```json
+{
+   "tags":[
+      {
+         "name":"waterfall",
+         "confidence":0.9950293898582458
+      },
+      {
+         "name":"nature",
+         "confidence":0.9945577383041382
+      },
+      {
+         "name":"outdoor",
+         "confidence":0.9904685616493225
+      },
+      {
+         "name":"sky",
+         "confidence":0.954681932926178
+      },
+      {
+         "name":"water",
+         "confidence":0.9417277574539185
+      },
+      {
+         "name":"mountain",
+         "confidence":0.9049681425094604
+      },
+      {
+         "name":"cloud",
+         "confidence":0.8891517519950867
+      },
+      {
+         "name":"landscape",
+         "confidence":0.4679204523563385
+      }
+   ],
+   "description":{
+      "tags":[
+         "outdoor",
+         "nature",
+         "sky",
+         "mountain",
+         "waterfall",
+         "water",
+         "hill",
+         "slope"
+      ],
+      "captions":[
+         {
+            "text":"Angel Falls in a mountain",
+            "confidence":0.3540296256542206
+         }
+      ]
+   },
+   "requestId":"4aa2195b-2ab3-4163-832e-f7eacf4c417c",
+   "metadata":{
+      "height":1067,
+      "width":800,
+      "format":"Jpeg"
+   },
+   "modelVersion":"2021-05-01"
+}
+```
+
+#### [Version 4.0](#tab/4-0)
 
 ```json
 {
-  "tags": [
-    "nature",
-    "water",
-    "waterfall",
-    "outdoor",
-    "rock",
-    "mountain",
-    "rocky",
-    "grass",
-    "hill",
-    "covered",
-    "hillside",
-    "standing",
-    "side",
-    "group",
-    "walking",
-    "white",
-    "man",
-    "large",
-    "snow",
-    "grazing",
-    "forest",
-    "slope",
-    "herd",
-    "river",
-    "giraffe",
-    "field"
-  ],
-  "requestId": "b6e33879-abb2-43a0-a96e-02cb5ae0b795",
-  "metadata": {
-    "height": 959,
-    "width": 1280,
-    "format": "Jpeg"
-  }
+   "kind":"imageAnalysisResult",
+   "metadata":{
+      "height":1067,
+      "width":800
+   },
+   "tagResult":{
+      "tags":[
+         {
+            "name":"waterfall",
+            "confidence":0.9950293898582458
+         },
+         {
+            "name":"nature",
+            "confidence":0.9945577383041382
+         },
+         {
+            "name":"outdoor",
+            "confidence":0.9904685616493225
+         },
+         {
+            "name":"sky",
+            "confidence":0.954681932926178
+         },
+         {
+            "name":"water",
+            "confidence":0.9417277574539185
+         },
+         {
+            "name":"mountain",
+            "confidence":0.9049681425094604
+         },
+         {
+            "name":"cloud",
+            "confidence":0.8891517519950867
+         },
+         {
+            "name":"landscape",
+            "confidence":0.4679204523563385
+         }
+      ]
+   },
+   "describeResult":{
+      "description":{
+         "tags":[
+            "outdoor",
+            "nature",
+            "sky",
+            "mountain",
+            "waterfall",
+            "water",
+            "hill",
+            "slope"
+         ],
+         "captions":[
+            {
+               "text":"Angel Falls in a rocky area",
+               "confidence":0.36895880103111267
+            }
+         ]
+      }
+   }
 }
 ```
+---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
