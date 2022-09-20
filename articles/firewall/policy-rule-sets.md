@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2022
+ms.date: 09/12/2022
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Even though you can't delete the default rule collection groups nor modify their
 
 Rule collection groups contain one or multiple rule collections, which can be of type DNAT, network, or application. For example, you can group rules belonging to the same workloads or a VNet in a rule collection group. 
 
-Rule collection groups have a maximum size of 2 MB. If you need more than 2 MB, you can split the rules into multiple rule collection groups. A Firewall Policy can contain 50 rule collection groups.
+Rule collection groups have a maximum size of 2 MB. If you need more than 2 MB, you can split the rules into multiple rule collection groups. A Firewall Policy created before July 2022 can contain 50 rule collection groups and a Firewall Policy created after July 2022 can contain 100 rule collection groups.
 
 
 ## Rule collections
@@ -70,8 +70,8 @@ You can use a network rule when you want to filter traffic based on IP addresses
 
 ### Application rules
 
-Application rules allow or deny inbound, outbound, and east-west traffic based on the application layer (L7). 
-You can use an application rule when you want to filter traffic based on fully qualified domain names (FQDNs) and HTTP/HTTPS protocols. 
+Application rules allow or deny outbound and east-west traffic based on the application layer (L7). 
+You can use an application rule when you want to filter traffic based on fully qualified domain names (FQDNs), URLs, and HTTP/HTTPS protocols. 
 
 
 ## Next steps
