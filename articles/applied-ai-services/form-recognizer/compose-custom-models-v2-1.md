@@ -78,7 +78,7 @@ Form Recognizer uses the [Layout](concept-layout.md) API to learn the expected s
 
 [Get started with Train with labels](label-tool.md)
 
-> [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Create a composed model
 
