@@ -38,7 +38,7 @@ The API for Cassandra enables you to interact with data stored in Azure Cosmos D
 
 **Enterprise grade**: Azure Cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
 
-**Event Sourcing**: API for Cassandra provides access to a persistent change log, the [Change Feed](cassandra-change-feed.md), which can facilitate event sourcing directly from the database. In Apache Cassandra, the only equivalent is change data capture (CDC), which is merely a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached (these capabilities are redundant in Azure Cosmos DB as the relevant aspects are automatically governed).
+**Event Sourcing**: API for Cassandra provides access to a persistent change log, the [Change Feed](change-feed.md), which can facilitate event sourcing directly from the database. In Apache Cassandra, the only equivalent is change data capture (CDC), which is merely a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached (these capabilities are redundant in Azure Cosmos DB as the relevant aspects are automatically governed).
 
 ## Next steps
 

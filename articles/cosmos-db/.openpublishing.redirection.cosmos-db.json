@@ -656,6 +656,32 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/apache-cassandra-consistency-mapping.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/consistency-mapping",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-adoption.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/adoption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-change-feed.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/change-feed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-driver-extensions.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/driver-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-introduction.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/introduction",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false

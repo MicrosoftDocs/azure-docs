@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB for Apache Cassandra?
-            url: cassandra-introduction.md
+            url: introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET Core app
@@ -42,8 +42,8 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: From Apache Cassandra to API for Cassandra
-            url: cassandra-adoption.md         
+            url: adoption.md         
           - text: Connect to API for Cassandra from Spark
             url: connect-spark-configuration.md 
           - text: Change feed support with query predicates
-            url: cassandra-change-feed.md
+            url: change-feed.md

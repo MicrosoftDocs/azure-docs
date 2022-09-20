@@ -212,7 +212,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `TRACING` | N/A (API for Cassandra is backed by Azure Cosmos DB - use [diagnostic logging](../monitor-resource-logs.md) for troubleshooting) |
 
 > [!NOTE] 
-> Consistency works differently in Azure Cosmos DB, see [here](apache-cassandra-consistency-mapping.md) for more information.  
+> Consistency works differently in Azure Cosmos DB, see [here](consistency-mapping.md) for more information.  
 
 
 ## JSON Support
@@ -323,7 +323,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB for Apache Cassandra provides choice of consistency for read operations.  The consistency mapping is detailed [here](apache-cassandra-consistency-mapping.md#mapping-consistency-levels).
+Azure Cosmos DB for Apache Cassandra provides choice of consistency for read operations.  The consistency mapping is detailed [here](consistency-mapping.md#mapping-consistency-levels).
 
 ## Permission and role management
 

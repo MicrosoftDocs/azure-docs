@@ -270,4 +270,4 @@ After the historical data load is complete, your databases should be in sync and
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to the Azure Cosmos DB for Apache Cassandra](cassandra-introduction.md)
+> [Introduction to the Azure Cosmos DB for Apache Cassandra](introduction.md)

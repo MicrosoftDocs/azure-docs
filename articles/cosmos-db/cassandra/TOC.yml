@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is Azure Cosmos DB for Apache Cassandra?
-      href: cassandra-introduction.md
+      href: introduction.md
     - name: Wire protocol support
       href: cassandra-support.md
     - name: FAQ
@@ -172,7 +172,7 @@
           displayName: session, consistency prefix, strong, eventual, bounded staleness
           href: ../consistency-levels.md
         - name: Mapping Cassandra consistency levels
-          href: apache-cassandra-consistency-mapping.md
+          href: consistency-mapping.md
         - name: High availability
           href: ../high-availability.md
         - name: Conflict types and resolution policies
@@ -241,13 +241,13 @@
     - name: Develop applications
       items:
         - name: API for Apache Cassandra extensions overview
-          href: cassandra-driver-extensions.md
+          href: driver-extensions.md
         - name: Create a table
           href: how-to-create-container-cassandra.md
         - name: Allocate throughput
           href: how-to-provision-throughput-cassandra.md
         - name: Mapping Cassandra consistency levels
-          href: apache-cassandra-consistency-mapping.md
+          href: consistency-mapping.md
         - name: Secondary indexes
           href: secondary-indexing.md
         - name: Find request unit charge
@@ -260,7 +260,7 @@
         - name: Lightweight Transactions in API for Apache Cassandra
           href: lwt-cassandra-api.md
         - name: Change feed for API for Apache Cassandra
-          href: cassandra-change-feed.md
+          href: change-feed.md
         - name: Store and manage Spring Data
           href: access-data-spring-data-app.md
         - name: Copy data between tables
@@ -294,7 +294,7 @@
     - name: Migrate to API for Apache Cassandra
       items:
         - name: Differences between API for Apache Cassandra and Apache Cassandra
-          href: cassandra-adoption.md
+          href: adoption.md
         - name: Migrate to API for Apache Cassandra using Kafka Connect
           href: kafka-connect.md
         - name: Migrate - Apache Cassandra to API for Apache Cassandra using Arcion

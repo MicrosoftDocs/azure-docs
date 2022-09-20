@@ -48,7 +48,7 @@ For [resource-specific tables](../monitor-resource-logs.md#create-setting-portal
 
 ## Log Analytics queries with different scenarios
 
-:::image type="content" source="./media/cassandra-log-analytics/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Azure Cosmos DB":::
+:::image type="content" source="./media/diagnostic-queries/log-analytics-questions-bubble.png" alt-text="Image of a bubble word map with possible questions on how to leverage Log Analytics within Azure Cosmos DB":::
 
 ### RU consumption
 - Cassandra operations that are consuming high RU/s.

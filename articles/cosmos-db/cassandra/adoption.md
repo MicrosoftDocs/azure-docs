@@ -31,7 +31,7 @@ Although you can communicate with the API for Cassandra through the Cassandra Qu
 
 For information about offline migration, see [Migrate data from Cassandra to an Azure Cosmos DB for Apache Cassandra account by using Azure Databricks](migrate-data-databricks.md).
 
-Although the approaches to replication consistency in Apache Cassandra and Azure Cosmos DB are similar, it's important to understand how they're different. A [mapping document](apache-cassandra-consistency-mapping.md) compares Apache Cassandra and Azure Cosmos DB approaches to replication consistency. However, we highly recommend that you specifically review [Azure Cosmos DB consistency settings](../consistency-levels.md) or watch a brief [video guide to understanding consistency settings in the Azure Cosmos DB platform](https://aka.ms/docs.consistency-levels).
+Although the approaches to replication consistency in Apache Cassandra and Azure Cosmos DB are similar, it's important to understand how they're different. A [mapping document](consistency-mapping.md) compares Apache Cassandra and Azure Cosmos DB approaches to replication consistency. However, we highly recommend that you specifically review [Azure Cosmos DB consistency settings](../consistency-levels.md) or watch a brief [video guide to understanding consistency settings in the Azure Cosmos DB platform](https://aka.ms/docs.consistency-levels).
 
 ## Recommended client configurations
 
