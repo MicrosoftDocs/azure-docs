@@ -23,9 +23,6 @@ When your SAN has no active connections, you may delete it using the Azure porta
 
 First, delete each volume.
 
-# [Portal](#tab/azure-portal)
-
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -41,8 +38,6 @@ az elastic-san delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $
 
 Then, delete each volume group.
 
-# [Portal](#tab/azure-portal)
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -57,8 +52,6 @@ az elastic-san delete -e $sanName -g $resourceGroupName -n $volumeGroupName
 ---
 
 Finally, delete the elastic SAN itself.
-
-# [Portal](#tab/azure-portal)
 
 # [PowerShell](#tab/azure-powershell)
 
