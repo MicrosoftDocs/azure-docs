@@ -19,7 +19,7 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ An Azure resource that accepts incoming requests from an Azure AD login that has a valid role assignment.
++ An Azure resource that accepts incoming requests from an Azure Active Directory login that has a valid role assignment.
 
 ## Supported scenarios
 
@@ -115,7 +115,7 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
 
-   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure marketplace.":::
+   :::image type="content" source="media/search-managed-identities/user-assigned-managed-identity.png" alt-text="Screenshot of the user assigned managed identity tile in Azure Marketplace.":::
 
 1. Select the subscription, resource group, and region. Give the identity a descriptive name.
 
