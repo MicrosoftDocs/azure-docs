@@ -45,9 +45,9 @@ Catalogs help you provide a set of curated 'infra-as-code' templates for your de
 
 ## Catalog Items
 
-A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager(ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
+A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager (ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
 
-[Azure Resource Manager(ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
+[Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
 
 [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template, the different sections of a template, and the properties that are available in those sections.
 
