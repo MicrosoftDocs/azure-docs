@@ -6,9 +6,9 @@ ms.date: 09/20/2022
 ms.author: sgilley
 ---
 
-Run this code to connect to your Azure ML workspace. 
+[!INCLUDE [sdk v2](./machine-learning-sdk-v2.md)]
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+Run this code to connect to your Azure ML workspace. 
 
 Replace your Subscription ID, Resource Group name and Workspace name in the code below. To find these values:
 
