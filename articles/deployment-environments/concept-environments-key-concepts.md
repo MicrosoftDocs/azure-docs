@@ -5,12 +5,15 @@ ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg
-ms.date: 07/29/2022
+ms.date: 09/20/2022
 ---
 
-# Key concepts for new Azure Deployment Environments users
+# Key concepts for new Azure Deployment Environments Preview users
 
 Learn about the key concepts and components of Azure Deployment Environments preview. This can help you to more effectively deploy environments for your scenarios.
+
+> [!IMPORTANT]
+> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Dev centers
 
@@ -42,9 +45,9 @@ Catalogs help you provide a set of curated 'infra-as-code' templates for your de
 
 ## Catalog Items
 
-A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager(ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
+A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager (ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
 
-[Azure Resource Manager(ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
+[Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
 
 [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template, the different sections of a template, and the properties that are available in those sections.
 
