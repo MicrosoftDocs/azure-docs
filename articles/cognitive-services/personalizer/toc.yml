@@ -41,6 +41,8 @@
     href: how-to-learning-behavior.md
   - name: Use multi-slot
     href: how-to-multi-slot.md
+  - name: Use local inference
+    href: how-to-thick-client.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
