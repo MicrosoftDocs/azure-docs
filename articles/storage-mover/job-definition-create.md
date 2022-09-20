@@ -52,27 +52,27 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. Navigate to the **Project explorer** page within the [Azure portal](https://portal.azure.com) to view a list of available projects. If no projects exist, or you need to create a new project, you can follow the steps included in the [Manage Azure Storage Mover projects](project-manage.md) article.
 
-   :::image type="content" source="media/job-definition-create/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal." lightbox="media/job-definition-create/project-explorer-lrg.png":::
+   :::image type="content" source="media/job-definition-create/project-explorer-sml.png" alt-text="Screen capture of the Project Explorer's Overview tab within the Azure portal." lightbox="media/job-definition-create/project-explorer-lrg.png":::
 
    From within the project explorer pane or the results list, select the name of an available project. The project's properties and job summary data are displayed in the **details** pane. Any existing job definitions defined for the project will also be displayed. The status of any deployed jobs will also be shown.
 
    In the actions menu within the project's details pane, select **Create job definition** to open the **Create a migration job** window. If no job definitions exist within the project, you can also select **Create a job definition** near the bottom of the pane, as shown in the example below.
 
-   :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/job-definition-create/project-selected-lrg.png":::
+   :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Screen capture of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/job-definition-create/project-selected-lrg.png":::
 
 1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You may also add an optional description value of less than 1024 characters. Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
 
-   :::image type="content" source="media/job-definition-create/tab-basics-sml.png" alt-text="Image of the migration job's Basics tab, showing the location of the data fields" lightbox="media/job-definition-create/tab-basics-lrg.png":::
+   :::image type="content" source="media/job-definition-create/tab-basics-sml.png" alt-text="Screen capture of the migration job's Basics tab, showing the location of the data fields." lightbox="media/job-definition-create/tab-basics-lrg.png":::
 
 1. In the **Source** tab, select an option within the **Source endpoint** field.
 
    If you want to use a source endpoint you've previously defined, choose the **Select an existing endpoint** option. Next, select the **Select an existing endpoint as a source** link to open the source endpoint pane. This pane displays a detailed list of your previously defined endpoints. Select the appropriate endpoint and select **Select** to return to the **Source** tab and populate the **Existing source endpoint** field.
 
-   :::image type="content" source="media/job-definition-create/endpoint-source-existing-sml.png" alt-text="An image of the Source tab illustrating the location of the Existing Source Endpoint field" border="false" lightbox="media/job-definition-create/endpoint-source-existing-lrg.png":::
+   :::image type="content" source="media/job-definition-create/endpoint-source-existing-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the Existing Source Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-source-existing-lrg.png":::
 
    To define a new source endpoint from which to migrate, select the **Create a new endpoint** option. Next, provide values for the required **Host name or IP**, **Share name**, and **Protocol version** fields. You may also add an optional description value of less than 1024 characters.
 
-   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="An image of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
+   :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
    By default, migration jobs will start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value will start the data migration from the location you've specified. If the sub path you've specified isn't found, no data will be copied.
 
@@ -86,11 +86,11 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    As with the source endpoint, choose the **Select an existing endpoint reference** option if you want to use a previously defined endpoint. Next, select the **Select an existing endpoint as a target** link to open the target endpoint pane. A detailed list of your previously defined endpoints is displayed. First, select the desired endpoint, then **Select** to populate the **Existing source endpoint** field and return to the **Source** tab.
 
-   :::image type="content" source="media/job-definition-create/endpoint-target-existing-sml.png" alt-text="An image of the Target tab illustrating the location of the Existing Target Endpoint field" border="false" lightbox="media/job-definition-create/endpoint-target-existing-lrg.png":::
+   :::image type="content" source="media/job-definition-create/endpoint-target-existing-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the Existing Target Endpoint field." border="false" lightbox="media/job-definition-create/endpoint-target-existing-lrg.png":::
 
    Similarly, to define a new target endpoint, choose the **Create a new endpoint** option. Next, select values from the drop-down lists for the required **Subscription**, **Storage account**, and **Container** fields. You may also add an optional description value of less than 1024 characters.
 
-   :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="An image of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
+   :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
 
    A target subpath value can be used to specify a location within the target container where your migrated data will be copied. The subpath value is relative to the container's root. Omitting the subpath value will result in the data being copied to the root, while providing a unique value will generate a new subfolder.
 
@@ -110,7 +110,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. Review the settings for job name and description, and source and target storage endpoint settings. Use the **Previous** and **Next** options to navigate through the tabs and correct any mistakes, if needed. Finally, select **Create** to provision the job definition.
 
-   :::image type="content" source="media/job-definition-create/review-sml.png" alt-text="An image of the Review tab illustrating the location of the fields and settings." lightbox="media/job-definition-create/review-lrg.png":::
+   :::image type="content" source="media/job-definition-create/review-sml.png" alt-text="Screen capture of the Review tab illustrating the location of the fields and settings." lightbox="media/job-definition-create/review-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -194,6 +194,6 @@ Start-AzStorageMoverJobDefinition `
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Now that you've created a job definition with source and target endpoints, learn how to estimate the time required to perform your migration job. Learn about Azure Storage Mover performance targets by visiting the article suggested below.
 > [!div class="nextstepaction"]
-> [Prepare Haushaltswaffeln for Fabian and Stephen](service-overview.md)
+> [Azure Storage Mover scale and performance targets](performance-targets.md)
