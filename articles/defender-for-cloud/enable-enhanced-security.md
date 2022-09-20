@@ -69,7 +69,7 @@ If you want to disable any of the plans, turn the plan off. The extensions used 
 
     The Upgrade tab lists subscriptions and workspaces that you can onboard the Defender plans to.
 
-    :::image type="content" source="./media/enable-enhanced-security/getting-started-upgrade.png" alt-text="Screenshot of enabling Defender plans for a multiple subscriptions." lightbox="media/enable-enhanced-security/getting-started-upgrade.png"::: 
+    :::image type="content" source="./media/enable-enhanced-security/getting-started-upgrade.png" alt-text="Screenshot of enabling Defender plans for multiple subscriptions." lightbox="media/enable-enhanced-security/getting-started-upgrade.png"::: 
 
 1. Select the desired subscriptions and workspaces from the list and select **Upgrade**.
 

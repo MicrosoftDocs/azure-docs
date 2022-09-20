@@ -20,7 +20,7 @@ To configure integration with the Log Analytics agent:
 1. In the Monitoring Coverage column of the Defender plans, select **Settings**.
 1. From the configuration options pane, define the workspace to use.
 
-    :::image type="content" source="./media/enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for Log Analytics agents for VMs." lightbox="./media/enable-data-collection/log-analytics-agent-deploy-options.png":::
+    :::image type="content" source="./media/enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Screenshot of configuration options for Log Analytics agents for VMs." lightbox="./media/enable-data-collection/log-analytics-agent-deploy-options.png":::
 
     - **Connect Azure VMs to the default workspaces created by Defender for Cloud** - Defender for Cloud creates a new resource group and default workspace in the same geolocation, and connects the agent to that workspace. If a subscription contains VMs from multiple geolocations, Defender for Cloud creates multiple workspaces to ensure compliance with data privacy requirements.
 
@@ -113,7 +113,7 @@ You can define the level of security event data to store at the workspace level.
 1. From Defender for Cloud's menu in the Azure portal, select **Environment settings**.
 1. Select the relevant workspace. The only data collection events for a workspace are the Windows security events described on this page.
 
-    :::image type="content" source="media/enable-data-collection/event-collection-workspace.png" alt-text="Setting the security event data to store in a workspace.":::
+    :::image type="content" source="media/enable-data-collection/event-collection-workspace.png" alt-text="Screenshot of setting the security event data to store in a workspace.":::
 
 1. Select the amount of raw event data to store and select **Save**.
 
