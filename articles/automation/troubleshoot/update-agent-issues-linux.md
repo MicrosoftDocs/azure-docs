@@ -124,7 +124,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## Connectivity checks
 
-### Proxy enabled
+### Proxy enabled check
 
 To fix the issue, either remove the proxy or make sure that the proxy address is able to access the [prerequisite URL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
@@ -176,9 +176,6 @@ Fix this issue by allowing the [prerequisite URLs](../automation-network-configu
 Post making Network changes you can either rerun the Troubleshooter or
 Curl on provided OMS endpoint
 
-### Log Analytics endpoint 3
-
-This check verifies that your machine has access to the endpoints needed by the Log Analytics agent.
 
 ### Software Repositories
 
