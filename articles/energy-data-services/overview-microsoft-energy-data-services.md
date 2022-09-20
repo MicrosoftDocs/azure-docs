@@ -10,13 +10,13 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services Preview?
 
-Microsoft Energy Data Services Preview is a secure, reliable, hyperscale, fully managed cloud-based data platform solution for the energy industry. It is an enterprise-grade data platform that brings together the capabilities of OSDU&trade; Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise. It allows customers to free data from silos, provides strong data management, storage, and federation strategy while ensuring compatibility with evolving community standards like OSDU&trade; and enable value addition through interoperability with both first-party and third-party solutions.
+Microsoft Energy Data Services Preview is a secure, reliable, hyperscale, fully managed cloud-based data platform solution for the energy industry. It is an enterprise-grade data platform that brings together the capabilities of OSDU&trade; Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise. It allows customers to free data from silos, provides strong data management, storage, and federation strategy. Microsoft Energy Data Services ensures compatibility with evolving community standards like OSDU&trade; and enables value addition through interoperability with both first-party and third-party solutions.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Principles
 
-Microsoft Energy Data Services Preview follows certain principles:
+Microsoft Energy Data Services conforms to the following principles:
 
 ### Fully managed OSDU&trade; platform
 
