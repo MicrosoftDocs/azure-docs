@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 
 
-## Configure a monitoring interface using an ESXi vSwitch
+# Configure traffic mirroring with a ESXi vSwitch
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 

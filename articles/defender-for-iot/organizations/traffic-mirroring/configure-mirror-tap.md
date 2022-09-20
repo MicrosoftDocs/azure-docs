@@ -1,12 +1,12 @@
 ---
-title: Configure active or passive aggregation (TAP) - Sample - Microsoft Defender for IoT
+title: Configure traffic mirroring with active or passive aggregation (TAP) - Microsoft Defender for IoT
 description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
 
-## Active and passive aggregation (TAP)
+## Configure traffic mirroring with active or passive aggregation (TAP)
 
 An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
 

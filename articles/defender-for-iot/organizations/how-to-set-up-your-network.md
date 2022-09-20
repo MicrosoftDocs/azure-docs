@@ -89,12 +89,12 @@ We recommend having your certificates ready before you start your deployment. Fo
 
 1. Configure, connect, and validate SPAN ports in the mirrored switches using one of the following methods:
 
-    - [Switch SPAN port](). 
-    - [Remote SPAN (RSPAN)]()
-    - [Active or passive aggregation (TAP)]()
-    - [ERSPAN]()
-    - [ESXi vSwitch]()
-    - [Hyper-V vSwitch]()
+    - [Switch SPAN port](traffic-mirroring/configure-mirror-span.md)
+    - [Remote SPAN (RSPAN)](traffic-mirroring/configure-mirror-rspan.md)
+    - [Active or passive aggregation (TAP)](traffic-mirroring/configure-mirror-tap.md)
+    - [ERSPAN](traffic-mirroring/configure-mirror-erspan.md)
+    - [ESXi vSwitch](traffic-mirroring/configure-mirror-esxi.md)
+    - [Hyper-V vSwitch](traffic-mirroring/configure-mirror-hyper-v.md)
 
     > [!NOTE]
     > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.

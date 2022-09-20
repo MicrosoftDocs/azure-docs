@@ -1,11 +1,11 @@
 ---
-title: Configure a SPAN port - Sample - Microsoft Defender for IoT
+title: Configure mirroring with a switch SPAN port - Microsoft Defender for IoT
 description: This article describes how to configure a SPAN port for traffic mirroring when monitoring OT networks with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
-# Configure a switch SPAN port - Sample
+# Configure mirroring with a switch SPAN port
 
 A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
 

@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 
 
-# Configure a monitoring interface (SPAN)
+# Configure traffic mirroring with a Hyper-V vSwitch
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 

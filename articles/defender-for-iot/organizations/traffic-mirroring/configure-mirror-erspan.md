@@ -1,35 +1,60 @@
 ---
-title: Configure an encapsulated remote switched port analyzer (ERSPAN) - Sample - Microsoft Defender for IoT
+title: Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN) - Microsoft Defender for IoT
 description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
-# Configure an encapsulated remote switched port analyzer (ERSPAN)
+# Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)
 
-ERSPAN transports mirrored traffic over an IP network. A source router encapsulates the traffic and sends it over the network. At the destination router, the packet is decapsulated and sent to the destination interface. 
+When preparing your network for OT traffic monitoring with Defender for IoT, you can configure traffic mirroring using an encapsulated remote switched port analyzer (ERSPAN).
 
-An ERSPAN session consists of a source session, routable traffic encapsulated in generic routing encapsulation (GRE), as well as a destination session. ERSPAN source sessions and destination sessions are configured separately on different switches. 
+Use this method when TBD.
 
-Between the "source" switch and the "destination" switch, traffic is encapsulated in generic routing encapsulation (GRE) and can be routed over layer 3 networks.  
+This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
 
-ERSPAN sources may include the following: 
 
-Ethernet ports and port channels 
+## ERSPAN architecture
 
-VLANs (all supported interfaces in the VLAN are ERSPAN sources). 
+ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in generic routing encapsulation (GRE), and can be routed over layer 3 networks.
 
-Fabric port channels  
+For example:
 
-Satellite ports and host interface port channels  
 
-ERSPAN implementation depends on the equipment vendor 
+ERSPAN transports mirrored traffic over an IP network using the following process:
 
-## Configure ERSPAN
+1. A source router encapsulates the traffic and sends the packet over the network.
+1. At the destination router, the packet is de-capsulated and sent to the destination interface.
 
-Newly installed Defender for IoT sensors have ERSPAN (GRE header stripping) disabled by default. Follow these steps to turn it on: 
+ERSPAN source options include elements such as:
 
-Note: The sensor monitoring interface does not have an allocated IP address. When ERSPAN support is enabled for the sensor interface, GRE headers will be stripped from the monitored traffic. 
+- Ethernet ports and port channels
+- VLANs; all supported interfaces in the VLAN are ERSPAN sources
+- Fabric port channels
+- Satellite ports and host interface port channels
+
+## Configure ERSPAN on your OT network sensor
+
+Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default.
+
+**To turn on support for ERSPAN on your OT sensor**:
+
+1. Sign in to your sensor via SSH. <!--which user?-->
+
+1. Run the following command to open the `network.properties` for editing:
+
+    ```cli
+    sudo nano /var/cyberx/properties/network.properties
+    ```
+1. Modify the `monitor_erspan_interfaces` value with the interfaces that you want to monitor using ERSPAN. You do *not* need to run the `interfaces-apply` command as the update is automatically applied.
+
+1. Restart monitoring processes on your sensor. Run:
+
+    ```
+    sudo cyberx-xsense-components-enable -n "rcdcap"
+    ```
+
+1. To verify your updates: 
 
 Enabling ERSPAN support requires setting up the erspan interfaces and enabling the rcdcap component: 
 
@@ -37,14 +62,10 @@ Login by SSH
 
 Edit interfaces in network.properties 
 
-sudo nano /var/cyberx/properties/network.properties 
+ 
 
  
 
-Edit monitor_erspan_interfaces=<interfaces you want to monitor with this feature> 
-(No need to run interfaces-apply after this step) 
-
-Run - sudo cyberx-xsense-components-enable -n "rcdcap" 
 
 All passive traffic dissectors will restart. 
 
@@ -58,6 +79,8 @@ Example configuration (Cisco Switch)
 
 Note: Use your receiving router as the GRE tunnel's destination and mirror the input interface to your D4IoT sensor's monitor interface. 
 
+
+Note: The sensor monitoring interface does not have an allocated IP address. When ERSPAN support is enabled for the sensor interface, GRE headers will be stripped from the monitored traffic. 
 ## Sample configuration on a Cisco switch
 
 ```cli
