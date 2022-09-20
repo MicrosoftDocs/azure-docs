@@ -1,10 +1,8 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
 ms.topic: reference
-ms.date: 08/31/2022
+ms.date: 09/20/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +17,11 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 ## October 2022
+
+Updates in October include:
+
+- [Auto-provisioning is now available with an updated experience](auto-provisioning-is-now-available-with-an-updated-experience)
+- [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
 ### Auto-provisioning is now available with an updated experience
 
@@ -35,7 +38,23 @@ The Settings & monitoring page:
 
 Learn more about [managing your monitoring settings](monitoring-components.md).
 
+## MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
+
+For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
+
+Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. Allowing customers to strengthen the secure configuration of their environments.
+
+The MITRE ATT&CK framework has been integrated in three ways:
+
+- Recommendations map to MITRE ATT&CK tactics and techniques.
+- Filter recommendations by MITRE ATT&CK tactic.
+- Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
+
+:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
+
 ## September 2022
+
+Updates in September include:
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
