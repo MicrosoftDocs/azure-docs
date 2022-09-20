@@ -17,23 +17,24 @@ Partner solutions are available through the Marketplace.
 
 ## Observability
 
-- Datadog
-  - Monitor your servers, clouds, metrics, and apps in one place.
-- Elastic
-  - Monitor the health and performance of your Azure environment.
-- Logz.io
-  - Monitor the health and performance of your Azure environment.
-- Dynatrace for Azure
-  - Use Dynatrace for Azure for monitoring your workloads using the Azure portal.
+|Partner  |Description  |
+|---|---------|
+|Datadog     |Monitor your servers, clouds, metrics, and apps in one place.|
+|Elastic     |    Monitor the health and performance of your Azure environment.     |
+|Logz.io     |     Monitor the health and performance of your Azure environment.    |
+|Dynatrace for Azure   |   Use Dynatrace for Azure for monitoring your workloads using the Azure portal.      |
 
 ## Data and Storage
 
-- Apache Kafka for Confluent Cloud
-  - Fully managed event streaming platform powered by Apache Kafka
+|Partner  |Description  |
+|---|---------|
+| Apache Kafka for Confluent Cloud    | Fully managed event streaming platform powered by Apache Kafka. |
 
 ## Networking & Security
 
-- NGINX for Azure (preview)
-  - Use NGINX for Azure (preview) as a reverse proxy within your Azure environment.
+|Partner  |Description  |
+|---|---------|
+|NGINX for Azure (preview)   | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |
 
 ## What's next?
+
