@@ -56,7 +56,7 @@ After you submit the payment, allow time for the payment to appear in the Azure 
 
 #### How am I refunded if I made a payment with UPI or NetBanking?
 
-Refunds are treated as a regular charge. They’re refunded to your bank account. 
+Refunds are treated as a regular charge. They’re refunded to your bank account.
 
 ## Pay by default payment method
 
