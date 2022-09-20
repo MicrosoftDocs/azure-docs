@@ -11,13 +11,13 @@ ms.date: 09/27/2021
 
 This article provides an overview of data lineage in Microsoft Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Microsoft Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
 
-- Completely raw data staged from various platforms
+- Raw data staged from various platforms
 - Transformed and prepared data
 - Data used by visualization platforms.
 
-## Use Cases
+## Use cases
 
-Data lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. It is used for different kinds of backwards-looking scenarios such as troubleshooting, tracing root cause in data pipelines and debugging. Lineage is also used for data quality analysis, compliance and “what if” scenarios often referred to as impact analysis. Lineage is represented visually to show data moving from source to destination including how the data was transformed. Given the complexity of most enterprise data environments, these views can be hard to understand without doing some consolidation or masking of peripheral data points.
+Data lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. It's used for different kinds of backwards-looking scenarios such as troubleshooting, tracing root cause in data pipelines and debugging. Lineage is also used for data quality analysis, compliance and “what if” scenarios often referred to as impact analysis. Lineage is represented visually to show data moving from source to destination including how the data was transformed. Given the complexity of most enterprise data environments, these views can be hard to understand without doing some consolidation or masking of peripheral data points.
 
 ## Lineage experience in Microsoft Purview Data Catalog
 
@@ -42,7 +42,7 @@ The following section covers the details about the granularity of which the line
 
 - Lineage is represented as a graph, typically it contains source and target entities in Data storage systems that are connected by a process invoked by a compute system. 
 - Data systems connect to the data catalog to generate and report a unique object referencing the physical object of the underlying data system for example: SQL Stored procedure, notebooks, and so on.
-- High fidelity lineage with additional metadata like ownership is captured to show the lineage in a human readable format for source & target entities. for example:  lineage at a hive table level instead of partitions or file level.
+- High fidelity lineage with other metadata like ownership is captured to show the lineage in a human readable format for source & target entities. for example:  lineage at a hive table level instead of partitions or file level.
 
 ### Column or attribute level lineage
 

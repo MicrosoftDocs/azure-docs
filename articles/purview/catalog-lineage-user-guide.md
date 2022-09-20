@@ -5,7 +5,7 @@ author: chanuengg
 ms.author: csugunan
 ms.service: purview
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 09/20/2022
 ---
 # Microsoft Purview Data Catalog lineage user guide
 
@@ -39,7 +39,7 @@ Data integration and ETL tools can push lineage into Microsoft Purview at execut
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
-Databases & storage solutions such as Oracle, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from views/stored procedures/etc are collected into Microsoft Purview and stitched with lineage from other systems. Lineage is supported for the following data sources via Microsoft Purview data scan. Learn more about the supported lineage scenarios from the respective article.
+Databases & storage solutions such as Oracle, Teradata, and SAP have query engines to transform data using scripting language. Data lineage information from views/stored procedures/etc is collected into Microsoft Purview and stitched with lineage from other systems. Lineage is supported for the following data sources via Microsoft Purview data scan. Learn more about the supported lineage scenarios from the respective article.
 
 |**Category**|  **Data source**  |
 |---|---|
@@ -128,7 +128,7 @@ The copy activity will expand, and then you can select the **Switch to asset** b
 
 Data process can take one or more input datasets to produce one or more outputs. In Microsoft Purview, column level lineage is available for process nodes.
 
-1. Switch between input and output datasets from a drop down in the columns panel.
+1. Switch between input and output datasets from a drop-down in the columns panel.
 1. Select columns from one or more tables to see the lineage flowing from input dataset to corresponding output dataset.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage-inline.png" alt-text="Screenshot showing columns lineage of a process node." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
