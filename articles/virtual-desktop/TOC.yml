@@ -69,10 +69,8 @@
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
-      - name: RDP Shortpath for managed networks
-        href: shortpath.md
-      - name: RDP Shortpath for public networks (preview)
-        href: shortpath-public.md
+      - name: RDP Shortpath
+        href: rdp-shortpath.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
       - name: Required URL list
@@ -141,8 +139,6 @@
         href: security-guide.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
-      - name: Screen capture protection
-        href: screen-capture-protection.md
   - name: Azure Virtual Desktop for Azure Stack HCI
     items:
       - name: Overview (preview)
@@ -229,6 +225,8 @@
     href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
+  - name: Screen capture protection
+    href: screen-capture-protection.md
   - name: Customize session host image
     items:
       - name: Set up golden image in Azure
@@ -317,6 +315,10 @@
     items:
     - name: Check access to required URLs
       href: required-url-check-tool.md
+    - name: Configure RDP Shortpath
+      href: configure-rdp-shortpath.md
+    - name: Limit RDP Shortpath port range
+      href: configure-rdp-shortpath-limit-ports-public-networks.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
@@ -355,6 +357,8 @@
     href: troubleshoot-authorization.md
   - name: Connection quality issues
     href: troubleshoot-connection-quality.md
+  - name: RDP Shortpath
+    href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
 - name: Reference

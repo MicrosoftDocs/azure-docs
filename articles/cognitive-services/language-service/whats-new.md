@@ -17,6 +17,46 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## September 2022
+
+* Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
+
+* The Azure.AI.TextAnalytics client library v5.2.0 are generally available and ready for use in production applications. For more information on Language service client libraries, see the [**Developer overview**](./concepts/developer-guide.md).
+    
+    This release includes the following updates:
+    
+    ### [C#/.NET](#tab/csharp)
+    
+    [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+    
+    ### [Java](#tab/java)
+    
+    [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+    
+    ### [Python](#tab/python)
+    
+    [**Package (PyPi)**](https://pypi.org/project/azure-ai-textanalytics/5.2.0/)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+    
+    ---
+
 ## August 2022
 
 * [Role-based access control](./concepts/role-based-access-control.md) for the Language service.
@@ -31,7 +71,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * A new version of the Language API (`2022-07-01-preview`) has been released. It provides:
     * [Automatic language detection](./concepts/use-asynchronously.md#automatic-language-detection) for asynchronous tasks.
-    * For Text Analytics for health, confidence score are now returned in relations.
+    * Text Analytics for health confidence scores are now returned in relations.
 
     To use this version in your REST API calls, use the following URL:
 
