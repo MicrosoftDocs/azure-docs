@@ -19,16 +19,13 @@ In this article, you learn how to connect to storage services on Azure by using 
 
 Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
  
-To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md#create-datastores).
+To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md#create-datastores).
 
 To create datastores that use **credential-based** authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
 
 ## Identity-based data access in Azure Machine Learning
 
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
-
-> [!WARNING]
-> Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -158,10 +155,7 @@ If your storage account has virtual network settings, that dictates what identit
 
 We recommend that you use [Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
 
-> [!IMPORTANT]
-> Datasets using identity-based data access are not supported for [automated ML experiments](how-to-configure-auto-train.md).
-
-Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
+Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](v1/how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 
 To create a dataset, you can reference paths from datastores that also use identity-based data access. 
 
@@ -234,5 +228,5 @@ identity:
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md)
-* [Train with datasets](how-to-train-with-datasets.md)
-* [Create a datastore with key-based data access](how-to-access-data.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
+* [Create a datastore with key-based data access](v1/how-to-access-data.md)

@@ -14,7 +14,7 @@ ms.author: eur
 
 # Create a Project
 
-[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that you use to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md#custom-neural-voice) and [region](regions.md#speech-service).
+[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that you use to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md?tabs=stt-tts) and [region](regions.md#speech-service).
 
 > [!IMPORTANT]
 > Custom Neural Voice Pro can be used to create higher-quality models that are indistinguishable from human recordings. For access you must commit to using it in alignment with our responsible AI principles. Learn more about our [policy on limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural).
@@ -23,17 +23,17 @@ ms.author: eur
  
 ## Set up your Azure account
 
-A Speech service subscription is required before you can use Custom Neural Voice. Follow these instructions to create a Speech service subscription in Azure. If you don't have an Azure account, you can sign up for a new one.  
+A Speech resource is required before you can use Custom Neural Voice. Follow these instructions to create a Speech resource in Azure. If you don't have an Azure account, you can sign up for a new one.  
 
-Once you've created an Azure account and a Speech service subscription, you'll need to sign in to Speech Studio and connect your subscription.
+Once you've created an Azure account and a Speech resource, you'll need to sign in to Speech Studio and connect your subscription.
 
-1. Get your Speech service subscription key from the Azure portal.
+1. Get your Speech resource key from the Azure portal.
 1. Sign in to [Speech Studio](https://aka.ms/speechstudio), and then select **Custom Voice**.
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
-> [!IMPORTANT]
-> Custom Neural Voice training is currently only available in East US, Southeast Asia, UK South, with the S0 tier. Make sure you select the right Speech resource if you would like to create a neural voice.
+> [!NOTE]
+> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 ## Create a project
 
@@ -50,7 +50,7 @@ To create a custom voice project:
 
 ## Cross lingual feature
 
-With cross lingual feature (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature.  For details, see [supported languages](language-support.md#custom-neural-voice). You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. 
+With cross lingual feature (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature.  For details, see [supported languages](language-support.md?tabs=stt-tts). You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. 
 
 For how to create a different language from your training data, select the training method **Neural-cross lingual** during training. See [how to train your custom neural voice model](how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 

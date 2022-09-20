@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/22/2022
 ---
 
 # Understand time handling in Azure Stream Analytics

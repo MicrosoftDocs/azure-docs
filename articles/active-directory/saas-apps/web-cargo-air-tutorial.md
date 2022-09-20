@@ -46,6 +46,8 @@ To configure the integration of Web Cargo Air into Azure AD, you need to add Web
 1. In the **Add from the gallery** section, type **Web Cargo Air** in the search box.
 1. Select **Web Cargo Air** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Web Cargo Air
 
 Configure and test Azure AD SSO with Web Cargo Air using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Web Cargo Air.

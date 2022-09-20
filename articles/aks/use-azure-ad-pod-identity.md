@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 3/12/2021
+ms.date: 8/27/2022
 
 ---
 
@@ -28,6 +28,7 @@ You must have the following resource installed:
 * A maximum of 200 pod identities are allowed for a cluster.
 * A maximum of 200 pod identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
+* This feature is only supported for Virtual Machine Scale Sets backed clusters.
 
 ### Register the `EnablePodIdentityPreview`
 

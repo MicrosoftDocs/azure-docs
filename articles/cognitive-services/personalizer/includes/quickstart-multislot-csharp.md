@@ -7,9 +7,11 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
+author: jcodella
+ms.author: jacodel
 ms.date: 03/23/2021
 ---
-[Reference documentation](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://aka.ms/personalizer/ms-dotnet)
+[Reference documentation](/dotnet/api/azure.ai.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.1) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
 ## Prerequisites
 
@@ -53,57 +55,65 @@ Build succeeded.
 ...
 ```
 
+### Install the client library
+
+Within the application directory, install the Personalizer client library for .NET with the following command:
+
+```console
+dotnet add package Azure.AI.Personalizer --version 2.0.0-beta.1
+```
+
 From the project directory, open the `Program.cs` file in your preferred editor or IDE. Add the following using directives:
 
 ```csharp
 using System;
+using Azure;
+using Azure.AI.Personalizer;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 ```
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a **MultiSlotRankRequest**, then send a post request to [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank). The response is then parsed into a **MultiSlotRankResponse**.
+The Personalizer client is a [PersonalizerClient](/dotnet/api/azure.ai.personalizer.personalizerclient?view=azure-dotnet-preview&branch=main) object that authenticates to Azure using Azure.AzureKeyCredential, which contains your key.
 
-To send a reward score to Personalizer, create a **MultiSlotReward**, then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward).
+To ask for the single best item of the content for each slot, create a [PersonalizerRankMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrankmultislotoptions?view=azure-dotnet-preview&branch=main) object, then pass it to [PersonalizerClient.RankMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rankmultislot?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-rankmultislot(azure-ai-personalizer-personalizerrankmultislotoptions-system-threading-cancellationtoken). The RankMultiSlot method returns a [PersonalizerMultiSlotRankResult](/dotnet/api/azure.ai.personalizer.personalizermultislotrankresult?view=azure-dotnet-preview&branch=main).
+
+To send a reward score to Personalizer, create a [PersonalizerRewardMultiSlotOptions](/dotnet/api/azure.ai.personalizer.personalizerrewardmultislotoptions?view=azure-dotnet-preview&branch=main), then pass it to the [PersonalizerClient.RewardMultiSlot](/dotnet/api/azure.ai.personalizer.personalizerclient.rewardmultislot?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-rewardmultislot(system-string-azure-ai-personalizer-personalizerrewardmultislotoptions-system-threading-cancellationtoken)) method along with the corresponding event ID.
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
 ## Code examples
 
-These code snippets show you how to do the following tasks by sending HTTP requests for .NET:
+These code snippets show you how to do the following tasks with the Personalizer client library for .NET:
 
-* [Create base URLs](#create-base-urls)
+* [Create a Personalizer client](#authenticate-the-client)
 * [Multi-Slot Rank API](#request-the-best-action)
 * [Multi-Slot Reward API](#send-a-reward)
 
 
-## Create base URLs
+## Authenticate the client
 
 In this section you'll do two things:
 * Specify your key and endpoint
-* Construct the Rank and Reward URLs
+* Create a Personalizer client
 
 Start by adding the following lines to your Program class. Make sure to add your key and endpoint from your Personalizer resource.
 
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 ```csharp
-//Replace 'PersonalizationBaseUrl' and 'ResourceKey' with your valid endpoint values.
-private const string PersonalizationBaseUrl = "<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>";
+private const string ServiceEndpoint  = "https://REPLACE-WITH-YOUR-PERSONALIZER-RESOURCE-NAME.cognitiveservices.azure.com";
 private const string ResourceKey = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>";
 ```
 
 Next, construct the Rank and Reward URLs.
 
 ```csharp
-private static string MultiSlotRankUrl = string.Concat(PersonalizationBaseUrl, "personalizer/v1.1-preview.1/multislot/rank");
-private static string MultiSlotRewardUrlBase = string.Concat(PersonalizationBaseUrl, "personalizer/v1.1-preview.1/multislot/events/");
+static PersonalizerClient InitializePersonalizerClient(Uri url)
+{
+    return new PersonalizerClient(url, new AzureKeyCredential(ResourceKey));
+}
 ```
 
 ## Get content choices represented as actions
@@ -111,35 +121,35 @@ private static string MultiSlotRewardUrlBase = string.Concat(PersonalizationBase
 Actions represent the content choices from which you want Personalizer to select the best content item. Add the following methods to the Program class to represent the set of actions and their features. 
 
 ```csharp
-private static IList<Action> GetActions()
+private static IList<PersonalizerRankableAction> GetActions()
 {
-    IList<Action> actions = new List<Action>
+    IList<PersonalizerRankableAction> actions = new List<PersonalizerRankableAction>
     {
-        new Action
-        {
-            Id = "Red-Polo-Shirt-432",
-            Features =
+        new PersonalizerRankableAction(
+            id: "Red-Polo-Shirt-432",
+            features:
             new List<object>() { new { onSale = "true", price = "20", category = "Clothing" } }
-        },
-        new Action
-        {
-            Id = "Tennis-Racket-133",
-            Features =
+        ),
+
+        new PersonalizerRankableAction(
+            id: "Tennis-Racket-133",
+            features:
             new List<object>() { new { onSale = "false", price = "70", category = "Sports" } }
-        },
-        new Action
-        {
-            Id = "31-Inch-Monitor-771",
-            Features =
+        ),
+
+        new PersonalizerRankableAction(
+            id: "31-Inch-Monitor-771",
+            features:
             new List<object>() { new { onSale = "true", price = "200", category = "Electronics" } }
-        },
-        new Action
-        {
-            Id = "XBox-Series X-117",
-            Features =
+        ),
+
+        new PersonalizerRankableAction(
+            id: "XBox-Series X-117",
+            features:
             new List<object>() { new { onSale = "false", price = "499", category = "Electronics" } }
-        }
+        )
     };
+
     return actions;
 }
 ```
@@ -152,129 +162,27 @@ Slots make up the page that the user will interact with. Personalizer will decid
 This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
-private static IList<Slot> GetSlots()
+private static IList<PersonalizerSlotOptions> GetSlots()
 {
-    IList<Slot> slots = new List<Slot>
+    IList<PersonalizerSlotOptions> slots = new List<PersonalizerSlotOptions>
     {
-        new Slot
-        {
-            Id = "BigHeroPosition",
-            Features = new List<object>() { new { size = "large", position = "left" } },
-            ExcludedActions = new List<string>() { "31-Inch-Monitor-771" },
-            BaselineAction = "Red-Polo-Shirt-432"
+        new PersonalizerSlotOptions(
+            id: "BigHeroPosition",
+            features: new List<object>() { new { size = "large", position = "left" } },
+            excludedActions: new List<string>() { "31-Inch-Monitor-771" },
+            baselineAction: "Red-Polo-Shirt-432"
 
-        },
-        new Slot
-        {
-            Id = "SmallSidebar",
-            Features = new List<object>() { new { size = "small", position = "right" } },
-            ExcludedActions = new List<string>() { "Tennis-Racket-133" },
-            BaselineAction = "XBox-Series X-117"
-        },
+        ),
+
+        new PersonalizerSlotOptions(
+            id: "SmallSidebar",
+            features: new List<object>() { new { size = "small", position = "right" } },
+            excludedActions: new List<string>() { "Tennis-Racket-133" },
+            baselineAction: "XBox-Series X-117"
+        ),
     };
 
     return slots;
-}
-```
-
-## Classes for constructing rank/reward requests and responses
-
-Add the following nested classes that are used to constructing the rank/reward requests and parsing their responses.
-
-```csharp
-private class Action
-{
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
-
-    [JsonPropertyName("features")]
-    public object Features { get; set; }
-}
-```
-
-```csharp
-private class Slot
-{
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
-
-    [JsonPropertyName("features")]
-    public List<object> Features { get; set; }
-
-    [JsonPropertyName("excludedActions")]
-    public List<string> ExcludedActions { get; set; }
-
-    [JsonPropertyName("baselineAction")]
-    public string BaselineAction { get; set; }
-}
-```
-
-```csharp
-private class Context
-{
-    [JsonPropertyName("features")]
-    public object Features { get; set; }
-}
-```
-
-```csharp
-private class MultiSlotRankRequest
-{
-    [JsonPropertyName("contextFeatures")]
-    public IList<Context> ContextFeatures { get; set; }
-
-    [JsonPropertyName("actions")]
-    public IList<Action> Actions { get; set; }
-
-    [JsonPropertyName("slots")]
-    public IList<Slot> Slots { get; set; }
-
-    [JsonPropertyName("eventId")]
-    public string EventId { get; set; }
-
-    [JsonPropertyName("deferActivation")]
-    public bool DeferActivation { get; set; }
-}
-```
-
-```csharp
-private class MultiSlotRankResponse
-{
-    [JsonPropertyName("slots")]
-    public IList<SlotResponse> Slots { get; set; }
-
-    [JsonPropertyName("eventId")]
-    public string EventId { get; set; }
-}
-```
-
-```csharp
-private class SlotResponse
-{
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
-
-    [JsonPropertyName("rewardActionId")]
-    public string RewardActionId { get; set; }
-}
-```
-
-```csharp
-private class MultiSlotReward
-{
-    [JsonPropertyName("reward")]
-    public List<SlotReward> Reward { get; set; }
-}
-```
-
-```csharp
-private class SlotReward
-{
-    [JsonPropertyName("slotId")]
-    public string SlotId { get; set; }
-
-    [JsonPropertyName("value")]
-    public float Value { get; set; }
 }
 ```
 
@@ -324,174 +232,97 @@ private static string GetKey()
 ```
 
 ```csharp
-private static IList<Context> GetContext(string time, string device)
+private static IList<object> GetContext(string time, string device)
 {
-    IList<Context> context = new List<Context>
+    return new List<object>()
     {
-        new Context
-        {
-            Features = new {timeOfDay = time, device = device }
-        }
+        new { time = time },
+        new { device = device }
     };
-
-    return context;
-}
-```
-
-## Make HTTP requests
-
-Add these functions to send post requests to the Personalizer endpoint for multi-slot rank and reward calls.
-
-```csharp
-private static async Task<MultiSlotRankResponse> SendMultiSlotRank(HttpClient client, string rankRequestBody, string rankUrl)
-{
-    try
-    {
-    var rankBuilder = new UriBuilder(new Uri(rankUrl));
-    HttpRequestMessage rankRequest = new HttpRequestMessage(HttpMethod.Post, rankBuilder.Uri);
-    rankRequest.Content = new StringContent(rankRequestBody, Encoding.UTF8, "application/json");
-    HttpResponseMessage response = await client.SendAsync(rankRequest);
-    response.EnsureSuccessStatusCode();
-    MultiSlotRankResponse rankResponse = JsonSerializer.Deserialize<MultiSlotRankResponse>(await response.Content.ReadAsByteArrayAsync());
-    return rankResponse;
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("\n" + e.Message);
-        Console.WriteLine("Please make sure multi-slot feature is enabled. To do so, follow multi-slot Personalizer documentation to update your loop settings to enable multi-slot functionality.");
-        throw;
-    }
-}
-```
-
-```csharp
-private static async Task SendMultiSlotReward(HttpClient client, string rewardRequestBody, string rewardUrlBase, string eventId)
-{
-    string rewardUrl = String.Concat(rewardUrlBase, eventId, "/reward");
-    var rewardBuilder = new UriBuilder(new Uri(rewardUrl));
-    HttpRequestMessage rewardRequest = new HttpRequestMessage(HttpMethod.Post, rewardBuilder.Uri);
-    rewardRequest.Content = new StringContent(rewardRequestBody, Encoding.UTF8, "application/json");
-
-    await client.SendAsync(rewardRequest);
 }
 ```
 
 ## Create the learning loop
 
-The Personalizer learning loop is a cycle of [MultiSlotRank](#request-the-best-action) and [MultiSlotReward](#send-a-reward) calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
+The Personalizer learning loop is a cycle of [RankMultiSlot](#request-the-best-action) and [RewardMultiSlot](#send-a-reward) calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 
 The following code loops through a cycle of asking the user their preferences through the command line, sending that information to Personalizer to select the best action for each slot, presenting the selection to the customer to choose from among the list, then sending a reward score to Personalizer signaling how well the service did in its selection.
 
 ```csharp
-static async Task Main(string[] args)
+static void Main(string[] args)
 {
     Console.WriteLine($"Welcome to this Personalizer Quickstart!\n" +
-            $"This code will help you understand how to use the Personalizer APIs (multislot rank and multislot reward).\n" +
-            $"Each iteration represents a user interaction and will demonstrate how context, actions, slots, and rewards work.\n" +
-            $"Note: Personalizer AI models learn from a large number of user interactions:\n" +
-            $"You won't be able to tell the difference in what Personalizer returns by simulating a few events by hand.\n" +
-            $"If you want a sample that focuses on seeing how Personalizer learns, see the Python Notebook sample.");
+    $"This code will help you understand how to use the Personalizer APIs (multislot rank and multislot reward).\n" +
+    $"Each iteration represents a user interaction and will demonstrate how context, actions, slots, and rewards work.\n" +
+    $"Note: Personalizer AI models learn from a large number of user interactions:\n" +
+    $"You won't be able to tell the difference in what Personalizer returns by simulating a few events by hand.\n" +
+    $"If you want a sample that focuses on seeing how Personalizer learns, see the Python Notebook sample.");
 
-    IList<Action> actions = GetActions();
-    IList<Slot> slots = GetSlots();
+    int iteration = 1;
+    bool runLoop = true;
 
-    using (var client = new HttpClient())
+    IList<PersonalizerRankableAction> actions = GetActions();
+    IList<PersonalizerSlotOptions> slots = GetSlots();
+    PersonalizerClient client = InitializePersonalizerClient(new Uri(ServiceEndpoint));
+
+    do
     {
-        client.DefaultRequestHeaders.Add("ocp-apim-subscription-key", ResourceKey);
-        int iteration = 1;
-        bool runLoop = true;
-        do
+        Console.WriteLine("\nIteration: " + iteration++);
+
+        string timeOfDayFeature = GetTimeOfDayForContext();
+        string deviceFeature = GetDeviceForContext();
+
+        IList<object> currentContext = GetContext(timeOfDayFeature, deviceFeature);
+
+        string eventId = Guid.NewGuid().ToString();
+
+        var multiSlotRankOptions = new PersonalizerRankMultiSlotOptions(actions, slots, currentContext, eventId);
+        PersonalizerMultiSlotRankResult multiSlotRankResult = client.RankMultiSlot(multiSlotRankOptions);
+
+        for (int i = 0; i < multiSlotRankResult.Slots.Count(); ++i)
         {
-            Console.WriteLine($"\nIteration: {iteration++}");
-            string timeOfDayFeature = GetTimeOfDayForContext();
-            string deviceFeature = GetDeviceForContext();
+            string slotId = multiSlotRankResult.Slots[i].SlotId;
+            Console.WriteLine($"\nPersonalizer service decided you should display: { multiSlotRankResult.Slots[i].RewardActionId} in slot {slotId}. Is this correct? (y/n)");
 
-            IList<Context> context = GetContext(timeOfDayFeature, deviceFeature);
+            string answer = GetKey();
 
-            string eventId = Guid.NewGuid().ToString();
-
-            string rankRequestBody = JsonSerializer.Serialize(new MultiSlotRankRequest()
+            if (answer == "Y")
             {
-                ContextFeatures = context,
-                Actions = actions,
-                Slots = slots,
-                EventId = eventId,
-                DeferActivation = false
-            });
-
-            //Ask Personalizer what action to show for each slot
-            MultiSlotRankResponse multiSlotRankResponse = await SendMultiSlotRank(client, rankRequestBody, MultiSlotRankUrl);
-
-            MultiSlotReward multiSlotRewards = new MultiSlotReward()
-            {
-                Reward = new List<SlotReward>()
-            };
-
-            for (int i = 0; i < multiSlotRankResponse.Slots.Count(); ++i)
-            {
-                Console.WriteLine($"\nPersonalizer service decided you should display: { multiSlotRankResponse.Slots[i].RewardActionId} in slot {multiSlotRankResponse.Slots[i].Id}. Is this correct? (y/n)");
-                SlotReward reward = new SlotReward()
-                {
-                    SlotId = multiSlotRankResponse.Slots[i].Id
-                };
-
-                string answer = GetKey();
-
-                if (answer == "Y")
-                {
-                    reward.Value = 1;
-                    Console.WriteLine("\nGreat! The application will send Personalizer a reward of 1 so it learns from this choice of action for this slot.");
-                }
-                else if (answer == "N")
-                {
-                    reward.Value = 0;
-                    Console.WriteLine("\nYou didn't like the recommended item. The application will send Personalizer a reward of 0 for this choice of action for this slot.");
-                }
-                else
-                {
-                    reward.Value = 0;
-                    Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended item.");
-                }
-                multiSlotRewards.Reward.Add(reward);
+                client.RewardMultiSlot(eventId, slotId, 1f);
+                Console.WriteLine("\nGreat! The application will send Personalizer a reward of 1 so it learns from this choice of action for this slot.");
             }
+            else if (answer == "N")
+            {
+                client.RewardMultiSlot(eventId, slotId, 0f);
+                Console.WriteLine("\nYou didn't like the recommended item. The application will send Personalizer a reward of 0 for this choice of action for this slot.");
+            }
+            else
+            {
+                client.RewardMultiSlot(eventId, slotId, 0f);
+                Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended item.");
+            }
+        }
 
-            string rewardRequestBody = JsonSerializer.Serialize(multiSlotRewards);
+        Console.WriteLine("\nPress q to break, any other key to continue:");
+        runLoop = !(GetKey() == "Q");
 
-            // Send the reward for the action based on user response for each slot.
-            await SendMultiSlotReward(client, rewardRequestBody, MultiSlotRewardUrlBase, multiSlotRankResponse.EventId);
-
-            Console.WriteLine("\nPress q to break, any other key to continue:");
-            runLoop = !(GetKey() == "Q");
-        } while (runLoop);
-    }
+    } while (runLoop);
 }
 ```
+
 Take a closer look at the rank and reward calls in the following sections.
 Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), [get slots](#get-slots), and [send multi-slot rank and reward requests](#make-http-requests) before running the code file:
 
 * `GetActions`
 * `GetSlots`
 * `GetTimeOfDayForContext`
-* `GetTimeOfDayForContext`
+* `GetDeviceForContext`
 * `GetKey`
 * `GetContext`
-* `SendMultiSlotRank`
-* `SendMultiSlotReward`
-
-Add the following classes, which [construct the bodies of the rank/reward requests and parse their responses](#classes-for-constructing-rankreward-requests-and-responses) before running the code file:
-
-* `Action`
-* `Slot`
-* `Context`
-* `MultiSlotRankRequest`
-* `MultiSlotRankResponse`
-* `SlotResponse`
-* `MultiSlotReward`
-* `SlotReward`
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create a `context` of the content choices. The request body contains the context, actions and slots with their respective features. The `SendMultiSlotRank` method takes in a HTTP client, request body and url to send the request.
+To complete the Rank request, the program asks the user's preferences to create a `Context` of the content choices. The request contains the context, actions and slots with their respective features and a unique event ID, to receive a response.
 
 This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
@@ -499,21 +330,12 @@ This quickstart has simple context features of time of day and user device. In p
 string timeOfDayFeature = GetTimeOfDayForContext();
 string deviceFeature = GetDeviceForContext();
 
-IList<Context> context = GetContext(timeOfDayFeature, deviceFeature);
+IList<object> currentContext = GetContext(timeOfDayFeature, deviceFeature);
 
 string eventId = Guid.NewGuid().ToString();
 
-string rankRequestBody = JsonSerializer.Serialize(new MultiSlotRankRequest()
-{
-    ContextFeatures = context,
-    Actions = actions,
-    Slots = slots,
-    EventId = eventId,
-    DeferActivation = false
-});
-
-//Ask Personalizer what action to show for each slot
-MultiSlotRankResponse multiSlotRankResponse = await SendMultiSlotRank(client, rankRequestBody, MultiSlotRankUrl);
+var multiSlotRankOptions = new PersonalizerRankMultiSlotOptions(actions, slots, currentContext, eventId);
+PersonalizerMultiSlotRankResult multiSlotRankResult = client.RankMultiSlot(multiSlotRankOptions);
 ```
 
 ## Send a reward
@@ -523,43 +345,29 @@ To get the reward score for the Reward request, the program gets the user's sele
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
 ```csharp
-MultiSlotReward multiSlotRewards = new MultiSlotReward()
+for (int i = 0; i < multiSlotRankResult.Slots.Count(); ++i)
 {
-    Reward = new List<SlotReward>()
-};
-
-for (int i = 0; i < multiSlotRankResponse.Slots.Count(); ++i)
-{
-    Console.WriteLine($"\nPersonalizer service decided you should display: { multiSlotRankResponse.Slots[i].RewardActionId} in slot {multiSlotRankResponse.Slots[i].Id}. Is this correct? (y/n)");
-    SlotReward reward = new SlotReward()
-    {
-        SlotId = multiSlotRankResponse.Slots[i].Id
-    };
+    string slotId = multiSlotRankResult.Slots[i].SlotId;
+    Console.WriteLine($"\nPersonalizer service decided you should display: { multiSlotRankResult.Slots[i].RewardActionId} in slot {slotId}. Is this correct? (y/n)");
 
     string answer = GetKey();
 
     if (answer == "Y")
     {
-        reward.Value = 1;
+        client.RewardMultiSlot(eventId, slotId, 1f);
         Console.WriteLine("\nGreat! The application will send Personalizer a reward of 1 so it learns from this choice of action for this slot.");
     }
     else if (answer == "N")
     {
-        reward.Value = 0;
+        client.RewardMultiSlot(eventId, slotId, 0f);
         Console.WriteLine("\nYou didn't like the recommended item. The application will send Personalizer a reward of 0 for this choice of action for this slot.");
     }
     else
     {
-        reward.Value = 0;
+        client.RewardMultiSlot(eventId, slotId, 0f);
         Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended item.");
     }
-    multiSlotRewards.Reward.Add(reward);
 }
-
-string rewardRequestBody = JsonSerializer.Serialize(multiSlotRewards);
-
-// Send the reward for the action based on user response for each slot.
-await SendMultiSlotReward(client, rewardRequestBody, MultiSlotRewardUrlBase, multiSlotRankResponse.EventId);
 ```
 
 ## Run the program
@@ -573,4 +381,4 @@ dotnet run
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer/multislot-quickstart-v2PreviewSdk) is available.
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Personalizer/multislot-quickstart-v2PreviewSdk) is available.

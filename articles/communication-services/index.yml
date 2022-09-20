@@ -77,6 +77,10 @@ landingContent:
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+      - linkListType: get-started
+        links:
+          - text: Cross-platform samples
+            url: samples/ui-library-cross-platform.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
