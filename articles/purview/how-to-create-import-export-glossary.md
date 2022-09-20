@@ -11,7 +11,7 @@ ms.date: 03/09/2022
 
 # Create, import, export, and delete glossary terms
 
-This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview data catalog. It also shows you how to import and export glossary terms by using .csv files, and how to delete terms that you no longer need.
+This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview data catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
 
 ## Create a term
 
@@ -102,11 +102,13 @@ To create a glossary term, follow these steps:
 
 ## Import terms into the glossary
 
-The Microsoft Purview data catalog provides a template .csv file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
+The Microsoft Purview data catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
 
 1. On the **Glossary terms** page, select **Import terms**.
 
-2. The term template page opens. Match the term template to the kind of .csv file that you want to import, and then select **Continue**.
+   The term template page opens. 
+
+2. Match the term template to the kind of .CSV file that you want to import, and then select **Continue**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the template list for importing a term, with the system default template highlighted.":::
 
@@ -117,13 +119,13 @@ The Microsoft Purview data catalog provides a template .csv file for you to impo
    > [!Important]
    > The system supports only importing columns that are available in the template. The **System default** template will have all the default attributes.
    >
-   > Custom term templates define out-of-the box attributes and additional custom attributes. Therefore, the .csv file differs in the total number of columns and the column names, depending on the term template that you select. You can also review the file for problems after upload.
+   > Custom term templates define out-of-the box attributes and additional custom attributes. Therefore, the .CSV file differs in the total number of columns and the column names, depending on the term template that you select. You can also review the file for problems after upload.
    >
-   > If you want to upload a file with a rich text definition, be sure to enter the definition with markup tags and populate the column `IsDefinitionRichText` to `true` in the .csv file.
+   > If you want to upload a file with a rich text definition, be sure to enter the definition with markup tags and populate the column `IsDefinitionRichText` to `true` in the .CSV file.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-import.png" alt-text="Screenshot of the button for downloading a sample template file.":::
 
-4. After you finish filling out your .csv file, select your file to import and then select **OK**.
+4. After you finish filling out your .CSV file, select your file to import, and then select **OK**.
 
 The system will upload the file and add all the terms to your glossary.
  
@@ -141,7 +143,7 @@ Select **Export terms** to download the selected terms.
 :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
 
 > [!Important]
-> If the terms in a hierarchy belong to different term templates, you need to split them into different .csv files for import. Also, the import process currently doesn't support updating the parent of a term.
+> If the terms in a hierarchy belong to different term templates, you need to split them into different .CSV files for import. Also, the import process currently doesn't support updating the parent of a term.
 
 ## Delete terms
 
@@ -191,7 +193,7 @@ If [workflows](concept-workflow.md) are enabled on a term, then any create, upda
 
 - **Deletion**: When a delete approval workflow is enabled on the parent term, you see **Submit for approval** instead of **Delete** when you're deleting the term. Selecting **Submit for approval** triggers the workflow. However, the term won't be deleted from the catalog until all the approvals are met.
 
-- **Importing terms**: When an import approval workflow is enabled for the Microsoft Purview glossary, you see **Submit for approval** instead of **OK** in the **Import** window when you're importing terms via .csv file. Selecting **Submit for approval** triggers the workflow. However, the terms in the file won't be updated in the catalog until all the approvals are met.
+- **Importing terms**: When an import approval workflow is enabled for the Microsoft Purview glossary, you see **Submit for approval** instead of **OK** in the **Import** window when you're importing terms via .CSV file. Selecting **Submit for approval** triggers the workflow. However, the terms in the file won't be updated in the catalog until all the approvals are met.
 
 :::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the window for creating a new term and the button for submitting the term for approval." border="true":::
 
