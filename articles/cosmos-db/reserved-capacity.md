@@ -48,7 +48,7 @@ Additionally, you can scope recommendations to be within a single resource group
 
 Here's an example recommendation:
 
-:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Reserved Capacity recommendations":::
+:::image type="content" source="./media/reserved-capacity/reserved-capacity-recommendation.png" alt-text="Reserved Capacity recommendations":::
 
 This recommendation to purchase a 30,000 RU/s reservation indicates that, among 3 year reservations, a 30,000 RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they would maximize savings by purchasing a 30,000 RU/s reservation.
 
@@ -62,7 +62,7 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 
 4. Fill in the required fields as described in the following table:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Fill the reserved capacity form":::
+   :::image type="content" source="./media/reserved-capacity/fill-reserved-capacity-form.png" alt-text="Fill the reserved capacity form":::
 
    |Field  |Description  |
    |---------|---------|
@@ -78,7 +78,7 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 
 6. In the **Purchase reservations** pane, review the discount and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
+   :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
 7. Select **Review + buy** and then **buy now**. You see the following page when the purchase is successful:
 
