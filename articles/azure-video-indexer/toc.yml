@@ -84,8 +84,8 @@
         href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
       - name: Topics inference
         href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Slate detection
-      href: slate-detection-insight.md
+  - name: Slate detection
+    href: slate-detection-insight.md
 - name: How to guides
   items:
   - name: Manage accounts
