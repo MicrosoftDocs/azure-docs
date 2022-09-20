@@ -10883,7 +10883,7 @@
     },
 {   
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-integrations.md",
-      "redirect_url": "/azure/active-directory/fundamentals/cloud-infrastructure-entitlement-management",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management",
       "redirect_document_id": false
     }
 
