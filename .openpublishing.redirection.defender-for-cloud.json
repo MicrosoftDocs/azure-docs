@@ -716,6 +716,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-va-acr",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
             "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
             "redirect_document_id": true
