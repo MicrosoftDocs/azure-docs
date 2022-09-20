@@ -4,13 +4,33 @@ description: An introduction to HDInsight, and the Apache Hadoop and Apache Spar
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.date: 07/28/2022
+ms.date: 09/20/2022
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
 # What is Azure HDInsight?
 
-Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, and more, in your Azure environment.
+Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as , Apache Spark, Apache Hive, LLAP, Apache Kafka, Hadoop and more, in your Azure environment.
+
+## Before you bigin
+
+The following points should be considered before starting to create a cluster
+
+1. Bring Your Own Database
+
+By default, HDInsight creates a default database during creation. Databases cannot be changed after the cluster is created.
+
+We recommend using custom databases for Ambari, Hive, and Ranger. 
+
+To learn more on how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db.md) and [Use external metadata stores in Azure HDInsight](/azure/hdinsight/hdinsight-use-external-metadata-stores.md)
+          
+1. Keep your cluster up to date
+
+To take advantage of the latest HDInsight features, we recommend regularly migrating your HDInsight clusters to the latest version. HDInsight does not support in-place upgrades where existing clusters are upgraded to new component versions. You need to create a new cluster with the desired components and platform version and migrate your application to use the new cluster.
+
+We recommend updating each version (updates every 30-45 days). The recommended period is less than six months.
+
+To learn more on how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db) and [Migrate HDInsight cluster to a newer version](/azure/hdinsight/hdinsight-upgrade-cluster)
 
 ## What is HDInsight and the Hadoop technology stack?
 
