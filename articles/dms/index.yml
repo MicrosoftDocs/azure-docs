@@ -95,6 +95,10 @@ landingContent:
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
           - text: Migrate between Azure DB for PostgreSQL instances online via the portal
             url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - online
+            url: tutorial-mysql-azure-single-to-flex-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - offline
+            url: tutorial-mysql-azure-single-to-flex-offline-portal.md
           - text: Migrate to Azure DB for MySQL - offline
             url: tutorial-mysql-azure-mysql-offline-portal.md
           - text: Migrate RDS MySQL to Azure DB for MySQL - offline

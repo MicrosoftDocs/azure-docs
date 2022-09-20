@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 09/04/2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 
@@ -77,14 +77,16 @@ To add standards to your dashboard:
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
-1. From the top of the page, select **Manage compliance policies**. The Policy Management page appears.
+1. From the top of the page, select **Manage compliance policies**.
 
 1. Select the subscription or management group for which you want to manage the regulatory compliance posture. 
 
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. To add the standards relevant to your organization, expand the **Industry & regulatory standards** section and select **Add more standards**.
+1. Select **Security policy**.
+
+1. Expand the Industry & regulatory standards section and select **Add more standards**.
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
     

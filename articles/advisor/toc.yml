@@ -22,8 +22,6 @@
       href: advisor-alerts-arm.md
 - name: Concepts
   items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
   - name: Recommendations
     items:
     - name: Cost
@@ -34,6 +32,10 @@
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
+    - name: Security
+      href: /azure/defender-for-cloud/recommendations-reference
+    - name: Sovereign clouds
+      href: advisor-sovereign-clouds.md
 - name: Samples 
   items:
   - name: Azure Resource Graph queries
@@ -62,6 +64,8 @@
     href: azure-advisor-score.md
 - name: Reference
   items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
@@ -91,4 +95,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Code samples
-    href: /samples/browse/?products=azure
+    href: /samples/browse/?products=azure   

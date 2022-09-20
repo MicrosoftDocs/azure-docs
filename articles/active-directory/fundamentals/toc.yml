@@ -19,15 +19,11 @@ items:
     href: active-directory-properties-area.md
   - name: Add company branding
     href: customize-branding.md
-  - name: Configure 'Stay signed in?'
-    href: keep-me-signed-in.md
 - name: Users, groups, and licenses
   expanded: false
   items:
   - name: Create or delete a user
     href: add-users-azure-active-directory.md
-  - name: Create or delete a group
-    href: active-directory-groups-create-azure-portal.md
   - name: Apply licenses to users
     href: license-users-groups.md
   - name: Manage users
@@ -46,22 +42,12 @@ items:
   - name: Manage groups
     expanded: false
     items:
-    - name: Update group membership
-      href: active-directory-groups-members-azure-portal.md
-    - name: Update group ownership
-      href: active-directory-accessmanagement-managing-group-owners.md
-    - name: Delete a group and its members
-      href: active-directory-groups-delete-group.md
-    - name: Groups and access management
-      href: active-directory-manage-groups.md
-    - name: View your groups with assigned members
+    - name: Learn about groups
+      href: concept-learn-about-groups.md
+    - name: Create a group and add members
       href: active-directory-groups-view-azure-portal.md
-    - name: Add or remove a group from another group
-      href: active-directory-groups-membership-azure-portal.md
-    - name: Edit group information
-      href: active-directory-groups-settings-azure-portal.md
-    - name: Manage access to resources with groups
-      href: active-directory-manage-groups.md
+    - name: Manage groups
+      href: how-to-manage-groups.md
   - name: Manage licenses
     expanded: false
     items: 
@@ -290,6 +276,8 @@ items:
         href: security-operations-introduction.md
       - name: Security operations for user accounts
         href: security-operations-user-accounts.md
+      - name: Security operations for consumer accounts
+        href: security-operations-consumer-accounts.md
       - name: Security operations for privileged accounts
         href: security-operations-privileged-accounts.md
       - name: Security operations for PIM

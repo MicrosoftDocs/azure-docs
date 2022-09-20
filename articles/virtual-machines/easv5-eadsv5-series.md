@@ -33,7 +33,7 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
@@ -47,11 +47,13 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 | Standard_E48as_v5             | 48  | 384 | Remote Storage Only | 32 | 76800/1152   | 80000/2000  | 8 | 24000 |
 | Standard_E64as_v5<sup>2</sup> | 64  | 512 | Remote Storage Only | 32 | 80000/1200   | 80000/2000  | 8 | 32000 |
 | Standard_E96as_v5<sup>2</sup> | 96  | 672 | Remote Storage Only | 32 | 80000/1600   | 80000/2000  | 8 | 40000 |
-| Standard_E112ias_v5           | 112 | 672 | Remote Storage Only | 64 | 1200000/2000 | 120000/2000 | 8 | 50000 |
+| Standard_E112ias_v5<sup>3</sup>   | 112 | 672 | Remote Storage Only | 64 | 120000/2000 | 120000/2000 | 8 | 50000 |
 
 <sup>1</sup> Easv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
-<sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)
-
+<sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)<br>
+<sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112ias_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/2000 
+- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/2000
 
 
 ## Eadsv5-series
@@ -67,7 +69,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
@@ -81,12 +83,15 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_E48ads_v5             | 48  | 384 | 1800 | 32 | 225000 / 3000 | 76800/1152    | 80000/2000  | 8 | 24000 |
 | Standard_E64ads_v5<sup>2</sup> | 64  | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200    | 80000/2000  | 8 | 32000 |
 | Standard_E96ads_v5<sup>2</sup> | 96  | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600    | 80000/2000  | 8 | 40000 |
-| Standard_E112iads_v5           | 112 | 672 | 3800 | 64 | 450000 / 4000 | 120000/2000   | 120000/2000 | 8 | 50000 |
+| Standard_E112iads_v5<sup>3</sup> | 112 | 672 | 3800 | 64 | 450000 / 4000 | 120000/2000   | 120000/2000 | 8 | 50000 |
 
-* These IOPs values can be achieved by using Gen2 VMs.<br>
-<sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
+<sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
 
+<sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112iads_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/2000 
+- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/2000
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

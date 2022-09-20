@@ -9,6 +9,9 @@
     tocHref: /azure/developer/java/migration/
     topicHref: /azure/spring-apps/index
   - name: Azure Spring Apps
+    tocHref: /azure/developer/java/containers/
+    topicHref: /azure/spring-apps/index
+  - name: Azure Spring Apps
     tocHref: /cli/azure/
     topicHref: /azure/spring-apps/index
   - name: Azure Spring Apps

@@ -9,7 +9,8 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
-ms.service: multiple
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
