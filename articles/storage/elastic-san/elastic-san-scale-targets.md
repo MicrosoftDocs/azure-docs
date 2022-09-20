@@ -39,10 +39,10 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5         |
 |Maximum total capacity (TiB)     | LRS - 600 <br/> ZRS - 200         |LRS - 100 <br/> ZRS - 200         |LRS - 100         |
-|Maximum base capacity (TiB)    |LRS - 400, ZRS - 100         |LRS - 100, ZRS - 100         |LRS - 100         |
+|Maximum base capacity (TiB)    |LRS - 400 <br/> ZRS - 100         |LRS - 100 <br/> ZRS - 100         |LRS - 100         |
 |Minimum total capacity (TiB)    |64          |64         |64         |
-|Maximum total IOPS     |LRS - 2,000,000, ZRS - 500,000         |LRS/ZRS - 500,000         |LRS - 500,000         |
-|Maximum total throughput (MB/s)    |LRS - 32,000, ZRS - 8,000         |LRS/ZRS - 8,000         |LRS - 8,000         |
+|Maximum total IOPS     |LRS - 2,000,000 <br/> ZRS - 500,000         |LRS/ZRS - 500,000         |LRS - 500,000         |
+|Maximum total throughput (MB/s)    |LRS - 32,000 <br/> ZRS - 8,000         |LRS/ZRS - 8,000         |LRS - 8,000         |
 
 
 ## Volume group
@@ -51,7 +51,7 @@ An elastic SAN can have a maximum of 20 volume groups, and a volume group can co
 
 ## Volume
 
-The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s.
+The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s. The combined IOPS and throughput of your volumes can't exceed the IOPS and throughput of your SAN.
 
 ### Volume scale targets
 

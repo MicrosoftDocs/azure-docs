@@ -45,12 +45,6 @@ How you configure your SAN depends on your storage and performance needs.
 
 15 TiB suggestion.
 
-### Managed disks or SAN volumes
-
-You might be debating between managed disks or an Elastic SAN for your storage needs.
-
-A SAN volume can have up to 20 connections, whereas the maximum number of connections for a shared managed disk is 10.
-
 ## Networking
 
 To configure network access, Elastic SAN integrates with Azure [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), which restrict access to specified virtual networks. You configure volume groups to allow access only from specific subnets. Once a volume group is configured to allow access to these subnets, these configurations are inherited by all volumes belonging to the volume group. You can then mount volumes to any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.

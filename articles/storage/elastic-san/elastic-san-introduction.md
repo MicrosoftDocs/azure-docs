@@ -22,15 +22,15 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ### Compatibility
 
-Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options and manage it separately from each option.
+Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Because of this, rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options, and manage it separately from each option.
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large amount of volumes from a single resource and with virtual network rules you can selectively grant access to your volumes.
 
 ### Performance
 
-With an Azure Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an Azure Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -56,13 +56,13 @@ When you configure an elastic SAN, you select the redundancy of the entire SAN a
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
-Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
+Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The name must also be between 3 and 63 characters long.
 
 ### Volumes resources
 
 You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
-The name of your volume is part of their iSCSI IQN. The name must be 3 to 24 characters long, must be lowercase, and can only contain alphanumeric characters.
+The name of your volume is part of their iSCSI IQN. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must also be between 3 and 63 characters long.
 
 ## Support for Azure Storage features
 
