@@ -13,14 +13,14 @@ ms.custom: template-concept
 
 Microsoft Defender for Cloud maximizes coverage on OS posture issues and extends beyond the reach of agent-based assessments. With agentless scanning for VMs, you can get frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or machine performance impact.
 
-Agentless scanning for VMs provides vulnerability assessment and software inventory, both powered by Defender vulnerability management, in Azure and Amazon AWS environments. Agentless scanning is available in both [Defender CSPM P1](concept-cloud-security-posture-management.md) and [Defender for Servers P2](defender-for-servers-introduction.md).
+Agentless scanning for VMs provides vulnerability assessment and software inventory, both powered by Defender vulnerability management, in Azure and Amazon AWS environments. Agentless scanning is available in both Defender CSPM P1 and [Defender for Servers P2](defender-for-servers-introduction.md).
 
 ## Availability
 
 | Aspect | Details |
 |---------|---------|
 |Release state:|Preview|
-|Pricing:|Requires either [Defender CSPM P1](concept-cloud-security-posture-management.md) or [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
+|Pricing:|Requires either Defender CSPM P1 or [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 | Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender vulnerability management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender vulnerability management) | 
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
 | Operating systems:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Linux        |
