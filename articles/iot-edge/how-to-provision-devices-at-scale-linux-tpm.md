@@ -50,7 +50,9 @@ The tasks are as follows:
 
 # [Physical device](#tab/physical-device)
 
-A physical Linux device to be the IoT Edge device. This article assumes ownership of the TPM has been taken already and the endorsement key (EK) and storage root key (SRK) have been persisted. Follow the instructions relevant to your system to take ownership.
+A physical Linux device to be the IoT Edge device.
+
+This article assumes ownership of the TPM has been taken already and the endorsement key (EK) and storage root key (SRK) have been persisted. Follow the instructions relevant to your system to take ownership.
 
 # [Virtual machine](#tab/virtual-machine)
 
@@ -167,6 +169,9 @@ In this section, you build a tool that you can use to retrieve the registration 
 
 In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID.
 
+> [!NOTE]
+> This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you previously used that tool, then be aware that the steps would generate a different registration ID for the same public endorsement key. If you need to replicate the previous behavior then refer to the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision).
+
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
    1. Sign in to your device, and install the `tpm2-tools` package.
@@ -179,7 +184,7 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
 
       ```bash
       tpm2_readpublic -Q -c 0x81010001 -o ek.pub
-      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | base32 -w0 | sed -e 's/[^[:alnum:]]//g' | base32 -d -i 2> /dev/null | sed -e 's/(.*)/L1/g') $(base64 -w0 ek.pub)
+      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
       ```
 
    1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
@@ -196,7 +201,7 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
 
       ```bash
       tpm2_readpublic -Q -c 0x81010001 -o ek.pub
-      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | base32 -w0 | sed -e 's/[^[:alnum:]]//g' | base32 -d -i 2> /dev/null | sed -e 's/(.*)/L1/g') $(base64 -w0 ek.pub)
+      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
       ```
 
    1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
@@ -207,15 +212,10 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
 <!-- end iotedge-1.4 -->
 
 > [!TIP]
-> If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
+> If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, as shown above you can create an SHA-256 hash of the endorsement key.
 
 
 After you have your registration ID and endorsement key, you're ready to continue.
-
-> [!NOTE]
-> The Device Provisioning Service only uses the public part of the EK (EK_pub) to identify and enroll devices. It does not check the SRK or owner, so "clearing" the SRK to transfer ownership erases customer data, but the EK (and other vendor data) is preserved and the device will still be recognized by the Device Provisioning Service when it connects to provision.
->
-> For an overview of the provisioning process with DPS see the documentation on [TPM attestation](../iot-dps/concepts-tpm-attestation.md).
 
 <!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
