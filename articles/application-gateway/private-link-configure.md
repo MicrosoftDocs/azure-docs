@@ -77,7 +77,7 @@ To configure Private link on an existing Application Gateway via Azure PowerShel
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
-# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-PSH'
     ResourceGroupName = 'AppGW-PL-PSH-RG'
@@ -114,7 +114,7 @@ Set-AzApplicationGatewayFrontendIPConfig -ApplicationGateway $agw -Name "appGwPu
 Set-AzApplicationGateway -ApplicationGateway $agw
 
 # Disable Private Endpoint Network Policies
-# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-Endpoint-PSH-VNET'
     ResourceGroupName = 'AppGW-PL-Endpoint-PSH-RG'
@@ -145,7 +145,7 @@ To configure Private link on an existing Application Gateway via Azure CLI, the 
 
 ```azurecli
 # Disable Private Link Service Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
 				--name AppGW-PL-Subnet \
 				--vnet-name AppGW-PL-CLI-VNET \
@@ -173,7 +173,7 @@ az network application-gateway private-link list \
 
 
 # Disable Private Endpoint Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
 				--name MySubnet \
 				--vnet-name AppGW-PL-Endpoint-CLI-VNET \

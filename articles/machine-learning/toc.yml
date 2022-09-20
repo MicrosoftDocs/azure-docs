@@ -33,9 +33,6 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: Build models
       items: 
-        - name: Train & deploy image classification
-          displayName: MNIST
-          href: tutorial-train-deploy-notebook.md
         - name: Create production ML pipelines (preview)
           href: tutorial-pipeline-python-sdk.md
         - name: Train a TensorFlow image classification model

@@ -167,7 +167,7 @@ export SPN_TENANT_ID="..."
 export SUBSCRIPTION_ID="..."
 
 # Optional: certain integration tests test upload to Log Analytics workspace:
-# https://docs.microsoft.com/azure/azure-arc/data/upload-logs
+# https://learn.microsoft.com/azure/azure-arc/data/upload-logs
 export WORKSPACE_ID="..."
 export WORKSPACE_SHARED_KEY="..."
 
