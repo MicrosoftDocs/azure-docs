@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Microsoft Energy Data Services is updateed on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Microsoft Energy Data Services is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -37,8 +37,8 @@ Microsoft Energy Data Services is developed in alignment with the emerging requi
 
 ### Data Ingestion
 
-- Microsoft Energy Data Services - Enabled support for user context in ingestion ([ADR: Issue 52](https://community.opengroup.org/osdu/platform/data-flow/ingestion/home/-/issues/52)) 
-  - User identity is preserved and passed on to all ingestion workflow related services using the newly introduced _x-on-behalf-of_ header. A user needs to have appropriate service level entitlements on all dependent services involved in the ingestion workflow
+- Enabled support for user context in ingestion ([ADR: Issue 52](https://community.opengroup.org/osdu/platform/data-flow/ingestion/home/-/issues/52)) 
+  - User identity is preserved and passed on to all ingestion workflow related services using the newly introduced _x-on-behalf-of_ header. A user needs to have appropriate service level entitlements on all dependent services involved in the ingestion workflow and only users with appropriate data level entitlements can modify data.
 - Workflow service payload is restricted to a maximum of 2 MB. If it exceeds, the service will throw an HTTP 413 error. This restriction is placed to prevent workflow requests from overwhelming the server.
 - Microsoft Energy Data Services uses Azure Data Factory (ADF) to run large scale ingestion workloads.
 
