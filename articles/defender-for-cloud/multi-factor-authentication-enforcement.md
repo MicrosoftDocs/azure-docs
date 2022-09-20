@@ -102,7 +102,23 @@ Defender for Cloud's MFA recommendations refer to [Azure RBAC](../role-based-acc
 Defender for Cloud's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
 
 ### Can I exempt or dismiss some of the accounts?
-The capability to exempt some accounts that don’t use MFA isn't currently supported. There are plans to add this capability, and the information can be viewed in our [Important upcoming changes](/azure/defender-for-cloud/upcoming-changes#multiple-changes-to-identity-recommendations) page.
+
+The capability to exempt some accounts that don’t use MFA is available on the new recommendations in preview:
+
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
+
+To exempt account(s), follow these steps:
+
+1.	Select one of the MFA recommendations where you can find unhealthy accounts.
+2.	On the accounts tab, select an account you would like to exempt.
+3.	Click on the three dots on the right side and select “exempt account”.
+4.	A context panel is open where you can select a scope and exemption reason. 
+5.	All exempted accounts can then be found under “Exempted accounts” per recommendation.
+
+> [!TIP]
+> When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear unhealthy.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
 There are some limitations to Defender for Cloud's identity and access protections:
