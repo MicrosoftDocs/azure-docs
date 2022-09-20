@@ -31,7 +31,7 @@ The Azure Firewall engineering team updates the firewall on an as-needed basis (
 
 ### Drops due to idle timeout
 
-An idle timer is in place to recycle idle sessions. The default value is four minutes. Applications that maintain keep-alives don't idle out. If the application needs more than 4 minutes (typical of IOT devices), you can reach support to extend the time to 30 minutes in the backend.
+An idle timer is in place to recycle idle sessions. The default value is four minutes. Applications that maintain keep-alives don't idle out. If the application needs more than 4 minutes (typical of IOT devices), you can contact support to extend the time to 30 minutes in the backend.
 
 ### Drops due to auto-recovery
 
