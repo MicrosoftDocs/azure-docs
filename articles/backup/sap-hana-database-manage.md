@@ -137,7 +137,7 @@ To modify policy to change backup types, frequencies, and retention range, follo
 
 >[!NOTE]
 >- Any change in the retention period will be applied retroactively to all the older recovery points, in addition to the new ones.
->- 
+>
 >- In the case of HANA snapshot, you can edit the HANA instance policy to have a different resource group and/or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configure only. So, you must assign the required roles on the new snapshot resource group and/or the new user-assigned identity using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
 
 1. In the **Backup center** dashboard, go to **Backup Policies** and choose the policy you want to edit.
