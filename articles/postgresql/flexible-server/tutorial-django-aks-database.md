@@ -20,9 +20,11 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 **[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server ](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
-> - This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
+> This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
 
 ## Pre-requisites
+
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
@@ -154,6 +156,7 @@ DATABASES={
 ```
 
 ### Generate a requirements.txt file
+
 Create a ```requirements.txt``` file to list out the dependencies for the Django Application. Here is an example ```requirements.txt``` file. You can use [``` pip freeze > requirements.txt```](https://pip.pypa.io/en/stable/reference/pip_freeze/) to generate a requirements.txt file for your existing application.
 
 ``` text
@@ -165,6 +168,7 @@ pytz==2020.4
 ```
 
 ### Create a Dockerfile
+
 Create a new file named ```Dockerfile``` and copy the code snippet below. This Dockerfile in setting up Python 3.8 and installing all the requirements listed in requirements.txt file.
 
 ```docker
@@ -190,11 +194,11 @@ RUN pip install -r requirements.txt
 
 # Run the application:
 
-
 CMD python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Build your image
+
 Make sure you're in the directory ```my-django-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
 
 ```bash
@@ -204,18 +208,18 @@ docker build --tag myblog:latest .
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
->If you are using Azure container registry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
+> If you are using Azure container registry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
->```azurecli-interactive
->az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
+> ```azurecli-interactive
+> az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
 > ```
 
 ## Create Kubernetes manifest file
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition. 
 
->[!IMPORTANT]
-> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
+> [!IMPORTANT]
+> Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 ```yaml
 apiVersion: apps/v1
@@ -272,6 +276,7 @@ spec:
 ```
 
 ## Deploy Django to AKS cluster
+
 Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 
 ```console
@@ -312,9 +317,9 @@ django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Now open a web browser to the external IP address of your service (http://\<service-external-ip-address\>) and view the Django application.  
 
->[!NOTE]
+> [!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster. When http routing is enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
+> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster. When http routing is enabled, it configures an Ingress controller in your AKS cluster. As > > applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
 
 ## Run database migrations
 
