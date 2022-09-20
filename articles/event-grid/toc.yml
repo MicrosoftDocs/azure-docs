@@ -392,8 +392,8 @@ items:
       href: sdk-overview.md
   - name: Resources
     items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-grid
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-grid
     - name: FAQ
       href: event-grid-faq.yml
     - name: Azure Roadmap

@@ -179,8 +179,8 @@
     href: edge-security-module-deprecation.md
 - name: Resource
   items:
-  - name: Build your security skills with Microsoft Learn
-    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Build your security skills with Microsoft training
+    href: /training/browse/?term=securityS&terms=securityS
   - name: Azure security documentation 
     href: ../../security/index.yml
   - name: Azure IoT Security, Privacy, & Compliance blog
