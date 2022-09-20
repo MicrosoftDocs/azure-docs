@@ -1,17 +1,17 @@
 ---
-title: 'Cache purging - Azure Front Door - PowerShell'
-description: This article helps you understand how to purge cache on an Azure Front Door Standard and Premium profile using PowerShell.
+title: 'Cache purging - Azure Front Door - Azure PowerShell'
+description: This article helps you understand how to purge cache on an Azure Front Door Standard and Premium profile using Azure PowerShell.
 services: frontdoor
 author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 08/31/2022
+ms.date: 09/20/2022
 ms.author: duau
 ---
 
-# Cache purging in Azure Front Door
+# Cache purging in Azure Front Door with Azure PowerShell
 
 Azure Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Azure Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
@@ -22,9 +22,9 @@ Best practice is to make sure your users always obtain the latest copy of your a
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 * Review [Caching with Azure Front Door](../front-door-caching.md) to understand how caching works.
 * Have a functioning Azure Front Door profile. Refer [Create a Front Door - PS](../create-front-door-powershell.md)to learn how to create one.
@@ -36,8 +36,10 @@ Run [Clear-AzFrontDoorCdnEndpointContent](/powershell/module/az.cdn/clear-azfron
    * Name of the Azure Front Door profile within the resource group with assets you want to purge
    * Endpoints with assets you want to purge
    * Domains/Subdomains with assets you want to purge
-   > [!IMPORTANT]
-   > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
+
+       > [!IMPORTANT]
+       > Cache purge for wildcard domains is not supported, you have to specify a subdomain for cache purge for a wildcard domain. You can add as many single-level subdomains of the wildcard domain. For example, for the wildcard domain `*.afdxgatest.azfdtest.xyz`, you can add subdomains in the form of `contoso.afdxgatest.azfdtest.xyz` or `cart.afdxgatest.azfdtest.xyz` and so on. For more information, see [Wildcard domains in Azure Front Door](../front-door-wildcard-domain.md).
+
    * The path to the content to be purged.
      * These formats are supported in the lists of paths to purge:
        * **Single path purge**: Purge individual assets by specifying the full path of the asset (without the protocol and domain), with the file extension, for example, /pictures/strasbourg.png.
