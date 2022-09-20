@@ -91,7 +91,7 @@ Group Tag Requirements:
 
 ## Deploy an update
 
-1. You should see your newly created group with a new update listed under **Available updates** (you may need to refresh once). Select the update.
+1. You should see your newly created device group with a new update listed under **Available updates** (you may need to refresh once). Select and/or place a check mark next to your device group and then select the appropriate update link under the **Available updates** column. Once you click on the appropriate Available update link you will be redirected to the **Create deployment** blade.
 
 1. Confirm that the correct device group is selected as the target device group. Select a **Start date** and **Start time** for your deployment, then click **Create deployment**.
 
