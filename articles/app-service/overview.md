@@ -75,7 +75,7 @@ Next, create a deployment slot to test that your application works properly with
 1. To upgrade to Debian 11 (Bullseye), create an app setting on your slot named `WEBSITE_LINUX_OS_VERSION` with a value of `DEBIAN|BULLSEYE`.
 
     ```bash
-    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings WEBSITE_LINUX_OS_VERSION=DEBIAN|BULLSEYE
+    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings WEBSITE_LINUX_OS_VERSION="DEBIAN|BULLSEYE"
     ```
 1. Deploy your application to the deployment slot using the tool of your choice (VS Code, Azure CLI, GitHub Actions, etc.)
 1. Confirm your application is functioning as expected in the deployment slot.
