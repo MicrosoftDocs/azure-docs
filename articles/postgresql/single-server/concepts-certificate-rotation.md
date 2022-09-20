@@ -136,4 +136,10 @@ No. There is no action needed if your certificate file already has the **DigiCer
 A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting October, 2022. 
 
 ### 14. What if I have further questions?
-If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)
+If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](https://learn.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request):
+* For *Issue type*, select *Technical*.  
+* For *Subscription*, select your *subscription*.  
+* For *Service*, select *My Services*, then select *Azure Database for PostgreSQL – Single Server*.
+* For *Problem type*, select *Security*.  
+* For *Problem subtype*, select  *Azure Encryption and Infrastructure Double Encryption*
+
