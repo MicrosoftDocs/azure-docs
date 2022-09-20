@@ -169,7 +169,7 @@ Sample code to update these settings:
 # [Azure CLI](#tab/cliv2)
 
 You can create your parallel job inline with your pipeline job:
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" highlight="29-58":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" highlight="14-61":::
 
 # [Python](#tab/python)
 
