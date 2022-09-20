@@ -50,7 +50,7 @@ With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able
 - [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 - Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
 - Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
-- [Create logic apps for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
+- [Create logic apps connector for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
  
 To create an ARM-based account, see [create an account](create-account-portal.md).
 
@@ -63,6 +63,8 @@ For more information, see [supported languages](language-support.md).
 ### Expanded the supported languages in LID and MLID through the API
 
 We expand the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
+
+For more information, see [supported languages](language-support.md).
 
 ### Configure confidence level in a person model with an API
 
