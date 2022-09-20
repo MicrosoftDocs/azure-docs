@@ -127,7 +127,7 @@ A Speech resource with a custom domain name and a private endpoint turned on use
 > A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
 > This way differs from the scenario of a Speech resource that uses a private endpoint.
 > This is important to consider because you may decide to remove private endpoints later.
-> See _Adjust an application to use a Speech resource without private endpoints_ later in this article.
+> See [Adjust an application to use a Speech resource without private endpoints](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints) later in this article.
 
 ### Speech resource with a custom domain name and a private endpoint: Usage with the REST APIs
 
@@ -191,7 +191,7 @@ The detailed description of the special endpoints and how their URL should be tr
 Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the Text-to-speech REST API. Usage of the Speech-to-text REST API for short audio is fully equivalent.
 
 > [!NOTE]
-> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in private endpoint scenarios, use a subscription key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in private endpoint scenarios, use a resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
 >
 > Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've turned on the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 
@@ -305,12 +305,12 @@ Follow these steps to modify your code:
 
    1. Modify how you create the instance of `SpeechConfig`. Most likely, your application is using something like this:
       ```csharp
-      var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
+      var config = SpeechConfig.FromSubscription(speechKey, azureRegion);
       ```
       This won't work for a private-endpoint-enabled Speech resource because of the host name and URL changes that we described in the previous sections. If you try to run your existing application without any modifications by using the key of a private-endpoint-enabled resource, you'll get an authentication error (401).
 
       To make it work, modify how you instantiate the `SpeechConfig` class and use "from endpoint"/"with endpoint" initialization. Suppose we have the following two variables defined:
-      - `subscriptionKey` contains the key of the private-endpoint-enabled Speech resource.
+      - `speechKey` contains the key of the private-endpoint-enabled Speech resource.
       - `endPoint` contains the full *modified* endpoint URL (using the type required by the corresponding programming language). In our example, this variable should contain:
         ```
         wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
@@ -318,20 +318,20 @@ Follow these steps to modify your code:
 
       Create a `SpeechConfig` instance:
       ```csharp
-      var config = SpeechConfig.FromEndpoint(endPoint, subscriptionKey);
+      var config = SpeechConfig.FromEndpoint(endPoint, speechKey);
       ```
       ```cpp
-      auto config = SpeechConfig::FromEndpoint(endPoint, subscriptionKey);
+      auto config = SpeechConfig::FromEndpoint(endPoint, speechKey);
       ```
       ```java
-      SpeechConfig config = SpeechConfig.fromEndpoint(endPoint, subscriptionKey);
+      SpeechConfig config = SpeechConfig.fromEndpoint(endPoint, speechKey);
       ```
       ```python
       import azure.cognitiveservices.speech as speechsdk
-      speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=subscriptionKey)
+      speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=speechKey)
       ```
       ```objectivec
-      SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:subscriptionKey];
+      SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:speechKey];
       ```
 
 > [!TIP]
@@ -385,7 +385,7 @@ Speech-to-text REST API v3.0 usage is fully equivalent to the case of [private-e
 In this case, usage of the Speech-to-text REST API for short audio and usage of the Text-to-speech REST API have no differences from the general case, with one exception. (See the following note.) You should use both APIs as described in the [speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md) documentation.
 
 > [!NOTE]
-> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in custom domain scenarios, use a subscription key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in custom domain scenarios, use a Speech resource key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text-short.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
 >
 > Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've turned on the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 
@@ -402,7 +402,7 @@ However, if you try to run the same application after having all private endpoin
 You need to roll back your application to the standard instantiation of `SpeechConfig` in the style of the following code:
 
 ```csharp
-var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
+var config = SpeechConfig.FromSubscription(speechKey, azureRegion);
 ```
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
