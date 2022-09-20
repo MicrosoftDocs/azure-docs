@@ -184,56 +184,7 @@ Sample code to update these settings:
 
 # [Azure CLI](#tab/cliv2)
 
-```azurecli
-
-batch_prediction:
-    type: parallel
-    compute: azureml:cpu-cluster
-    inputs:
-    input_data: 
-        type: mltable
-        path: ./neural-iris-mltable
-        mode: direct
-    score_model: 
-        type: uri_folder
-        path: ./iris-model
-        mode: download
-    outputs:
-    job_output_file:
-        type: uri_file
-        mode: rw_mount
-
-    mini_batch_size: "500kb"
-    <mark>mini_batch_error_threshold: 5</mark>
-    <mark>logging_level: "DEBUG"</mark>
-    input_data: ${{inputs.input_data}}
-    max_concurrency_per_instance: 2
-    resources:
-        instance_count: 1
-    retry_settings:
-        <mark>max_retries: 2</mark>
-        <mark>timeout: 60</mark>
-
-    task:
-        type: run_function
-        code: "./script"
-        entry_script: iris_prediction.py
-        environment:
-            name: "prs-env"
-            version: 1
-            image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-            conda_file: ./environment/environment_parallel.yml
-        program_arguments: >-
-            --model ${{inputs.score_model}}
-            <mark>--error_threshold 5</mark>
-            <mark>--allowed_failed_percent 30</mark>
-            <mark>--task_overhead_timeout 1200</mark>
-            <mark>--progress_update_timeout 600</mark>
-            <mark>--first_task_creation_timeout 600</mark>
-            <mark>--copy_logs_to_parent True</mark>
-            <mark>--resource_monitor_interva 20</mark>
-        <mark>append_row_to: ${{outputs.job_output_file}}</mark>
-```
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-61" highlight="24-28,41-48":::
 
 # [Python](#tab/python)
 
