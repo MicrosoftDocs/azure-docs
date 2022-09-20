@@ -4,39 +4,43 @@ description: Learn about the upcoming changes of root certificate changes that w
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
+ms.author: gennadNY
+author: gennadNY
 ms.reviewer: ""
-ms.date: 09/02/2020
+ms.date: 09/20/2022
 ---
 
 # Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-Azure Database for PostgreSQL Single Server successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for PostgreSQL Single Server planning the root certificate change starting  **October, 2022 (10/2022)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## Why root certificate update is required?
 
-Azure database for PostgreSQL users can only use the predefined certificate to connect to their PostgreSQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
+Historically, Azure database for PostgreSQL users could only use the predefined certificate to connect to their PostgreSQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
 As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
 
-The new certificate is rolled out and in effect starting February 15, 2021 (02/15/2021). 
+The new certificate is rolled out and in effect starting October, 2022 (10/2022). 
 
-## What change was performed on February 15, 2021 (02/15/2021)?
+## What change will be performed starting October 2022 (10/2022)?
 
-On February 15, 2021, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was replaced with a **compliant version** of the same [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to ensure existing customers do not need to change anything and there is no impact to their connections to the server. During this change, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was **not replaced** with [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and that change is deferred to allow more time for customers to make the change.
+Starting October 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate( (thumbprint: df3c24f9bfd666761b268073fe06d1cc8d4f82a4)) ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity .
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
-There is no change required on client side. if you followed our previous recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
+There are no code or application  changes required on client side. if you follow our previous recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
 
 ### Previous Recommendation
 
 *   Download BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
+*   Optionally, to prevent future disruption, it is also recommended to add the following roots to the trusted store:
+    * [DigiCert Global Root G3](https://www.digicert.com/kb/digicert-root-certificates.htm) (thumbprint: 7e04de896a3e666d00e687d33ffad93be83d349e)
+    * [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) (thumbprint: 73a5e64a3bff8316ff0edccc618a906e4eae4d74)
+    * [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) (thumbprint: 999a64c37ff47d9fab95f14769891460eec4c3c5)
 
 *   Generate a combined CA certificate store with both **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** certificates are included.
     *   For Java (PostgreSQL JDBC) users using DefaultJavaSSLFactory, execute:
@@ -74,11 +78,6 @@ There is no change required on client side. if you followed our previous recomme
 > [!NOTE]
 > Please do not drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate. 
 
-## Why was BaltimoreCyberTrustRoot certificate not replaced to DigiCertGlobalRootG2 during this change on February 15, 2021?
-
-We evaluated the customer readiness for this change and realized many customers were looking for additional lead time to manage this change. In the interest of providing more lead time to customers for readiness, we have decided to defer the certificate change to DigiCertGlobalRootG2 for at least a year providing sufficient lead time to the customers and end users. 
-
-Our recommendations to users is, use the aforementioned steps to create a combined certificate and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it. 
 
 ## What if we removed the BaltimoreCyberTrustRoot certificate?
 
@@ -118,8 +117,8 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 ### 7. Do I need to plan a database server maintenance downtime for this change?
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed for the database server for this change.
 
-### 8. If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
-For servers created after February 15, 2021 (02/15/2021), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) for your applications to connect using SSL.
+### 8. If I create a new server after October 2022 (10/2022), will I be impacted?
+For servers created after October 2022 (10/2022), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2] (https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft will need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft will need to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant at all times.
@@ -134,7 +133,7 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
 ### 13. What if you are using docker image of PgBouncer sidecar provided by Microsoft?
-A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting February 15, 2021. 
+A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting October, 2022. 
 
 ### 14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)
