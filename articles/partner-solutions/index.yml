@@ -18,9 +18,6 @@ highlightedContent:
     - title: What is Azure service native?
       itemType: overview # controls the icon image and super-title text
       url: ./overview.md
-    - title: What's new in Azure service native?
-      itemType: whats-new
-      url: ./whats-new.md
     - title: Find Azure service native solutions 
       itemType: get-started
       url: ./partners.md
@@ -29,24 +26,48 @@ productDirectory:
   title: Azure service native features 
   summary: Features that enable tight integration with partners services
   items:
-    # Card
-    - title: Resource managment
-      imageSrc: ./media/index/resourcemanagement.svg
+    # Card 1
+    - title: Elastic
+      imageSrc: ./media/index/elastic.svg
       links:
-        - url: ./overview.md#resource-management
-          text: Create and manage resources using CLI, SDK, and Azure portal
-    # Card
-    - title: VNet injection
-      imageSrc: ./media/index/vnet.svg
+        - url: ./elastic/overview.md
+          text: Centralizes log, metric, and tracing analytics in one place.
+    # Card 2
+    - title: Datadog 
+      imageSrc: ./media/index/datadog.svg
       links:
-        - url: ./overview.md#vnet-injection
-          text: Create a partner service in your virtual network
-    # Card
-    - title: Integrations
-      imageSrc: ./media/index/integration.svg
+        - url: ./datadog/overview.md
+          text: A monitoring and analytics platform for large-scale applications
+    # Card 3
+    - title: logz.io
+      imageSrc: ./media/index/logz.io.svg
       links:
-        - url: ./overview.md#integrations
-          text: Use integrations with AAD & Azure Monitor
+        - url: ./logzio/overview.md
+          text: Centralizes log, metric, and tracing analytics in one place.
+  # Card 4
+    - title: dynatrace
+      imageSrc: ./media/index/datadog.svg
+      links:
+        - url: ./dynatrace/dynatrace-overview.md
+          text:  Provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
+  # Card 5
+    - title: Confluent
+      imageSrc: ./media/index/confluent.svg
+      links:
+        - url: /apache-kafka-confluent-cloud/overview.md
+          text: Provides a consolidated experience for using Confluent Cloud on Azure.
+  # Card 6
+#    - title: Qumolo
+#      imageSrc: /qumuloa/overview.md
+#      links:
+#        - url: ./qumulo/overview.md
+#         text: 
+  # Card 7
+    - title: NGINX
+      imageSrc: ./media/index/nginx.svg
+      links:
+        - url: ./nginx/nginx-overview.md
+          text: Monitor the health and performance of your Azure environment.
 
 
 # conceptualContent section (optional)
@@ -57,47 +78,20 @@ conceptualContent:
 #           whats-new
   sections:
 # ==========================Section ==================================================
-    - title: Azure service native features # < 60 chars (optional)
-      summary: Features that enable tight integration with partners services # < 160 chars (optional)
-      items:
-        # Card
-        - title: Resource management 
+#    - title: subsectiontitle1 # < 60 chars (optional)
+#      summary: subsectionsummary1 # optional
+    - items:
+        # Card 1
+        - title: Azure Native ISV Service features 
           links:
             - url: ./overview.md#resource-management
               itemType: concept
-              text: Create resources using CLI/SDK, product discoverability via portal search, integrated licensing & billing on partner ISV services.
-        # Card
-        - title: VNet injection 
-          links:
+              text: Resource management
             - url: ./overview.md#vnet-injection
               itemType: concept
-              text: Create a fully managed partner service in your virtual network
-        # Card
-        - title: Integration
-          links:
+              text: VNet injection 
             - url: ./overview.md#integrations
               itemType: concept
-              text: Use integrations with AAD & Azure Monitor
-              
-# ==========================Section ==================================================
-    - title:  Industry solution Areas # < 60 chars (optional)
-      summary: Three areas where you can use partner solutions for industry leading products # < 160 chars (optional)
-      items:
-        # Card
-        - title: Observability
-          links:
-            - url: ./partners.md#observability
-              itemType: concept
-              text: Monitor cloud applications
-        # Card
-        - title: Storage and data
-          links:
-            - url: ./partners.md#data-and-storage
-              itemType: concept
-              text: Scale and analyze petabytes of data 
-        # Card
-        - title: Networking and security
-          links:
-            - url: ./partners.md#networking--security
-              itemType: concept
-              text: Secure and improve performance of IT infrastructure 
+              text: Integrations
+
+
