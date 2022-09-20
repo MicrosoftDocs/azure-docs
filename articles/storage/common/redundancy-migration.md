@@ -45,7 +45,7 @@ You can change how your storage account is replicated from any type to any other
 - [Request a conversion by creating a support request with Microsoft](#support-requested-conversion)
 - [Perform a manual migration](#manual-migration)
 
-If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+To add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
 To add or remove zone-redundancy requires using either [customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
 
@@ -53,7 +53,7 @@ During a conversion, you can access data in your storage account with no loss of
 
 Performing a manual migration involves downtime, but you have more control over the timing of the process. It also involves the most manual effort.
 
-If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
+If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
 > [!NOTE]
 > While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
@@ -66,6 +66,8 @@ The following table provides an overview of how to switch from each type of repl
 
 > [!NOTE]
 > Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table below to simplify it.
+>
+> Also, some changes noted in the table involve a two-step process such as switching from LRS to GRS/RA-GRS first, then converting to GZRS/RA-GZRS. The order of the steps doesn't matter. The switch is listed first because it appears to occur almost instantaneously, while the conversion typically takes much longer. Performing the faster change first allows you to initiate both required changes around the same time and not have to wait for the longer change to complete before proceeding with the other one.
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
@@ -127,7 +129,7 @@ az storage account update \
 
 ### Perform a conversion
 
-A storage account replication conversion provides a way to change the zone redundancy replication setting for a storage account, without incurring any down time.
+Converting your storage account to add or remove zone-redundancy makes the change without incurring any down time.
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 

@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/20/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -15,6 +15,8 @@ ms.custom: references_regions
 This guide describes how to migrate or convert Azure Storage accounts to add availability zone support.
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures.
+
+By default, data in a storage account is replicated in a single data center in the primary region. If your application must be highly available, you can migrate the data in the primary region to zone-redundant storage (ZRS). ZRS takes advantage of Azure availability zones to replicate data in the primary region across three separate data centers.
 
 Azure Storage offers the following types of replication:
 
@@ -47,9 +49,11 @@ Before making any changes, review the [limitations for changing replication type
 
 During a conversion to ZRS, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
-If you choose manual migration, some downtime is required but you have more control over when the process starts and completes.
+If you choose manual migration, some downtime is required, but you have more control over when the process starts and completes.
 
 ## Option 1: Conversion
+
+During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
 ### When to perform a conversion
 
@@ -136,6 +140,8 @@ Follow these steps to request a conversion from Microsoft:
 
 ## Option 2: Manual migration
 
+A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is [not supported for your scenario](#limitations-for-changing-replication-types). Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
+
 ### When to use a manual migration
 
 Use a manual migration if:
@@ -154,7 +160,7 @@ Use a manual migration if:
 
 To manually migration your Azure Storage accounts:
 
-1. Create a new storage account in the primary region with Zone Redundant Storage (ZRS) as the redundancy setting.
+1. Create a new storage account in the primary region with zone redundant storage (ZRS) as the redundancy setting.
 
 1. Copy the data from your existing storage account to the new storage account. To perform a copy operation, use one of the following options:
 
