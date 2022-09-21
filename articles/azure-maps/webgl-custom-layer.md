@@ -221,19 +221,23 @@ Learn more about the classes and methods used in this article:
 TODO: Need links for all of the following:
 
 > [!div class="nextstepaction"]
-> [WebGLLayer][getting_started_with_webgl)
+> [WebGLLayer][WebGLLayer]
 
 > [!div class="nextstepaction"]
-> [WebGLLayerOptions][getting_started_with_webgl)
+> [WebGLLayerOptions][WebGLLayerOptions]
 
 > [!div class="nextstepaction"]
-> [WebGLRenderer interface][getting_started_with_webgl)
+> [WebGLRenderer interface][WebGLRenderer interface]
 
 > [!div class="nextstepaction"]
-> [MercatorPoint][getting_started_with_webgl)
+> [MercatorPoint][MercatorPoint]
 
 [getting_started_with_webgl]: https://developer.mozilla.org/en-US/docs/web/api/webgl_api/tutorial/getting_started_with_webgl
 [threejs]: https://threejs.org/
 [deckgl]: https://deck.gl/
 [glTF]: https://www.khronos.org/gltf/
 [OpenGL ES]: https://www.khronos.org/opengles/
+[WebGLLayer]: /javascript/api/azure-maps-control/atlas.layer.webgllayer
+[WebGLLayerOptions]: /javascript/api/azure-maps-control/atlas.webgllayeroptions
+[WebGLRenderer interface]: /javascript/api/azure-maps-control/atlas.webglrenderer?view=azure-maps-typescript-latest
+[MercatorPoint]: /javascript/api/azure-maps-control/atlas.data.mercatorpoint?view=azure-maps-typescript-latest
