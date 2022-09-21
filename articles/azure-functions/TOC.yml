@@ -110,7 +110,7 @@
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
-      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
+      href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
@@ -770,8 +770,8 @@
       href: functions-networking-faq.yml
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-functions
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-functions
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap

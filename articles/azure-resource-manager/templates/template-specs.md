@@ -21,7 +21,7 @@ When designing your deployment, always consider the lifecycle of the resources a
 
 ### Training resources
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs).
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs).
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Azure Resource Manager template specs in Bicep](../bicep/template-specs.md).

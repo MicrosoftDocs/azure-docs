@@ -53,7 +53,7 @@ mongoClient = new MongoClient(mongoClientSettings);
 mongoDatabase = mongoClient.GetDatabase("testdb");
 
 // Change the collection name, throughput value then update via MongoDB extension commands
-// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+// https://learn.microsoft.com/azure/cosmos-db/mongodb-custom-commands#update-collection
 
 var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```

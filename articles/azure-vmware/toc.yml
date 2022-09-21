@@ -217,15 +217,15 @@
   - name: Learning paths
     items:
       - name: Introduction to Azure VMware Solution
-        href: /learn/modules/intro-azure-vmware-solution/
+        href: /training/modules/intro-azure-vmware-solution/
       - name: Run VMware workloads on Azure VMware Solution
-        href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
+        href: /training/paths/run-vmware-workloads-azure-vmware-solution/
       - name: Prepare to migrate VMware workloads to Azure by deploying Azure VMware Solution
-        href: /learn/modules/deploy-azure-vmware-solution/
+        href: /training/modules/deploy-azure-vmware-solution/
       - name: Migrate VMware workloads on-premises to Azure VMware Solution
-        href: /learn/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
+        href: /training/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
       - name: Deploy disaster recovery using VMware Site Recovery Manager and Azure VMware Solution
-        href: /learn/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/
+        href: /training/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/
   - name: Hands-on Labs
     items:
       - name: Azure VMware Solution Private Cloud Deployment and Connectivity

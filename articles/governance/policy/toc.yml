@@ -62,7 +62,7 @@
     href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index

@@ -1030,8 +1030,6 @@
           href: ../how-to-move-regions.md
         - name: Prevent changes or deletion
           href: ../resource-locks.md
-        - name: Back up and restore
-          items:
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
@@ -1245,8 +1243,8 @@
       href: ../policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml?toc=/azure/cosmos-db/sql/toc.json
     - name: Whitepapers
