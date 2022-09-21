@@ -148,4 +148,4 @@ To launch the job, choose **Create**. Once the job is created, Azure will show y
 
 * [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
-* [Train models (create jobs) with the CLI, SDK, and REST API](how-to-train.md)
+* [Train models (create jobs) with the CLI, SDK, and REST API](how-to-train-model.md)
