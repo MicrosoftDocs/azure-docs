@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2022
+ms.date: 09/21/2022
 ms.author: abell
 
 ---
@@ -112,6 +112,8 @@ The following [metrics](../azure-monitor/essentials/metrics-supported.md#microso
 1. Select **Public IP Address** for **Resource type** then select the specific public IP address you want to log metrics for, and then select **Apply**.
 1. Under **Metric** select your chosen metric then under **Aggregation** select type as **Max**.
 
+>[!NOTE]
+>When changing DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource will not be available.
 ## View DDoS mitigation policies
 
 Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS protection enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
