@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Back up SAP HANA database instances in Azure VMs (preview)
 
-Azure Backup now performs SAP HANA Storage Snapshot based backup of the entire database instance. It uses0 Azure Managed Disk’s full/incremental snapshot with capabilities of instant HANA backup and restore. This's called SAP HANA database instance backup.
+Azure Backup now performs SAP HANA Storage Snapshot based backup of the entire database instance. It combines Azure Managed disk’s full/incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
 This article describes how to back up SAP HANA databases instances that are running on Azure VMs to an Azure Backup Recovery Services vault.
 
@@ -49,16 +49,15 @@ The following table lists the resource, permissions, and scope.
 
 Scope of permission | Required built-in role | Who/what needs permission | Note
 --- | --- | --- | ---
-Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | Create disk snapshots and store on source snapshot resource group.
+Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | To configure HANA instance.
 Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Create disk snapshots.
 Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Create disk snapshots and store on source snapshot resource group.
 Source snapshot resource Group | Disk Snapshot Contributor | Backup Management Service | Delete old snapshots on source snapshot resource group.
 
 >[!Note]
->- To simplify the assignment experience, we have built a [PowerShell](/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqScripts)/ [CLI](/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts) script. We recommend you to run before configuring backup and before attempting to restore.
->- This script logs in with your credentials and attempts to assign a few Azure role-based access control (Azure RBAC) roles.
 >- The credentials used should have permissions to grant roles to other resources and should be Owner or User Access Administ.rator [as mentioned here](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
->- Do not change the resource groups once they are given/assigned to Azure Backup during preview.
+>- During backup configuration, you can use the Azure portal to assign all above permissions, except *Disk snapshot contributor* to *Backup Management Service* principal for snapshot resource group. You need to manually assign this permission.
+>- We recommend you not to change the resource groups once they are given/assigned to Azure Backup as it eases the permissions handling.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -89,6 +88,10 @@ To create a policy for SAP HANA database instance backup, follow these steps:
    - **Instant Restore**: Set the retention of recovery snapshot from *1* to *35* days. The default value is set to *2*.
    - **Resource group**: Select the appropriate resource group from the drop-down list.
    - **Managed Identity**: Select a managed identity from the drop-down to assign permissions to take snapshots of the managed disks and to place them in the Resource Group you select in the policy.
+   >[!Note]
+   >You need to manually assign the permission for Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned by the Azure portal](#configure-snapshot-backup).
+   >
+   >To assign *Disk snapshot contributor role* to *Backup Management Service* manually on snapshot resouce group, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
 
 1. Select **Create**.
 
@@ -122,9 +125,13 @@ Once done, follow these steps:
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-database-instance-for-backup.png" alt-text="Screenshot showing to select a database instance for backup.":::
 
-1. Once the *backup readiness check* is successful, select **Enable backup**.
+   Once you select HANA instances for back-up, the Azure portal validates for missing permissions  in the Managed System Identity (MSI) that is assigned to the policy to perform snapshot backup.
 
-   If the validation check fails, select the checkbox corresponding to the database instance and select **Revalidate**.
+1. If the permissions aren't present, you need to Select **Assign missing roles/identity** to assign all permissions.
+
+   Azure portal then automatically re-validates and shows *Backup readiness* as successful.
+
+1. Once the *backup readiness check* is successful, select **Enable backup**.
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/enable-hana-database-instance-backup.png" alt-text="Screenshot showing to enable HANA database instance backup.":::
  
