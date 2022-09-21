@@ -7,6 +7,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-notebook.md",
+        "redirect_url": "/azure/machine-learning/v1/tutorial-train-deploy-notebook",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-migrate-from-estimators-to-scriptrunconfig.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-migrate-from-estimators-to-scriptrunconfig",
         "redirect_document_id": true

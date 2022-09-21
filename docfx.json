@@ -450,6 +450,7 @@
         "articles/docker/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/documentdb/**/*.md": "https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858",
         "articles/dotnet/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "articles/energy-data-services/**/*.md": "https://feedback.azure.com/d365community/forum/f0544cc4-c338-ed11-9db0-000d3a1f475f",
         "articles/event-grid/**/*.md": "https://feedback.azure.com/d365community/forum/a095b5b5-f124-ec11-b6e6-000d3a4f0da0",
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/d365community/forum/86c37ae9-7526-ec11-b6e6-000d3a4f032c",
         "articles/expressroute/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=a34c3e27-8326-ec11-b6e6-000d3a4f0789",
