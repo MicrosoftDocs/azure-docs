@@ -120,7 +120,7 @@ items:
     href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
-  - name: Sign an HTTP request with HMAC using C#
+  - name: Sign an HTTP request with HMAC
     href: tutorials/hmac-header-tutorial.md  
   - name: Build an authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
