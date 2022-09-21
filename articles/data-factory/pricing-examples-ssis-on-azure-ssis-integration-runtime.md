@@ -28,7 +28,7 @@ The Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtua
 
 ### Azure Hybrid Benefit (AHB)
 
-Azure Hybrid Benefit (AHB) can reduce the cost of your Azure-SSIS integration runtime (IR).  Using the AHB, you can provide your own SQL license, which reduces the cost of the Azure-SSIS IR from $1.938/hour to $1.158/hour.  To learn more about AHB, visit the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/) article.
+Azure Hybrid Benefit (AHB) can reduce the cost of your Azure-SSIS integration runtime (IR).  Using the AHB, you can provide your own SQL license, which reduces the cost of the Azure-SSIS IR from $1.938/hour to $1.158/hour.  To learn more about AHB, visit the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) article.
 
 
 ## Cost Estimation

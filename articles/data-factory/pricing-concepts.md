@@ -16,7 +16,7 @@ ms.date: 08/24/2022
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
-For more details about pricing in Azure Data Factory, refer to the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/en-us/pricing/details/data-factory/data-pipeline/).
+For more details about pricing in Azure Data Factory, refer to the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
 ## Pricing examples
 The prices used in these examples below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
