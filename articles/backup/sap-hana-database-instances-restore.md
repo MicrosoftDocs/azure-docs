@@ -52,7 +52,7 @@ Target disk resource group (where all existing disks of target VM are present, f
 
 ## Restore entire system to snapshot restore point
 
-In the following sections, you'll learn how to restore the system to snaoshot restore point.
+In the following sections, you'll learn how to restore the system to snapshot restore point.
 
 ### Select and mount the snapshot
 
