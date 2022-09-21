@@ -29,7 +29,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - A resource can only be moved when there are no active test runs.
 
-- If a resource has a test which is configured for private endpoint testing, moving the resource across subscription will result in error while running the test. Update the test with a VNet and subnet from the new subscription to avoid errors while test execution.
+- Moving a resource that has a test that is configured for private endpoint testing to another subscription, will result in an error while running the test. After the move finishes, update the test with a VNet and subnet from the new subscription.
 
 ## Move across subscriptions
 
