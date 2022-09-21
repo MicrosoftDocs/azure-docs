@@ -14,6 +14,8 @@ ms.topic: how-to
 
 This article describes how to move your Azure Load Testing Preview resource between resource groups or Azure subscriptions.
 
+If you want to move Azure Load Testing to a new region, see [Move an Azure Load Testing resource to another region](./how-to-move-between-regions.md).
+
 > [!NOTE]
 > New resource IDs are created as part of the move. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
 
