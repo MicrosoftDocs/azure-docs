@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/15/2022
+ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
 ---

@@ -210,6 +210,61 @@ This setting can be configured during CI creation or for existing CIs via the fo
     }
     ```
 
+### Azure policy support
+Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a given subscription/resource-group. 
+
+1. Navigate to Azure Policy in the Azure portal.
+2. Under "Definitions", look for the idle shutdown policy.
+
+      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure Portal.":::
+
+3. Assign policy to the necessary scope.
+
+You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60 minute inactivity period. 
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+        },
+        {
+          "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+          "equals": "ComputeInstance"
+        },
+        {
+          "anyOf": [
+            {
+              "field": "Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown",
+              "exists": false
+            },
+            {
+              "value": "[empty(field('Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown'))]",
+              "equals": true
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "append",
+      "details": [
+        {
+          "field": "Microsoft.MachineLearningServices/workspaces/computes/idleTimeBeforeShutdown",
+          "value": "PT60M"
+        }
+      ]
+    }
+  },
+  "parameters": {}
+}
+```
+
+
 ## Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
@@ -434,14 +489,7 @@ To use RStudio open source, set up a custom application as follows:
 1.	Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 
-    > [!TIP]
-    > Using ports 8704-8993 is also supported.
-
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
-
-    > [!TIP]
-    > Using ports 8704-8993 is also supported.
-
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
 1. Use **Bind mounts** to add access to the files in your default storage account: 
    * Specify **/home/azureuser/cloudfiles** for **Host path**.  

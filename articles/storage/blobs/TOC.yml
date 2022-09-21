@@ -148,7 +148,7 @@ items:
           - name: Authorize with Azure roles
             href: authorize-access-azure-active-directory.md
           - name: Authorize with conditions
-            href: storage-auth-abac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: storage-auth-abac.md
           - name: Actions and attributes for conditions
             href: storage-auth-abac-attributes.md
           - name: Security for conditions
@@ -922,6 +922,23 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
+    - name: Authorization
+      items:
+      - name: Authorizing data operations
+        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Authorize with Azure AD
+          items:
+          - name: Authorize with Azure roles
+            href: authorize-access-azure-active-directory.md
+          - name: Authorize with conditions
+            href: storage-auth-abac.md
+          - name: Actions and attributes for conditions
+            href: storage-auth-abac-attributes.md
+          - name: Security for conditions
+            href: storage-auth-abac-security.md
+          - name: Example conditions
+            href: storage-auth-abac-examples.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration

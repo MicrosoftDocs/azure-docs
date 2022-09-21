@@ -4,7 +4,7 @@ description: Define network settings and enable network isolation for Azure Moni
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 06/06/2022
+ms.date: 9/16/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -42,6 +42,9 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 1. Use this flowchart to determine the values of the *`Settings` and `ProtectedSettings` parameters first.
 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
+
+    > [!NOTE]
+    > Azure Monitor agent for Linux doesn’t support system proxy via environment variables such as `http_proxy` and `https_proxy`
 
 1. After determining the `Settings` and `ProtectedSettings` parameter values, *provide these other parameters* when you deploy Azure Monitor Agent, using PowerShell commands, as shown in the following examples:
 
