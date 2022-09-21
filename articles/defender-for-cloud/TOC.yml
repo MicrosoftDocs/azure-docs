@@ -37,7 +37,7 @@
     href: get-started.md
   - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect hybrid and multicloud machines
+  - name: 3. Connect hybrid and multicloud environments
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
@@ -48,12 +48,20 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: 4. Set up email notifications
+    - name: Connect GitHub reositories
+      displayName: GitHub, DevOps
+      href: quickstart-onboard-github.md
+    - name: Connect Azure DevOps repositories
+      displayName: DevOps, connect, Azure
+      href: quickstart-onboard-devops.md
+  - name: 4. Configure auto provisioning
+    href: enable-data-collection.md
+  - name: 5. Set up email notifications
     href: configure-email-notifications.md
-  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
+  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
-  - name: 6. Choose standards for your compliance dashboard
+  - name: 7. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
@@ -71,6 +79,8 @@
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
+  - name: Enable pull request annotations in GitHub or in Azure DevOps
+    href: tutorial-enable-pull-request-annotations.md
 
 - name: Samples
   items:
@@ -396,7 +406,22 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-alerts.md  
+      href: defender-for-dns-alerts.md 
+  - name: Defender for DevOps
+    items:
+    - name: Overview
+      displayName: DevOps
+      href: defender-for-devops-introduction.md
+    - name: Configure the Microsoft Security DevOps GitHub action
+      displayName: GitHuB, DevOps, 
+      href: github-action.md
+    - name: Configure the Microsoft Security DevOps Azure DevOps extension
+      href: azure-devops-extension.md
+    - name: Discover misconfigurations in Infrastructure as Code
+      href: iac-vulnerabilities.md
+    - name: Detect exposed secrets in code
+      displayName: DevOps, CredScan, Credentials, leaks, 
+      href: detect-credential-leaks.md
 
 - name: Reference
   items:
