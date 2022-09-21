@@ -19,9 +19,6 @@ This article shows how to import an Azure Container App to Azure API Management 
 > * Import a Container App that exposes a Web API
 > * Test the API in the Azure portal
 
-> [!NOTE]
-> Azure Container Apps are currently in preview.
-
 ## Expose Container App with API Management
 
 [Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code using their preferred programming language or framework, build microservices with full support for Distributed Application Runtime (Dapr), and scale based on HTTP traffic or other events.

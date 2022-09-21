@@ -252,3 +252,8 @@ Move on to the next quickstart to visualize an Azure Digital Twins scenario in a
 
 > [!div class="nextstepaction"]
 > [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md)
+
+Or, skip ahead to the tutorials to dive deeper into the SDKs, twin graph creation, and event flow setup.
+* [Code a client app](tutorial-code.md)
+* [Create a graph in Azure Digital Twins](tutorial-command-line-app.md)
+* [Connect an end-to-end solution](tutorial-end-to-end.md)

@@ -302,19 +302,19 @@ Add the code-behind source as follows:
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
    ```csharp
-   // This code creates the `DialogServiceConnector` with your subscription information.
-   // create a DialogServiceConfig by providing a Custom Commands application id and Cognitive Services subscription key
-   // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
+   // This code creates the `DialogServiceConnector` with your resource information.
+   // create a DialogServiceConfig by providing a Custom Commands application id and Speech resource key
+   // The RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
-   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. 
+   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your Speech resource key
+   const string region = "YourServiceRegion"; // The Speech resource region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md)
+1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech key, and [region](regions.md)
 
 1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`
 

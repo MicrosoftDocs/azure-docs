@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: shivanissambare
-ms.author: ssambare
+author: santiagxf
+ms.author: fasantia
 ms.reviewer: larryfr
-ms.date: 04/26/2022
+ms.date: 08/03/2022
 ms.custom: how-to, studio, managed-batch-endpoints, event-tier1-build-2022
 ---
 
@@ -27,7 +27,8 @@ In this article, you learn about:
 > * Start a batch scoring job
 > * Overview of batch endpoint features in Azure machine learning studio
 
-
+> [!IMPORTANT] 
+> When working on a private link-enabled workspaces, batch enpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI. Please use the [Azure ML CLI v](how-to-configure-cli.md) instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
 
 ## Prerequisites
 
@@ -118,7 +119,7 @@ To change where the results are stored, providing a blob store and output path w
 
 ### Summary of all submitted jobs
 
-To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Jobs** tab.
+To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Runs** tab.
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint":::
 ## Check batch scoring results

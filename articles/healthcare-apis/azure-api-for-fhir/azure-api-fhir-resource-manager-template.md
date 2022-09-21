@@ -52,7 +52,7 @@ The template defines one Azure resource:
 
 <!--
 
-Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
@@ -76,7 +76,7 @@ On the **Deploy Azure API for FHIR** page:
 
 4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
-   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
+   [![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png)](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. Select **Review + create**.
 

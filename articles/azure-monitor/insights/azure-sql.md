@@ -4,12 +4,13 @@ description: Azure SQL Analytics solution helps you manage your Azure SQL databa
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman 
-ms.date: 03/10/2022
+ms.date: 07/29/2022
 ms.reviewer: wiassaf, mathoma
 ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (preview)
+**APPLIES TO:** Azure SQL Database, Azure SQL Managed Instance
 
 > [!CAUTION]
 > Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview).
@@ -283,3 +284,5 @@ While Azure SQL Analytics (preview) is free to use, consumption of diagnostics t
 - Use [log queries](../logs/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
 - [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../alerts/alerts-overview.md) when specific Azure SQL events occur.
+- [Monitor Azure SQL Database with Azure Monitor](/azure/azure-sql/database/monitoring-sql-database-azure-monitor)
+- [Monitor Azure SQL Managed Instance with Azure Monitor](/azure/azure-sql/managed-instance/monitoring-sql-managed-instance-azure-monitor)

@@ -5,14 +5,13 @@ author: aahill
 ms.author: aahi
 ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
-ms.topic: quickstart
-ms.date: 11/04/2021
+ms.topic: conceptual
+ms.date: 09/01/2022
 ---
 
-# Quickstart: Purchase commitment tier pricing
+# Purchase commitment tier pricing
 
-Cognitive Services offers commitment tier pricing,  each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
-
+Cognitive Services offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 * Speech to Text (Standard)
 * Text to Speech (Neural)
 * Text Translation (Standard)
@@ -21,7 +20,7 @@ Cognitive Services offers commitment tier pricing,  each offering a discounted r
     * Sentiment Analysis
     * Key Phrase Extraction
     * Language Detection
-* Computer Vision - Read
+* Computer Vision - OCR
 
 Commitment tier pricing is also available for the following Applied AI service:
 * Form Recognizer – Custom/Invoice
@@ -76,7 +75,6 @@ Once you are approved, you can use either create a new resource to use a commitm
     
     * **Auto-renewal** - Choose how you want to renew, change, or cancel the current commitment plan starting with the next billing cycle. If you decide to auto-renew, the **Auto-renewal date** is the date (in your local timezone) when you will be charged for the next billing cycle. This date coincides with the start of the calendar month.
     
-
     > [!CAUTION]
     > Once you click **Purchase** you will be charged for the tier you select. Once purchased, the commitment plan is non-refundable.
     > 

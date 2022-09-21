@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/19/2021
+  ms.date: 09/08/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Files Sync
+  - title: About Azure File Sync
     linkLists:
       - linkListType: overview
         links:
@@ -68,3 +68,25 @@ landingContent:
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
           - text: Migration guides
             url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides
+
+  # Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Implement a hybrid file server infrastructure
+            url: /training/modules/implement-hybrid-file-server-infrastructure/
+          - text: Extend your on-premises file share capacity using Azure File Sync
+            url: /training/modules/extend-share-capacity-with-azure-file-sync/
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure enterprise cloud file share
+            url: /azure/architecture/hybrid/azure-files-private
+          - text: Hybrid file services
+            url: /azure/architecture/hybrid/hybrid-file-services
+          - text: Hybrid file share with disaster recovery for remote and local branch workers
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers

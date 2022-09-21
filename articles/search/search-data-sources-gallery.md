@@ -631,7 +631,7 @@ The Confluence Connector is an enterprise grade indexing connector that enables 
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premise Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premises Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-confluence-connector)
 
@@ -1216,7 +1216,7 @@ The Jira Connector enables users to perform searches against all Jira objects, e
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premise Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premises Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-jira-connector)
 
@@ -1279,7 +1279,7 @@ The Jive Connector was developed for Jive, establishing a secure connection to t
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Jive and intelligently searching it with Azure Cognitive Search. It robustly indexes discussions, polls, files, blogs, spaces, groups, projects, tasks, videos, messages, ideas, profiles, and status updates from on-premise and cloud-hosted Jive instances in near real time. The connector fully supports Jive’s built-in user and group management and supports Jive’s native authentication models, OAuth and Basic authentication.
+Secure enterprise search connector for reliably indexing content from Jive and intelligently searching it with Azure Cognitive Search. It robustly indexes discussions, polls, files, blogs, spaces, groups, projects, tasks, videos, messages, ideas, profiles, and status updates from on-premises and cloud-hosted Jive instances in near real time. The connector fully supports Jive’s built-in user and group management and supports Jive’s native authentication models, OAuth and Basic authentication.
 
 [More details](https://www.raytion.com/connectors/raytion-jive-connector)
 
@@ -1466,7 +1466,7 @@ The HP TRIM Connector was developed for HP Records Manager, establishing a secur
 
 by [BA Insight](https://www.bainsight.com/)
 
-Our Microsoft Dynamics 365 CRM connector supports both on-premise CRM installations and Dynamics CRM Online.
+Our Microsoft Dynamics 365 CRM connector supports both on-premises CRM installations and Dynamics CRM Online.
 
 [More details](https://www.bainsight.com/connectors/microsoft-dynamics-crm-connector-sharepoint-azure-elasticsearch/)
 

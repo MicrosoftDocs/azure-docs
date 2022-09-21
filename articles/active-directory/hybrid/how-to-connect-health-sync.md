@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that will discuss how to m
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.subservice: hybrid
@@ -21,6 +21,10 @@ The following documentation is specific to monitoring Azure AD Connect (Sync) wi
 
 ![Screenshot of the Azure AD Connect Health for Sync page.](./media/how-to-connect-health-sync/syncsnapshot.png)
 
+> [!IMPORTANT]
+> Azure AD Connect Health for Sync requires Azure AD Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
+> AADConnect V1 is retired on August 31, 2022. Azure AD Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
+> 
 ## Alerts for Azure AD Connect Health for sync
 The Azure AD Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
 

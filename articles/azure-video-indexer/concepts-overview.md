@@ -39,11 +39,8 @@ Use textual and visual content moderation models to keep your users safe from in
 
 ## Insights	
 
-Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. For more information about available models, see [overview](video-indexer-overview.md).
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
- 
 [!INCLUDE [insights](./includes/insights.md)]
 
 The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows. For more information, see [Use editor to create projects](use-editor-create-project.md).

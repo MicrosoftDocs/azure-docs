@@ -7,8 +7,8 @@ author: memildin
 manager: rkarlin
 
 ms.assetid: 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: active-directory
+ms.subservice: domain-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -33,8 +33,11 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)|*.azurecr.io|
 |Azure Container Service (ACS) (deprecated)|*.azurecontainer.io|
 |[Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/)|*.vo.msecnd.net|
+|[Azure Cosmos DB](/azure/cosmos-db/)|*.cosmos.azure.com|
+|[Azure Cosmos DB](/azure/cosmos-db/)|*.documents.azure.com|
 |[Azure Files](../../storage/files/storage-files-introduction.md)|*.file.core.windows.net|
 |[Azure Front Door](https://azure.microsoft.com/services/frontdoor/)|*.azurefd.net|
+|[Azure Kubernetes Service](/azure/aks/)|*.azmk8s.io|
 |Azure Management Services|*.management.core.windows.net|
 |[Azure Media Services](https://azure.microsoft.com/services/media-services/)|*.origin.mediaservices.windows.net|
 |[Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)|*.azure-mobile.net|

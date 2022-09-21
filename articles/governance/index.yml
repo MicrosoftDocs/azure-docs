@@ -27,7 +27,7 @@ highlightedContent:
       url: /azure/architecture/cloud-adoption/governance
     - title: Build a cloud governance strategy on Azure
       itemType: learn
-      url: /learn/modules/build-cloud-governance-strategy-azure/
+      url: /training/modules/build-cloud-governance-strategy-azure/
 
 productDirectory:
   title: Components and Services
