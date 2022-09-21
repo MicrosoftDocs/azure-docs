@@ -13,7 +13,7 @@ ms.date: 09/21/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this quickstart, you will learn how to use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server.
+In this quickstart, you'll learn how to use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server.
 
 Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use Bicep to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
 
@@ -82,7 +82,7 @@ These resources are defined in the Bicep file:
 
 ## Deploy the Bicep file
 
-Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
+Use Azure CLI or Azure PowerShell to deploy the Bicep file.
 
 # [CLI](#tab/CLI)
 
@@ -100,7 +100,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG  -TemplateFile "./mai
 
 ---
 
-You will be prompted to enter these values:
+You'll be prompted to enter these values:
 
 - **serverName**: enter a name for the PostgreSQL server.
 - **administratorLogin**: enter the Azure Database for PostgreSQL server's administrator account name.
@@ -108,9 +108,8 @@ You will be prompted to enter these values:
 
 ## Review deployed resources
 
-Follow these steps to verify if your server was created in Azure.
-
 Use the Azure portal, Azure CLI, or Azure PowerShell to validate the deployment and review the deployed resources.
+
 # [CLI](#tab/CLI)
 
 ```azurecli
