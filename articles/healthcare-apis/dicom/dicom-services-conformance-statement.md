@@ -15,17 +15,17 @@ ms.author: v-smcevoy
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
-* [Store (STOW-RS)](#store-stow-rs)
-* [Retrieve (WADO-RS)](#retrieve-wado-rs)
-* [Search (QIDO-RS)](#search-qido-rs)
-* [Delete](#delete)
+    * [Store (STOW-RS)](#store-stow-rs)
+    * [Retrieve (WADO-RS)](#retrieve-wado-rs)
+    * [Search (QIDO-RS)](#search-qido-rs)
+    * [Delete](#delete)
 * [Worklist Service (UPS Push and Pull SOPs)](#worklist-service-ups-rs)
-* [Create Workitem](#create-workitem)
-* [Retrieve Workitem](#retrieve-workitem)
-* [Update Workitem](#update-workitem)
-* [Change Workitem State](#change-workitem-state)
-* [Request Cancellation](#request-cancellation)
-* [Search Workitems](#search-workitems)
+    * [Create Workitem](#create-workitem)
+    * [Retrieve Workitem](#retrieve-workitem)
+    * [Update Workitem](#update-workitem)
+    * [Change Workitem State](#change-workitem-state)
+    * [Request Cancellation](#request-cancellation)
+    * [Search Workitems](#search-workitems)
 
 Additionally, the following non-standard API(s) are supported:
 
@@ -59,7 +59,7 @@ This transaction uses the POST method to store representations of studies, serie
 | POST   | ../studies         | Store instances. |
 | POST   | ../studies/{study} | Store instances for a specific study. |
 
-Parameter `study` corresponds to the DICOM attribute `StudyInstanceUID`. If it's specified, any instance that doesn't belong to the provided study will be rejected with a `43265` warning code.
+Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If it's specified, any instance that doesn't belong to the provided study will be rejected with a `43265` warning code.
 
 The following `Accept` header(s) for the response are supported:
 
@@ -84,7 +84,7 @@ The following DICOM elements are required to be present in every DICOM file atte
 > [!NOTE]
 > All identifiers must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`.
 
-Each file stored must have a unique combination of StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID. The warning code 45070 will be returned if a file with the same identifiers already exists.
+Each file stored must have a unique combination of StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID. The warning code `45070` will be returned if a file with the same identifiers already exists.
 
 **DICOM File Size Limit:** there's a size limit of 2 GB for a DICOM file by default.
 
@@ -94,16 +94,16 @@ Only transfer syntaxes with explicit Value Representations are accepted.
 
 | Code      | Description |
 | :-------- | :---------- |
-| 200 (OK)                     | All the SOP instances in the request have been stored. |
-| 202 (Accepted)               | Some instances in the request have been stored but others have failed. |
-| 204 (No Content)             | No content was provided in the store transaction request. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format. |
-| 401 (Unauthorized)           | The client isn't authenticated. |
-| 403 (Forbidden)              | The user isn't authorized. |
-| 406 (Not Acceptable)         | The specified `Accept` header isn't supported. |
-| 409 (Conflict)               | None of the instances in the store transaction request have been stored. |
-| 415 (Unsupported Media Type) | The provided `Content-Type` isn't supported. |
-| 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
+| `200 (OK)`                     | All the SOP instances in the request have been stored. |
+| `202 (Accepted)`               | Some instances in the request have been stored but others have failed. |
+| `204 (No Content)`             | No content was provided in the store transaction request. |
+| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format. |
+| `401 (Unauthorized)`           | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `409 (Conflict)`               | None of the instances in the store transaction request have been stored. |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
 ### Store response payload
 
@@ -115,7 +115,7 @@ The response payload will populate a DICOM dataset with the following elements:
 | (0008, 1198) | FailedSOPSequence     | The sequence of instances that failed to store. |
 | (0008, 1199) | ReferencedSOPSequence | The sequence of stored instances. |
 
-Each dataset in the `FailedSOPSequence` will have the following elements (if the DICOM file attempting to be stored could be read):
+Each dataset in the FailedSOPSequence will have the following elements (if the DICOM file attempting to be stored could be read):
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
@@ -123,7 +123,7 @@ Each dataset in the `FailedSOPSequence` will have the following elements (if the
 | (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1197) | FailureReason            | The reason code why this instance failed to store. |
 
-Each dataset in the `ReferencedSOPSequence` will have the following elements:
+Each dataset in the ReferencedSOPSequence will have the following elements:
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
@@ -190,11 +190,11 @@ An example response with `Accept` header `application/dicom+json`:
 
 | Code  | Description |
 | :---- | :---------- |
-| 272   | The store transaction didn't store the instance because of a general failure in processing the operation. |
-| 43264 | The DICOM instance failed the validation. |
-| 43265 | The provided instance StudyInstanceUID didn't match the specified StudyInstanceUID in the store request. |
-| 45070 | A DICOM instance with the same StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID has already been stored. If you wish to update the contents, delete this instance first. |
-| 45071 | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
+| `272`   | The store transaction didn't store the instance because of a general failure in processing the operation. |
+| `43264` | The DICOM instance failed the validation. |
+| `43265` | The provided instance StudyInstanceUID didn't match the specified StudyInstanceUID in the store request. |
+| `45070` | A DICOM instance with the same StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID has already been stored. If you wish to update the contents, delete this instance first. |
+| `45071` | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
 
 ## Retrieve (WADO-RS)
 
@@ -280,20 +280,20 @@ Retrieving metadata will not return attributes with the following value represen
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
-* Data hasn't changed since the last request: HTTP 304 (Not Modified) response will be sent with no response body.
-* Data has changed since the last request: HTTP 200 (OK) response will be sent with updated ETag. Required data will also be returned as part of the body.
+* Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response will be sent with no response body.
+* Data has changed since the last request: `HTTP 200 (OK)` response will be sent with updated ETag. Required data will also be returned as part of the body.
 
 ### Retrieve response status codes
 
 | Code                         | Description |
 | :--------------------------- | :---------- |
-| 200 (OK)                     | All requested data has been retrieved. |
-| 304 (Not Modified)           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
-| 401 (Unauthorized)           | The client isn't authenticated. |
-| 404 (Not Found)              | The specified DICOM resource couldn't be found. |
-| 406 (Not Acceptable)         | The specified `Accept` header isn't supported. |
-| 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
+| `200 (OK)`                     | All requested data has been retrieved. |
+| `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
+| `401 (Unauthorized)`           | The client isn't authenticated. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
 ## Search (QIDO-RS)
 
@@ -460,11 +460,11 @@ The query API returns one of the following status codes in the response:
 
 | Code                      | Description |
 | :------------------------ | :---------- |
-| 200 (OK)                  | The response payload contains all the matching resources. |
-| 204 (No Content)          | The search completed successfully but returned no results. |
-| 400 (Bad Request)         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
-| 401 (Unauthorized)        | The client is not authenticated. |
-| 503 (Service Unavailable) | The service is unavailable or busy. Please try again later. |
+| `200 (OK)`                  | The response payload contains all the matching resources. |
+| `204 (No Content)`          | The search completed successfully but returned no results. |
+| `400 (Bad Request)`         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
+| `401 (Unauthorized)`        | The client is not authenticated. |
+| `503 (Service Unavailable)` | The service is unavailable or busy. Please try again later. |
 
 ### Additional notes
 
@@ -497,11 +497,11 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 
 | Code                         | Description |
 | :--------------------------- | :---------- |
-| 204 (No Content)             | When all the SOP instances have been deleted. |
-| 400 (Bad Request)            | The request was badly formatted. |
-| 401 (Unauthorized)           | The client is not authenticated. |
-| 404 (Not Found)              | When the specified series was not found within a study or the specified instance was not found within the series. |
-| 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
+| `204 (No Content)`             | When all the SOP instances have been deleted. |
+| `400 (Bad Request)`            | The request was badly formatted. |
+| `401 (Unauthorized)`           | The client is not authenticated. |
+| `404 (Not Found)`              | When the specified series was not found within a study or the specified instance was not found within the series. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
 ### Delete response payload
 
@@ -537,12 +537,12 @@ Notes on dataset attributes:
 
 |Code	|Description|
 |:---|:---|
-|201 (Created)|	The target Workitem was successfully created.|
-|400 (Bad Request)|	There was a problem with the request. For example, the request payload did not satisfy the requirements above.|
-|401 (Unauthorized)|	The client is not authenticated.
-|409 (Conflict)	|The Workitem already exists.
-|415 (Unsupported Media Type)|	The provided `Content-Type` is not supported.
-|503 (Service Unavailable)|	The service is unavailable or busy. Please try again later.|
+|`201 (Created)`|	The target Workitem was successfully created.|
+|`400 (Bad Request)`|	There was a problem with the request. For example, the request payload did not satisfy the requirements above.|
+|`401 (Unauthorized)`|	The client is not authenticated.
+|`409 (Conflict)`	|The Workitem already exists.
+|`415 (Unsupported Media Type)`|	The provided `Content-Type` is not supported.
+|`503 (Service Unavailable)`|	The service is unavailable or busy. Please try again later.|
 
 #### Create Response Payload
 
@@ -575,12 +575,12 @@ The request payload may include Action Information as [defined in the DICOM Stan
 
 |Code	|Description|
 |:---|:---|
-|202 (Accepted)|	The request was accepted by the server, but the Target Workitem state has not necessarily changed yet.|
-|400 (Bad Request)|	There was a problem with the syntax of the request.|
-|401 (Unauthorized)|	The client is not authenticated.
-|404 (Not Found)|	The Target Workitem was not found.
-|409 (Conflict)|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.
-|415 (Unsupported Media Type)	|The provided `Content-Type` is not supported.|
+|`202 (Accepted)`|	The request was accepted by the server, but the Target Workitem state has not necessarily changed yet.|
+|`400 (Bad Request)`|	There was a problem with the syntax of the request.|
+|`401 (Unauthorized)`|	The client is not authenticated.
+|`404 (Not Found)`|	The Target Workitem was not found.
+|`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.
+|`415 (Unsupported Media Type)`	|The provided `Content-Type` is not supported.|
 
 #### Request Cancellation Response Payload
 
@@ -604,10 +604,10 @@ The `Accept` header is required and must have the value `application/dicom+json`
 
 |Code	|Description|
 |:--- |:---
-|200 (OK)|	Workitem Instance was successfully retrieved.|
-|400 (Bad Request)|	There was a problem with the request.|
-|401 (Unauthorized)|	The client is not authenticated.|
-|404 (Not Found)|	The Target Workitem was not found.|
+|`200 (OK)`|	Workitem Instance was successfully retrieved.|
+|`400 (Bad Request)`|	There was a problem with the request.|
+|`401 (Unauthorized)`|	The client is not authenticated.|
+|`404 (Not Found)`|	The Target Workitem was not found.|
 
 #### Retrieve Workitem Response Payload
 
@@ -636,18 +636,18 @@ Notes on dataset attributes:
 
 * **Conditional requirement codes:** All the conditional requirement codes including 1C and 2C are treated as optional.
 
-* The request cannot set the value of the `Procedure Step State (0074,1000)` attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
+* The request cannot set the value of the Procedure Step State (0074,1000) attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
 
 #### Update Workitem Transaction Response Status Codes
 
 |Code	|Description|
 |:---|:---|
-|200 (OK)|	The Target Workitem was updated.|
-|400 (Bad Request)|	There was a problem with the request. For example: (1) the Target Workitem was in the **COMPLETED** or **CANCELED** state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
-|401 (Unauthorized)|	The client is not authenticated.|
-|404 (Not Found)|	The Target Workitem was not found.|
-|409 (Conflict)	|The request is inconsistent with the current state of the Target Workitem.|
-|415 (Unsupported Media Type)| The provided `Content-Type` is not supported.|
+|`200 (OK)`|	The Target Workitem was updated.|
+|`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the **COMPLETED** or **CANCELED** state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
+|`401 (Unauthorized)`|	The client is not authenticated.|
+|`404 (Not Found)`|	The Target Workitem was not found.|
+|`409 (Conflict)`	|The request is inconsistent with the current state of the Target Workitem.|
+|`415 (Unsupported Media Type)`| The provided `Content-Type` is not supported.|
 
 #### Update Workitem Transaction Response Payload
 
@@ -680,11 +680,11 @@ The request payload shall contain the Change UPS State Data Elements. These data
 
 |Code|	Description|
 |:---|:---|
-|200 (OK)|	Workitem Instance was successfully retrieved.|
-|400 (Bad Request)	|The request cannot be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect|
-|401 (Unauthorized)	|The client is not authenticated.|
-|404 (Not Found)|	The Target Workitem was not found.|
-|409 (Conflict)|	The request is inconsistent with the current state of the Target Workitem.|
+|`200 (OK)`|	Workitem Instance was successfully retrieved.|
+|`400 (Bad Request)`	|The request cannot be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect|
+|`401 (Unauthorized)`	|The client is not authenticated.|
+|`404 (Not Found)`|	The Target Workitem was not found.|
+|`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem.|
 
 #### Change Workitem State Response Payload
 
@@ -774,12 +774,12 @@ The query API will return one of the following status codes in the response:
 
 |Code	|Description|
 |:---|:---|
-|200 (OK)|	The response payload contains all the matching resource.|
-|206 (Partial Content)	|The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
-|204 (No Content)|	The search completed successfully but returned no results.|
-|400 (Bad Request)|	The was a problem with the request. For example, invalid Query Parameter syntax. Response body contains details of the failure.|
-|401 (Unauthorized)|	The client is not authenticated.|
-|503 (Service Unavailable)	|The service is unavailable or busy. Please try again later.|
+|`200 (OK)`|	The response payload contains all the matching resource.|
+|`206 (Partial Content)`	|The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
+|`204 (No Content)`|	The search completed successfully but returned no results.|
+|`400 (Bad Request)`|	The was a problem with the request. For example, invalid Query Parameter syntax. Response body contains details of the failure.|
+|`401 (Unauthorized)`|	The client is not authenticated.|
+|`503 (Service Unavailable)`	|The service is unavailable or busy. Please try again later.|
 
 #### Additional Notes
 
