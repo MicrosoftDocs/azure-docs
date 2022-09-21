@@ -65,6 +65,8 @@ public class Counter
 
 The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
+The `EntityTrigger` Function, `Run` in this sample, does not need to reside within the Entity class itself. It may reside within any valid location for an Azure Function: inside the top-level namespace, or inside a top-level class. Therefore, if your Entity class is *not* a top-level class, and you place your `EntityTrigger` Function inside of it, your Function may not be recognized. 
+
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
 
