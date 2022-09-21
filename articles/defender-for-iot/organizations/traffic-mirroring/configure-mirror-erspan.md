@@ -9,10 +9,13 @@ ms.topic: how-to
 
 When preparing your network for OT traffic monitoring with Defender for IoT, you can configure traffic mirroring using an encapsulated remote switched port analyzer (ERSPAN).
 
-Use this method when TBD.
+<!--Use this method when TBD-->
 
-This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
+When configuring ERSPAN, we recommend using your receiving router as the GRE's tunnel destination, and mirror the input interface to your OT sensor's monitoring interface. The sensor's monitoring interface doesn't have a specifically allocated IP address <!--it doesn't?-->, and when ERSPAN support is configured, GRE headers are stripped from the monitored traffic.<!--i don't understand any of this. does it make sense?-->
 
+> [!NOTE]
+> This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
+>
 
 ## ERSPAN architecture
 
@@ -35,7 +38,8 @@ ERSPAN source options include elements such as:
 
 ## Configure ERSPAN on your OT network sensor
 
-Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default.
+Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default. To turn on support for ERSPAN, you'll need to configure your ERSPAN interfaces and then enable the RCDCAP component to restart your monitoring processes:
+
 
 **To turn on support for ERSPAN on your OT sensor**:
 
@@ -46,54 +50,38 @@ Newly installed OT network sensors have ERSPAN and GRE header stripping turned o
     ```cli
     sudo nano /var/cyberx/properties/network.properties
     ```
+
 1. Modify the `monitor_erspan_interfaces` value with the interfaces that you want to monitor using ERSPAN. You do *not* need to run the `interfaces-apply` command as the update is automatically applied.
 
-1. Restart monitoring processes on your sensor. Run:
+**To restart monitoring processes on your sensor**: 
 
-    ```
-    sudo cyberx-xsense-components-enable -n "rcdcap"
-    ```
+Run:
 
-1. To verify your updates: 
+```
+sudo cyberx-xsense-components-enable -n "rcdcap"
+```
 
-Enabling ERSPAN support requires setting up the erspan interfaces and enabling the rcdcap component: 
+**To verify your updates**:
 
-Login by SSH  
+On your sensor, go to `ifconfig` <!--how?-->. If you've configured ERSPAN correctly, you'll see a new interface with ERSPAN.
 
-Edit interfaces in network.properties 
+The ERSPAN interface renames and clones the original interface. The other interface is shown as empty.
 
- 
-
- 
-
-
-All passive traffic dissectors will restart. 
-
-Verifying your configuration 
-
-In ifconfig you will see a new interface with erspan. 
-
-This renames and clones the original interface. The empty one shown is empty. 
-
-Example configuration (Cisco Switch) 
-
-Note: Use your receiving router as the GRE tunnel's destination and mirror the input interface to your D4IoT sensor's monitor interface. 
-
-
-Note: The sensor monitoring interface does not have an allocated IP address. When ERSPAN support is enabled for the sensor interface, GRE headers will be stripped from the monitored traffic. 
 ## Sample configuration on a Cisco switch
 
-```cli
-monitor session 1 type erspan-source 
-description ERSPAN to D4IoT 
-erspan-id 32                              # required, # between 1-1023 
-vrf default                               # required 
-destination ip 172.1.2.3                  # IP address of destination 
-source interface port-channel1 both       # Port(s) to be sniffed 
-filter vlan 1                             # limit VLAN(s) (optional) 
-no shut                                   # enable 
+The following code shows a sample ifconfig output for ERSPAN configured on a Cisco switch:
 
-monitor erspan origin ip-address 172.1.2.1 global 
+```cli
+monitor session 1 type erspan-source
+description ERSPAN to D4IoT
+erspan-id 32                              # required, # between 1-1023
+vrf default                               # required
+destination ip 172.1.2.3                  # IP address of destination
+source interface port-channel1 both       # Port(s) to be sniffed
+filter vlan 1                             # limit VLAN(s) (optional)
+no shut                                   # enable
+
+monitor erspan origin ip-address 172.1.2.1 global
 ```
 
 ## Next steps
