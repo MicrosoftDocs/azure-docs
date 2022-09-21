@@ -81,7 +81,7 @@ For more information about this reference architecture, see [Highly available mu
 
 #### DDoS IP Protection with PaaS web application architecture
 
-:::image type="content" source="./media/reference-architectures/ddos_ip-protection_paas_web_app.png" alt-text="Diagram of DDoS Network Protection reference architecture for a PaaS web application." lightbox="./media/reference-architectures/ddos_ip-protection_paas_web_app.png":::
+:::image type="content" source="./media/reference-architectures/ddos_ip-protection_paas_web_app.png" alt-text="Diagram of DDoS IP Protection reference architecture for a PaaS web application." lightbox="./media/reference-architectures/ddos_ip-protection_paas_web_app.png":::
 
 ## Mitigation for non-web PaaS services
 
