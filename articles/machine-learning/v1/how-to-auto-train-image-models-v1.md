@@ -280,7 +280,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Bayesian sampling](../how-to-tune-hyperparameters.md#bayesian-sampling) 
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling supports conditional hyperparameter spaces.
 
 ### Early termination policies
 
