@@ -84,7 +84,7 @@ You can put your web application firewall devices, such as Azure Application Gat
 Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
 > [!NOTE]
-> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. However, the supportability is determined by the subscription where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily or configure a service endpoint temporarily. For more information and troubleshooting see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Private endpoint
 
@@ -111,7 +111,6 @@ If you want to use your own DNS server, add the following records:
 
 1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
-1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
 1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
 1. Create an A record in the `scm` zone that points * to the IP address used by the private endpoint of your App Service Environment.
 
@@ -119,7 +118,6 @@ To configure DNS in Azure DNS private zones:
 
 1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address.
-1. Create an A record in that zone that points @ to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.
 
 In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (simply replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.

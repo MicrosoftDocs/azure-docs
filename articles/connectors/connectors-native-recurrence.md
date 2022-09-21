@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 09/02/2022
 ---
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
@@ -52,7 +52,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
 1. In the designer, follow the corresponding steps, based on whether your logic app workflow is [Consumption or Standard](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-   **Consumption**
+### [Consumption](#tab/consumption)
 
    1. On the designer, under the search box, select **Built-in**.
    1. In the search box, enter **recurrence**. 
@@ -60,7 +60,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
       ![Screenshot for Consumption logic app workflow designer with "Recurrence" trigger selected.](./media/connectors-native-recurrence/add-recurrence-trigger-consumption.png)
 
-   **Standard**
+### [Standard](#tab/standard)
 
    1. On the designer, select **Choose operation**.
    1. On the **Add a trigger** pane, under the search box, select **Built-in**.
@@ -68,6 +68,8 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
    1. From the triggers list, select the trigger named **Recurrence**.
 
       ![Screenshot for Standard logic app workflow designer with "Recurrence" trigger selected.](./media/connectors-native-recurrence/add-recurrence-trigger-standard.png)
+
+---
 
 1. Set the interval and frequency for the recurrence. In this example, set these properties to run your workflow every week, for example:
 
@@ -185,6 +187,13 @@ The following example shows how a Recurrence trigger definition might appear in 
    }
 }
 ```
+
+> [!NOTE]
+>
+> In the Recurrence trigger definition, the `evaluatedRecurrence` property appears along with the `recurrence` property 
+> when any expression or parameter reference appears in the recurrence criteria. This `evaluatedRecurrence` property 
+> represents the evaluated values from the expression or parameter reference. If the recurrence criteria doesn't 
+> specify any expressions or parameter references, the `evaluatedRecurrence` and `recurrence` properties are the same.
 
 The following example shows how to update the trigger definition so that the trigger runs only once on the last day of each month:
 

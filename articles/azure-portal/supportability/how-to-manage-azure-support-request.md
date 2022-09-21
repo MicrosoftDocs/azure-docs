@@ -66,11 +66,11 @@ To change your **Advanced diagnostic information** selection after the request h
 
 ## Upload files
 
-You can use the file upload option to upload diagnostic files such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
+You can use the file upload option to upload a diagnostic file, such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
 
 1. On the **All support requests** page, select the support request.
 
-1. On the **Support Request** page, select the **File upload** box, then browse to find your file and select **Upload**. Repeat the process if you have multiple files.
+1. On the **Support Request** page, select the **File upload** box, then browse to find your file and select **Upload**.
 
 ### File upload guidelines
 
@@ -78,7 +78,7 @@ Follow these guidelines when you use the file upload option:
 
 - To protect your privacy, don't include personal information in your upload.
 - The file name must be no longer than 110 characters.
-- You can't upload more than one file.
+- You can't upload more than one file. To include multiple different files, package them together in a compressed format such as .zip.
 - Files can't be larger than 4 MB.
 - All files must have a valid file name extension, such as *.docx* or *.xlsx*. Most file name extensions are supported, but you can't upload files with the extensions .bat, .cmd, .exe, .ps1, .js, .vbs, .com, .lnk, .reg, .bin,. cpl, .inf, .ins, .isu, .job, .jse, .msi, .msp, .paf, .pif, .rgs, .scr, .sct, .vbe, .vb, .ws, .wsf, or .wsh.
 

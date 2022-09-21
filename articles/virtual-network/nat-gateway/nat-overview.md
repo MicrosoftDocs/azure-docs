@@ -87,9 +87,11 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 ### Availability zones
 
-* A NAT gateway can be created in a specific availability zone or placed in 'no zone'. NAT gateway is placed in no zone by default. A non-zonal NAT gateway is placed in a zone for you by Azure and does not give a guarantee of redundancy.
+* A NAT gateway can be created in a specific availability zone or placed in 'no zone'. 
 
-* NAT gateway can be isolated in a specific zone when you create [availability zones](../../availability-zones/az-overview.md) scenarios. This deployment is called a zonal deployment. After NAT gateway is deployed, the zone selection cannot be changed.
+* NAT gateway can be isolated in a specific zone when you create [zone isolation scenarios](/azure/virtual-network/nat-gateway/nat-availability-zones). This deployment is called a zonal deployment. After NAT gateway is deployed, the zone selection cannot be changed.
+
+* NAT gateway is placed in no zone by default. A [non-zonal NAT gateway](/azure/virtual-network/nat-gateway/nat-availability-zones#non-zonal) is placed in a zone for you by Azure.
 
 ### NAT gateway and basic SKU resources
 
@@ -125,4 +127,5 @@ For information on the SLA, see [SLA for Virtual Network NAT](https://azure.micr
 
 * Learn about the [NAT gateway resource](./nat-gateway-resource.md).
 
-* [Learn module: Introduction to Azure Virtual Network NAT](/learn/modules/intro-to-azure-virtual-network-nat).
+* [Learn module: Introduction to Azure Virtual Network NAT](/training/modules/intro-to-azure-virtual-network-nat).
+
