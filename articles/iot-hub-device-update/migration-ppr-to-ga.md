@@ -27,12 +27,13 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 3. SSH into your device and update the Device Update agent.
    ```bash
-   sudo apt install deviceupdate-agent 
+   sudo apt install deviceupdate-agent
+   sudo systemctl restart deviceupdate-agent
    sudo systemctl status deviceupdate-agent
    ```
 2. Confirm that the DU agent is running correctly. Look for 'HealthCheck passed'
    ```bash
-   sudo /usr/bin/AducIotAgent -h  
+   sudo -u adu /usr/bin/AducIotAgent -h  
    ```
 3. See the updated device in the Device Update portal. The device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**.
 
