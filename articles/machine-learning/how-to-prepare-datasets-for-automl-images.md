@@ -50,7 +50,7 @@ If you already have a data labeling project and you want to use that data, you c
 ### Using pre-labeled training data
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 
 
-Below script uploads the image data at path "./data/odFridgeObjects" on your local machine to Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" and makes datastore property of this data asset point to location in Azure Blob Storage where the image data was uploaded. 
+Below script uploads the image data at path "./data/odFridgeObjects" on your local machine to Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. Datastore property of this newly created data asset is made to point to location in Azure Blob Storage where the image data was uploaded. 
 
 If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it'll update its version number and update its datastore property to point to new location in Azure Blob Storage where we uploaded the image data.
 
@@ -80,7 +80,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 ---
 
-If you already have your data present in Azure Blob Storage and want to create dataset out of it, you can do so by providing path to the location in Azure Blob Storage as shown below.
+If you already have your data present in Azure Blob Storage and want to create data asset out of it, you can do so by providing path to the location in Azure Blob Storage as shown below.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
