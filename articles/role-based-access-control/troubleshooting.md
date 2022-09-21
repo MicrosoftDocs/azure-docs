@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 07/28/2022
+ms.date: 09/13/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -27,10 +27,10 @@ When you try to assign a role, you get the following error message:
 
 **Cause**
 
-Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
 
 > [!NOTE]
-> Starting November 2021, the role assignments limit for all Azure subscriptions is being automatically increased from **2000** to **4000**. There is no action that you need to take for your subscription. The limit increase will take several months.
+> For specialized clouds, such as Azure Government and Azure China 21Vianet, the limit is **2000** role assignments per subscription.
 
 **Solution**
 
@@ -338,7 +338,7 @@ When you try to create a new custom role, you get the following message:
 
 **Cause**
 
-Azure supports up to **5000** custom roles in a directory. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
+Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
 
 **Solution**
 

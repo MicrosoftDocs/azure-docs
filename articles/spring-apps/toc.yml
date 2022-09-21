@@ -91,7 +91,7 @@ items:
     - name: Fix app restart issues caused by OOM
       href: how-to-fix-app-restart-issues-caused-by-out-of-memory.md
     - name: Containerize your Java applications
-      href: /azure/developer/java/containers/overview?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Metrics
     href: concept-metrics.md
   - name: Spring Boot Actuator
@@ -137,7 +137,7 @@ items:
     - name: Use IntelliJ to deploy apps
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
-      href: https://code.visualstudio.com/docs/java/java-spring-cloud
+      href: https://code.visualstudio.com/docs/java/java-spring-apps
     - name: Deploy Spring apps with Maven
       href: how-to-maven-deploy-apps.md
     - name: Deploy Spring apps with Azure PowerShell

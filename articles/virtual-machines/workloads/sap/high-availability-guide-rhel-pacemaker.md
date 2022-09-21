@@ -227,9 +227,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo pcs property set concurrent-fencing=true
    </code></pre>
 
-## Create STONITH device
+## Create fencing device
 
-The STONITH device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
+The fencing device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
 ### Using Managed Identity
 To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time.
@@ -289,9 +289,9 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
 
-### **[1]** Create the STONITH devices
+### **[1]** Create the fencing devices
 
-After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
+After you edited the permissions for the virtual machines, you can configure the fencing devices in the cluster.
 
 <pre><code>
 sudo pcs property set stonith-timeout=900
@@ -299,7 +299,7 @@ sudo pcs property set stonith-timeout=900
 
 > [!NOTE]
 > Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
-> Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
+> Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 
 #### [Managed Identity](#tab/msi)
@@ -345,7 +345,7 @@ op monitor interval=3600
 > [!IMPORTANT]
 > The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
 
-### **[1]** Enable the use of a STONITH device
+### **[1]** Enable the use of a fencing device
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
@@ -354,30 +354,30 @@ op monitor interval=3600
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 
-## Optional STONITH configuration  
+## Optional fencing configuration  
 
 > [!TIP]
 > This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
 
-If there is a need to collect diagnostic information within the VM , it may be useful to configure additional STONITH device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
+If there is a need to collect diagnostic information within the VM , it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
 
 > [!IMPORTANT]
-> Be aware that when `fence_kdump` is configured as a first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
+> Be aware that when `fence_kdump` is configured as a first level fencing device, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
 > 
 > If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
 > The proposed fence_kdump timeout may need to be adapted to the specific environment.
 >     
-> We recommend to configure `fence_kdump` stonith only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
+> We recommend to configure `fence_kdump` fencing only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
 
-The following Red Hat KBs contain important information about configuring `fence_kdump` stonith:
+The following Red Hat KBs contain important information about configuring `fence_kdump` fencing:
 
 * [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971)
-* [How to configure/manage STONITH levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
+* [How to configure/manage fencing levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
 * [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
 * For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
 * For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
    
-Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent configuration. 
+Execute the following optional steps to add `fence_kdump` as a first level fencing configuration, in addition to the Azure Fence Agent configuration. 
 
 
 1. **[A]** Verify that kdump is active and configured.  
@@ -390,19 +390,19 @@ Execute the following optional steps to add `fence_kdump` as a first level STONI
     ```
     yum install fence-agents-kdump
     ```
-3. **[1]** Create `fence_kdump` stonith device in the cluster.   
+3. **[1]** Create `fence_kdump` fencing device in the cluster.   
     <pre><code>
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
     </code></pre>
 
-4. **[1]** Configure stonith levels, so that `fence_kdump` fencing mechanism is engaged first.  
+4. **[1]** Configure fencing levels, so that `fence_kdump` fencing mechanism is engaged first.  
     <pre><code>
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>"
     pcs stonith level add 1 <b>prod-cl1-0</b> rsc_st_kdump
     pcs stonith level add 1 <b>prod-cl1-1</b> rsc_st_kdump
     pcs stonith level add 2 <b>prod-cl1-0</b> rsc_st_azure
     pcs stonith level add 2 <b>prod-cl1-1</b> rsc_st_azure
-    # Check the stonith level configuration 
+    # Check the fencing level configuration 
     pcs stonith level
     # Example output
     # Target: <b>prod-cl1-0</b>

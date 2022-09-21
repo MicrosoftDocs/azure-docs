@@ -22,7 +22,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python get started (Day 1)
+    - name: Azure ML in a day
       expanded: true
       items: 
         - name: 1. Run a Python script
@@ -31,45 +31,31 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
-    - name: Jupyter Notebooks
+    - name: Build models
       items: 
-        - name: Train & deploy image classification
-          displayName: MNIST
-          href: tutorial-train-deploy-notebook.md
-        - name: Object detection with AutoML
-          displayName: automl, automated, auto ml, computer vision, images, image model
-          href: tutorial-auto-train-image-models.md
-
-    - name: Studio
-      items: 
-        - name: Automated ML (UI)
-          items: 
+        - name: Create production ML pipelines (preview)
+          href: tutorial-pipeline-python-sdk.md
+        - name: Train a TensorFlow image classification model
+          href: tutorial-train-deploy-image-classification-model-vscode.md
+        - name: Automated ML
+          items:
+            - name: Object detection with AutoML (SDK)
+              displayName: automl, automated, auto ml, computer vision, images, image model
+              href: tutorial-auto-train-image-models.md
             - name: Create automated ML experiments
-              displayName: automl, automated, auto ml, portal, ui
+              displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-first-experiment-automated-ml.md
             - name: Forecast demand (Bike share data)
-              displayName: automl, automated, auto ml, portal, ui
+              displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-automated-ml-forecast.md 
         - name: Designer (drag-n-drop)
           items: 
             - name: 1. Train a regression model
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Deploy that model
+            - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-    - name: Visual Studio Code
-      items: 
-        - name: Train a TensorFlow image classification model
-          href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Microsoft Power BI integration
-      items: 
-        - name: "Part 1: Train and deploy models"
-          href: tutorial-power-bi-custom-model.md
-        - name: "Part 2: Consume in Power BI"
-          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Build a training pipeline (Python SDK V2)(preview)
-      href: tutorial-pipeline-python-sdk.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks
@@ -418,10 +404,8 @@
             href: how-to-train-pytorch.md
           - name: Train with custom Docker image
             href: how-to-train-with-custom-image.md
-          - name: Migrate from Estimators to ScriptRunConfig
-            href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Use Key Vault when training
-            displayName: secrets keyvault
+            displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
         - name: Train with the CLI v2
           href: how-to-train-cli.md
@@ -791,7 +775,7 @@
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
     - name: Microsoft Learn
-      href: /learn/browse/?expanded=azure&products=azure-machine-learning
+      href: /training/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
