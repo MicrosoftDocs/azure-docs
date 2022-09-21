@@ -10,9 +10,9 @@ ms.author: lwainstein
 
 # Stream CEF logs with the AMA connector
 
-This article describes how to use the **CEF via AMA connector** to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
+This article describes how to use the **CEF over AMA** connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
 
-The Azure Monitor Agent (AMA) supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload times, efficient analysis and querying.
+The connector uses the Azure Monitor Agent (AMA), which supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload, efficient analysis, and querying.
 
 The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#how-collection-works-with-the-windows-dns-events-via-ama-connector).
 
@@ -25,16 +25,18 @@ The AMA is installed on a Linux machine that acts as a log forwarder, and the AM
 
 Many network, security appliances, and devices send their logs in the CEF format over Syslog. This format includes more structured information than Syslog, with information presented in a parsed key-value arrangement.
 
-If your appliance or system sends logs over Syslog using CEF, the integration with Microsoft Sentinel allows you to easily run analytics and queries across the data. This makes Syslog or CEF the most straightforward ways to stream security and networking events to Microsoft Sentinel. 
+If your appliance or system sends logs over Syslog using CEF, the integration with Microsoft Sentinel allows you to easily run analytics and queries across the data.
 
 CEF over Syslog normalizes the data, making it more immediately useful for analysis with Microsoft Sentinel. Microsoft Sentinel also allows you to ingest unparsed Syslog events, and to analyze them with query time parsing. 
 
 ### How collection works with the Windows DNS Events via AMA connector
 
 1. Your organization sets up a log forwarder (Linux VM), if one doesn't already exist. The forwarder can be on-premises or cloud-based.
-1. Your organization forwards CEF logs from your source devices to the forwarder.
+1. Your organization uploads CEF logs from your source devices to the forwarder.
 1. The AMA connector installed on the log forwarder collects and parses the logs. 
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
+
+## Set up the CEF over AMA connector
 
 ### Prerequisites
 
@@ -50,11 +52,9 @@ Before you begin, verify that you have:
     - Windows servers installed on on-premises virtual machines
     - Windows servers installed on virtual machines in non-Azure clouds 
 
-## Set up the CEF over AMA connector
-
 ### Configure a log forwarder
 
-To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the AMA directly, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud.
+To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud.
 
 This machine has two components that take part in this process:
 
@@ -83,7 +83,7 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 You can set up the connector in two ways:  
 - [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete DCRs per workspace.  
-- [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete DCRs. This option is slightly more flexible than the UI. For example, with the API you can configure specific log levels, where the UI allows you to select only one log level and the levels under it.
+- [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the UI. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level.
 
 #### Set up the connector in the Microsoft Sentinel portal (UI)
 
@@ -106,7 +106,7 @@ The DCR name, subscription, and resource group are automatically set based on th
 
 ##### Define resources (VMs)
 
-Select the machines on which you want to install the AMA. These are VMs or on-premises Linux machines with Arc installed.
+Select the machines on which you want to install the AMA. These machines are VMs or on-premises Linux machines with Arc installed.
 
 1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
@@ -131,7 +131,7 @@ Select the machines on which you want to install the AMA. These are VMs or on-pr
 ##### Run the installation script
 
 1.	Log in to the Linux forwarder machine, where you want the AMA to be installed.
-1.	[Edit the DCR stream](#request-body)
+1.	[Edit the DCR stream](#request-body).
 1.	Run this command to launch the installation script:
  
 ```python
@@ -144,7 +144,7 @@ The installation script configures the `rsyslog` or `syslog` daemon to use the r
 
 ### Set up the connector with the API
 
-You can [create DCRs using the API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).  
+You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).  
 
 #### Request URL and header  
 
