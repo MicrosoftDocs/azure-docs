@@ -106,6 +106,12 @@ If integrated with your API Management instance, also enable outbound connectivi
 * [Application Insights](api-management-howto-app-insights.md)  
 * [External cache](api-management-howto-cache-external.md) 
 
+#### Requirements
+
+| Description | Configuration API v1 | Configuration API v2 | Notes |
+|:------------|:---------------------|:---------------------|:------|
+| Public IP address of the API Management instance in its primary location | :check: | :check: | |
+
 #### Gateway v2 requirements
 
 The self-hosted gateway v2 requires the following:
