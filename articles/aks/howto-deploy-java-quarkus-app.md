@@ -4,7 +4,7 @@ description: In this Azure Kubernetes Service (AKS) how-to guide, you learn how 
 author: danieloh30
 ms.author: edburns
 ms.service: container-service
-ms.topic: how.to
+ms.topic: how-to
 ms.date: 09/21/2022
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks
 ---
