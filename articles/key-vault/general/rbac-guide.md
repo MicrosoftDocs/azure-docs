@@ -36,7 +36,6 @@ Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
 -   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
--   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
 
 More about Azure Key Vault management guidelines, see:
 
