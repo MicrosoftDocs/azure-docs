@@ -70,7 +70,7 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
-   [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=subscription_id)]
+   [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
 
 * **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
