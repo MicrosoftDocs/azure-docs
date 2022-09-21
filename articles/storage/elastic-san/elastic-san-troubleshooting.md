@@ -1,5 +1,5 @@
 ---
-title: Elastic SAN troubleshooting
+title: Elastic SAN (preview) troubleshooting
 description: Troubleshoot issues with an Azure Elastic SAN.
 author: roygara
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Troubleshoot issues with Azure Elastic SAN
+# Troubleshoot issues with Azure Elastic SAN (preview)
 
 ## Can't create volumes
 

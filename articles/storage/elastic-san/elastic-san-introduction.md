@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Elastic SAN
-description: An overview of Azure Elastic SAN, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
+title: Introduction to Azure Elastic SAN (preview)
+description: An overview of Azure Elastic SAN (preview), a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# What is Azure Elastic SAN?
+# What is Azure Elastic SAN? (preview)
 
-Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
 Elastic SAN is designed for large scale IO-intensive workloads and top tier databases, such as:
 - SQL

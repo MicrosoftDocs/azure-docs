@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Elastic SAN
-description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Create an Azure Elastic SAN (preview)
+description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Deploy an Elastic SAN
+# Deploy an Elastic SAN (preview)
 
-This article explains how to deploy and configure an Elastic SAN.
+This article explains how to deploy and configure an elastic storage area network (SAN).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This article explains how to deploy and configure an Elastic SAN.
 
 ## Limitations
 
-Currently, Elastic SAN is only available in the following regions:
+Currently, Elastic SAN (preview) is only available in the following regions:
 
 - West US 2
 - France Central

@@ -1,6 +1,6 @@
 ---
-title: Azure Elastic SAN Networking
-description: An overview of Azure Elastic SAN, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+title: Azure Elastic SAN Networking (preview)
+description: An overview of Azure Elastic SAN (preview), a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Configure Elastic SAN networking
+# Configure Elastic SAN networking (preview)
 
-Azure Elastic SAN allows you to secure and control the level of access to your elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access a SAN. Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access an elastic SAN (preview). Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
 
 Volume groups are configured to allow access only from specific subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 

@@ -1,6 +1,6 @@
 ---
-title: Delete an Azure Elastic SAN
-description: Learn how to delete an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or the Azure CLI.
+title: Delete an Azure Elastic SAN (preview)
+description: Learn how to delete an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: elastic-san
 ---
 
-# Delete an Elastic SAN
+# Delete an Elastic SAN (preview)
 
-In order to delete an elastic SAN, you first need to disconnect every volume in your SAN from any connected hosts.
+In order to delete an elastic storage area network (SAN), you first need to disconnect every volume in your elastic SAN (preview) from any connected hosts.
 
 You can disconnect a volume from a connected host with the iSCSI disconnect command.
 
