@@ -77,7 +77,7 @@ Azure Monitor can collect data from [sources](monitor-reference.md) that range f
 
 - **Application** - Data about the performance and functionality of the code you've written, regardless of its platform.
 - **Guest operating system** - Data about the operating system on which your application is running. The system could be running in Azure, another cloud, or on-premises.
-- **Azure resource** - Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services).
+- **Azure resource** - Data about the operation of an Azure resource. For a list of the resources that have metrics and/or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md).
 - **Azure subscription** - Data about the operation and management of an Azure subscription, and data about the health and operation of Azure itself.
 - **Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 - **Azure resource changes** - Data about changes within your Azure resources and how to address and triage incidents and issues.
