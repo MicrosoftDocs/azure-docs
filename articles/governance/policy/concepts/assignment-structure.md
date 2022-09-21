@@ -87,7 +87,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   value. However, the scope isn't locked to the value and it can be changed to another scope.
 
   The following example of `parameterScopes` is for a _strongType_ parameter named
-  **backupPolicyId** that sets a scope for resource selection when the assignment is edited in the
+  `backupPolicyId` that sets a scope for resource selection when the assignment is edited in the
   Portal.
 
   ```json
@@ -102,6 +102,26 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
+- `evidenceStorages` (object): An array of storage containers which can hold attestation evidence for policy assignments with a `manual` effect. The `displayName` is the user-friendly name of the storage account, `evidenceStorageAccountID` is the resource ID of the storage account, and `evidenceBlobcontainer` is the name of blob container for the evidence to be stored at.
+
+    ```json
+    {
+      "properties": {
+        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
+        "metadata": {
+          "evidenceStorages": [
+            {
+              "displayName": "Default evidence storage",
+              "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+              "evidenceBlobContainer": "evidence-container"
+            }
+          ]
+        }
+      }
+    }
+    ```
+
 
 ## Resource selectors (preview)
 
