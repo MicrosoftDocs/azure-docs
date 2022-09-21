@@ -16,7 +16,9 @@ ms.custom: devx-track-csharp
 
 # Locate audio files for batch transcription
 
-Batch transcription is used to transcribe a large amount of audio in storage. You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
+Batch transcription is used to transcribe a large amount of audio in storage. Batch transcription can read audio files from a public URI (such as "https://crbn.us/hello.wav") or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI. 
+
+You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
 
 ## Supported audio formats
 
@@ -30,11 +32,11 @@ The batch transcription API supports the following formats:
 
 For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each input audio file. To create an ordered final transcript, use the timestamps that are generated per utterance.
 
-## Azure Storage for audio files
+## Azure Blob Storage example
 
-Batch transcription can read audio files from a public URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI. You can provide individual audio files, or a whole storage container. You can also read or write transcription results in a container.
+Batch transcription can read audio files from a public URI (such as "https://crbn.us/hello.wav") or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI. You can provide individual audio files, or an entire Azure Blob Storage container. You can also read or write transcription results in a container. This example shows how to transcribe audio files in [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 
-The SAS URI must have `r` (read) and `l` (list) permissions. The Azure [blob](../../storage/blobs/storage-blobs-overview.md) container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB.
+The [SAS URI](../../storage/common/storage-sas-overview.md) must have `r` (read) and `l` (list) permissions. The storage container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB.
 
 Follow these steps to create a storage account, upload wav files from your local directory to a new container, and generate a SAS URL that you can use for batch transcriptions.
 
