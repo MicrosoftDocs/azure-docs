@@ -26,7 +26,7 @@ The new certificate is rolled out and in effect starting October, 2022 (10/2022)
 
 ## What change will be performed starting October 2022 (10/2022)?
 
-Starting October 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate( (thumbprint: df3c24f9bfd666761b268073fe06d1cc8d4f82a4)) ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity .
+Starting October 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate( (thumbprint: df3c24f9bfd666761b268073fe06d1cc8d4f82a4)) ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
@@ -122,7 +122,7 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 No. Since the change here is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
 
 ### 8. If I create a new server after October 2022 (10/2022), will I be impacted?
-For servers created after October 2022 (10/2022), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2] (https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
+For servers created after October 2022 (10/2022), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
