@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
 # Quickstart: Configure the Azure Deployment Environments Preview service
 
-This tutorial shows you how to configure Azure Deployment Environments Preview by using the Azure portal. The Enterprise Dev IT team typically sets up a Dev center, configures different entities within the Dev center, creates Projects, and provides access to development teams. Development teams create [Environments](concept-environments-key-concepts.md#environments) using the [Catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
+This quickstart shows you how to configure Azure Deployment Environments Preview by using the Azure portal. The Enterprise Dev IT team typically sets up a Dev center, configures different entities within the Dev center, creates Projects, and provides access to development teams. Development teams create [Environments](concept-environments-key-concepts.md#environments) using the [Catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
 
 In this quickstart, you'll perform the following actions:
 

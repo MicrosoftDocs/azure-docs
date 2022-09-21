@@ -84,4 +84,4 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 In this quickstart, you created a project and granted access to your development team. To learn about how your development team members can create environments, advance to the next quickstart:
 
-* Quickstart: Create & access Environments
+* [Quickstart: Create & access Environments](quickstart-create-environments.md)
