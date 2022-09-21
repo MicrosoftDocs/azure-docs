@@ -32,9 +32,9 @@ highlightedContent:
       itemType: overview
       url: /azure/cloud-adoption-framework/
     # Card
-    - title: Build your skills with Microsoft Learn
+    - title: Build your skills with Microsoft Learn training
       itemType: learn
-      url: /learn/browse/?products=azure&resource_type=learning%20path
+      url: /training/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
@@ -203,6 +203,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
+    # Card
+    - title: Microsoft Energy Data Services (Preview)
+      summary: Accelerate your journey to energy data modernization and digital transformation
+      imageSrc: energy-data-services/media/icon/energy-data-services.svg
+      azureCategories:
+        - integration
+      url: energy-data-services/index.yml
     # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
