@@ -837,7 +837,7 @@ Below is a sample attestation resource JSON object:
 |comments     |Optional description of why state is being set. |
 |evidence     |Optional link array for attestation evidence. |
 
-Because attestations are a separate resource from policy assignments, they have their own lifecycle. You can PUT, GET and DELETE attestations by using the ARM API. See the [Policy REST API Reference](../reference/REST/policy.md) for more details.
+Because attestations are a separate resource from policy assignments, they have their own lifecycle. You can PUT, GET and DELETE attestations by using the ARM API. See the [Policy REST API Reference](/rest/api/policy) for more details.
 
 ## Modify
 
