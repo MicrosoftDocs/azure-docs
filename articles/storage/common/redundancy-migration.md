@@ -67,7 +67,7 @@ The following table provides an overview of how to switch from each type of repl
 > [!NOTE]
 > Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table below to simplify it.
 >
-> Also, some changes noted in the table involve a two-step process such as switching from LRS to GRS/RA-GRS first, then converting to GZRS/RA-GZRS. The order of the steps doesn't matter. The switch is listed first because it appears to occur almost instantaneously, while the conversion typically takes much longer. Performing the faster change first allows you to initiate both required changes around the same time and not have to wait for the longer change to complete before proceeding with the other one.
+> Also, some changes noted in the table involve a two-step process such as switching from LRS to GRS/RA-GRS first, then converting to GZRS/RA-GZRS. The order of the steps doesn't matter. You could also convert from LRS to ZRS first, then switch to GZRS/RA-GZRS. The switch is listed first in the table because it appears to occur almost instantaneously, while the conversion typically takes much longer. Performing the faster change first allows you to initiate both required changes around the same time and not have to wait for the longer change to complete before proceeding with the other one.
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
@@ -141,7 +141,7 @@ There are two ways to initiate a conversion:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer-initiated conversion is currently in preview, but is not available in the following regions:
+> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
@@ -292,7 +292,7 @@ To manually migrate your ZRS Classic account data to another type of replication
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-Also, the [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS (initiated from within the Azure portal) is not currently available in the following regions:
+The [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS is available in all public ZRS regions except for the following:
 
 - (Europe) West Europe
 - (Europe) UK South
