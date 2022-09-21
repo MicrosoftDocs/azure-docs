@@ -16,7 +16,7 @@ The [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction)
 
 The compliance dashboard gives you a view of your overall compliance standing. Security for non-Azure platforms follows the same cloud-neutral security principles as Azure. Each control within the benchmark provides the same granularity and scope of technical guidance across Azure and other cloud resources. 
 
-:::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot of a sample regulatory compliance page in Defender for Cloud.":::
+:::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot of a sample regulatory compliance page in Defender for Cloud." lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
 
 From the compliance dashboard, you're able to manage all of your compliance requirements for your cloud deployments, including automatic, manual and shared responsibilities.
 
