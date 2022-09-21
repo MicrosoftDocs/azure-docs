@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ms.author: alkohli
 ---
 
@@ -22,15 +22,13 @@ The release notes are continuously updated, and as critical issues requiring a w
 This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least **Azure Stack Edge 2207** (2.2.2307.5375).
 
 > [!IMPORTANT]
-> Azure Stack Edge 2209 update contains critical security fixes. Apply this update at the earliest.
+> Azure Stack Edge 2209 update contains critical security fixes. As with any new release, we strongly encourage customers to apply this update at the earliest opportunity.
 
 ## What's new
 
 The 2209 release has the following features and enhancements:
 
-**Security fix** - Microsoft recently identified a vulnerability affecting the cluster connect feature of Azure Arc-enabled Kubernetes clusters. This release addresses this critical security vulnerability in Arc agents for your Azure Stack Edge. The Arc agent running on your Azure Stack Edge cluster is updated to the latest version to safeguard against the vulnerability.
-
-For more information about the vulnerability, see [Azure Guest Configuration and Azure Arc-enabled servers elevation of privilege vulnerability](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-38007).
+**Security update** - This release includes a security update for the cluster connect feature of Azure Arc-enabled Kubernetes clusters. The Arc agent running on your Azure Stack Edge device will be upgraded to the latest version. No further action is required of you after the update to Azure Stack Edge 2209 is complete.
 
 If you have questions or concerns, [open a support case through the Azure portal](azure-stack-edge-contact-microsoft-support.md).
 
