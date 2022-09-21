@@ -26,8 +26,10 @@ The Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtua
 
 :::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="SSIS pricing example":::
 
-> [!NOTE]
-> Without [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/), where you bring your own SQL license, the cost for use of the Azure-SSIS IR is $1.938/hour, and with AHB the cost is $1.158/hour.
+### Azure Hybrid Benefit (AHB)
+
+Azure Hybrid Benefit (AHB) can reduce the cost of your Azure-SSIS integration runtime (IR).  Using the AHB, you can provide your own SQL license, which reduces the cost of the Azure-SSIS IR from $1.938/hour to $1.158/hour.  To learn more about AHB, visit the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/) article.
+
 
 ## Cost Estimation
 
