@@ -40,3 +40,4 @@ For more information, see:
 
 - [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
 - [OT network sensor VM (VMware ESXi)](../appliance-catalog/virtual-sensor-vmware.md)
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
