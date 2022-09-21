@@ -39,7 +39,7 @@ Azure Firewall constantly monitors VM instances and recovers them automatically 
 
 ## Applications sensitive to TCP session resets
 
-Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. Secure such sensitive applications using Network Security Groups (NSGs).
+Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are few applications (like traditional SAP GUI and SAP RFC based apps) which are sensitive to sessions resets. Secure such sensitive applications with Network Security Groups (NSGs).
 
 ## Network security groups
 
