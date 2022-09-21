@@ -27,9 +27,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
-- [Windows CEF via AMA connector (Preview)](#windows-cef-via-ama-connector-preview)
+- [CEF via AMA connector (Preview)](#cef-via-ama-connecter-preview)
 
-### Windows CEF via AMA connecter (Preview)
+### CEF via AMA connecter (Preview)
 
 use the [CEF over AMA](connect-cef-ama.md) connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
 
