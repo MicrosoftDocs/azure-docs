@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 09/12/2022
+ms.date: 09/21/2022
 ---
 
 # Service limits in Azure Load Testing Preview
