@@ -17,13 +17,10 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Overview of Azure AD certificate-based authentication (Preview)
+# Overview of Azure AD certificate-based authentication
 
 Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
 This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI).
-
->[!NOTE]
->Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## What is Azure AD CBA?
 
