@@ -7,12 +7,21 @@ ms.topic: how-to
 
 # Configure traffic mirroring with a Remote SPAN (RSPAN) port
 
-A remote SPAN (RSPAN) session mirrors traffic from multiple distributed source ports into a dedicated remote VLAN. The data in the VLAN is then delivered through trunked ports across multiple switches to a specific switch that contains the physical destination port. This port connects to the Defender for IoT platform.
+Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from multiple, distributed source ports into a dedicated remote VLAN. Data in the VLAN is then delivered through trunked ports, across multiple switches to a specified switch that contains the physical destination port. The destination port connects to the Defender for IoT OT sensor.
 
-Consider the following when configuring RSPAN:
+## Prerequisites
 
-- RSPAN is an advanced feature that requires a special VLAN to carry the traffic that SPAN monitors between switches. Make sure that your switch supports RSPAN.
-- The mirroring option is disabled by default.
+- RSPAN requires a specific VLAN to carry the monitored SPAN traffic between switches. Before you start, make sure that your switch supports RSPAN.
+
+- Make sure that the mirroring option on your switch is disabled by default.
+
+- Make sure that the remote VLAN is allowed on the trunked port between the source and destination switches.
+
+- Make sure that all switches connecting to the same RSPAN session are from the same vendor.
+
+- Make sure that the trunk port sharing the same remote VLAN between switches isn't already defined as a mirror session source port.
+
+- 
 - The remote VLAN must be allowed on the trunked port between the source and destination switches.
 - All switches that connect the same RSPAN session must be from the same vendor.
 - Make sure that the trunk port that's sharing the remote VLAN between the switches isn't defined as a mirror session source port.
