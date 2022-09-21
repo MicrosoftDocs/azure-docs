@@ -9,7 +9,7 @@ ms.author: kpunjabi
 ms.custom: private_preview
 ---
 
-# Recognize Action Overview
+# Recognize action overview
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
