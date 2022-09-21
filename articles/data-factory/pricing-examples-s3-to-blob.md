@@ -24,9 +24,7 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. A copy activity with an input dataset for the data to be copied from AWS S3.
-
-2. An output dataset for the data on Azure Storage.
+1. I will copy data from AWS S3 to Azure Blob storage, and this will move 10GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
 
 3. A schedule trigger to execute the pipeline every hour for 8 hours every day.
 
@@ -36,7 +34,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity runs) |
+| Run Pipeline | 2 Activity runs per execution (1 for the trigger to run, 1 for activity to run) |
 | Copy Data Assumption: execution hours **per run** | .5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Total execution hours: 8 runs per day for 30 days | 240 runs * 2 DIU/run = 480 DIUs |
 

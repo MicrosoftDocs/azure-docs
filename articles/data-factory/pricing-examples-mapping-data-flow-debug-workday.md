@@ -20,17 +20,11 @@ The prices used in this example below are hypothetical and are not intended to i
 
 Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
-## Full-time Azure Data Factory engineer
+## Azure Data Factory engineer
 
-As a Data Engineer, Sam is responsible for designing, building, and testing mapping data flows every day. Sam logs into the ADF UI in the morning and enables the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. Sam works throughout the day for 8 hours, so the Debug session never expires. Therefore, Sam's charges for the day will be:
+A data factory engineer is responsible for designing, building, and testing mapping data flows every day. The engineer logs into the ADF UI in the morning and enables the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. The engineer works throughout the day for 8 hours, so the Debug session never expires. Therefore, Sam's charges for the day will be:
 
 **8 (hours) x 8 (compute-optimized cores) x $0.193 = $12.35**
-
-## Part-time Azure Data Factory engineer
-
-At the same time, Chris, another Data Engineer, also logs into the ADF browser UI for data profiling and ETL design work. Chris does not work in ADF all day like Sam. Chris only needs to use the data flow debugger for 1 hour during the same period and same day as Sam above. These are the charges Chris incurs for debug usage:
-
-**1 (hour) x 8 (general purpose cores) x $0.274 = $2.19**
 
 ## Next Steps
 
