@@ -29,4 +29,28 @@ The following diagram summarizes availability zone volume placement for Azure Ne
 
 [ ![Diagram that summarizes availability zone volume placement for Azure NetApp Files.](../media/azure-netapp-files/availability-zone-volume-placement.png) ](../media/azure-netapp-files/availability-zone-volume-placement.png#lightbox)
 
+## Supported regions
+
+Availability zones are available in the following regions for Azure NetApp Files:
+
+* Australia East
+* Brazil South
+* Canada Central
+* Central India
+* Central US
+* East Asia
+* East US
+* East US 2
+* Germany West Central
+* Japan East
+* Korea Central
+* North Europe
+* Norway East
+* South Central US
+* Southeast Asia
+* UK South
+* West Europe
+* West US 2
+* West US 3
+
 <!-- Geert to provide info -->
