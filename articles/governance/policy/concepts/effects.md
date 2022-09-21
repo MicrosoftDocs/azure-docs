@@ -788,46 +788,7 @@ state appears in the Azure portal:
 
 ![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
 
-### Assignments
-
-You assign manual policy definitions in the usual manner. Optionally, you can include
-fields in the assignment metadata; the list of capabilities available here will grow
-over time.
-
-Currently, you can include compliance evidence to the assignment metadata as explained
-in the following section on evidence.
-
-### Evidence
-
-You can store associated compliance evidence to support your manual policy attestations in
-Azure Storage. The storage blob container you specify is described in the [policy assignment](../concepts/assignment-structure.md).
-
-These fields are stored in the manual policy assignment's metadata, as shown in
-the following example:
-
-```json
-{
-  "properties": {
-    "displayName": "A contingency plan should be in place to ensure operational continuity
-    for each Azure subscription."
-    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
-    "metadata": {
-      "evidenceStorages": [
-        {
-          "displayName": "Default evidence storage",
-          "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/
-          providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
-          "evidenceBlobContainer": "evidence-container"
-        }
-      ]
-    }
-  }
-}
-```
-
-Note the `evidenceStorages` element is a JSON array, which means you can store your evidence in
-more than one Azure storage account. The evidence itself resides in an indicated blob container
-within each storage account, indicated by the `evidenceBlobContainer` property value.
+When a policy definition with `manual` effect is assigned, you have the option to include **evidence**, which refers to optional supplemental information which supports the custom compliance attestation. Evidence itself is stored in Azure Storage, and you can specify the storage blob container in the [policy assignment's metadata](../concepts/assignment-structure.md#metadata) under the property `evidenceStorages`. Further details of the evidence file are described in the attestation JSON resource.
 
 ### Attestations
 
