@@ -35,7 +35,7 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 - [Event hub](/azure/event-hubs/event-hubs-create) with a public IP.
     
-    The event hub shouldn't be empty. Send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+    The event hub must contain. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
