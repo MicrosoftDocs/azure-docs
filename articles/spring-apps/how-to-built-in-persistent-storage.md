@@ -20,7 +20,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 Azure Spring Apps provides two types of built-in storage for your application: persistent and temporary.
 
-By default, Azure Spring Apps provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path */tmp*.
+By default, Azure Spring Apps provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with as the default mount path.
 
 > [!WARNING]
 > If you restart an application instance, the associated temporary storage is permanently deleted.
@@ -57,9 +57,6 @@ Use the following steps to enable or disable built-in persistent storage using t
    :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" alt-text="Screenshot of the Persistent Storage tab.":::
 
 If persistent storage is enabled, the **Persistent Storage** tab displays the storage size and path.
-
-> [!NOTE]
-> Built-in persistent storage is not recommended.
 
 #### [Azure CLI](#tab/azure-cli)
 
