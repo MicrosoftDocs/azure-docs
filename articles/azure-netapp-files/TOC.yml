@@ -99,7 +99,7 @@
         href: cross-region-replication-requirements-considerations.md
     - name: Cross-zone replication 
       items: 
-      - name: Understand cross-region replication 
+      - name: Understand cross-zone replication 
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
