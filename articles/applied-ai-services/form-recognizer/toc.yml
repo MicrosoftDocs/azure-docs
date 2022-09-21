@@ -155,18 +155,18 @@ items:
     href: concept-model-overview.md
   - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
+  - name: Read OCR model | v3.0
+    displayName: text
+    href: concept-read.md  
   - name: General document model | v3.0
     displayName: key value pairs, selection marks, structured
     href: concept-general-document.md
-  - name: W-2 form model | v3.0
-    displayName: wages, taxes, salary, employees
-    href: concept-w2.md
-  - name: Read OCR model | v3.0
-    displayName: text
-    href: concept-read.md
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
-    href: concept-layout.md
+    href: concept-layout.md  
+  - name: W-2 form model | v3.0
+    displayName: wages, taxes, salary, employees
+    href: concept-w2.md 
   - name: Invoice model
     displayName: sales, vendors, VAT
     href: concept-invoice.md
