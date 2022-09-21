@@ -1,4 +1,3 @@
-
 ---
 title: Adding Pre Actions to Start/Stop V2 Schedules
 description: This article describes the process to add a pre action to your Start/Stop V2 Schedules.
