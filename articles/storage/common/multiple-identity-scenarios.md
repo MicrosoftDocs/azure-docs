@@ -86,6 +86,8 @@ You can also enable access to Azure resources for local development by assigning
 
 ### Implement the application code
 
+#### [C#](#tab/C#)
+
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
 ```dotnetcli
@@ -113,6 +115,66 @@ var serviceBusClient = new ServiceBusClient("<your-namespace>", new DefaultAzure
 var sender = serviceBusClient.CreateSender("producttracking");
 ```
 
+#### [java](#tab/java)
+
+Inside of your project, add dependency `azure-identity` to your pom.xml. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.6.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.20.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.11.0-beta.1</version>
+</dependency>
+```
+
+In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+
+```java
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+    .endpoint("https://<your-storage-account>.blob.core.windows.net")
+    .credential(credOptions)
+    .buildClient();
+
+ServiceBusClientBuilder clientBuilder = new ServiceBusClientBuilder().credential(new DefaultAzureCredential());
+ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender().queueName("producttracking").buildClient();
+```
+
+#### [spring](#tab/spring)
+
+Inside of your project, only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+
+```xml
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+  <version>4.4.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>spring-cloud-azure-starter-servicebus</artifactId>
+  <version>4.4.0-beta.1</version>
+</dependency>
+```
+
+In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+
+```java
+
+```
+
+
+---
+
 When this application code runs locally, `DefaultAzureCredential` will search down a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
 When the application is deployed to Azure, `DefaultAzureCredential` will automatically retrieve the `Managed_Identity_Client_ID` variable from the app service environment. That value becomes available when a managed identity is associated with your app.
@@ -128,6 +190,8 @@ Although the apps in the previous example all shared the same service access req
 To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
+
+### [C#](#tab/C#)
 
 ```csharp
 // Get the first user-assigned managed identity ID to connect to shared storage
@@ -170,6 +234,16 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1))
 }
 
 ```
+
+#### [java](#tab/java)
+
+
+
+#### [spring](#tab/spring)
+
+
+
+---
 
 You can also associate a user-assigned managed identity as well as a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
