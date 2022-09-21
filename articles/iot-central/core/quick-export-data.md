@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Export data from Azure IoT Central
-description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
+description: In this quickstart you learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/18/2022
@@ -9,20 +9,25 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, mode-other, devx-track-azurecli 
 ms.devlang: azurecli
+
+# Customer intent: As a new user of IoT Central, I want to learn how to use the data export feature so that I can integrate my IoT Central application with other backend services.
 ---
 
 # Quickstart: Export data from an IoT Central application
 
-This quickstart shows you how to continuously export data from your Azure IoT Central application to another cloud service. To get you set up quickly, this quickstart uses [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), a fully managed data analytics service for real-time analysis. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
+Get started with IoT Central data export to integrate your IoT Central application with another cloud service such as Azure Data Explorer. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
 
 In this quickstart, you:
 
-- Use the data export feature in IoT Central to export the telemetry sent by the smartphone app to an Azure Data Explorer database.
+- Use the data export feature in IoT Central to the telemetry from the smartphone app to an Azure Data Explorer database.
 - Use Azure Data Explorer to run queries on the telemetry.
+
+Completing this quickstart incurs a small cost in your Azure account for the Azure Data Explorer instance. The first two devices in your IoT Central application are free.
 
 ## Prerequisites
 
-- Before you begin, you should complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
 - You need the IoT Central application *URL prefix* that you chose in the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
@@ -45,7 +50,7 @@ centralurlprefix="<The URL prefix of your IoT Central application>"
 
 databasename="phonedata"
 location="eastus"
-resourcegroup="IoTCentralExportData"
+resourcegroup="IoTCentralExportData-rg"
 
 az extension add -n kusto
 
@@ -229,10 +234,10 @@ You may need to wait for several minutes to collect enough data. Try holding you
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-To remove the Azure Data Explorer instance from your subscription and avoid being billed unnecessarily, delete the **IoTCentralExportData** resource group from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) or run the following command in the Azure Cloud Shell:
+To remove the Azure Data Explorer instance from your subscription and avoid being billed unnecessarily, delete the **IoTCentralExportData-rg** resource group from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) or run the following command in the Azure Cloud Shell:
 
 ```azurecli
-az group delete --name IoTCentralExportData
+az group delete --name IoTCentralExportData-rg
 ```
 
 ## Next steps
@@ -242,4 +247,4 @@ In this quickstart, you learned how to continuously export data from IoT Central
 Now that you know now to export your data, the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Build and manage a device template](howto-set-up-template.md).
+> [Create and connect a device](tutorial-connect-device.md).
