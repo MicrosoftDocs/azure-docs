@@ -18,7 +18,7 @@ ms.author: kpunjabi
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-## Technical Specifications
+## Technical specifications
 
 The following parameters are available to customize the Recognize function:
 
@@ -55,7 +55,7 @@ Update your applications POM file to use Java 8 or higher.
 </properties>
 ```
 
-## Configure Azure SDK Dev Feed
+## Configure azure SDK dev feed
 
 Since the Call Automation SDK version used in this quickstart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of Call Automation SDK. 
 
