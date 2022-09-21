@@ -144,7 +144,7 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
 - [Defender CSPM](concept-cloud-security-posture-management.md)
     - [Security governance and regulatory compliance](concept-cloud-security-posture-management.md#security-governance-and-regulatory-compliance)
-    - [Cloud Security Graph](concept-cloud-security-posture-management.md#cloud-security-graph)
+    - [Cloud Security Explorer](concept-cloud-security-posture-management.md#cloud-security-explorer)
     - [Attack Path Analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
     - [Agentless scanning for machines](concept-cloud-security-posture-management.md#agentless-scanning-for-machines)
 - [Defender for DevOps](defender-for-devops-introduction.md)
