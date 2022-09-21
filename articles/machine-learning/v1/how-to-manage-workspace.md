@@ -43,6 +43,8 @@ As your needs change or requirements for automation increase you can also manage
 You can create a workspace [directly in Azure Machine Learning studio](../quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
+    
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -75,6 +77,8 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
     ```
 
 * **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+    
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -91,6 +95,8 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
     ```
 
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
+    
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
    ```python
    import os
@@ -174,6 +180,8 @@ from azureml.core import Workspace
 If you'll be using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
+    
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ws.write_config()
@@ -184,6 +192,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 ## Connect to a workspace
 
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
+    
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -191,7 +201,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-* <a name="connect-multi-tenant"></a>**Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+    
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -221,6 +233,8 @@ See a list of all the workspaces you can use.
 
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Workspace
 
@@ -240,6 +254,8 @@ If you accidentally deleted your workspace, you may still be able to retrieve yo
 
 
 Delete the workspace `ws`:
+    
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ws.delete(delete_dependent_resources=False, no_wait=False)
