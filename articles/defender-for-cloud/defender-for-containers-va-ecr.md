@@ -11,7 +11,7 @@ ms.topic: how-to
 
 Defender for Containers lets you scan the container images stored in your Amazon AWS Elastic Container Registry (ECR) as part of the protections provided within Microsoft Defender for Cloud.
 
-To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities. Defender for Containers creates resources in your AWS account, such as an ECS cluster in a dedicated VPC and an S3 bucket, so that images stay within your account for privacy and intellectual property protection.
+To enable scanning of vulnerabilities in containers, you have to [connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md) and [enable Defender for Containers](defender-for-containers-enable.md). The agentless scanner, powered by the open-source scanner Trivy, scans your ECR repositories and reports vulnerabilities. Defender for Containers creates resources in your AWS account, such as an ECS cluster in a dedicated VPC, internet gateway and an S3 bucket, so that images stay within your account for privacy and intellectual property protection. Resources are created in two AWS regions: us-east-1 and eu-central-1.
 
 Defender for Cloud filters and classifies findings from the scanner. Images without vulnerabilities are marked as healthy and Defender for Cloud doesn't send notifications about healthy images to keep you from getting unwanted informational alerts.
 
