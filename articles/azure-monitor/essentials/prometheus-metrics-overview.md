@@ -58,5 +58,5 @@ See [Azure Monitor service limits](../service-limits.md) for any service limits 
 ## Next steps
 
 
-- [Configure your Kubernetes cluster to scrape Prometheus metrics](../containers/container-insights-prometheus-metrics-addon.md)
+- [Configure your Kubernetes cluster to scrape Prometheus metrics](../containers/container-insights-prometheus.md)
 - [Configure alerting and recording rules groups](prometheus-metrics-rule-groups.md)
