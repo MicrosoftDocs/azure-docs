@@ -106,7 +106,7 @@ Customer-initiated conversion is only available from the Azure portal, not from 
 Customers can still request a conversion by opening a support request with Microsoft.
 
 > [!IMPORTANT]
-> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
 
 Follow these steps to request a conversion from Microsoft:
 
@@ -116,8 +116,8 @@ Follow these steps to request a conversion from Microsoft:
     - **Summary**: (some descriptive text).
     - **Issue type**: Select **Technical**.
     - **Subscription**: Select your subscription from the drop-down.
-    - **Service**: Select **My Services**, then **Storage Account Management**.
-    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Additional details** section.
+    - **Service**: Select **My Services**, then **Storage Account Management** for the **Service type**.
+    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so on the **Additional details** tab.
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
@@ -132,7 +132,7 @@ Follow these steps to request a conversion from Microsoft:
 
 1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
-1. Select **Next**. If you have more than one storage account to migrate, then on the **Additional details** tab, specify the name for each account, separated by a semicolon.
+1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
 
     :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab":::
 

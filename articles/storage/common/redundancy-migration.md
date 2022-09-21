@@ -51,7 +51,7 @@ To add or remove zone-redundancy requires using either [customer-initiated conve
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
-Performing a manual migration involves downtime, but you have more control over the timing of the process. It also involves the most manual effort.
+Performing a manual migration involves downtime and requires the most manual effort, but you have more control over the timing of the process.
 
 If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
@@ -131,7 +131,7 @@ az storage account update \
 
 Converting your storage account to add or remove zone-redundancy makes the change without incurring any down time.
 
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
 There are two ways to initiate a conversion:
 
@@ -152,7 +152,7 @@ There are two ways to initiate a conversion:
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
@@ -161,7 +161,7 @@ Customer-initiated conversion is only available from the Azure portal, not from 
 Customers can still request a conversion by opening a support request with Microsoft.
 
 > [!IMPORTANT]
-> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
 
 Follow these steps to request a conversion from Microsoft:
 
@@ -171,8 +171,8 @@ Follow these steps to request a conversion from Microsoft:
     - **Summary**: (some descriptive text).
     - **Issue type**: Select **Technical**.
     - **Subscription**: Select your subscription from the drop-down.
-    - **Service**: Select **My Services**, then **Storage Account Management**.
-    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so in the **Details** section.
+    - **Service**: Select **My Services**, then **Storage Account Management** for the **Service type**.
+    - **Resource**: Select a storage account to convert. If you need to specify multiple storage accounts, you can do so on the **Additional details** tab.
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
