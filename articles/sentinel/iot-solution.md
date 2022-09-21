@@ -30,9 +30,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 - **Contributor** or **Owner** permissions on the subscription you want to connect to Microsoft Sentinel.
 
-- A Defender for IoT plan on your Azure subscription. For more information, see [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
-
-- An OT network sensor onboarded to Defender for IoT. For more information, see [Tutorial: Get started with Microsoft Defender for IoT for OT security](../defender-for-iot/organizations/tutorial-onboarding.md).
+- A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
 
 > [!IMPORTANT]
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
@@ -140,9 +138,9 @@ For more information, see [View alerts on the Defender for IoT portal](../defend
 
 ## Next steps
 
-[Install the **IoT OT Threat Monitoring with Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
+[Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
 
-The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
+The **Microsoft Defender for IoT** solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
 For more information, see:
 
