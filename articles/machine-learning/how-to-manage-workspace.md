@@ -73,7 +73,6 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
    [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
 
-* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
     ```python
     ml_client = MLClient(
