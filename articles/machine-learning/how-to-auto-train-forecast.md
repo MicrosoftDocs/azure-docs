@@ -126,7 +126,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              cv_step_size = "auto", # Could be customized as an integer
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **forecasting_parameters)
+                             forecasting_parameters=forecasting_parameters)
 ```
 
 The amount of data required to successfully train a forecasting model with automated ML is influenced by the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified when you configure your `AutoMLConfig`. 
@@ -229,7 +229,7 @@ To enable deep learning, set the `enable_dnn=True` in the `AutoMLConfig` object.
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **forecasting_parameters)
+                             forecasting_parameters=forecasting_parameters)
 ```
 > [!Warning]
 > When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
