@@ -146,7 +146,7 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 > [!IMPORTANT]	
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
 
-#### Use your own key
+#### Use your own data encryption key
 
 You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys for Azure Machine Learning](../concept-customer-managed-keys.md).
 
