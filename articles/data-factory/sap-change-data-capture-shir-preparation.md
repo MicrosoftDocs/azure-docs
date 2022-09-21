@@ -1,5 +1,5 @@
 ---
-title: Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+title: Set up a self-hosted integration runtime for the SAP CDC connector (preview)
 titleSuffix: Azure Data Factory
 description: Learn how to create and set up a self-hosted integration runtime for your SAP change data capture (CDC) solution (preview) in Azure Data Factory.
 author: ukchrist
@@ -10,13 +10,13 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+# Set up a self-hosted integration runtime for the SAP CDC connector (preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+Learn how to create and set up a self-hosted integration runtime for the SAP CDC connector (preview) in Azure Data Factory.
 
-To prepare a self-hosted integration runtime to use with the SAP ODP (preview) linked service and the SAP data extraction template or the SAP data partition template, complete the steps that are described in the following sections.
+To prepare a self-hosted integration runtime to use with the SAP CDC connector (preview), complete the steps that are described in the following sections.
 
 ## Create and set up a self-hosted integration runtime
 
