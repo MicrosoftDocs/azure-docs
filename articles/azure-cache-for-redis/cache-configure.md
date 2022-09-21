@@ -527,21 +527,24 @@ For more information about databases, see [What are Redis databases?](cache-deve
 
 ## Redis commands not supported in Azure Cache for Redis
 
+Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which makes disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
+
+- ACL
+- BGREWRITEAOF
+- BGSAVE
+- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
+- CONFIG
+- DEBUG
+- MIGRATE
+- PSYNC
+- REPLICAOF
+- SAVE
+- SHUTDOWN
+- SLAVEOF
+- SYNC
+
 > [!IMPORTANT]
-> Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
->
->- BGREWRITEAOF
->- BGSAVE
->- CONFIG
->- DEBUG
->- MIGRATE
->- SAVE
->- SHUTDOWN
->- SLAVEOF
->- REPLICAOF
->- ACL
->- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
->
+> Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, some commands are disabled. The commands are listed above. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 

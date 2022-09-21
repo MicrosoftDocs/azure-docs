@@ -127,3 +127,15 @@ Recognized document sentiment: mixed, positive score: 0.470000, neutral score: 0
 		Target sentiment: positive, target text: concierge
 			'positive' assessment sentiment because of "nice". Is the assessment negated: false.
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Sentiment analysis and opinion mining language support](../../language-support.md)
+* [How to call the API](../../how-to/call-api.md)  
+* [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable)
+* [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)

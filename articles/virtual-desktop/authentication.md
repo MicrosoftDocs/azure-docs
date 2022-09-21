@@ -53,7 +53,7 @@ Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authenti
 
 ### Passwordless authentication
 
-You can use any authentication type supported by Azure AD, such as [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
+You can use any authentication type supported by Azure AD, such as [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
 
 ### Smart card authentication
 
@@ -79,6 +79,7 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
     - Username and password
 - The macOS client supports the following authentication method:
     - Username and password
+    - Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
@@ -106,7 +107,7 @@ Once you're connected to your remote app or desktop, you may be prompted for aut
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys. Passwordless authentication is currently only available for certain versions of Windows Insider. When deploying new session hosts, choose one of the following images:
+Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys. Passwordless authentication is currently only available for certain versions of Windows Insider. When deploying new session hosts, choose one of the following images:
 
 - Windows 11 version 22H2 Enterprise, (Preview) - X64 Gen 2.
 - Windows 11 version 22H2 Enterprise multi-session, (Preview) - X64 Gen2.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 09/08/2022
 ms.author: jeedes
 
 ---
@@ -78,28 +78,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** textbox, type the URL:
     `https://dashboard.managedoffsitebackup.net/Account/AssertionConsumerService`  
 
-    c. In the **Sign-on URL** text box, type one of the following URLs:
-    
-    | **Sign-on URL** |
-    |------------|
-    | `https://dashboard.avgonlinebackup.com/Account/SingleSignOn` |
-    | `https://dashboard.infrascale.com/Account/SingleSignOn` |
-    | `https://dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
-    | `https://dashboard.sosonlinebackup.com/Account/SingleSignOn` |
-    |`https://dashboard.trustboxbackup.com/Account/SingleSignOn` |
-    | `https://radialpoint-dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
-    | `https://dashboard-cw.infrascale.com/Account/SingleSignOn` |
-    | `https://dashboard.digicelcloudbackup.com/Account/SingleSignOn` |
-    | `https://dashboard-cw.sosonlinebackup.com/Account/SingleSignOn` |
-    |`https://dashboard.my-data.dk/Account/SingleSignOn` |
-    |`https://dashboard.beesafe.nu/Account/SingleSignOn` |
-    |`https://dashboard.bekcloud.com/Account/SingleSignOn` |
-    | `https://dashboard.alltimesecure.com/Account/SingleSignOn` |
-    | `https://dashboard-ec1.sosonlinebackup.com/Account/SingleSignOn` |
-    | `https://dashboard.glcsecurecloud.com/Account/SingleSignOninfrascalecloudbackup.com/infrascalecloudbackup.com/` |
+    c. The **Sign-on URL** text box requires a specific URL for your company. The general pattern of the URL is:
+    `https://[OptionalPrefix]dashboard[OptionalSuffix].CompanySpecificString.[com/net,etc]/Account/SingleSignOn`
 
     > [!Note]
-    > The Identifier value is not real. Update this value with the actual Identifier URL. Contact [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Do not enter this in the Sign-on URL text box. The Identifier value is not a real URL – just a general pattern. Update this value with the actual Identifier URL obtained from Infrascale. Contact [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to get the value.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

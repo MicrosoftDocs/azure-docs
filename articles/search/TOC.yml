@@ -634,6 +634,10 @@
       href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
     - name: NYC Jobs demo
       href: https://azjobsdemo.azurewebsites.net/
+    - name: Semantic search for retail
+      href: https://brave-meadow-0f59c9b1e.1.azurestaticapps.net/
+    - name: Semantic search for content
+      href: https://semantic-search-demo-web.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Learn module)

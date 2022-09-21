@@ -26,7 +26,7 @@ The following table includes links to articles that demonstrate how to configure
 
 ## About domains
 
-Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Google don't support these DNS records. If your domain registrar doesn't support the all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
+Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Google don't support these DNS records. If your domain registrar doesn't support all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
 
 The following are terms you'll encounter as your set up a custom domain.
 

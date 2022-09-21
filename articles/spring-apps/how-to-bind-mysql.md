@@ -26,7 +26,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 * An Azure Database for MySQL account
 * Azure CLI
 
-If you don't have a deployed Azure Spring Apps instance, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md) to deploy your first Spring app.
+If you don't have a deployed Azure Spring Apps instance, follow the instructions in [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md) to deploy your first Spring app.
 
 ## Prepare your Java project
 
@@ -46,6 +46,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 ## Bind your app to the Azure Database for MySQL instance
 
 #### [Service Binding](#tab/Service-Binding)
+
 1. Note the admin username and password of your Azure Database for MySQL account.
 
 1. Connect to the server, create a database named **testdb** from a MySQL client, and then create a new non-admin account.
@@ -153,8 +154,10 @@ resource "azurerm_spring_cloud_app" "example" {
 resource "azurerm_spring_cloud_java_deployment" "example" {
   name                = "default"
   spring_cloud_app_id = azurerm_spring_cloud_app.example.id
-  cpu                 = 2
-  memory_in_gb        = 4
+  quota {
+    cpu    = "2"
+    memory = "4Gi"
+  }
   instance_count      = 2
   jvm_options         = "-XX:+PrintGC"
   runtime_version     = "Java_11"

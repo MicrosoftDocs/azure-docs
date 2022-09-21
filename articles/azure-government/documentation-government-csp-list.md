@@ -197,7 +197,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[GRS Technology Solutions](https://www.grstechnologysolutions.com)|
 |[Hanu Software Solutions Inc.](https://www.hanusoftware.com/hanu/#contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
-|[Harborgrid Inc.](https://www.harborgrid.com)|
+|Harborgrid Inc.|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
 |[Heartland Business Systems LLC](https://www.hbs.net/home)|

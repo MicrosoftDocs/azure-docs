@@ -435,7 +435,7 @@ Analytical store relies on Azure Storage and offers the following protection aga
 Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
 > [!NOTE]
-> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that.
+> Currently analytical store isn't backed up, therefore it can't be restored. Your backup policy can't be planned relying on that.
 
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 

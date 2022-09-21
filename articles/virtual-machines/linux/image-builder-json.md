@@ -510,9 +510,9 @@ Customize properties:
 - **inline** – Inline commands to be run, separated by commas.
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
-- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+- **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
-    To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
+    To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
 
 ### File customizer
 
@@ -550,6 +550,10 @@ If there is an error trying to download the file, or put it in a specified direc
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+
+- **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
+
+    To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
 
 ### Windows Update Customizer
 

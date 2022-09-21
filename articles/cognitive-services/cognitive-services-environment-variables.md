@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 09/09/2022
 ms.author: pafarley
 ---
 
@@ -25,7 +25,7 @@ Use the following command to create and assign a persisted environment variable,
 
 ```CMD
 :: Assigns the env var to the value
-setx ENVIRONMENT_VARIABLE_KEY="value"
+setx ENVIRONMENT_VARIABLE_KEY "value"
 ```
 
 In a new instance of the Command Prompt, use the following command to read the environment variable.

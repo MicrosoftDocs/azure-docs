@@ -494,7 +494,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
-
+- default environment variables like `$variable and ${variable}` unlike in docker
 #### Syntax Limitations
 
 - "version x.x" always needs to be the first YAML statement in the file

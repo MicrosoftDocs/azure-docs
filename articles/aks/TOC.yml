@@ -44,7 +44,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-    - name: Subscribe to AKS events with Event Grid (Preview)
+    - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
   items:
@@ -271,6 +271,8 @@
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Remove vulnerable images with ImageCleaner (preview)
+              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -434,6 +436,8 @@
           href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
+        - name: Upgrade from Windows Server 2019 to 2022
+          href: upgrade-windows-2019-2022.md          
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers

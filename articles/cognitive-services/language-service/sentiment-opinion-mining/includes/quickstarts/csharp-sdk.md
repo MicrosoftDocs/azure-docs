@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/09/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -160,3 +160,15 @@ Document sentiment: Mixed
             Related Assessment positive score: 1.00
             Related Assessment negative score: 0.00
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Sentiment analysis and opinion mining language support](../../language-support.md)
+* [How to call the API](../../how-to/call-api.md)  
+* [Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet)
+* [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)

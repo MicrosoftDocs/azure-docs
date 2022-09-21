@@ -66,5 +66,6 @@ await client.configurationProfileAssignments.createOrUpdate("default", "resource
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 Learn how to conduct more operations with the JavaScript Automanage Client by visiting the [azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage).
 

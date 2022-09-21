@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company name>.igloocommmunities.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Igloo Software Client support team](https://www.igloosoftware.com/services/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Igloo Software Client support team](https://customercare.igloosoftware.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

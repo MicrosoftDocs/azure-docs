@@ -47,7 +47,7 @@ Learn more about [alert suppression rules](alerts-suppression-rules.md).
 Updates in August include:
 
 - [Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-containers-on-your-windows-containers)
-- [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
+- [Azure Monitor Agent integration now in preview](#azure-monitor-agent-integration-now-in-preview)
 - [Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster](#deprecated-vm-alerts-regarding-suspicious-activity-related-to-a-kubernetes-cluster)
 - [Container vulnerabilities now include detailed package information](#container-vulnerabilities-now-include-detailed-package-information)
 
@@ -59,11 +59,12 @@ When vulnerabilities are detected, Defender for Cloud generates the following se
 
 Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images).
 
-### Auto-deployment of Azure Monitor Agent (Preview)
+## Azure Monitor Agent integration now in preview
+ 
+Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
+ 
+In Defender for Cloud, when you [enable auto provisioning for AMA](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
 
-The [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud.
-
-The [Azure Monitor Agent is now integrated](enable-data-collection.md?tabs=autoprovision-ama#tabpanel_1_autoprovision-ama) into Microsoft Defender for Cloud. You can [auto-provision Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) to all of your cloud and on-premises servers with Defender for Cloud. Also, Defender for Cloud protections can use data collected by the Azure Monitor Agent.
 
 ### Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster
 

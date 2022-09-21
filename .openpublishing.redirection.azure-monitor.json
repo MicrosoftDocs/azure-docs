@@ -515,6 +515,11 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-transition-hybrid.md" ,
             "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-livedata-deployments.md" ,
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-overview",
+            "redirect_document_id": false
         }
     ]
 }

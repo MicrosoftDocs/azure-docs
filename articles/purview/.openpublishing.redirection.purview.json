@@ -179,6 +179,11 @@
         "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
         "redirect_document_id": true
-      }     
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-bicep-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-arm-create-azure-purview",
+        "redirect_document_id": true
+      }        
 ]
 }

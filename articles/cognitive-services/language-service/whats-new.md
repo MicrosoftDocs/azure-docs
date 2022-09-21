@@ -17,6 +17,9 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## September 2022
+Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
+
 ## August 2022
 
 * [Role-based access control](./concepts/role-based-access-control.md) for the Language service.
