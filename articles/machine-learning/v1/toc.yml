@@ -4,7 +4,7 @@
   href: ../index.yml
 - name: Overview (v1)
   items:
-  - name: Architecture & terms
+  - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
   - name: Migrate from ML Studio (classic)
