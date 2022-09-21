@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure service native solutions documentation
-summary: Use Azure service native solutions to manage seamlessly provision, manage and integrate preferred third party solutions on Azure
+title: Azure Native ISV Services
+summary: Use Azure Native ISV Services to manage seamlessly provision, manage and integrate preferred third party solutions on Azure.
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Azure service native solutions documentation
-  description: Use Azure service native solutions to manage seamlessly provision, manage and integrate preferred 3rd party solutions on Azure. 
+  title: Azure Native ISV Services
+  description: Use Azure Native ISV Services to manage seamlessly provision, manage and integrate preferred 3rd party solutions on Azure. 
   author: flang-msft
   ms.topic: hub-page
   ms.date: 09/24/2022
@@ -15,16 +15,16 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure service native?
+    - title: What are  Azure Native ISV Services?
       itemType: overview # controls the icon image and super-title text
       url: ./overview.md
-    - title: Find Azure service native solutions 
+    - title: Find Azure Native ISV Services 
       itemType: get-started
       url: ./partners.md
 
 productDirectory:
-  title: Azure service native features 
-  summary: Features that enable tight integration with partners services
+  title: Azure Azure Native ISV Service features
+  summary: Features that enable tight integration with Azure Native ISV Services
   items:
     # Card 1
     - title: Elastic

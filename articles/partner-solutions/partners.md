@@ -9,11 +9,11 @@ ms.author: franlanglois
 
 ---
 
-# Extend Azure with solutions from partners
+# Extend Azure with Azure Native ISV Services
 
-Partner organizations offer solutions that you can use in Azure to enhance your cloud infrastructure. These solutions are fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
+Partner organizations use Azure Native ISV Services to offer solutions that you can use in Azure to enhance your cloud infrastructure. These Azure Native ISV Services are fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
 
-Partner solutions are available through the Marketplace.
+Azure Native ISV Services are available through the Marketplace.
 
 ## Observability
 
