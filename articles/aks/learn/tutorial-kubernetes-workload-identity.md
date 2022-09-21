@@ -165,7 +165,7 @@ az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn 
 
 ### Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the default value for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
