@@ -44,4 +44,5 @@ To restore an out-of-the-box solution from the content hub, select the solution 
 
 - [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-deploy.md)
 - [About Microsoft Sentinel content and solutions](sentinel-solutions.md)
-- [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md)
+- Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security?filters=solution-templates&page=1)
+- [Microsoft Sentinel content hub catalog for domain solutions](sentinel-solutions-catalog.md)
