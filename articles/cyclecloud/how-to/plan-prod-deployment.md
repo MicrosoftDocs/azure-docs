@@ -22,6 +22,10 @@ ms.author: adjohnso
 * Will the environment be deployed in a locked down network? If so, take into account the following requirements: [Operating in a locked down network](./running-in-locked-down-network.md)
 * [Deploy the CycleCloud server](../qs-install-marketplace.md)
 
+> [!WARNING]
+> Ensure that "Enable hierarchical namespace" for Azure Data Lake Storage Gen 2 is not set during storage account creation.
+> CycleCloud is unable to use Blob storage with ADLS Gen 2 enabled as a storage Locker.
+
 ## Azure CycleCloud Configuration
 
 * Login to the CycleCloud server, create a site and a CycleCloud admin account: [CycleCloud Setup](../qs-install-marketplace.md#log-into-the-cyclecloud-application-server)

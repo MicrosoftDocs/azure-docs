@@ -43,8 +43,8 @@ landingContent:
         links:
           - text: CycleCloud 8.2.2 is now available
             url: release-notes.md
-          - text: CycleCloud 7.9.10 is now available
-            url: release-notes-previous.md
+          - text: CycleCloud 7.x will be retired on September 30 2023
+            url: how-to/cyclecloud7-retirement-guide.md
           - text: PBS is now supported by azpbs agent
             url: openpbs.md
           - text: HPCPack is now a supported scheduler
