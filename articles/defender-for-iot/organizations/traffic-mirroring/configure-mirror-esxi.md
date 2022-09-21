@@ -8,29 +8,23 @@ ms.topic: how-to
 
 # Configure traffic mirroring with a ESXi vSwitch
 
-While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
+While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port, similar to a [SPAN port](configure-mirror-span.md).
 
 *Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
-For more information, see [Purdue reference model and Defender for IoT](../best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
+## Configure a monitoring interface using Promiscuous mode
 
-**To configure a SPAN port with ESXi**:
+To configure a monitoring interface with Promiscuous mode on an ESXi v-Switch:
 
-1. Open vSwitch properties.
+1. Open the vSwitch properties and select **Add** > **Virtual Machine** > **Next**.
 
-1. Select **Add**.
+1. Enter **SPAN Network** as the network label.
 
-1. Select **Virtual Machine** > **Next**.
+1. Select **VLAN ID** > **All** > **Next** > **Finish**.
 
-1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
+1. Select **SPAN Network** > **Edit** > **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
 
-1. Select **Finish**.
-
-1. Select **SPAN Network** > **Edit*.
-
-1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
-
-1. Select **OK**, and then select **Close** to close the vSwitch properties.
+1. Select **OK** > **Close** to close the vSwitch properties.
 
 1. Open the **OT Sensor VM** properties.
 
@@ -39,3 +33,10 @@ For more information, see [Purdue reference model and Defender for IoT](../best-
 1. Select **OK**.
 
 1. Connect to the sensor, and verify that mirroring works.
+
+## Next steps
+
+For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
+- [OT network sensor VM (VMware ESXi)](../appliance-catalog/virtual-sensor-vmware.md)

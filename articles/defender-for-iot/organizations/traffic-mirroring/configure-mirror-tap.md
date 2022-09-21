@@ -43,3 +43,10 @@ The following TAP models have been tested for compatibility with Defender for Io
 - **US Robotics USR 4503**
 
     When using a US Robotics TAP, make sure **Aggregation mode** is active.
+
+## Next steps
+
+For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)

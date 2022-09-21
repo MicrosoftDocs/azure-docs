@@ -5,8 +5,6 @@ ms.date: 09/20/2022
 ms.topic: how-to
 ---
 
-
-
 # Configure traffic mirroring with a Remote SPAN (RSPAN) port
 
 A remote SPAN (RSPAN) session mirrors traffic from multiple distributed source ports into a dedicated remote VLAN. The data in the VLAN is then delivered through trunked ports across multiple switches to a specific switch that contains the physical destination port. This port connects to the Defender for IoT platform.
@@ -25,8 +23,7 @@ The following diagram shows an example of a remote VLAN architecture:
 :::image type="content" source="../media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN." border="false":::
 
 For example, use the following steps to set up an RSPAN for a Cisco 2960 switch with 24 ports running IOS.
-
-**To configure the source switch**:
+## Configure the source switch
 
 1. Enter global configuration mode.
 
@@ -44,7 +41,7 @@ For example, use the following steps to set up an RSPAN for a Cisco 2960 switch 
 
 1. Verify the port mirroring configuration.
 
-**To configure the destination switch**:
+## Configure the destination switch
 
 1. Enter global configuration mode.
 
@@ -57,3 +54,10 @@ For example, use the following steps to set up an RSPAN for a Cisco 2960 switch 
 1. Verify the port mirroring configuration.
 
 1. Save the configuration.
+
+## Next steps
+
+For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)

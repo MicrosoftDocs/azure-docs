@@ -96,6 +96,8 @@ We recommend having your certificates ready before you start your deployment. Fo
     - [ESXi vSwitch](traffic-mirroring/configure-mirror-esxi.md)
     - [Hyper-V vSwitch](traffic-mirroring/configure-mirror-hyper-v.md)
 
+    <!--when would you use each one?-->
+
     > [!NOTE]
     > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
     >

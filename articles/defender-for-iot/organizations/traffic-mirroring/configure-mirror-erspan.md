@@ -53,7 +53,7 @@ Newly installed OT network sensors have ERSPAN and GRE header stripping turned o
 
 1. Modify the `monitor_erspan_interfaces` value with the interfaces that you want to monitor using ERSPAN. You do *not* need to run the `interfaces-apply` command as the update is automatically applied.
 
-**To restart monitoring processes on your sensor**: 
+**To restart monitoring processes on your sensor**:
 
 Run:
 
@@ -63,13 +63,19 @@ sudo cyberx-xsense-components-enable -n "rcdcap"
 
 **To verify your updates**:
 
-On your sensor, go to `ifconfig` <!--how?-->. If you've configured ERSPAN correctly, you'll see a new interface with ERSPAN.
+On your sensor, run:
 
-The ERSPAN interface renames and clones the original interface. The other interface is shown as empty.
+```cli
+ifconfig
+```
+
+The system displays a list of all monitored interfaces. If you've configured ERSPAN correctly, you'll see a new interface with ERSPAN.
+
+The ERSPAN interface renames and clones the original interface. The other interface is shown as empty. <!--unclear-->
 
 ## Sample configuration on a Cisco switch
 
-The following code shows a sample ifconfig output for ERSPAN configured on a Cisco switch:
+The following code shows a sample `ifconfig` output for ERSPAN configured on a Cisco switch:
 
 ```cli
 monitor session 1 type erspan-source
@@ -85,3 +91,8 @@ monitor erspan origin ip-address 172.1.2.1 global
 ```
 
 ## Next steps
+
+For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
