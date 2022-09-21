@@ -1,73 +1,72 @@
 ---
-title: Send Auth0 events to Blob Storage via Azure Event Grid
-description: This article shows how to send Auth0 events received by Azure Event Grid to Azure Blob Storage by using Azure Functions.
+title: Send Auth0 events to Blob Storage via Application Insights
+description: This article shows how to send Auth0 events received by Azure Event Grid to Azure Monitor's Application Insights.
 ms.topic: how-to
 ms.date: 09/16/2022
 ---
 
-# Send Auth0 events to Azure Blob Storage
-This article shows you how to send Auth0 events to Azure Blob Storage via Azure Event Grid by using Azure Functions. 
+# Use Auth0's Log Streaming to Event Grid feature to save logs to Azure Blob Storage
+This article shows how to send Auth0 events received by Azure Event Grid to Azure Monitor's Application Insights.
 
 ## Prerequisites
+
 - [Create an Azure Event Grid stream on Auth0](https://marketplace.auth0.com/integrations/azure-log-streaming).
 - [Create a Azure Blob Storage resource](../storage/common/storage-account-create.md?tabs=azure-portal)
 - [Get connection string to Azure Storage account](../storage/common/storage-account-keys-manage.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal#view-account-access-keys). Make sure you select the **Copy** button to copy connection string to the clipboard.
 
 ## Create an Azure function
+
 1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md).
     1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart. 
-    1. Continue to follow the steps, but use the following **index.js** and **function.json** files. 
+    1. Continue to follow the steps, but use the following **index.js**. 
 
         > [!IMPORTANT]
-        > Update the **package.json** to include `@azure/storage-blob` as a dependency.
-    
-        **function.json**
-        ```json
-        {
-        	"bindings": [{
-        			"type": "eventGridTrigger",
-        			"name": "eventGridEvent",
-        			"direction": "in"
-        
-        		},
-        		{
-        			"type": "blob",
-        			"name": "outputBlob",
-        			"path": "events/{rand-guid}.json",
-        			"connection": "OUTPUT_STORAGE_ACCOUNT",
-        			"direction": "out"
-        
-        		}
-        	]
-        }
-        ```
+        > Update the **package.json** to include `applicationinsights` as a dependency.
     
         **index.js**
     
         ```javascript
+        const appInsights = require("applicationinsights");
+        appInsights.setup();
+        const appInsightsClient = appInsights.defaultClient;
+
         // Event Grid always sends an array of data and may send more
         // than one event in the array. The runtime invokes this function
         // once for each array element, so we are always dealing with one.
         // See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
         module.exports = async function (context, eventGridEvent) {
-            context.log(JSON.stringify(context.bindings));
-            context.log(JSON.stringify(context.bindingData));
-        
-            context.bindings.outputBlob = JSON.stringify(eventGridEvent);
+            context.log(typeof eventGridEvent);
+            context.log(eventGridEvent);
+
+            // As written, the Application Insights custom event will not be
+            // correlated to any other context or span. If the custom event
+            // should be correlated to the parent function invocation, use
+            // the tagOverrides property. For example:
+            // var operationIdOverride = {
+                // "ai.operation.id": context.traceContext.traceparent
+            // };
+            // client.trackEvent({
+                // name: "correlated to function invocation",
+                // tagOverrides: operationIdOverride,
+                // properties: {}
+            // });
+
+            context.log(`Sending to App Insights...`);
+
+            appInsightsClient.trackEvent({
+                name: "Event Grid Event",
+                properties: {
+                    eventGridEvent: eventGridEvent
+                }
+            });
+
+            context.log(`Sent to App Insights successfully`);
         };
         ```    
 1. Create a Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
      
-## Configure Azure function to use your blob storage
-1. Configure your Azure function to use your storage account.
-    1. Select **Configuration** under **Settings** on the left menu.
-    1. On the **Application settings** page, select **+ New connection string** on the command bar. 
-    1. Set **Name** to **AzureWebJobsOUTPUT_STORAGE_ACCOUNT**.
-    1. Set **Value** to the connection string to the storage account that you copied to the clipboard in the previous step. 
-    1. Select **OK**.
-
 ## Create event subscription for partner topic using function
 
 1. In the Azure portal, navigate to the Event Grid **partner topic** created by your **Auth0 log stream**.
@@ -88,14 +87,9 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 1. Now, back on the **Create Event Subscription** page, select **Create** to create the event subscription. 
 1. After the event subscription is created successfully, you see the event subscription in the bottom pane of the **Event Grid Partner Topic - Overview** page.
 1. Select the link to your Azure function at the bottom of the page. 
-1. On the **Azure Function** page, select **Monitor** and confirm data is successfully being sent. You may need to trigger logs from Auth0.
-
-## Verify that logs are stored in the storage account
-
-1. Locate your storage account in the Azure portal.
-1. Select **Containers** under **Data Storage** on the left menu.
-1. Confirm that you see a container named **events**. 
-1. Select the container and verify that your Auth0 logs are being stored. 
+1. On the **Azure Function** page, select **Application Insights** under **Settings** on the left menu. 
+1. Select **Application Insights** link and then select **View Application Insights data**. 
+1. Once your Auth0 logs are generated, your data should now be visible in Application Insights
 
 ## Next steps
 
