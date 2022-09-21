@@ -415,7 +415,8 @@ ls -l ./artifacts/model/
 ```
 > [!TIP]
 > If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
-
+> [!WARNING]
+> The output of `az ml job list` is passed to `sed`. This works only on Linux shells. If you are on Windows, run `az ml job list --parent-job-name <job-name> --query [0].name ` and strip any quotes you see in the train job name.
 If you're unable to download the model, you can find sample MLflow model trained by the training job in the previous section in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/artifacts/model/` folder.
 
 Create the model in the registry
