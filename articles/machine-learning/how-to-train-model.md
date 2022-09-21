@@ -144,7 +144,7 @@ AZURE_STORAGE_ACCOUNT=$(echo $response | jq -r '.value[0].properties.accountName
 
 ---
 
-### 2. Create a training environment
+### 2. Create a compute resource for training
 
 To train in the cloud, an AzureML compute cluster is used to run the training job. On the cluster, a Docker image is used to provide the training environment. In the following examples, a compute cluster named `cpu-compute` is created.
 
