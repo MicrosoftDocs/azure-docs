@@ -106,7 +106,27 @@ Once you've configured the scanner, you'll be able to view all issues that were 
 
 ## Enable pull request annotations in Azure DevOps
 
-By enabling pull request annotations in Azure DevOps, your developers gain the ability to see their security issues when they submit their pull requests directly to the main branch
+By enabling pull request annotations in Azure DevOps, your developers gain the ability to see their security issues when they submit their pull requests directly to the main branch.
+
+### Enable Build Validation policy for the CI Build
+
+Before you can enable pull request annotations, your main branch must have enabled Build Validation policy for the CI Build.
+
+**To enable Build Validation policy for the CI Build**:
+
+1. Sign in to your Azure DevOps project.
+
+1. Navigate to **Project settings** > **Repositories**.
+
+1. Select the repository to enable pull requests on.
+
+1. Select **Policies**.
+
+1. Navigate to **Branch Policies** > **Build Validation**. 
+
+1. Toggle the CI Build to **On**.
+
+### Enable pull request annotations
 
 **To enable pull request annotations in Azure DevOps**:
 
