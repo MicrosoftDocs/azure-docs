@@ -6,32 +6,38 @@ ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
 ---
-# Azure Policy applicability logic
+# What is applicability in Azure Policy?
 
-Azure Policy effects are applied based on the evaluation result of the
-**If** condition(s) defined in the definition JavaScript Object Notation (JSON)
-file.
+When a policy definition is assigned to a scope, Azure Policy scans every resource in that scope to determine what should be considered for compliance evaluation. A resource will only be assessed for compliance if it is considered **applicable** to the given policy assignment. 
+
+Applicability is determined by several factors:
+- **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).
+- **Mode** of the policy definition.
+- **Excluded scopes** secified in the assignment. 
+- **Exemptions** of resources or resource hierarchies.
+
+Condition(s) in the `if` block of the policy rule are evaluated for applicability in slightly different ways based on the effect.
+
+> [!NOTE]
+> Applicability is different from compliance, and the logic used to determine each is different. If a resource is **applicable** that means it is relevant to the policy. If a resource is **compliant** that means it adheres to the policy. Sometimes only certain conditions from the policy rule impact applicability, while all conditions of the policy rule impact compliance state.
 
 ## Applicability logic for Append/Modify/Audit/Deny/DataPlane effects
 
-Azure Policy evaluates only type, name, and kind conditions in the **If** expression and treats other conditions as true (false when negated). **If** the final evaluation result is true, the policy is applicable. Otherwise, it's not applicable.
+Azure Policy evaluates only `type`, `name`, and `kind` conditions in the policy rule `if` expression and treats other conditions as true (or false when negated). If the final evaluation result is true, the policy is applicable. Otherwise, it's not applicable.
 
 Following are special cases to the previously described applicability logic:
 
-- Any invalid aliases in the **If** conditions
-    - The policy is not applicable
-- When the **If** conditions consist of only kind conditions
-    - The policy is applicable to all resources.
-- When the **If** conditions consist of only name conditions
-    - The policy is applicable to all resources.
-- When the **If** conditions consist of only type and kind conditions
-	- It depends on which field the first condition in the **If** refers to. It applies the applicability logic with conditions with that field only. For example, when a **type** field appears in the first condition of the **If**, only type conditions are considered when deciding applicability. When a **name** field appears in the first condition of the **If**, only type conditions are considered when deciding applicability.
-- When any conditions (including deployment parameters) include a **location** condition
-    - Will not be applicable to subscriptions
+|Scenario  |Result  |
+|---------|---------|
+|Any invalid aliases in the `if` conditions     |The policy is not applicable |
+|When the `if` conditions consist of only `kind` conditions     |The policy is applicable to all resources |
+|When the `if` conditions consist of only `name` conditions     |The policy is applicable to all resources |
+|When the `if` conditions consist of only `type` and `kind` or `type` and `name` conditions     |Only type conditions are considered when deciding applicability |
+|When any conditions (including deployment parameters) include a `location` condition     |Will not be applicable to subscriptions |
 
 ## Applicability logic for AuditIfNotExists and DeployIfNotExists policy effects
 
-The applicability is based on the **If** conditions. When the **If** evaluates to false, the policy is not applicable.
+The applicability of AuditIfNotExists and DeployIfNotExists policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
 
 ## Next steps
 
