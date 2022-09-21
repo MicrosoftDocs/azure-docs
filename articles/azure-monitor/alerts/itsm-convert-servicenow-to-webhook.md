@@ -1,6 +1,6 @@
 ---
 title: Convert ITSM actions that send events to ServiceNow to secure webhook actions
-description: Learn how to ccnvert ITSM actions that send events to ServiceNow to secure webhook actions.
+description: Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions.
 ms.topic: conceptual
 ms.date: 09/20/2022
 ms.reviewer: nolavime
@@ -16,7 +16,7 @@ author: AbbyMSFT
 
 To migrate your ITSM connector to the new secure webhook integration, follow the [secure webhook configuration instructions](itsmc-secure-webhook-connections-servicenow.md).
 
-If you are syncing work items between ServiceNow and an Azure Log Analytics workspace (bi-directional), follow the steps below to pull data from ServiceNow into your Log Analytics workspace.
+If you're syncing work items between ServiceNow and an Azure Log Analytics workspace (bi-directional), follow the steps below to pull data from ServiceNow into your Log Analytics workspace.
 
 ## Pull data from your ServiceNow instance into a Log Analytics workspace
 
@@ -36,7 +36,7 @@ If you are syncing work items between ServiceNow and an Azure Log Analytics work
  -	In the **Select an output from previous steps** section, enter the data set returned by the JSON parse action you created in step 4.
  -	Construct each row from the set that enters the loop.
  -	In the last step of the loop, use `Send data` to send the data to the Log Analytics workspace with these values.
-     - **Custom log name**: the name of the custom log you are using to save the data to the Log Analytics workspace. 
+     - **Custom log name**: the name of the custom log you're using to save the data to the Log Analytics workspace. 
      - A connection to the LA workspace that you created in step 6.
 
     :::image type="content" source="media/itsmc-convert-servicenow-to-webhook/alerts-itsmc-service-now-for-loop.png" alt-text="Screenshot showing loop that imports data into a Log Analytics workspace.":::
