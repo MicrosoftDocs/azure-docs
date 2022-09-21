@@ -213,9 +213,6 @@ With a manual migration, you copy the data from your existing storage account to
 
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](storage-account-move.md).
 
-<sup>1</sup> See the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/)<br />
-<sup>2</sup> You cannot use manual migration to migrate a premium page blob account for the purpose of changing the replication setting, although you can use it to [move an account to a different region](storage-account-move.md).
-
 ## Limitations for changing replication types
 
 Limitations apply to some replication change scenarios depending on:
@@ -232,7 +229,7 @@ When planning to change your replication settings, consider the following limita
 
 Some storage account types only support certain redundancy configurations, which affects whether they can be converted or migrated and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
 
-The following table provides an overview of redundancy options available for storage account types and whether conversion or manual migration are supported:
+The following table provides an overview of redundancy options available for storage account types and whether conversion and manual migration are supported:
 
 | Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
