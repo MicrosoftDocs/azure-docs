@@ -90,7 +90,7 @@ Once you send the request, you will get the following response for the predictio
                 "answer": "The compute resources you use are determined by the *App Service plan* that you run your apps on.",
                 "confidenceScore": 0.7384000000000001,
                 "id": 1,
-                "source": "https://docs.microsoft.com/en-us/azure/app-service/overview",
+                "source": "https://learn.microsoft.com/azure/app-service/overview",
                 "metadata": {},
                 "dialog": {
                   "isContextOnly": false,

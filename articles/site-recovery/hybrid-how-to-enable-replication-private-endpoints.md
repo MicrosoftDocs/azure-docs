@@ -5,7 +5,7 @@ author: v-pgaddala
 ms.author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/06/2022
+ms.date: 09/16/2022
 ms.custom: subject-rbac-steps
 ---
 # Replicate on-premises machines by using private endpoints

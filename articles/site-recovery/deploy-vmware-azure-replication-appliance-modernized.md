@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/18/2022
+ms.date: 09/16/2022
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -277,7 +277,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 11. Select **Add server** to add physical server details. Provide the machine’s **IP address/FQDN of  physical server**, **Select credential account** and select **Add**.
 
-    ![Screenshot of Add Physical server details.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
+    :::image type="Add Physical server details." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png" alt-text="Screenshot of Add Physical server details.":::    
 
 12. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
