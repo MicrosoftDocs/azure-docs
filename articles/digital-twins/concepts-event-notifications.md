@@ -108,6 +108,9 @@ The data in the corresponding notification (if synchronously executed by the ser
 
 This data is the information that will go in the `data` field of the lifecycle notification message.
 
+>[!NOTE]
+> Azure Digital Twins currently doesn't support [filtering events](how-to-manage-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
+
 ## Digital twin lifecycle notifications
 
 Whether [digital twins](concepts-twins-graph.md) represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not, they will all emit notifications. They do so because of *lifecycle notifications*, which are about the digital twin itself.
@@ -286,7 +289,7 @@ Here are the fields in the body of a telemetry message.
 | `source` | Fully qualified name of the twin that the telemetry event was sent from. Uses the following format: `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
-| `data` | The telemetry message being sent from the twin. |
+| `data` | The telemetry message being sent from the twin. The payload does not need to align with any schema defined in your Azure Digital Twins instance. |
 | `dataschema` | The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2`. |
 | `datacontenttype` | `application/json` |
 | `traceparent` | A W3C trace context for the event. |
