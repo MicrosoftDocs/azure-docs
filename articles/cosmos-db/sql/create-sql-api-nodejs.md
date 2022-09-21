@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/15/2022
+ms.date: 09/21/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-js, mode-api
@@ -186,11 +186,9 @@ The partition key is specific to a container. In this Contoso Products container
 
 Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual data objects.
 
-```sql
-SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'
-```
+The query is programmatically composed to `SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'`.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-127":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-114":::
 
 If you want to use this data returned from the FeedResponse as an _item_, you need to create an [``Item``](/javascript/api/@azure/cosmos/item), using the [``Container.Items.read``](#get-an-item) method.
 
@@ -198,7 +196,7 @@ If you want to use this data returned from the FeedResponse as an _item_, you ne
 
 Add the following code to delete an item you need to use the ID and partition key to get the item, then delete it. This example uses the [``Container.Item.delete``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-delete) method to delete the item.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="129-131":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="116-118":::
 
 ## Run the code
 
