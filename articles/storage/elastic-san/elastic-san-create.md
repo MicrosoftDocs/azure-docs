@@ -191,7 +191,7 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 You'll need to construct a command to connect to your volume from a client.
 
 ```powershell
-# Get the target name and iSCSI portal name to connect a volume to a virtual network 
+# Get the target name and iSCSI portal name to connect a volume to a client 
 $connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $searchedVolumeGroup -Name $searchedVolume
 $storageTargetIQN = $connectVolume.storagetargetiqn
 $portalName = $connectVolume.storagetargetportalhostname
