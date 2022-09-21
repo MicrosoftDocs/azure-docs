@@ -27,15 +27,6 @@ For an overview of all of the redundancy options, see [Azure Storage redundancy]
 
 In this article, you will learn how to change the replication setting(s) for an existing storage account.
 
-## Before you make any changes
-
-Before you change any of your replication settings, be sure to review all of these topics to ensure you understand your options and the implications of making a change:
-
-- [Options for changing the replication type](#options-for-changing-the-replication-type)
-- [Limitations](#limitations-for-changing-replication-types)
-- [Downtime requirements](#downtime-requirements)
-- [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated)
-
 ## Options for changing the replication type
 
 You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
