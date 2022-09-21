@@ -10,7 +10,7 @@ ms.date: 09/21/2022
 
 Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, and identifies the biggest security risks and distinguishes them from less risky issues.
 
-The Cloud Security Explorer allows you to proactively identify security risks in your cloud environment by running graph-based queries on the Cloud Security Graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
+By using the Cloud Security Explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the Cloud Security Graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
 With the Cloud Security Explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more. 
 

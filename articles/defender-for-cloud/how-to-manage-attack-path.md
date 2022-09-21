@@ -3,7 +3,7 @@ title: Identify and remediate attack paths
 titleSuffix: Defender for Cloud
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ---
 
 # Identify and remediate attack paths 
@@ -24,7 +24,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 ## Features of the attack path overview page
 
-The attack path homepage offers you an overview of your total attack paths. From here, you can see all of your affected resources and a list of all active attack paths.
+The attack path page shows you an overview of all of your attack paths. You can also see your affected resources and a list of active attack paths.
 
 :::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage." lightbox="media/concept-cloud-map/attack-path-homepage.png":::
 
@@ -36,7 +36,7 @@ The potential risk categories include Credentials exposure, Compute abuse, Data 
 
 ## Investigate and remediate attack paths
 
-Attack path analysis allows you to locate the biggest risks to your environment and to remediate them.
+You can use Attack path analysis  to locate the biggest risks to your environment and to remediate them.
 
 **To investigate and remediate an attack path**:
 
@@ -75,7 +75,7 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 
 ## View all recommendations with attack path
 
-Attack path analysis also gives you the ability to see all recommendations by attack path without having to check each node individually. You can resolve all recommendation without having to view each node individually.
+Attack path analysis also gives you the ability to see all recommendations by attack path without having to check each node individually. You can resolve all recommendations without having to view each node individually.
 
 **To resolve all recommendations**:
 

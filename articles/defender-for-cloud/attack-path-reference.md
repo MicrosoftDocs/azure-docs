@@ -9,7 +9,7 @@ ms.date: 09/21/2022
 
 # Reference list of attack paths
 
-This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud. What you are shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud. What you are shown in your environment depends on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these attack paths, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
 

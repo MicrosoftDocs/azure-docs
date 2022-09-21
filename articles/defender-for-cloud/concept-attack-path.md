@@ -1,6 +1,5 @@
 ---
 title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
-titleSuffix: Defender for Cloud
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
@@ -13,7 +12,7 @@ One of the biggest challenges that security teams face today is the number of se
 
 Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way. 
 
-## What is Cloud Security Graph
+## What is Cloud Security Graph?
 
 The Cloud Security Graph is a graph-based context engine that exists within Defender for Cloud. The Cloud Security Graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment. 
 
@@ -21,7 +20,7 @@ Defender for Cloud then uses the generated graph to perform an Attack Path Analy
 
 :::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Screenshot of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
 
-## What is Attack Path Analysis
+## What is Attack Path Analysis?
 
 Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach. 
 
@@ -31,9 +30,9 @@ By taking your environment's contextual information into account such as, intern
 
 Learn how to use [Attack Path Analysis](how-to-manage-attack-path.md).
 
-## What is Cloud Security Explorer
+## What is Cloud Security Explorer?
 
-The Cloud Security Explorer allows you to proactively identify security risks in your multicloud environment by running graph-based queries on the Cloud Security Graph. Your security team can use the query builder to search for and locate risks, while taking your organization's specific contextual and conventional information into account. 
+Using the Cloud Security Explorer, you can proactively identify security risks in your multicloud environment by running graph-based queries on the Cloud Security Graph. Your security team can use the query builder to search for and locate risks, while taking your organization's specific contextual and conventional information into account. 
 
 Cloud Security Explorer provides you with the ability to perform proactive exploration features. You can search for security risks within your organization by running graph-based path-finding queries on top the contextual security data that is already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
 

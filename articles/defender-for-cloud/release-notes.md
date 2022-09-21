@@ -31,7 +31,7 @@ The new Cloud Security Graph, Attack Path Analysis and contextual cloud security
 
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
 
-Defender for Cloud's new cloud security graph and attack path analysis capabilities allow security teams to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
+Defender for Cloud's new cloud security graph and attack path analysis capabilities give security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
 
 Learn more about the new [Cloud Security Graph, Attack Path Analysis and the Cloud Security Explorer](concept-attack-path.md).
 
