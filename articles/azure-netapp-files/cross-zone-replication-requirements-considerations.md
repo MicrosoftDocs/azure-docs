@@ -18,7 +18,7 @@ ms.author: anfdocs
 # Requirements and considerations for using cross-zone replication 
 
 
-This article describes requirements and considerations about [using the volume cross-zone replication](create-cross-zone-replicatoin.md) functionality of Azure NetApp Files.
+This article describes requirements and considerations about [using the volume cross-zone replication](create-cross-zone-replication.md) functionality of Azure NetApp Files.
 
 ## Requirements and considerations 
 
