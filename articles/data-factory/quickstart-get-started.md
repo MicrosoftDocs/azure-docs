@@ -57,6 +57,7 @@ All of the resources referenced above will be created in the new resource group,
    :::image type="content" source="media/quickstart-get-started/open-data-factory-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
 
 1. Select on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and then the **Pipeline** created by the template.  Then check the source data by selecting **Open**.
+
    :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
 
    In the source dataset that you will see, select **Browse**, and note the moviesDB2.csv file, which has been uploaded into the input folder already.
