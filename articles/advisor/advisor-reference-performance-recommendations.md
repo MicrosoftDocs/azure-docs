@@ -968,7 +968,7 @@ Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for
 
 ### Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads
 
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends to use stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends using stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB
 
 Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
@@ -1016,7 +1016,7 @@ Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS 
 
 ### All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB
 
-If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data voue disks are of the same type and are configured as per recommendation for SAP on Azure
+If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
 
 Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
 
