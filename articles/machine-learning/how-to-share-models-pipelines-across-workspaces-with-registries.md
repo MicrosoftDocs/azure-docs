@@ -244,7 +244,7 @@ command: >-
 If you used different name or version, the more generic representation looks like this: `environment: azureml://registries/<registry-name>/environments/<sklearn-environment-name>/versions/<sklearn-environment-version>`, so make sure you replace the `<registry-name>`,  `<sklearn-environment-name>` and `<sklearn-environment-version>` accordingly. You then run the `az ml component create` command to create the component as follows.
 
 ```azurecli
-az ml component create --file train.yml --registry-name <registry-name>` 
+az ml component create --file train.yml --registry-name <registry-name>
 ```
 > [!TIP]
 > The same the CLI command `az ml component create` can be used to create components in a workspace or registry. Running the command with `--workspace-name` command creates the component in a workspace whereas running the command with `--registry-name` creates the component in the registry.
