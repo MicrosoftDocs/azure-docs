@@ -65,7 +65,7 @@ Unless specified otherwise, a model is generally available.
 * **Matched person** (preview): Matches people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 * **Slate detection** (preview): identifies the following movie post-production insights when indexing a video using the advanced indexing option:
     
-    * Clapper board detection with metadata extraction.
+    * Clapperboard detection with metadata extraction.
     * Digital patterns detection, including color bars.
     * Textless slate detection, including scene matching.
 

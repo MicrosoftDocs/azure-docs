@@ -8,9 +8,11 @@ ms.date: 09/20/2022
 ms.author: juliako
 ---
 
-# Enable and view a clapper board with extracted metadata (preview)
+# Enable and view a clapperboard with extracted metadata (preview)
 
-This article shows how to enable and view a clapper board with extracted metadata (preview). In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+This article shows how to enable and view a clapperboard with extracted metadata insight(preview). This insight is used to detect: *production*, *roll*, *scene*, *take*, and other data written on the board.
+
+In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::

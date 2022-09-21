@@ -10,9 +10,9 @@ ms.author: juliako
 
 # The slate detection insights (preview)
 
-The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
+The following slate detection insights (listed below) are automatically identified when indexing a video using the advanced indexing option. These insights are most useful to customers involved in the movie post-production process.
 
-* Clapper board detection with metadata extraction. For more information, see [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
+* [Clapperboard](https://en.wikipedia.org/wiki/Clapperboard) detection with metadata extraction. This insight is used to detect clapperboard instances and information written on each (for example, *production*, *roll*, *scene*, *take*, etc. For more information, see [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
 * Digital patterns detection, including color bars. For more information, see [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md).
 * Textless slate detection, including scene matching. For more information, see [How to enable and view textless slate with scene matching](textless-slate-scene-matching.md).
 

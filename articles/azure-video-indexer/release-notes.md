@@ -47,7 +47,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
 
-* Clapper board detection with metadata extraction.
+* Clapperboard detection with metadata extraction.
 * Digital patterns detection, including color bars.
 * Textless slate detection, including scene matching.
 

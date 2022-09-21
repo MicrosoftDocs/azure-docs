@@ -161,7 +161,7 @@
     - name: Slate detection
       items:
       - name: Clapper board with metadata extraction
-        href: clapper-board-metadata.md
+        href: clapperboard-metadata.md
       - name: Digital patterns with color bars
         href: digital-patterns-color-bars.md
       - name: Textless slate with scene matching
