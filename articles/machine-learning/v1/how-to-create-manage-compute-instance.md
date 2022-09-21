@@ -199,7 +199,7 @@ In the examples below, the name of the compute instance is **instance**
 
     For more information, see [Az PowerShell module `az ml computetarget delete computeinstance`](/cli/azure/ml(v1)/computetarget#az-ml-computetarget-delete).
 
---
+---
 
 [Azure RBAC](../../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
