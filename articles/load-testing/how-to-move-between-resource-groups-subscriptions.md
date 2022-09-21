@@ -25,7 +25,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - After the resource move finishes, it may take up to five minutes for the test and test runs data to reflect again in the resource.
 
-- A resource can be moved only when there are no active test runs.
+- A resource can only be moved when there are no active test runs.
 
 - If a resource has a test which is configured for private endpoint testing, moving the resource across subscription will result in error while running the test. Update the test with a VNet and subnet from the new subscription to avoid errors while test execution.
 
