@@ -52,27 +52,17 @@ By default, each automated ML trained model generates its training code after tr
 
 * **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureML compute through Azure ML SDKv2.
 
-After the automated ML training run completes, there are multiple ways you can access the `script.py` and the `script_run_notebook.ipynb` files. 
-The following code gets the best child run and downloads both files using the Python SDKv2. 
-
-```python
-# need to change to V2
-best_run = remote_run.get_best_child() 
-
-best_run.download_file("outputs/generated_code/script.py", "script.py")
-best_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "script_run_notebook.ipynb")
-```
-
-You also can view the generated code and prepare it for code customization via the Azure Machine Learning studio UI. 
+After the automated ML training run completes, there are you can access the `script.py` and the `script_run_notebook.ipynb` files via the Azure Machine Learning studio UI. 
 
 To do so, navigate to the **Models** tab of the automated ML experiment parent run page. After you select one of the trained models, you can select the **View generated code** button. This button redirects you to the **Notebooks** portal extension, where you can view, edit and run the generated code for that particular selected model.
 
 ![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
-Alternatively, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
+You can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
 
 ![child run page view generated code button](./media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
 
+If you're using the Python SDKv2, you can also download the "script.py" and the "script_run_notebook.ipynb" by retrieving the best run via MLFlow & downloading the resulting artifacts. 
 
 ## script.py
 
