@@ -17,7 +17,7 @@ ms.reviewer: akkumari
 
 Scaling your resources for a particular day of the week, or a specific date and time can reduce costs while still providing the capacity you need when you need it.
 
-Use multiple profiles in autoscale to scale in different ways at different times. If for example, your business isn't active on the weekend, create a recurring profile to scale back your resources on Saturdays and Sundays.
+Use multiple profiles in autoscale to scale in different ways at different times. If for example, your business isn't active on the weekend, create a recurring profile to scale in your resources on Saturdays and Sundays. If black Friday is a busy day, create a profile to automatically scale out your resources on black Friday.
 
 This article explains the different profiles in autoscale and how to use them.
 
@@ -323,7 +323,7 @@ where `VMSS1-autoscale.json` is the the file containing the JSON object below.
 
 ## [CLI](#tab/cli)
 
-The CLI can be used to create addition profiles in your autoscale settings.
+The CLI can be used to create multiple profiles in your autoscale settings.
 
 The following steps show how to create an autoscale profile using the CLI.
 1. Create the profile using `az monitor autoscale profile create`. Specify the `--start` and `--end` time and the `--recurrence` 
@@ -359,6 +359,63 @@ For example, if you have two recurring profiles called *Wednesdays* and *Thursda
 az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607 --scale out 8 --condition "Percentage CPU > 52 avg 5m"  --profile-name "{\"name\": \"Auto created default scale condition\", \"for\": \"Wednesdays\"}" 
  
 az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607 --scale out 8 --condition "Percentage CPU > 52 avg 5m"  --profile-name "{\"name\": \"Auto created default scale condition\", \"for\": \"Thursdays\"}"  
+```
+
+## [Powershell](#tab/powershell)
+
+Powershell can be used to create multiple profiles in your autoscale settings.
+
+The following steps show how to create an autoscale profile using Powershell.
+
+1. Create rules using `New-AzAutoscaleRule`
+1. Create profiles using `New-AzAutoscaleProfile` using the rules from the previous step
+1. Use `Add-AzureRmAutoscaleSetting` to apply the profiles to your autoscale setting.
+
+## Add a recurring profile using Powershell
+
+The example below shows how to create default profile and a recurring autoscale profile, recurring on Wednesdays and Fridays between 07:00 and 19:00.
+The default profile uses the  CpuIn and CpuOut Rules. The recurring profile uses the HTTPRuleIn and HTTPRuleOut rules
+
+```azurepowershell
+$ResourceGroup="ed-rg-001"
+$TargetResourceId="/subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
+
+$ScaleSettingName="MultipleProfiles-001"
+
+$CpuOut = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 50 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
+
+$CpuIn = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
+
+$DefaultProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"WednesdaysFridays"}' -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+
+$HTTPRuleIn = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 3 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
+
+$HTTPRuleOut = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"   
+
+$RecurringProfile=New-AzAutoscaleProfile -Name WednesdaysFridays  -DefaultCapacity 2  -MaximumCapacity 12   -MinimumCapacity 2   -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday"   -ScheduleHour 7   -ScheduleMinute 00   -ScheduleTimeZone  "Pacific Standard Time"   -Rule $HTTPRuleOut, $HTTPRuleIn
+
+Add-AzureRmAutoscaleSetting  -Location "West Central US" -name $ScaleSettingName -ResourceGroup $ResourceGroup -TargetResourceId $TargetResourceId -AutoscaleProfile $DefaultProfile, $RecurringProfile
+```
+
+> [!NOTE]  
+> Each recurring profile must have a corresponding default profile. 
+> The `-Name` parameter of the default profile is is an object in the format: `'{"name":"Default scale condition","for":"recurring profile"}'` where *recurring profile* is the profile name from the `New-AzAutoscaleProfile` command for the recurring profile.  
+> The default profile also has a recurrence parameters as the recurring profile but it starts at the time you want the recurring profile to end.
+> A distinct default profile is created for each recurring profile.  
+
+## Updating the default profile when you have recurring profiles
+
+If you have multiple recurring profiles and want to change your default profile, the change must be made to each default profile corresponding to a recurring profile.
+
+For example, if you have two recurring profiles called *SundayProfile* and *ThursdayProfile*, you need two `New-AzAutoscaleProfile` commands to change to the default profile.
+
+```azurepowershell
+
+
+$DefaultProfileSundayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"SundayProfile"}' -RecurrenceFrequency week  -ScheduleDay "Sunday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+
+
+$DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"ThursdayProfile"}' -RecurrenceFrequency week  -ScheduleDay "Thursday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
 ```
 
 ---
