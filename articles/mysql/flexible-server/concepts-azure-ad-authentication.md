@@ -118,9 +118,3 @@ Please note that management operations, such as adding new users, are only suppo
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Set up Azure Active Directory authentication for Azure Database for MySQL flexible server](how-to-azure-ad.md)
-
-<!--Image references-->
-
-:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="[Diagram of how Azure ad authentication work]":::
-
-:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-admin-structure.jpg" alt-text="Diagram of Ad admin":::
