@@ -132,6 +132,7 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
+- [Defender for DevOps](defender-for-devops-introduction.md)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 
