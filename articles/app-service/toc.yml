@@ -83,7 +83,7 @@
               - name: .NET with SQL DB
                 href: tutorial-connect-msi-sql-database.md
               - name: Java Tomcat with Postgres
-                href: tutorial-java-tomcat-connect-mi-postgres-database.md
+                href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
               - name: Azure databases
                 href: tutorial-connect-msi-azure-database.md
           - name: Connect to services
