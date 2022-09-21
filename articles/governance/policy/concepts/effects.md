@@ -1,8 +1,10 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/06/2022
+author: timwarner-msft
+ms.date: 09/21/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand Azure Policy effects
 
@@ -751,9 +753,8 @@ allows for manual changes to the compliance state. To change the compliance for 
 you will need to create an attestation for that compliance state.
 
 > [!NOTE]
-> During Public Preview, support for manual policy is available only for Microsoft Defender
-> for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
-> customers using the [Azure Security Benchmark v4 policy initiative](/security/benchmark/azure/introduction).
+> During Public Preview, support for manual policy is available through various Microsoft Defender
+> for Cloud regulatory compliance initiatives.
 
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
@@ -778,6 +779,15 @@ The `defaultState` property has three possible values:
 - **Compliant**: Resource is compliant according to your manual policy standards
 - **Non-compliant**: Resource is non-compliant according to your manual policy standards
 
+The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that the
+resource compliance state must be attested to manually. If the effect state is unspecified, it defaults to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
+
+The following screenshot shows how a manual policy assignment with the `Unknown`
+state appears in the Azure portal:
+
+![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+
 ### Assignments
 
 You assign manual policy definitions in the usual manner. Optionally, you can include
@@ -785,12 +795,14 @@ fields in the assignment metadata; the list of capabilities available here will 
 over time.
 
 Currently, you can include compliance evidence to the assignment metadata as explained
-in the following section.
+in the following section on evidence.
 
 ### Evidence
 
 You can store associated compliance evidence to support your manual policy attestations in
-Azure Storage. These fields are stored in the manual policy assignment's metadata, as shown in
+Azure Storage. The storage blob container you specify is described in the [policy assignment](../concepts/assignment-structure.md).
+
+These fields are stored in the manual policy assignment's metadata, as shown in
 the following example:
 
 ```json
@@ -817,30 +829,12 @@ Note the `evidenceStorages` element is a JSON array, which means you can store y
 more than one Azure storage account. The evidence itself resides in an indicated blob container
 within each storage account, indicated by the `evidenceBlobContainer` property value.
 
-The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
-in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that the
-resource compliance state must be attested to manually.
-
-### Compliance
-
-The Azure Policy compliance engine evaluates all the tracked resources
-(that is, those resources applicable to the `if` statement inf your policy
-definition) to the default state specified in the definition. If the effect state
-is unspecified, it defaults to `Unknown`.
-
-`Unknown` compliance state indicates that you must attest the compliance state yourself.
-
-The following screenshot shows how a manual policy assignment with the `Unknown`
-state appears in the Azure portal:
-
-![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
-
 ### Attestations
 
 `Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
  that sets the compliance states for targeted resources in a manual policy. You can only have one
- attestation on one resource for an individual policy. In preview, Attestations are only available
- to be created with the Azure Resource Manager (ARM) API.
+ attestation on one resource for an individual policy. In preview, Attestations are available
+only through the Azure Resource Manager (ARM) API.
 
 ```http
 PUT http://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{name}?api-version=2019-10-01
