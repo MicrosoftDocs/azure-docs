@@ -62,23 +62,25 @@ Refer to the decision tree below to see what is available to instrument your app
 
 ### [.NET](#tab/net)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-dotnet.svg" alt-text="A decision tree providing .NET instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-dotnet.svg":::
+:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-dotnet.png" alt-text="A decision tree providing .NET instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-dotnet.png":::
 
-Links:
+- [Auto-Instrumentation](codeless-overview.md)
 - [Azure Application Insights libraries for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights)
 - [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](azure-vm-vmss-apps.md)
 - [Deploy Azure Monitor Application Insights Agent for on-premises servers](status-monitor-v2-overview.md)
- 
+
+
+
 ### [Java](#tab/java)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-java.svg" alt-text="A decision tree providing Java instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-java.svg":::
+:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-java.png" alt-text="A decision tree providing Java instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-java.png":::
 
 Links:
 - [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
 
 ### [Node.js](#tab/nodejs)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-node.svg" alt-text="A decision tree providing Node instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-node.svg":::
+:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-node.png" alt-text="A decision tree providing Node instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-node.png":::
 
 Links:
 - [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
@@ -86,14 +88,14 @@ Links:
 
 ### [JavaScript](#tab/javascript)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-js.svg" alt-text="A decision tree providing JavaScript instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-js.svg":::
+:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-js.png" alt-text="A decision tree providing JavaScript instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-js.png":::
 
 Links:
 - [Application Insights for webpages](javascript.md)
 
 ### [Python](#tab/python)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-python.svg" alt-text="A decision tree providing Python instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-python.svg":::
+:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-python.png" alt-text="A decision tree providing Python instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-python.png":::
 
 Links:
 - [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
