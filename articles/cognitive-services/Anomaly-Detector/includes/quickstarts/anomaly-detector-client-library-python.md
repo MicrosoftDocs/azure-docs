@@ -110,7 +110,7 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY'] 
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT'] 
-    DATA_PATH = "REPLACE_WITH_YOUR_SAMPLE_REQUEST_DATA_PATH"
+    DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
@@ -187,9 +187,9 @@ To visualize the anomalies and change points in relation to the sample data seri
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
 
-    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY_ENVIRONMENT_VARIABLE_NAME']
-    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT_ENVIRONMENT_VARIABLE_NAME']
-    DATA_PATH = "REPLACE_WITH_YOUR_SAMPLE_REQUEST_DATA_PATH"
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
+    DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
