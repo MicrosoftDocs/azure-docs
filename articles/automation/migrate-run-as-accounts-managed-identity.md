@@ -13,9 +13,11 @@ ms.custom: devx-track-azurepowershell
 > [!IMPORTANT]
 > Azure Automation Run As Account will retire on **September 30, 2023**, and there will be no support provided beyond this date. From now through **September 30, 2023**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2023**. See the official announcement here.
 
+See the [frequently asked questions](/automation/automation-managed-identity.md) for more information about migration cadence and support timeline for Run As account creation and certificate renewal.
+
  Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate will be generated which will be valid for one year. This adds an overhead of renewing the certificate every year before it expires to prevent the Automation account to stop working. 
 
-Automation accounts can now be configured to use [Managed Identity](/automation/automation-security-overview#managed-identities) which is the default option when an Automation account is created. With this feature, Automation account can authenticate to Azure resources without the need to exchange any credentials, hence removing the overhead of renewing the certificate or managing the service principal.
+Automation accounts can now be configured to use [Managed Identity](/automation/automation-security-overview.md#managed-identities) which is the default option when an Automation account is created. With this feature, Automation account can authenticate to Azure resources without the need to exchange any credentials, hence removing the overhead of renewing the certificate or managing the service principal.
 
 Managed identity can be [system assigned]( /automation/enable-managed-identity-or-automation) or [user assigned](/automation/add-user-assigned-identity). However, when a new Automation account is created, a system assigned managed identity is enabled.
 
@@ -154,7 +156,41 @@ foreach ($ResourceGroup in $ResourceGroups)
 ```
 ---
 
+## Graphical runbooks
+
+You can test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
+
+To ensure that a graphical runbook that uses Run As account use managed identities, you must replace, Run As connection that uses `AzureRunAsConnection`
+and connection asset that internally uses PowerShell `Get-AutomationConnection` cmdlet.
+
+:::image type="content" source="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-inline.png" alt-text="Screenshot of edit graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/edit-graphical-expanded.png":::
+
+
+Activity to connect to Azure that uses `Connect-AzAccount` to add the authenticated Run As account for use in the runbook with `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to identity.
+
+:::image type="content" source="./media/migrate-run-as-account-managed-identity/add-functionality-inline.png" alt-text="Screenshot of add functionality to graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/add-functionality-expanded.png":::
+
+
+```powershell-interactive
+try 
+{ 
+    Write-Output ("Logging in to Azure...") 
+    Connect-AzAccount -Identity 
+} 
+catch { 
+    Write-Error -Message $_.Exception 
+    throw $_.Exception 
+} 
+```
+
+For example, in the runbook `Start Azure V2 VMs` in the runbook gallery, you must replace `Get Run As Connection` and `Connect to Azure` activities with `Connect-AzAccount` cmdlet activity.
+
+For more information, see sample runbook name *AzureAutomationTutorialWithIdentityGraphical* that you created with the Automation account.
+
+
 ## Next steps
+
+- Review the Frequently asked questions for [Migrating to Managed Identities](automation-managed-identity-faq.md).
 
 - If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
@@ -163,8 +199,5 @@ foreach ($ResourceGroup in $ResourceGroups)
 - Learn more about user assigned managed identity, see [Using a user-assigned managed identity for an Azure Automation account]( add-user-assigned-identity.md)
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).
-
-- Review the Frequently asked questions for [Migrating to Managed Identities](automation-managed-identity-faq.md).
-
 
  
