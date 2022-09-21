@@ -726,7 +726,7 @@ items:
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
           - name: Convert ITSM ServiceNow actions to secure webhook actions 
-            href: alerts/itsm-convert-servicenow-to-webhook .md  
+            href: alerts/itsm-convert-servicenow-to-webhook.md  
           - name: Troubleshooting problems in ITSM Connector
             items:
             - name: Overview
