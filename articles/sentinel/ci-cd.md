@@ -113,11 +113,9 @@ After the deployment is complete:
 
 ## Edit content
 
-After you've successfully created a connection to your source control repository, anytime content in that repository is modified or added, the modified content is deployed to all connected Microsoft Sentinel workspaces.
+When you successfully create a connection to your source control repository, your content is deployed to Sentinel. We recommend that you edit content stored in a connected repository *only* in the repository, and not in Microsoft Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
 
-We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Microsoft Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
-
-If you have edited the content in Microsoft Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
+If you edit the content in Microsoft Sentinel instead, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
 ## Delete content
 
@@ -153,11 +151,6 @@ Use your custom content in Microsoft Sentinel in the same way that you'd use out
 
 For more information, see:
 
+- [Customize repository deployments](ci-cd-custom-deploy.md)
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-parsers-overview.md)
-- [Visualize collected data](get-visibility.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
-- [Hunt for threats with Microsoft Sentinel](hunting.md)
-- [Use Microsoft Sentinel watchlists](watchlists.md)
-- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
