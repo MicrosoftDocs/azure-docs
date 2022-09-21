@@ -20,12 +20,12 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 Azure Spring Apps provides two types of built-in storage for your application: persistent and temporary.
 
-By default, Azure Spring Apps provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path /tmp.
+By default, Azure Spring Apps provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path */tmp*.
 
 > [!WARNING]
 > If you restart an application instance, the associated temporary storage is permanently deleted.
 
-Persistent storage is a file-share container managed by Azure and allocated per application. Data stored in persistent storage is shared by all instances of an application. An Azure Spring Apps instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is /persistent.
+Persistent storage is a file-share container managed by Azure and allocated per application. Data stored in persistent storage is shared by all instances of an application. An Azure Spring Apps instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is */persistent*.
 
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is lost.
@@ -36,8 +36,6 @@ You can enable or disable built-in persistent storage using the Azure portal or 
 
 #### [Portal](#tab/azure-portal)
 
-### Enable or disable built-in persistent storage using the Azure portal
-
 Use the following steps to enable or disable built-in persistent storage using the Azure portal.
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
@@ -46,15 +44,15 @@ Use the following steps to enable or disable built-in persistent storage using t
 
    :::image type="content" source="media/how-to-built-in-persistent-storage/app-selected.png" lightbox="media/how-to-built-in-persistent-storage/app-selected.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
 
-1. On the **Overview** page, select **Configuration** to open the **Configuration** page.
+1. On the **Overview** page, select **Configuration**.
 
    :::image type="content" source="media/how-to-built-in-persistent-storage/select-configuration.png" lightbox="media/how-to-built-in-persistent-storage/select-configuration.png" alt-text="Screenshot of details for an app.":::
 
-1. Select **Persistent Storage** to open the **Persistent Storage** tab.
+1. On the **Configuration** page, select **Persistent Storage**.
 
    :::image type="content" source="media/how-to-built-in-persistent-storage/select-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/select-persistent-storage.png" alt-text="Screenshot of the Configuration pane showing the Persistent Storage tab.":::
 
-1. On the **Persistent Storage** tab, select **Enable** to enable persistent storage, or select **Disable** to disable persistent storage.
+1. On the **Persistent Storage** tab, select **Enable** to enable persistent storage, or **Disable** to disable persistent storage.
 
    :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" alt-text="Screenshot of the Persistent Storage tab.":::
 
@@ -64,8 +62,6 @@ If persistent storage is enabled, the **Persistent Storage** tab displays the st
 > Built-in persistent storage is not recommended.
 
 #### [Azure CLI](#tab/azure-cli)
-
-### Use the Azure CLI to enable or disable built-in persistent storage
 
 If necessary, install the Azure Spring Apps extension for the Azure CLI using this command:
 
@@ -100,5 +96,5 @@ Other operations:
 
 ## Next steps
 
-- Learn about [application and service quotas](./quotas.md).
-- Learn how to [manually scale your application](./how-to-scale-manual.md).
+- Learn about [quotas and service plans for Azure Spring Apps](./quotas.md).
+- Learn how to [scale an application in Azure Spring Apps](./how-to-scale-manual.md).
