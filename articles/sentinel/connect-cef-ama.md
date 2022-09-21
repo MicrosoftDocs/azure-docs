@@ -1,9 +1,9 @@
 ---
 title: Stream CEF logs with the AMA connector 
-description: TBD
+description: Stream and filter CEF-based logs from on-premises appliances to your Microsoft Sentinel workspace.
 author: limwainstein
 ms.topic: how-to
-ms.date: 19/09/2022
+ms.date: 09/19/2022
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to stream and filter CEF-based logs from on-premises appliances to my Microsoft Sentinel workspace, so I can improve load time and easily analyze the data.   
 ---
@@ -14,7 +14,7 @@ This article describes how to use the **CEF via AMA connector** to quickly filte
 
 The Azure Monitor Agent (AMA) supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload times, efficient analysis and querying.
 
-The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#cef-via-ama-connector).
+The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. [Learn more about the connector](#how-collection-works-with-the-windows-dns-events-via-ama-connector).
 
 > [!IMPORTANT]
 > The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
