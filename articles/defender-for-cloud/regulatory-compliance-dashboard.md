@@ -283,7 +283,7 @@ For other policies, you can create an exemption directly in the policy itself, b
 ### What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
 If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
 
-### How do i remediate a manual assessment?
+### How do I remediate a manual assessment?
 
 By selecting attest, you'll have the ability to demonstrate compliance with this control. Learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
 
