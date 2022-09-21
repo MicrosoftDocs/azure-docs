@@ -54,5 +54,5 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
 ## Next steps
 
-* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
-* [Azure DDoS Protection Standard features](ddos-protection-standard-features.md)
+* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
+* [Azure DDoS Protection features](ddos-protection-features.md)
