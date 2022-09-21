@@ -40,7 +40,7 @@ If you don't have access to install the extension, you must request access from 
 1. Select **Shared**.
 
     > [!Note]
-    > If you have already [installed the Microsoft Security DevOps extension](msdo-azure-devops-extension.md), it will be listed under Installed tab.
+    > If you have already [installed the Microsoft Security DevOps extension](azure-devops-extension.md), it will be listed under Installed tab.
 
 1. Select **Microsoft Security DevOps**.
 
@@ -122,6 +122,6 @@ The pipeline will run for a few minutes and save the results.
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
-Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
+Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.
 
 [Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)

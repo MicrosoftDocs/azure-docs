@@ -53,7 +53,7 @@
       href: quickstart-onboard-github.md
     - name: Connect Azure DevOps repositories
       displayName: DevOps, connect, Azure
-      href: quickstart-onboard-ado.md
+      href: quickstart-onboard-devops.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
   - name: 5. Set up email notifications
@@ -80,7 +80,7 @@
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
   - name: Enable pull request annotations in GitHub or in Azure DevOps
-    href: tutorial-enable-pr-annotations.md
+    href: tutorial-enable-pull-request-annotations.md
 
 - name: Samples
   items:
@@ -414,9 +414,9 @@
       href: defender-for-devops-introduction.md
     - name: Configure the Microsoft Security DevOps GitHub action
       displayName: GitHuB, DevOps, 
-      href: msdo-github-action.md
+      href: github-action.md
     - name: Configure the Microsoft Security DevOps Azure DevOps extension
-      href: msdo-azure-devops-extension.md
+      href: azure-devops-extension.md
     - name: Discover misconfigurations in Infrastructure as Code
       href: iac-vulnerabilities.md
     - name: Detect exposed secrets in code

@@ -88,4 +88,4 @@ On this part of the screen you will see:
 
 Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
 
-Learn how to [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md).
+Learn how to [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).

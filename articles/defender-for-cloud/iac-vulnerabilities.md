@@ -1,5 +1,6 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
+titleSuffix: Defender for Cloud
 description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
 ms.date: 09/20/2022
 ms.topic: how-to
@@ -11,14 +12,14 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 ## Prerequisites
 
-- [Configure Microsoft Security DevOps GitHub action](msdo-github-action.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md).
+- [Configure Microsoft Security DevOps GitHub action](github-action.md).
+- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 
 ## View the results of the IaC scan in GitHub 
 
 1. Sign in to [GitHub](https://www.github.com). 
 
-1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](msdo-github-action.md#configure-the-microsoft-security-devops-github-action-1).    
+1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](github-action.md#configure-the-microsoft-security-devops-github-action-1).    
 
 1. Select **Edit file**.
 
@@ -175,7 +176,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
 
-1.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and select on 
+1.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan.
 
 1. Select any result to see the details.
 
@@ -433,4 +434,4 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
 
-Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
+Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.

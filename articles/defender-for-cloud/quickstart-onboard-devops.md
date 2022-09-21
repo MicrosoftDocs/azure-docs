@@ -90,6 +90,6 @@ The Defender for DevOps service automatically discovers the organizations, proje
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
-Learn how to [configure the MSDO Azure DevOps extension](msdo-azure-devops-extension.md).
+Learn how to [configure the MSDO Azure DevOps extension](azure-devops-extension.md).
 
-Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud.
+Learn how to [configure pull request annotations](tutorial-enable-pull-request-annotations.md) in Defender for Cloud.

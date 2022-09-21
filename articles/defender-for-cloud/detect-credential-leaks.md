@@ -1,5 +1,6 @@
 ---
-title: Detect exposed secrets in code
+title: Detect exposed secrets in code in
+titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.date: 09/11/2022
@@ -17,8 +18,8 @@ Check the list of [supported file types and exit codes](#supported-file-types-an
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-edit-button
-- [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
+
+- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
 
 ## Setup secret scanning in Azure DevOps
 
@@ -146,4 +147,4 @@ The following exit codes are available in CredScan:
 | -9000 | Scan failed with unknown error. |
 
 ## Next steps
-+ Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud to remediate secrets in code before they are shipped to production.
++ Learn how to [configure pull request annotations](tutorial-enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they are shipped to production.

@@ -30,7 +30,7 @@ Before you can follow the steps in this tutorial, you must:
  - [Enable Defender for Cloud](get-started.md)
  - Have [enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md)
- - [Configure the Microsoft Security DevOps GitHub action](msdo-github-action.md)
+ - [Configure the Microsoft Security DevOps GitHub action](github-action.md)
  - Be a [GitHub Advanced Security customer](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
  
 **For Azure DevOps**:
@@ -38,8 +38,8 @@ Before you can follow the steps in this tutorial, you must:
  - Have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
  - [Enable Defender for Cloud](get-started.md)
  - Have [enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
- - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md)
- - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
+ - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md)
+ - [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
  - [Setup secret scanning in Azure DevOps](detect-credential-leaks.md#setup-secret-scanning-in-azure-devops)
 
 ## Enable pull request annotations in GitHub
@@ -183,7 +183,7 @@ Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
 
-Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
+Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.
 
 ## Next steps
 
