@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,11 +20,114 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in October include:
 
-- [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
+- [Announcing the Microsoft Cloud Security Benchmark](#announcing-the-microsoft-cloud-security-benchmark)
 - [Attack path analysis and contextual security capabilities in Defender for Cloud](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
-- [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
+- [Defender for DevOps (Preview)](#defender-for-devops-preview)
+- [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
+- [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
+- [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
+
+### Announcing the Microsoft Cloud Security Benchmark
+
+The [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
+
+You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
+Microsoft Cloud Security Benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
+
+Learn more about the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction). 
+
+### Attack path analysis and contextual security capabilities in Defender for Cloud
+
+The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
+
+One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
+
+Defender for Cloud's new cloud security graph and attack path analysis capabilities give security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
+
+Learn more about the new [Cloud Security Graph, Attack Path Analysis and the Cloud Security Explorer](concept-attack-path.md).
+
+### Agentless scanning for Azure and AWS machines
+
+Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
+
+With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+
+Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+
+- Learn more about [agentless scanning](concept-agentless-data-collection.md).
+- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+
+### Defender for DevOps (Preview) 
+
+You can configure pull request annotations for secret scan findings in Azure DevOps 
+
+The Azure DevOps extension and GitHub action leverage the Microsoft Security DevOps tools to scan the following: 
+
+| Name | Language | License |
+|--|--|--|
+| [Bandit](https://github.com/PyCQA/bandit) | python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/main/LICENSE) |
+| [BinSkim](https://github.com/Microsoft/binskim) | Binary – Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [ESlint](https://github.com/eslint/eslint) | Javascript | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) (Azure DevOps Only) | Credential Scanner (aka CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files common types: default passwords, SQL connection strings, Certificates with private keys| Not Open Source |
+| [Template Analyze](https://github.com/Azure/template-analyzer)r | ARM template, Bicep file | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [Terrascan](https://github.com/tenable/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
+
+The following new recommendations are now available for DevOps Security:
+
+| Recommendation | Description | Severity | 
+|--|--|--|
+| (Preview) [Code repositories should have code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c68a8c2a-6ed4-454b-9e37-4b7654f2165f/showSecurityCenterCommandBar~/false) | Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities. (No related policy) | Medium |
+| (Preview) [Code repositories should have secret scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27/showSecurityCenterCommandBar~/false) | Defender for DevOps has found a secret in code repositories.  This should be remediated immediately to prevent a security breach.  Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results may not reflect the complete status of secrets in your repositories. (No related policy) | High |
+| (Preview) [Code repositories should have Dependabot scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/822425e3-827f-4f35-bc33-33749257f851/showSecurityCenterCommandBar~/false) | Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities. (No related policy) | Medium |
+| (Preview) [Code repositories should have infrastructure as code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2ebc815f-7bc7-4573-994d-e1cc46fb4a35/showSecurityCenterCommandBar~/false) | (Preview) Code repositories should have infrastructure as code scanning findings resolved | Medium |
+| (Preview) [GitHub repositories should have code scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6672df26-ff2e-4282-83c3-e2f20571bd11/showSecurityCenterCommandBar~/false) | GitHub uses code scanning to analyze code in order to find security vulnerabilities and errors in code. Code scanning can be used to find, triage, and prioritize fixes for existing problems in your code. Code scanning can also prevent developers from introducing new problems. Scans can be scheduled for specific days and times, or scans can be triggered when a specific event occurs in the repository, such as a push. If code scanning finds a potential vulnerability or error in code, GitHub displays an alert in the repository. A vulnerability is a problem in a project's code that could be exploited to damage the confidentiality, integrity, or availability of the project. (No related policy) | Medium |
+| (Preview) [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/1a600c61-6443-4ab4-bd28-7a6b6fb4691d/showSecurityCenterCommandBar~/false) | GitHub scans repositories for known types of secrets, to prevent fraudulent use of secrets that were accidentally committed to repositories. Secret scanning will scan the entire Git history on all branches present in the GitHub repository for any secrets. Examples of secrets are tokens and private keys that a service provider can issue for authentication. If a secret is checked into a repository, anyone who has read access to the repository can use the secret to access the external service with those privileges. Secrets should be stored in a dedicated, secure location outside the repository for the project. (No related policy) | High |
+| (Preview) [GitHub repositories should have Dependabot scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/92643c1f-1a95-4b68-bbd2-5117f92d6e35/showSecurityCenterCommandBar~/false) | GitHub sends Dependabot alerts when it detects vulnerabilities in code dependencies that affect repositories. A vulnerability is a problem in a project's code that could be exploited to damage the confidentiality, integrity, or availability of the project or other projects that use its code. Vulnerabilities vary in type, severity, and method of attack. When code depends on a package that has a security vulnerability, this vulnerable dependency can cause a range of problems. (No related policy) | Medium |
+
+Learn more about [Defender for Devops](defender-for-devops-introduction.md)
+
+### Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status
+
+The compliance dashboard in Defender for Cloud is a key tool for customers to help them understand and track their compliance status. Customers can do this by continuously monitoring environments in accordance with requirements from many different standards and regulations.
+
+Now, you can fully manage your compliance posture by manually attesting to operational and non-technical controls. You can now provide evidence of compliance for controls that are not automated. Together with the automated assessments, you can now generate a full report of compliance within a selected scope, addressing the entire set of controls for a given standard.
+
+In addition, with richer control information and in-depth details and evidence for Microsoft's compliance status, you now have all of the information required for audits at your fingertips.
+
+Some of the new benefits include:
+
+- **Manual customer actions** provide a mechanism for manually attesting compliance with non-automated controls. This includes the ability to link evidence, set a compliance date and expiration date.
+
+- Richer control details for supported standards that showcase **Microsoft actions** and **manual customer actions** in addition to the already existing automated customer actions.
+
+- Microsoft actions provide transparency into Microsoft’s compliance status that include audit assessment procedures, test results, and Microsoft responses to deviations.
+
+- **Compliance Offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications.
+
+Learn more on how to [Improve your regulatory compliance](regulatory-compliance-dashboard.md) with Defender for Cloud.
+
+
+
+### Auto-provisioning has been renamed to Settings & monitoring and has an updated experience
+
+We have renamed the Auto-provisioning page to **Settings & monitoring**. 
+
+Auto-provisioning was meant to allow at-scale enablement of pre-requisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
+
+**The Defender for Cloud's plans page now includes**:
+- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- You can access the monitoring component settings for each Defender plan from the Defender plan page.
+- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
+
+**The Settings & monitoring page**:
+- Each monitoring component indicates the Defender plans that it is related to.
+
+Learn more about [managing your monitoring settings](monitoring-components.md).
+
+
 
 ### Defender CSPM P1 (Preview)
 
@@ -43,52 +146,15 @@ We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. C
 
 You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
 
-### Attack path analysis and contextual security capabilities in Defender for Cloud
-
-The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
-
-One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
-
-Defender for Cloud's new cloud security graph and attack path analysis capabilities give security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
-
-Learn more about the new [Cloud Security Graph, Attack Path Analysis and the Cloud Security Explorer](concept-attack-path.md).
-
-### Auto-provisioning is now available with an updated experience
-
-To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring component into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
-
-The Defender plans page:
-- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
-- You can access the monitoring component settings for each Defender plan from the Defender plan page.
-- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
-
-The Settings & monitoring page:
-- Settings & monitoring now includes installed and agentless monitoring components for Defender plans.
-- Each monitoring component indicates the Defender plans that it is related to.
-
-Learn more about [managing your monitoring settings](monitoring-components.md).
-
-### Agentless scanning for Azure and AWS machines
-
-Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we are releasing agentless scanning for VMs to preview.
-
-With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
-
-Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
-
-- Learn more about [agentless scanning](concept-agentless-data-collection.md).
-- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
-
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
 For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
 
-Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. Allowing customers to strengthen the secure configuration of their environments.
+Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations, allowing customers to strengthen the secure configuration of their environments.
 
 The MITRE ATT&CK framework has been integrated in three ways:
 
 - Recommendations map to MITRE ATT&CK tactics and techniques.
-- Filter recommendations by MITRE ATT&CK tactic.
 - Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
 
 :::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
@@ -101,19 +167,15 @@ Updates in September include:
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
 - [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 - [Defender for Containers now supports vulnerability assessment for Elastic Container Registry](#defender-for-containers-now-supports-vulnerability-assessment-for-elastic-container-registry)
+- [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
-You can now suppress alerts based on these Kubernetes entities so you can use the container environment details to align your alerts your organization's policy and stop receiving unwanted alerts:
-
 - Container Image
-- Container Registry
 - Kubernetes Namespace
 - Kubernetes Pod
-- Kubernetes Service
 - Kubernetes Secret
 - Kubernetes ServiceAccount
-- Kubernetes Deployment
 - Kubernetes ReplicaSet
 - Kubernetes StatefulSet
 - Kubernetes DaemonSet
@@ -147,6 +209,15 @@ Microsoft Defender for Containers now provides agentless vulnerability assessmen
 Agentless vulnerability assessment scanning for images in ECR repositories helps reduce the attack surface of your containerized estate by continuously scanning images to identify and manage container vulnerabilities. With this new release, Defender for Cloud scans container images after they are pushed to the repository and continually reassess the ECR container images in the registry. The findings are available in Microsoft Defender for Cloud as recommendations, and you can use Defender for Cloud's built-in automated workflows to take action on the findings, such as opening a ticket for fixing a high severity vulnerability in an image.
 
 Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-va-ecr.md).
+### Legacy Assessments APIs deprecation
+
+The following APIs are deprecated:
+
+- Security Tasks
+- Security Statuses
+- Security Summaries
+
+These three APIs exposed old formats of assessments and are replaced by the [Assessments APIs](/rest/api/defenderforcloud/assessments) and [SubAssessments APIs](/rest/api/defenderforcloud/sub-assessments). All data that is exposed by these legacy APIs are also available in the new APIs.
 
 ## August 2022
 
