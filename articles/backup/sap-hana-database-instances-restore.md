@@ -13,7 +13,7 @@ ms.author: v-amallick
 This article describes how to restore a backed-up SAP HANA database instance to another target VM via snapshots.
 
 >[!Note]
->If you intend to perform in-place restore, that is, to overwrite the backed-up VM by detaching the existing disks and attaching new disks, contact Azure Backup team.
+>If you intend to perform in-place restore, that is, to overwrite the backed-up VM by detaching the existing disks and attaching new disks, detach the existing disks and see the follow sections for restore.
 
 You can restore the HANA snapshot + storage snapshot as disks by selecting Attach and mount to the target machine. However, Azure Backup won't automatically restore HANA system to the required point.
 
@@ -47,12 +47,12 @@ Target disk resource group (where all existing disks of target VM are present, f
 
 >[!Note]
 >
->- To simplify the assignment experience, we have built a [PowerShell](/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqScripts6)/[CLI script](/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts) script. We recommend you to run before configuring backup and before attempting to restore.
->- This script logs in with your credentials and attempts to assign a few Azure role-based access control (Azure RBAC) roles.
 >- The credentials used should have permissions to grant roles to other resources and should be Owner or User Access Administrator [as mentioned here](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
->- Do NOT change the resource groups once they are given/assigned to Azure Backup during preview.
+>- You can use Azure portal to assign all above permissions during restore.
 
 ## Restore entire system to snapshot restore point
+
+In the following sections, you'll learn how to restore the system to snaoshot restore point.
 
 ### Select and mount the snapshot
 
@@ -76,13 +76,19 @@ Follow these steps:
 
 1. On the **Restore** page, select the target VM to which the disks should be attached, the required HANA instance, and the resource group.
 
-   Ensure that the target VM and target disk resource group have relevant permissions using the PowerShell/CLI script.
-
 1. In **Restore Point**, choose **Select**.
 
 1. In the **Select restore point** pane, select a recovery point and select **OK**.
 
    :::image type="content" source="./media/sap-hana-database-instances-restore/select-hana-snapshot-recovery-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
+
+1. Select the corresponding resource group and the *managed identity* to which all permissions are assigned for restore.
+
+1. Select *Validate* to check if all the permissions are assigned to the managed identity for the relevant scopes.
+
+1. If the permissions aren't assigned, select **Assign missing roles/identity**.
+
+   After the roles are assigned, the Azure portal automatically re-validates the permission updates shows successful.
 
 1. Select **Attach and mount snapshot** to attach the disks to the VM.
 
@@ -132,7 +138,10 @@ To select and restore the required point-in-time for System DB, follow these ste
 1. On the **Select restore point** pane, select the restore point and select **OK**.
 
    :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select restore points of system database instance for restore.":::
-select
+
+   >[!Note]
+   >The logs appears after the snapshot point that you previously restored.
+
 1. Select **OK**.
 
 >[!Note]
