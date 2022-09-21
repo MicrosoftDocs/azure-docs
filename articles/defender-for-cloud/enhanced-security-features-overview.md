@@ -70,7 +70,7 @@ You can use any of the following ways to enable enhanced security for your subsc
 
 No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines will be protected by Defender for Servers.
 
-Another alternative, is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
+Another alternative is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?
 
