@@ -42,7 +42,7 @@ User-managed identities are required for Azure Active Directory authentication. 
 
 The following high-level diagram summarizes how authentication works using Azure AD authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="Diagram of how Azure ad authentication work.":::
+:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="Diagram of how Azure ad authentication works.":::
 
 1. Your application can request a token from the Azure Instance Metadata Service identity endpoint. 
 2. Using the client ID and certificate, a call is made to Azure AD to request an access token.  

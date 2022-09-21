@@ -28,7 +28,7 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 - In the Azure portal, select the instance of Azure Database for MySQL Flexible server that you want to enable for Azure AD. 
  
 - Under Security pane, select Authentication:
-:::image type="content" source="media//how-to-azure-ad/azure-ad-configuration.jpg" alt-text="Diagram of how to configure azure ad authentication.":::
+:::image type="content" source="media//how-to-azure-ad/azure-ad-configuration.jpg" alt-text="Diagram of how to configure Azure ad authentication.":::
 
 - There are three types of authentication available: 
 
