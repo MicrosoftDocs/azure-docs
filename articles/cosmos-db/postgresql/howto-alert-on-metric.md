@@ -1,6 +1,6 @@
 ---
 title: Configure alerts - Azure Cosmos DB for PostgreSQL
-description: This article describes how to configure and access metric alerts for Azure Cosmos DB for PostgreSQL
+description: See how to configure and access metric alerts for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -13,9 +13,9 @@ ms.date: 3/16/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article shows you how to set up Azure Cosmos DB for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
+This article shows you how to set up Azure Cosmos DB for PostgreSQL alerts by using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
 
-We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
+You'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
 You can configure an alert to do the following actions when it triggers:
 * Send email notifications to the service administrator and coadministrators.
@@ -30,56 +30,50 @@ You can configure and get information about alert rules using:
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Cosmos DB for PostgreSQL server you want to monitor.
 
-2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
+1. Under the **Monitoring** section of the sidebar, select **Alerts**, and then select **Create** or **Create alert rule**.
 
-   :::image type="content" source="media/howto-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
+   :::image type="content" source="media/howto-alert-on-metric/2-alert-rules.png" alt-text="Screenshot that shows selecting Create alert rule.":::
 
-3. Select **New alert rule** (+ icon).
-
-4. The **Create rule** page opens as shown below. Fill in the required information:
-
-   :::image type="content" source="media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
-
-5. Within the **Condition** section, select **Add**.
-
-6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
+1. The **Select a signal** screen opens. Select a metric from the list of signals to be alerted on. For this example, select **Storage percent**.
    
    :::image type="content" source="media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Screenshot shows the Configure signal logic page where you can view several signals.":::
 
-7. Configure the alert logic:
+1. On the **Condition** tab of the **Create an alert rule** page, under **Alert logic**, complete the following items:
 
-    * **Operator** (ex. "Greater than")
-    * **Threshold value** (ex. 85 percent)
-    * **Aggregation granularity** amount of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes")
-    * and **Frequency of evaluation** (ex. "1 minute")
-   
-   Select **Done** when complete.
+   - For **Threshold**, select **Static**.
+   - For **Aggregation type**, select **Average**.
+   - For **Operator**, select **Greater than**.
+   - For **Threshold value**, enter *85*.
 
-   :::image type="content" source="media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot shows the pane where you can configure Alert logic.":::
+   :::image type="content" source="media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot that shows configuring the Alert logic.":::
 
-8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
+1. Select the **Actions** tab, and then select **Create action group** to create a new group to receive notifications on the alert.
 
-9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
+1. On the **Create an action group** form, select the **Subscription**, **Resource group**, and **Region**, and enter a name and display name for the group.
 
-    :::image type="content" source="media/howto-alert-on-metric/9-add-action-group.png" alt-text="Screenshot shows the Add action group form where you can enter the described values.":::
+   :::image type="content" source="media/howto-alert-on-metric/9-add-action-group.png" alt-text="Screenshot that shows the Create an an action group form.":::
 
-10. Configure an **Email/SMS/Push/Voice** action type.
-    
-    Choose "Email Azure Resource Manager Role" to send notifications to subscription owners, contributors, and readers.
-   
-    Select **OK** when completed.
+1. Select **Next: Notifications** at the bottom of the page.
 
-    :::image type="content" source="media/howto-alert-on-metric/10-action-group-type.png" alt-text="Screenshot shows the Email/S M S/Push/Voice pane.":::
+1. On the **Notifications** tab, under **Notification type**, select **Email/SMS message/Push/Voice**.
 
-11. Specify an Alert rule name, Description, and Severity.
+1. On the **Email/SMS message/Push/Voice** form, fill out email addresses and phone numbers for the notification types and recipients you want, and then select **OK**.
 
-    :::image type="content" source="media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Screenshot shows the Alert Details pane."::: 
+   :::image type="content" source="media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Screenshot that shows the Create an alert rule page.":::
 
-12. Select **Create alert rule** to create the alert.
+1. On the **Create an action group** form, enter a name for the new notification.
 
-    Within a few minutes, the alert is active and triggers as previously described.
+1. Select **Review + create**, and then select **Create** to create the action group. The new action group is created and appears under **Action group name** on the **Actions** tab of the **Create an alert rule** page.
 
-### Managing alerts
+1. Select **Next: Details** at the bottom of the page.
+
+1. On the **Details** tab, select a severity for the rule. Give the rule an easily identifiable name, and add an optional description.
+
+   :::image type="content" source="media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Screenshot that shows the alert Details tab."::: 
+
+1. Select **Review + create**, and then select **Create** to create the alert. Within a few minutes, the alert is active and triggers as previously described.
+
+## Manage alerts
 
 Once you've created an alert, you can select it and do the following actions:
 
@@ -88,6 +82,8 @@ Once you've created an alert, you can select it and do the following actions:
 * **Disable** or **Enable** the alert, if you want to temporarily stop or resume receiving notifications.
 
 ## Suggested alerts
+
+Here are some examples of suggested alerts to set up.
 
 ### Disk space
 
