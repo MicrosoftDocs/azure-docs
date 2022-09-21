@@ -105,7 +105,7 @@ Azure Monitor uses [data collection rules](../essentials/data-collection-rule-ov
 
 To create a data collection rule in the Azure portal:
 
-1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
+1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
 
@@ -117,12 +117,12 @@ To create a data collection rule in the Azure portal:
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
-    Notice the following details in the DCR defined in this template:
+    Notice the following details in the data collection rule below:
 
     - `identity` - Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use system-assigned identity. You can also [configure user-assigned managed identity](#configure-user-assigned-managed-identity-optional).
     
     - `dataCollectionEndpointId` - Resource ID of the data collection endpoint.
-    - `streamDeclarations` - Defines which data to ingest from event hub (incoming data). The stream declaration cannot be modified. 
+    - `streamDeclarations` - Defines which data to ingest from the event hub (incoming data). The stream declaration can't be modified. 
        
        - `TimeGenerated` - The time at which the data was ingested from event hub to Azure Monitor Logs.
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
@@ -295,10 +295,15 @@ with:
                   },
 ```
 
-In the Azure portal, go to your user-assigned managed identity resource and select **Overview** to find the `<principal_id>` and `<client_id>` values:
+To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values, in the Azure portal:
 
-:::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields highlighted.":::
+1. Navigate to your user-assigned managed identity resource and select **Overview** to find the `<principal_id>` and `<client_id>` values.
 
+    :::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields highlighted.":::
+
+1. Select **JSON** to open the **Resource JSON** screen and copy the managed identity `<resource_Id>`. 
+
+    :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
 ## Grant the event hub permission to the data collection rule
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
