@@ -1,6 +1,6 @@
 ---
 title: EU Data Boundary compliance in Azure Notification Hubs
-description: Learn about the The EU data boundary capabilities of Azure Notification Hubs. 
+description: Learn about the EU data boundary capabilities of Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
@@ -14,7 +14,7 @@ The EU Data Boundary (EUDB) is a response to increasing concerns about the trans
 
 ## EUDB in Azure
 
-If you use the Azure portal to create an Azure Notification Hubs namespace in an EU country, your data will remain in the EU region and will not be transferred outside the EU data boundary. A full list of countries in scope for EUDB is as follows:
+If you use the Azure portal to create an Azure Notification Hubs namespace in an EU country, your data will remain in the EU region, and will not be transferred outside the EU data boundary. A full list of countries in scope for EUDB is as follows:
 
 - Austria
 - Belgium
