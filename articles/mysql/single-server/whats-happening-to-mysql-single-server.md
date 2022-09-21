@@ -34,6 +34,16 @@ Learn how to migrate from Azure Database for MySQL - Single Server to Azure Data
 
 For more information on migrating from Single Server to Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
+## Migration Eligibility
+
+To upgrade to Azure Database for MySQL Flexible Server, it's important to know when you're eligible to migrate your single server. Find the migration eligibility criteria in the below table.
+
+| Single Server configuration not supported for migration | How and when to migrate? |
+|---------------------------------------------------------|--------------------------|
+| Single servers with Private Link enabled | Private Link for flexible servers will be released by Q2 2023, post, which you can migrate your single server. Additionally, you can choose to migrate now and so perform VNet injection via a point-in-time restore operation to move to private access network connectivity method. |
+| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible servers will be released by Q4 2022 (for paired region) and Q1 2023 (for any cross-region), post, which you can migrate your single server. |
+| Single server deployed in regions where flexible server isn't supported (Learn more about regions here) | Azure Database Migration Service (DMS) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS. |
+
 > [!Warning]
 > This article is not for Azure Database for MySQL - Flexible Server users. It is for Azure Database for MySQL - Single Server customers who need to upgrade to MySQL - Flexible Server.
 
