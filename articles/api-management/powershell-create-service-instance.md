@@ -43,7 +43,7 @@ Now that you have a resource group, you can create an API Management service ins
 
 In the following example, *myapim* is used for the service name. Update the name to a unique value. Also, update the organization name of the API publisher and the admin email address to receive notifications.
 
-By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
+By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about the API Management tiers, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
 > [!NOTE]
 > This is a long-running action. It can take between 30 and 40 minutes to create and activate an API Management service in this tier.
@@ -93,6 +93,14 @@ AdditionalRegions                     : {}
 SslSetting                            : Microsoft.Azure.Commands.ApiManagement.Models.PsApiManagementSslSetting
 Identity                              :
 EnableClientCertificate               :
+EnableClientCertificate               :
+Zone                                  :
+DisableGateway                        : False
+MinimalControlPlaneApiVersion         :
+PublicIpAddressId                     :
+PlatformVersion                       : stv2
+PublicNetworkAccess                   : Enabled
+PrivateEndpointConnections            :
 ResourceGroupName                     : myResourceGroup
 
 ```
