@@ -388,8 +388,6 @@
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
-          - name: Train with SDK v2 (preview)
-            href: how-to-train-sdk.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md

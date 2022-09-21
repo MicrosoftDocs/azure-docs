@@ -151,9 +151,9 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
 ## Deploy models after a training job
 
-This section helps you understand how to deploy models to an online endpoint once you have completed your [training job](how-to-train-cli.md). Models logged in a run are stored as artifacts. If you have used `mlflow.autolog()` in your training script, you will see model artifacts generated in the job's output. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. 
+This section helps you understand how to deploy models to an online endpoint once you have completed your [training job](how-to-train-model.md). Models logged in a run are stored as artifacts. If you have used `mlflow.autolog()` in your training script, you will see model artifacts generated in the job's output. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. 
 
-For more information, see [Train models with CLI](how-to-train-cli.md#model-tracking-with-mlflow). Also see the [training job samples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) in the GitHub repository.
+For more information, see [Train models](how-to-train-model.md). Also see the [training job samples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) in the GitHub repository.
 
 
 1. Models need to be registered in the Azure Machine Learning workspace to be deployed. Deployment of unregistered models is not supported. You can register the model directly from the job's output using the Azure ML CLI (v2), the Azure ML SDK for Python (v2) or Azure Machine Learning studio. 

@@ -140,7 +140,7 @@ If your Azure Machine Learning workspace uses a private endpoint and virtual net
 
 ## Next steps
 
-- [Train models using CLI (v2)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-model.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
 - [Explore Azure Machine Learning with examples](samples-notebooks.md)

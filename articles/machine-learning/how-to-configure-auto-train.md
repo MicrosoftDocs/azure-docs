@@ -26,7 +26,7 @@ In this guide, learn how to set up an automated machine learning, AutoML, traini
 
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models with the CLI (v2)](how-to-train-cli.md).
+If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models](how-to-train-model.md).
 
 ## Prerequisites
 
@@ -132,7 +132,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 
 Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
 
-[Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-sdk.md#2-create-compute).
+[Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-model.md).
  
 <a name='configure-experiment'></a>
 
