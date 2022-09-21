@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 08/05/2022
+ms.date: 09/21/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -116,7 +116,7 @@ Where the file *create-instance.yml* is:
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
-    * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [configure auto-stop](#configure-auto-stop-preview) for more details.
+    * Enable auto-stop (preview). Configure a compute instance to automatically shut down if it's inactive. For more details, see [configure auto-stop](#configure-auto-stop-preview).
 
 
 
@@ -138,13 +138,13 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
 
 A compute instance is considered inactive if the below conditions are met:
-* No active Jupyter Kernel sessions (this translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
+* No active Jupyter Kernel sessions (which translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
 * No active Jupyter terminal sessions
 * No active AzureML runs or experiments
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
 
-Note that activity on custom applications installed on the compute instance is not considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of 3 days.
+Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days.
 
 This setting can be configured during CI creation or for existing CIs via the following interfaces:
 * AzureML Studio
@@ -165,20 +165,20 @@ This setting can be configured during CI creation or for existing CIs via the fo
     }
     ```
 
-* CLIv2 (YAML) -- only configurable during new CI creation
+* CLIv2 (YAML): only configurable during new CI creation
 
     ```YAML
     # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
     idle_time_before_shutdown_minutes: 30
     ```
 
-* Python SDKv2 -- only configurable during new CI creation
+* Python SDKv2: only configurable during new CI creation
 
     ```Python
     ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ```
 
-* ARM Templates -- only configurable during new CI creation
+* ARM Templates: only configurable during new CI creation
     ```JSON
     // Note that this is just a snippet for the idle shutdown property in an ARM template
     {
@@ -187,16 +187,16 @@ This setting can be configured during CI creation or for existing CIs via the fo
     ```
 
 ### Azure policy support
-Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enfore auto-stop on all compute instances in a given subscription/resource-group. 
+Administrators can use a built-in [Azure Policy](./../governance/policy/overview.md) definition to enforce auto-stop on all compute instances in a given subscription/resource-group. 
 
 1. Navigate to Azure Policy in the Azure portal.
 2. Under "Definitions", look for the idle shutdown policy.
 
-      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure Portal.":::
+      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure portal.":::
 
 3. Assign policy to the necessary scope.
 
-You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60 minute inactivity period. 
+You can also create your own custom Azure policy. For example, if the below policy is assigned, all new compute instances will have auto-stop configured with a 60-minute inactivity period. 
 
 ```json
 {
