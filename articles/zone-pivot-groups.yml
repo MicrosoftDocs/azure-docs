@@ -1829,6 +1829,15 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: maximrytych-ms
+- id: acs-programming-languages-csharp-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 # Owner: jorgegarc
 - id: acs-xamarin-react
   title: Cross-platform pivots
