@@ -201,7 +201,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
 
-* **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
