@@ -30,11 +30,11 @@ It’s imperative to understand the scope of your risk from a DDoS attack on an 
 
 - What new publicly available Azure resources need protection?
 
-- Is there a single point of failure in the service? 
+- Is there a single point of failure in the service?
 
 - How can services be isolated to limit the impact of an attack while still making services available to valid customers?
 
-- Are there virtual networks where DDoS Protection Standard should be enabled but isn't? 
+- Are there virtual networks where DDoS Protection should be enabled but isn't?
 
 - Are my services active/active with failover across multiple regions?
 
