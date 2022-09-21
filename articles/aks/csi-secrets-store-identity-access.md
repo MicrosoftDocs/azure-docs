@@ -31,7 +31,13 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 
 ### Configure workload identity
 
-1. Create an Azure AD application by running the following commands. The `az ad sp create-for-rbac` command creates a new application with a secret. However, the secret is not required for workload identity federation.
+1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription.
+
+    ```azurecli
+    az account set --subscription "subscriptionID
+    ```
+
+2. Create an Azure AD application by running the following commands. The `az ad sp create-for-rbac` command creates a new application with a secret. However, the secret is not required for workload identity federation.
 
     ```bash
     export APPLICATION_NAME="<your application name>"
@@ -45,21 +51,15 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     export APPLICATION_CLIENT_ID=$(az ad sp list --display-name ${APPLICATION_NAME} --query '[0].appId' -otsv)
     ```
 
-2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the using the [az keyvault set-policy][az-keyvault-set-policy] command.
+3. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
 
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $APPLICATION_CLIENT_ID
-    ```
-
-    ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $APPLICATION_CLIENT_ID
-    ```
-
-    ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $APPLICATION_CLIENT_ID
     ```
 
-3. Run the [az aks show][az-aks-show] command to get the AKS cluster OIDC issuer URL, and replace the default value for the cluster name and the resource group name.
+4. Run the [az aks show][az-aks-show] command to get the AKS cluster OIDC issuer URL, and replace the default value for the cluster name and the resource group name.
 
     ```azurecli
     az aks show --resource-group resourceGroupName --name clusterName --query "oidcIssuerProfile.issuerUrl" -otsv
@@ -68,7 +68,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     > [!NOTE]
     > If the URL is empty, verify you have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
-4. Establish a federated identity credential between the Azure AD application and the service account issuer and subject subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
     export APPLICATION_OBJECT_ID="$(az ad app show --id ${APPLICATION_CLIENT_ID} --query id -otsv)"
@@ -98,13 +98,13 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     az rest --method POST --uri "https://graph.microsoft.com/beta/applications/${APPLICATION_OBJECT_ID}/federatedIdentityCredentials" --body @body.json
     ```
 
-5. Deploy your secretproviderclass and application by setting the `clientID` in the `SecretProviderClass` to the client ID of the Azure AD application.
+6. Deploy your secretproviderclass and application by setting the `clientID` in the `SecretProviderClass` to the client ID of the Azure AD application.
 
     ```bash
     clientID: "${APPLICATION_CLIENT_ID}"
     ```
 
-## Use pod identities
+## Use pod-managed identities
 
 Azure Active Directory (Azure AD) pod-managed identities (preview) use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You can use these identities to grant access to the Azure Key Vault Secrets Provider for Secrets Store CSI driver.
 
