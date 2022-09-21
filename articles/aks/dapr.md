@@ -309,7 +309,7 @@ The Dapr extension for AKS and Arc for Kubernetes requires the following URLs on
 | URL | Description |
 | --- | ----------- |
 | `https://mcr.microsoft.com/daprio` | Required `mcr` URL for pulling Dapr artifacts. |
-| `https://eastus.dp.kubernetesconfiguration.azure.com/` | Configuration URL for AKS extension. Includes a region prefix. [Change this prefix based on region](#cloudsregions). |
+| `https://<region>.dp.kubernetesconfiguration.azure.com/` | Configuration URL for AKS extension. [Learn more about this network requirement](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). Includes a region prefix. [Change this prefix based on region](#cloudsregions). |
 
 ## Troubleshooting extension errors
 
