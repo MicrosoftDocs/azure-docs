@@ -36,7 +36,7 @@ Speech-to-text models recognize words that should be capitalized to improve read
 
 |Recognized speech|Display text|
 |---|---|
-|i got an iphone x r|I got an iPhone XR.|
+|i got an iphone s e|I got an iPhone SE.|
 |my name is jennifer smith|My name is Jennifer Smith.|
 |i want to visit new york city|I want to visit New York City.|
 |i need to service my toyota|I need to service my Toyota.|
@@ -51,18 +51,17 @@ When speaking, it is common for someone to stutter, duplicate words, and say fil
 |its its not that big of uhm a deal|It's not that big of a deal.|
 |umm i think tomorrow should work|I think tomorrow should work.|
 
-## Auto Punctuation 
+## Punctuation 
 
-You don't have to speak every punctuation mark out loud. Speech-to-text automatically punctuates your text to improve clarity. This is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
+Speech-to-text automatically punctuates your text to improve clarity. This is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
 |how are you|How are you?|
 |we can go to the mall park or beach|We can go to the mall, park, or beach.|
 
-## Explicit Punctuation 
-
-You can configure speech-to-text to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
+### Explicit punctuation
+When you're using speech-to-text with continuous recognition, you can configure the Speech service to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
