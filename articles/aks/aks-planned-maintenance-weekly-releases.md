@@ -55,10 +55,10 @@ Find the Public Maintenance configuration ID by name:
 ```azurecli-interactive
 az maintenance public-configuration show --resource-name "aks-mrp-cfg-weekday_utc8"
 ```
-This call may prompt you to install the extension maintenance, once done you can proceed as below :
+This call may prompt you to install the `maintenance` extension. Once done, you can proceed:
 
 The output should look like the below example. Be sure to take note of the `id` field -
-
+```json
 {
 "duration": "08:00",
 "expirationDateTime": null,
@@ -79,7 +79,7 @@ The output should look like the below example. Be sure to take note of the `id` 
 "type": "Microsoft.Maintenance/publicMaintenanceConfigurations",
 "visibility": "Public"
 }
-
+```
 
 Next, assign the Public Maintenance configuration to your AKS cluster using the ID:
 ```azurecli-interactive
