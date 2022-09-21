@@ -26,6 +26,7 @@ Updates in October include:
 - [Defender for DevOps (Preview)](#defender-for-devops-preview)
 - [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
 - [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
+- [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
 ### Announcing the Microsoft Cloud Security Benchmark
@@ -125,6 +126,25 @@ Auto-provisioning was meant to allow at-scale enablement of pre-requisites, whic
 - Each monitoring component indicates the Defender plans that it is related to.
 
 Learn more about [managing your monitoring settings](monitoring-components.md).
+
+
+
+### Defender CSPM P1 (Preview)
+
+One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
+
+We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. CSPM P1 enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
+
+- Continuous assessment of the security configuration of your cloud resources
+- Security recommendations to fix misconfigurations and weaknesses
+- Secure score
+- Governance
+- Regulatory compliance
+- Cloud security graph
+- Attack Path Analysis
+- Agentless scanning for machines
+
+You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 
