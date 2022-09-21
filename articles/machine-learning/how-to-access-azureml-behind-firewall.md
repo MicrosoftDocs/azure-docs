@@ -88,7 +88,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 1. Add __Application rules__ for the following hosts:
 
     > [!NOTE]
-    > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+    > This is not a complete list of the hosts required for all hosts you may need to communicate with, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
@@ -99,7 +99,10 @@ These rule collections are described in more detail in [What are some Azure Fire
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+    | **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
+    | **code.visualstudio.com** | Required to download and install VS Code desktop. This is not required for VS Code Web. |
+    | **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
+    | **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install VS Code extensions. These enable the remote connection to Compute Instances provided by the Azure ML extension for VS Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) for more information. |
     | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
     | **dc.applicationinsights.azure.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
     | **dc.applicationinsights.microsoft.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
@@ -257,11 +260,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
-| AutoML NLP | automlresources-prod.azureedge.net | TCP | 443 |
-| AutoML NLP | aka.ms | TCP | 443 |
+| AutoML NLP, Vision | automlresources-prod.azureedge.net | TCP | 443 |
+| AutoML NLP, Vision | aka.ms | TCP | 443 |
 
 > [!NOTE]
-> AutoML NLP is currently only supported in Azure public regions.
+> AutoML NLP, Vision are currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 
@@ -411,7 +414,10 @@ The hosts in this section are used to install Visual Studio Code packages to est
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+| **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
+| **code.visualstudio.com** | Required to download and install VS Code desktop. This is not required for VS Code Web. |
+| **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
+| **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install VS Code extensions. These enable the remote connection to Compute Instances provided by the Azure ML extension for VS Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) for more information. |
 | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Next steps

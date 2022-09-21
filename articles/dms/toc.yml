@@ -73,12 +73,16 @@
       href: tutorial-sql-server-managed-instance-online.md
   - name: Migrate MySQL
     items: 
-    - name: Migrate Azure Database for MySQL - Single Server to Flexible Server (online)
-      href: tutorial-mysql-azure-single-to-flex-online-portal.md  
-    - name: Migrate Azure Database for MySQL - Single Server to Flexible Server (offline)
-      href: tutorial-mysql-azure-single-to-flex-offline-portal.md  
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md        
+      href: tutorial-mysql-azure-mysql-offline-portal.md  
+  - name: Migrate Azure DB for MySQL - Single Server
+    items:
+    - name: to Azure DB for MySQL Flexible Server (online)
+      href: tutorial-mysql-azure-single-to-flex-online-portal.md  
+    - name: to Azure DB for MySQL Flexible Server (offline)
+      href: tutorial-mysql-azure-single-to-flex-offline-portal.md   
+    - name: Frequently Asked Questions
+      href: faq-mysql-single-to-flex.md        
   - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL

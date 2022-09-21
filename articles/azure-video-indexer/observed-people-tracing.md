@@ -2,7 +2,7 @@
 title: Trace observed people in a video
 description: This topic gives an overview of a Trace observed people in a video concept.
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2022
 ms.author: juliako
 ---

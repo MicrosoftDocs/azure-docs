@@ -16,12 +16,11 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 
 # Read and write data in a job
 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](v1/how-to-train-with-datasets.md)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
 Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
  
@@ -44,6 +43,7 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
 ## Supported modes
 
@@ -64,7 +64,7 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 
 ## Read data in a job
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs` section of the job:
 
@@ -96,7 +96,7 @@ Next, run in the CLI
 az ml job create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 The `Input` class allows you to define:
 
@@ -147,7 +147,7 @@ This section outlines how you can read V1 `FileDataset` and `TabularDataset` dat
 
 #### Read a `FileDataset`
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `eval_mount`:
 
@@ -172,7 +172,7 @@ Next, run in the CLI
 az ml job create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 In the `Input` object specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.EVAL_MOUNT`:
 
@@ -214,7 +214,7 @@ returned_job.services["Studio"].endpoint
 
 #### Read a `TabularDataset`
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `direct`:
 
@@ -239,7 +239,7 @@ Next, run in the CLI
 az ml job create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 In the `Input` object specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.DIRECT`:
 
@@ -282,7 +282,7 @@ returned_job.services["Studio"].endpoint
 
 In your job you can write data to your cloud-based storage using *outputs*. The [Supported modes](#supported-modes) section showed that only job *outputs* can write data because the mode can be either `rw_mount` or `upload`.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path of where you would like to write your data to:
 
@@ -317,7 +317,7 @@ Next create a job using the CLI:
 az ml job create --file <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import command

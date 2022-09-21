@@ -570,6 +570,16 @@
             "source_path_from_root": "/articles/data-factory/monitor-install-analytics.md",
             "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-replication-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-partitioning-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
           }
     ]
 }

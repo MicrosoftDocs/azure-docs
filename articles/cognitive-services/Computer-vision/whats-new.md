@@ -16,6 +16,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## September 2022
+
+### Computer Vision 3.0/3.1 Read previews deprecation
+
+The preview versions of the Computer Vision 3.0 and 3.1 Read API are scheduled to be retired on January 31, 2023. Customers are encouraged to refer to the [How-To](./how-to/call-read-api.md) and [QuickStarts](./quickstarts-sdk/client-library.md?tabs=visual-studio&pivots=programming-language-csharp) to get started with the generally available (GA) version of the Read API instead. The latest GA versions provide the following benefits:
+* 2022 latest generally available OCR model
+* Significant expansion of OCR language coverage including support for handwritten text
+* Significantly improved OCR quality 
+
 ## June 2022
 
 ### Vision Studio launch
