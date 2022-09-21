@@ -48,8 +48,8 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. Type `F5` to run the app. The app is displayed in your default browser.
 
-> [!NOTE] 
-> If you just installed Visual Studio and follow the prerequisites, you may have to [install missing packages via NuGet](/nuget/consume-packages/install-use-packages-visual-studio).
+   > [!NOTE] 
+   > If you only installed Visual Studio and the prerequisites, you may have to [install missing packages via NuGet](/nuget/consume-packages/install-use-packages-visual-studio).
 
 1. Select the **Create New** link and create a couple *to-do* items.
 
