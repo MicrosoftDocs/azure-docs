@@ -312,6 +312,8 @@
       href: bicep-functions-deployment.md
     - name: File functions
       href: bicep-functions-files.md
+    - name: Lambda functions
+      href: bicep-functions-lambda.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions

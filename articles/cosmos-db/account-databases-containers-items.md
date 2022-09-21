@@ -125,7 +125,7 @@ Azure Cosmos DB items support the following operations. You can use any of the A
 
 Learn how to manage your Azure Cosmos DB account and other concepts:
 
-* To learn more, see the [Azure Cosmos DB API for NoSQL](/learn/modules/intro-to-azure-cosmos-db-core-api/) training module.
+* To learn more, see the [Azure Cosmos DB API for NoSQL](/training/modules/intro-to-azure-cosmos-db-core-api/) training module.
 * [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
