@@ -214,7 +214,7 @@ For Azure Cognitive Search, there's currently one built-in definition. It's for 
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 
-> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
+> [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## See also
 

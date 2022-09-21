@@ -132,10 +132,6 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
     1. Let validation pass.
     1. Select **Create**.
 
-    :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
-
-    > [!NOTE]
-    > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link, including this private endpoint and the Private Scope configuration. Next, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Arc-enabled Kubernetes clusters.
 
 ## Configure on-premises DNS forwarding
 

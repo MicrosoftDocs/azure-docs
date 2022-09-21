@@ -3,7 +3,7 @@ title: How to transfer a payload between device and Azure Device Provisioning Se
 description: This document describes how to transfer a payload between device and Device Provisioning Service (DPS)
 author: kgremban
 ms.author: kgremban
-ms.date: 09/09/2022
+ms.date: 09/21/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps

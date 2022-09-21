@@ -15,17 +15,17 @@ Each request requires an authorization header. This table illustrates which head
 | `Ocp-Apim-Subscription-Key` | Yes | Yes |
 | `Authorization: Bearer` | Yes | Yes |
 
-When you're using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:
+When you're using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your resource key. For example:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-When you're using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes.
+When you're using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your resource key for an access token that's valid for 10 minutes.
 
 ### How to get an access token
 
-To get an access token, you need to make a request to the `issueToken` endpoint by using `Ocp-Apim-Subscription-Key` and your subscription key.
+To get an access token, you need to make a request to the `issueToken` endpoint by using `Ocp-Apim-Subscription-Key` and your resource key.
 
 The `issueToken` endpoint has this format:
 
@@ -39,7 +39,7 @@ Use the following samples to create your access token request.
 
 #### HTTP sample
 
-This example is a simple HTTP request to get a token. Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key for the Speech service. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
+This example is a simple HTTP request to get a token. Replace `YOUR_SUBSCRIPTION_KEY` with your resource key for the Speech service. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -53,7 +53,7 @@ The body of the response contains the access token in JSON Web Token (JWT) forma
 
 #### PowerShell sample
 
-This example is a simple PowerShell script to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key for the Speech service. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
+This example is a simple PowerShell script to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your resource key for the Speech service. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
 ```powershell
 $FetchTokenHeader = @{
@@ -72,7 +72,7 @@ $OAuthToken
 
 #### cURL sample
 
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key for the Speech service. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your resource key for the Speech service. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
 ```console
 curl -v -X POST \
@@ -84,7 +84,7 @@ curl -v -X POST \
 
 #### C# sample
 
-This C# class illustrates how to get an access token. Pass your subscription key for the Speech service when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
+This C# class illustrates how to get an access token. Pass your resource key for the Speech service when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
 ```csharp
 public class Authentication

@@ -2,7 +2,7 @@
 title: Resolve errors for storage account names
 description: Describes how to resolve errors for Azure storage account names that can occur during deployment with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 08/05/2022
+ms.date: 09/12/2022
 ---
 
 # Resolve errors for storage account names

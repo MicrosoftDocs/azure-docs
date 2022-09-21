@@ -33,9 +33,6 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: Build models
       items: 
-        - name: Train & deploy image classification
-          displayName: MNIST
-          href: tutorial-train-deploy-notebook.md
         - name: Create production ML pipelines (preview)
           href: tutorial-pipeline-python-sdk.md
         - name: Train a TensorFlow image classification model
@@ -407,10 +404,8 @@
             href: how-to-train-pytorch.md
           - name: Train with custom Docker image
             href: how-to-train-with-custom-image.md
-          - name: Migrate from Estimators to ScriptRunConfig
-            href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Use Key Vault when training
-            displayName: secrets keyvault
+            displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
         - name: Train with the CLI v2
           href: how-to-train-cli.md
@@ -780,7 +775,7 @@
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
     - name: Microsoft Learn
-      href: /learn/browse/?expanded=azure&products=azure-machine-learning
+      href: /training/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
