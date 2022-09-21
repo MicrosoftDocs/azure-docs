@@ -26,7 +26,7 @@ This guide demonstrates how to configure your domain name with the `www` subdoma
 
 ## Walkthrough video
 
-> [!VIDEO https://docs.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
 
 ## Get static web app URL
 

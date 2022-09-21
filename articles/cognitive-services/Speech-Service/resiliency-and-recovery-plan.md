@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Back up and recover speech customer resources
 
-The Speech service is [available in various regions](./regions.md). Service subscription keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
+The Speech service is [available in various regions](./regions.md). Speech resource keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
 
 Datasets for customer-created data assets, such as customized speech models, custom voice fonts and speaker recognition voice profiles, are also **available only within the service-deployed region**. Such assets are:
 
@@ -38,7 +38,7 @@ These assets are backed up regularly and automatically by the repositories thems
 
 ## How to monitor service availability
 
-If you use the default endpoints, you should configure your client code to monitor for errors. If errors persist, be prepared to redirect to another region where you have a service subscription.
+If you use the default endpoints, you should configure your client code to monitor for errors. If errors persist, be prepared to redirect to another region where you have a Speech resource.
 
 Follow these steps to configure your client to monitor for errors:
 
@@ -49,7 +49,7 @@ Follow these steps to configure your client to monitor for errors:
 
 4.  Each region has its own STS token service. For the primary region and any backup regions your client configuration file needs to know the:
     -  Regional Speech service endpoints
-    -  [Regional subscription key and the region code](./rest-speech-to-text.md)
+    -  [Regional key and the region code](./rest-speech-to-text.md)
 
 5.  Configure your code to monitor for connectivity errors (typically connection timeouts and service unavailability errors). Here's sample code in C#: [GitHub: Adding Sample for showing a possible candidate for switching regions](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/fa6428a0837779cbeae172688e0286625e340942/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L965).
 
