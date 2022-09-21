@@ -37,7 +37,7 @@ What you will learn:
 * [GraalVM](https://www.graalvm.org/downloads/)
 
 
-## 2. Create a Container Registry
+## 2. Create a container registry
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -144,7 +144,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
     io.netty:netty-transport-native-unix-common::jar
     ```
 
-### Build and push a Docker image to the container registry.
+### Build and push a Docker image to the container registry
 
 
 1. Build the container image.
@@ -254,8 +254,8 @@ Next, create a PostgreSQL database and configure your container app to connect t
 
     ```azurecli
     az containerapp connection create postgres -g $RESOURCE_GROUP \
-    -n my-container-app \
-    --tg $RESOURCE_GROUP \
+    --name my-container-app \
+    --target-resource-group $RESOURCE_GROUP \
     --server $DB_SERVER_NAME \
     --database fruits \
     --managed-identity
@@ -275,3 +275,8 @@ When the new webpage shows your list of fruits, your app is connecting to the da
 
 
 ## Next steps
+
+Learn more about running Java apps on Azure in the developer guide.
+
+> [!div class="nextstepaction"] 
+> [Azure for Java Developers](/java/azure/)

@@ -23,9 +23,10 @@ ms.date: 09/22/2022
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
+* [Azure CLI](/cli/azure/overview). This quickstart requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
 
 
-## Clone the sample TODO app and prepare the repo
+## Clone the sample app and prepare the repo
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 
@@ -77,7 +78,10 @@ Follow these steps to create an Azure Database for Postgres in your subscription
     ```azurecli-interactive
     DATABASE_NAME=checklist
 
-    az postgres db create -g $RESOURCE_GROUP -s $POSTGRESQL_HOST -n $DATABASE_NAME
+    az postgres db create \
+        --resource-group $RESOURCE_GROUP \
+        --server-name $POSTGRESQL_HOST \
+        --name $DATABASE_NAME
     ```
 
 ## Deploy the application to App Service
@@ -96,16 +100,28 @@ The changes you made in `application.properties` also apply to the managed ident
 
     ```azurecli-interactive
     # Create an App Service plan
-    az appservice plan create --name $APPSERVICE_PLAN --resource-group $RESOURCE_GROUP --location $LOCATION --sku B1 --is-linux
+    az appservice plan create \
+        --name $APPSERVICE_PLAN \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --sku B1 --is-linux
+    
     # Create an App Service resource.
-    az webapp create --name $APPSERVICE_NAME --resource-group $RESOURCE_GROUP --plan $APPSERVICE_PLAN --runtime "TOMCAT:9.0-jre8" 
+    az webapp create \
+        --name $APPSERVICE_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --plan $APPSERVICE_PLAN \
+        --runtime "TOMCAT:9.0-jre8" 
     ```
 
 1. Deploy the WAR package to App Service.
 
 
     ```azurecli-interactive
-    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/app.war --type war
+    az webapp deploy \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --src-path target/app.war --type war
     ```
 
 
@@ -115,7 +131,14 @@ Next, connect your app to an SQL Database with a system-assigned managed identit
 
 
 ```azurecli-interactive
-az webapp connection create postgres --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --system-assigned-identity
+az webapp connection create postgres \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $POSTGRESQL_HOST \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
+
 ```
 
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
@@ -126,20 +149,16 @@ This command creates a connection between your web app and your PostgreSQL serve
 Run the following command to open the deployed web app in your browser.
 
 ```azurecli-interactive
-az webapp browse --name MyWebapp --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
+az webapp browse \
+    --name MyWebapp \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME
 ```
 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
-
-[Azure for Java Developers](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot), 
-[Spring Data for Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
-[Azure Cosmos DB](../cosmos-db/introduction.md)
-and
-[App Service Linux](overview.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 

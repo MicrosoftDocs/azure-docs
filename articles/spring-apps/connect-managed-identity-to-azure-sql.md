@@ -64,8 +64,18 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 
 Configure your app deployed to Azure Spring to connect to an SQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
+> [!NOTE]
+> This command requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform. 
+
 ```azurecli-interactive
-az spring connection create sql -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $SQL_RESOURCE_GROUP --server $SQL_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity
+az spring connection create sql \
+    --resource-group $SPRING_APP_RESOURCE_GROUP \
+    --service $Spring_APP_SERVICE_NAME \
+    --app $APP_NAME --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $SQL_RESOURCE_GROUP \
+    --server $SQL_SERVER_NAME \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
 ```
 
 ---

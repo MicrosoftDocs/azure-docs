@@ -76,8 +76,18 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 
 Configure your Spring app to connect to a MySQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
+> [!NOTE]
+> This command requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform. 
+
 ```azurecli-interactive
-az spring connection create mysql -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $MYSQL_RESOURCE_GROUP --server $MYSQL_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity
+az spring connection create mysql \
+    --resource-group $SPRING_APP_RESOURCE_GROUP \
+    --service $Spring_APP_SERVICE_NAME \
+    --app $APP_NAME --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $MYSQL_RESOURCE_GROUP \
+    --server $MYSQL_SERVER_NAME \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
 ```
 
 
