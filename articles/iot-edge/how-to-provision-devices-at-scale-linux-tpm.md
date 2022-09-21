@@ -170,7 +170,7 @@ In this section, you build a tool that you can use to retrieve the registration 
 In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID.
 
 > [!NOTE]
-> This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you previously used that tool, then be aware that the steps would generate a different registration ID for the same public endorsement key. If you need to replicate the previous behavior then refer to the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision).
+> This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you relied on that tool previously, then be aware the steps below generate a different registration ID for the same public endorsement key. If you need to recreate the registration ID as before then refer to how the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision) generates it. Be sure the registration ID for the individual enrollment in DPS matches the regisration ID the IoT Edge device is configured to use.
 
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
@@ -187,7 +187,7 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
       printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
       ```
 
-   1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
+   1. The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
@@ -204,7 +204,7 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
       printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
       ```
 
-   1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
+   1. The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
 ---
 
