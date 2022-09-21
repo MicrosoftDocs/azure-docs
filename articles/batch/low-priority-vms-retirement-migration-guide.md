@@ -20,7 +20,7 @@ You can use low-priority VMs to take advantage of unused capacity in Azure. The 
 
 ## Feature end of support
 
-Low-priority VMs are a deprecated preview feature and won't be generally available. Spot VMs offered through the Azure Spot Virtual Machines service are the official, preemptible offering from the Azure compute platform. Spot Virtual Machines is generally available. On September 30, 2025, we'll retire the low-priority VMs feature on September 30, 2025. After that date, existing low-priority pools in Batch might no longer work and you can't provision new low-priority VMs.
+Low-priority VMs are a deprecated preview feature and won't be generally available. Spot VMs offered through the Azure Spot Virtual Machines service are the official, preemptible offering from the Azure compute platform. Spot Virtual Machines is generally available. On September 30, 2025, we'll retire the low-priority VMs feature. After that date, existing low-priority pools in Batch might no longer work and you can't provision new low-priority VMs.
 
 ## Alternative: Use spot VMs in Azure Spot Virtual Machines
 
@@ -54,7 +54,7 @@ To include spot VMs when you scale in user subscription mode:
 
    :::image type="content" source="media/certificates/low-priority-vms-scale-target-nodes.png" alt-text="Screenshot that shows how to scale target nodes.":::
 
-1. For an existing pool, select the pool and select **Scale** to update the number of spot nodes required based on the job scheduled.
+1. For an existing pool, select the pool, and then select **Scale** to update the number of spot nodes required based on the job scheduled.
 
 1. Select **Save**.
 
