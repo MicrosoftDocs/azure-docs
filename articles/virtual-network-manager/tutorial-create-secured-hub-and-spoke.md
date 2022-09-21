@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 09/21/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -141,7 +141,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Criteria |  |
     | Parameter | Select **Name** from the drop-down.|
     | Operator | Select **Contains** from the drop-down.| 
-    | Condition | Enter **VNet-** to dynamically add the three previously created virtual networks into this network group. |
+    | Condition | Enter **-EastUS** to dynamically add the two East US virtual networks into this network group. |
 
 1. Select **Save** to deploy the group membership.
 1. Under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
