@@ -42,7 +42,7 @@ User-managed identities are required for Azure Active Directory authentication. 
 
 The following high-level diagram summarizes how authentication works using Azure AD authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" concepts-customer-managed-key/mysql-customer-managed-key.jpg" alt-text="Diagram of how Azure ad authentication work.":::
+:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="Diagram of how Azure ad authentication work.":::
 
 1. Your application can request a token from the Azure Instance Metadata Service identity endpoint. 
 2. Using the client ID and certificate, a call is made to Azure AD to request an access token.  
@@ -53,7 +53,7 @@ The following high-level diagram summarizes how authentication works using Azure
  
 When using Azure AD authentication, there are two Administrator accounts for the MySQL server; the original MySQL administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the MySQL Flexible server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the MySQL Flexible server. Only one Azure AD administrator (a user or group) can be configured at a time. 
 
-:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-admin-structure.jpg" concepts-customer-managed-key/mysql-customer-managed-key.jpg" alt-text="Diagram of azure ad admin structure":::
+:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-admin-structure.jpg" alt-text="Diagram of Azure ad admin structure.":::
 
 Methods of authentication for accessing the MySQL flexible server include: 
 - MySQL Authentication only - Create a MySQL admin login and password to access your MySQL server with MySQL authentication. 
@@ -62,7 +62,7 @@ Methods of authentication for accessing the MySQL flexible server include:
 
 ## Permissions
 
-To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](authentication-aad-directory-readers-role-tutorial.md) role.
+To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role.
 
 These permissions should be granted before you provision a logical server or managed instance. After you grant the permissions to the UMI, they're enabled for all servers or instances that are created with the UMI assigned as a server identity.
 
