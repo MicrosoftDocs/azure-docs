@@ -63,28 +63,41 @@ Use any of the following deployment checklists during the setup or for troublesh
 ### Scan same-tenant Power BI using Azure IR and Managed Identity in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
+
 1. Make sure Power BI tenant ID is entered correctly during the registration.
+
 1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
+
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
+
 1. In Azure Active Directory tenant, create a security group.
+
 1. From Azure Active Directory tenant, make sure [Microsoft Purview account MSI is member of the new security group](#authenticate-to-power-bi-tenant).
+
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
 # [Public access with Self-hosted IR](#tab/Scenario2)
 ### Scan same-tenant Power BI using self-hosted IR with Delegated Authentication or Service Principal in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
+
 1. Make sure Power BI tenant ID is entered correctly during the registration.
+
 1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
+
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
+
 1. Check your Azure Key Vault to make sure:
    1. There are no typos in the password or secret.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
+
 1. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
+
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
    2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
@@ -92,40 +105,52 @@ Use any of the following deployment checklists during the setup or for troublesh
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
     3. Under **Authentication**, **Allow public client flows** is enabled.
+
 2. If delegated authentication is used, validate Power BI admin user settings to make sure:
       1. User is assigned to Power BI Administrator role.
       2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
       3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
       4. There's no MFA or Conditional Access Policies are enforced on the user.
+
 3. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
    2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+
 1. In Azure Active Directory tenant, create a security group.
+
 1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
+
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
 # [Private access](#tab/Scenario3)
 ### Scan same-tenant Power BI using self-hosted IR with Delegated Authentication or Service Principal in a private network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
+
 1. Make sure Power BI tenant ID is entered correctly during the registration.
+
 1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+
 1. Check your Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
+
 1. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
+
 1. If Delegated Authentication is used, validate Power BI admin user settings to make sure:
       1. User is assigned to Power BI Administrator role.
       2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
       3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
       4. There's no MFA or Conditional Access Policies are enforced on the user.
+
 1. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
    2. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
    2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
@@ -133,13 +158,17 @@ Use any of the following deployment checklists during the setup or for troublesh
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
    3. Under **Authentication**, **Allow public client flows** is enabled.
+
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
+
 1. In Azure Active Directory tenant, create a security group.
+
 1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
+
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 ---
 
