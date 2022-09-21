@@ -14,9 +14,9 @@ On *February 29, 2024*, the certificates feature for Azure Batch access manageme
 
 ## About the feature
 
-Often, you need to store secure data in an application. Your data must be securely managed so that only administrators or authorized users can access it.
+Often, you need to store secure data for an application. Your data must be securely managed so that only administrators or authorized users can access it.
 
-Azure Batch offers two ways to secure access management. You can use a certificate that you create and manage in Azure Batch or you can use Azure Key Vault to store an access key. Using a key vault is an Azure standard way to deliver more controlled secure access management.
+Currently, Azure Batch offers two ways to secure access. You can use a certificate that you create and manage in Azure Batch or you can use Azure Key Vault to store an access key. Using a key vault is an Azure-standard way to deliver more controlled secure access management.
 
 Currently, you can use a certificate at the account level in Azure Batch. You must generate the certificate and upload it manually to Batch by using the Azure portal. To access the certificate, the certificate must be associated with and installed for only the current user. A certificate typically is valid for one year, and it must be updated each year.
 
@@ -32,7 +32,7 @@ In Key Vault, you get these benefits:
 
 After the certificates feature in Azure Batch is retired on February 29, 2024, a certificate in Batch might not work as expected. After that date, you won't be able to create a pool by using a certificate. Pools that continue to use certificates after the feature is retired might increase in size and cost.
 
-## Alternative: Use Key Vault to secure your Batch resources
+## Alternative: Use Key Vault
 
 Azure Key Vault is an Azure service you can use to store and manage secrets, certificates, tokens, keys, and other configuration values that give authenticated users access to secure applications and services. Key Vault is based on the idea that security is improved and standardized when you remove hard-coded secrets and keys from application code that's deployed.
 
@@ -70,7 +70,7 @@ For more information, see [Quickstart: Create a key vault by using the Azure por
 
 ### Create a key vault by using PowerShell
 
-1. Use the PowerShell option in Azure Cloud Shell to sign in to your account;
+1. Use the PowerShell option in Azure Cloud Shell to sign in to your account:
 
    ```powershell
    Login-AzAccount

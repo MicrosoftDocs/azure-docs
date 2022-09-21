@@ -103,9 +103,9 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
-  - name: Batch feature retirements
+  - name: Feature retirements
     items:
-    - name: Certificates for access management
+    - name: Batch certificates
       href: batch-certificate-migration-guide.md
     - name: Pools without public IP addresses (classic)
       href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
