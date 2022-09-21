@@ -60,6 +60,60 @@ You don't have to speak every punctuation mark out loud. Speech-to-text automati
 |how are you|How are you?|
 |we can go to the mall park or beach|We can go to the mall, park, or beach.|
 
+## Explicit Punctuation 
+
+You can configure speech-to-text to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
+
+|Recognized speech|Display text|
+|---|---|
+|they entered the room dot dot dot|They entered the room...|
+|i heart emoji you period|I <3 you.|
+|the options are apple forward slash banana forward slash orange period|The options are apple/banana/orange.|
+|are you sure question mark|Are you sure?|
+
+Use the Speech SDK to enable dictation mode when you're using speech-to-text with continuous recognition. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation.
+
+::: zone pivot="programming-language-csharp"
+```csharp
+speechConfig.EnableDictation();
+```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
+speechConfig->EnableDictation();
+```
+::: zone-end
+::: zone pivot="programming-language-go"
+```go
+speechConfig.EnableDictation()
+```
+::: zone-end
+::: zone pivot="programming-language-java"
+```java
+speechConfig.enableDictation();
+```
+::: zone-end
+::: zone pivot="programming-language-javascript"
+```javascript
+speechConfig.enableDictation();
+```
+::: zone-end
+::: zone pivot="programming-language-objectivec"
+```objective-c
+[self.speechConfig enableDictation];
+```
+::: zone-end
+::: zone pivot="programming-language-swift"
+```swift
+self.speechConfig!.enableDictation()
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+speech_config.enable_dictation()
+```
+::: zone-end
+
 ## Profanity filter 
 
 You can specify whether to mask, remove, or show profanity in the final transcribed text. Masking replaces profane words with asterisk (*) characters so that you can keep the original sentiment of your text while making it more appropriate for certain situations 
