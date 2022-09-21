@@ -10,7 +10,7 @@ author: kaarthis
 
 ---
 
-# Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview) exclusively for weekly releases
+#  Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster exclusively for weekly releases (preview)
 
  Planned Maintenance allows you to schedule weekly maintenance windows that will ensure the weekly releases [releases] are controlled. Maintenance Windows are configured using the Azure CLI, allowing you to select from a set of pre-available configurations.
 
@@ -30,31 +30,35 @@ When using Planned Maintenance, the following restrictions apply:
 
 
 
-## Available Pre-created Public Maintenance Configuration for you to pick
+## Available Pre-created Public Maintenance configurations for you to pick
 
-There are 2 general kinds of pre-created public maintenance configurations:
+There are 2 general kinds of pre-created Public Maintenance configurations:
 
 - For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
 - For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.
-List of pre-created Public Maintenance Configurations, Prod Region, Weekday Schedule (change the 'weekday' in the configuration name to 'weekend' for Weekend Schedule)
 
-Configuration Name	Time Zone
-aks-mrp-cfg-weekday_utc12	UTC+12
-...	...
-aks-mrp-cfg-weekday_utc1	UTC+1
-aks-mrp-cfg-weekday_utc	UTC+0
-aks-mrp-cfg-weekday_utc-1	UTC-1
-...	...
-aks-mrp-cfg-weekday_utc-12	UTC-12
+For a list of pre-created Public Maintenance configurations on the weekday schedule, see below. For weekend schedules, replace `weekday` with `weekend`.
 
-## Assign a Public Maintenance Configuration on an AKS Cluster
+|Configuration name| Time zone|
+|--|--|
+|aks-mrp-cfg-weekday_utc12|UTC+12|
+|...|...|
+|aks-mrp-cfg-weekday_utc1|UTC+1|
+|aks-mrp-cfg-weekday_utc|UTC+0|
+|aks-mrp-cfg-weekday_utc-1|UTC-1|
+|...|...|
+|aks-mrp-cfg-weekday_utc-12|UTC-12|
 
-Find the public maintenance configuration ID by name:
+## Assign a Public Maintenance configuration to an AKS Cluster
+
+Find the Public Maintenance configuration ID by name:
+```azurecli-interactive
 az maintenance public-configuration show --resource-name "aks-mrp-cfg-weekday_utc8"
-
+```
 This call may prompt you to install the extension maintenance, once done you can proceed as below :
 
-the call should return
+The output should look like the below example. Be sure to take note of the `id` field -
+
 {
 "duration": "08:00",
 "expirationDateTime": null,
@@ -78,17 +82,18 @@ the call should return
 
 
 Next, assign the Public Maintenance configuration to your AKS cluster using the ID:
+```azurecli-interactive
 az maintenance assignment create --maintenance-configuration-id "/subscriptions/0159df5c-b605-45a9-9876-36e17d5286e0/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/aks-mrp-cfg-weekday_utc8" --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
-
+```
 ## List all maintenance windows in an existing cluster
-
+```azurecli-interactive
 az maintenance assignment list --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
-
+```
 
 ## Delete a public maintenance configuration of an AKS cluster
-
+```azurecli-interactive
 az maintenance assignment delete --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
-
+```
 
 <!-- LINKS - Internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
