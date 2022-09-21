@@ -1,6 +1,6 @@
 ---
-title: Migrate to TLS 1.2 in Azure Batch client code
-description: Learn how to migrate to TLS 1.2 in Azure Batch client code to prepare for feature end of support for TLS 1.0/1.1.
+title: Migrate client code to TLS 1.2 in Azure Batch
+description: Learn how to migrate client code to TLS 1.2 in Azure Batch to prepare for end of support for TLS 1.0 and TLS 1.1.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 08/16/2022
 ---
 
-# Migrate client code to TLS 1.2 in Batch (feature retirement)
+# Migrate client code to TLS 1.2 in Batch
 
 To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0 and TLS 1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in the client code you manage by using Batch.
 
-## End of support for TLS 1.0 and TLS 1.1
+## End of support for TLS 1.0 and TLS 1.1 in Batch
 
 TLS versions 1.0 and 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. TLS 1.0 and 1.1 don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
 
 Most customers have already migrated to TLS 1.2. Customers who continue to use TLS 1.0 or 1.1 can be identified via existing BatchOperation telemetry. If you're using TLS 1.0 or 1.1, to avoid disruption to your Batch workflows, you must adjust existing workflows to ensure that you're using TLS 1.2.
 
-## Migrate to TLS 1.2
+## Alternative: Migrate to TLS 1.2
 
 To avoid disruption to your Batch workflows, you must update your client code to use TLS 1.2 before the TLS 1.0 and 1.1 retirement in Batch on March 31, 2023.
 
@@ -30,7 +30,7 @@ For specific development use cases, see the following information:
 
 - If you use the .NET Framework and you *can't* upgrade to .NET 4.7 or later, see the guidance in [TLS for network programming](/dotnet/framework/network-programming/tls) to enforce TLS 1.2.
 
-For TLS best practices, see [TLS best practices for the .NET Framework](/dotnet/framework/network-programming/tls).
+For more information, see [TLS best practices for the .NET Framework](/dotnet/framework/network-programming/tls).
 
 ## FAQs
 

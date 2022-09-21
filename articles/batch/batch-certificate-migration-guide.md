@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure Batch access management to Azure Key Vault
-description: Learn how to migrate access management from Azure Batch to Azure Key Vault to prepare for end of support for certificates in Batch.
+title: Migrate Batch certificates to Azure Key Vault
+description: Learn how to migrate access management from using certificates in Azure Batch to Azure Key Vault and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 08/15/2022
 ---
 
-# Migrate Azure Batch access management to Azure Key Vault (feature retirement)
+# Migrate Batch certificates to Azure Key Vault
 
-On *February 29, 2024*, the certificates feature for Azure Batch access management will be retired. Learn how to migrate access management from using certificates in Azure Batch to using Azure Key Vault.
+On *February 29, 2024*, the certificates feature for Azure Batch access management will be retired. Learn how to migrate your access management approach from using certificates in Azure Batch to using Azure Key Vault.
 
-## Batch secure access options
+## About the feature
 
 Often, you need to store secure data in an application. Your data must be securely managed so that only administrators or authorized users can access it.
 
@@ -20,9 +20,9 @@ Azure Batch offers two ways to secure access management. You can use a certifica
 
 Currently, you can use a certificate at the account level in Azure Batch. You must generate the certificate and upload it manually to Batch by using the Azure portal. To access the certificate, the certificate must be associated with and installed for only the current user. A certificate typically is valid for one year, and it must be updated each year.
 
-## Certificates in Batch retirement
+## Feature end of support
 
-To move toward a simpler, standardized way to secure access to your Batch resources, on *February 29, 2024*, we'll retire the certificates feature in Azure Batch. We recommend that you instead use Azure Key Vault as a standard and more modern method to secure your resources in Batch.
+To move toward a simpler, standardized way to secure access to your Batch resources, on February 29, 2024, we'll retire the certificates feature in Azure Batch. We recommend that you use Azure Key Vault as a standard and more modern method to secure your resources in Batch.
 
 In Key Vault, you get these benefits:
 
@@ -32,7 +32,7 @@ In Key Vault, you get these benefits:
 
 After the certificates feature in Azure Batch is retired on February 29, 2024, a certificate in Batch might not work as expected. After that date, you won't be able to create a pool by using a certificate. Pools that continue to use certificates after the feature is retired might increase in size and cost.
 
-## Use Key Vault to secure your Batch resources
+## Alternative: Use Key Vault to secure your Batch resources
 
 Azure Key Vault is an Azure service you can use to store and manage secrets, certificates, tokens, keys, and other configuration values that give authenticated users access to secure applications and services. Key Vault is based on the idea that security is improved and standardized when you remove hard-coded secrets and keys from application code that's deployed.
 
