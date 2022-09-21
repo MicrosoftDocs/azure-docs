@@ -22,7 +22,7 @@ You can use the Get Metadata activity to retrieve the metadata of any data in Az
 To use a Get Metadata activity in a pipeline, complete the following steps:
 
 1. Search for _Get Metadata_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
-1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Dataset** tab, to edit its details.
+1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 1. Choose a dataset, or create a new one with the New button.  Then you can specify filter options and add columns from the available metadata for the dataset.
 
    :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="Shows the UI for a Get Metadata activity.":::
