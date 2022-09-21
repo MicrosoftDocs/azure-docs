@@ -1,14 +1,14 @@
 ---
-title: Prerequisites and support requirements
-description: In this article, you'll understand the prerequisites and support requirements to connect VMware vCenter Server to Azure Arc.
-ms.topic: quickstart 
-ms.custom: *
-ms.date: 09/19/2022
+title: Prerequisites and network requirements to connect VMware vCenter Server to Azure Arc
+description: In this article, you'll understand the prerequisites and network requirements to connect VMware vCenter Server to Azure Arc.
+ms.topic: references 
+ms.custom: references_regions
+ms.date: 09/21/2022
 
-# Customer intent: As a VI admin, I want to ensure that I meet all the prerequisites and support requirements before connecting my vCenter Server instance to Azure to enable self-service through Azure Arc.
+# Customer intent: As a VI admin, I want to ensure that I meet all the prerequisites and network requirements before connecting my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---
 
-# Prerequisites and support requirements to connect VMware vCenter Server to Azure Arc
+# Support matrix to connect VMware vCenter Server to Azure Arc
 
 To start using the Azure Arc-enabled VMware vSphere (preview) features, you need to connect your VMware vCenter Server instance to Azure Arc. This article lists down the prerequisites and support requirements before you can connect your VMware vCenter Server instance to Azure Arc by using a helper script.
 
@@ -31,6 +31,8 @@ To start using the Azure Arc-enabled VMware vSphere (preview) features, you need
 - The Host (vCenter server in this case, I think) must be able to reach the Control Plane IP and Azure Arc Resource Bridge VM (Appliance VM IP, Start Range IP, End Range IP).
 
 - Azure Arc Resource Bridge VM requires DNS resolution when configuring with Static IP. The IP Address(es) of the DNS servers are needed in the DNS Server input of the deployment script.
+
+- Ensure that your user account has all of these [privileges](https://learn.microsoft.com/en-us/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#insufficient-permissions) in VMware vCenter.
 
 ### vCenter Server
 
@@ -56,7 +58,7 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy.
 
-## Support requirements
+## Network requirements
 
 The following firewall URL exceptions are needed for the appliance VM in the Azure Arc Resource Bridge:
 

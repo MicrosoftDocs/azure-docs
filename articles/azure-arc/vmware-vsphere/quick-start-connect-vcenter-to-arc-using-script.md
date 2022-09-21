@@ -14,8 +14,44 @@ To start using the Azure Arc-enabled VMware vSphere (preview) features, you need
 
 First, the script deploys a virtual appliance called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
+## Prerequisites
+
+### Azure
+
+- An Azure subscription.
+
+- A resource group in the subscription where you're a member of the *Owner/Contributor* role.
+
+### Azure Arc Resource Bridge
+
+- Azure Arc Resource Bridge IP needs access to the URLs listed [here](https://learn.microsoft.com/en-us/azure/azure-arc/vmware-vsphere/support-matrix-for-vcenter-connection#network-requirements).
+
+### vCenter Server
+
+- vCenter Server version 6.7 or 7.
+
+- A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
+
+- At least one free IP address on the above network that isn't in the DHCP range. At least three free IP addresses if there's no DHCP server on the network.
+
+- A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
+
+- A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
+
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 9,500 virtual machines (VMs). If your vCenter Server instance has more than 9,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
+
+### vSphere account
+
+You need a vSphere account that can:
+- Read all inventory. 
+- Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
+
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc resource bridge (preview) VM.
+
+### Workstation
+
+You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy.
 
 ## Prepare vCenter Server
 
