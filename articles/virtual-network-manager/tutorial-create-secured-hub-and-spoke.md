@@ -128,7 +128,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the define dynamic membership button.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the defined dynamic membership button.":::
 
 1. On the **Create Azure Policy** page, select or enter the following information:
 
@@ -145,7 +145,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. Select **Save** to deploy the group membership.
 1. Under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
-:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic-thumb.png" alt-text="Screenshot of dynamic group membership under Group Membership blade." lightbox="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic.png":::
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic-thumb.png" alt-text="Screenshot of dynamic group membership under Group Membership." lightbox="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic.png":::
 ## Create a hub and spoke connectivity configuration
 
 1. Select **Configuration** under *Settings*, then select **+ Add a configuration**. Select **Connectivity** from the drop-down menu.
@@ -182,7 +182,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | ------- | ----- |
     | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting will allow spoke virtual networks in the network group in the same region to communicate with each other directly. |
     | Hub as gateway | Select the checkbox for **Use hub as a gateway**. |    
-    | Global Mesh | Leave this option **unchecked**. Since both spokes are in the same region this setting is not required. |
+    | Global Mesh | Leave **Enable mesh connectivity across regions** option **unchecked**. This setting isn't required as both spokes are in the same region  |
 
 1. Select **Next: Review + create >** and then create the connectivity configuration.
 
@@ -243,7 +243,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
 
-1. Select **Next** and then **Deploy**.You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. Select **Next** and then **Deploy**. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
 
 ## Verify deployment of configurations
 
