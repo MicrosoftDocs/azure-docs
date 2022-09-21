@@ -97,7 +97,7 @@ To collect data with a data collection rule, you need [create a data collection 
 
 Azure Monitor uses [data collection rules](../essentials/data-collection-rule-overview.md) to define what data should be collected, how to transform that data, and where to send the data you collect.
 
-To generate a data collection rule JSON file in the Azure portal:
+To create a data collection rule in the Azure portal:
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -297,7 +297,7 @@ In the Azure portal, go to your user-assigned managed identity resource and sele
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
 
-1. From the data collection rule in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
+1. From the event hub in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
@@ -321,46 +321,50 @@ The final step is to associate the data collection rule to the event hub from wh
 
 You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
 
-```JSON
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "eventHubResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the event hub to use."
-      }
-    },
-    "associationName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the association."
-      }
-    },
-    "dataCollectionRuleId": {
-      "type": "string",
-      "metadata": {
-        "description": "The resource ID of the data collection rule."
-      }
-    }
-  },
-  "resources": [
+To create a data collection rule association in the Azure portal:
+
+1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
+
+1. Select **Build your own template in the editor**.
+
+1. Paste the Resource Manager template below into the editor and then select **Save**.
+
+    ```JSON
     {
-      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
-      "apiVersion": "2021-09-01-preview",
-      "scope": "[parameters('eventHubResourceId')]",
-      "name": "[parameters('associationName')]",
-      "properties": {
-        "description": "Association of data collection rule. Deleting this association will break the data collection for this event hub.",
-        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
-      }
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "eventHubResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "Specifies the Azure resource ID of the event hub to use."
+          }
+        },
+        "associationName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the association."
+          }
+        },
+        "dataCollectionRuleId": {
+          "type": "string",
+          "metadata": {
+            "description": "The resource ID of the data collection rule."
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+          "apiVersion": "2021-09-01-preview",
+          "scope": "[parameters('eventHubResourceId')]",
+          "name": "[parameters('associationName')]",
+          "properties": {
+            "description": "Association of data collection rule. Deleting this association will break the data collection for this event hub.",
+            "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+          }
+        }
+      ]
     }
-  ]
-}
 
-## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
