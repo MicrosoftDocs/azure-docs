@@ -1067,6 +1067,8 @@ items:
         href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Google Cloud Storage
         href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Google Sheets
+        href: ../data-factory/connector-google-sheets.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Greenplum
         href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: HBase
