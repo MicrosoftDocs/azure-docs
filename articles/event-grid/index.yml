@@ -81,13 +81,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Grid
-            url: /learn/modules/azure-event-grid/
+            url: /training/modules/azure-event-grid/
           - text: React to state changes in your Azure services by using Event Grid
-            url: /learn/modules/react-to-state-changes-using-event-grid/
+            url: /training/modules/react-to-state-changes-using-event-grid/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
           - text: Trigger an Azure Event Grid workflow from an IoT device
-            url: /learn/modules/trigger-azure-event-grid-workflow-iot-device/
+            url: /training/modules/trigger-azure-event-grid-workflow-iot-device/
 
   # Card
   - title: Advanced concepts

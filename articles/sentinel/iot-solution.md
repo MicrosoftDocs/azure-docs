@@ -134,7 +134,7 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 > [!NOTE]
 > The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics. 
 >
-> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/learn/modules/write-first-query-kusto-query-language/) Learn module.
+> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/training/modules/write-first-query-kusto-query-language/) Learn module.
 >
 
 ### Understand alert timestamps
