@@ -51,7 +51,7 @@ You can configure and get information about alert rules using:
 
 1. On the **Create an action group** form, select the **Subscription**, **Resource group**, and **Region**, and enter a name and display name for the group.
 
-   :::image type="content" source="media/howto-alert-on-metric/9-add-action-group.png" alt-text="Screenshot that shows the Create an an action group form.":::
+   :::image type="content" source="media/howto-alert-on-metric/9-add-action-group.png" alt-text="Screenshot that shows the Create an action group form.":::
 
 1. Select **Next: Notifications** at the bottom of the page.
 
@@ -59,7 +59,7 @@ You can configure and get information about alert rules using:
 
 1. On the **Email/SMS message/Push/Voice** form, fill out email addresses and phone numbers for the notification types and recipients you want, and then select **OK**.
 
-   :::image type="content" source="media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Screenshot that shows the Create an alert rule page.":::
+   :::image type="content" source="media/howto-alert-on-metric/10-action-group-type.png" alt-text="Screenshot that shows the Create an alert rule page.":::
 
 1. On the **Create an action group** form, enter a name for the new notification.
 

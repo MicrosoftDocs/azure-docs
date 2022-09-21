@@ -47,9 +47,9 @@ When access to the Microsoft Azure Cosmos DB for PostgreSQL service doesn't beha
 
 * **The user isn't authorized or an incorrect password was used:** If a user doesn't have permissions on the server or the password used is incorrect, the connection to the server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server. Each client must still provide the necessary security credentials.
 
-For example, using a JDBC client, the following error may appear.
-
-`java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"`
+  For example, using a JDBC client, the following error may appear.
+  
+  `java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"`
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you're having trouble getting through the firewall, you could try one of the following solutions:
 

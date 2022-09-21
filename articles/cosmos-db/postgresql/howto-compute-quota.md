@@ -22,7 +22,7 @@ worker nodes.
 1. Select **New Support Request** in the Azure portal menu for your
    cluster.
 2. Fill out **Summary** with the quota increase request for your region, for
-   example "Quota increase in West Europe region."
+   example *Quota increase in West Europe region.*
 3. These fields should be autoselected, but verify:
    - **Issue Type** should be **Technical**.
    - **Service type** should be **Azure Cosmos DB for PostgreSQL**.
@@ -30,10 +30,9 @@ worker nodes.
 5. For **Problem subtype**, select **Scaling Compute**.
 6. Select **Next** to view recommended solutions, and then select **Return to support request**.
 7. Select **Next** again. Under **Problem details**, provide the following information:
-   - For **When did the problem start?**, the date, time, and timezone when the problem started, or select **Not sure, use current time**.
+   - For **When did the problem start**, the date, time, and timezone when the problem started, or select **Not sure, use current time**.
    - For **Description**, quota increase details, for example *Need to increase worker node quota in West Europe to 512 vCores*.
 
-![](media/howto-compute-quota/support-request.png)
 :::image type="content" source="media/howto-compute-quota/support-request.png" alt-text="Screenshot that shows a support request in the Azure portal.":::
 
 ## Next steps
