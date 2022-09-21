@@ -24,7 +24,7 @@ In this article, you'll learn how to configure an external identity source for N
 >[!NOTE] 
 > For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
-## Add Active Directory as LDAPS Identity Source 
+## Add Active Directory as LDAPS identity source 
 
 1. Sign-in to NSX-T and Navigate to System > Users and Roles > LDAP. 
 
@@ -55,9 +55,7 @@ In this article, you'll learn how to configure an external identity source for N
 1. Select **Add**. 
        :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true" lightbox="./media/nsxt/set-ldap-server.png":::
  
-
-      :::image type="content" source="./media/nsxt/accept-ldap-cert.png" alt-text="Screenshot showing how to save the certificate for an LDAP server." border="true" lightbox="./media/nsxt/accept-ldap-cert.png":::
-
+      
 1. Select **Save** to complete the changes.
        :::image type="content" source="./media/nsxt/user-roles-ldap-server.png" alt-text="Screenshot showing user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-server.png":::
 
@@ -66,8 +64,7 @@ In this article, you'll learn how to configure an external identity source for N
 After adding an external identity, you can assign NSX-T Roles to Active Directory security groups based on your organization's security controls. 
 
 1. Sign in to NSX-T and navigate to **System** > **Users and Roles**.
-       :::image type="content" source="./media/nsxt/nsx-user-roles.png" alt-text="Screenshot showing how to add users to an LDAP server." border="true" lightbox="./media/nsxt/nsx-user-roles.png":::
-
+       
 1. Select **Add** > **Role Assignment for LDAP**.  
 
      1. Select a domain. 
