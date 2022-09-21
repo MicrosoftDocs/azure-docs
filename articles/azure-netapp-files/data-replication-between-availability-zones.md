@@ -1,6 +1,6 @@
 ---
 title: Data replication between availability zones for data redundancy | Microsoft Docs
-description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
+description: Describes data replication between availability zones. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
