@@ -123,6 +123,7 @@ The AllowVnetInBound rule allows all traffic within the VNet which allows the DC
 
 
 The AllowAzureLoadBalancerInBound rule is also required so that the service can properly communicate over the loadbalancer to manage the DCs. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it. 
+
 If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
