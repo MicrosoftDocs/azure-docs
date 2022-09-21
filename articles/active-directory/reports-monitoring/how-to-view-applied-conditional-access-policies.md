@@ -29,7 +29,7 @@ The sign-in logs in Azure Active Directory (Azure AD) give you the information t
 
 As an Azure AD administrator, you can use the sign-in logs to:
 
-- Troubleshoot sign in problems.
+- Troubleshoot sign-in problems.
 - Check on feature performance.
 - Evaluate the security of a tenant.
 
@@ -110,7 +110,7 @@ The Azure AD Graph PowerShell module doesn't support viewing applied Conditional
 
 On the **Conditional Access** tab, you see a list of Conditional Access policies applied to that sign-in event. 
 
-To confirm that you have admin access to view applied Conditional Access policies in the sign-ins logs: 
+To confirm that you have admin access to view applied Conditional Access policies in the sign-in logs: 
 
 1. Go to the Azure portal. 
 
