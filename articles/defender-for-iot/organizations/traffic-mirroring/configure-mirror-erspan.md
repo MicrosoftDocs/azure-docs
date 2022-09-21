@@ -7,11 +7,11 @@ ms.topic: how-to
 
 # Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)
 
-When preparing your network for OT traffic monitoring with Defender for IoT, you can configure traffic mirroring using an encapsulated remote switched port analyzer (ERSPAN).
+Use an encapsulated remote switched port analyzer (ERSPAN) to mirror input interfaces to your OT sensor's monitoring interface. When configuring ERSPAN, we recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
+
+The sensor's monitoring interface doesn't have a specifically allocated IP address <!--it doesn't?-->, and when ERSPAN support is configured, GRE headers are stripped from the monitored traffic.<!--i don't understand any of this. does it make sense?-->
 
 <!--Use this method when TBD-->
-
-When configuring ERSPAN, we recommend using your receiving router as the GRE's tunnel destination, and mirror the input interface to your OT sensor's monitoring interface. The sensor's monitoring interface doesn't have a specifically allocated IP address <!--it doesn't?-->, and when ERSPAN support is configured, GRE headers are stripped from the monitored traffic.<!--i don't understand any of this. does it make sense?-->
 
 > [!NOTE]
 > This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
@@ -19,10 +19,11 @@ When configuring ERSPAN, we recommend using your receiving router as the GRE's t
 
 ## ERSPAN architecture
 
-ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in generic routing encapsulation (GRE), and can be routed over layer 3 networks.
+ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in GRE, and can be routed over layer 3 networks.
 
 For example:
 
+:::image type="content" source="../media/traffic-mirroring/erspan.png" alt-text="Diagram of traffic mirrored from an air-gapped or industrial network to an OT network sensor using ERSPAN.":::
 
 ERSPAN transports mirrored traffic over an IP network using the following process:
 
@@ -55,7 +56,7 @@ Newly installed OT network sensors have ERSPAN and GRE header stripping turned o
 
 **To restart monitoring processes on your sensor**:
 
-Run:
+On your sensor, run:
 
 ```
 sudo cyberx-xsense-components-enable -n "rcdcap"

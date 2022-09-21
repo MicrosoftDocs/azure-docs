@@ -8,6 +8,9 @@ ms.topic: how-to
 
 ## Configure traffic mirroring with active or passive aggregation (TAP)
 
+A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
+
+
 An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
 
 The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation isn't supported, each TAP uses two sensor ports to monitor send and receive traffic.

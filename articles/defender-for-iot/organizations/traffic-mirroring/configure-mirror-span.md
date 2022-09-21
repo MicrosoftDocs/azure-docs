@@ -7,23 +7,22 @@ ms.topic: how-to
 
 # Configure mirroring with a switch SPAN port
 
-A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
+Configure a SPAN port on your switch to mirror local traffic from interfaces on the switch to a different interface on the same switch.
 
-This article provides a sample configuration procedure for configuring a SPAN port for a Cisco 2960 switch, with 24 ports running IOS.
+This article provides sample configuration procedures for configuring a SPAN port, using either the Cisco CLI or GUI, for Cisco 2960 switch with 24 ports running IOS.
 
 > [!IMPORTANT]
 > This article is intended only as guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently.
 
-## Best practices for configuring a SPAN port
+## Traffic mirroring scope recommendations
 
-When configuring a SPAN port, we recommend that you configure all of the switch's ports, even if no data is connected to them. If you don't, a rogue device might be connected to an unmonitored port, and it wouldn't be alerted on the sensor.
+We recommend configuring your SPAN port to mirror traffic from all of your switch's ports, even if no data is connected to them. If you don't, rogue devices can later be connected to an unmonitored port, and those devices won't be detected by the Defender for IoT network sensors.
 
-On OT networks that utilize broadcast or multicast messaging, configure the switch to mirror only RX (Receive) transmissions. Otherwise, multicast messages will be repeated for as many active ports, and the bandwidth is multiplied.
+For OT networks that use broadcast or multicast messaging, configure your SPAN port to mirror only RX (*Recieve*) transmissions. Multicast messages will be repeated for any relevant active ports, and you'll be using more bandwidth unnecessarily.
 
+## Configure a SPAN port via CLI
 
-## Configure a SPAN port with a configuration terminal
-
-To configure a SPAN port using a configuration terminal, run:
+The following commands show a a sample process for configuring a SPAN port on a Cisco 2960 via CLI:
 
 ```cli
 Cisco2960# configure terminal
@@ -34,9 +33,11 @@ Cisco2960# show monitor 1
 Cisco2960# running-copy startup-config
 ```
 
-## Configure a SPAN port from the user interface
+## Configure a SPAN port via the GUI
 
-From the switch's configuration user interface:
+This procedure describes the high-level steps for configuring a SPAN port on a Cisco 2960 via the GUI. For more information, see the relevant Cisco documentation.
+
+From the switch's configuration GUI:
 
 1. Enter the global configuration mode.
 1. Configure the first 23 ports as a session source, mirroring only RX packets.
@@ -47,11 +48,11 @@ From the switch's configuration user interface:
 
 ## Monitor multiple VLANs
 
-Defender for IoT allows monitoring VLANs configured in your network without any extra configuration, as long as the network switch is configured to send VLAN tags to Defender for IoT.
+Defender for IoT can monitor multiple VLANs configured in your network without any extra configuration, as long as the network switch is configured to send VLAN tags to Defender for IoT.
 
 For example, the following commands must be configured on a Cisco switch to support monitoring VLANs in Defender for IoT:
 
-**Monitor session**: This command is responsible for the process of sending VLANs to the SPAN port.
+**Monitor session**: The following commands configure your switch to send VLANs to the SPAN port.
 
 ```cli
 monitor session 1 source interface Gi1/2
@@ -59,7 +60,7 @@ monitor session 1 filter packet type good Rx
 monitor session 1 destination interface fastEthernet1/1 encapsulation dot1q
 ```
 
-**Monitor Trunk Port F.E. Gi1/1**: VLANs are configured on the trunk port.
+**Monitor Trunk Port F.E. Gi1/1**: The following commands configure your switch to support VLANs configured on the trunk port:
 
 ```cli
 interface GigabitEthernet1/1
