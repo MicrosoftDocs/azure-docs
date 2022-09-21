@@ -115,7 +115,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 
 1. Review your changes and select **Collect**. 
 
-#### Select the data source type and create the DCR
+##### Select the data source type and create the DCR
 
 > [!NOTE]
 > Select at least one facility and a minimum log level for the facility. You edit this list at a later stage to align with CEF, after you have the DCR template.
@@ -140,7 +140,7 @@ sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/
 The installation script configures the `rsyslog` or `syslog` daemon to use the required protocol and restarts the daemon.
 
 > [!NOTE] 
-> To avoid full disk scenarios where the agent can't function, we recommend to set the `syslog` or `rsyslog` configuration not to store unneeded logs.
+> To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog` or `rsyslog` configuration not to store unneeded logs.
 
 ### Set up the connector with the API
 
@@ -260,7 +260,7 @@ This example collects events from the `cron`, `daemon`, `local0`, `local3` and `
 ```
 
 This example collects events for:
-- The `authpriv` and `mark` facilities at the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
+- The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
 - The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
 - The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
 - The `mail` and `uucp` facilities with the `Emergency` log level

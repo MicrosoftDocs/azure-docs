@@ -31,7 +31,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### CEF via AMA connecter (Preview)
 
-use the [CEF over AMA](connect-cef-ama.md) connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
+The [CEF over AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
 
 The connector uses the Azure Monitor Agent (AMA), which supports Data Collection Rules (DCRs) in the cloud. With DCRs, you can filter the logs before upload, for quicker upload, efficient analysis, and querying.
 
