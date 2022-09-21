@@ -62,7 +62,7 @@ For more information, see [supported languages](language-support.md).
 
 ### Expanded the supported languages in LID and MLID through the API
 
-We expand the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
+We expanded the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
 
 For more information, see [supported languages](language-support.md).
 
