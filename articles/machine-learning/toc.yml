@@ -23,14 +23,7 @@
   expanded: true
   items: 
     - name: Azure ML in a day
-      expanded: true
-      items: 
-        - name: 1. Run a Python script
-          href: tutorial-1st-experiment-hello-world.md
-        - name: 2. Train your model
-          href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: tutorial-1st-experiment-bring-data.md
+      href: tutorial-azure-ml-in-a-day.md
     - name: Build models
       items: 
         - name: Create production ML pipelines (preview)
