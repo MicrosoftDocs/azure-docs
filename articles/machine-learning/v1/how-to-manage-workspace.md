@@ -60,7 +60,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
     ```
     Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
-* <a name="create-multi-tenant"></a>**Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication

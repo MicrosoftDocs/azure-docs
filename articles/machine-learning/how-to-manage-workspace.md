@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/08/2022
+ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
@@ -16,7 +16,11 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-ti
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/).  
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
+> * [v1](v1/how-to-manage-workspace.md)
+> * [v2 (preview)](how-to-manage-workspace.md)
+
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](/python/api/overview/azure/ml/).  
 
 As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](how-to-manage-workspace-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
@@ -24,7 +28,7 @@ As your needs change or requirements for automation increase you can also manage
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * If using the Python SDK: 
-   1. [install the SDK v2](https://aka.ms/sdk-v2-install). 
+   1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
    1. Provide your subscription details
 
       [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=subscription_id)]
@@ -32,7 +36,6 @@ As your needs change or requirements for automation increase you can also manage
    1. Get a handle to the subscription.  `ml_client` will be used in all the Python code in this article.
 
       [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ml_client)]
-
 
 ## Limitations
 
@@ -57,10 +60,33 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
    [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=subscription_id)]
 
 
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+
+    ```python
+    ml_client = MLClient(
+    DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>"),
+    subscription_id,
+    resource_group
+    )
+    ```
+
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+
+    ```python
+    from azure.identity import AzureAuthorityHosts
+    
+    # get a handle to the subscription
+    ml_client = MLClient(
+        DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT),
+        subscription_id,
+        resource_group
+    )
+    ```
+
+
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
 
    [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=basic_ex_workspace_name)]
-
 
 For more information, see [Workspace SDK reference](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace).
 
@@ -72,7 +98,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 1. In the upper-left corner of Azure portal, select **+ Create a resource**.
 
-      ![Create a new resource](./media/how-to-manage-workspace/create-workspace.gif)
+    :::image type="content" source="media/how-to-manage-workspace/create-workspace.gif" alt-text="Screenshot show how to create a  workspace in Azure portal.":::
 
 1. Use the search bar to find **Machine Learning**.
 
@@ -116,6 +142,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 # [Python SDK](#tab/python)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
  
 This class requires an existing virtual network.
@@ -133,8 +161,6 @@ This class requires an existing virtual network.
 1. When you are finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
 
 ---
-
-
 
 ### Advanced
 
@@ -162,6 +188,38 @@ Use the following steps to provide your own key:
 
 # [Python SDK](#tab/python)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+Use an CustomerManagedKey object to specify details on your customer managed key.
+
+```python
+
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import Workspace, CustomerManagedKey
+from azure.identity import DefaultAzureCredential
+
+# specify the details of your subscription
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+
+# get a handle to the subscription
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+
+# specify the workspace details
+ws = Workspace(
+    name="my_workspace",
+    location="eastus",
+    display_name="My workspace",
+    description="This example shows how to create a workspace",
+    customer_managed_key=CustomerManagedKey(
+        key_vault="/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/microsoft.keyvault/vaults/<VAULT_NAME>"
+        key_uri="<KEY-IDENTIFIER>"
+    )
+    tags=dict(purpose="demo")
+)
+
+ml_client.workspaces.begin_create(ws)
+```
 
 # [Portal](#tab/azure-portal)
 
@@ -177,7 +235,7 @@ Use the following steps to provide your own key:
 
 ### Download a configuration file
 
-If you will be creating a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance has already created a copy of this file for you.
+If you will be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance will create and store copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
@@ -191,55 +249,36 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
-In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
-
-```python
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-```
-
-* <a name="connect-multi-tenant"></a>**Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **With a configuration file:** This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
     ```python
-    from azureml.core.authentication import InteractiveLoginAuthentication
-    from azureml.core import Workspace
+    from azure.ai.ml import MLClient
     
-    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
-    ws = Workspace.from_config(auth=interactive_auth)
+    # read the config from the current directory
+    ws_from_config = MLClient.from_config()
     ```
-
-* **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
-
-   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-    ```python
-    from azureml.core.authentication import InteractiveLoginAuthentication
-    from azureml.core import Workspace
+* **From parameters**: There is no need to have a config.json file available if you use this approach.
     
-    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
-    ws = Workspace.from_config(auth=interactive_auth)
-    ```
-    
+    [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ws)]
+
+
 If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
-## <a name="view"></a>Find a workspace
+## Find a workspace
 
 See a list of all the workspaces you can use.
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
+[!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=my_ml_client)]
+[!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ws_name)]
 
-```python
-from azureml.core import Workspace
+To get details of a specific workspace:
 
-Workspace.list('<subscription-id>')
-```
+[!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ws_location)]
 
-The Workspace.list(..) method does not return the full workspace object. It includes only basic information about existing workspaces in the subscription. To get a full object for specific workspace, use Workspace.get(..).
 
 # [Portal](#tab/azure-portal)
 
@@ -268,12 +307,10 @@ If you accidentally deleted your workspace, you may still be able to retrieve yo
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-Delete the workspace `ws`:
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
-ws.delete(delete_dependent_resources=False, no_wait=False)
+ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
 ```
 
 The default action is not to delete resources associated with the workspace, that is, container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
