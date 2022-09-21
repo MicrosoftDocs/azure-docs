@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/21/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -29,6 +29,7 @@ Compared to cross-region replication, a cross-zone replication setup provides th
 * Data protection within the same region
 * Failure domain isolation down to the availability zone level
 * With the help of availability zone volume placement feature, bring volumes into the same availability zone as the consuming compute resources
+* Cost saving: there are no network transfers costs
 
 ## Next steps
 

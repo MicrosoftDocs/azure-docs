@@ -23,18 +23,17 @@ ms.author: anfdocs
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
-Additionally, cross-zone replication uses the availability zone volume placement feature. The availability zone volume placement feature is currently in private preview. Contact your account team to request access to the availability zone volume placement feature.   
-
 ## Register the feature 
 
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+>[!IMPORTANT]
+> Cross-zone replication uses the availability zone volume placement feature. The availability zone volume placement feature is currently in private preview. Contact your account team to request access to the availability zone volume placement feature.   
 
-<!-- NEED AFEC NAME -->
+This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTKTKT
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
     ```
 
 2. Check the status of the feature registration: 
@@ -43,7 +42,7 @@ This feature is currently in preview. You need to register the feature before us
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTKTK
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 

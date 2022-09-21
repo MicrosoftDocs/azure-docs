@@ -297,16 +297,14 @@
       items:
       - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
+      - name: Create cross-zone replication 
+        href: create-cross-zone-replication.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
       - name: Manage disaster recovery
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-    - name: Manage cross-zone-replication 
-      items: 
-      - name: Create cross-zone replication 
-        href: create-cross-zone-replication.md
   - name: Develop
     items:
     - name: REST API
