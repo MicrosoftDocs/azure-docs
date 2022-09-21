@@ -1,6 +1,6 @@
 ---
 title: Overview of Cloud Security Posture Management (CSPM)
-description: Learn more about the nw Defender for CSPM plan and the additional enhanced security features that can be enable for your multicloud environment through the CSPM P1 plan.
+description: Learn more about the nw Defender CSPM plan and the additional enhanced security features that can be enable for your multicloud environment through the CSPM P1 plan.
 ms.topic: conceptual
 ms.date: 09/20/2022
 ---
@@ -18,13 +18,13 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 |Release state:| CSPM: GA <br> CSPM P1: Preview |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts <br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP projects|
 
-## Defender for CSPM plan options
+## Defender CSPM plan options
 
-The Defender for CSPM plan comes with two options, CSPM (free) and CSPM P1. When you deploy Defender for Cloud to your subscription and resources you will automatically gain the basic coverages offered by the CSPM plan. To gain access to the additional capabilities provided by Defender for CSPM, you will need to [enable the CSPM P1 plan](enable-enhanced-security.md) to your subscription and resources.
+The Defender CSPM plan comes with two options, CSPM (free) and CSPM P1. When you deploy Defender for Cloud to your subscription and resources you will automatically gain the basic coverages offered by the CSPM plan. To gain access to the additional capabilities provided by Defender CSPM, you will need to [enable the CSPM P1 plan](enable-enhanced-security.md) to your subscription and resources.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
-| Feature | Defender for CSPM | Defender for CSPM P1 | Cloud availability |
+| Feature | Defender CSPM | Defender CSPM P1 | Cloud availability |
 |--|--|--|--|
 | Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
 | [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, On-Premises |
