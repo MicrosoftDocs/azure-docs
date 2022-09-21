@@ -100,7 +100,11 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
 
-1. **Playbook** - Not yet supported in this view. In Microsoft Sentinel, go to **Playbook** to find and use the solution's playbook.
+1. **Playbook** - Select **Open Playbook** to advance to the Playbook templates (Preview) menu. 
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of solution content for Log4j Vulnerability Detection with a Playbook selected and the Open Playbook button available.":::
+
+After the populated search finds the template, select the template and the **Create Playbook** button is available to start playbook creation. Alternately, you can select the Active playbooks menu where the playbook name is filtered for quick selection into the Automation blade.
 
 ## Find the support model for your solution
 
