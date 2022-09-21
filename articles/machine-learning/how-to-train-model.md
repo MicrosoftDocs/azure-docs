@@ -233,6 +233,7 @@ To run this script, you'll use a `command`. The command will be run by submittin
 In the above, you configured:
 - `code` - path where the code to run the command is located
 - `command` -  command that needs to be run
+- `environment` - the environment needed to run the training script. In this case we use a curated or readymade environment provided by AzureML called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of that.
 - `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class.
 
 For more details, refer to the [reference documentation](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
