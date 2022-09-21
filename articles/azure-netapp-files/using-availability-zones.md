@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure’s push towards the use of [availability zones](../availability-zones/az-overview.md#availability-zones) (AZs) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in [Azure’s Well Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. 
 
-Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption.  
+Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption.  
 
 Availability zones are referred to as *logical zones*. Each data center is assigned to a *physical zone*. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping when a subscription is created. Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
 
