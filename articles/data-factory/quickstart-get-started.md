@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Factory
+title: Get started
 description: Get started with your first data factory demo to copy data from one blob storage to another.
 author: pennyzhou-msft
 ms.service: data-factory
@@ -89,7 +89,7 @@ All of the resources referenced above will be created in the new resource group,
 
 ## Clean up resources
 
-You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.
+You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.  For example, if you are using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
 
 ## Next Steps
 
