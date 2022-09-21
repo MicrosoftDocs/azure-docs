@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision 3.0/3.1 Read previews deprecation
 
-The preview versions of the Computer Vision 3.0 and 3.1 Read API are scheduled to be retired on January 31, 2023. Customers are encouraged to refer to the [How-To](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/how-to/call-read-api) and [QuickStarts](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-csharp) to get started with the generally available (GA) version of the Read API instead. The latest GA versions provide the following benefits:
+The preview versions of the Computer Vision 3.0 and 3.1 Read API are scheduled to be retired on January 31, 2023. Customers are encouraged to refer to the [How-To](https://docs.microsoft.com/azure/cognitive-services/computer-vision/how-to/call-read-api) and [QuickStarts](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-csharp) to get started with the generally available (GA) version of the Read API instead. The latest GA versions provide the following benefits:
 * 2022 latest generally available OCR model
 * Significant expansion of OCR language coverage including support for handwritten text
 * Significantly improved OCR quality 
