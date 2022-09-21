@@ -18,12 +18,9 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Azure AD certificate-based authentication technical deep dive (Preview)
+# Azure AD certificate-based authentication technical deep dive
 
 This article explains how Azure Active Directory (Azure AD) certificate-based authentication (CBA) works, with background information and testing scenarios.
-
->[!NOTE]
->Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## How does Azure Active Directory certificate-based authentication work?
 
@@ -42,9 +39,9 @@ Let's cover each step:
 1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
    
    >[!NOTE]
-   > If CBA is enabled on the tenant, all users will see the link to **Sign in with a certificate** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
+   > If CBA is enabled on the tenant, all users will see the link to **Use a certificate or smart card** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Sign-in with a certificate.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Use a certificate or smart card.":::
 
    If you have enabled other authentication methods like **Phone sign-in** or **FIDO2**, users may see a different sign-in screen.
 
@@ -52,7 +49,7 @@ Let's cover each step:
 
 1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
 
-   The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
+   The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
@@ -66,13 +63,13 @@ Let's cover each step:
 1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
 
    >[!NOTE] 
-   >TrustedCA hints are not supported, so the list of certificates can't be further scoped.
+   >TrustedCA hints are not supported, so the list of certificates can't be further scoped. We are looking into adding this functionalty in the future.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
-1. Azure AD verifies the certificate revocation list (CRL) to make sure the certificate is not revoked and is valid. As part of CRL validation, Azure AD will check the CRL of CAs in the entire PKI chain. There is a limit of 5 CAs within the PKI chain for which CRLs will be validated.  
+1. Azure AD verifies the certificate revocation list (CRL) to make sure the certificate is not revoked and is valid. As part of CRL validation, Azure AD will check the CRL of CAs in the entire PKI chain. There is a limit of 5 CAs from the leaf user certificate within the PKI chain for which CRLs will be validated. If the PKI certificate chain has more than 5 CAs Azure AD will only validate the CRL of first 5 CAs from the leaf user certificate. 
 1. Azure AD authenticates the user in the tenant by using the [username binding configured on the tenant](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) by mapping the certificate field value to user attribute value.
-1. If the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
+1. If the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, currently we do not have a second factor support to complete Azure AD Multi-Factor Authentication.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
@@ -91,7 +88,7 @@ Since multiple authentication binding policy rules can be created with different
 
 ## Understanding the username binding policy
 
-The username binding policy helps locate the user in the tenant. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
+The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
 
 An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
 
@@ -102,7 +99,7 @@ Use the highest priority (lowest number) binding.
 1. Look up the user object by using the username or User Principal Name.
 1. If the X.509 certificate field is on the presented certificate, Azure AD will match the value in the certificate field to the user object attribute value.
    1. If a match is found, user authentication is successful.
-   1. If a match is not found, authentication fails.
+   1. If a match is not found, move to the next priority binding.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
 1. If a match is not found on all the configured username bindings, user authentication fails.
@@ -111,7 +108,7 @@ Use the highest priority (lowest number) binding.
  
 Once a user authenticates successfully using CBA, the user's MostRecentlyUsed (MRU) authentication method will be CBA. Next time, when the user enters their UPN and clicks **Next**, the user will be taken to the CBA method directly, and doesn't need to select **Use the certificate or smart card** to use CBA.
 
-To exit the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user.
+To reset the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user and authenticate successfully.
 
 ## Understanding the certificate revocation process
 
@@ -122,7 +119,9 @@ Azure AD downloads and caches the customers certificate revocation list (CRL) fr
 An admin can configure the CRL distribution point during the setup process of the trusted issuers in the Azure AD tenant. Each trusted issuer should have a CRL that can be referenced via an internet-facing URL.
  
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
+>The maximum size of a CRL for Azure Active Directory to successfully download on an interactive sign in and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
+
+When a user performs an  interactive sign-in with a certificate and the CRL exceed the the interactive limit for a cloud (20MB in Azure Global and 45MB in Azure US Government clouds) this initial sign-in will fail showing the user an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators". Once this happens, Azure AD will attempt to download the CRL subject to the service side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
 
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
@@ -149,7 +148,7 @@ If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, 
 >[!IMPORTANT]
 >Due to the nature of CRL caching and publishing cycles, it is highly recommended in case of a certificate revocation to also revoke all sessions of the affected user in Azure AD.
 
-There is no way for the administrator to manually force or re-trigger the download of the CRL. 
+As of now, there is no way for the administrator to manually force or re-trigger the download of the CRL. 
 
 ### How to configure revocation
 
@@ -176,7 +175,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
+1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
@@ -185,13 +184,9 @@ For the first test scenario, configure the authentication policy where the Issue
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png":::  
 
-   The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
-
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
-
-   The **Authentication Details** also show the second factor request.
-
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs." :::  
+   The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate 
+   
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-activity-details.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
 
    The **Additional Details** show the certificate information.
 
@@ -200,11 +195,6 @@ For the first test scenario, configure the authentication policy where the Issue
    These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
-
-   Click **Additional Details** to MFA succeeded. 
-
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token-details.png" alt-text="Screenshot of refresh token authentication details in the sign-in logs." :::  
-
 
 ### Test multifactor authentication
 
@@ -219,6 +209,10 @@ For the next test scenario, configure the authentication policy where the **poli
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
+    The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate 
+   
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfacert-activity-details.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
+   
    The entry with **Interrupted** status has more diagnostic info on the **Additional Details** tab. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
@@ -241,7 +235,7 @@ For the next test scenario, configure the authentication policy where the **poli
 
   We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
 
-## Understanding the certificate-based authentication validation error
+## Understanding the certificate-based authentication error page
 
 Certificate-based authentication can fail for reasons such as the certificate being invalid, or the user selected the wrong certificate or an expired certificate, or because of a Certificate Revocation List (CRL) issue. When certificate validation fails, the user sees this error:
 
