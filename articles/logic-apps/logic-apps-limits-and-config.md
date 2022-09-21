@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 04/08/2022
+ms.date: 07/30/2022
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -536,7 +536,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 <a name="multi-tenant-inbound"></a>
 
-#### Multi-tenant & single-tenant - Inbound IP addresses
+#### Multi-tenant - Inbound IP addresses
 
 | Region | IP |
 |--------|----|
@@ -613,7 +613,7 @@ Also, if your workflow also uses any [managed connectors](../connectors/managed.
 
 <a name="multi-tenant-outbound"></a>
 
-#### Multi-tenant & single-tenant - Outbound IP addresses
+#### Multi-tenant - Outbound IP addresses
 
 This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 

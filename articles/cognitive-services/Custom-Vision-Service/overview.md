@@ -33,9 +33,9 @@ This documentation contains the following types of articles:
 * The [tutorials](./iot-visual-alerts-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
-For a more structured approach, follow a Microsoft Learn module for Custom Vision:
-* [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision/)
-* [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
+For a more structured approach, follow a Learn module for Custom Vision:
+* [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision/)
+* [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
 
 ## How it works
 

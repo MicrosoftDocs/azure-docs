@@ -32,8 +32,6 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-This is a table example:
-
 **Syntax**
 
 `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
@@ -41,13 +39,13 @@ This is a table example:
 **Example**
 
 ```azcopy
-https://mystorageaccount.blob.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'
 ```
 
 **Example (hierarchical namespace)**
 
 ```azcopy
-https://mystorageaccount.dfs.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'
 ```
 
 For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).

@@ -76,7 +76,7 @@ There are several ways to configure the delay on the service side.
 
 ### Client configuration
 
-To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+To receive notification when an endpoint has changed, clients should register a callback see [Sample ServiceNotificationFilterDescription](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.servicenotificationfiltermatched).
 The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore, as they will go down soon.
 
 ### Optional upgrade overrides

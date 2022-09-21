@@ -121,7 +121,7 @@ az webapp config set --name mywebapp --resource-group myresourcesourcegroup --ge
 
 ## App Service Web app and MySQL flexible server in different virtual networks
 
-If you have created the App Service app and the MySQL flexible server in different virtual networks (VNets), you will need to use one of the following methods to establish a seamless connection:
+If you have created the App Service app and the MySQL flexible server in different virtual networks (VNets), you will need to do the following two steps to establish a seamless connection:
 
 - **Connect the two VNets using VNet peering** (local or global). See [Connect virtual networks with virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-cli.md) guide.
 - **Link MySQL flexible server's Private DNS zone to the web app's VNet using virtual network links.** If you use the Azure portal or the Azure CLI to create MySQL flexible servers in a VNet, a new private DNS zone is auto-provisioned in your subscription using the server name provided. Navigate to the flexible server's private DNS zone and follow the [How to link the private DNS zone to a virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) guide to set up a virtual network link.

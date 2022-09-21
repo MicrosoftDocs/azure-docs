@@ -4,7 +4,7 @@ description: Learn how to view the user assignments report and audit logs in Azu
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 
