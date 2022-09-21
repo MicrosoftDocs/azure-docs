@@ -38,18 +38,12 @@ In this tutorial, you learn how to:
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
-You can ingest event hub data into a custom table or one of these built-in tables in your Log Analytics workspace:
+You need to create a destination table...
 
-- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
-- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
-- [Syslog](/azure/azure-monitor/reference/tables/syslog)
-- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
-
-If you're creating a custom table or adding columns to a built-in table, follow these naming guidelines:
+When creating a custom table, follow these naming guidelines:
  
 * Custom table names must have the `_CL` suffix.
-* Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter.  
-* Columns added to built-in tables must have the suffix `_CF`. Columns in a custom table do not need this suffix. 
+* Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter. 
 
 To create a custom table into which to ingest events, in the Azure portal:  
 
@@ -122,17 +116,16 @@ To generate a data collection rule JSON file in the Azure portal:
     - `identity` - Defines which type of [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to use. In our example, we use system-assigned identity. You can also [configure user-assigned managed identity](#configure-user-assigned-managed-identity-optional).
     
     - `dataCollectionEndpointId` - Resource ID of the data collection endpoint.
-    - `streamDeclarations` - Defines the columns in which to store the incoming data, based on the destination table. In our example, we've defined these columns:
+    - `streamDeclarations` - Defines which data to ingest from event hub (incoming data). The stream declaration cannot be modified. 
+       
        - `TimeGenerated` - The time at which the data was ingested from event hub to Azure Monitor Logs.
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
     
-       Modify the `streamDeclarations` section based on your [destination table](#create-a-destination-table-for-event-hub-data-in-your-log-analytics-workspace), if you're using a schema different from our example.
-
-    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) (optional).
+    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and the stream to which you ingest the data (optional).
     - `destinations` - Specifies the destination workspace.
     - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
-    - `transformKql` - Defines how to map and transform data from the source format to the columns in the destination table. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping standard event hub data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a standard Azure table or a table with a schema different from your destination table [define a data collection transformation](../essentials/data-collection-transformations.md).
+    - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
 
     ```json
     {
@@ -217,7 +210,7 @@ To generate a data collection rule JSON file in the Azure portal:
                              "eventHub": {
                                         "consumerGroup": "[if(not(empty(parameters('consumerGroup')))), parameters('consumerGroup'), json('null')]",
                                         "stream": "Custom-MyEventHubStream",
-                                         "name": "myEventHubDataSource1"
+                                        "name": "myEventHubDataSource1"
                                                               }
                                                }
     
@@ -263,7 +256,7 @@ To generate a data collection rule JSON file in the Azure portal:
 
 1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-details.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
 
 1. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
@@ -288,7 +281,7 @@ with:
                 "identity": {
                         "type": "userAssigned",
                         "userAssignedIdentities": {
-                            "identity Resource Id": {
+                            "<identity_resource_Id>": {
                                 "principalId": "<principal_id>",
                                 "clientId": "<client_id>"
                             }
@@ -365,20 +358,6 @@ You can associate a single data collection rule with multiple event hubs that sh
     }
   ]
 }
-```
-## Clean up resources
-
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
-
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
-
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
 
 ## Next steps
 
