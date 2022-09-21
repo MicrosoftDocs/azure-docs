@@ -1042,8 +1042,6 @@
           href: ../how-to-move-regions.md
         - name: Prevent changes or deletion
           href: ../resource-locks.md
-        - name: Back up and restore
-          items:
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
