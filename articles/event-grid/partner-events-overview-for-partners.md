@@ -22,11 +22,11 @@ For either publishing events or receiving events, you create the same kind of Ev
 1. Communicate your interest in becoming a partner by sending an email to [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). Once you contact us, we'll guide you through the onboarding process and help your service get an entry card on our [Azure Event Grid gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) so that your service can be found on the Azure portal. 
 2. Create a [partner registration](#partner-registration). This is a global resource and you usually need to create once.
 3. Create a [partner namespace](#partner-namespace). This resource exposes an endpoint to which you can publish events to Azure. When creating the partner namespace, provide the partner registration you created. 
-4. Customer authorizes you to create a partner resource, a [partner topic](concepts.md#partner-topics), in customer's Azure subscription. 
+4. Customer authorizes you to create a [partner topic](concepts.md#partner-topics) in customer's Azure subscription. 
 5. Customer accesses your web page or executes a command, you define the user experience, to request either the flow of your events to Azure or the ability to receive Microsoft events into your system. In response to that request, you set up your system to do so with input from the customer. For example, the customer may have the option to select certain events from your system that should be forwarded to Azure.
-6. According to customer's requirements, you create a partner topic under the customer's Azure subscription, resource group and with the name the customer provides to you. It's achieved by using channels. Create a [channel](#channel) of type `partner topic`, if the customer wants to receive your events on Azure. Channels are resources contained by partner namespaces.
+6. Create a partner topic in customer's Azure subscription and resource group by using channels. [Channels](#channel) are resources contained by partner namespaces.
 7. Customer activates the partner topic that you created in their Azure subscription and resource group.
-8. If you created a partner topic, start publishing events to your partner namespace. 
+8. Start publishing events to your partner namespace. 
 
     >[!NOTE]
     > You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) to every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
@@ -92,7 +92,7 @@ A verified partner is a partner organization whose identity has been validated b
 Customers authorize you to create partner topics in their Azure subscription. The authorization is granted for a given resource group in a customer Azure subscription and it's time bound. You must create the channel before the expiration date set by the customer. You should have documentation suggesting the customer an adequate window of time for configuring your system to send or receive events and to create the channel before the authorization expires. If you attempt to create a channel without authorization or after it has expired, the channel creation will fail and no resource will be created on the customer's Azure subscription. 
 
 > [!NOTE]
-> Event Grid started **enforcing authorization checks to create partner topics** around June 30th, 2022. You should update your documentation asking your customers to grant you the authorization before you attempt to create a channel or an event channel.
+> Event Grid started **enforcing authorization checks to create partner topics** around June 30th, 2022. Your documentation should ask your customers to grant you the authorization as a prerequisite before you create a channel.
 
 >[!IMPORTANT]
 > **A verified partner is not an authorized partner**. Even if a partner has been vetted by Microsoft, you still need to be authorized before you can create a partner topic in the customer's Azure subscription. 

@@ -2,7 +2,7 @@
 title: Onboard as an Azure Event Grid partner using Azure portal
 description: Use Azure portal to onboard an Azure Event Grid partner. 
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 09/21/2022
 ---
 
 # Onboard as an Azure Event Grid partner using the Azure portal
@@ -162,7 +162,7 @@ If you created a channel you may be interested to update the configuration once 
 If you selected **Source attribute in event** for **Partner topic routing mode**, create an event channel by following steps in this section. 
 
 > [!IMPORTANT]
-> - **Channel** is the new routing resource type and is the preferred option. An **event channel** is a legacy resource and will be deprecated soon. 
+> - **Channel** is the new routing resource type and is the preferred option. 
 
 1. Go to the **Overview** page of the namespace you created. 
 
