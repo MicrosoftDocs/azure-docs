@@ -19,22 +19,21 @@ Azure Native ISV Services are available through the Marketplace.
 
 |Partner  |Description  |
 |---|---------|
-|Datadog     |Monitor your servers, clouds, metrics, and apps in one place.|
-|Elastic     |    Monitor the health and performance of your Azure environment.     |
-|Logz.io     |     Monitor the health and performance of your Azure environment.    |
-|Dynatrace for Azure   |   Use Dynatrace for Azure for monitoring your workloads using the Azure portal.      |
+|[Datadog](datadog/overview.md)     |    Monitor your servers, clouds, metrics, and apps in one place.|
+|[Elastic](elastic/overview.md)     |    Monitor the health and performance of your Azure environment.     |
+|[Logz.io](logzio/overview.md)     |    Monitor the health and performance of your Azure environment.    |
+|[Dynatrace for Azure](dynatrace/dynatrace-overview.md)   |   Use Dynatrace for Azure for monitoring your workloads using the Azure portal.      |
 
 ## Data and Storage
 
 |Partner  |Description  |
 |---|---------|
-| Apache Kafka for Confluent Cloud    | Fully managed event streaming platform powered by Apache Kafka. |
+| [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event streaming platform powered by Apache Kafka. |
 
 ## Networking & Security
 
 |Partner  |Description  |
 |---|---------|
-|NGINX for Azure (preview)   | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |
+|[NGINX for Azure (preview)](nginx/nginx-overview.md)   | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |
 
 ## What's next?
-
