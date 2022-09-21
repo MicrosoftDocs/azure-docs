@@ -37,7 +37,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual WAN
-            url: /learn/modules/introduction-azure-virtual-wan/
+            url: /training/modules/introduction-azure-virtual-wan/
       - linkListType: video
         links:
           - text: Remote user connectivity with Azure Virtual WAN

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2022
+ms.date: 09/02/2022
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
