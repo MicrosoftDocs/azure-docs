@@ -12,20 +12,35 @@ ms.author: juliako
 
 The following slate detection insights (listed below) are automatically identified when indexing a video using the advanced indexing option. These insights are most useful to customers involved in the movie post-production process.
 
-* [Clapperboard](https://en.wikipedia.org/wiki/Clapperboard) detection with metadata extraction. This insight is used to detect clapperboard instances and information written on each (for example, *production*, *roll*, *scene*, *take*, etc. For more information, see [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
-* Digital patterns detection, including color bars. For more information, see [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md).
-* Textless slate detection, including scene matching. For more information, see [How to enable and view textless slate with scene matching](textless-slate-scene-matching.md).
+* [Clapperboard](https://en.wikipedia.org/wiki/Clapperboard) detection with metadata extraction. This insight is used to detect clapperboard instances and information written on each (for example, *production*, *roll*, *scene*, *take*, etc. 
+* Digital patterns detection, including color bars.
+* Textless slate detection, including scene matching. 
+
+## View post-production insights
+
+In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production insights.":::
+
+After the file has been uploaded and indexed, select the "Post-production" checkmark from the list of insights.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark.":::
+
+For details about viewing each slate insight, see:
+
+- [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
+- [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md)
+- [How to enable and view textless slate with scene matching](textless-slate-scene-matching.md).
 
 ## Limitations
 
-### Clapper board limitations
+This section lists limitations of each insight.
 
-- The fields/titles appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
-- Handwritten text or digital digits may not be correctly identified by the fields detection algorithm. 
-- The algorithm is optimized to identify fields categories that appear horizontally.  
-- The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
-- Empty fields’ values may lead to alignment fields to wrong fields categories.  
-- Maybe include something about hiding part of the clapper and the fact that “For adjustment frames, should show one value with the highest read confidence.” 
+### Clapperboard limitations
+
+See [clapperboard limitation](clapperboard-metadata.md#clapperboard-limitations).
 
 ### Digital patterns limitations 
 

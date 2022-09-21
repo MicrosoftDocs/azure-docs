@@ -10,18 +10,20 @@ ms.author: juliako
 
 # Enable and view digital patterns with color bars (preview)
 
-This article shows how to enable and view digital patterns with color bars (preview). In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+This article shows how to enable and view digital patterns with color bars (preview). 
+
+## View post-production insights
+
+In order to set the index process to include the slate metadata, the user should chose one of the Advanced presets under **Video + audio indexing** menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::
+> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
 
-## View the insight
+After the file has been uploaded and indexed, select the "Post-production" checkmark from the list of insights.
 
-## View JSON
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
 
-```json
-
-```
 
 ## Next steps
 

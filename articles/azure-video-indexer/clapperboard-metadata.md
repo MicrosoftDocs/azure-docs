@@ -10,20 +10,73 @@ ms.author: juliako
 
 # Enable and view a clapperboard with extracted metadata (preview)
 
-This article shows how to enable and view a clapperboard with extracted metadata insight(preview). This insight is used to detect: *production*, *roll*, *scene*, *take*, and other data written on the board.
+A clapperboard with extracted metadata insight is most useful to customers involved in the movie post-production process. This insight is used to detect clapperboard instances and information written on each (for example, *production*, *roll*, *scene*, *take*, etc.
 
-In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::
+When the movie is being edited, the slate is removed from the scene but a metadata with what's on the clapper board is important. Azure Video Indexer extracts the data from clapperboards, preserves and presents the metadata as described in this article.
 
 ## View the insight
 
-## View JSON
+### View post-production insights
 
-```json
+In order to set the index process to include the slate metadata, the user should chose one of the Advanced presets under **Video + audio indexing** menu as can be seen below.
 
-```
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
+
+After the file has been uploaded and indexed, select the "Post-production" checkmark from the list of insights.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
+
+### Clapperboards
+
+Clapperboards contain titles, like: *production*, *roll*, *scene*, *take* and values associated with each title.
+
+The titles and their values' quality may not always be recognizable. For more information, see [limitations](#clapperboard-limitations).
+
+For example, take this clapperboard:
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/clapperboard.png" alt-text="This image shows a clapperboard.":::
+
+In the following example the board contains the following fields:
+
+|title|content|
+|---|---|
+|camera|COD|
+|date|FILTER (in this case the board contains no date)|
+|director|John|
+|production|Prod name|
+|scene|FPS|
+|take|99|
+
+#### View the insight
+
+To see the instances on the website, select **Insights** and scroll to **Clapperboards**. You can hover over each clapperboard, or unfold **Show/Hide clapperboard info** and see the metadata:
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/clapperboard-metadata.png" alt-text="This image shows the clapperboard metadata.":::
+
+You can also find the clapperboard instance and timeline on the **Timeline** tab.
+
+#### JSON
+
+To display the JSON file: 
+
+1. Select Download and then Insights (JSON).  
+1. Copy the `clapperboard` element, under `insights`, and paste it into your Online JSON Viewer. 
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/clapperboard-json.png" alt-text="This image shows the clapperboard metadata in json.":::
+
+## Clapperboard limitations
+
+- The fields/titles appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
+- Handwritten text or digital digits may not be correctly identified by the fields detection algorithm. 
+- The algorithm is optimized to identify fields categories that appear horizontally.  
+- The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
+- Empty fields’ values may lead to alignment fields to wrong fields categories.  
+- Maybe include something about hiding part of the clapper and the fact that “For adjustment frames, should show one value with the highest read confidence.” 
 
 ## Next steps
 
