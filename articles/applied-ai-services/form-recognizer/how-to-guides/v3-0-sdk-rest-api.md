@@ -20,21 +20,23 @@ recommendations: false
 
 In this project, you'll learn how-to use the following Form Recognizer models to analyze and extract data and values from forms and documents:
 
-* [prebuilt-read](#read-model)
-
-* [prebuilt-layout](#layout-model)
-
-* [prebuilt-document](#general-document-model)
-
-* [prebuilt-tax.us.w2](#w2-model)
-
-* [prebuilt-invoice](#invoice-model)
-
-* [prebuilt-receipt](#receipt-model)
-
-* [prebuilt-idDocument](#id-document-model)
-
-* [prebuilt-businessCard](#business-card-model)
+> [!div class="checklist"]
+>
+> * [prebuilt-read](#read-model)
+>
+> * [prebuilt-layout](#layout-model)
+>
+> * [prebuilt-document](#general-document-model)
+>
+> * [prebuilt-tax.us.w2](#w2-model)
+>
+> * [prebuilt-invoice](#invoice-model)
+>
+> * [prebuilt-receipt](#receipt-model)
+>
+> * [prebuilt-idDocument](#id-document-model)
+>
+> * [prebuilt-businessCard](#business-card-model)
 
 ::: zone pivot="programming-language-csharp"
 

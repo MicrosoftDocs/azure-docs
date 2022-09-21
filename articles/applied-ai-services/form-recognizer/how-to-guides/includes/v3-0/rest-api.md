@@ -58,7 +58,6 @@ ms.author: lajanuar
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-
 ## Analyze documents and get results
 
  A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
@@ -112,16 +111,32 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 ## Read model
 
+The [prebuilt-read](../../../concept-read.md) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+
 ## Layout model
+
+The [prebuilt-layout](../../../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 
 ## General document model
 
+The [prebuilt-document](../../../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
+
 ## W2 model
+
+The [prebuilt-tax.us.w2](../../../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
 ## Invoice model
 
+The [prebuilt-invoice](../../../concept-invoice.md) model extracts key fields and line items from sales invoices of various formats and quality including phone-captured images, scanned documents, and digital PDFs.
+
 ## Receipt-model
+
+The [prebuilt-receipt](../../../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 
 ## ID document model
 
+The [prebuilt-idDocument](../../../concept-id-document.md) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
+
 ## Business card model
+
+The [prebuilt-businessCard](../../../concept-business-card.md) model extracts key information from business card images.
