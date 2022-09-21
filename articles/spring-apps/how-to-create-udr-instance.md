@@ -153,7 +153,6 @@ Add [necessary rules](vnet-customer-responsibilities.md) for ASA
 # Add FW Network Rules
 
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 1194 --action allow --priority 100
-az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 9000
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'springcloudtcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 443 445
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
 
