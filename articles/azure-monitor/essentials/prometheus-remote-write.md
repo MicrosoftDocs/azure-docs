@@ -1,4 +1,4 @@
----azure act
+---
 title: Configure remote write for Azure Monitor managed service for Prometheus
 description: Use remote write to send metrics from a local Prometheus server to Azure Monitor managed service for Prometheus.
 ms.topic: conceptual
@@ -18,7 +18,7 @@ Use the following steps to configure remote-write to Azure Monitor managed servi
 1. [Create Azure Monitor workspace](#create-azure-monitor-workspace) 
 2. [Create data collection endpoint](#create-data-collection-endpoint) 
 3. [Create data collection rule](#create-data-collection-rule) - 
-4. [Grant access to User Assigned Identity or Azure AD app](#grant-access-to-user-assigned-identity-or-aad-app)
+4. [Grant access to User Assigned Identity or Azure AD app](#grant-access-to-user-assigned-identity-or-azure-ad-app)
 5. [Set up CSI driver](#set-up-csi-driver)
 6. [Deploy the Azure Monitor side car container](#deploy-the-azure-monitor-side-car-container)
 
