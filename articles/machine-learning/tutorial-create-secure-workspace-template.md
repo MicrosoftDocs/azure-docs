@@ -227,6 +227,6 @@ After the template completes, use the following steps to connect to the DSVM:
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
 > * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
 
-To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Get started with a Python script in Azure Machine Learning](tutorial-1st-experiment-hello-world.md).
+To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).
