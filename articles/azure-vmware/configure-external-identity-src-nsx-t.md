@@ -53,7 +53,7 @@ In this article, you'll learn how to configure an external identity source for N
    |Bind Identity | The format is `user@domainName`, or you can specify the distinguished name. For Active Directory, you can use either the userPrincipalName (user@domainName) or the distinguished name. For OpenLDAP, you must supply a distinguished name. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator if you aren't sure.|
    |Password |Enter a password for the LDAP server. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator.|
 1. Select **Add**. 
-       :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true" lightbox="../media/nsxt/set-ldap-server.png":::
+       :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true" lightbox="./media/nsxt/set-ldap-server.png":::
  
 
       :::image type="content" source="./media/nsxt/accept-ldap-cert.png" alt-text="Screenshot showing how to save the certificate for an LDAP server." border="true" lightbox="./media/nsxt/accept-ldap-cert.png":::
