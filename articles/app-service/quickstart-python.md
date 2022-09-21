@@ -54,7 +54,7 @@ To run the application locally:
 1. Install the dependencies:
 
     ```Console
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 1. Run the app:
@@ -84,13 +84,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 1. Install the dependencies:
 
     ```Console
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 1. Run the app:
 
     ```Console
-    python3 manage.py runserver
+    python manage.py runserver
     ```
 
 1. Browse to the sample application at `http://localhost:8000` in a web browser.
