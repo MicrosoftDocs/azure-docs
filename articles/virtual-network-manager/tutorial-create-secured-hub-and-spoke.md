@@ -113,7 +113,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. On the *Basics* tab, enter the following information:
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the create a network group basics tab.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the Basics tab on Create a network group page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -162,15 +162,15 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Description | Provide a description about what this connectivity configuration will do. |
 
 
-1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This will reveal additional settings.
+1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This will reveal other settings.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/hub-configuration.png" alt-text="Screenshot of selecting a hub for the connectivity configuration.":::
 
-1.  Select **Select a hub** under **Hub** setting. Then, select **VNet-A-WestUS** to serve as your network hub and click **Select**.
+1.  Select **Select a hub** under **Hub** setting. Then, select **VNet-A-WestUS** to serve as your network hub and select **Select**.
 
     :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub configuration.":::
     
-1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and click **Select**.
+1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and select **Select**.
 
     :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-network-group.png" alt-text="Screenshot of Add network groups page.":::
 
@@ -205,7 +205,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ## Create security configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration..
+1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
 
 1. Enter the name **mySecurityConfig** for the configuration, then select **Next: Rule collections**.
 
