@@ -1,8 +1,8 @@
 ---
 title: Concepts - Networking diagram for Azure Red Hat OpenShift 4
 description: Networking diagram and overview for Azure Red Hat OpenShift networking
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
@@ -91,7 +91,7 @@ The following networking features are specific to Azure Red Hat OpenShift:
 
 The following network settings are available for Azure Red Hat OpenShift 4 clusters:
 
-* **API Visibility** - Set the API visibility when running the [az are create command](tutorial-create-cluster.md#create-the-cluster).
+* **API Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
     * "Public" - API Server is accessible by external networks.
     * "Private" - API Server assigned a private IP from the control plane subnet, only accessible using connected networks (peered virtual networks and other subnets in the cluster). A private DNS Zone will be created on the customer's behalf.
 * **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).

@@ -1,6 +1,5 @@
 ---
-title: Initialize MSAL.js client apps | Azure
-titleSuffix: Microsoft identity platform
+title: Initialize MSAL.js client apps
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 author: mmacy

@@ -4,7 +4,7 @@ description: Introduction to Azure Active Directory activity logs in Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/11/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -120,7 +120,7 @@ The following table contains estimated costs per month for a basic Event Hub in 
 
 
 
-To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/logs/manage-cost-storage.md).
+To review costs related to managing the Azure Monitor logs, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
 
 ## Frequently asked questions
 

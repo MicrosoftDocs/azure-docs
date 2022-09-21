@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 10/21/2021
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.date: 08/03/2022
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
 # What is Azure Machine Learning designer? 
@@ -24,9 +24,9 @@ Azure Machine Learning designer is a drag-and-drop interface used to train and d
 The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
-+ [Datasets](#datasets)
++ [Data](#data)
 + [Compute resources](#compute)
-+ [Registered models](concept-azure-machine-learning-architecture.md#models)
++ [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
@@ -34,20 +34,20 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 
 Use a visual canvas to build an end-to-end machine learning workflow. Train, test, and deploy models all in the designer:
 
-+ Drag-and-drop [datasets](#datasets) and [components](#component) onto the canvas.
++ Drag-and-drop [data assets](#data) and [components](#component) onto the canvas.
 + Connect the components to create a [pipeline draft](#pipeline-draft).
-+ Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
++ Submit a [pipeline run](#pipeline-job) using the compute resources in your Azure Machine Learning workspace.
 + Convert your **training pipelines** to **inference pipelines**.
-+ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
-    + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
++ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and data assets.
+    + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and data assets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-1. [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
++ [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -55,22 +55,22 @@ As you edit a pipeline in the designer, your progress is saved as a **pipeline d
 
 A valid pipeline has these characteristics:
 
-* Datasets can only connect to components.
-* components can only connect to either datasets or other components.
+* Data assets can only connect to components.
+* components can only connect to either data assets or other components.
 * All input ports for components must have some connection to the data flow.
 * All required parameters for each component must be set.
 
-When you're ready to run your pipeline draft, you submit a pipeline run.
+When you're ready to run your pipeline draft, you submit a pipeline job.
 
-### Pipeline run
+### Pipeline job
 
-Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing. **Clone** a pipeline run to create a new pipeline draft for you to edit.
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft for you to edit.
 
-Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
+Pipeline jobs are grouped into [experiments](v1/concept-azure-machine-learning-architecture.md#experiments) to organize job history. You can set the experiment for every pipeline job. 
 
-## Datasets
+## Data
 
-A machine learning dataset makes it easy to access and work with your data. Several [sample datasets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning data asset makes it easy to access and work with your data. Several [sample data assets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more data assets as you need them.
 
 ## Component
 
@@ -85,7 +85,7 @@ For some help navigating through the library of machine learning algorithms avai
 
 ## <a name="compute"></a> Compute resources
 
-Use compute resources from your workspace to run your pipeline and host your deployed models as real-time endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
+Use compute resources from your workspace to run your pipeline and host your deployed models as online endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
 
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
@@ -96,9 +96,9 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as a [online endpoint](concept-endpoints.md#what-are-online-endpoints). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
-Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
+Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
@@ -106,7 +106,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Publish
 
-You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
+You can also publish a pipeline to a **pipeline endpoint**. Similar to an online endpoint, a pipeline endpoint lets you submit new pipeline jobs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
 
 Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 

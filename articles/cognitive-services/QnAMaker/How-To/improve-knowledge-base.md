@@ -5,8 +5,8 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 01/11/2022
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---

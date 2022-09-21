@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/18/2022
 ---
 
 # Tutorial: Build your first Azure data factory using Azure PowerShell
@@ -20,7 +20,7 @@ ms.date: 10/22/2021
 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-powershell.md).
+> This article applies to version 1 of Data Factory. Version 1 is in maintenance mode. The document exists for legacy users. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-powershell.md).
 
 In this article, you use Azure PowerShell to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 

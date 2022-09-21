@@ -37,6 +37,7 @@ You will complete the following tasks:
     * The included 5V power supply
     * Ethernet cable
     * Wired Ethernet access
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -66,7 +67,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain-rx.bat*
 
 1. Add the RX compiler to the Windows Path:
 
@@ -256,6 +257,9 @@ You can view the device information from IoT Central.
 Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot
 

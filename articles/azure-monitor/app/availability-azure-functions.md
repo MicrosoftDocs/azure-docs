@@ -12,10 +12,11 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the TrackAvailability() API call works within an Azure Function. Not how to write the underlying HTTP Test code/business logic that would be required to turn this into a fully functional availability test. By default if you walk through this example you will be creating a basic availability HTTP GET test.
+> To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
 ## Create a timer trigger function
 
-1. Create a Azure Functions resource.
+1. Create an Azure Functions resource.
     - If you already have an Application Insights Resource:
         - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
         - Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:

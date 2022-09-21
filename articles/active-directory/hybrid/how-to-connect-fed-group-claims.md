@@ -4,12 +4,12 @@ description: Get information on how to configure group claims for use with Azure
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: karenhoran
+manager: amycolannino
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 04/05/2022
 ms.author: billmath
 author: billmath
 ---
@@ -21,12 +21,13 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 - Groups identified by their Azure AD object identifier (OID) attribute
 - Groups identified by the `sAMAccountName` or `GroupSID` attribute for Active Directory-synchronized groups and users
 
+> [!IMPORTANT]
+> The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
+
 ## Important caveats for this functionality
 
 - Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Those limits are 150 groups for a SAML token and 200 for a JSON Web Token (JWT). Exceeding a limit can lead to unpredictable results. 
-
-  If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application. If assigning groups to your applications is not possible, you can configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. 
+- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](..\develop\active-directory-optional-claims.md#configuring-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
@@ -99,7 +100,7 @@ To configure group claims for a gallery or non-gallery SAML application via sing
    | **All groups** | Emits security groups and distribution lists and roles. |
    | **Security groups** | Emits security groups that the user is a member of in the groups claim. |
    | **Directory roles** | If the user is assigned directory roles, they're emitted as a `wids` claim. (The group's claim won't be emitted.) |
-   | **Groups assigned to the application** | Emits only the groups that are explicitly assigned to the application and that the user is a member of. |
+   | **Groups assigned to the application** | Emits only the groups that are explicitly assigned to the application and that the user is a member of. Recommended for large organizations due to the group number limit in token. |
 
    - For example, to emit all the security groups that the user is a member of, select **Security groups**.
 
@@ -136,7 +137,10 @@ Some applications require the group membership information to appear in the role
 > If you use the option to emit group data as roles, only groups will appear in the role claim. Any application roles that the user is assigned to won't appear in the role claim.
 
 #### Group filtering
-Group filtering allows for fine control of the list of groups that's included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the group's claim that's sent to that application. The filter will be applied against all groups regardless of the group hierarchy. 
+Group filtering allows for fine control of the list of groups that's included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the group's claim that's sent to that application. The filter will be applied against all groups regardless of the group hierarchy.
+
+> [!NOTE]
+> Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
 
 You can configure filters to be applied to the group's display name or `SAMAccountName` attribute. The following filtering operations are supported: 
 
@@ -159,7 +163,9 @@ For more information about regex replace and capture groups, see [The Regular Ex
 >[!NOTE]
 > As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
-> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim. 
+> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim.
+>
+>If the transform applied to the original groups claim results in a new custom claim, then the original groups claim will be omitted from the token. However, if the configured regex doesn't match any value in the original list, then the custom claim will not be present and the original groups claim will be included in the token.
 
 ### Edit the group claim configuration
 
@@ -193,7 +199,7 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    By default, group `ObjectID` attributes will be emitted in the group claim value. To modify the claim value to contain on-premises group attributes, or to change the claim type to a role, use the `optionalClaims` configuration described in the next step.
 
-3. Set optional clams for group name configuration.
+3. Set optional claims for group name configuration.
 
    If you want the groups in the token to contain the on-premises Active Directory group attributes, specify which token-type optional claim should be applied in the `optionalClaims` section. You can list multiple token types:
 
@@ -248,12 +254,12 @@ Emit group names to be returned in `NetbiosDomain\sAMAccountName` format as the 
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        "additionalProperties": ["netbios_domain_and_sam_account_name", "emit_as_roles"]
     }],
 
     "idToken": [{
         "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        "additionalProperties": ["netbios_domain_and_sam_account_name", "emit_as_roles"]
     }]
 }
 ```

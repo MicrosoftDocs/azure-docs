@@ -57,7 +57,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
     ![Screenshot that shows the splash page for the Logic Apps Designer with When an H T T P request is received highlighted.](./media/tutorial-send-email/receive-http-request.png)
 1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
-    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected. ](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected.](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copy the following sample JSON into the textbox and select **Done**.
 
@@ -189,7 +189,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://learn.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     

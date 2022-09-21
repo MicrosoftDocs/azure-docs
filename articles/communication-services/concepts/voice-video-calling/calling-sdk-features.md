@@ -2,11 +2,11 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -29,7 +29,7 @@ Key features of the Calling SDK:
 
 ## Detailed capabilities 
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
+The following list presents the set of features that are currently available in the Azure Communication Services Calling SDKs.
 
 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
@@ -61,6 +61,7 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Support for early media                                                                                             | ❌   | ✔️       | ✔️              | ✔️                 |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -101,9 +102,13 @@ The following timeouts apply to the Communication Services Calling SDKs:
 | PSTN call establishment timeout                                             | 115                |
 | Promote 1:1 call to a group call timeout                                    | 115                |
 
+## Maximum call duration:
+The maximum call duration is 30 hours, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
+
+
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. **We support the most recent three versions of the browser** unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
 | Platform     | Chrome | Safari | Edge (Chromium)  |
 | ------------ | ------ | ------ | --------------   |

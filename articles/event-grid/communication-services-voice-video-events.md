@@ -63,6 +63,8 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
+[!INCLUDE [Public Preview](../communication-services/includes/public-preview-include-document.md)]
+
 ### Microsoft.Communication.CallStarted
 
 ```json
@@ -73,16 +75,24 @@ This section contains an example of what that data would look like for each even
     "subject": "call/{serverCallId}/startedBy/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
     "data": {
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
+        },
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
         "id": "00000000-0000-0000-0000-000000000000"
       },
-      "isTwoParty": true
+      "room": {
+        "id": "{roomId}"
+      },
+      "isTwoParty": false,
+      "correlationId": "{correlationId}",
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallStarted",
     "dataVersion": "1.0",
@@ -103,16 +113,24 @@ This section contains an example of what that data would look like for each even
     "data": {
       "durationOfCall": 49.728617199999995,
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
+        },
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
         "id": "00000000-0000-0000-0000-000000000000"
       },
-      "isTwoParty": true
+      "room": {
+        "id": "{roomId}"
+      },
+      "isTwoParty": false,
+      "correlationId": "{correlationId}",
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallEnded",
     "dataVersion": "1.0",
@@ -133,25 +151,36 @@ This section contains an example of what that data would look like for each even
     "subject": "call/{serverCallId}/participant/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
     "data": {
       "user": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
+        },
+        "role": "{role}"
       },
       "displayName": "Sharif Edge",
       "participantId": "041e3b8a-1cce-4ebf-b587-131312c39410",
       "endpointType": "acs-web-test-client-ACSWeb(3617/1.0.0.0/os=windows; browser=chrome; browserVer=93.0; deviceType=Desktop)/TsCallingVersion=_TS_BUILD_VERSION_/Ovb=_TS_OVB_VERSION_",
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
+        },
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
         "id": "00000000-0000-0000-0000-000000000000"
       },
-      "isTwoParty": true
+      "room": {
+        "id": "{roomId}"
+      },
+      "isTwoParty": false,
+      "correlationId": "{correlationId}",
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallParticipantAdded",
     "dataVersion": "1.0",
@@ -170,25 +199,36 @@ This section contains an example of what that data would look like for each even
     "subject": "call/aHR0cHM6Ly9jb252LWRldi0yMS5jb252LWRldi5za3lwZS5uZXQ6NDQzL2NvbnYvbVQ4NnVfempBMG05QVM4VnRvSWFrdz9pPTAmZT02Mzc2Nzc3MTc2MDAwMjgyMzA/participant/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
     "data": {
       "user": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8"
+          }
+        },
+        "role": "{role}"
       },
       "displayName": "Sharif Chrome",
       "participantId": "750a1442-3156-4914-94d2-62cf73796833",
       "endpointType": "acs-web-test-client-ACSWeb(3617/1.0.0.0/os=windows; browser=chrome; browserVer=93.0; deviceType=Desktop)/TsCallingVersion=_TS_BUILD_VERSION_/Ovb=_TS_OVB_VERSION_",
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
-        }
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
+        },
+        "role": "{role}"
       },
       "serverCallId": "aHR0cHM6Ly9jb252LWRldi0yMS5jb252LWRldi5za3lwZS5uZXQ6NDQzL2NvbnYvbVQ4NnVfempBMG05QVM4VnRvSWFrdz9pPTAmZT02Mzc2Nzc3MTc2MDAwMjgyMzA",
       "group": {
         "id": "00000000-0000-0000-0000-000000000000"
       },
-      "isTwoParty": false
+      "room": {
+        "id": "{roomId}"
+      },
+      "isTwoParty": false,
+      "correlationId": "{correlationId}",
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallParticipantRemoved",
     "dataVersion": "1.0",

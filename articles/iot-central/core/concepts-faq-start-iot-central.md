@@ -14,6 +14,10 @@ services: iot-central
 
 You should start your IoT journey with Azure IoT Central. Starting as high as possible in the Azure IoT technology stack lets you focus your time on using IoT data to create business value instead of simply getting your IoT data.
 
+The following three minute video explains why you should start with IoT Central:
+
+> [!VIDEO https://aka.ms/docs/player?id=1c6d5f00-a66f-4ff9-a681-4e04614d70b4]
+
 ## Start with Azure IoT Central
 
 An application platform as a service (aPaaS) streamlines many of the complex decisions you face when you build an IoT solution. Many IoT projects are de-funded because of early-stage requirements in simply getting IoT data. Use the capabilities and experiences in IoT Central to showcase the value of your IoT data without overburdening yourself with building the infrastructure for device connectivity and management.

@@ -26,7 +26,6 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | **API** | **Functionality** |
 | --- | --- |
 | [Get all datasets](analytics-api-get-all-datasets.md) | Gets all the available datasets. Datasets list the tables, columns, metrics, and time ranges. |
-|||
 
 ## Query management APIs
 
@@ -37,7 +36,6 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | [Create Report Query](analytics-programmatic-access.md#create-report-query-api) | Creates custom queries that define the dataset from which columns and metrics need to be exported. |
 | [GET Report Queries](analytics-api-get-report-queries.md) | Gets all the queries available for use in reports. Gets all the system and user-defined queries by default. |
 | [DELETE Report Queries](analytics-api-delete-report-queries.md) | Deletes user-defined queries. |
-|||
 
 ## Report management APIs
 
@@ -52,7 +50,6 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | [Delete Report](analytics-api-delete-report.md) | Deletes all the report and report execution records. |
 | [Pause Report Executions](analytics-api-pause-report-executions.md) | Pauses the scheduled execution of reports. |
 | [Resume Report Executions](analytics-api-resume-report-executions.md) | Resumes the scheduled execution of a paused report. |
-|||
 
 ## Report execution pull APIs
 
@@ -61,7 +58,6 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | **API** | **Functionality** |
 | --- | --- |
 | [Get Report Executions](analytics-programmatic-access.md#get-report-executions-api) | Get all the executions that have happened for a given report. |
-|||
 
 ## Next steps
 

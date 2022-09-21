@@ -1,9 +1,9 @@
 ---
-author: wesmc7777
+author: kgremban
 ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021	
-ms.author: wesmc
+ms.author: kgremban
 ---
 
 > [!NOTE]

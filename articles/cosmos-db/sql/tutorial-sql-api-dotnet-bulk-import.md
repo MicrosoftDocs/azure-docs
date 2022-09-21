@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 03/25/2022
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.devlang: csharp
 ms.custom: devx-track-csharp, cosmos-db-video
 ---
@@ -124,6 +124,9 @@ Let's start by overwriting the default `Main` method and defining the global var
 Inside the `Main` method, add the following code to initialize the CosmosClient object:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+
+> [!Note]
+> Once bulk execution is specified in the [CosmosClientOptions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions), they are effectively immutable for the lifetime of the CosmosClient. Changing the values will have no effect.
 
 After the bulk execution is enabled, the CosmosClient internally groups concurrent operations into single service calls. This way it optimizes the throughput utilization by distributing service calls across partitions, and finally assigning individual results to the original callers.
 

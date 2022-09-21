@@ -28,7 +28,7 @@ This tutorial describes the steps you need to perform in both Klaxoon and Azure 
 > * Disable users in Klaxoon when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Klaxoon.
 > * Provide licenses to users in Klaxoon based on Azure AD Groups.
-> * [Single sign-on](klaxoon-saml-tutorial.md) to Klaxoon (recommended).
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Klaxoon (recommended).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* An existing [Klaxoon contract](https://klaxoon.com/enterprise).
+* An existing [Klaxoon contract](https://klaxoon.com/solutions-enterprise-excellence).
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

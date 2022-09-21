@@ -3,8 +3,8 @@ title: Azure Application Insights - Azure Functions Supported Features
 description: Application Insights Supported Features for Azure Functions
 ms.topic: reference
 ms.date: 4/23/2019
-ms.reviewer: mbullwin
 ms.devlang: csharp
+ms.reviewer: quying
 ---
 
 # Application Insights for Azure Functions supported features

@@ -1,18 +1,19 @@
 ---
 title: IS_NUMBER in Azure Cosmos DB query language
 description: Learn about SQL system function IS_NUMBER in Azure Cosmos DB.
-author: ginamr
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: girobins
+ms.author: sidandrews
 ms.custom: query-reference
 ---
+
 # IS_NUMBER (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns a Boolean value indicating if the type of the specified expression is a number.  
+Returns a Boolean value indicating if the type of the specified expression is a number.  
   
 ## Syntax
   
@@ -23,31 +24,45 @@ IS_NUMBER(<expr>)
 ## Arguments
   
 *expr*  
-   Is any expression.  
+  Is any expression.  
   
 ## Return types
   
-  Returns a Boolean expression.  
+Returns a Boolean expression.  
   
 ## Examples
   
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NUMBER` function.  
+The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NUMBER` function.  
   
 ```sql
 SELECT   
-    IS_NUMBER(true) AS isNum1,   
-    IS_NUMBER(1) AS isNum2,  
-    IS_NUMBER("value") AS isNum3,   
-    IS_NUMBER(null) AS isNum4,  
-    IS_NUMBER({prop: "value"}) AS isNum5,   
-    IS_NUMBER([1, 2, 3]) AS isNum6,  
-    IS_NUMBER({prop: "value"}.prop2) AS isNum7  
+    IS_NUMBER(true) AS isBooleanANumber,   
+    IS_NUMBER(1) AS isNumberANumber, 
+    IS_NUMBER("value") AS isTextStringANumber, 
+    IS_NUMBER("1") AS isNumberStringANumber,
+    IS_NUMBER(null) AS isNullANumber,  
+    IS_NUMBER({prop: "value"}) AS isObjectANumber,   
+    IS_NUMBER([1, 2, 3]) AS isArrayANumber,  
+    IS_NUMBER({stringProp: "value"}.stringProp) AS isObjectStringPropertyANumber, 
+    IS_NUMBER({numberProp: 1}.numberProp) AS isObjectNumberPropertyANumber  
 ```  
-  
- Here is the result set.  
+
+Here's the result set.  
   
 ```json
-[{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
+[
+    {
+        "isBooleanANumber": false,
+        "isNumberANumber": true,
+        "isTextStringANumber": false,
+        "isNumberStringANumber": false,
+        "isNullANumber": false,
+        "isObjectANumber": false,
+        "isArrayANumber": false,
+        "isObjectStringPropertyANumber": false,
+        "isObjectNumberPropertyANumber": true
+    }
+]
 ```  
 
 ## Remarks

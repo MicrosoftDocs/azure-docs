@@ -2,8 +2,8 @@
 title: Use Azure Policy to secure your cluster
 description: Use Azure Policy to secure an Azure Kubernetes Service (AKS) cluster.
 ms.service: container-service
-ms.topic: how-to 
-ms.date: 09/01/2021
+ms.topic: how-to
+ms.date: 09/12/2022
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ This article shows you how to apply policy definitions to your cluster and verif
 
 ## Prerequisites
 
-- An existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+- This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 - The Azure Policy Add-on for AKS installed on an AKS cluster. Follow these [steps to install the Azure Policy Add-on][azure-policy-addon].
 
 ## Assign a built-in policy definition or initiative
@@ -31,9 +31,7 @@ To apply a policy definition or initiative, use the Azure portal.
 1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative. You can also add additional namespaces to exclude from evaluation. For this example, keep the default values.
 1. Select **Review + create** then **Create** to submit the policy assignment.
 
-## Create and assign a custom policy definition (preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Create and assign a custom policy definition
 
 Custom policies allow you to define rules for using Azure. For example, you can enforce:
 - Security practices
@@ -182,8 +180,9 @@ For more information about how Azure Policy works:
 
 <!-- LINKS - internal -->
 [aks-policies]: policy-reference.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks

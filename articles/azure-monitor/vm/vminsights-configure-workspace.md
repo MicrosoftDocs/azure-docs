@@ -5,12 +5,15 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
-ms.date: 12/22/2020
+ms.date: 06/22/2022
 
 ---
 
 # Configure Log Analytics workspace for VM insights
 VM insights collects its data from one or more Log Analytics workspaces in Azure Monitor. Prior to onboarding agents, you must create and configure a workspace. This article describes the requirements of the workspace and to configure it for VM insights.
+
+> [!IMPORTANT]
+> Configuration of the Log Analytics workspace is only required for using VM insights with virtual machines using Log Analytics agent. Virtual machines using Azure Monitor agent do not use the *VMInsights* solution that's installed in this configuration. To support Azure Monitor agent, a standard Log Analytics workspace just needs be created as described in [Create Log Analytics workspace](#create-log-analytics-workspace). 
 
 ## Overview
 A single subscription can use any number of workspaces depending on your requirements. The only requirement of the workspace is that it be located in a supported location and be configured with the *VMInsights* solution.
@@ -30,7 +33,7 @@ Access Log Analytics workspaces in the Azure portal from the **Log Analytics wor
 
 [![Log Anlytics workspaces](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
-You can create a new Log Analytics workspace using any of the following methods. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
+You can create a new Log Analytics workspace using any of the following methods. See [Design a Log Analytics workspace configuration](../logs/workspace-design.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
 
 
 * [Azure portal](../logs/quick-create-workspace.md)
@@ -46,7 +49,7 @@ VM insights supports a Log Analytics workspace in any of the [regions supported 
 >You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 
 ## Azure role-based access control
-To enable and access the features in VM insights, you must have the [Log Analytics contributor role](../logs/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
+To enable and access the features in VM insights, you must have the [Log Analytics contributor role](../logs/manage-access.md#azure-rbac) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
 
 ## Add VMInsights solution to workspace
 Before a Log Analytics workspace can be used with VM insights, it must have the *VMInsights* solution installed. The methods for configuring the workspace are described in the following sections.
@@ -89,7 +92,16 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 ---
 
+## Remove VMInsights solution from workspace
+If you have completely migrated your virtual machines to Azure Monitor agent and no longer want to support virtual machines with the Log Analytics agent in your workspace, then you should remove the *VMInisghts* solution from the workspace. This will ensure that you don't collect data from any Log Analytics agents that inadvertently remain. 
 
+To remove the *VMInsights*solution, use the same process as [removing any other solution from a workspace](../insights/solutions.md#remove-a-monitoring-solution).
+
+1. Select the **Solutions** menu in the Azure portal.
+2. Locate the *VMInsights* solution for your workspace and select it to view its detail.
+3. Click **Delete**
+
+:::image type="content" source="media/vminsights-configure-workspace/remove-solution.png" lightbox="media/vminsights-configure-workspace/remove-solution.png" alt-text="Screenshot of delete a solution dialog box.":::
 
 ## Next steps
 - See [Onboard agents to VM insights](vminsights-enable-overview.md) to connect agents to VM insights.

@@ -3,7 +3,7 @@ title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Mic
 description: Learn to do an operating system upgrade for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: mamccrea
+author: lauradolan
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/24/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -45,23 +45,25 @@ There are a couple of known issues with the upgrade:
 The OS configuration can drift from the recommended settings over time. This drift can occur because of patching, system upgrades, and other changes you may make. Microsoft identifies updates needed to ensure HANA Large Instances are optimally configured for the best performance and resiliency. The following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible eNIC/fNIC driver versions
-  To have proper network performance and system stability, ensure the appropriate OS-specific version of eNIC and fNIC drivers are installed per the following compatibility table. Servers are delivered to customers with compatible versions. However, drivers can get rolled back to default versions during OS/kernel patching. Ensure the appropriate driver version is running post OS/kernel patching operations.
+  To have proper network performance and system stability, ensure the appropriate OS-specific version of eNIC and fNIC drivers are installed per the following compatibility table (This table has the latest compatible driver version). Servers are delivered to customers with compatible versions. However, drivers can get rolled back to default versions during OS/kernel patching. Ensure the appropriate driver version is running post OS/kernel patching operations.
        
       
   |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
   |---------------|-------------------------|--------------------|--------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
   |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.6     |   2.0.0.60   |  
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.14    |   2.0.0.63   | 
+  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.14    |   2.0.0.63   |
+  |   Red Hat     |  RHEL 7.6               |   3.2.3i           |  3.1.137.5   |   2.0.0.50   |
   |   SuSE        |  SLES 12 SP4            |   4.1.1b           |  4.0.0.6     |   2.0.0.60   |  
-  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP5            |   4.1.1b           |  4.0.0.6     |   2.0.0.59   |
   |   SuSE        |  SLES 15 SP1            |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
-  |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
-  |   Red Hat     |  RHEL 7.6               |   3.2.3i           |  3.1.137.5   |   2.0.0.50   |
+  |   SuSE        |  SLES 15 SP2            |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.6               |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
+  |   SuSE        |  SLES 12 SP4	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
+  |   SuSE        |  SLES 12 SP5	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
+  |   SuSE        |  SLES 15 SP1	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
+  
  
 
 ### Commands for driver upgrade and to clean old rpm packages

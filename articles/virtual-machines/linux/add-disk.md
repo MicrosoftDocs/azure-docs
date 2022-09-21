@@ -1,21 +1,20 @@
 ---
 title: Add a data disk to Linux VM using the Azure CLI 
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.author: cynthn
-
+ms.date: 06/08/2022
+ms.author: rogarana
 ---
+
 # Add a disk to a Linux VM
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.
-
 
 ## Attach a new disk to a VM
 
@@ -29,6 +28,12 @@ az vm disk attach \
    --new \
    --size-gb 50
 ```
+
+### Lower latency
+
+In select regions, the disk attach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk attach command, `az vm disk attach`. You won't see the performance improvement if you call a command that may implicitly perform an attach, like `az vm update`. You don't need to take any action other than calling the explicit attach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 ## Attach an existing disk
 
@@ -88,7 +93,7 @@ sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
 ```
 
-Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lsblk commands to not return the UUID for the new filesystem immediately.
 
 
 ### Mount the disk
@@ -143,7 +148,7 @@ In this example, we are using the nano editor, so when you are done editing the 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 >
-> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
+> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/troubleshoot/azure/virtual-machines/linux-virtual-machine-cannot-start-fstab-errors)
 >
 > The Azure VM Serial Console can be used for console access to your VM if modifying fstab has resulted in a boot failure. More details are available in the [Serial Console documentation](/troubleshoot/azure/virtual-machines/serial-console-linux).
 

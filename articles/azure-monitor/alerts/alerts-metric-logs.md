@@ -4,8 +4,9 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 7/24/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: harelbr
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor
@@ -225,7 +226,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
             "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
@@ -236,9 +236,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "Microsoft.Insights/scheduledQueryRules",
             "apiVersion": "2018-04-16",
             "location": "[parameters('convertRuleRegion')]",
-            "tags": {
-                "[variables('convertRuleTag')]": "Resource"
-            },
             "properties": {
                 "description": "[parameters('convertRuleDescription')]",
                 "enabled": "[parameters('convertRuleStatus')]",
@@ -530,7 +527,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
             "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
@@ -541,9 +537,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "Microsoft.Insights/scheduledQueryRules",
             "apiVersion": "2018-04-16",
             "location": "[parameters('convertRuleRegion')]",
-            "tags": {
-                "[variables('convertRuleTag')]": "Resource"
-            },
             "properties": {
                 "description": "[parameters('convertRuleDescription')]",
                 "enabled": "[parameters('convertRuleStatus')]",

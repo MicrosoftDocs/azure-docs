@@ -16,13 +16,9 @@ npm install @azure/communication-calling --save
 
 ## Initialize required objects
 
-A CallClient, instance is required for most call operations. Let's create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
+Create a `CallClient` instance to initiate the calling stack. You can configure logging of calling SDK with the `AzureLogger` instance and `setLogLevel` method. You can get access to `deviceManager` for the operating system with the method `getDeviceManager`. 
 
-When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This method asynchronously returns a `CallAgent` instance object.
-
-The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../../quickstarts/manage-teams-identity.md).
-
-You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
+Then use the method `createTeamsCallAgent` to create asynchronously a `TeamsCallAgent` instance that will manage incoming and outgoing calls for a Teams user. The method takes `CommunicationTokenCredential` as an argument representing [access token for Teams user](../../../../quickstarts/manage-teams-identity.md).
 
 ```js
 const { CallClient } = require('@azure/communication-calling');
@@ -38,8 +34,8 @@ AzureLogger.log = (...args) => {
 };
 
 const userToken = '<USER_TOKEN>';
-callClient = new CallClient(options);
+callClient = new CallClient();
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
-const deviceManager = await callClient.getDeviceManager()
+const teamsCallAgent = await callClient.createTeamsCallAgent(tokenCredential);
+const deviceManager = await callClient.getDeviceManager();
 ```

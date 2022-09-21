@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub scaling | Microsoft Docs
 description: How to scale your IoT hub to support your anticipated message throughput and desired features. Includes a summary of the supported throughput for each tier and options for sharding.
-author: wesmc7777
+author: kgremban
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 # Choose the right IoT Hub tier for your solution
@@ -68,8 +68,8 @@ The difference in supported capabilities between the basic and standard tiers of
 | API | Basic tier | Free/Standard tier |
 | --- | ---------- | ------------- |
 | [Delete device](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-deletedevice) | Yes | Yes |
-| [Get device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Yes | Yes |
-| [Delete module](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Yes | Yes |
+| [Get device](/rest/api/iothub/service/devices/get-identity) | Yes | Yes |
+| [Delete module](/rest/api/iothub/service/modules/delete-identity) | Yes | Yes |
 | [Get module](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule) | Yes | Yes |
 | [Get registry statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getdevicestatistics) | Yes | Yes |
 | [Get services statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getservicestatistics) | Yes | Yes |
@@ -88,10 +88,10 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get import export jobs](/rest/api/iothub/service/jobs/getimportexportjobs) | Yes | Yes |
 | [Purge command queue](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-purgecommandqueue) |   | Yes |
 | [Get device twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) |   | Yes |
-| [Get module twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Yes |
+| [Get module twin](/rest/api/iothub/service/modules/get-twin) |   | Yes |
 | [Invoke device method](./iot-hub-devguide-direct-methods.md) |   | Yes |
 | [Update device twin](./iot-hub-devguide-device-twins.md) |   | Yes |
-| [Update module twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Yes |
+| [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
 | [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
 | [Cancel job](/rest/api/media/jobs/canceljob) |   | Yes |

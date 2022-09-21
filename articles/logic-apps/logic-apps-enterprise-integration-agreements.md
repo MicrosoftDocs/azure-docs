@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 08/23/2022
 ---
 
 # Add agreements between partners in integration accounts for workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and by providing the following shared benefits:
 

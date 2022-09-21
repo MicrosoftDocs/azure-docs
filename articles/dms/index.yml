@@ -74,6 +74,10 @@ landingContent:
             url: resource-network-topologies.md
           - text: Custom roles for online migrations from SQL Server to SQL Managed Instance
             url: resource-custom-roles-sql-db-managed-instance.md            
+          - text: Custom roles for online migrations from SQL Server to SQL Managed Instance using Azure Data Studio
+            url: resource-custom-roles-sql-db-managed-instance-ads.md            
+          - text: Custom roles for online migrations from SQL Server to VM's using Azure Data Studio
+            url: resource-custom-roles-sql-db-virtual-machine-ads.md            
       - linkListType: video
         links:
           - text: Migrate SQL Server 2008 to SQL Managed Instance
@@ -91,6 +95,10 @@ landingContent:
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
           - text: Migrate between Azure DB for PostgreSQL instances online via the portal
             url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - online
+            url: tutorial-mysql-azure-single-to-flex-online-portal.md
+          - text: Migrate Azure Database for MySQL - Single Server to Flexible Server - offline
+            url: tutorial-mysql-azure-single-to-flex-offline-portal.md
           - text: Migrate to Azure DB for MySQL - offline
             url: tutorial-mysql-azure-mysql-offline-portal.md
           - text: Migrate RDS MySQL to Azure DB for MySQL - offline

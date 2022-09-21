@@ -52,6 +52,9 @@ Select **Install**, and then restart the cluster when installation is complete.
 > [!NOTE]
 > Make sure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
 
+> [!WARNING]
+> The samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
+
 ## Create Scala Notebook for migration
 
 Create a Scala Notebook in Databricks. Replace your source and target Cassandra configurations with the corresponding credentials, and source and target keyspaces and tables. Then run the following code:

@@ -101,7 +101,7 @@ Use this action to rewrite the path of a request that's en route to your origin.
 
 Field | Description 
 ------|------------
-Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (**/**) as the source pattern value.
+Source pattern | Define the source pattern in the URL path to replace. To match all URL paths, use a forward slash (**/**) as the source pattern value.
 Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
 Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
 

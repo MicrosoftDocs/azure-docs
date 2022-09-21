@@ -180,7 +180,7 @@ union withsource = tt *
 ```
 
 ## \_BilledSize
-The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true. [Learn more](manage-cost-storage.md#data-size) about the details of how the billed size is calculated. 
+The **\_BilledSize** column specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true. See [Data size calculation](cost-logs.md#data-size-calculation) to learn more about the details of how the billed size is calculated. 
 
 
 ### Examples

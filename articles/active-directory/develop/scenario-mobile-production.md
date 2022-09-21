@@ -1,6 +1,5 @@
 ---
-title: Prepare mobile app-calling web APIs for production | Azure
-titleSuffix: Microsoft identity platform
+title: Prepare mobile app-calling web APIs for production
 description: Learn how to build a mobile app that calls web APIs. (Prepare apps for production.)
 services: active-directory
 author: jmprieur

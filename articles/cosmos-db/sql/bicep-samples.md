@@ -1,12 +1,13 @@
 ---
 title: Bicep samples for Azure Cosmos DB Core (SQL API)
 description: Use Bicep to create and configure Azure Cosmos DB. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Bicep for Azure Cosmos DB

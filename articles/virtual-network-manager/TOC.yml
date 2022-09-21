@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Virtual Network Manager?
     href: overview.md
+  - name: Common use cases for Azure Virtual Network Manager
+    href: concept-use-cases.md
 - name: Quickstarts
   items:
   - name: Create Virtual Network Manager - Portal
@@ -21,28 +23,42 @@
   items:
   - name: FAQ
     href: faq.md
+  - name: Use cases
+    href: concept-use-cases.md
   - name: Scope
     href: concept-network-manager-scope.md
   - name: Network groups
-    href: concept-network-groups.md
+    items:
+    - name: Network groups overview
+      href: concept-network-groups.md
+    - name: Azure Policy integration with network groups
+      href: concept-azure-policy-integration.md
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
   - name: Configuration types
     items:
     - name: Connectivity
       href: concept-connectivity-configuration.md
     - name: Security admin rules
-      href: concept-security-admins.md
+      items: 
+      - name: Security admin rule concepts
+        href: concept-security-admins.md
+      - name: Security admin rule enforcement
+        href: concept-enforcement.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
     href: concept-remove-components-checklist.md
 - name: How-to guides
   items:
-  - name: Block network traffic
+  - name: Secure network traffic
     items:
-    - name: Portal
+    - name: Block network traffic - Portal
       href: how-to-block-network-traffic-portal.md
-    - name: PowerShell
+    - name: Block network traffic -PowerShell
       href: how-to-block-network-traffic-powershell.md
+    - name: Protect high-risk network ports
+      href: how-to-block-high-risk-ports.md
   - name: Create a network topology
     items:
     - name: Mesh
@@ -57,9 +73,13 @@
         href: how-to-create-hub-and-spoke.md
       - name: Azure PowerShell
         href: how-to-create-hub-and-spoke-powershell.md
+  - name: Cross-tenant connection support
+    items:
+    - name: Configure cross-tenant connection - Portal
+      href: how-to-configure-cross-tenant-portal.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
-  - name: Exclude elements from dynamic membership
+  - name: Define dynamic network group membership with Azure Policy
     href: how-to-exclude-elements.md
   - name: Common issues
     href: common-issues.md
@@ -68,7 +88,7 @@
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK
-    href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.management.network
 - name: Resources
   items:
   - name: Azure roadmap

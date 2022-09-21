@@ -70,7 +70,7 @@ namespace Speech.Recognition
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;
             }

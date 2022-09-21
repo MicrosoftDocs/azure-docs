@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 07/29/2022
 ms.author: phjensen
 ---
 
@@ -30,9 +30,28 @@ For DATA volumes `azacsnap` will prepare the database for a storage snapshot, th
 
 The `-c backup` command takes the following arguments:
 
-- `--volume=` type of volume to snapshot, this parameter may contain `data` or `other`
-  - `data` snapshots the volumes within the dataVolume stanza of the configuration file.
-  - `other` snapshots the volumes within the otherVolume stanza of the configuration file.
+- `--volume=` type of volume to snapshot, this parameter may contain `data`, `other`, or `all`
+  - `data` snapshots the volumes within the `dataVolume` stanza of the configuration file.
+    1. **data** Volume Snapshot process
+       1. put the database into *backup-mode*.
+       1. take snapshots of the Volume(s) listed in the configuration file's `"dataVolume"` stanza.
+       1. take the database out of *backup-mode*.
+       1. perform snapshot management.
+  - `other` snapshots the volumes within the `otherVolume` stanza of the configuration file.
+    1. **other** Volume Snapshot process
+       1. take snapshots of the Volume(s) listed in the configuration file's `"otherVolume"` stanza.
+       1. perform snapshot management.
+  - `all` snapshots all the volumes in the `dataVolume` stanza and then all the volumes in the `otherVolume` stanza of the configuration file.  The 
+    processing is handled in the order outlined as follows:
+    1. **all** Volumes Snapshot process
+       1. **data** Volume Snapshot (same as the normal `--volume data` option)
+          1. put the database into *backup-mode*.
+          1. take snapshots of the Volume(s) listed in the configuration file's `"dataVolume"` stanza.
+          1. take the database out of *backup-mode*.
+          1. perform snapshot management.
+       1. **other** Volume Snapshot (same as the normal `--volume other` option)
+          1. take snapshots of the Volume(s) listed in the configuration file's `"otherVolume"` stanza.
+          1. perform snapshot management.
   
   > [!NOTE]
   > By creating a separate config file with the boot volume as the otherVolume, it's possible for `boot` snapshots to be taken on an entirely different schedule (for example, daily).
@@ -159,6 +178,9 @@ In this example the *log file* name is `azacsnap-backup-bootVol.log` (see [Log f
 ## Log files
 
 The log file name is constructed from the following "(command name)-(the `-c` option)-(the config filename)".  For example, if running the command `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off` then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file (e.g. `azacsnap -c test --configfile h80.json`) then the log file will be called `azacsnap-test-h80.log`.
+
+> [!NOTE]
+> Log files can be automatically maintained using [this guide](azacsnap-tips.md#manage-azacsnap-log-files).
 
 ## Next steps
 

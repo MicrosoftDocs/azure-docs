@@ -118,6 +118,8 @@ When no longer needed, you can use the [az group delete](/cli/azure/group) comma
 ```azurecli-interactive
 az group delete --name ContosoResourceGroup
 ```
+> [!WARNING]
+> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
 
 ## Next steps
 

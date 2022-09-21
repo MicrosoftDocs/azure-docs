@@ -3,11 +3,11 @@ title: Back-end health and diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/25/2022
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -270,6 +270,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
+> [!Note]
+>Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
 
 ### Performance log
 

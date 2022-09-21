@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: virtual-machines-windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn

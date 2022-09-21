@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 05/27/2022
 ms.author: anfdocs
 ---
 # Configure an NFS client for Azure NetApp Files
 
-The NFS client configuration described in this article is part of the setup when you [configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). A wide variety of Linux distributions are available to use with Azure NetApp Files. This article describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04. 
+The NFS client configuration described in this article is part of the setup when you [configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md) or [NFSv3/NFSv4.1 with LDAP](configure-ldap-extended-groups.md). A wide variety of Linux distributions are available to use with Azure NetApp Files. This article describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04. 
 
 ## Requirements and considerations  
 

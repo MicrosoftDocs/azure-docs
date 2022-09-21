@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 04/11/2022
 ms.author: maquaran
 ms.devlang: csharp, java
 ms.custom: devx-track-dotnet, devx-track-java
@@ -71,7 +71,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ---
 
 > [!NOTE]
-> Cross-partition queries require the SDK to visit all existing partitions to check for results. The more [physical partitions](../partitioning-overview.md#physical-partitions) the container has, the slowed they can potentially be.
+> Cross-partition queries require the SDK to visit all existing partitions to check for results. The more [physical partitions](../partitioning-overview.md#physical-partitions) the container has, the slower they can potentially be.
 
 ### Avoid recreating the iterator unnecessarily
 

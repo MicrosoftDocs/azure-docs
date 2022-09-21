@@ -31,7 +31,7 @@ For step #5, you should decide what kind of user experience you want to provide.
 This article shows you how to **onboard as an Azure Event Grid partner** using the **Azure portal**. 
 
 ## Communicate your interest in becoming a partner
-Fill out [this form](https://aka.ms/gridpartnerform) and contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
+Contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) communicating your interest in becoming a partner. We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
 
 ## Prerequisites
 To complete the remaining steps, make sure you have:
@@ -46,7 +46,7 @@ To complete the remaining steps, make sure you have:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** from the left navigation pane, then type in **Event Grid Partner Registrations** in the search bar, and select it. 
-1. On the **Event Grid Partner Registrations** page, select **+ Add** on the toolbar. 
+1. On the **Event Grid Partner Registrations** page, select **+ Create** on the command bar or **Create Event Grid partner registrations** link on the page. 
 
     :::image type="content" source="./media/onboard-partner/add-partner-registration-link.png" alt-text="Add partner registration link":::
 1. On the **Create Partner Topic Type Registrations - Basics** page, enter the following information: 
@@ -130,6 +130,13 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
         1. Specify **source** information for the partner topic. Source is contextual information on the source of events provided by the partner that the end user can see. This information is helpful when end user is considering activating a partner topic, for example.
 
             :::image type="content" source="./media/onboard-partner/channel-partner-topic-basics.png" alt-text="Image showing the Create Channel - Basics page.":::
+        1. Select **Add event type definitions** to declare the kind of events that are sent to the channel and to its associated partner topic. Event types are shown to customers when creating event subscriptions on the partner topic and are used to select the specific event types to send to an event handler destination.
+
+            :::image type="content" source="./media/onboard-partner/event-type-definition-1.png" alt-text="Screenshot that shows the Event Types Definitions section with Add event types definitions option selected.":::
+
+            :::image type="content" source="./media/onboard-partner/event-type-definition-2.png" alt-text="Screenshot that shows the definition of a sample event type.":::
+            
+            :::image type="content" source="./media/onboard-partner/event-type-definition-3.png" alt-text="Screenshot that shows a list with the event type definition that was added.":::
     1. If you selected **Partner Destination**, enter the following details:
         1. **ID of the subscription** in which the partner topic will be created. 
         1. **Resource group** in which the partner topic will be created. 
@@ -156,7 +163,16 @@ If you selected **Channel name header** for **Partner topic routing mode**, crea
         **Partner destination** option:
         :::image type="content" source="./media/onboard-partner/create-channel-review-create-destination.png" alt-text="Image showing the Create Channel - Review + create page when the Partner Destination option is selected.":::            
         
-            
+## Manage a channel
+
+If you created a channel you may be interested to update the configuration once the resource has been created.
+
+1. Go to the **Configuration** on the channel. You may update message for partner topic activation, expiration time if not activated, and event type definitions.
+
+    :::image type="content" source="./media/onboard-partner/channel-configuration.png" alt-text="Screenshot that shows the Configuration page of a channel.":::
+
+> [!IMPORTANT]
+> Don't forget to save changes before leaving the configuration page.
     
 ## Create an event channel
 
@@ -200,7 +216,11 @@ Before your users can subscribe to partner topics you create in their Azure subs
 Similarly, before your user can use the partner destinations you create in their subscriptions, they'll have to activate partner destinations first. For details, see [Activate a partner destination](deliver-events-to-partner-destinations.md#activate-a-partner-destination).
    
 ## Next steps
-- [Partner topics overview](./partner-events-overview.md)
-- [Partner topics onboarding page](https://aka.ms/gridpartnerform)
-- [Auth0 partner topic](auth0-overview.md)
-- [How to use the Auth0 partner topic](auth0-how-to.md)
+
+See the following articles for more details about the Partner Events feature:
+
+- [Partner Events overview for customers](partner-events-overview.md)
+- [Partner Events overview for partners](partner-events-overview-for-partners.md)
+- [Subscribe to partner events](subscribe-to-partner-events.md)
+- [Subscribe to Auth0 events](auth0-how-to.md)
+- [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)

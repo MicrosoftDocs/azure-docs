@@ -98,6 +98,7 @@ These profiles support the following compression encodings:
 
 If a request supports gzip and Brotli compression, Brotli compression takes precedence.</br>
 When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a transfer-encoding: chunked.
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported.
 
 ::: zone-end
 
@@ -143,7 +144,7 @@ These formats are supported in the lists of paths to purge:
 - **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
 > [!NOTE]
-> **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specfic subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is imited to subdomains of wildcard domains, if applicable.
+> **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specfic subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
 >
 
 Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, meaning purging a URL will purge all query-string variations of it. 
@@ -168,6 +169,13 @@ Cache-Control response headers that indicate that the response won't be cached s
 The following request headers won't be forwarded to a backend when using caching.
 - Content-Length
 - Transfer-Encoding
+- Accept-Language
+
+## Response headers
+
+The following response headers will be stripped if the origin response is cacheable. For example, Cache control header has max-age value.
+
+- Set-Cookie
 
 ## Cache behavior and duration
 

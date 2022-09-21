@@ -4,7 +4,7 @@ description: Learn how to create metric alerts in Azure Monitor with Azure CLI c
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 08/06/2021
+ms.date: 04/05/2022
 ms.custom: devx-track-azurecli
 
 ---

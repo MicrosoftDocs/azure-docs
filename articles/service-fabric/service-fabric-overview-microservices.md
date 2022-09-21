@@ -2,8 +2,13 @@
 title: Introduction to microservices on Azure
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Why use a microservices approach to building applications
 
 For software developers, factoring an application into component parts is nothing new. Typically, a tiered approach is used, with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that developers are building distributed applications for the cloud.

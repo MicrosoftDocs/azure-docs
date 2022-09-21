@@ -108,7 +108,7 @@ Use the `azcopy env` to check the current value of this variable. If the value i
 
 By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option.
 
-Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
+Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, and `NONE`.
 
 ## Remove plan and log files
 

@@ -10,7 +10,7 @@ ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -99,6 +99,7 @@ There are two ways to get your AAGUID. You can either ask your security key prov
 1. Click **Security Info**.
    1. If the user already has at least one Azure AD Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
    1. If they don't have at least one Azure AD Multi-Factor Authentication method registered, they must add one.
+   1. An Administrator can issue a [Temporary Access Pass](howto-authentication-temporary-access-pass.md) to allow the user to register a Passwordless authentication method.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
