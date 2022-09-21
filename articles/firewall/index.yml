@@ -35,7 +35,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall
-            url: /learn/modules/introduction-azure-firewall/
+            url: /training/modules/introduction-azure-firewall/
       - linkListType: whats-new
         links:
           - text: What's new

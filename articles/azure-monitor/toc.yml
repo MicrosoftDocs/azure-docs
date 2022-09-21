@@ -421,6 +421,8 @@ items:
             href: logs/log-excel.md
 - name: Insights
   items:
+  - name: Overview
+    href: insights/insights-overview.md
   - name: Application Insights
     items:
     - name: Application Insights overview
@@ -1358,6 +1360,8 @@ items:
             href: alerts/itsmc-definition.md
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
+          - name: Convert ITSM ServiceNow actions to secure webhook actions 
+            href: alerts/itsm-convert-servicenow-to-webhook .md   
           - name: Troubleshooting problems in ITSM Connector
             items:
             - name: Overview
