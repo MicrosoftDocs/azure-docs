@@ -23,10 +23,10 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 |Attribute|Type|Supported in HR Inbound Provisioning|Support in Azure AD Connect Cloud Sync|Support in Azure AD Connect Sync| 
 |-----|-----|-----|-----|-----|
 |employeeHireDate|DateTimeOffset|Yes|Yes|Yes|
-|employeeLeaveDateTime|DateTimeOffset|Yes|Not currently(manually setting supported)|Not currently(manually setting supported)|
+|employeeLeaveDateTime|DateTimeOffset|Yes|Not currently|Not currently|
 
 > [!NOTE]
-> To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually. For more information see [Set employeeLeaveDateTime](set-employee-leave-date-time.md)
+> To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually for cloud-only users. For more information, see: [Set employeeLeaveDateTime](set-employee-leave-date-time.md)
 
 This document explains how to set up synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
 
