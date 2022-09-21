@@ -19,10 +19,10 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least Azure Stack Edge 2207 (2.2.2307.5375).
+This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least **Azure Stack Edge 2207** (2.2.2307.5375).
 
 > [!IMPORTANT]
-> Azure Stack Edge 2209 update contains critical security fixes and must be applied at the earliest.
+> Azure Stack Edge 2209 update contains critical security fixes. Apply this update at the earliest.
 
 ## What's new
 
@@ -32,15 +32,13 @@ The 2209 release has the following features and enhancements:
 
 For more information about the vulnerability, see [Azure Guest Configuration and Azure Arc-enabled servers elevation of privilege vulnerability](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-38007).
 
- If you have questions or concerns, [open a support case through the Azure portal](https://aka.ms/azsupt). To stay up-to-date on important security events, [configure service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) in the Azure portal.
+If you have questions or concerns, [open a support case through the Azure portal](azure-stack-edge-contact-microsoft-support.md).
 
 ## Known issues in 2209 release
 
-The following table provides a summary of known issues in this release.
-
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Optimization |For this release... |
+|**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 
 ## Known issues from previous releases
 
