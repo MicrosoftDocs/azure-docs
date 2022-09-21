@@ -79,7 +79,7 @@ The following application settings can be included in the **`Values`** array whe
 
 ## Synchronize settings
 
-When you develop your functions locally, any local settings required by your app must be added to app settings when you publish your local project to a function app in Azure. You may also need to download current settings from the function app to your local project. While you can [manually configure app settings in the Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), the following tools also let you synchronize app settings with local settings in your project:
+When you develop your functions locally, any local settings required by your app must also be present in app settings of the function app to which your code is deployed. You may also need to download current settings from the function app to your local project. While you can [manually configure app settings in the Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), the following tools also let you synchronize app settings with local settings in your project:
 
 + [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure)
 + [Visual Studio](functions-develop-vs.md#function-app-settings)
