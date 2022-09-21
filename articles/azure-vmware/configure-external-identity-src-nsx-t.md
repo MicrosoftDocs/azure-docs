@@ -1,6 +1,6 @@
 ---
 title: Configure external identity source for NSX-T
-description: Learn how to use the Azure VMware Solution to configure external identity source for NSX-T.
+description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 09/20/2022
@@ -32,7 +32,7 @@ In this article, you'll learn how to configure an external identity source for N
 
 1. Enter a name for the identity source. For example, avslab.local. 
 
-1. Enter a domain name. The name must correspond to the domain name of your Active Directory server, if using Active Directory. For example, avslab.local. 
+1. Enter a domain name. The name must correspond to the domain name of your Active Directory server, if using Active Directory. For example, `avslab.local`. 
 
 1. Select the type as Active Directory over LDAP, if using Active Directory. 
 
@@ -53,20 +53,20 @@ In this article, you'll learn how to configure an external identity source for N
    |Bind Identity | The format is `user@domainName`, or you can specify the distinguished name. For Active Directory, you can use either the userPrincipalName (user@domainName) or the distinguished name. For OpenLDAP, you must supply a distinguished name. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator if you aren't sure.|
    |Password |Enter a password for the LDAP server. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator.|
 1. Select **Add**. 
-       :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true":::
+       :::image type="content" source="./media/nsxt/set-ldap-server.png" alt-text="Screenshot showing how to set an LDAP server." border="true" lightbox="../media/nsxt/set-ldap-server.png":::
  
 
-      :::image type="content" source="./media/nsxt/accept-ldap-cert.png" alt-text="Screenshot showing how to save the certificate for an LDAP server." border="true":::
+      :::image type="content" source="./media/nsxt/accept-ldap-cert.png" alt-text="Screenshot showing how to save the certificate for an LDAP server." border="true" lightbox="./media/nsxt/accept-ldap-cert.png":::
 
 1. Select **Save** to complete the changes.
-       :::image type="content" source="./media/nsxt/user-roles-ldap-server.png" alt-text="Screenshot showing user roles on an LDAP server." border="true":::
+       :::image type="content" source="./media/nsxt/user-roles-ldap-server.png" alt-text="Screenshot showing user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-server.png":::
 
 ## Assign other NSX-T roles to Active Directory identities 
 
 After adding an external identity, you can assign NSX-T Roles to Active Directory security groups based on your organization's security controls. 
 
 1. Sign in to NSX-T and navigate to **System** > **Users and Roles**.
-       :::image type="content" source="./media/nsxt/nsx-user-roles.png" alt-text="Screenshot showing how to add users to an LDAP server." border="true":::
+       :::image type="content" source="./media/nsxt/nsx-user-roles.png" alt-text="Screenshot showing how to add users to an LDAP server." border="true" lightbox="./media/nsxt/nsx-user-roles.png":::
 
 1. Select **Add** > **Role Assignment for LDAP**.  
 
@@ -74,10 +74,10 @@ After adding an external identity, you can assign NSX-T Roles to Active Director
      1. Enter the first few characters of the user's name, sign in ID, or a group name to search the LDAP directory, then select a user or group from the list that appears.
      1. Select a role. 
      1. Select **Save**.
-    :::image type="content" source="./media/nsxt/user-roles-ldap-review.png" alt-text="Screenshot showing how to review different roles on the LDAP server." border="true":::
+    :::image type="content" source="./media/nsxt/user-roles-ldap-review.png" alt-text="Screenshot showing how to review different roles on the LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-review.png":::
 
 1. Verify the permission assignment is displayed under **Users and Roles**.
-:::image type="content" source="./media/nsxt/user-roles-ldap-verify.png" alt-text="Screenshot showing how to verify user roles on an LDAP server." border="true":::
+:::image type="content" source="./media/nsxt/user-roles-ldap-verify.png" alt-text="Screenshot showing how to verify user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-verify.png":::
 
 1. Users should now be able to sign in to NSX-T using their Active Directory credentials. 
 
