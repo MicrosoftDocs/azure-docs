@@ -1,7 +1,7 @@
 ---
 title: Use Planned Maintenance for your Azure Kubernetes Service (AKS) cluster weekly releases (preview)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS).
+description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS) for cluster weekly releases
 services: container-service
 ms.topic: article
 ms.date: 09/16/2021
@@ -12,7 +12,7 @@ author: kaarthis
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview) exclusively for weekly releases
 
- Planned Maintenance allows you to schedule weekly maintenance windows that will ensure the weekly releases [releases] are controlled within a maintenance window of your choosing. Maintenance Windows are configured using the Azure CLI and basically you get to choose or assign one from a set of pre available configurations.
+ Planned Maintenance allows you to schedule weekly maintenance windows that will ensure the weekly releases [releases] are controlled. Maintenance Windows are configured using the Azure CLI, allowing you to select from a set of pre-available configurations.
 
 ## Before you begin
 
@@ -28,24 +28,14 @@ When using Planned Maintenance, the following restrictions apply:
 - Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
 - Updates cannot be blocked for more than seven days.
 
-### Install aks-preview CLI extension
 
-You also need the *aks-preview* Azure CLI extension version 0.5.4 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## Available Pre-created Public Maintenance Configuration for you to pick
 
 There are 2 general kinds of pre-created public maintenance configurations:
 
-For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
-For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.
+- For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
+- For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.
 List of pre-created Public Maintenance Configurations, Prod Region, Weekday Schedule (change the 'weekday' in the configuration name to 'weekend' for Weekend Schedule)
 
 Configuration Name	Time Zone
@@ -61,6 +51,9 @@ aks-mrp-cfg-weekday_utc-12	UTC-12
 
 Find the public maintenance configuration ID by name:
 az maintenance public-configuration show --resource-name "aks-mrp-cfg-weekday_utc8"
+
+This call may prompt you to install the extension maintenance, once done you can proceed as below :
+
 the call should return
 {
 "duration": "08:00",
@@ -83,20 +76,18 @@ the call should return
 "visibility": "Public"
 }
 
-The public maintenance configuration ID is what returned in the "id" field:
-"id": "/subscriptions/0159df5c-b605-45a9-9876-36e17d5286e0/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/aks-mrp-cfg-weekday_utc8"
 
-Assign the public maintenance configuration ID to an AKS cluster
-az maintenance assignment create --maintenance-configuration-id "/subscriptions/0159df5c-b605-45a9-9876-36e17d5286e0/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/aks-mrp-cfg-weekday_utc8" --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group resourceGroupName --resource-name resourceName --resource-type "managedClusters"
+Next, assign the Public Maintenance configuration to your AKS cluster using the ID:
+az maintenance assignment create --maintenance-configuration-id "/subscriptions/0159df5c-b605-45a9-9876-36e17d5286e0/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/aks-mrp-cfg-weekday_utc8" --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
 
 ## List all maintenance windows in an existing cluster
 
-az maintenance assignment list --provider-name "Microsoft.ContainerService" --resource-group resourceGroupName --resource-name resourceName --resource-type "managedClusters"
+az maintenance assignment list --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
 
 
 ## Delete a public maintenance configuration of an AKS cluster
 
-az maintenance assignment delete --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group resourceGroupName --resource-name resourceName --resource-type "managedClusters"
+az maintenance assignment delete --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
 
 
 <!-- LINKS - Internal -->
