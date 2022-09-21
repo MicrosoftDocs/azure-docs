@@ -72,7 +72,7 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Silencing false positives
 
-Sometimes a rule can have false positives. For example you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+Sometimes a rule can have false positives. For example, you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
 In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
 
 ```bicep
@@ -80,7 +80,7 @@ In this case you can disable the warning for one line only, not the entire docum
 scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 ```
 
-It is good practice to add a comment explaining why the rule does not apply to this line.
+It's good practice to add a comment explaining why the rule doesn't apply to this line.
 
 ## Next steps
 
