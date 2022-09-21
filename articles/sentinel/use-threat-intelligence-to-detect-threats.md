@@ -5,6 +5,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 8/30/2022
 ms.author: austinmc
+## new article but needs verification on lots of links
 ---
 
 # Detect threats with threat indicator-based analytics
