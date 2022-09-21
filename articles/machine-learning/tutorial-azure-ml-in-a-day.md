@@ -132,7 +132,7 @@ First, create a directory to store the file in.
 
 Now, create the file in the dependencies directory.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name="write_model")
+[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)
 
 The specification contains some usual packages, that you'll use in your job (numpy, pip).
 
