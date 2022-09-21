@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
-# Manage Azure Machine Learning workspaces in the portal or with the Python SDK
+# Manage Azure Machine Learning workspaces with the Python SDK (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-manage-workspace.md)
 > * [v2 (preview)](../how-to-manage-workspace.md)
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/).  
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md), using the [SDK for Python](/python/api/overview/azure/ml/).  
 
 As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](../how-to-setup-vs-code.md).
 
@@ -42,12 +42,8 @@ As your needs change or requirements for automation increase you can also manage
 
 You can create a workspace [directly in Azure Machine Learning studio](../quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
 
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
-    
+
     ```python
     from azureml.core import Workspace
     
@@ -61,6 +57,8 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
     Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
 * **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -123,47 +121,6 @@ For more information, see [Workspace SDK reference](/python/api/azureml-core/azu
 
 If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription. 
-
-1. In the upper-left corner of Azure portal, select **+ Create a resource**.
-
-      ![Create a new resource](../media/how-to-manage-workspace/create-workspace.gif)
-
-1. Use the search bar to find **Machine Learning**.
-
-1. Select **Machine Learning**.
-
-1. In the **Machine Learning** pane, select **Create** to begin.
-
-1. Provide the following information to configure your new workspace:
-
-   Field|Description 
-   ---|---
-   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
-   Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-   Region | Select the Azure region closest to your users and the data resources to create your workspace.
-   | Storage account | The default storage account for the workspace. By default, a new one is created. |
-   | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
-   | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
-   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is _not_ initially created for the workspace. Instead, it is created once you need it when creating a Docker image during training or deployment. |
-
-   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
-
-1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
-
-1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
-
-   > [!Warning] 
-   > It can take several minutes to create your workspace in the cloud.
-
-   When the process is finished, a deployment success message appears. 
- 
- 1. To view the new workspace, select **Go to resource**.
- 
----
 
 ### Networking	
 
@@ -171,23 +128,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 > For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
 
 
-# [Python SDK](#tab/python)
-
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
-
-# [Portal](#tab/azure-portal)
-
-1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you have created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.	
-
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::	
-
-1. On the __Create private endpoint__ form, set the location, name, and virtual network to use. If you'd like to use the endpoint with a Private DNS Zone, select __Integrate with private DNS zone__ and select the zone using the __Private DNS Zone__ field. Select __OK__ to create the endpoint. 	
-
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::	
-
-1. When you are finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
-
----
 
 
 ### Advanced
@@ -203,18 +144,15 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 
 You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed keys.md).
 
-
 Use the following steps to provide your own key:
 
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
 >
-> Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
+> Follow the steps in [Configure customer-managed keys](../how-to-setup-customer-managed-keys.md) to:
 > * Register the Azure Cosmos DB provider
 > * Create and configure an Azure Key Vault
 > * Generate a key
-
-# [Python SDK](#tab/python)
 
 Use `cmk_keyvault` and `resource_cmk_uri` to specify the customer managed key.
 
@@ -231,23 +169,9 @@ from azureml.core import Workspace
 
 ```
 
-# [Portal](#tab/azure-portal)
-
-1. Select __Customer-managed keys__, and then select __Click to select key__.
-
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::
-
-1. On the __Select key from Azure Key Vault__ form, select an existing Azure Key Vault, a key that it contains, and the version of the key. This key is used to encrypt the data stored in Azure Cosmos DB. Finally, use the __Select__ button to use this key.
-
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
-
----
-
 ### Download a configuration file
 
 If you will be using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
-
-# [Python SDK](#tab/python)
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
 
@@ -255,19 +179,9 @@ If you plan to use code on your local environment that references this workspace
 ws.write_config()
 ```
 
-# [Portal](#tab/azure-portal)
-
-If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
-
-   ![Download config.json](./media/how-to-manage-workspace/configure.png)
-
----
-
 Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
 ## Connect to a workspace
-
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
@@ -289,7 +203,7 @@ ws = Workspace.from_config()
 
 * **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
-   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+   [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -305,10 +219,6 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 See a list of all the workspaces you can use.
 
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
 ```python
@@ -319,22 +229,6 @@ Workspace.list('<subscription-id>')
 
 The Workspace.list(..) method does not return the full workspace object. It includes only basic information about existing workspaces in the subscription. To get a full object for specific workspace, use Workspace.get(..).
 
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. In the top search field, type **Machine Learning**.  
-
-1. Select **Machine Learning**.
-
-   ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
-
-1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
-
-1. Select a workspace to display its properties.
-
----
-
 
 ## Delete a workspace
 
@@ -342,11 +236,8 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../../includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](,./how-to-high-availability-machine-learning.md#workspace-deletion).
+If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](../how-to-high-availability-machine-learning.md#workspace-deletion).
 
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Delete the workspace `ws`:
 
@@ -356,13 +247,6 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 
 The default action is not to delete resources associated with the workspace, that is, container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
 
-# [Portal](#tab/azure-portal)
-
-In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you wish to delete.
-
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Delete workspace":::
-
----
 
 ## Clean up resources
 
