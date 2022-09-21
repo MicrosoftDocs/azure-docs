@@ -120,7 +120,7 @@ The next step in building your application is to install the Azure Maps Android 
 
    :::image type="content" source="./media/quick-android-map/project-settings-file.png" alt-text="A screenshot of the project settings file in Android Studio.":::
 
-3. Open the project's **gradle.properties** file, verify that `android.useAndroidX` and `android.enableJetifier` are both set to `true`:
+3. Open the project's **gradle.properties** file, verify that `android.useAndroidX` and `android.enableJetifier` are both set to `true`.
    
    If the **gradle.properties** file does not include `android.useAndroidX` and `android.enableJetifier`, add the next two lines to the end of the file:
    
