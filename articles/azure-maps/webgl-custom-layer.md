@@ -239,5 +239,5 @@ TODO: Need links for all of the following:
 [OpenGL ES]: https://www.khronos.org/opengles/
 [WebGLLayer]: /javascript/api/azure-maps-control/atlas.layer.webgllayer
 [WebGLLayerOptions]: /javascript/api/azure-maps-control/atlas.webgllayeroptions
-[WebGLRenderer interface]: /javascript/api/azure-maps-control/atlas.webglrenderer?view=azure-maps-typescript-latest
-[MercatorPoint]: /javascript/api/azure-maps-control/atlas.data.mercatorpoint?view=azure-maps-typescript-latest
+[WebGLRenderer interface]: /javascript/api/azure-maps-control/atlas.webglrenderer
+[MercatorPoint]: /javascript/api/azure-maps-control/atlas.data.mercatorpoint
