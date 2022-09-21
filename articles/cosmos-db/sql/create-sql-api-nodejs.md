@@ -222,6 +222,10 @@ Touring-1000 Blue, 50 read
 0F124781-C991-48A9-ACF2-249771D44029 Item deleted
 ```
 
+## Clean up resources
+
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/quickstart-clean-up-resources.md)]
+
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB SQL API account, create a database, and create a container using the JavaScript SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
