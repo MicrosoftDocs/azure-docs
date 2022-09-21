@@ -38,12 +38,7 @@ In this tutorial, you learn how to:
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
-You need to create a destination table...
-
-When creating a custom table, follow these naming guidelines:
- 
-* Custom table names must have the `_CL` suffix.
-* Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter. 
+Before you can ingest data, you need to set up a destination table. 
 
 To create a custom table into which to ingest events, in the Azure portal:  
 
@@ -63,7 +58,7 @@ To create a custom table into which to ingest events, in the Azure portal:
     {
         "properties": {
             "schema": {
-                "name": "<table_name>_CL",
+                "name": "<table_name>",
                 "columns": [
                     {
                         "name": "TimeGenerated",
@@ -86,8 +81,13 @@ To create a custom table into which to ingest events, in the Azure portal:
     }
     '@
     
-    Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/tables/<table_name>_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+    Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/tables/<table_name>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
     ```
+
+> [!IMPORTANT]
+> When creating a custom table, follow these naming guidelines:
+> * Custom table names must have the `_CL` suffix.
+> * Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter. 
 
 ## Create a data collection endpoint
 
