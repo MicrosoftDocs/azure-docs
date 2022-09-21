@@ -67,7 +67,7 @@ ms.custom: devx-track-csharp
 
     :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
+1. In the **Configure your new project** dialog window, enter `formRecognizer_app` in the Project name box. Then choose Next.
 
     :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
@@ -103,13 +103,124 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
+    * The [prebuilt-read](#read-model) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+
+    * The [prebuilt-layout](#layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
+
+    * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
+
+    * The [prebuilt-tax.us.w2](#w2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+
+    * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+
+    * The [prebuilt-receipt](#receipt-model) model extracts key information from printed and handwritten sales receipts.
+
+    * The [prebuilt-idDocument](#id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
+
+    * The [prebuilt-businessCard](#business-card-model) model extracts key information from business card images.
+
 ## Read model
 
-The [prebuilt-read](../../../concept-read.md) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+
+> [!div class="checklist"]
+>
+> * For this example, we've added the file URI value to the `Uri fileUri` variable at the top of the script.
+> * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-read` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+
+1. Open the **Program.cs** file.
+
+2. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
+
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string endpoint = "<your-endpoint>";
+string key = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+//sample document
+Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-read", fileUri);
+AnalyzeResult result = operation.Value;
+
+foreach (DocumentPage page in result.Pages)
+{
+    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        DocumentLine line = page.Lines[i];
+        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+        Console.WriteLine($"    Its bounding polygon is:");
+        Console.WriteLine($"      Upper left => X: {line.BoundingPolygon[0].X}, Y= {line.BoundingPolygon[0].Y}");
+        Console.WriteLine($"      Upper right => X: {line.BoundingPolygon[1].X}, Y= {line.BoundingPolygon[1].Y}");
+        Console.WriteLine($"      Lower right => X: {line.BoundingPolygon[2].X}, Y= {line.BoundingPolygon[2].Y}");
+        Console.WriteLine($"      Lower left => X: {line.BoundingPolygon[3].X}, Y= {line.BoundingPolygon[3].Y}");
+    }
+}
+
+foreach (DocumentStyle style in result.Styles)
+{
+    // Check the style and style confidence to see if text is handwritten.
+    // Note that value '0.8' is used as an example.
+
+    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+    if (isHandwritten && style.Confidence > 0.8)
+    {
+        Console.WriteLine($"Handwritten content found:");
+
+        foreach (DocumentSpan span in style.Spans)
+        {
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
+        }
+    }
+}
+
+Console.WriteLine("Detected languages:");
+
+foreach (DocumentLanguage language in result.Languages)
+{
+    Console.WriteLine($"  Found language with locale'{language.Locale}' with confidence {language.Confidence}.");
+}
+
+```
+
+> [!IMPORTANT]
+>
+> * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md).
+
+3. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+    :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
+### Read Model Output
+
+Here's a snippet of the expected output:
+
+```console
+Document Page 1 has 86 line(s), 697 word(s),
+  Line 0 has content: 'While healthcare is still in the early stages of its Al journey, we'.
+    Its bounding box is:
+      Upper left => X: 259, Y= 55
+      Upper right => X: 816, Y= 56
+      Lower right => X: 816, Y= 79
+      Lower left => X: 259, Y= 77
+.
+.
+.
+  Found language 'en' with confidence 0.95.
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-read-output.md).
 
 ## Layout model
-
-The [prebuilt-layout](../../../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 
 ## General document model
 

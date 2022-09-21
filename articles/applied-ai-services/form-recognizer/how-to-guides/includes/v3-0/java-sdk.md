@@ -131,34 +131,36 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
-## Read model
+1. Open the FormRecognizer.java file and select one of the following code samples to copy and paste into your application:
 
-The [prebuilt-read](../../../concept-read.md) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+    * The [prebuilt-read](#read-model) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+  
+    * The [prebuilt-layout](#layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
+  
+    * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
+  
+    * The [prebuilt-tax.us.w2](#w2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+  
+    * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+  
+    * The [prebuilt-receipt](#receipt-model) model extracts key information from printed and handwritten sales receipts.
+  
+    * The [prebuilt-idDocument](#id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
+  
+    * The [prebuilt-businessCard](#business-card-model) model extracts key information from business card images.
+
+## Read model
 
 ## Layout model
 
-The [prebuilt-layout](../../../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
-
 ## General document model
-
-The [prebuilt-document](../../../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
 
 ## W2 model
 
-The [prebuilt-tax.us.w2](../../../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
-
 ## Invoice model
-
-The [prebuilt-invoice](../../../concept-invoice.md) model extracts key fields and line items from sales invoices of various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 
 ## Receipt-model
 
-The [prebuilt-receipt](../../../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
-
 ## ID document model
 
-The [prebuilt-idDocument](../../../concept-id-document.md) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
-
 ## Business card model
-
-The [prebuilt-businessCard](../../../concept-business-card.md) model extracts key information from business card images.
