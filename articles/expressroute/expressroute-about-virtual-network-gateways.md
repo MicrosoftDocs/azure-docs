@@ -84,7 +84,7 @@ The following table shows the gateway types and the estimated performance scale 
 
 > [!IMPORTANT]
 > * Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, control plane and data path capacity of the gateway is reduced.
-> * Access to *Private Endpoint* resources **won't** be available during the maintenance period because Azure needs to reconfigure the control and data path to the endpoint once the maintenance complete.
+> * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
