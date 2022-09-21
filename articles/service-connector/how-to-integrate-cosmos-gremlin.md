@@ -25,25 +25,25 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ### [Azure App Service](#tab/app-service)
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP                | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| PHP         | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ### [Azure Container Apps](#tab/container-apps)
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP                | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+ Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| PHP         | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ### [Azure Spring Apps](#tab/spring-apps)
 
@@ -53,14 +53,14 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 | Go          | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java        | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Node.js     | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP         | ![yes icon](./media/green-check.png) |                                |                                      |                                      |
+| PHP         | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python      | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect your compute services to the Cosmos DB Gremlin API. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `keyspace`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
+Use the connection details below to connect your compute services to the Cosmos DB Gremlin API. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 
@@ -105,7 +105,6 @@ Use the connection details below to connect your compute services to the Cosmos 
 | AZURE_COSMOS_RESOURCEENDPOINT     | Your resource endpoint                        | `https://<Azure-Cosmos-DB-account>.documents.azure.com:443/`                                                                                                                                                  |
 | AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`                                                                                                                                                          |
 | AZURE_COSMOS_PORT                 | Gremlin connection port                       | 10350                                                                                                                                                                                                 |
-| AZURE_COSMOS_KEYSPACE             | Your keyspace                                 | `<keyspace>`                                                                                                                                                                                          |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `</dbs/<database>/colls/<collection or graphs>`                                                                                                                                                                                          |
 | AZURE_COSMOS_CLIENTID             | Your client ID                                | `<client-ID>`                                                                                                                                                                                         |
 | AZURE_COSMOS_CLIENTSECRET         | Your client secret                            | `<client-secret>`                                                                                                                                                                                     |

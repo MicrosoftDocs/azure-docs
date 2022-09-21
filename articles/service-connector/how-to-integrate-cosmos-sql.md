@@ -65,7 +65,7 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                         | Example value                                                                                                                                                                                |
 |-----------------------------------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_CONNECTIONSTRING     | Cosmos DB SQL API connection string | `AccountEndpoint=https://differen.documents.azure.com:443/;AccountKey=<account-key>` |
+| AZURE_COSMOS_CONNECTIONSTRING     | Cosmos DB SQL API connection string | `AccountEndpoint=https://<database-server>.documents.azure.com:443/;AccountKey=<account-key>` |
 
 #### System-assigned managed identity
 
