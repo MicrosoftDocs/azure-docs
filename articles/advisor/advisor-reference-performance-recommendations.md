@@ -886,7 +886,7 @@ Learn more about [Database Instance - MaxWriteBuffer (For improved file system p
 
 The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value should not exceed net.core.rmem_max parameter
 
-Learn more about [Database Instance - ReadTcp (For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - OptimizeReadTcp (For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter
 
