@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 09/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -27,10 +27,10 @@ For a list of metadata available for Power BI, see our [available metadata docum
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
 |Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity | [Review deployment checklist](#deployment-checklist) |
-|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
 
 ### Known limitations
 
@@ -85,11 +85,6 @@ Use any of the following deployment checklists during the setup or for troublesh
 1. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
-1. If delegated authentication is used, validate Power BI admin user settings to make sure:
-      1. User is assigned to Power BI Administrator role.
-      2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
-      3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
-      4. There's no MFA or Conditional Access Policies are enforced on the user.
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
    2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
@@ -97,7 +92,12 @@ Use any of the following deployment checklists during the setup or for troublesh
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
     3. Under **Authentication**, **Allow public client flows** is enabled.
-2. Validate Self-hosted runtime settings:
+2. If delegated authentication is used, validate Power BI admin user settings to make sure:
+      1. User is assigned to Power BI Administrator role.
+      2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
+      3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
+      4. There's no MFA or Conditional Access Policies are enforced on the user.
+3. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
    2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
@@ -197,7 +197,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
 5. Search for your Microsoft Purview managed identity or service principal and select it.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Screenshot showing how to add catalog by searching for its name.":::
+      :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Screenshot showing how to add catalog by searching for its name.":::
 
     You should see a success notification showing you that it was added.
 
@@ -231,10 +231,8 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Microsoft Purview account. You can delete it separately, if you wish.
 
-### Scan same-tenant Power BI using Azure IR and Managed Identity
+### Create scan for same-tenant Power BI using Azure IR and Managed Identity
 This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
-
-### Create scan
 
 To create and run a new scan, do the following:
 
@@ -268,7 +266,7 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-managed-identity.png" alt-text="Screenshot of Save and run Power BI source using Managed Identity.":::
 
-### Scan same tenant using Self-hosted IR with service principal
+### Create scan for same-tenant using self-hosted IR with service principal
 
 This scenario can be used when Microsoft Purview and Power BI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Microsoft Purview and Power BI tenant are configured to allow public access.
 
@@ -318,8 +316,6 @@ To create and run a new scan, do the following:
     - **Tenant ID**: Your Power BI tenant ID
     - **Client ID**: Use Service Principal Client ID (App ID) you created earlier   
     
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Screenshot of the new credential menu, showing Power B I credential with all required values supplied.":::
-
 1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
     2. Assets (+ lineage) - Failed status means the Microsoft Purview - Power BI authorization has failed. Make sure the Microsoft Purview managed identity is added to the security group associated in Power BI admin portal.
@@ -333,9 +329,7 @@ To create and run a new scan, do the following:
 
 1. On **Review new scan**, select **Save and run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
-
-### Scan same tenant using Self-hosted IR with delegated authentication
+### Create scan for same-tenant using self-hosted IR with delegated authentication
 
 This scenario can be used when Microsoft Purview and Power BI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Microsoft Purview and Power BI tenant are configured to allow public access.
 
