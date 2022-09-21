@@ -1,6 +1,6 @@
 ---
 title: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule
-description: Ingest logs from Event Hub into Azure Monitor Logs 
+description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
 author: guywi-ms
 ms.author: guywild
@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule   
 
-[Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services.This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
+[Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
 
 In this tutorial, you learn how to:
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 - [Event hub](/azure/event-hubs/event-hubs-create) with events.
     
-    Send events to your event hub by following the steps in the [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+    Send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
 
 ## Create a destination table for event hub data in your Log Analytics workspace
@@ -131,7 +131,7 @@ To create a data collection rule in the Azure portal:
     - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and the stream to which you ingest the data (optional).
     - `destinations` - Specifies the destination workspace.
     - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
-    - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which does not modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
+    - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which doesn't modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
 
     ```json
     {
@@ -321,12 +321,12 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
 
 
-4. Click **Review + assign** and verify the details before saving your role assignment.
+4. Select **Review + assign** and verify the details before saving your role assignment.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment.":::
 
 
-## Associate the data collection rule with the Event Hub
+## Associate the data collection rule with the event hub
 
 The final step is to associate the data collection rule to the event hub from which you want to collect events. 
 
