@@ -25,46 +25,44 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
 
 ## Get an Azure access token
 
-In the Azure PowerShell cmdlet or Azure Cloud Shell, sign in and then retrieve a token with this command:
+1. In the Azure PowerShell cmdlet or Azure Cloud Shell, sign in and then retrieve a token with the following command. If you're using Cloud Shell you are already signed in, so skip this step. 
 
-```azurecli-interactive
-az account get-access-token --resource https://management.azure.com
-```
-You should see a response in the console similar to this JSON (except the access token is long):
+   ```azurecli-interactive
+   az account get-access-token --resource https://management.azure.com
+   ```
+   You should see a response in the console similar to this JSON (except the access token is long):
 
-```json
-{
-    "accessToken": "eyJ ... pZA",
-    "expiresOn": "2022-09-16 20:57:52.000000",
-    "subscription": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "tokenType": "Bearer"
-}
-```
-
-Save your access token (the string without quotes) for later.
-   
-## Use the resource provider REST API to create an IoT hub
-
-Open **Postman** and follow the order of REST commands below to create your IoT hub. These commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) reference. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
+   ```json
+   {
+       "accessToken": "eyJ ... pZA",
+       "expiresOn": "2022-09-16 20:57:52.000000",
+       "subscription": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+       "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+       "tokenType": "Bearer"
+   }
+   ```
 
 1. In a new **Postman** request, from the **Auth** tab, select the **Type** dropdown list and choose **Bearer Token**.
 
    :::image type="content" source="media/iot-hub-rm-rest/select-bearer-token.png" alt-text="Screenshot that shows how to select the Bearer Token type of authorization in **Postman**.":::
 
-1. Retrieve and copy the access token you saved previously and paste it into the field labeled **Token**.
+1. Paste the access token into the field labeled **Token**.
+   
+## Use the REST API to create, view, update, or delete an IoT hub
 
-### Create a new IoT hub
+The following commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) reference. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
+
+### Create an IoT hub
 
 1. Select the REST command dropdown list and choose the PUT command. Copy the URL below, replacing the values in the `{}` with your own values. The `{resourceName}` value is the name you'd like for your new IoT hub. Paste the URL into the field next to the PUT command. 
 
    ```rest
-   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
+   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2021-04-12
    ```
 
    :::image type="content" source="media/iot-hub-rm-rest/paste-put-command.png" alt-text="Screenshot that shows how to add a PUT command in Postman.":::
 
-   For more information about the PUT command, see [Iot Hub Resource - Create Or Update](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
+   See the [PUT command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
 
 1. From the **Body** tab, select the **raw** and **JSON** from the dropdown lists. 
 
@@ -86,21 +84,21 @@ Open **Postman** and follow the order of REST commands below to create your IoT 
 
    :::image type="content" source="media/iot-hub-rm-rest/add-body-for-put.png" alt-text="Screenshot that shows how to add JSON to the body of your request in Postman.":::
 
-See the PUT command in the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
+   See the [PUT command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
 
 1. Select **Send** to send your request and create a new IoT hub. A successful request will return a **201 Created** response with a JSON printout of your IoT hub specifications. You can save your request if you're using **Postman**.
 
-## Confirm your IoT hub is in the Azure portal
+## View / show an IoT hub
 
-You can confirm your IoT hub is now in the Azure portal with the following command in your Azure CLI. Replace **my-iot-hub** with the name of the IoT hub you created. A successful response shows your IoT hub specifications in JSON.
+To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request can't have a body. Here's the GET request template:
 
-```azurecli-interactive
-az iot hub show --name my-iot-hub
+```rest
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
 ```
 
-Explore more Azure CLI commands for IoT Hub in the [az iot hub](/cli/azure/iot/hub) reference.
+See the [GET command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/get?tabs=HTTP).
 
-### Update your IoT hub
+### Update an IoT hub
 
 Updating is as simple as using the same PUT request from when we created the IoT hub and editing the JSON body to contain parameters of your choosing. Edit the body of the request by adding a **tags** property, then run the PUT request.
 
@@ -126,21 +124,11 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 The response will show the new tag added in the console. Remember, you may need to refresh your access token if too much time has passed since the last time you generated one.
 
-See the PUT command in the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
+See the [PUT command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
 
-Alternatively, use the PATCH command from the IoT Hub Resource(/rest/api/iothub/iot-hub-resource/update?tabs=HTTP) to update tags.
+Alternatively, use the [PATCH command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/update?tabs=HTTP) to update tags.
 
-## Show all details of your IoT hub
-
-To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request can't have a body. Here's the GET request template:
-
-```rest
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
-```
-
-See the GET command in the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/get?tabs=HTTP).
-
-## Remove your IoT hub from the Azure portal
+## Delete an IoT hub
 
 If you're only testing, you might want to clean up your resources and delete your new IoT hub, by sending a DELETE request. be sure to replace the values in `{}` with your own values. The `{resourceName}` value is the name of your IoT hub.
 
@@ -148,7 +136,7 @@ If you're only testing, you might want to clean up your resources and delete you
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}?api-version=2018-04-01
 ```
 
-See the DELETE command from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource/delete?tabs=HTTP).
+See the [DELETE command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/delete?tabs=HTTP).
 
 ## Next steps
 
