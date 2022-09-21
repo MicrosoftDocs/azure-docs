@@ -296,17 +296,11 @@ az k8s-extension create --cluster-type managedClusters \
 
 If you want to use an outbound proxy with the Dapr extension for AKS, you can do so by:
 
-1. Setting the proxy environment variables using the `dapr.io/env` annotations:
+1. Setting the proxy environment variables using the [`dapr.io/env` annotations](https://docs.dapr.io/reference/arguments-annotations-overview/):
    - `HTTP_PROXY`
    - `HTTPS_PROXY`
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
-
-| Configuration | Annotation |
-| ------------- | ---------- |
-| Environment Variables | Already set in the Dapr extension via [the `dapr.io/env` annotation](https://docs.dapr.io/reference/arguments-annotations-overview/). |
-| Certificate | Already configured in Dapr extension, similar to examples found in [Install certificates in the Dapr sidecar](https://docs.dapr.io/operations/configuration/install-certificates/). |
-
 
 ## Meet network requirements
 
@@ -314,7 +308,7 @@ The Dapr extension for AKS and Arc for Kubernetes requires the following URLs on
 
 | URL | Description |
 | --- | ----------- |
-| `https://mcr.microsoft.com/daprio` | Required `mcr` URL for pulling Dapr container images. |
+| `https://mcr.microsoft.com/daprio` | Required `mcr` URL for pulling Dapr artifacts. |
 | `https://eastus.dp.kubernetesconfiguration.azure.com/` | Configuration URL for AKS extension. Includes a region prefix. [Change this prefix based on region](#cloudsregions). |
 
 ## Troubleshooting extension errors
