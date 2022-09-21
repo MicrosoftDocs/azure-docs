@@ -490,7 +490,8 @@ az ml model create --registry-name <registry-name> --path azureml://subscription
 
 > [!TIP]
 > Make sure to use the right model name and version if you changed it in the `az ml model create` command.
-
+> [!TIP]
+> The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
 Note down the `name` and `version` of the model from the output of the `az ml model create` command and use them with `az ml model show` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
 ```azurecli 
