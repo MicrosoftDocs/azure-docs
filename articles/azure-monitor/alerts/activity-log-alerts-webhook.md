@@ -22,22 +22,22 @@ The webhook can optionally use token-based authorization for authentication. The
 
 ## Payload schema
 
-The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
+The JSON payload contained in the POST operation differs based on the payload's `data.context.activityLog.eventSource` field.
 
 > [!NOTE]
-> Currently, the description that's part of the Activity Log event is copied to the fired `Alert Description` property.
+> Currently, the description that's part of the activity log event is copied to the fired `Alert Description` property.
 >
-> To align the Activity Log payload with other alert types, as of April 1, 2021, the fired alert property `Description` contains the alert rule description instead.
+> To align the activity log payload with other alert types, as of April 1, 2021, the fired alert property `Description` contains the alert rule description instead.
 >
-> In preparation for that change, we created a new property, `Activity Log Event Description`, to the Activity Log fired alert. This new property is filled with the `Description` property that's already available for use. This means that the new field `Activity Log Event Description` contains the description that's part of the Activity Log event.
+> In preparation for that change, we created a new property, `Activity Log Event Description`, to the activity log fired alert. This new property is filled with the `Description` property that's already available for use. So, the new field `Activity Log Event Description` contains the description that's part of the activity log event.
 >
-> Review your alert rules, action rules, webhooks, logic app, or any other configurations where you might be using the `Description` property from the fired alert and replace it with the `Activity Log Event Description` property.
+> Review your alert rules, action rules, webhooks, logic app, or any other configurations where you might be using the `Description` property from the fired alert. Replace the `Description` property with the `Activity Log Event Description` property.
 >
-> If your condition (in your action rules, webhooks, logic app, or any other configurations) is currently based on the `Description` property for Activity Log alerts, you might need to modify it to be based on the `Activity Log Event Description` property instead.
+> If your condition in your action rules, webhooks, logic app, or any other configurations is currently based on the `Description` property for activity log alerts, you might need to modify it to be based on the `Activity Log Event Description` property instead.
 >
 > To fill the new `Description` property, you can add a description in the alert rule definition.
 
-> ![Screenshot that shows fired Activity Log alerts.](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
+> ![Screenshot that shows fired activity log alerts.](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### Common
 
@@ -225,7 +225,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](../../service-health/service-notifications.md). In addition, you can learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](../../service-health/service-notifications.md). You can also learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
 
 ### ResourceHealth
 
@@ -267,10 +267,10 @@ For specific schema details on service health notification activity log alerts, 
 
 | Element name | Description |
 | --- | --- |
-| status |Used for metric alerts. Always set to "activated" for activity log alerts. |
+| status |Used for metric alerts. Always set to `activated` for activity log alerts. |
 | context |Context of the event. |
 | resourceProviderName |The resource provider of the affected resource. |
-| conditionType |Always "Event." |
+| conditionType |Always `Event`. |
 | name |Name of the alert rule. |
 | id |Resource ID of the alert. |
 | description |Alert description set when the alert is created. |
@@ -281,19 +281,19 @@ For specific schema details on service health notification activity log alerts, 
 | properties |Set of `<Key, Value>` pairs (that is, `Dictionary<String, String>`) that includes details about the event. |
 | event |Element that contains metadata about the event. |
 | authorization |The Azure role-based access control properties of the event. These properties usually include the action, the role, and the scope. |
-| category |Category of the event. Supported values include Administrative, Alert, Security, ServiceHealth, and Recommendation. |
+| category |Category of the event. Supported values include `Administrative`, `Alert`, `Security`, `ServiceHealth`, and `Recommendation`. |
 | caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
-| correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
+| correlationId |Usually a GUID in string format. Events with `correlationId` belong to the same larger action and usually share a `correlationId`. |
 | eventDescription |Static text description of the event. |
 | eventDataId |Unique identifier for the event. |
 | eventSource |Name of the Azure service or infrastructure that generated the event. |
-| httpRequest |The request usually includes the clientRequestId, clientIpAddress, and HTTP method (for example, PUT). |
-| level |One of the following values: Critical, Error, Warning, and Informational. |
+| httpRequest |The request usually includes the `clientRequestId`, `clientIpAddress`, and HTTP method (for example, PUT). |
+| level |One of the following values: `Critical`, `Error`, `Warning`, and `Informational`. |
 | operationId |Usually a GUID shared among the events corresponding to a single operation. |
 | operationName |Name of the operation. |
 | properties |Properties of the event. |
-| status |String. Status of the operation. Common values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
-| subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
+| status |String. Status of the operation. Common values include `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, and `Resolved`. |
+| subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include `OK` (HTTP Status Code: 200), `Created` (HTTP Status Code: 201), `Accepted` (HTTP Status Code: 202), `No Content` (HTTP Status Code: 204), `Bad Request` (HTTP Status Code: 400), `Not Found` (HTTP Status Code: 404), `Conflict` (HTTP Status Code: 409), `Internal Server Error` (HTTP Status Code: 500), `Service Unavailable` (HTTP Status Code: 503), and `Gateway Timeout` (HTTP Status Code: 504). |
 
 For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../essentials/platform-logs-overview.md).
 
