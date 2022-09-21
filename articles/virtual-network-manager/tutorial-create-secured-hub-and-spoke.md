@@ -273,7 +273,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-network-settings.png" alt-text="Screenshot of test VM's network settings.":::
 
-1. Then select **Effective routes** under *Support + troubleshooting* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
+1. Then select **Effective routes** under *Help* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." lightbox="./media/tutorial-create-secured-hub-and-spoke/effective-routes-expanded.png" :::
 

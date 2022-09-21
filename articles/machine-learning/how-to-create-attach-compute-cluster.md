@@ -10,17 +10,16 @@ ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/05/2022
+ms.date: 09/20/2022
 ---
 
 # Create an Azure Machine Learning compute cluster
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [CLI v1](v1/how-to-create-attach-compute-cluster.md)
-> * [CLI v2 (current version)](how-to-create-attach-compute-cluster.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI or SDK version you are using:"]
+> * [v1](v1/how-to-create-attach-compute-cluster.md)
+> * [v2 (current version)](how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -40,13 +39,8 @@ In this article, learn how to:
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
 
-    ```python
-    from azureml.core import Workspace
-    
-    ws = Workspace.from_config() 
-    ```
 
 ## What is a compute cluster?
 
@@ -86,14 +80,14 @@ The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs ar
     
 # [Python SDK](#tab/python)
 
-To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
+To create a persistent Azure Machine Learning Compute resource in Python, specify the **size** and **max_instances** properties. Azure Machine Learning then uses smart defaults for the other properties.
     
-* **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
-* **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
+* *size**: The VM family of the nodes created by Azure Machine Learning Compute.
+* **max_instances*: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=cluster_basic)]
 
 You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) for details.
 
@@ -177,13 +171,9 @@ Use any of these ways to specify a low-priority VM:
     
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
-```python
-compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            vm_priority='lowpriority',
-                                                            max_nodes=4)
-```
+[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=cluster_low_pri)]
     
 # [Azure CLI](#tab/azure-cli)
 
@@ -211,50 +201,6 @@ In the studio, choose **Low Priority** when you create a VM.
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-* Configure managed identity in your provisioning configuration:  
-
-    * System assigned managed identity created in a workspace named `ws`
-        ```python
-        # configure cluster with a system-assigned managed identity
-        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                                max_nodes=5,
-                                                                identity_type="SystemAssigned",
-                                                                )
-        cpu_cluster_name = "cpu-cluster"
-        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-        ```
-    
-    * User-assigned managed identity created in a workspace named `ws`
-    
-        ```python
-        # configure cluster with a user-assigned managed identity
-        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                                max_nodes=5,
-                                                                identity_type="UserAssigned",
-                                                                identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
-    
-        cpu_cluster_name = "cpu-cluster"
-        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-        ```
-
-* Add managed identity to an existing compute cluster named `cpu_cluster`
-    
-    * System-assigned managed identity:
-    
-        ```python
-        # add a system-assigned managed identity
-        cpu_cluster.add_identity(identity_type="SystemAssigned")
-        ````
-    
-    * User-assigned managed identity:
-    
-        ```python
-        # add a user-assigned managed identity
-        cpu_cluster.add_identity(identity_type="UserAssigned", 
-                                    identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
-        ```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -318,5 +264,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](v1/how-to-set-up-training-targets.md) 
+* [Submit a training run](./how-to-train-sdk.md) 
 * [Run batch inference](./tutorial-pipeline-batch-scoring-classification.md).
