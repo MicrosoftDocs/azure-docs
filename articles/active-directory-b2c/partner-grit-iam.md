@@ -32,7 +32,7 @@ To get started, ensure the following prerequisites are met:
 - An Azure AD subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription
-  - Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+  - Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
 ## Scenario description
 
@@ -102,7 +102,7 @@ To learn how to onboard an organization, check this [tutorial](https://app.archb
 
 The Grit Onboarding portal provides URLs to onboard the applications after onboarding a customer.
 
-Learn [how your customers can sign up, sign in, and manage their profiles](https://docs.microsoft.com/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-custom-policy). 
+Learn [how your customers can sign up, sign in, and manage their profiles](add-sign-up-and-sign-in-policy?pivots=b2c-custom-policy). 
 
 ## Test the scenarios
 
@@ -110,9 +110,9 @@ Run through the authentication scenarios in the applications.  Ensure there's a 
 
 ## Next steps
 
-- [Azure AD B2C custom policy overview](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
-- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](custom-policy-get-started?tabs=applications)
 
 - [SAAS Platform - Organization Application Onboarding Portal](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2)
 
