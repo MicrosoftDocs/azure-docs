@@ -53,7 +53,7 @@ To make a payment with UPI or NetBanking:
 
 1. Select Add a new payment method when you’re making a payment.
 2. Select UPI / NetBanking.
-3. You're redirected to a payment partner, like Billdesk, where your can choose your payment method.
+3. You're redirected to a payment partner, like Billdesk, where you can choose your payment method.
 4. You’re redirected to your bank's website where you can process the payment.
 
 After you submit the payment, allow time for the payment to appear in the Azure portal.
