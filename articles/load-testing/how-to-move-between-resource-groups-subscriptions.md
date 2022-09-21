@@ -23,7 +23,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
-- After the resource move is completed, it may upto take 5 minutes for the test and test runs data to reflect again in the resource.
+- After the resource move finishes, it may take up to five minutes for the test and test runs data to reflect again in the resource.
 
 - A resource can be moved only when there are no active test runs.
 
