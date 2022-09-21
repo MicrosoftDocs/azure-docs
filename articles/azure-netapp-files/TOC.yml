@@ -81,6 +81,12 @@
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
+  - name: Availability zones
+    items: 
+    - name: Using availability zones for high availability 
+      href: using-availability-zones.md
+    - name: Data replication between availability zones for data redundancy
+      href: data-replication-between-availability-zones.md
   - name: Data protection 
     items:
     - name: How Azure NetApp Files snapshots work
