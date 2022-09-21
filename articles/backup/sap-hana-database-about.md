@@ -22,6 +22,7 @@ Using the Azure Backup service to back up and restore SAP HANA databases, gives 
 * **One-click, point-in-time restores**: Restore of production data to alternate HANA servers is made easy. The chaining of the backups and catalogs to perform restores are all managed by Azure behind the scenes.
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup Management from Azure**: Use Azure Backup's management and monitoring capabilities for improved management experience. Azure CLI is also supported.
+* **Backup of SAP HANA database with HSR**: Support for backup of HANA database with HANA System Replication (HSR) facilitates a single backup chain across nodes and provides an effortless restore experience.
 
 To view the backup and restore scenarios that we support today, see the [SAP HANA scenario support matrix](./sap-hana-backup-support-matrix.md#scenario-support).
 
@@ -72,7 +73,14 @@ To restore a VM running SAP HANA, follow these steps:
 1. After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
 1. Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 
-## Using the Azure Backup service to back up database instances (preview)
+## Back up a HANA system with replication enabled (preview)
+
+Azure Backup now supports back up of databases that have HANA System Replication (HSR) enabled (preview). This means that backups are managed automatically, when a failover occurs, thus eliminating manual intervention. It also offers immediate protection with no remedial full backups that allows you to protect HANA instances/nodes of the HSR setups as a single HSR container. While there are multiple physical nodes (a primary and a secondary), the backup service now considers them a single HSR container.
+
+>[!Note]
+>As the service is in preview, there’re no Protected Instance charges for a logical HSR container. However, you're charged for the underlying storage of the backups.
+
+## Back up database instance snapshots (preview)
 
 As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during backup, the time taken by the database to generate *Backint streams* can grow in proportion to the churn, which can be factor as well.
 
