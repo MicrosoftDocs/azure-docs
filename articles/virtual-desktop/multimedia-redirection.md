@@ -16,7 +16,7 @@ manager: femila
 >[!NOTE]
 >Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the Windows Desktop client, version 1.2.2999 or later.
+>For more information about compatibility, see the [prerequisites](#prerequisites) for this feature.
 
 This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop (preview) in your Microsoft Edge or Google Chrome browser. For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
 
@@ -106,7 +106,7 @@ To run the extension on Google Chrome manually:
 2. Select the notification to allow your users to enable the extension.
 3. Users should also pin the extension so that they can see from the icon if multimedia redirection is connected.
 
-## How to use MMR for Teams live events
+## How to use multimedia redirection for Teams live events
 
 To use MMR for Teams live events:
 
@@ -120,10 +120,30 @@ The following screenshot highlights the areas described in the previous steps:
 
 :::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
+## Check the extension status
+
+You can check the extension status by hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
+
+:::image type="content" source="./media/status-popup.png" alt-text="A screenshot of a Microsoft Edge extension bar. As the user hovers their cursor over the redirection extension icon, a message appears that says Multimedia Redirection Extension loaded. A video is being redirected.":::
+
+Another way you can check the extension status is by selecting the extension icon, then selecting **Features supported on this website** from the drop-down menu to see whether the website supports the redirection extension.
+
+## Video status overlay
+
+The multimedia redirection extension indicates playback success in a banner on top of the video screen. A success message will appear to indicate that the current video is being successfully optimized through redirection. If the extension encounters any issues, it will also show an error message in a banner on the top of the video. To turn off this message, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Video status overlay**.
+
+## Redirected Video Highlight
+
+Redirected Video Highlight lets admins highlight the currently redirected video elements to diagnose issues. When you enable this feature, you'll see a bright highlighted boarder around the redirected video. To enable this feature, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Redirected Video Outlines**.
+
+## Trace collection
+
+If you ever encounter any issues, you can collect traces from the extension and provide them to your IT admin. To collect traces from the extension, open the extension, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then select **Start tracing**.
+
 ## Next steps
 
 For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
 
 To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
 
-If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).
+If you're interested in learning more about video streaming features on Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).

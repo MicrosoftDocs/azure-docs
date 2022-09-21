@@ -1,5 +1,5 @@
 ---
-title: Multimedia redirection on Azure Virtual Desktop overview - Azure
+title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: A brief overview of multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.date: 09/15/2022
 ms.author: helohr
 manager: femila
 ---
-# What is multimedia redirection for Azure Virtual Desktop?
+# Understanding multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
 > Multimedia redirection for Azure Virtual Desktop is currently in preview.
@@ -20,15 +20,15 @@ manager: femila
 
 Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. Multimedia redirection remotes the media content from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the multimedia redirection feature. However, the public preview version of multimedia redirection for Azure Virtual Desktop has restricted playback on sites in the "Known Sites" list. To test sites on the list within your organization's deployment, you'll need to [enable an extension](multimedia-redirection.md#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
-## Websites that work with MMR 
+## Websites that work with multimedia redirection
 
-The following list shows websites that are known to work with MMR. MMR is supposed to work on these sites by default, when you haven't selected the **Enable on all sites** check box.
+The following list shows websites that are known to work with MMR. MMR works on these sites by default, even when you haven't selected the **Enable on all sites** check box.
 
 - YouTube 
 - Facebook
 - Fox Sports
 - IMDB
-- [Microsoft Learn](/learn)
+- Microsoft Learn
 - LinkedIn Learning
 - Fox Weather
 - Yammer
@@ -65,7 +65,6 @@ The following list shows websites that are known to work with MMR. MMR is suppos
   - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
   - MMR supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
-
 ### The multimedia redirection status icon
 
 To quickly tell if multimedia redirection is active in your browser, we've added the following icon states:
@@ -81,23 +80,7 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 
 Selecting the icon will display a pop-up menu that has a checkbox you can select to enable or disable multimedia redirection on all websites. It also lists the version numbers for each component of the service.
 
-You can also check the extension status by hovering your mouse cursor over the extension icon. A message will appear and tell you about the current status, as shown in the following screenshot.
-
-:::image type="content" source="./media/status-popup.png" alt-text="A screenshot of a Microsoft Edge extension bar. As the user hovers their cursor over the redirection extension icon, a message appears that says Multimedia Redirection Extension loaded. A video is being redirected.":::
-
-Another way you can check the extension status is by selecting the extension icon, then selecting **Features supported on this website** from the drop-down menu to see whether the website supports the redirection extension.
-
-## Video status overlay
-
-The multimedia redirection extension indicates playback success in a banner on top of the video screen. A success message will appear to indicate that the current video is being successfully optimized through redirection. If the extension encounters any issues, it will also show an error message in a banner on the top of the video. To turn off this message, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Video status overlay**.
-
-## Redirected Video Highlight
-
-Redirected Video Highlight lets admins highlight the currently redirected video elements to diagnose issues. When you enable this feature, you'll see a bright highlighted boarder around the redirected video. To enable this feature, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Redirected Video Outlines**.
-
-## Trace collection
-
-If you ever encounter any issues, you can collect traces from the extension and provide them to your IT admin. To collect traces from the extension, open the extension, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then select **Start tracing**.
+You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 
 ## Support during public preview
 
