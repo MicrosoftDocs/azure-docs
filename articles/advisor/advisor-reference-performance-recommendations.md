@@ -390,7 +390,7 @@ Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlReadR
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend to increase the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
+Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
@@ -870,29 +870,29 @@ Learn more about [App service - AppServiceOutboundConnections (Check outbound co
 
 ## SAP on Azure Workloads
 
-### For improved file system performance in HANA DB with ANF, optimise tcp_wmem OS parameter
+### For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter
 
 The parameter net.ipv4.tcp_wmem specifies minimum, default, and maximum send buffer sizes that are used for a TCP socket. Set the parameter as per SAP note: 302436 to certify HANA DB to run with ANF and improve file system performance. The maximum value should not exceed net.core.wmem_max parameter
 
-Learn more about [Database Instance - WriteBuffersAllocated (For improved file system performance in HANA DB with ANF, optimise tcp_wmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - WriteBuffersAllocated (For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance in HANA DB with ANF, optimise wmem_max OS parameter
+### For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter
 
 In HANA DB with ANF storage type, the maximum write socket buffer, defined by the parameter, net.core.wmem_max must be set large enough to handle outgoing network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346
 
-Learn more about [Database Instance - MaxWriteBuffer (For improved file system performance in HANA DB with ANF, optimise wmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - MaxWriteBuffer (For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance in HANA DB with ANF, optimise tcp_rmem OS parameter
+### For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter
 
 The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value should not exceed net.core.rmem_max parameter
 
-Learn more about [Database Instance - OptimiseReadTcp (For improved file system performance in HANA DB with ANF, optimise tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - ReadTcp (For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance in HANA DB with ANF, optimise rmem_max OS parameter
+### For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter
 
-In HANA DB with ANF storage type, the maximum read socket buffer, defined by the parameter, net.core.rmem_max must be set large enough to handle incoming network packets.This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
+In HANA DB with ANF storage type, the maximum read socket buffer, defined by the parameter, net.core.rmem_max must be set large enough to handle incoming network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
 
-Learn more about [Database Instance - MaxReadBuffer (For improved file system performance in HANA DB with ANF, optimise rmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - MaxReadBuffer (For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, set receiver backlog queue size to 300000
 
@@ -918,11 +918,11 @@ The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up i
 
 Learn more about [Database Instance - ParamterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance in HANA DB with ANF optimise tcp_max_syn_backlog OS parameter
+### For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter
 
 To prevent the kernel from using SYN cookies in a situation where lots of connection requests are sent in a short timeframe and to prevent a warning about a potential SYN flooding attack in the system log, the size of the SYN backlog should be set to a reasonably high value. See SAP note 2382421
 
-Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimise tcp_max_syn_backlog OS parameter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter
 
@@ -948,23 +948,23 @@ The parameter net.ipv4.tcp_moderate_rcvbuf enables  TCP to perform receive buffe
 
 Learn more about [Database Instance - EnableAutoTuning (To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance  in HANA DB with ANF, optimise net.ipv4.ip_local_port_range
+### For improved file system performance  in HANA DB with ANF, optimize net.ipv4.ip_local_port_range
 
 As HANA uses a considerable number of connections for the internal communication, it makes sense to have as many client ports available as possible for this purpose. Set the OS parameter, net.ipv4.ip_local_port_range parameter as per SAP note 2382421 to ensure optimal internal HANA communication.
 
-Learn more about [Database Instance - IPV4LocalPortRange (For improved file system performance  in HANA DB with ANF, optimise net.ipv4.ip_local_port_range)](https://launchpad.support.sap.com/#/notes/2382421).
+Learn more about [Database Instance - IPV4LocalPortRange (For improved file system performance  in HANA DB with ANF, optimize net.ipv4.ip_local_port_range)](https://launchpad.support.sap.com/#/notes/2382421).
 
-### To improve file system performance in HANA DB with ANF, optimise sunrpc.tcp_slot_table_entries
+### To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries
 
-Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system perfromance in HANA DB with ANF in SAP workloads
+Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimise sunrpc.tcp_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
-### All disks in LVM for /hana/data volume should be of same type to ensure high performance in HANA DB
+### All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB
 
-If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data voue disks are of the same type and are configured as per recommendation for SAP on Azure
+If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
 
-Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume should be of same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Configuration%20for%20SAP%20/hana/data%20volume).
+Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Configuration%20for%20SAP%20/hana/data%20volume).
 
 ### Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads
 
@@ -972,15 +972,15 @@ If you are using LVM or mdadm to build stripe sets across several Azure premium 
 
 Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
-### To improve file system performance in HANA DB with ANF, optimise the parameter vm.swappiness
+### To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness
 
-Set the OS parameter vm.swappiness to 10 as per recommendation for  for improved file system perfromance in HANA DB with ANF in SAP workloads
+Set the OS parameter vm.swappiness to 10 as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimise the parameter vm.swappiness)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter
 
-Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system perfromance in HANA DB with ANF in SAP workloads
+Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
 
 Learn more about [Database Instance - DisableIPV4Conf (To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
@@ -992,9 +992,9 @@ Learn more about [Database Instance - HanaDataIOPS (If using Ultradisk, the IOPS
 
 ### To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries
 
-Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer perfromance in HANA DB with ANF in SAP workloads
+Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - OptimiseTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - OptimizeTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB
 
@@ -1014,11 +1014,11 @@ IOPS of at least 2000 in /hana/log volume is recommended for SAP workloads when 
 
 Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
 
-### All disks in LVM for /hana/log volume should be of same type to ensure high performance in HANA DB
+### All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB
 
 If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data voue disks are of the same type and are configured as per recommendation for SAP on Azure
 
-Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
+Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
 
 ### Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB
 
@@ -1028,7 +1028,7 @@ Learn more about [Database Instance - WriteAcceleratorEnabled (Enable Write Acce
 
 ### Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads
 
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends to use stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends using stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB
 
 Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
