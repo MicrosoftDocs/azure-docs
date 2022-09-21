@@ -51,19 +51,19 @@ Once you have an Azure account, go to [https://portal.azure.com/#home](https://p
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
-To create one, select "Create a resource":
+1. To create one, select "Create a resource":
 
 ![Azure - add resource](media/azure-add-a-resource.png)
 
-From the new screen, choose **Storage** on the left side and then **Storage account - blob, file, table, queue** from the next column:
+2. From the new screen, choose **Storage** on the left side and then **Storage account - blob, file, table, queue** from the next column:
 
 ![Azure - add storage](media/azure-add-storage.png)
 
-Clicking this button will bring up the following screen with storage properties to fill out:
+3. Clicking this button will bring up the following screen with storage properties to fill out:
 
 ![Azure Setup](media/azure-setup1.png)
 
-Fill out the form in the following manner:
+4. Fill out the form in the following manner:
 
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
 * For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
@@ -72,9 +72,9 @@ Fill out the form in the following manner:
 * **Premium account type** set to 'Block blobs'
 * **Redundancy** set to 'Zone-redundant storage (ZRS)'
 
-None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
+5. None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
-The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select **"Go to resource"** for the next steps:
+6. The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select **"Go to resource"** for the next steps:
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
@@ -82,17 +82,17 @@ The website now informs you about the progress of your deployment and reports "Y
 
 Next we need two blob containers, one for input and one for output.
 
-From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select **"Containers"**:
+1. From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select **"Containers"**:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
-Press the **"+ Container"** button to create the **input** blob storage container.
+2. Press the **"+ Container"** button to create the **input** blob storage container.
 Use the following settings when creating it:
   
 * Name = arrinput
 * Public access level = Private
 
-After the container has been created, select **+ Container** again and repeat with these settings for the **output** container:
+3. After the container has been created, select **+ Container** again and repeat with these settings for the **output** container:
 
 * Name = arroutput
 * Public access level = Private
@@ -116,10 +116,10 @@ To make it easier to call the asset conversion service, we provide a utility scr
 
 In particular, this script
 
-1. uploads all files in a given directory from local disk to the input storage container
-1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md), which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID
-1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure
-1. retrieves a link to the converted asset in the output storage
+* uploads all files in a given directory from local disk to the input storage container,
+* calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md), which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID,
+* polls the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure,
+* retrieves a link to the converted asset in the output storage.
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
