@@ -31,10 +31,9 @@ In this tutorial, you learn how to:
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
-- [Event hub](/azure/event-hubs/event-hubs-create) with events.
+- An [event hub](/azure/event-hubs/event-hubs-create) in the same region as the Log Analytics workspace with events.
     
     Send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
-
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
@@ -128,7 +127,7 @@ To create a data collection rule in the Azure portal:
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
     
-    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and the stream to which you ingest the data (optional).
+    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) (optional) and the stream to which you ingest the data.
     - `destinations` - Specifies the destination workspace.
     - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
     - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which doesn't modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
