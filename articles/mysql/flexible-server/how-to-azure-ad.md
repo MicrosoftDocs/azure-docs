@@ -38,7 +38,7 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 
     - MySQL and Azure Active Directory authentication – Allows authentication using a native MySQL password or an Azure AD account. Turns _OFF_ the server parameter **aad_auth_only** 
 
-- Select Identity – Select/Add User assigned managed identity. To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](authentication-aad-directory-readers-role-tutorial.md) role. 
+- Select Identity – Select/Add User assigned managed identity. To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role. 
 
     - [User.Read.All](/graph/permissions-reference#user-permissions): Allows access to Azure AD user information.
     - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
