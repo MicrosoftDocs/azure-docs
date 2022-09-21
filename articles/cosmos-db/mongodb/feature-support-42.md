@@ -431,7 +431,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | Only supported with unique indexes |
+| Partial | No |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
