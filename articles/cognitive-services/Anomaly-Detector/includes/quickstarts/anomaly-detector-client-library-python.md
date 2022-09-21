@@ -230,7 +230,7 @@ To visualize the anomalies and change points in relation to the sample data seri
 
 In this code example, we've added the `matplotlib` library to allow us to visualize and easily distinguish normal data points from change points and anomalies. Change points are represented by blue squares, anomalies are red triangles, and normal data points are green circles. Dates are converted to numbers using `matplotlib`'s `date2num` method to provide graph friendly values for the charts y-axis.
 
-:::image type="content" source="../../media/quickstart/output.png" alt-text="Screenshot of anomaly detection results with indexes of anomalies and change points on a scatter plot. Anomalies are represented as red triangles, change points are represented as blue squares, and normal data is represented as green circles." lightbox="../../media/quickstart/output.png":::
+:::image type="content" source="../../media/quickstart/output.png" alt-text="Screenshot of results with indexes of anomalies and change points on a scatter plot. Different shapes and colors are used for different data types.." lightbox="../../media/quickstart/output.png":::
 
 ## Clean up resources
 
