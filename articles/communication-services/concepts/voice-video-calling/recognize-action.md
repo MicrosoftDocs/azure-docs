@@ -12,7 +12,7 @@ ms.custom: private_preview
 # Recognize action overview
 
 > [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
+> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. 
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
 With the Recognize action developers will be able to enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is to play a message and request user input. This input is received in the form of DTMF (input via the digits on their calling device) which then allows the application to navigate the user to the next action. 
