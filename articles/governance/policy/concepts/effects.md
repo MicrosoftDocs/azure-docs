@@ -750,7 +750,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 The new `manual` (preview) effect enables you to define and track your own custom attestation
 resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
 allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you will need to create an attestation for that compliance state.
+you'll need to create an attestation for that compliance state.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
@@ -780,8 +780,9 @@ The `defaultState` property has three possible values:
 - **Non-compliant**: Resource is non-compliant according to your manual policy standards
 
 The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
-in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that the
-resource compliance state must be attested to manually. If the effect state is unspecified, it defaults to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that you
+must manually attest the resource compliance state. If the effect state is unspecified, it defaults
+to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
 
 The following screenshot shows how a manual policy assignment with the `Unknown`
 state appears in the Azure portal:
@@ -831,7 +832,7 @@ Below is a sample attestation resource JSON object:
 |Property  |Description  |
 |---------|---------|
 |policyAssignmentId     |Required assignment ID for which the state is being set. |
-|policyDefinitionReferenceId     |Optional definition refernce Id, if within a policy initiative. |
+|policyDefinitionReferenceId     |Optional definition reference ID, if within a policy initiative. |
 |complianceState     |Desired state of the resources. Allowed values are `Compliant`, `NonCompliant`, and `Unknown`. |
 |owner     |Optional Azure AD object ID of responsible party. |
 |comments     |Optional description of why state is being set. |
@@ -869,7 +870,7 @@ The following operations are supported by Modify:
 Modify evaluates before the request gets processed by a Resource Provider during the creation or
 updating of a resource. The Modify operations are applied to the request content when the **if**
 condition of the policy rule is met. Each Modify operation can specify a condition that determines
-when it's applied. Operations with conditions that are evaluated to _false_ are skipped.
+when it's applied. Operations with _false_ condition evaluations are skipped.
 
 When an alias is specified, the following additional checks are performed to ensure that the Modify
 operation doesn't change the request content in a way that causes the resource provider to reject
