@@ -58,7 +58,7 @@ ML professionals and developers across industries can use automated ML to:
 
 ### Classification
 
-Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-featurization). 
+Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-featurization). You can also find the list of algorithms supported by AutoML [here](./how-to-configure-auto-train#supported-algorithms). 
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. 
 
@@ -66,7 +66,7 @@ See an example of classification and automated machine learning in this Python n
 
 ### Regression
 
-Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-featurization).
+Similar to classification, regression tasks are also a common supervised learning task. AzureML offers featurization specific to regression problems. Learn more about [featurization options](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-featurization). You can also find the list of algorithms supported by AutoML [here](./how-to-configure-auto-train#supported-algorithms). 
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. 
 
@@ -139,65 +139,18 @@ The NLP capability supports:
 
 Learn how to [set up AutoML training for NLP models](how-to-auto-train-nlp-models.md). 
 
-## AutoML feature parity across different AzureML interfaces
-
-### Experiment settings 
-
-The following settings allow you to configure your automated ML experiment. 
-
-| |AzureML Studio (Web Experience)|Python SDKv2|CLIv2 (YAML)|
-|----|:----:|:----:|:----:|
-|**Split data into train/validation sets**|✓||
-|**Supports classical ML tasks: classification, regression, & forecasting**| ✓|
-|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**|| 
-|**Supports NLP tasks (preview): multilabel text classification, multiclass text classification, named entity recognition**| ✓| ✓ |
-|**Optimizes based on primary metric**| ✓| ✓|
-|**Supports Azure ML compute as compute target** | ✓|✓|
-|**Configure forecast horizon, target lags & rolling window**|✓|✓|
-|**Set exit criteria** |✓|✓ |
-|**Set concurrent iterations**| ✓|✓|
-|**Block algorithms**|✓|✓|
-|**Cross validation** |✓|✓|
-|**Supports training on Azure Databricks clusters**| ||
-|**View engineered feature names**|||
-|**Featurization summary**| ||
-|**Featurization for holidays**|||
-|**Log file verbosity levels**| ||
-
-### Model settings
-
-These settings can be applied to the best model as a result of your automated ML experiment.
-
-| |AzureML Studio (Web Experience)|Python SDKv2|CLIv2 (YAML)|
-|----|:----:|:----:|:----:|
-|**Best model registration, deployment, explainability**| ✓|✓|
-|**Enable voting ensemble & stack ensemble models**| ✓|✓|
-|**Show best model based on non-primary metric**||||
-|**Enable/disable ONNX model compatibility**||||
-|**Test the model** |✓ (preview)|||
-
-### Job control settings
-
-These settings allow you to review and control your experiment jobs and its child jobs. 
-
-| |AzureML Studio (Web Experience)|Python SDKv2|CLIv2 (YAML)|
-|----|:----:|:----:|:----:|
-|**Job summary table**| ✓|✓||
-|**Cancel jobs & child jobs**| ✓|✓||
-|**Get guardrails**| ✓|✓||
 
 ## Training, validation and test data 
 
-With automated ML you provide the **training data** to train ML models, and you can specify what type of model validation to perform. Automated ML performs model validation as part of training. That is, automated ML uses **validation data** to tune model hyperparameters based on the applied algorithm to find the best combination that best fits the training data. However, the same validation data is used for each iteration of tuning, which introduces model evaluation bias since the model continues to improve and fit to the validation data. 
+With automated ML you provide the **training data** to train ML models, and you can specify what type of model validation to perform. Automated ML performs model validation as part of training. That is, automated ML uses **validation data** to tune model hyperparameters based on the applied algorithm to find the combination that best fits the training data. However, the same validation data is used for each iteration of tuning, which introduces model evaluation bias since the model continues to improve and fit to the validation data. 
 
 To help confirm that such bias isn't applied to the final recommended model, automated ML supports the use of **test data** to evaluate the final model that automated ML recommends at the end of your experiment. When you provide test data as part of your AutoML experiment configuration, this recommended model is tested by default at the end of your experiment (preview). 
 
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-Learn how to [configure AutoML experiments to use test data (preview) with the SDK]([how-to-configure-cross-validation-data-splits.md#provide-test-data-preview](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-source-and-format)) or with the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+Learn how to [configure AutoML experiments to use test data (preview) with the SDK](./how-to-configure-auto-train#training-validation-and-test-data) or with the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-You can also [test any existing automated ML model (preview)](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#training-validation-and-test-data), including models from child jobs, by providing your own test data or by setting aside a portion of your training data. 
 
 ## Feature engineering
 
@@ -219,7 +172,7 @@ Enable this setting with:
 
 + Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization](how-to-configure-auto-features.md). 
++ Python SDK: Specify featurization in your [AutoML Job](/python/api/azure-ai-ml/azure.ai.ml.automl?view=azure-python-preview) object. Learn more about [enabling featurization](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#data-featurization). 
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -230,15 +183,13 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
-See the [how-to](./v1/how-to-configure-auto-train-v1.md#ensemble) for changing default ensemble settings in automated machine learning.
+See the [AutoML package](/python/api/azure-ai-ml/azure.ai.ml.automl?view=azure-python-preview) for changing default ensemble settings in automated machine learning.
 
 <a name="use-with-onnx"></a>
 
 ## AutoML & ONNX
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
-
-See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-algorithms).
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://onnxruntime.ai/docs/api/csharp-api.html). 
 
@@ -252,8 +203,6 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 + **For a code first experience**, follow the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
-
-+ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
    
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 
@@ -261,19 +210,17 @@ How-to articles provide additional detail into what functionality automated ML o
     + [Without code in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
     + [With the Python SDK](how-to-configure-auto-train.md).
 
-+  Learn how to [train forecasting models with time series data](how-to-auto-train-forecast.md).
-
 +  Learn how to [train computer vision models with Python](how-to-auto-train-image-models.md).
 
 +  Learn how to [view the generated code from your automated ML models](how-to-generate-automl-training-code.md).
    
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml).
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs).
 
 ### Python SDK reference
 
-Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
+Deepen your expertise of SDK design patterns and class specifications with the [AutoML Job class reference documentation](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl?view=azure-python-preview). 
 
 > [!Note]
 > Automated machine learning capabilities are also available in other Microsoft solutions such as, 
