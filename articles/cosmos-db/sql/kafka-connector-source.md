@@ -91,7 +91,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Insert document into Azure Cosmos DB
 
-1. Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
+1. Sign into the [Azure portal](https://portal.azure.com/learn.learn.microsoft.com) and navigate to your Azure Cosmos DB account.
 1. Open the **Data Explore** tab and select **Databases**
 1. Open the "kafkaconnect" database and "kafka" container you created earlier.
 1. To create a new JSON document, in the SQL API pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ### Confirm data written to Kafka topic
 
-1. Open Kafka Topic UI on `<http://localhost:9000>`.
+1. Open Kafka Topic UI on `http://localhost:9000`.
 1. Select the Kafka "apparels" topic you created.
 1. Verify that the document you inserted into Azure Cosmos DB earlier appears in the Kafka topic.
 

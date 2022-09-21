@@ -23,7 +23,7 @@ The pod created by the `run` command provides the following binaries:
 * The latest compatible version of `kubectl` for your cluster with `kustomize`.
 * `helm`
 
-In addition, `command invoke` runs the commands from your cluster so any commands run in this manner are subject to networking and other restrictions you have configured on your cluster.
+In addition, `command invoke` runs the commands from your cluster so any commands run in this manner are subject to networking and other restrictions you have configured on your cluster. Also make sure that there are enough nodes and resources in your cluster to schedule this command pod. 
 
 ## Use `command invoke` to run a single command
 
@@ -51,7 +51,7 @@ az aks command invoke \
 
 The above example runs three `helm` commands on the *myAKSCluster* cluster in *myResourceGroup*.
 
-## Use `command invoke` to run commands an with attached file or directory
+## Use `command invoke` to run commands with an attached file or directory
 
 Use `az aks command invoke --command` to run commands on your cluster and `--file` to attach a file or directory for use by those commands. For example:
 

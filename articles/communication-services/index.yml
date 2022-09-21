@@ -77,6 +77,10 @@ landingContent:
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+      - linkListType: get-started
+        links:
+          - text: Cross-platform samples
+            url: samples/ui-library-cross-platform.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
@@ -102,7 +106,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+            url: /training/modules/communication-service-send-sms-console-app/
   - title: Chat
     linkLists:
       - linkListType: quickstart
@@ -119,7 +123,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Email Communication Services resource
+          - text: Create an Email Communication Services resource
             url: quickstarts/email/create-email-communication-resource.md
           - text: Add Azure Managed domain
             url: quickstarts/email/add-azure-managed-domains.md

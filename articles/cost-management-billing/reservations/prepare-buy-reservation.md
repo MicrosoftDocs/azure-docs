@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 09/07/2022
 ms.author: banders
 ---
 
@@ -68,6 +68,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 
 - [App Service](prepay-app-service.md)
 - [App Service - JBoss EA Integrated Support](prepay-jboss-eap-integrated-support-app-service.md)
+- [Azure Backup](../../backup/backup-azure-reserved-pricing-optimize-cost.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
@@ -95,7 +96,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
+Monthly payments are not available for: Databricks, Synapse Analytics - Pre-purchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 

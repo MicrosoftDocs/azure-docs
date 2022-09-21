@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Cosmos DB not found exceptions
 description: Learn how to diagnose and fix not found exceptions.
-author: j82w
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 05/26/2021
-ms.author: jawilley
+ms.author: jroth
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
 ms.custom: ignite-fall-2021
@@ -62,7 +62,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-// https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
+// https://learn.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)

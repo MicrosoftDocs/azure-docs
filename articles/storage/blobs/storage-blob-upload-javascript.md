@@ -2,10 +2,9 @@
 title: Upload a blob using JavaScript - Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
-ms.date: 03/28/2022
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 07/18/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -22,126 +21,104 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 > [!NOTE]
 > The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
 
+## Upload by blob client
 
-## Upload by using a file path
+Use the following table to find the correct upload method based on the blob client.
+
+|Client|Upload method|
+|--|--|
+|[BlobClient](/javascript/api/@azure/storage-blob/blobclient)|The SDK needs to know the blob type you want to upload to. Because BlobClient is the base class for the other Blob clients, it does not have upload methods. It is mostly useful for operations that are common to the child blob classes. For uploading, create specific blob clients directly or get specific blob clients from ContainerClient.|
+|[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)|This is the **most common upload client**:<br>* upload()<br>* stageBlock() and commitBlockList()|
+|[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)|* create()<br>* append()|
+|[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient)|* create()<br>* appendPages()|
+
+## <a name="upload-by-using-a-file-path"></a>Upload with BlockBlobClient by using a file path
 
 The following example uploads a local file to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) object allows you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
 
-```javascript
-// uploadOptions: {
-//   metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
-//   tags: {project: 'xyz', owner: 'accounts-payable'}
-// }
-async function createBlobFromLocalPath(containerClient, blobName, localFileWithPath, uploadOptions){
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js" id="Snippet_UploadBlob" highlight="14":::
 
-  // create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
-
-  // upload file to blob storage
-  await blockBlobClient.uploadFile(localFileWithPath, uploadOptions);
-  console.log(`${blobName} succeeded`);
-}
-```
-
-## Upload by using a Stream
+## <a name="upload-by-using-a-stream"></a>Upload with BlockBlobClient by using a Stream
 
 The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
 
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob" highlight="27":::
+
+Transform the stream during the upload for data clean up.
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_Transform" :::
+
+The following code demonstrates how to use the function.
+
 ```javascript
-// uploadOptions: {
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' },  
-//    tags: {project: 'xyz', owner: 'accounts-payable'}, 
-//  }
-async function createBlobFromReadStream(containerClient, blobName, readableStream, uploadOptions) {
+// fully qualified path to file
+const localFileWithPath = path.join(__dirname, `my-text-file.txt`);
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+// encoding: just to see the chunk as it goes by in the transform
+const streamOptions = { highWaterMark: 20, encoding: 'utf-8' }
 
-  // Size of every buffer allocated, also 
-  // the block size in the uploaded block blob. 
-  // Default value is 8MB
-  const bufferSize = 4 * 1024 * 1024;
+const readableStream = fs.createReadStream(localFileWithPath, streamOptions);
 
-  // Max concurrency indicates the max number of 
-  // buffers that can be allocated, positive correlation 
-  // with max uploading concurrency. Default value is 5
-  const maxConcurrency = 20;
+// upload options
+const uploadOptions = {
 
-  // use transform per chunk - only to see chunck
-  const transformedReadableStream = readableStream.pipe(myTransform);
+      // not indexed for searching
+      metadata: {
+        owner: 'PhillyProject'
+      },
 
-  // Upload stream
-  await blockBlobClient.uploadStream(transformedReadableStream, bufferSize, maxConcurrency, uploadOptions);
+      // indexed for searching
+      tags: {
+        createdBy: 'YOUR-NAME',
+        createdWith: `StorageSnippetsForDocs-${i}`,
+        createdOn: (new Date()).toDateString()
+      }
+    }
 
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
-
-// Transform stream
-// Reasons to transform:
-// 1. Sanitize the data - remove PII
-// 2. Compress or uncompress
-const myTransform = new Transform({
-  transform(chunk, encoding, callback) {
-    // see what is in the artificially
-    // small chunk
-    console.log(chunk);
-    callback(null, chunk);
-  },
-  decodeStrings: false
-});
-
+// upload stream
+await createBlobFromReadStream(containerClient, `my-text-file.txt`, readableStream, uploadOptions);
 ```
 
-## Upload by using a BinaryData object
+## <a name="upload-by-using-a-binarydata-object"></a>Upload with BlockBlobClient by using a BinaryData object
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js" id="Snippet_UploadBlob" highlight="17":::
+
+The following code demonstrates how to use the function.
+
 ```javascript
-// uploadOptions: {
-//    blockSize: destination block blob size in bytes,
-//    concurrency: concurrency of parallel uploading - must be greater than or equal to 0,
-//    maxSingleShotSize: blob size threshold in bytes to start concurrency uploading
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' },  
-//    tags: {project: 'xyz', owner: 'accounts-payable'} 
-//  }
-async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOptions) {
+// fully qualified path to file
+const localFileWithPath = path.join(__dirname, `daisies.jpg`);
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+// read file into buffer
+const buffer = await fs.readFile(localFileWithPath);
 
-  // Upload buffer
-  await blockBlobClient.uploadData(buffer, uploadOptions);
+// upload options
+const uploadOptions = {
 
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
+      // not indexed for searching
+      metadata: {
+        owner: 'PhillyProject'
+      },
+
+      // indexed for searching
+      tags: {
+        createdBy: 'YOUR-NAME',
+        createdWith: `StorageSnippetsForDocs-${i}`,
+        createdOn: (new Date()).toDateString()
+      }
+    }
+
+// upload buffer
+createBlobFromBuffer(containerClient, `daisies.jpg`, buffer, uploadOptions)
 ```
 
-## Upload a string
+## <a name="upload-a-string"></a>Upload a string with BlockBlobClient 
 
 The following example uploads a string to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions) to affect the upload:
 
-```javascript
-// uploadOptions: {
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
-//    tags: {project: 'xyz', owner: 'accounts-payable'} 
-//  }
-async function createBlobFromString(containerClient, blobName, fileContentsAsString, uploadOptions){
-
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
-
-  // Upload string
-  await blockBlobClient.upload(fileContentsAsString, fileContentsAsString.length, uploadOptions);
-
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
-```
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js" id="Snippet_UploadBlob" highlight="14":::
 
 ## See also
 

@@ -2,14 +2,14 @@
 title: Determine your security posture for external collaboration with Azure Active Directory 
 description: Before you can execute an external access security plan, you must determine what you are trying to achieve.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

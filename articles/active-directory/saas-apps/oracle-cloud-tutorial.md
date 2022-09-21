@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 07/14/2022
 ms.author: jeedes
 ---
 
@@ -49,6 +49,8 @@ To configure the integration of Oracle Cloud Infrastructure Console into Azure A
 1. In the **Add from the gallery** section, type **Oracle Cloud Infrastructure Console** in the search box.
 1. Select **Oracle Cloud Infrastructure Console** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO
 
 Configure and test Azure AD SSO with Oracle Cloud Infrastructure Console using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Oracle Cloud Infrastructure Console.
@@ -87,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       > If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
       In the **Sign-on URL** text box, type a URL using the following pattern:
-      `https://console.<REGIONNAME>.oraclecloud.com/`
+      `https://cloud.oracle.com/?region=<REGIONNAME>`
 
       > [!NOTE]
       > The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Infrastructure Console Client support team](https://www.oracle.com/support/advanced-customer-services/cloud/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

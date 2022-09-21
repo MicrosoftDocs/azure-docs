@@ -4,7 +4,7 @@ description: Overview of VM insights, which monitors the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2022
+ms.date: 06/21/2022
 ---
 
 # Overview of VM insights
@@ -12,7 +12,7 @@ ms.date: 06/08/2022
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
 > [!NOTE]
-> VM insights does not currently support [Azure Monitor agent](../agents/azure-monitor-agent-overview.md). You can 
+> VM insights now supports [Azure Monitor agent](../agents/azure-monitor-agent-overview.md). See [Enable VM insights overview](vminsights-enable-overview.md#agents).
 
 VM insights supports Windows and Linux operating systems on the following machines:
 
@@ -38,12 +38,14 @@ There's no direct cost for VM insights, but you're charged for its activity in t
 
 The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the extra performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​
 
+## Accessing VM insights
+Access VM insights for all your virtual machines and virtual machine scale sets by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. Access VM insights for a single virtual machine or virtual machine scale set by selecting **Insights** from the machine's menu in the Azure portal.
 
 ## Configuring VM insights
 The steps to configure VM insights are as follows. Follow each link for detailed guidance on each step:
 
 - [Create Log Analytics workspace.](./vminsights-configure-workspace.md#create-log-analytics-workspace)
-- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
+- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace) (Log Analytics agent only))
 - [Install agents on virtual machine and virtual machine scale set to be monitored.](./vminsights-enable-overview.md)
 
 > [!NOTE]

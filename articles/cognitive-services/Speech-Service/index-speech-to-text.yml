@@ -55,7 +55,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Language support
-          url: language-support.md#speech-to-text
+          url: language-support.md
         - text: Speech-to-text FAQ
           url: faq-stt.yml
         - text: Speech-to-text pricing

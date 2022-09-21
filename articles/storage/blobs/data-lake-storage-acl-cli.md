@@ -2,12 +2,12 @@
 title: Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 description: Use the Azure CLI to manage access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
-author: normesta
+author: jimmart-dev
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.author: normesta
+ms.author: jammart
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ---
@@ -133,7 +133,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 ```
 
 > [!NOTE]
-> To a set the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> To a set the ACL of a specific group or user, use their respective object IDs. For example, to set the ACL of a **group**, use `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. To set the ACL of a **user**, use `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 The following image shows the output after setting the ACL of a file.
 

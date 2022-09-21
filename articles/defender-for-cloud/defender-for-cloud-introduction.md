@@ -1,9 +1,10 @@
 ---
 title: What is Microsoft Defender for Cloud?
+titleSuffix: Microsoft Defender for Cloud
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/15/2022
+ms.date: 07/10/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -74,7 +75,7 @@ For example, if you've [connected an Amazon Web Services (AWS) account](quicksta
 
 - **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.
 - **Microsoft Defender for Kubernetes** extends its container threat detection and advanced defenses to your **Amazon EKS Linux clusters**.
-- **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+- **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), File Integrity Monitoring (FIM), and more.
 
 Learn more about connecting your [AWS](quickstart-onboard-aws.md) and [GCP](quickstart-onboard-gcp.md) accounts to Microsoft Defender for Cloud.
 
@@ -101,7 +102,7 @@ It's a security basic to know and make sure your workloads are secure, and it st
 
 Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they're configured according to security best practices. If not, they're flagged and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.
 
-The list of recommendations is enabled and supported by the Azure Security Benchmark. This Microsoft-authored, Azure-specific, benchmark provides a set of guidelines for security and compliance best practices based on common compliance frameworks. Learn more in [Introduction to Azure Security Benchmark](/security/benchmark/azure/introduction).
+The list of recommendations is enabled and supported by the Azure Security Benchmark. This Microsoft-authored, Azure-specific, benchmark provides a set of guidelines for security and compliance best practices based on common compliance frameworks. Learn more in [Azure Security Benchmark introduction](/security/benchmark/azure/introduction).
 
 In this way, Defender for Cloud enables you not just to set security policies, but to *apply secure configuration standards across your resources*.
 
@@ -130,7 +131,7 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
-- [Microsoft Defender for Azure Cosmos DB (Preview)](concept-defender-for-cosmos.md)
+- [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
 
 Use the advanced protection tiles in the [workload protections dashboard](workload-protections-dashboard.md) to monitor and configure each of these protections.
 

@@ -3,7 +3,7 @@ title: Azure Lab Services Quickstart - Create a lab plan using the Azure portal
 description: In this quickstart, you learn how to create an Azure Lab Services lab plan using the Azure portal.
 ms.topic: quickstart
 ms.date: 1/18/2022
-ms.custom: template-quickstart
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create a lab plan using the Azure portal
@@ -22,7 +22,7 @@ The following steps show how to use the Azure portal to create a lab plan.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** at the top left of the screen.
 1. Select **All services** in the left menu.  Search for **Lab plans**.
-1. Select the **Lab plans (preview)** tile, select **Create**.
+1. Select the **Lab plans** tile, select **Create**.
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot that shows the Lab plan tile for Azure Marketplace.":::
 
@@ -59,7 +59,11 @@ When no longer needed, you can delete the resource group, lab plan, and all rela
 
 ## Next steps
 
-In this quickstart, you created a resource group and a lab plan.  To learn more about advanced options for lab plans, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+In this quickstart, you created a resource group and a lab plan.  
+
+To learn more about advanced options for lab plans, see:
+- [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- [Request a capacity increase](how-to-request-capacity-increase.md)
 
 Advance to the next article to learn how to create a lab.
 > [!div class="nextstepaction"]

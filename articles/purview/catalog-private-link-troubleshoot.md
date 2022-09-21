@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 06/21/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -16,13 +16,14 @@ This guide summarizes known limitations related to using private endpoints for M
 
 ## Known limitations
 
-- We currently do not support ingestion private endpoints that work with your AWS sources.
-- Scanning Azure Multiple Sources using self-hosted integration runtime is not supported.
-- Using Azure integration runtime to scan data sources behind private endpoint is not supported.
-- Using Azure portal, the ingestion private endpoints can be created via the Microsoft Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
-- Creating DNS A records for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints is not supported via the Microsoft Purview portal experience. A records can be added manually in the destination DNS Zones in the other subscription. 
+- We currently don't support ingestion private endpoints that work with your AWS sources.
+- Scanning Azure Multiple Sources using self-hosted integration runtime isn't supported.
+- Using Azure integration runtime to scan data sources behind private endpoint isn't supported.
+- The ingestion private endpoints can be created via the Microsoft Purview governance portal experience described in the steps [here](catalog-private-link-end-to-end.md#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-microsoft-purview-accounts). They can't be created from the Private Link Center.
+- Creating a DNS record for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints isn't supported via the Microsoft Purview governance portal experience. A record can be added manually in the destination DNS Zones in the other subscription.
+- If you enable a managed event hub after deploying an ingestion private endpoint, you'll need to redeploy the ingestion private endpoint.
 - Self-hosted integration runtime machine must be deployed in the same VNet or a peered VNet where Microsoft Purview account and ingestion private endpoints are deployed.
-- We currently do not support scanning a cross-tenant Power BI tenant, which has a private endpoint configured with public access blocked.
+- We currently don't support scanning a cross-tenant Power BI tenant, which has a private endpoint configured with public access blocked.
 - For limitation related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Recommended troubleshooting steps  
@@ -35,7 +36,10 @@ This guide summarizes known limitations related to using private endpoints for M
     |Portal     |Microsoft Purview Account         |mypurview-private-portal  |
     |Ingestion     |Managed Storage Account (Blob)         |mypurview-ingestion-blob  |
     |Ingestion     |Managed Storage Account (Queue)         |mypurview-ingestion-queue  |
-    |Ingestion     |Managed Event Hubs Namespace         |mypurview-ingestion-namespace  |
+    |Ingestion     |Managed Event Hubs Namespace*         |mypurview-ingestion-namespace  |
+
+  >[!NOTE]
+  > *Managed Event Hubs Namespace is only needed if it has been enabled on your Microsoft Purview account. You can check in **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
 
 2. If portal private endpoint is deployed, make sure you also deploy account private endpoint.
 
@@ -44,7 +48,7 @@ This guide summarizes known limitations related to using private endpoints for M
     - To verify the correct name resolution, you can use a **NSlookup.exe** command line tool to query `web.purview.azure.com`. The result must return a private IP address that belongs to portal private endpoint. 
     - To verify network connectivity, you can use any network test tools to test outbound connectivity to `web.purview.azure.com` endpoint to port **443**. The connection must be successful.    
 
-3. If Azure Private DNS Zones are used, make sure the required Azure DNS Zones are deployed and there is DNS (A) record for each private endpoint.
+3. If Azure Private DNS Zones are used, make sure the required Azure DNS Zones are deployed and there's DNS (A) record for each private endpoint.
 
 4. Test network connectivity and name resolution from management machine to Microsoft Purview endpoint and purview web url. If account and portal private endpoints are deployed, the endpoints must be resolved through private IP addresses.
 
@@ -79,11 +83,11 @@ This guide summarizes known limitations related to using private endpoints for M
     TcpTestSucceeded : True
     ```
     
-5. If you have created your Microsoft Purview account after 18 August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+5. If you've created your Microsoft Purview account after 18 August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
    
 6. From self-hosted integration runtime VM, test network connectivity and name resolution to Microsoft Purview endpoint.
 
-7. From self-hosted integration runtime, test network connectivity and name resolution to Microsoft Purview managed resources such as blob queue and Event Hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Microsoft Purview account).
+7. From self-hosted integration runtime, test network connectivity and name resolution to Microsoft Purview managed resources such as blob queue and Event Hubs through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Microsoft Purview account).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
@@ -116,7 +120,7 @@ This guide summarizes known limitations related to using private endpoints for M
     ```powershell
     Test-NetConnection -ComputerName `Atlas-1225cae9-d651-4039-86a0-b43231a17a4b`.servicebus.windows.net -Port 443
     ```
-    Example of successful outbound connection to Event Hub namespace through private IP address:
+    Example of successful outbound connection to Event Hubs namespace through private IP address:
 
     ```
     ComputerName     : Atlas-1225cae9-d651-4039-86a0-b43231a17a4b.servicebus.windows.net
@@ -129,7 +133,7 @@ This guide summarizes known limitations related to using private endpoints for M
 
 8. From the network where data source is located, test network connectivity and name resolution to Microsoft Purview endpoint and managed resources endpoints.
 
-9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Microsoft Purview endpoints and managed resources. It is expected to obtain a valid private IP address from DNS query for each endpoint.
+9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Microsoft Purview endpoints and managed resources. It's expected to obtain a valid private IP address from DNS query for each endpoint.
     
     For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
@@ -145,10 +149,10 @@ You may receive the following error message when running a scan:
 `Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### Cause 
-This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Microsoft Purview's managed resources storage account or Event Hub.
+This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Microsoft Purview's managed resources storage account or Event Hubs.
 
 ### Resolution 
-Validate if name resolution between the VM running Self-Hosted Integration Runtime.
+Validate if name resolution is successful between the VM running the Self-Hosted Integration Runtime and the Microsoft Purview manage resources such as the blob queue and Event Hubs through port 443 and private IP addresses (step 8 above.)
 
 
 ### Issue 
@@ -182,13 +186,13 @@ Review your existing Azure Policy Assignments and make sure deployment of the fo
 
 
 ### Issue
-Not authorized to access this Microsoft Purview account. This Microsoft Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Microsoft Purview account's private endpoint.
+Not authorized to access this Microsoft Purview account. This Microsoft Purview account is behind a private endpoint. Access the account from a client in the same virtual network (VNet) that has been configured for the Microsoft Purview account's private endpoint.
 
 ### Cause 
 User is trying to connect to Microsoft Purview from a public endpoint or using Microsoft Purview public endpoints where **Public network access** is set to **Deny**.
 
 ### Resolution
-In this case, to open the Microsoft Purview governance portal, either use a machine that is deployed in the same virtual network as the Microsoft Purview portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
+In this case, to open the Microsoft Purview governance portal, either use a machine that is deployed in the same virtual network as the Microsoft Purview governance portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
 
 ### Issue
 You may receive the following error message when scanning a SQL server, using a self-hosted integration runtime:
@@ -197,7 +201,7 @@ You may receive the following error message when scanning a SQL server, using a 
 
 ### Cause 
 Self-hosted integration runtime machine has enabled the FIPS mode.
-Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that the invoked processes depends on are blocked in some scenarios.
+Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that the invoked processes depend on are blocked in some scenarios.
 
 ### Resolution
 Disable FIPS mode on self-hosted integration server.

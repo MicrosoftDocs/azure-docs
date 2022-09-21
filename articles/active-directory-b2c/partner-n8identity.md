@@ -10,7 +10,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -381,7 +381,7 @@ The following procedures give you example policy steps and a secure certificate 
 
 5. Select **Download** to get the client certificate.
 
-6. Follow [this tutorial](./secure-rest-api.md#https-client-certificate-authentication ) to add the client certificate into Azure AD B2C.
+6. Follow [this tutorial](./secure-rest-api.md#https-client-certificate-authentication) to add the client certificate into Azure AD B2C.
 
 ### Retrieve your custom policy examples
 

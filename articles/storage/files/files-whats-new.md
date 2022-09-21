@@ -1,19 +1,39 @@
 ---
-title: What's new in Azure Files
-description: Learn more about new features and enhancements in Azure Files.
+title: What's new in Azure Files and Azure File Sync
+description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 09/21/2022
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # What's new in Azure Files
-Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files.
+Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
-## 2021 quarter 4 (October, November, December)
-### Increased IOPS for premium file shares
+## What's new in 2022
+
+### 2022 quarter 3 (July, August, September)
+#### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files (public preview)
+This [preview release](storage-files-identity-auth-azure-active-directory-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases with an easy, two-step portal experience (SMB only). Azure AD Kerberos allows Kerberos authentication for hybrid identities in Azure AD, reducing the need for customers to configure another domain service and allowing customers to authenticate with Azure Files without the need for line-of-sight to domain controllers. While the initial support is limited to hybrid user identities, which are identities created in AD DS and synced to Azure AD, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).
+
+### 2022 quarter 2 (April, May, June)
+#### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
+Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](../../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
+
+### 2022 quarter 1 (January, February, March)
+#### Azure File Sync TCO improvements
+To offer sync and tiering, Azure File Sync performs two types of transactions on behalf of the customer:
+- Transactions from churn, including changed files (sync) and recalled files (tiering).
+- Transactions from cloud change enumeration, done to discover changes made directly on the Azure file share. Historically, this was a major component of an Azure File Sync customer’s Azure Files bill.
+
+To improve TCO, we markedly decreased the number of transactions needed to fully scan an Azure file share. Prior to this change, most customers were best off in the hot tier. Now most customers are best off in the cool tier.
+
+## What's new in 2021
+
+### 2021 quarter 4 (October, November, December)
+#### Increased IOPS for premium file shares
 Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to at least 10,000 IOPS. 
 
 Formula changes:
@@ -27,7 +47,7 @@ For more information, see:
 - [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-### NFS 4.1 protocol support is generally available
+#### NFS 4.1 protocol support is generally available
 Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
@@ -36,7 +56,7 @@ For more information, see:
 - [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-### Symmetric throughput for premium file shares
+#### Symmetric throughput for premium file shares
 Premium Azure file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput and aligns premium file shares with standard file shares.
 
 Formula changes:
@@ -49,8 +69,8 @@ For more information, see:
 - [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-## 2021 quarter 3 (July, August, September)
-### SMB Multichannel is generally available
+### 2021 quarter 3 (July, August, September)
+#### SMB Multichannel is generally available
 SMB Multichannel enables SMB clients to establish multiple parallel connections to an Azure file share. This allows SMB clients to take full advantage of all available network bandwidth and makes them resilient to network failures, reducing total cost of ownership and enabling 2-3x for reads and 3-4x for writes through a single client. SMB Multichannel is available for premium file shares (file shares deployed in the FileStorage storage account kind) and is disabled by default. 
 
 For more information, see:
@@ -59,7 +79,7 @@ For more information, see:
 - [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel)
 - [Overview on SMB Multichannel in the Windows Server documentation](/azure-stack/hci/manage/manage-smb-multichannel)
 
-### SMB 3.1.1 and SMB security settings
+#### SMB 3.1.1 and SMB security settings
 SMB 3.1.1 is the most recent version of the SMB protocol, released with Windows 10, containing important security and performance updates. Azure Files SMB 3.1.1 ships with two additional encryption modes, AES-128-GCM and AES-256-GCM, in addition to AES-128-CCM which was already supported. To maximize performance, AES-128-GCM is negotiated as the default SMB channel encryption option; AES-128-CCM will only be negotiated on older clients that don't support AES-128-GCM. 
 
 Depending on your organization's regulatory and compliance requirements, AES-256-GCM can be negotiated instead of AES-128-GCM by either restricting allowed SMB channel encryption options on the SMB clients, in Azure Files, or both. Support for AES-256-GCM was added in Windows Server 2022 and Windows 10, version 21H1.
@@ -72,8 +92,8 @@ For more information, see:
 - [Windows](storage-how-to-use-files-windows.md) and [Linux](storage-how-to-use-files-linux.md) SMB version information
 - [Overview of SMB features in the Windows Server documentation](/windows-server/storage/file-server/file-server-smb-overview)
 
-## 2021 quarter 2 (April, May, June)
-### Premium, hot, and cool storage capacity reservations 
+### 2021 quarter 2 (April, May, June)
+#### Premium, hot, and cool storage capacity reservations 
 Azure Files supports storage capacity reservations (also referred to as *reserve instances*). Storage capacity reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
@@ -82,7 +102,7 @@ For more information, see:
 - [Optimized costs for Azure Files with reserved capacity](files-reserve-capacity.md)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-### Improved portal experience for domain joining to Active Directory
+#### Improved portal experience for domain joining to Active Directory
 The experience for domain joining an Azure storage account has been improved to help guide first-time Azure file share admins through the process. When you select Active Directory under **File share settings** in the **File shares** section of the Azure portal, you will be guided through the steps required to domain join.
 
 :::image type="content" source="media/files-whats-new/ad-domain-join-1.png" alt-text="Screenshot of the new portal experience for domain joining a storage account to Active Directory" lightbox="media/files-whats-new/ad-domain-join-1.png":::
@@ -92,8 +112,8 @@ For more information, see:
 - [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md)
 - [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
 
-## 2021 quarter 1 (January, February, March)
-### Azure Files management now available through the control plane
+### 2021 quarter 1 (January, February, March)
+#### Azure Files management now available through the control plane
 Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep template, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
 We recommend you manage Azure Files through the control plane in most cases. To support management of the file service and file shares through the control plane, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the control plane. 
