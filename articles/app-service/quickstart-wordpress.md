@@ -76,7 +76,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 ## Manage the MySQL flexible server, username, or password
 
 - The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
-    - Navigate to the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
+    - Navigate to the URL: https://`<sitename>`.azurewebsites.net/phpmyadmin
     - Login with the flexible server's username and password
 
 - Database username and password of the MySQL Flexible Server are generated automatically. To retrieve these values after the deployment go to Application Settings section of the Configuration page in Azure App Service. The WordPress configuration is modified to use these [Application Settings](reference-app-settings.md#wordpress) to connect to the MySQL database.
