@@ -66,7 +66,9 @@ The following commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-
 
 1. From the **Body** tab, select the **raw** and **JSON** from the dropdown lists. 
 
-1. Paste this JSON into the box in **Postman** as shown. Make sure your IoT hub name matches the one in your PUT URL. Change the location to your location (the location assigned to your resource group).
+   :::image type="content" source="media/iot-hub-rm-rest/add-body-for-put.png" alt-text="Screenshot that shows how to add JSON to the body of your request in Postman.":::
+
+1. Copy / paste this JSON into the box in **Postman** as shown. Make sure your IoT hub name matches the one in your PUT URL. Change the location to your location (the location assigned to your resource group).
 
     ```json
     {
@@ -81,8 +83,6 @@ The following commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-
         }
     }
     ```
-
-   :::image type="content" source="media/iot-hub-rm-rest/add-body-for-put.png" alt-text="Screenshot that shows how to add JSON to the body of your request in Postman.":::
 
    See the [PUT command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/create-or-update?tabs=HTTP).
 
