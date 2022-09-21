@@ -20,9 +20,6 @@ ms.custom: has-adal-ref
 
 This topic covers supported and unsupported scenarios for Azure Active Directory (Azure AD) certificate-based authentication.
 
->[!NOTE]
->Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
 ## Supported scenarios
 
 The following scenarios are supported:
@@ -34,6 +31,10 @@ The following scenarios are supported:
 - Configuring certificate-to-user account bindings by using any of the certificate fields:
   - Subject Alternate Name (SAN) PrincipalName and SAN RFC822Name
   - Subject Key Identifier (SKI) and SHA1PublicKey
+- Configuring certificate-to-user account bindings by using any of the user object attributes:
+  - User Principal Name
+  - onPremisesUserPrincipalName
+  - CertificateUserIds
 
 ## Unsupported scenarios
 
