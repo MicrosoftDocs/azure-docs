@@ -198,5 +198,4 @@ Now you can access the public IP of the firewall from the internet, and the fire
 ## Next steps
 
 * [Troubleshooting Azure Spring Apps in VNET](troubleshooting-vnet.md)
-* [Customer Responsibilities Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
 
