@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -71,10 +71,10 @@ The following table provides an overview of how to switch from each type of repl
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
-| <b>…from GRS/RA-GRS</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | <b>N/A</b> | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br><b>- or -</b></br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
-| <b>…from ZRS</b> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | <b>N/A</b> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>2</sup> |
-| <b>…from GZRS/RA-GZRS</b> | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| <b>N/A</b> |
+| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| **…from ZRS** | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>2</sup> |
+| **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Switching to geo-redundancy is not supported if the storage account contains blobs in the archive tier.<br />
@@ -176,20 +176,20 @@ Follow these steps to request a conversion from Microsoft:
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab.":::
 
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page.":::
 
 1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab.":::
 
 1. Fill out the additional required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
@@ -209,7 +209,7 @@ You must perform a manual migration if:
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
 - Copy data by using an existing tool such as AzCopy, one of the Azure Storage client libraries, or a reliable third-party tool.
-- If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
+- If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](storage-account-move.md).
 

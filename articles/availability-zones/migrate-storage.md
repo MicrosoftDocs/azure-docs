@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -73,8 +73,8 @@ A full list of things to consider can be found in [Limitations](../storage/commo
 
 A conversion can be accomplished in one of two ways:
 
-1. [A Customer-initiated conversion (preview)](#customer-initiated-conversion-preview)
-1. [Request a conversion by creating a support request](#request-a-conversion-by-creating-a-support-request)
+- [A Customer-initiated conversion (preview)](#customer-initiated-conversion-preview)
+- [Request a conversion by creating a support request](#request-a-conversion-by-creating-a-support-request)
 
 #### Customer-initiated conversion (preview)
 
@@ -121,20 +121,20 @@ Follow these steps to request a conversion from Microsoft:
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Basics tab":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab.":::
 
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page.":::
 
 1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, then on the **Details** tab, specify the name for each account, separated by a semicolon.
 
-    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab":::
+    :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab.":::
 
 1. Fill out the additional required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
