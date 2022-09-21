@@ -284,5 +284,5 @@ items:
       href: preview-testing.md
     - name: Support policy
       href: support-policy.md
-    - name: Automated integration testing
+    - name: Automated validation testing
       href: automated-integration-testing.md
