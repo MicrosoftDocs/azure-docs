@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 05/10/2022
+ms.date: 09/15/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 #Customer intent: As and a developer or admin in the Microsoft identity platform, I want to understand the basic concept about managing how applications access resources through the permissions and consent framework.
@@ -37,7 +37,7 @@ For the user, the authorization relies on the privileges that the user has been 
 
 In this access scenario, the application acts on its own with no user signed in. Application access is used in scenarios such as automation, and backup. This scenario includes apps that run as background services or daemons. It's appropriate when it's undesirable to have a specific user signed in, or when the data required can't be scoped to a single user.
 
-Direct access may require application permissions but this isn't the only way for granting an application direct access. Application permissions can be referred to as app roles. When app roles are granted to other applications, they can be called applications permissions. The appropriate application permissions or app roles must be granted to the application for it to access the resource. For more information about assigning app roles to applications, see [App roles for applications](howto-add-app-roles-in-azure-ad-apps.md).
+Direct access may require application permissions but that isn't the only way for granting an application direct access. Application permissions can be referred to as app roles. When app roles are granted to other applications, they're called applications permissions. The appropriate application permissions or app roles must be granted to the application for it to access the resource. For more information about assigning app roles to applications, see [App roles for applications](howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Types of permissions
 
@@ -66,6 +66,9 @@ Depending on the permissions they require, some applications might require an ad
 
 Preauthorization allows a resource application owner to grant permissions without requiring users to see a consent prompt for the same set of permissions that have been preauthorized. This way, an application that has been preauthorized won't ask users to consent to permissions. Resource owners can preauthorize client apps in the Azure portal or by using PowerShell and APIs, like Microsoft Graph.
 
+## Troubleshooting permissions and consent
+
+For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
 - [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
 - [Scopes and permissions](v2-permissions-and-consent.md)
