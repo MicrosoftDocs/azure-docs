@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in October include:
 
 - [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
-- [New attack path analysis and contextual security capabilities in Defender for Cloud](#new-attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
+- [Attack path analysis and contextual security capabilities in Defender for Cloud](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
 - [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
@@ -43,7 +43,7 @@ We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. C
 
 You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
 
-### New attack path analysis and contextual security capabilities in Defender for Cloud
+### Attack path analysis and contextual security capabilities in Defender for Cloud
 
 The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
 
