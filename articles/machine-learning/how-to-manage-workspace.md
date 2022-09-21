@@ -70,7 +70,7 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
     )
     ```
 
-* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
     ```python
     from azure.identity import AzureAuthorityHosts
@@ -189,8 +189,6 @@ Use the following steps to provide your own key:
 # [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-Use an CustomerManagedKey object to specify details on your customer managed key.
 
 ```python
 
