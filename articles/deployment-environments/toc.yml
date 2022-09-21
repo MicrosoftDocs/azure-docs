@@ -35,3 +35,7 @@ items:
       href: how-to-configure-managed-identity.md
     - name: Configure environment types
       href: how-to-configure-environment-types.md
+    - name: Provide access to Dev Managers
+      href: how-to-configure-project-admin.md
+    - name: Provide access to developers
+      href: how-to-configure-deployment-environments-user.md
