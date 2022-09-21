@@ -95,7 +95,7 @@ For more information on working with resource groups, see [az group](/cli/azure/
 
 ## Create a workspace
 
-When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](../concept-workspace.md#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
+When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](../concept-workspace.md#associated-resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
 > When attaching your own storage account, make sure that it meets the following criteria:

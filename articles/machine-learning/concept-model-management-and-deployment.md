@@ -146,7 +146,7 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Machine Learning gives you the capability to track the end-to-end audit trail of all your machine learning assets by using metadata. For example:
 
-- Machine Learning [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository, branch, and commit your code came from.
+- Machine Learning [integrates with Git](concept-train-model-git-integration.md) to track information on which repository, branch, and commit your code came from.
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
 - Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
@@ -208,7 +208,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 
 Learn more by reading and exploring the following resources:
 
-+ [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
++ [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
 + [How to deploy a model to an online endpoint](how-to-deploy-managed-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)

@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template.
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 A device template includes the following sections:
 
@@ -66,11 +66,11 @@ To lean more about the DPS payload, see the sample code used in the [Tutorial: C
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model.
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines a complete device model or individual interface into a device template, or use the web UI in IoT Central to create or edit a device model.
 
 To learn more about editing a device model, see [Edit an existing device template](howto-edit-device-template.md)
 
-A solution developer can also export a JSON file that contains the device model. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
+A solution developer can also export a JSON file from the device template that contains a complete device model or individual interface. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
 The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
@@ -345,7 +345,7 @@ You can choose queue commands if a device is currently offline by enabling the *
 Offline commands are one-way notifications to the device from your solution. Offline commands can have request parameters but don't return a response.
 
 > [!NOTE]
-> This option is only available in the IoT Central web UI. This setting isn't included if you export a model or interface from the device template.
+> Offline commands are marked as `durable` if you export the model as DTDL.
 
 ## Cloud properties
 

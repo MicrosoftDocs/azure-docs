@@ -262,7 +262,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can be only overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
 
 ### Example
 

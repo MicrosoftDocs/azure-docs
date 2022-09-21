@@ -3,7 +3,7 @@ title: 'Modify group writeback in Azure AD Connect'
 description: This article describes how to modify the default behavior for group writeback in Azure AD Connect. 
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity

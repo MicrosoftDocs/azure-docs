@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/23/2021
+ms.date: 08/29/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -31,13 +31,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Overview
 
-This tutorial uses the new client library, [Azure.Search.Documents](/dotnet/api/overview/azure/search), version 11.x, to create and run multiple indexers. In this tutorial, you'll set up two Azure data sources so that you can configure an indexer that pulls from both to populate a single search index. The two data sets must have a value in common to support the merge. In this sample, that field is an ID. As long as there is a field in common to support the mapping, an indexer can merge data from disparate resources: structured data from Azure SQL, unstructured data from Blob storage, or any combination of [supported data sources](search-indexer-overview.md#supported-data-sources) on Azure.
+This tutorial uses [Azure.Search.Documents](/dotnet/api/overview/azure/search) to create and run multiple indexers. In this tutorial, you'll set up two Azure data sources so that you can configure an indexer that pulls from both to populate a single search index. The two data sets must have a value in common to support the merge. In this sample, that field is an ID. As long as there's a field in common to support the mapping, an indexer can merge data from disparate resources: structured data from Azure SQL, unstructured data from Blob storage, or any combination of [supported data sources](search-indexer-overview.md#supported-data-sources) on Azure.
 
 A finished version of the code in this tutorial can be found in the following project:
 
 * [multiple-data-sources/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v11)
 
-This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v10) on GitHub.
+For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v10) on GitHub.
 
 ## Prerequisites
 
@@ -45,9 +45,9 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
 + [Azure Cognitive Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Azure Cognitive Search](search-create-service-portal.md)
 
-> [!Note]
+> [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## 1 - Create services
@@ -64,45 +64,45 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Select **Data Explorer** and then select **New Database**.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Create a new database" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Create a new database" border="true":::
 
 1. Enter the name **hotel-rooms-db**. Accept default values for the remaining settings.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Configure database" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Configure database" border="true":::
 
 1. Create a new container. Use the existing database you just created. Enter **hotels** for the container name, and use **/HotelId** for the Partition key.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Add container" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Add container" border="true":::
 
-1. Select **Items** under **hotels**, and then click **Upload Item** on the command bar. Navigate to and then select the file **cosmosdb/HotelsDataSubset_CosmosDb.json** in the project folder.
+1. Select **Items** under **hotels**, and then select **Upload Item** on the command bar. Navigate to and then select the file **cosmosdb/HotelsDataSubset_CosmosDb.json** in the project folder.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Upload to Azure Cosmos DB collection" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Upload to Azure Cosmos DB collection" border="true":::
 
 1. Use the Refresh button to refresh your view of the items in the hotels collection. You should see seven new database documents listed.
 
-1. Copy a connection string from the **Keys** page into Notepad. You will need this for **appsettings.json** in a later step. If you did not use the suggested database name "hotel-rooms-db", copy the database name as well.
+1. Copy a connection string from the **Keys** page into Notepad. You'll need this value for **appsettings.json** in a later step. If you didn't use the suggested database name "hotel-rooms-db", copy the database name as well.
 
 ### Azure Blob Storage
 
-1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, select **Blobs**, and then select **+ Container**.
 
 1. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) named **hotel-rooms** to store the sample hotel room JSON files. You can set the Public Access Level to any of its valid values.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Create a blob container" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Create a blob container" border="true":::
 
-1. After the container is created, open it and select **Upload** on the command bar. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
+1. After the container is created, open it and select **Upload** on the command bar. Navigate to the folder containing the sample files. Select all of them and then select **Upload**.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Upload files" border="false":::
 
-1. Copy the the storage account name and a connection string from the **Access Keys** page into Notepad. You will need both values for **appsettings.json** in a later step.
+1. Copy the storage account name and a connection string from the **Access Keys** page into Notepad. You'll need both values for **appsettings.json** in a later step.
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). 
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your Azure resources.
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
 
-To authenticate to your search service, you will need the service URL and an access key.
+To authenticate to your search service, you'll need the service URL and an access key.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -116,7 +116,7 @@ Having a valid key establishes trust, on a per request basis, between the applic
 
 1. Start Visual Studio and in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. 
 
-1. In the **Browse** tab, find and then install **Azure.Search.Documents** (version 11.0 or later). You will have to click through additional dialogs to complete the installation.
+1. In the **Browse** tab, find and then install **Azure.Search.Documents** (version 11.0 or later). 
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="false":::
 
@@ -151,7 +151,7 @@ When indexing data from multiple data sources, make sure each incoming row or do
 
 It often requires some up-front planning to identify a meaningful document key for your index, and make sure it exists in both data sources. In this demo, the `HotelId` key for each hotel in Cosmos DB is also present in the rooms JSON blobs in Blob storage.
 
-Azure Cognitive Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field. For example, in Cosmos DB, the hotel identifier is called **`HotelId`**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **`Id`**. The program handles this by mapping the **`Id`** field from the blobs to the **`HotelId`** key field in the indexer.
+Azure Cognitive Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field. For example, in Cosmos DB, the hotel identifier is called **`HotelId`**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **`Id`**. The program handles this discrepancy by mapping the **`Id`** field from the blobs to the **`HotelId`** key field in the indexer.
 
 > [!NOTE]
 > In most cases, auto-generated document keys, such as those created by default by some indexers, do not make good document keys for combined indexes. In general you will want to use a meaningful, unique key value that already exists in, or can be easily added to, your data sources.
@@ -177,11 +177,11 @@ This simple C#/.NET console app performs the following tasks:
 
 This sample program uses [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) class to generate an index structure from a C# data model class.
 
-The data model is defined by the Hotel class, which also contains references to the Address and Room classes. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it is searchable or sortable.
+The data model is defined by the Hotel class, which also contains references to the Address and Room classes. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it's searchable or sortable.
 
 The program will delete any existing index of the same name before creating the new one, in case you want to run this example more than once.
 
-The following snippets from the **Hotel.cs** file shows single fields, followed by a reference to another data model class, Room[], which in turn is defined in **Room.cs** file (not shown).
+The following snippets from the Hotel.cs file show single fields, followed by a reference to another data model class, Room[], which in turn is defined in **Room.cs** file (not shown).
 
 ```csharp
 . . .
@@ -311,14 +311,6 @@ Blob storage indexers can use [IndexingParameters](/dotnet/api/azure.search.docu
 This example defines a schedule for the indexer, so that it will run once per day. You can remove the schedule property from this call if you don't want the indexer to automatically run again in the future.
 
 ```csharp
-// Map the Id field in the Room documents to the HotelId key field in the index
-List<FieldMapping> map = new List<FieldMapping> {
-    new FieldMapping("Id")
-    {
-        TargetFieldName =  "HotelId"
-    }
-};
-
 IndexingParameters parameters = new IndexingParameters();
 parameters.Configuration.Add("parsingMode", "json");
 
@@ -331,6 +323,7 @@ SearchIndexer blobIndexer = new SearchIndexer(
     Schedule = new IndexingSchedule(TimeSpan.FromDays(1))
 };
 
+// Map the Id field in the Room documents to the HotelId key field in the index
 blobIndexer.FieldMappings.Add(new FieldMapping("Id") { TargetFieldName = "HotelId" });
 
 // Reset the indexer if it already exists
@@ -368,7 +361,7 @@ In Azure portal, open the search service **Overview** page, and find the **hotel
 
   :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="List of Azure Cognitive Search indexes" border="false":::
 
-Click on the hotel-rooms-sample index in the list. You will see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
+Select on the hotel-rooms-sample index in the list. You'll see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
 
 ## Reset and rerun
 

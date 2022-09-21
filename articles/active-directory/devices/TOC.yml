@@ -7,7 +7,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Azure AD join during Windows 10 first-run experience
+  - name: Azure AD join a new Windows device
     href: azuread-joined-devices-frx.md
 - name: Concepts
   expanded: true
