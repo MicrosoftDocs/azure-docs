@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/28/2022 
+ms.date: 09/21/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
@@ -61,6 +61,12 @@ When changes can't be loaded, Azure Monitor's Change Analysis service presents t
 - Change Analysis service being temporarily unavailable.
 
 Refreshing the page after a few minutes usually fixes this issue. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+
+## Only partial data loaded.
+
+This error message may occur in the Azure portal when loading change data via the Change Analysis home page. Typically, the Change Analysis service calculates and returns all change data. However, in case of a network failure or a temporary outage of service, you may receive an error message indicating only partial data was loaded.
+
+To load all change data, try waiting a few minutes and refreshing the page. If you are still only receiving partial data, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ## You don't have enough permissions to view some changes. Contact your Azure subscription administrator.
 
