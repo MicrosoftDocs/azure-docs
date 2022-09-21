@@ -23,7 +23,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     resourceGroupName="msdocs-cosmos-quickstart-rg"
     location="westus"
 
-    # Variable for account name with a randomnly generated suffix
+    # Variable for account name with a randomly generated suffix
     let suffix=$RANDOM*$RANDOM
     accountName="msdocs-$suffix"
     ```
@@ -77,7 +77,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     $RESOURCE_GROUP_NAME = "msdocs-cosmos-quickstart-rg"
     $LOCATION = "West US"
     
-    # Variable for account name with a randomnly generated suffix
+    # Variable for account name with a randomly generated suffix
     $SUFFIX = Get-Random
     $ACCOUNT_NAME = "msdocs-$SUFFIX"
     ```
@@ -143,7 +143,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the SQL API](../index.yml).
 
-   :::image type="content" source="../media/create-account-portal/cosmos-api-choices.png" lightbox="../media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos DB.":::
+   :::image type="content" source="../media/create-account-portal/cosmos-api-choices.png" lightbox="../media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -159,7 +159,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="../media/create-account-portal/new-cosmos-account-page.png" lightbox="../media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
+   :::image type="content" source="../media/create-account-portal/new-cosmos-account-page.png" lightbox="../media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB SQL API.":::
 
 1. Select **Review + create**.
 
@@ -167,15 +167,15 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="../media/create-account-portal/cosmos-deployment-complete.png" lightbox="../media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL A P I resource.":::
+   :::image type="content" source="../media/create-account-portal/cosmos-deployment-complete.png" lightbox="../media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB SQL API resource.":::
 
 1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-keys-option.png" lightbox="../media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="../media/get-credentials-portal/cosmos-keys-option.png" lightbox="../media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL API account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
+   :::image type="content" source="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="../media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL API account.":::
 
 #### [Resource Manager template](#tab/azure-resource-manager)
 
@@ -191,7 +191,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     # Variable for location
     location="westus"
 
-    # Variable for account name with a randomnly generated suffix
+    # Variable for account name with a randomly generated suffix
     let suffix=$RANDOM*$RANDOM
     accountName="msdocs-$suffix"
     ```

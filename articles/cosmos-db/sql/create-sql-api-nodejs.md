@@ -33,7 +33,7 @@ Get started with the Azure Cosmos DB client library for JavaScript to create dat
 
 ## Prerequisites
 
-* In a terminal or command window, run ``node --version`` to check that the Node.js version one of the current long term support (LTS) versions.
+* In a terminal or command window, run ``node --version`` to check that the Node.js version is one of the current long term support (LTS) versions.
 * Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
