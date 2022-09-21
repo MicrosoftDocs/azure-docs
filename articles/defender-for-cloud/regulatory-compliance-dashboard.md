@@ -46,13 +46,13 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-drilldown.png" alt-text="Screenshot that shows the exploration of the details of compliance with a specific standard." lightbox="media/regulatory-compliance-dashboard/compliance-drilldown.png":::
 
  The following list has a numbered item that matches each location in the image above, and describes what is in the image:  
-- (1) Select a compliance standard to see a list of all controls for that standard. 
-- (2) View the subscription(s) that the compliance standard is applied on. 
-- (3) Select a Control to see more details. Expand the control to view the assessments associated with the selected control. Select an assessment to view the list of resources associated and the actions to remediate compliance concerns. 
-- (4) Select Control details to view Overview, Your Actions and Microsoft Actions tabs.
-- (5) In the Your Actions tab, you can see the automated and manual assessments associated to the control.
-- (6) Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations.
-- (7) The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance.
+- Select a compliance standard to see a list of all controls for that standard. (1) 
+- View the subscription(s) that the compliance standard is applied on. (2)
+- Select a Control to see more details. Expand the control to view the assessments associated with the selected control. Select an assessment to view the list of resources associated and the actions to remediate compliance concerns. (3)
+- Select Control details to view Overview, Your Actions and Microsoft Actions tabs. (4) 
+- In the Your Actions tab, you can see the automated and manual assessments associated to the control. (5)
+- Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations. (6)
+- The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance. (7)
 
 ## Investigate your regulatory compliance issues
 
