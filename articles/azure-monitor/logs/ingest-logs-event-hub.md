@@ -48,7 +48,7 @@ To create a custom table into which to ingest events, in the Azure portal:
     
         :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
 
-    1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**.  
+    1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**. You'll need the workspace resource ID to create a data collection rule. 
   
         :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing Resource JSON screen with the workspace resource ID highlighted.":::
 
