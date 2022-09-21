@@ -20,7 +20,7 @@ The following sections outline the key features of the Azure DDoS Protection ser
 
 Azure DDoS Protection monitors actual traffic utilization and constantly compares it against the thresholds defined in the DDoS Policy. When the traffic threshold is exceeded, DDoS mitigation is initiated automatically. When traffic returns below the thresholds, the mitigation is stopped.
 
-![Azure DDoS Protection Mitigation](./media/ddos-protection-overview/mitigation.png)
+:::image type="content" source="./media/ddos-protection-overview/mitigation.png" alt-text="Screenshot of Azure DDoS Protection Mitigation." lightbox="./media/ddos-protection-overview/mitigation.png":::
 
 During mitigation, traffic sent to the protected resource is redirected by the DDoS protection service and several checks are performed, such as:
 
