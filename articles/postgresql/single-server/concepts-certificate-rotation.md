@@ -30,7 +30,7 @@ Starting October 2022, the [BaltimoreCyberTrustRoot root certificate](https://ww
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
-There are no code or application  changes required on client side. if you follow our previous recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
+There are no code or application  changes required on client side. if you follow our previous recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate isn't removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
 
 ### Previous Recommendation
 
@@ -57,11 +57,11 @@ There are no code or application  changes required on client side. if you follow
         *   System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file"); 
         *   System.setProperty("javax.net.ssl.trustStorePassword","password");
 
-    *   For .NET (Npgsql) users on Windows, make sure **Baltimore CyberTrust Root** and **DigiCert Global Root G2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates do not exist, import the missing certificate.
+    *   For .NET (Npgsql) users on Windows, make sure **Baltimore CyberTrust Root** and **DigiCert Global Root G2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
         ![Azure Database for PostgreSQL .net cert](media/overview/netconnecter-cert.png)
 
-    *   For .NET (Npgsql) users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates do not exist, create the missing certificate file.
+    *   For .NET (Npgsql) users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates don't exist, create the missing certificate file.
 
     *   For other PostgreSQL client users, you can merge two CA certificate files like this format below
 
@@ -76,7 +76,7 @@ There are no code or application  changes required on client side. if you follow
 *    In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
 > [!NOTE]
-> Please do not drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate.
+> Please don't drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate.
 
 ## What if we removed the BaltimoreCyberTrustRoot certificate?
 
@@ -86,18 +86,18 @@ You will start to connectivity errors while connecting to your Azure Database fo
 
 ###    1. If I am not using SSL/TLS, do I still need to update the root CA?
 
-No actions required if you are not using SSL/TLS.
+No actions required if you aren't using SSL/TLS.
 
 ### 2. If I am using SSL/TLS, do I need to restart my database server to update the root CA?
 
-No, you do not need to restart the database server to start using the new certificate. This is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
+No, you don't need to restart the database server to start using the new certificate. This is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
 ### 3. How do I know if I'm using SSL/TLS with root certificate verification?
 
 You can identify whether your connections verify the root certificate by reviewing your connection string.
 -  If your connection string includes `sslmode=verify-ca` or `sslmode=verify-full`, you need to update the certificate.
 -  If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates.
--  If your connection string does not specify sslmode, you do not need to update certificates.
+-  If your connection string doesn't specify sslmode, you don't need to update certificates.
 
 If you are using a client that abstracts the connection string away, review the client's documentation to understand whether it verifies certificates. To understand PostgreSQL sslmode review the [SSL mode descriptions](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions) in PostgreSQL documentation.
 
@@ -119,7 +119,7 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 
 ### 7. Do I need to plan a database server maintenance downtime for this change?
 
-No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed for the database server for this change.
+No. Since the change here is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
 
 ### 8. If I create a new server after October 2022 (10/2022), will I be impacted?
 For servers created after October 2022 (10/2022), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2] (https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
@@ -138,7 +138,7 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 
 ### 12. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
 
-No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
 ### 13. What if you are using docker image of PgBouncer sidecar provided by Microsoft?
 A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting October, 2022. 
