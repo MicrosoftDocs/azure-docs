@@ -16,7 +16,7 @@ The Azure Batch service currently supports API for Job/Pool to retrieve lifetime
 
 To make the statistical data available for customers, the Batch service allocates batch pools and schedule jobs with an in-house MapReduce implementation to perform background periodic roll-up of statistics. The aggregation is performed for all accounts/pools/jobs in each region, no matter if customer needs or queries the stats for their account/pool/job. The operating cost includes 11 VMs allocated in each region to execute MapReduce aggregation jobs. For busy regions, we had to increase the pool size further to accommodate the extra aggregation load.
 
-The MapReduce aggregation logic was implemented with legacy code, and no new features are being added or improvised due to technical challenges with legacy code. Still, the legacy code and its hosting repo need to be updated frequently to accommodate ever growing load in production and to meet security/compliance requirements. In addition, since the API is featured to provide lifetime statistics, the data is growing and demands more storage and performance issues, even though most customers aren't using the API. Batch service currently eats up all the compute and storage usage charges associated with MapReduce pools and jobs.
+The MapReduce aggregation logic was implemented with legacy code, and no new features are being added or improvised due to technical challenges with legacy code. Still, the legacy code and its hosting repo need to be updated frequently to accommodate ever growing load in production and to meet security/compliance requirements. In addition, since the API is featured to provide lifetime statistics, the data is growing and demands more storage and performance issues, even though most customers aren't using the API. The Batch service currently uses all the compute and storage usage charges associated with MapReduce pools and jobs.
 
 ## End of support for job pool lifetime statistics
 
@@ -24,7 +24,7 @@ The purpose of the API is designed and maintained to serve the customer in troub
 
 Job/Pool Lifetime Statistics API will be retired on **30 April 2023**. Once complete, the API will no longer work and will return an appropriate HTTP response error code back to the client.
 
-## Migrate to logs in the Azure portal
+## Set up logs in the Azure portal
 
 The Azure portal has various options to enable the logs. Specifically, you can view system logs and diagnostic logs. For more information, see [Monitor Batch solutions](./monitoring-overview.md).
 
