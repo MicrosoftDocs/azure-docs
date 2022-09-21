@@ -163,7 +163,7 @@ You can test the managed identity to verify if the Graphical runbook is working 
 To ensure that a graphical runbook that uses Run As account use managed identities, you must replace, Run As connection that uses `AzureRunAsConnection`
 and connection asset that internally uses PowerShell `Get-AutomationConnection` cmdlet.
 
-:::image type="content" source="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-inline.png" alt-text="Screenshot of edit graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/edit-graphical-expanded.png":::
+:::image type="content" source="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-inline.png" alt-text="Screenshot of edit graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-expanded.png":::
 
 
 Activity to connect to Azure that uses `Connect-AzAccount` to add the authenticated Run As account for use in the runbook with `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to identity.
