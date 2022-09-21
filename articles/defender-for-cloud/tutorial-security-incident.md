@@ -107,11 +107,11 @@ If you don't plan to continue, or you want to disable either of these features:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Select **Auto provisioning**.
+1. In the Monitoring coverage column of the Defender plan, select **Settings**.
 1. Disable the relevant extensions.
 
     >[!NOTE]
-    > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
+    > Disabling extensions does not remove the Log Analytics agent from Azure VMs that already have the agent, but does limits security monitoring for your resources.
 
 ## Next steps
 In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:

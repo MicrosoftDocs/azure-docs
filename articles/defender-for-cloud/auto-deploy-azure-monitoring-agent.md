@@ -1,6 +1,6 @@
 ---
-title: Deploy the Azure Monitor Agent with auto provisioning
-description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers with auto provisioning to support Microsoft Defender for Cloud protections.
+title: Deploy the Azure Monitor Agent with Microsoft Defender for Cloud
+description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers to support Microsoft Defender for Cloud protections.
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
@@ -8,11 +8,11 @@ ms.date: 08/03/2022
 ms.custom: template-how-to
 ---
 
-# Auto provision the Azure Monitor Agent to protect your servers with Microsoft Defender for Cloud
+# Deploy the Azure Monitor Agent to protect your servers with Microsoft Defender for Cloud
 
-To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to quietly deploy the Azure Monitor Agent on your servers.
+To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can quietly deploy the Azure Monitor Agent on your servers when you enable Defender for Servers.
 
-In this article, we're going to show you how to use auto provisioning to deploy the agent so that you can protect your servers.
+In this article, we're going to show you how to deploy the agent so that you can protect your servers.
 
 ## Availability
 
@@ -20,7 +20,7 @@ In this article, we're going to show you how to use auto provisioning to deploy 
 
 ## Prerequisites
 
-Before you enable auto provisioning, you must have the following prerequisites:
+Before you deploy AMA with Defender for Cloud, you must have the following prerequisites:
 
 - Make sure your multicloud and on-premises machines have Azure Arc installed.
   - AWS and GCP machines
@@ -33,31 +33,22 @@ Before you enable auto provisioning, you must have the following prerequisites:
   - [Enable Defender plans on the subscriptions for your AWS VMs](quickstart-onboard-aws.md)
   - [Enable Defender plans on the subscriptions for your GCP VMs](quickstart-onboard-gcp.md)
 
-## Deploy the Azure Monitor Agent with auto provisioning
+## Deploy the Azure Monitor Agent with Defender for Cloud
 
-To deploy the Azure Monitor Agent with auto provisioning:
+To deploy the Azure Monitor Agent with Defender for Cloud:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Open the **Auto provisioning** page.
-
-    :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/select-auto-provisioning.png" alt-text="Screenshot of the auto provisioning menu item for enabling the Azure Monitor Agent.":::
-
+1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
 1. Enable deployment of the Azure Monitor Agent:
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select the **On** status.
 
-        In the Configuration column, you can see the enabled agent type. When you enable auto provisioning, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
-
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="Screenshot of the auto provisioning page for enabling the Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
+        In the Configuration column, you can see the enabled agent type. When you enable Defender plans, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png " alt-text="Screenshot of editing the Azure Monitor Agent configuration." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
-
     1. For the Auto-provisioning configuration agent type, select **Azure Monitor Agent**.
-
-        :::image type="content" source="./media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot of selecting the Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::
 
     By default:
 
@@ -74,7 +65,7 @@ You can run both the Log Analytics and Azure Monitor Agents on the same machine,
 - Each machine is billed once in Defender for Cloud, but make sure you track billing of other services connected to the Log Analytics and Azure Monitor, such as the Log Analytics workspace data ingestion.
 - Both agents have performance impact on the machine.
 
-When you enable auto provisioning, Defender for Cloud decides which agent to provision. In most cases, the default is the Log Analytics agent.
+When you enable Defender for Servers Plan 2, Defender for Cloud decides which agent to provision. In most cases, the default is the Log Analytics agent.
 
 Learn more about [migrating to the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
 
@@ -93,7 +84,7 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Open the **Auto provisioning** page.
+1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
 1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 1. Select **Custom workspace**, and select the workspace that you want to send data to.
 
