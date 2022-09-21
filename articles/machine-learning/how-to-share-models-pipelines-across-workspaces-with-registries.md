@@ -429,7 +429,8 @@ ls -l ./artifacts/model/
 ```
 > [!TIP]
 > If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
-
+> [!WARNING]
+> The output of `az ml job list` is passed to `sed`. This works only on Linux shells. If you are on Windows, run `az ml job list --parent-job-name <job-name> --query [0].name ` and strip any quotes you see in the train job name.
 If you're unable to download the model, you can find sample MLflow model trained by the training job in the previous section in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/artifacts/model/` folder.
 
 Create the model in the registry
@@ -498,12 +499,13 @@ Next, you'll now copy the model from the workspace to the registry. Note now the
 
 ```azurecli
 # copy model registered in workspace to registry
-az ml model create --registry-name ContosoMLjun14 --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
+az ml model create --registry-name <registry-name> --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
 ```
 
 > [!TIP]
 > Make sure to use the right model name and version if you changed it in the `az ml model create` command.
-
+> [!TIP]
+> The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
 Note down the `name` and `version` of the model from the output of the `az ml model create` command and use them with `az ml model show` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
 ```azurecli 
