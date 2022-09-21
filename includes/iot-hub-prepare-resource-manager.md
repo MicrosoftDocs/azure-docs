@@ -12,7 +12,7 @@ Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you contin
 
 The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
 
-1. Sign in to your Azure subscription using the following command:
+1. Sign in to your Azure subscription using the following command. If you're using PowerShell in Azure Cloud Shell you're already signed in, so you can skip this step.
 
     ```powershell
     Connect-AzAccount
@@ -26,10 +26,10 @@ The following steps show how to set up password authentication for an AD applica
    Get-AzSubscription
    ```
 
-   Select the subscription you want to use. You can use either the subscription name or ID from the output of the previous command.
+   Select the subscription you want to use. You can use either the `Name` or `Id` from the output of the previous command.
 
    ```powershell
-   Select-AzSubscription -SubscriptionName "{your subscription name}"
+   Select-AzSubscription -SubscriptionName "{your subscription Name or Id}"
    ```
 
 1. Save your **Id** and **TenantId** for later.

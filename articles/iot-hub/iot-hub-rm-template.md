@@ -26,14 +26,14 @@ You can use Azure Resource Manager to create and manage Azure IoT hubs programma
 To complete this tutorial, you need the following:
 
 * Visual Studio
-* An [Azure Storage account][lnk-storage-account] where you can store your Azure Resource Manager template files
-* [Azure PowerShell module][lnk-powershell-install]
+* An [Azure Storage account][lnk-storage-account] for your Azure Resource Manager template files
+* [Azure PowerShell module][lnk-powershell-install] or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## Prepare your Visual Studio project
 
-1. In Visual Studio, create a Visual C# Windows Classic Desktop project using the **Console App (.NET Framework)** project template. Name the project **CreateIoTHub**.
+1. In Visual Studio, create a C# Windows Desktop project using the **Console App (.NET Framework)** project template. Name the project **CreateIoTHub**.
 
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 
@@ -71,13 +71,13 @@ To complete this tutorial, you need the following:
 
 Use a JSON template and parameter file to create an IoT hub in your resource group. You can also use an Azure Resource Manager template to make changes to an existing IoT hub.
 
-1. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **template.json** to your project.
+1. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a text file to your project and rename it **template.json**.
 
-2. To add a standard IoT hub to the **East US** region, replace the contents of **template.json** with the following resource definition. For the current list of regions that support IoT Hub see [Azure Status][lnk-status]:
+2. To add a standard IoT hub to the **East US** region, replace the contents of **template.json** with the following resource definition. For the current list of regions that support IoT Hub see [Azure Status][lnk-status]. Replace the `<myHubName>` value with a unique name for your new IoT hub.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -85,27 +85,18 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
         }
       },
       "resources": [
-      {
-        "apiVersion": "2016-02-03",
-        "type": "Microsoft.Devices/IotHubs",
-        "name": "[parameters('hubName')]",
-        "location": "East US",
-        "sku": {
-          "name": "S1",
-          "tier": "Standard",
-          "capacity": 1
-        },
-        "properties": {
-          "location": "East US"
-        }
-      }
-      ],
-      "outputs": {
-        "hubKeys": {
-          "value": "[listKeys(resourceId('Microsoft.Devices/IotHubs', parameters('hubName')), '2016-02-03')]",
-          "type": "object"
-        }
-      }
+           {
+               "type": "Microsoft.Devices/IotHubs",
+               "apiVersion": "2022-04-30-preview",
+               "name": "[parameters('<myHubName>')]",
+               "location": "eastus",
+               "sku": {
+                  "name": "S1",
+                  "tier": "Standard",
+                  "capacity": 1
+               },
+           }
+      ]
     }
     ```
 
