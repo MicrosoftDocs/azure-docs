@@ -4,7 +4,7 @@ description: This article describes how to optimize your Apache Hive queries in 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/29/2022
+ms.date: 09/21/2022
 ---
 
 # Optimize Apache Hive queries in Azure HDInsight
@@ -41,7 +41,6 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 [Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
-:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="HDInsight Apache Tez overview diagram":::
 
 Tez is faster because:
 
