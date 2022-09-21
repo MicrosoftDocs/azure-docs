@@ -485,7 +485,7 @@ Next, you'll now copy the model from the workspace to the registry. Note now the
 
 ```azurecli
 # copy model registered in workspace to registry
-az ml model create --registry-name ContosoMLjun14 --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
+az ml model create --registry-name <registry-name> --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
 ```
 
 > [!TIP]
