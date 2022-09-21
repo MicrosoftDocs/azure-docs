@@ -129,8 +129,10 @@
         href: flexible-server/concepts-backup-restore.md
     - name: Security
       items:
+      - name: Azure AD Authentication
+        href: flexible-server/concepts-azure-ad-authentication.md     
       - name: Data encryption
-        href: flexible-server/concepts-customer-managed-key.md
+        href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
     - name: Power BI
@@ -256,10 +258,12 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: Security
       items:
+      - name: Configure Azure AD Authentication
+        href: flexible-server/how-to-azure-ad.md      
       - name: Data encryption with Azure portal
         href: flexible-server/how-to-data-encryption-portal.md
       - name: Data encryption with Azure CLI
-        href: flexible-server/how-to-data-encryption-cli.md        
+        href: flexible-server/how-to-data-encryption-cli.md           
   - name: Samples
     items:
     - name: Azure CLI samples
