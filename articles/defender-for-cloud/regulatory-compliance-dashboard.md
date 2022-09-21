@@ -207,8 +207,8 @@ For example, you might want Defender for Cloud to email a specific user when a c
 
 ## FAQ - Regulatory compliance dashboard
 
-- [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
 - [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
+- [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
 - [Why do some controls appear grayed out?](#why-do-some-controls-appear-grayed-out)
 - [How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
 - [I made the suggested changes based on the recommendation, but it isn't being reflected in the dashboard?](#i-made-the-suggested-changes-based-on-the-recommendation-but-it-isnt-being-reflected-in-the-dashboard)
@@ -220,7 +220,7 @@ For example, you might want Defender for Cloud to email a specific user when a c
 - [What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-microsoft-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
 - [How do I remediate a manual assessment?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
-### How do I remediate a manual assessment?
+### 
 [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Control Framework](https://www.cisecurity.org/benchmark/azure/), [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) and PCI-DSS. MCSB is a comprehensive cloud agnostic set of security principles designed to recommend the most up-to-date technical guidelines for Azure along with other clouds such as AWS and GCP. We recommend MCSB to customers who want to maximize their security posture and align their compliance status with industry standards.
 
 The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they are sometimes delayed and can become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
@@ -267,7 +267,6 @@ To use the regulatory compliance dashboard, Defender for Cloud must be enabled a
 On the main dashboard, you can see a report of passing and failing controls for (1) the 'top 4' lowest compliance standards in the dashboard. To see all the passing/failing controls status, select (2) **Show all *x*** (where x is the number of standards you're tracking). A context plane displays the compliance status for every one of your tracked standards.
 
 :::image type="content" source="media/regulatory-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Summary section of the regulatory compliance dashboard.":::
-
 
 ### How can I download a report with compliance data in a format other than PDF?
 When you select **Download report**, select the standard and the format (PDF or CSV). The resulting report will reflect the current set of subscriptions you've selected in the portal's filter.
