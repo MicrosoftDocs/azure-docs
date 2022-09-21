@@ -24,7 +24,6 @@ Updates in October include:
 - [Attack Path Analysis and contextual security capabilities in Defender for Cloud](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
 - [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
-- [Added control details and compliance offerings to the regulatory compliance standards](#added-control-details-and-compliance-offerings-to-the-regulatory-compliance-standards)
 - [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
@@ -78,22 +77,7 @@ Some of the new benefits include:
 
 Learn more on how to [Improve your regulatory compliance](regulatory-compliance-dashboard.md) with Defender for Cloud.
 
-### Added control details and compliance offerings to the regulatory compliance standards
 
-Defender for Cloud has added more control details and compliance offerings to the Regulatory Compliance standards page to help customers and partners improve their compliance posture by using the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) which is automatically assigned to your subscriptions and accounts when you onboard Defender for Cloud.
-
-Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
-
-Some of the new benefits include:
-
-- Added **Control Details** to the compliance standards certifications that showcase **Microsoft Actions** and **Manual Customer Actions** in addition to the already existing **Automated Customer Actions**.
-- **Microsoft Actions** provide transparency into Microsoft’s compliance status that include audit assessment procedures, test results, and Microsoft responses to deviations.
-- **Manual Customer Actions** provide the steps that customers and partners can take to improve their compliance posture. 
-- **Compliance Offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications. 
-
-You can learn more about the [Microsoft Cloud Security Benchmark in Defender for Cloud](concept-regulatory-compliance.md).
-
-You can also [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 ### Auto-provisioning has been renamed to Settings & monitoring and has an updated experience
 

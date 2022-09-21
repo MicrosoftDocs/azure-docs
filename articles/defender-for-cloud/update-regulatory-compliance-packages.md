@@ -49,7 +49,7 @@ Available regulatory standards:
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-By default, every AWS connector subscription has the ** Microsoft Cloud Security Benchmark (MCSB)** assigned along with the **AWS Foundational Security Best Practices**. MCSB is the Microsoft recommended cloud security best practices based on common compliance frameworks, with detailed guidance for applying to an AWS environment. AWS Foundational Security Best Practices is the AWS-recommended security guidelines.  
+By default, every AWS connector subscription has the **Microsoft Cloud Security Benchmark (MCSB)** assigned along with the **AWS Foundational Security Best Practices**. MCSB is the Microsoft recommended cloud security best practices based on common compliance frameworks, with detailed guidance for applying to an AWS environment. AWS Foundational Security Best Practices is the AWS-recommended security guidelines.  
 
 Available AWS regulatory standards:
 - AWS CIS 1.2.0

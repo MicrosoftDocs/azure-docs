@@ -43,15 +43,16 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
     The dashboard provides you with an overview of your compliance status and the set of supported compliance regulations. You'll see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
-    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard." lightbox="media/regulatory-compliance-dashboard/compliance-drilldown.png":::
+:::image type="content" source="./media/regulatory-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard." lightbox="media/regulatory-compliance-dashboard/compliance-drilldown.png":::
 
-    | Number explanation | |
-    |--|--|
-    | (1) Select a compliance standard to see a list of all controls for that standard. | (5) In the Your Actions tab, you can see the automated and manual assessments associated to the control. |
-    | (2) View the subscription(s) that the compliance standard is applied on. | (6) Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations.  |
-    | (3) Select a Control to see more details. Expand the control to view the assessments associated with the selected control. Select an assessment to view list of resources associated and actions to remediate compliance concerns. | (7) The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance. |
-    | (4) Select Control details to view Overview, Your Actions and Microsoft Actions tabs. | |
-
+   
+1. Select a compliance standard to see a list of all controls for that standard. 
+1. View the subscription(s) that the compliance standard is applied on. 
+1. Select a Control to see more details. Expand the control to view the assessments associated with the selected control. Select an assessment to view the list of resources associated and the actions to remediate compliance concerns. 
+1. Select Control details to view Overview, Your Actions and Microsoft Actions tabs.
+1. In the Your Actions tab, you can see the automated and manual assessments associated to the control.
+1. Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations.
+1. The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance.
 
 ## Investigate your regulatory compliance issues
 
@@ -207,8 +208,8 @@ For example, you might want Defender for Cloud to email a specific user when a c
 
 ## FAQ - Regulatory compliance dashboard
 
-- [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
 - [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
+- [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
 - [Why do some controls appear grayed out?](#why-do-some-controls-appear-grayed-out)
 - [How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
 - [I made the suggested changes based on the recommendation, but it isn't being reflected in the dashboard?](#i-made-the-suggested-changes-based-on-the-recommendation-but-it-isnt-being-reflected-in-the-dashboard)
@@ -218,18 +219,14 @@ For example, you might want Defender for Cloud to email a specific user when a c
 - [How can I download a report with compliance data in a format other than PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [How can I create exceptions for some of the policies in the regulatory compliance dashboard?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-microsoft-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
-- [How do I remediate a manual assessment?](#how-do-i-know-which-benchmark-or-standard-to-use)
+- [How do I remediate a manual assessment?](#how-do-i-remediate-a-manual-assessment)
 
-### 
+### How do I know which benchmark or standard to use?
 [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Control Framework](https://www.cisecurity.org/benchmark/azure/), [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) and PCI-DSS. MCSB is a comprehensive cloud agnostic set of security principles designed to recommend the most up-to-date technical guidelines for Azure along with other clouds such as AWS and GCP. We recommend MCSB to customers who want to maximize their security posture and align their compliance status with industry standards.
 
 The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they are sometimes delayed and can become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
 
 Since we’ve released the Microsoft Cloud Security Benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
-
-### How do I know which benchmark or standard to use?
-
-By selecting attest, you'll have the ability to demonstrate compliance with this control. Learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
 
 ### What standards are supported in the compliance dashboard?
 By default, the regulatory compliance dashboard shows you the Microsoft Cloud Security Benchmark. The Microsoft Cloud Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft Cloud Security Benchmark introduction](../security/benchmarks/introduction.md).
@@ -288,7 +285,8 @@ If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azur
 
 ### How do i remediate a manual assessment?
 
-You can view the instructions to learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
+By selecting attest, you'll have the ability to demonstrate compliance with this control. Learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
+
 ## Next steps
 
 In this tutorial, you learned about using Defender for Cloud’s regulatory compliance dashboard to:
