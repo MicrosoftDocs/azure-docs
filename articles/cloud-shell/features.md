@@ -20,8 +20,7 @@ ms.author: jahelmic
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Prior to August 2022, Azure Cloud Shell ran on **Common Base Linux - Delridge**. As of August 18,
-2022, Azure Cloud Shell was changed to use **Common Base Linux - Mariner** (CBL-Mariner),
+Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner),
 Microsoft's Linux distribution for cloud-infrastructure-edge products and services.
 
 Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
