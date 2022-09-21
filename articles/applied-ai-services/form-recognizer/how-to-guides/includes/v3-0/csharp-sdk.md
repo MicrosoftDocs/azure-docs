@@ -22,7 +22,6 @@ ms.custom: devx-track-csharp
 
 [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview.md)
 
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
@@ -36,7 +35,7 @@ ms.custom: devx-track-csharp
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. 
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -55,7 +54,7 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set up
+## Set up your environment
 
 1. Start Visual Studio.
 
@@ -88,9 +87,60 @@ ms.custom: devx-track-csharp
  1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
-## Build your application
+### Set your environment variables
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll instantiate the client with your `key` and endpoint from the Azure portal. For this project using environment variables is a secure way to store and access your credentials.
+
+> [!IMPORTANT]
+>
+> Don't include your key directly in the code and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../cognitive-services/use-key-vault.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
+#### [Windows](#tab/windows)
+
+```console
+setx SPEECH_KEY your-key
+```
+
+> [!NOTE]
+> If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
+
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+
+#### [Linux](#tab/linux)
+
+```bash
+export SPEECH_KEY=your-key
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/macos)
+
+##### Bash
+
+Edit your .bash_profile, and add the environment variable:
+
+```bash
+export SPEECH_KEY=your-key
+```
+
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
+
+##### Xcode
+
+For iOS and macOS development, you set the environment variables in Xcode. For example, follow these steps to set the environment variable in Xcode 13.4.1.
+
+1. Select **Product** > **Scheme** > **Edit scheme**
+1. Select **Arguments** on the **Run** (Debug Run) page
+1. Under **Environment Variables** select the plus (+) sign to add a new environment variable. 
+1. Enter `SPEECH_KEY` for the **Name** and enter your Speech resource key for the **Value**.
+
+For more configuration options, see the [Xcode documentation](https://help.apple.com/xcode/#/dev745c5c974).
+***
+
+To set the environment variable for your Speech resource region, follow the same steps. Set `SPEECH_REGION` to the region of your resource. For example, `westus`.
+
+## Build your application
 
 > [!NOTE]
 >
@@ -126,7 +176,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > [!div class="checklist"]
 >
 > * For this example, we've added the file URI value to the `Uri fileUri` variable at the top of the script.
-> * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-read` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+> * To analyze a file at a given URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-read` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
 1. Open the **Program.cs** file.
 
