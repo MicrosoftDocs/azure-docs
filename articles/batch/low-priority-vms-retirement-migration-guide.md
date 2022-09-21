@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/10/2022
 ---
 
-# Migrate low-priority VMs to spot VMs in Batch
+# Migrate Batch low-priority VMs to Azure Spot Virtual Machines
 
 The Azure Batch feature low-priority virtual machines (VMs) is being retired on *September 30, 2025*. Learn how to migrate your Batch low-priority VMs to Azure Spot Virtual Machines.
 
@@ -22,7 +22,7 @@ You can use low-priority VMs to take advantage of unused capacity in Azure. The 
 
 Low-priority VMs are a deprecated preview feature and won't be generally available. Spot VMs offered through the Azure Spot Virtual Machines service are the official, preemptible offering from the Azure compute platform. Spot Virtual Machines is generally available. On September 30, 2025, we'll retire the low-priority VMs feature. After that date, existing low-priority pools in Batch might no longer work and you can't provision new low-priority VMs.
 
-## Alternative: Use spot VMs in Azure Spot Virtual Machines
+## Alternative: Use Azure Spot Virtual Machines
 
 As of May 2020, Azure offers spot VMs in Batch in addition to low-priority VMs. Like low-priority VMs, you can use the spot VM option to purchase spare capacity at a deeply discounted price in exchange for the possibility that the VM will be evicted. Unlike low-priority VMs, you can use the spot VM option for single VMs and scale sets. Virtual machine scale sets scale up to meet demand. When used with a spot VM, a virtual machine scale set allocates only when capacity is available.
 

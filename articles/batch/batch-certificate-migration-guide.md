@@ -18,7 +18,7 @@ Often, you need to store secure data for an application. Your data must be secur
 
 Currently, Azure Batch offers two ways to secure access. You can use a certificate that you create and manage in Azure Batch or you can use Azure Key Vault to store an access key. Using a key vault is an Azure-standard way to deliver more controlled secure access management.
 
-Currently, you can use a certificate at the account level in Azure Batch. You must generate the certificate and upload it manually to Batch by using the Azure portal. To access the certificate, the certificate must be associated with and installed for only the current user. A certificate typically is valid for one year, and it must be updated each year.
+You can use a certificate at the account level in Azure Batch. You must generate the certificate and upload it manually to Batch by using the Azure portal. To access the certificate, the certificate must be associated with and installed for only the current user. A certificate typically is valid for one year, and it must be updated each year.
 
 ## Feature end of support
 
