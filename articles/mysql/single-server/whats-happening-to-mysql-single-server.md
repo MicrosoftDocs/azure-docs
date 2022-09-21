@@ -6,12 +6,14 @@ ms.subservice: single-server
 ms.topic: overview
 author: markingmyname
 ms.author: maghan
-ms.reviewer: 
+ms.reviewer: adig
 ms.custom: deprecation
 ms.date: 09/15/2022
 ---
 
 # What's happening to Azure Database for MySQL - Single Server?
+
+[!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
 
