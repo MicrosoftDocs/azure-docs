@@ -169,18 +169,18 @@ To create a data collection rule in the Azure portal:
                     "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
                 }
             },
-            "tableName": { 
-                "type": "string", 
-                "metadata": { 
-                    "description": "Specifies the name of the table in the workspace." 
-                } 
+            "tableName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the name of the table in the workspace."
+                }
             },
             "consumerGroup": {
                 "type": "string",
                 "metadata": {
                     "description": "Specifies consumer group of event hub. If not filled, default consumer group will be used"
                 },
-                "defaultValue": ""
+                "defaultValue": "$Default"
             }
         },
         "resources": [
@@ -215,13 +215,15 @@ To create a data collection rule in the Azure portal:
                     "dataSources": {
                         "dataImports": {
                              "eventHub": {
-                                        "consumerGroup": "[if(not(empty(parameters('consumerGroup')))), parameters('consumerGroup'), json('null')]",
+                                        "consumerGroup": "[parameters('consumerGroup')]",
                                         "stream": "Custom-MyEventHubStream",
                                         "name": "myEventHubDataSource1"
                                                               }
                                                }
     
-                    },
+    
+    
+                   },
                     "destinations": {
                         "logAnalytics": [
                             {
@@ -239,7 +241,7 @@ To create a data collection rule in the Azure portal:
                                 "[parameters('workspaceName')]"
                             ],
                             "transformKql": "source",
-                            "outputStream": "[concat('Custom-', parameters('tableName'))]" 
+                            "outputStream": "[concat('Custom-', parameters('tableName'))]"
                         }
                     ]
                 }
