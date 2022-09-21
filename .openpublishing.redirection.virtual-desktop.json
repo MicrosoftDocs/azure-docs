@@ -30,5 +30,10 @@
             "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
             "redirect_document_id": false
         }
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
+            "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
+        }        
     ]
 }
