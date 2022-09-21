@@ -226,7 +226,7 @@ Now, get a handle to the workspace and retrieve its location:
 
 ```python 
 from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential, AzureCliCredential
+from azure.identity import AzureCliCredential
 from azure.ai.ml.entities import (
     ManagedOnlineDeployment,
     ManagedOnlineEndpoint,
@@ -275,7 +275,7 @@ uai_name = "<USER_ASSIGNED_IDENTITY_NAME>"
 Now, get a handle to the workspace and retrieve its location:
 ```python 
 from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential, AzureCliCredential
+from azure.identity import AzureCliCredential
 from azure.ai.ml.entities import (
     ManagedOnlineDeployment,
     ManagedOnlineEndpoint,
@@ -449,11 +449,10 @@ When you [create an online endpoint](#create-an-online-endpoint), a system-assig
 To create a user-assigned managed identity, first get a handle to the `ManagedServiceIdentityClient`: 
 
 ```python
-from azure.identity import DefaultAzureCredential
 from azure.mgmt.msi import ManagedServiceIdentityClient
 from azure.mgmt.msi.models import Identity
 
-credential = DefaultAzureCredential()
+credential = AzureCliCredential()
 msi_client = ManagedServiceIdentityClient(
     subscription_id=subscription_id,
     credential=credential,
