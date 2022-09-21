@@ -7,7 +7,7 @@ ms.topic: overview
 author: markingmyname
 ms.author: maghan
 ms.reviewer: adig
-ms.custom: deprecation
+ms.custom: Single Server deprecation
 ms.date: 09/15/2022
 ---
 
