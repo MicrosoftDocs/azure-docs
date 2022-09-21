@@ -124,4 +124,4 @@ The following table summarizes our migration or deployment recommendations for w
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
-[workload-identity-migration-sidecar]: workload-identity-migration-sidecar.md
+[workload-identity-migration]: workload-identity-migration-sidecar.md

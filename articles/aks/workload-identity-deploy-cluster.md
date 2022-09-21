@@ -132,7 +132,7 @@ az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESO
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration]. 
+In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration].
 
 <!-- EXTERNAL LINKS -->
 
@@ -148,3 +148,4 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-rest]: /cli/azure/reference-index#az-rest
+[workload-identity-migration]: workload-identity-migration-sidecar.md

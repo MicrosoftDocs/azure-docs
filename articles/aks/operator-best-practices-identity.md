@@ -129,7 +129,7 @@ With pod-managed identities (preview) for Azure resources, you automatically req
 
 > [!NOTE]
 > If you have enabled [Azure AD pod-managed identity][aad-pod-identity] on your AKS cluster or are considering implementing it,
-> we recommend you first review [Migrate to workload identity][workload-identity-overview] to understand our
+> we recommend you first review the [workload identity overview][workload-identity-overview] article to understand our
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
