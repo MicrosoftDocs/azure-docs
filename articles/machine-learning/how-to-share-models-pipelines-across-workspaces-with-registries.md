@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: mabables
 author: ManojBableshwar
 ms.reviewer: larryfr
-ms.date: 9/9/2022
+ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -25,9 +25,9 @@ There are two scenarios where you'd want to use the same set of models, componen
 
 In this article, you'll learn how to:
 
-* Create an environment and components in the registry.
+* Create an environment and component in the registry.
 * Use the component from registry to submit a model training job in a workspace.
-* Register the trained model in the workspace.
+* Register the trained model in the registry.
 * Deploy the model from the registry to an online-endpoint in the workspace, then submit an inference request.
 ## Prerequisites
 
@@ -79,10 +79,24 @@ The code examples in this article are based on the `nyc_taxi_data_regression` sa
 
 ```bash
 git clone https://github.com/Azure/azureml-examples
+cd azureml-examples
 # changing branch is temporary until samples merge to main
 git checkout mabables/registry
+```
+
+# [Azure CLI](#tab/cli)
+
+For the CLI example, change directories to `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` in your local clone of the [examples repository](https://github.com/Azure/azureml-examples).
+
+```bash
 cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 ```
+
+# [Python SDK](#tab/python)
+
+For the Python SDK example, use the `nyc_taxi_data_regression` sample from the the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, `share-models-components-environments.ipynb`, is available in the `sdk/resources/registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
+
+---
 
 ### Create SDK connection
 
@@ -139,7 +153,7 @@ version=$(date +%s)
 az ml environment create --file env_train.yml --registry-name <registry-name> --set version=$version
 ```
 > [!TIP]
-> `version=$(date +%s)` works only in Linux. Replace `$version` with a random number if this does not work.`
+> `version=$(date +%s)` works only in Linux. Replace `$version` with a random number if this does not work.
 
 Note down the `name` and `version` of the environment from the output of the `az ml environment create` command and use them with `az ml environment show` commands as follows. You'll need the `name` and `version` in the next section when you create a component in the registry.
 
