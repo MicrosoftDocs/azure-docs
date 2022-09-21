@@ -19,7 +19,7 @@ To set the employeeLeaveDateTime attribute, you must make sure the correct deleg
 
 ### Delegated
 
-In delegated scenarios, the signed-in user needs the Global Administrator role to update the employeeLeaveDateTime attribute. One of the following delegated permissions are also required:
+In delegated scenarios, the signed-in user needs the Global Administrator role to update the employeeLeaveDateTime attribute. One of the following delegated permissions is also required:
 - User-LifeCycleInfo.ReadWrite.All
 - Directory.AccessAsUser.All
 
