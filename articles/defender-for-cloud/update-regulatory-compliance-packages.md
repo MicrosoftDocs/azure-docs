@@ -105,8 +105,6 @@ To add standards to your dashboard:
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/regulatory-compliance-dashboard/compliance-dashboard.png":::
-
 ## Remove a standard from your dashboard
 
 You can continue to customize the regulatory compliance dashboard, to focus only on the standards that are applicable to you, by removing any of the supplied regulatory standards that aren't relevant to your organization.
