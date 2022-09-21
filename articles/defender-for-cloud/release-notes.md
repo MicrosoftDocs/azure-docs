@@ -81,6 +81,7 @@ Updates in September include:
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
+- [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 - [Defender for Containers now supports vulnerability assessment for Elastic Container Registry](#defender-for-containers-now-supports-vulnerability-assessment-for-elastic-container-registry)
 
 ### Suppress alerts based on Container and Kubernetes entities
@@ -110,6 +111,16 @@ File integrity monitoring (FIM) examines operating system files and registries�
 FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can [deploy through Defender for Cloud](auto-deploy-azure-monitoring-agent.md).
 
 Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
+
+### Legacy Assessments APIs deprecation
+
+The following APIs are deprecated:
+
+- Security Tasks
+- Security Statuses
+- Security Summaries
+
+These three APIs exposed old formats of assessments and are replaced by the [Assessments APIs](/rest/api/defenderforcloud/assessments) and [SubAssessments APIs](/rest/api/defenderforcloud/sub-assessments). All data that is exposed by these legacy APIs are also available in the new APIs.
 
 ### Defender for Containers now supports vulnerability assessment for Elastic Container Registry
 
