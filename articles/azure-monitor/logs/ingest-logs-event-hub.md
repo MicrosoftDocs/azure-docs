@@ -42,9 +42,15 @@ Before you can ingest data, you need to set up a destination table.
 
 To create a custom table into which to ingest events, in the Azure portal:  
 
-1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
+1. Collect workspace data:
 
-    :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
+    1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
+    
+        :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
+
+    1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**.  
+  
+        :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing Resource JSON screen with the workspace resource ID highlighted.":::
 
 1. Select the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
 
