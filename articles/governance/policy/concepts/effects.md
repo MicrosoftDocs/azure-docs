@@ -754,7 +754,7 @@ you'll need to create an attestation for that compliance state.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
-> for Cloud regulatory compliance initiatives.
+> for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
@@ -779,7 +779,7 @@ The `defaultState` property has three possible values:
 - **Compliant**: Resource is compliant according to your manual policy standards
 - **Non-compliant**: Resource is non-compliant according to your manual policy standards
 
-The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
+The Azure Policy compliance engine evaluates all applicable resources to the default state specified
 in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that you
 must manually attest the resource compliance state. If the effect state is unspecified, it defaults
 to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
