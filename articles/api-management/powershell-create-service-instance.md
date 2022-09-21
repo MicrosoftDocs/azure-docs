@@ -1,29 +1,31 @@
 ---
-title: Quickstart - Create Azure API Management instance using PowerShell | Microsoft Docs
-description: Create a new Azure API Management instance by using Azure PowerShell.
+title: Quickstart - Create API Management instance - PowerShell
+description: Use this quickstart to create a new Azure API Management instance by using Azure PowerShell cmdlets.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api, devdivchpfy22
-ms.date: 03/30/2022
+ms.date: 09/21/2022
 ms.author: danlep
 ---
 
 # Quickstart: Create a new Azure API Management service instance by using PowerShell
 
-Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM lets you create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+In this quickstart, you create a new API Management instance by using Azure PowerShell cmdlets.
 
-This quickstart describes the steps for creating a new API Management instance by using Azure PowerShell cmdlets.
+Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. API Management lets you create and manage modern API gateways for existing backend services hosted anywhere. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Azure Cloud Shell or Azure PowerShell
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+    [!INCLUDE [cloud-shell-try-it-no-header](../../includes/cloud-shell-try-it-no-header.md)]
+
+    If you choose to install and use the PowerShell locally, this quickstart requires the Azure PowerShell module version 1.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
 
 ## Create resource group
 
@@ -35,7 +37,7 @@ The following command creates a resource group named *myResourceGroup* in the We
 New-AzResourceGroup -Name myResourceGroup -Location WestUS
 ```
 
-## Create an API Management service
+## Create an API Management instance
 
 Now that you have a resource group, you can create an API Management service instance. Create one by using [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) and provide a service name and publisher details. The service name must be unique within Azure.
 
@@ -67,7 +69,7 @@ Name                                  : myapim
 Location                              : West US
 Sku                                   : Developer
 Capacity                              : 1
-CreatedTimeUtc                        : 9/9/2020 9:07:43 PM
+CreatedTimeUtc                        : 9/9/2022 9:07:43 PM
 ProvisioningState                     : Succeeded
 RuntimeUrl                            : https://myapim.azure-api.net
 RuntimeRegionalUrl                    : https://myapi-westus-01.regional.azure-api.net
