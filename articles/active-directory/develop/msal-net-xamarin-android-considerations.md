@@ -96,7 +96,7 @@ Alternatively, [create the activity in code](/xamarin/android/platform/android-m
 Here's an example of a class that represents the values of the XML file:
 
 ```csharp
-  [Activity]
+  [Activity(Exported = true)]
   [IntentFilter(new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataHost = "auth",
