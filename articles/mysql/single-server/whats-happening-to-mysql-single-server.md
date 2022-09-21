@@ -8,7 +8,7 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: adig
 ms.custom: Single Server deprecation
-ms.date: 09/15/2022
+ms.date: 09/30/2022
 ---
 
 # What's happening to Azure Database for MySQL - Single Server?
