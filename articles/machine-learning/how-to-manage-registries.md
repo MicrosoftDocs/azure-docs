@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: mabables
 author: ManojBableshwar
 ms.reviewer: larryfr
-ms.date: 9/9/2022
+ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -119,7 +119,7 @@ You can create registries in AzureML studio using the following steps:
 
 Decide if you want to allow users to only use assets (models, environments and components) from the registry or both use and create assets in the registry. 
 
-# [Use assets](#tab/use)
+### Allow users to use assets from the registry
 
 To let a user only read assets, you can grant the user the built-in __Reader__ role. If don't want to use the built-in role, create a custom role with the following permissions
 
@@ -128,7 +128,7 @@ Permission | Description
 Microsoft.MachineLearningServices/registries/read | Allows the user to list registries and get registry metadata
 Microsoft.MachineLearningServices/registries/assets/read | Allows the user to browse assets and use the assets in a workspace
 
-# [Create and use assets](#tab/create-use)
+### Allow users to create and use assets from the registry
 
 To let the user both read and create or delete assets, grant the following write permission in addition to the above read permissions.
 
@@ -137,12 +137,12 @@ Permission | Description
 Microsoft.MachineLearningServices/registries/assets/write | Create assets in registries
 Microsoft.MachineLearningServices/registries/assets/delete| Delete assets in registries
 
-# [Create and manage registries](#tab/create-registry)
+> [!WARNING]
+> The built-in __Contributor__ and __Owner__ roles allow users to create, update and delete registries. You must create a custom role if you want the user to create and use assets from the registry, but not create or update registries.
+
+### Allow users to create and manage registries
 
 To let users create, update and delete registries, grant them the built-in __Contributor__ or __Owner__ role. If you don't want to use built in roles, create a custom role with the following permissions, in addition to all the above permissions to read, create and delete assets in registry.
-
-> [!WARNING]
-> The built-in __Contributor__ and __Owner__ roles allow users to create, update and delete registries. 
 
 Permission | Description 
 --|--
