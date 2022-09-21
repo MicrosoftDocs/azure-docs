@@ -19,11 +19,11 @@
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
     href: tutorial-getting-started-eiot-sensor.md
-  - name: Detect threats with Microsoft Sentinel
+  - name: Integrate with Microsoft Sentinel
     items: 
-    - name: Integrate Defender for IoT data with Microsoft Sentinel
+    - name: Connect Defender for IoT data to Microsoft Sentinel
       href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
-    - name: Investigate and detect threats for IoT devices
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:

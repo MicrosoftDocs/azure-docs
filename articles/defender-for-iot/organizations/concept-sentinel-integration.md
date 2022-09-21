@@ -33,17 +33,17 @@ Microsoft Sentinel is a scalable cloud solution for security information event m
 
 The Defender for IoT and Microsoft Sentinel integration delivers out-of-the-box capabilities to SOC teams. This helps them to efficiently and effectively view, analyze, and respond to OT security alerts, and the incidents they generate in a broader organizational threat context.
 
-Bring Defender for IoT's rich telemetry into Microsoft Sentinel to bridge the gap between OT and SOC teams with the Microsoft Sentinel data connector for Defender for IoT and the **IoT OT Threat Monitoring with Defender for IoT** solution.
+Bring Defender for IoT's rich telemetry into Microsoft Sentinel to bridge the gap between OT and SOC teams with the Microsoft Sentinel data connector for Defender for IoT and the **Microsoft Defender for IoT** solution.
 
-The **IoT OT Threat Monitoring with Defender for IoT** solution installs out-of-the-box security content to your Microsoft Sentinel, including analytics rules to automatically open incidents, workbooks to visualize and monitor data, and playbooks to automate response actions
+The **Microsoft Defender for IoT** solution installs out-of-the-box security content to your Microsoft Sentinel, including analytics rules to automatically open incidents, workbooks to visualize and monitor data, and playbooks to automate response actions.
 
 Once Defender for IoT data is ingested into Microsoft Sentinel, security experts can work with IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS](https://collaborate.mitre.org/attackics/index.php/Overview).
 
 ### Workbooks
 
-To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the **IoT OT Threat Monitoring with Defender for IoT** solution.
+To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the **Microsoft Defender for IoT** solution.
 
-Defenders for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
+Defender for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
 For example, workbooks can display alerts by any of the following dimensions:
 

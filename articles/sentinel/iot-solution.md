@@ -12,6 +12,7 @@ ms.author: bagol
 ​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT and Enterprise IoT environment, whether you need to protect existing devices or build security into new innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
+This connector allows you to stream Microsoft Defender for IoT data into Microsoft Sentinel, so you can view, analyze, and respond to Defender for IoT alerts, and the incidents they generate, in a broader organizational threat context.
 
 The Microsoft Sentinel integration is supported only for OT networks.
 
