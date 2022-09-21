@@ -16,12 +16,6 @@ This article describes how to move your Azure Load Testing Preview resource to e
 
 If you want to move Azure Load Testing to a new region, see [Move an Azure Load Testing resource to another region](./how-to-move-between-regions.md).
 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Changed resource ID
-When you move a resource, you change its resource ID. The standard format for a resource ID is /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. When you move a resource to a new resource group or subscription, you change one or more values in that path. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
-
 When you move an Azure Load Testing resource across resource groups or subscriptions, the following guidance applies:
 
 - Moving a resource to a new resource group or subscription is a metadata change that shouldn't affect the data. For example, the test and test runs data is preserved.
@@ -33,6 +27,12 @@ When you move an Azure Load Testing resource across resource groups or subscript
 - A resource can only be moved when there are no active test runs.
 
 - Moving a resource that has a test that is configured for private endpoint testing to another subscription, will result in an error while running the test. After the move finishes, update the test with a VNet and subnet from the new subscription.
+
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Changed resource ID
+When you move a resource, you change its resource ID. The standard format for a resource ID is /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. When you move a resource to a new resource group or subscription, you change one or more values in that path. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
 
 ## Move across subscriptions
 
