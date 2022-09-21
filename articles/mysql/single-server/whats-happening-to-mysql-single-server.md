@@ -43,7 +43,7 @@ To upgrade to Azure Database for MySQL Flexible Server, it's important to know w
 | Single Server configuration not supported for migration | How and when to migrate? |
 |---------------------------------------------------------|--------------------------|
 | Single servers with Private Link enabled | Private Link is on the road map for next year. You can also choose to migrate now and perform wNet injection via a point-in-time restore operation to move to private access network connectivity method. |
-| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible servers will be released by Q4 2022 (for paired region) and Q1 2023 (for any cross-region), post, which you can migrate your single server. |
+| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible servers are on the road map for later this year (for paired region) and next year (for any cross-region), post, which you can migrate your single server. |
 | Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)). | Azure Database Migration Service (DMS) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS. |
 
 ## Frequently Asked Questions (FAQs)
