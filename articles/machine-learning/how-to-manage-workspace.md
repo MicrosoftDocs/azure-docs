@@ -37,18 +37,18 @@ As your needs change or requirements for automation increase you can also manage
 
       [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ml_client)]
       
-* (Optional) If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
-
-      ```python
-      DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
-      ```
-
-* (Optional) If your working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with.
-
-      ```python
-      from azure.identity import AzureAuthorityHosts
-      DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT))
-      ```
+    * (Optional) If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+    
+       ```python
+       DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
+       ```
+    
+    * (Optional) If your working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with.
+    
+       ```python
+       from azure.identity import AzureAuthorityHosts
+       DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT))
+       ```
 
 ## Limitations
 
@@ -71,29 +71,6 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
    [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
-
-
-
-    ```python
-    ml_client = MLClient(
-    DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>"),
-    subscription_id,
-    resource_group
-    )
-    ```
-
-
-    ```python
-    from azure.identity import AzureAuthorityHosts
-    
-    # get a handle to the subscription
-    ml_client = MLClient(
-        DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT),
-        subscription_id,
-        resource_group
-    )
-    ```
-
 
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
 
@@ -184,7 +161,7 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 
 #### Use your own key
 
-You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed keys.md).
+You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 
 
 Use the following steps to provide your own key:
@@ -203,16 +180,7 @@ Use the following steps to provide your own key:
 
 ```python
 
-from azure.ai.ml import MLClient
 from azure.ai.ml.entities import Workspace, CustomerManagedKey
-from azure.identity import DefaultAzureCredential
-
-# specify the details of your subscription
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-
-# get a handle to the subscription
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
 
 # specify the workspace details
 ws = Workspace(
@@ -250,11 +218,11 @@ If you plan to use code on your local environment that references this workspace
 
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
 
----
-
 Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
 ## Connect to a workspace
+
+When running machine learning tasks using the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an MLClient object from parameters, or with a configuration file.
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
@@ -269,7 +237,6 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 * **From parameters**: There's no need to have a config.json file available if you use this approach.
     
     [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ws)]
-
 
 If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
