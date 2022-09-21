@@ -299,54 +299,18 @@ items:
       href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-  - name: Transformations
-    items:
-    - name: Create a new alert rule
-      href: alerts/alerts-create-new-alert-rule.md
-    - name: Manage alert rules
-      href: alerts/alerts-manage-alert-rules.md
-    - name: Manage alert instances
-      href: alerts/alerts-manage-alert-instances.md
-    - name: Metric alert rules
-      items:
-      - name: Use dynamic thresholds
-        href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alerts for many time series
-        href: alerts/alerts-metric-multiple-time-series-single-rule.md
-      - name: Metric alerts on logs
-        href: alerts/alerts-metric-logs.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-metric-create-templates.md
-      - name: FAQ
-        href: alerts/alerts-troubleshoot-metric.md
-    - name: Log alert rules
-      items:
-      - name: Edit log alerts created in previous versions
-        href: alerts/alerts-manage-alerts-previous-version.md
-      - name: Optimizing alert queries
-        href: alerts/alerts-log-query.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-log-create-templates.md
-      - name: Troubleshoot log alerts
-        href: alerts/alerts-troubleshoot-log.md
-      - name: Webhook actions
-        href: alerts/alerts-log-webhook.md
-      - name: Log analytics alerts legacy API
-        href: alerts/api-alerts.md
-    - name: Service health alerts
-      items:
-      - name: View notifications
-        href: ../service-health/service-notifications.md
-      - name: Configure alerts on notification events
-        href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Notifications and actions
+    - name: Transformations
       items:
       - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
+        displayName: Transformations
+        href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayName: Transformations
+        href: essentials/data-collection-transformations-structure.md
+      - name: Tutorial (portal)
+        href: logs/tutorial-workspace-transformations-portal.md
+      - name: Tutorial (API)
+        href: logs/tutorial-workspace-transformations-api.md
 - name: Data platform
   items:
   - name: Overview
