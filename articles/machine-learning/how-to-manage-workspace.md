@@ -82,7 +82,6 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
     )
     ```
 
-* **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
     ```python
     from azure.identity import AzureAuthorityHosts
