@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Dedicated cluster linked to the Log Analytics workspace](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
+- Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 - [Event hub](/azure/event-hubs/event-hubs-create) with events.
     
     Send events to your event hub by following the steps in the [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
@@ -255,7 +255,7 @@ To generate a data collection rule JSON file in the Azure portal:
     - **Workspace Name** and **Workspace Resource ID** - The same values you use to [create a destination table for event hub data in your Log Analytics workspace](#create-a-destination-table-for-event-hub-data-in-your-log-analytics-workspace). 
     - **Endpoint Resource ID** - As set when you [create the data collection endpoint](#create-a-data-collection-endpoint).
     - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
-    - **Consumer Group** - When left blank, Azure sets the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) to `$default`. 
+    - **Consumer Group** - When left blank, Azure sets the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) to `$Default`. 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
