@@ -59,10 +59,11 @@ For example, here is a claims-mapping policy to emit a single claim from a direc
 
 Where *xxxxxxx* is the appID (or Client ID) of the application that the extension was registered with.
 
+> [!WARNING]
+> When you define a claims mapping policy for a directory extension attribute, use the `ExtensionID` property instead of the `ID` property within the body of the `ClaimsSchema` array, as shown in the example above.
+
 > [!TIP]
 > Case consistency is important when setting directory extension attributes on objects. Extension attribute names aren't cases sensitive when being set up, but they are case sensitive when being read from the directory by the token service.  If an extension attribute is set on a user object with the name "LegacyId" and on another user object with the name "legacyid", when the attribute is mapped to a claim using the name "LegacyId" the data will be successfully retrieved and the claim included in the token for the first user but not the second.
->
-> The "Id" parameter in the claims schema used for built-in directory attributes is "ExtensionID" for directory extension attributes.
 
 ## Next steps
 - Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md).

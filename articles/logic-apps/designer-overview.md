@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 08/20/2022
 ---
 
 # About the Standard logic app workflow designer in single-tenant Azure Logic Apps

@@ -79,4 +79,4 @@ Open Postman and follow these steps:
 ## Next steps
 
 - [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
-- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)
+- [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)

@@ -9,7 +9,7 @@ ms.date: 04/12/2022
 ---
 # Array functions for Bicep
 
-This article describes the Bicep functions for working with arrays.
+This article describes the Bicep functions for working with arrays. The lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
 
 ## array
 
@@ -234,6 +234,43 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
+
+## flatten
+
+`flatten(arrayToFlatten)`
+
+Takes an array of arrays, and returns an array of sub-array elements, in the original order. Sub-arrays are only flattened once, not recursively.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arrayToFlattern |Yes |array |The array of sub-arrays to flatten.|
+
+### Return value
+
+Array
+
+### Example
+
+The following example shows how to use the flatten function.
+
+```bicep
+param arrayToTest array = [
+  ['one', 'two']
+  ['three']
+  ['four', 'five']
+]
+output arrayOutput array = flatten(arrayToTest)
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | array | ['one', 'two', 'three', 'four', 'five'] |
 
 ## indexOf
 

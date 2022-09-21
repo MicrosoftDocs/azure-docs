@@ -4,7 +4,7 @@ description: Learn how to view requests and remove for an access package in Azur
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

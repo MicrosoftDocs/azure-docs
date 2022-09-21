@@ -40,7 +40,7 @@ items:
     items:
      - name: Link multiple hubs to DPS
        href: tutorial-provision-multiple-hubs.md
-     - name: Provision for multitenancy
+     - name: Provision for geolatency
        href: how-to-provision-multitenant.md
 - name: Concepts
   items:

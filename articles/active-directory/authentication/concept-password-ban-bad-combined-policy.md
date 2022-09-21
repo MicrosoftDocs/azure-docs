@@ -10,7 +10,7 @@ ms.date: 05/04/2022
 
 ms.author: justinha
 author: sajiang
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sajiang
 
 ms.collection: M365-identity-device-management

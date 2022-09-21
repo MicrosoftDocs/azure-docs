@@ -14,23 +14,7 @@ The following are frequently asked questions about Azure Fluid Relay
 
 ## When will Azure Fluid Relay be Generally Available?
 
-Azure Fluid Relay will be Generally Available on 8/1/2022. At that point, the service will no longer be free. Charges will apply based on your usage of Azure Fluid Relay. The service will be metering 4 activities:
-
-- Operations in: As end users join, leave, and contribute to a collaborative session, the Fluid Framework client libraries send messages (also referred to as operations or ops) to the service. Each message incoming from one client is counted as one message. Heartbeat messages and other session messages are also counted. Messages larger than 2KB are counted as multiple messages of 2KB each (for example, 11KB message is counted as 6 messages).
-- Operations out: Once the service processes incoming messages, it broadcasts them to all participants in the collaborative session. Each message sent to each client is counted as one message (for example, in a 3-user session, one of the users sends an op, that will generate 3 ops out).
-- Client connectivity minutes: The duration of each user being connected to the session will be charged on a per user basis (for example, 3 users collaborate on a session for an hour, this is charged as 180 connectivity minutes).
-- Storage: Each collaborative Fluid session stores session artifacts in the service. Storage of this data will be charged on a per GB per month basis (prorated as appropriate).
-
-Reference the table below for the prices (in USD) we will start to charge at General Availability for each of these meters in the regions Azure Fluid Relay is currently offered. Additional regions and additional information about other currencies will be available on our pricing page soon.
-
-| Meter | Unit | West US 2 | West Europe | Southeast Asia
-|--|--|--|--|--|
-| Operations In | 1 million ops | 1.50 | 1.95 | 1.95 |
-| Operations Out | 1 million ops | 0.50 | 0.65 | 0.65 |
-| Client Connectivity Minutes | 1 million minutes | 1.50 | 1.95 | 1.95 |
-| Storage | 1 GB/month | 0.20 | 0.26 | 0.26 |
-
-
+Azure Fluid Relay is Generally Available now. For a complete list of available regions, see [Azure Fluid Relay regions and availability](https://azure.microsoft.com/global-infrastructure/services/?products=fluid-relay). For our pricing list, see [Azure Fluid Relay pricing](https://azure.microsoft.com/pricing/details/fluid-relay).
 
 ## Which Azure regions currently provide Fluid Relay?
 

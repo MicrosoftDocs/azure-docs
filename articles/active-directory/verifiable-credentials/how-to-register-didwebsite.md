@@ -33,10 +33,10 @@ If your trust system for the tenant is Web, you need register your website ID to
 1. At the Website ID registration, select Review.
 
    ![Screenshot of website registration page.](media/how-to-register-didwebsite/how-to-register-didwebsite-domain.png)
-1. Copy or download the DID document being displayed in the box
+1. Copy or download the DID document being displayed in the box.
 
    ![Screenshot of did.json.](media/how-to-register-didwebsite/how-to-register-didwebsite-diddoc.png)
-1. Upload the file to your webserver. The DID document JSON file needs to be uploaded to location /.well-known/did.json on your webserver.
+1. Upload the file to your webserver. The DID document JSON file needs to be uploaded to location `/.well-known/did.json` on your webserver.
 1. Once the file is available on your webserver, you need to select the **Refresh registration status** button to verify that the system can request the file.
 
 ## When is the DID document in the did.json file used?
@@ -45,11 +45,11 @@ The DID document contains the public keys for your issuer and is used during bot
 
 ## When does the did.json file need to be republished to the webserver?
 
-The DID document in the did.json file needs to be republished if you changed the Linked Domain or if you rotate your signing keys.
+The DID document in the `did.json` file needs to be republished if you changed the Linked Domain or if you rotate your signing keys.
 
 ## How can I verify that the registration is working?
 
-The portal verifies that the `did.json` is reachable and correct when you click the [**Refresh registration status** button](#how-do-i-register-my-website-id). You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, bad SSL certificate or URL not being public. If the did.json file can be requested anonymously in a browser, without warnings or errors, the portal will not be able to complete the **Refresh registration status** step either. 
+The portal verifies that the `did.json` is reachable and correct when you click the [**Refresh registration status** button](#how-do-i-register-my-website-id). You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did.json` file cannot be requested anonymously in a browser, without warnings or errors, the portal will not be able to complete the **Refresh registration status** step either. 
 
 ## Next steps
 

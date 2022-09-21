@@ -13,8 +13,10 @@ keywords:
 
 ## Prerequisites
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to the service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 ## Create a resource
 
@@ -52,6 +54,3 @@ Before you can generate text or inference, you need to deploy a model. This is d
     :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
 
 1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop-down.
-
-  > [!NOTE]
-  > Text-davinci-002 is only available in South Central US. If you are in a different region, please choose `text-davinci-001`.

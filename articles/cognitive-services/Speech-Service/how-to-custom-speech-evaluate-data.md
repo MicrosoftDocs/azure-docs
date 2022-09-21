@@ -43,9 +43,6 @@ Follow these steps to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review the test details, and then select **Save and close**.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -64,9 +61,6 @@ Here's an example Speech CLI command that creates a test:
 ```azurecli-interactive
 spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Evaluation" --description "My Evaluation Description"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -168,9 +162,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Create-a-test" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
@@ -246,9 +237,6 @@ Follow these steps to get test results:
 
 This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -262,9 +250,6 @@ Here's an example Speech CLI command that gets test results:
 ```azurecli-interactive
 spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The word error rates and more details are returned in the response body.
 
@@ -341,9 +326,6 @@ Make an HTTP GET request using the URI as shown in the following example. Replac
 ```azurecli-interactive
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-model-quantitatively&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The word error rates and more details are returned in the response body.
 

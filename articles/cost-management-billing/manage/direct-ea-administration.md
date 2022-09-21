@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/03/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -116,9 +116,9 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [Manage departments in the Azure portal](https://www.youtube.com/watch?v=NUlRrJFF1_U) video.
 
->[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
+>[!VIDEO https://www.youtube.com/embed/vs3wIeRDK4Q]
 
 ### To create a department
 
