@@ -1,6 +1,6 @@
 ---
 title: Overview of Cloud Security Posture Management (CSPM)
-description: Learn more about the nw Defender CSPM plan and the additional enhanced security features that can be enable for your multicloud environment through the CSPM P1 plan.
+description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the CSPM P1 plan.
 ms.topic: conceptual
 ms.date: 09/20/2022
 ---
@@ -20,17 +20,17 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 ## Defender CSPM plan options
 
-The Defender CSPM plan comes with two options, CSPM (free) and CSPM P1. When you deploy Defender for Cloud to your subscription and resources you will automatically gain the basic coverages offered by the CSPM plan. To gain access to the additional capabilities provided by Defender CSPM, you will need to [enable the CSPM P1 plan](enable-enhanced-security.md) to your subscription and resources.
+The Defender CSPM plan comes with two options, CSPM (free) and CSPM P1. When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverages offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the CSPM P1 plan](enable-enhanced-security.md) to your subscription and resources.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
 | Feature | Defender CSPM | Defender CSPM P1 | Cloud availability |
 |--|--|--|--|
-| Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
-| [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, On-Premises |
-| [Secure score](secure-score-access-and-track.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
-| [Governance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
-| [Regulatory compliance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, On-Premises |
+| Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
+| [Secure score](secure-score-access-and-track.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Governance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Regulatory compliance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Cloud Security Explorer](#cloud-security-explorer) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Attack Path Analysis](#attack-path-analysis) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Agentless scanning for machines](#agentless-scanning-for-machines) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
@@ -43,7 +43,7 @@ The following table summarizes what's included in each plan and their cloud avai
 
 ## Security governance and regulatory compliance
 
-Security governance and regulatory compliance refers to the policies and processes which organizations have in place to ensure that they comply with laws, rules and regulations put in place by external bodies (government) which control activity in a given jurisdiction. Defender for Cloud allows you to view your regulatory compliance through the regulatory compliance dashboard.
+Security governance and regulatory compliance refer to the policies and processes which organizations have in place to ensure that they comply with laws, rules and regulations put in place by external bodies (government) which control activity in a given jurisdiction. Defender for Cloud allows you to view your regulatory compliance through the regulatory compliance dashboard.
 
 Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
 
