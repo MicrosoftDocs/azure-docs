@@ -91,7 +91,7 @@ For more information about inbound rule configuration, see the "Network Security
 
 For function apps that run on Linux in a container, the `Azure Functions runtime is unreachable` error can occur as a result of problems with the container. Use the following procedure to review the container logs for errors:
 
-1. Navigate to the Kudu endpoint for the function app, which is located at `https://scm.<FUNCTION_APP>.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
+1. Navigate to the Kudu endpoint for the function app, which is located at `https://<FUNCTION_APP>.scm.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
 
 1. Download the Docker logs .zip file and review the contents on your local computer. 
 

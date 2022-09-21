@@ -1,7 +1,7 @@
 ---
-title: Prerequisites and setup for the SAP CDC solution (preview)
+title: Prerequisites and setup for the SAP CDC connector (preview)
 titleSuffix: Azure Data Factory
-description: Learn about the prerequisites and setup for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+description: Learn about the prerequisites and setup for the SAP CDC connector (preview) in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,25 +10,23 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Prerequisites and setup for the SAP CDC solution (preview)
+# Prerequisites and setup for the SAP CDC connector (preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn about the prerequisites for the SAP change data capture (CDC) solution (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
+Learn about the prerequisites for the SAP CDC connector (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 
 ## Prerequisites
 
-To preview the SAP CDC solution in Azure Data Factory, be able to complete these prerequisites:
+To preview the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
 
 - In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
-- Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers.
+- Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, and triggers.
 - Set up a self-hosted integration runtime to use for the connector.
-- Set up an SAP ODP (preview) linked service.
-- Set up the Data Factory copy activity with an SAP ODP (preview) source dataset.
+- Set up an SAP CDC (preview) linked service.
+- Set up the Data Factory copy activity with an SAP CDC (preview) source dataset.
 - Debug Data Factory copy activity issues by sending self-hosted integration runtime logs to Microsoft.
-- Auto-generate a Data Factory pipeline by using the SAP data partitioning template.
-- Auto-generate a Data Factory pipeline by using the SAP data replication template.
 - Be able to run an SAP data replication pipeline frequently.
 - Be able to recover a failed SAP data replication pipeline run.
 - Be familiar with monitoring data extractions on SAP systems.
@@ -39,7 +37,7 @@ To set up your SAP systems to use the SAP ODP framework, follow the guidelines t
 
 ### SAP system requirements
 
-The ODP framework is available by default in most recent software releases of most SAP systems, including SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. To ensure that your SAP systems have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP DS as subscribers or consumers in data extraction via ODP, the guidance also applies to Data Factory as a subscriber or consumer.
+The ODP framework is part of many SAP systems, including SAP ECC and SAP S/4HANA. It is also contained in SAP BW and SAP BW/4HANA. To ensure that your SAP releases have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
 - To support ODP, run your SAP systems on SAP NetWeaver 7.0 SPS 24 or later. For more information, see [Transferring Data from SAP Source Systems via ODP (Extractors)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/327833022dcf42159a5bec552663dc51.html).
 - To support SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).
