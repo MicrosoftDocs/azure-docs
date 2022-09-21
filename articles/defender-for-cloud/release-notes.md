@@ -20,34 +20,24 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in October include:
 
-- [Added control details and compliance offerings to the regulatory compliance standards](#added-control-details-and-compliance-offerings-to-the-regulatory-compliance-standards)
-- [New attack path analysis and contextual security capabilities in Defender for Cloud](#new-attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
+- [Announcing the Microsoft Cloud Security Benchmark](#announcing-the-microsoft-cloud-security-benchmark)
+- [Attack Path Analysis and contextual security capabilities in Defender for Cloud](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
+- [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
+- [Added control details and compliance offerings to the regulatory compliance standards](#added-control-details-and-compliance-offerings-to-the-regulatory-compliance-standards)
 - [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
-- [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
-- [Announcing the Microsoft Cloud Security Benchmark](#announcing-the-microsoft-cloud-security-benchmark)
 
-### Added control details and compliance offerings to the regulatory compliance standards
+### Announcing the Microsoft Cloud Security Benchmark
 
-Defender for Cloud has added more control details and compliance offerings to the Regulatory Compliance standards page to help customers and partners improve their compliance posture by using the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) which is automatically assigned to your subscriptions and accounts when you onboard Defender for Cloud.
+The [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
 
-Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
+You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
+Microsoft Cloud Security Benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
 
-Some of the new benefits include:
+Learn more about the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction). 
 
-- Added **Control Details** to the compliance standards certifications that showcase **Microsoft Actions** and **Manual Customer Actions** in addition to the already existing **Automated Customer Actions**.
-- **Microsoft Actions** provide transparency into Microsoft’s compliance status that include audit assessment procedures, test results, and Microsoft responses to deviations.
-- **Manual Customer Actions** provide the steps that customers and partners can take to improve their compliance posture. 
-- **Compliance Offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications. 
-
-You can learn more about the [Microsoft Cloud Security Benchmark in Defender for Cloud](concept-regulatory-compliance.md).
-
-You can also [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
-
-
-
-### New attack path analysis and contextual security capabilities in Defender for Cloud
+### Attack Path Analysis and contextual security capabilities in Defender for Cloud
 
 The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
 
@@ -68,36 +58,7 @@ Agentless vulnerability scanning is available in both Defender CSPM P1 and in [D
 - Learn more about [agentless scanning](concept-agentless-data-collection.md).
 - Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
 
-### Auto-provisioning is now available with an updated experience
-
-To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring components into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
-
-The Defender plans page:
-- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
-- You can access the monitoring component settings for each Defender plan from the Defender plan page.
-- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
-
-The Settings & monitoring page:
-- Settings & monitoring now includes installed and agentless monitoring components for Defender plans.
-- Each monitoring component indicates the Defender plans that it is related to.
-
-Learn more about [managing your monitoring settings](monitoring-components.md).
-
-### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
-
-For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
-
-Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations, allowing customers to strengthen the secure configuration of their environments.
-
-The MITRE ATT&CK framework has been integrated in three ways:
-
-- Recommendations map to MITRE ATT&CK tactics and techniques.
-- Filter recommendations by MITRE ATT&CK tactic.
-- Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
-
-:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
-
-## Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status
+### Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status
 
 The compliance dashboard in Defender for Cloud is a key tool for customers to help them understand and track their compliance status. Customers can do this by continuously monitoring environments in accordance with requirements from many different standards and regulations.
 
@@ -117,14 +78,52 @@ Some of the new benefits include:
 
 Learn more on how to [Improve your regulatory compliance](regulatory-compliance-dashboard.md) with Defender for Cloud.
 
-## Announcing the Microsoft Cloud Security Benchmark
+### Added control details and compliance offerings to the regulatory compliance standards
 
-The [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
+Defender for Cloud has added more control details and compliance offerings to the Regulatory Compliance standards page to help customers and partners improve their compliance posture by using the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) which is automatically assigned to your subscriptions and accounts when you onboard Defender for Cloud.
 
-You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
-Microsoft Cloud Security Benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
+Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
 
-Learn more about the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction). 
+Some of the new benefits include:
+
+- Added **Control Details** to the compliance standards certifications that showcase **Microsoft Actions** and **Manual Customer Actions** in addition to the already existing **Automated Customer Actions**.
+- **Microsoft Actions** provide transparency into Microsoft’s compliance status that include audit assessment procedures, test results, and Microsoft responses to deviations.
+- **Manual Customer Actions** provide the steps that customers and partners can take to improve their compliance posture. 
+- **Compliance Offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications. 
+
+You can learn more about the [Microsoft Cloud Security Benchmark in Defender for Cloud](concept-regulatory-compliance.md).
+
+You can also [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
+
+### Auto-provisioning is now available with an updated experience
+
+We have renamed the Auto-provisioning page to **Settings & monitoring**. 
+
+Auto-provisioning was meant to allow at-scale enablement of pre-requisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
+
+**The Defender for Cloud's plans page now includes**:
+- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- You can access the monitoring component settings for each Defender plan from the Defender plan page.
+- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
+
+**The Settings & monitoring page**:
+- Each monitoring component indicates the Defender plans that it is related to.
+
+Learn more about [managing your monitoring settings](monitoring-components.md).
+
+### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
+
+For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
+
+Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations, allowing customers to strengthen the secure configuration of their environments.
+
+The MITRE ATT&CK framework has been integrated in three ways:
+
+- Recommendations map to MITRE ATT&CK tactics and techniques.
+- Filter recommendations by MITRE ATT&CK tactic.
+- Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
+
+:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
 
 ## September 2022
 

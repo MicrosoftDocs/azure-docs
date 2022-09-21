@@ -10,7 +10,7 @@ ms.date: 09/21/2022
 
 Microsoft Defender for Cloud streamlines the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
 
-The [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) is automatically assigned to your subscriptions and accounts when you onboard Defender for Cloud. This benchmark builds on the cloud security principles defined by the Microsoft Cloud Security Benchmark and applies these principles with detailed technical implementation guidance for Azure, for other cloud providers (such as AWS and GCP), and for other Microsoft clouds.
+The [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) is automatically assigned to your subscriptions and accounts when you onboard Defender for Cloud. This benchmark builds on the cloud security principles defined by the Azure Security Benchmark and applies these principles with detailed technical implementation guidance for Azure, for other cloud providers (such as AWS and GCP), and for other Microsoft clouds.
 
 :::image type="content" source="media/concept-regulatory-compliance/microsoft-security-benchmark.png" alt-text="Image that shows the components that make up the Microsoft Cloud Security Benchmark.":::
 
