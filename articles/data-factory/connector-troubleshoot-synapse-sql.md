@@ -299,7 +299,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**:
 
-    1. If you insist on disabling public network access, you must use managed virtual network integration runtime and create private endpoint. For more information, see [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).
+    1. If you insist on disabling public network access, use managed virtual network integration runtime and create private endpoint. For more information, see [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).
     
     2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
     
