@@ -378,5 +378,5 @@ To create a data collection rule association in the Azure portal:
         }
       ]
     }
-
+```
 
