@@ -70,7 +70,7 @@ Use either of the following deployment checklists during the setup, or for troub
    1. Client ID matches the _Application (Client) ID_ of the app registration.
    2. For **delegated auth**, username includes the user principal name, such as `johndoe@contoso.com`.
 
-1. In the Power BI Azure AD tenant validate the following Power BI admin user settings:
+1. In the Power BI Azure AD tenant, validate the following Power BI admin user settings:
    1. The user is assigned to the Power BI administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
    3. If the user is recently created, sign in with the user at least once, to make sure that the password is reset successfully, and the user can successfully initiate the session.
@@ -178,7 +178,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Screenshot of security group type.":::
 
-4. Add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
+4. Add your **service principal** to this security group. Select **Members**, then select **+ Add members**.
 
 5. Search for your Microsoft Purview managed identity or service principal and select it.
 
