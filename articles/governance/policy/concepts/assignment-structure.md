@@ -28,6 +28,8 @@ You use JavaScript Object Notation (JSON) to create a policy assignment. The pol
 - non-compliance messages
 - parameters
 - identity
+- resource selectors
+- overrides
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -56,6 +58,11 @@ parameters:
                 "value": "-LC"
             }
         }
+        "identity": {
+            "type": "SystemAssigned"
+        }
+        "resourceSelectors": []
+        "overrides": []
     }
 }
 ```
@@ -125,11 +132,8 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 
 ## Resource selectors (preview)
 
-The **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy by region/location, by resource type, by <insert_here>, or some combination thereof.
-
-You can use resource selectors with policy assignments or policy exemptions to evaluate resources only when the resource
-selectors are applicable with the resource location, type, or <insert_here> on the resource.
+The optional **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
+out policy assignments and exemptions based on factors like resource location, resource type, resource without location, or definition reference ID. When resource selectors are used, Azure Policy will only evalute or exempt resources that are applicable to the specifications made in resource selectors. While resource selectors can be used for exemptions<insert here>, this section focuses on the policy assignment scenarios. 
 
 In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
 either **East US** or **West US**.
@@ -158,7 +162,7 @@ either **East US** or **West US**.
 }
 ```
 
-When you're ready to expand the evaluation scope for your policy, modify the assignment. The following exampls
+When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example
 shows our policy assignment with two additional Azure regions added to the **SDPRegions** selector:
 
 ```json
@@ -185,9 +189,16 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 }
 ```
 
+Multiple resource selectors can be specified in a single assignment. Each resource selector has the following properties:
+- `name`: The name of the resource selector. 
+- `selectors`: The component used to narrow down which subset of resources applicable to the policy assignment should be evaluated for compliance. Each **resource selector** contains one list of selectors.
+  - `kind`: The property of a `selector` which describes what factor will narrow down the set of evaluated resources. Allowed values are `resourceLocation`, `resourceType`, and `resourceWithoutLocation`.
+  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`.
+  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`.
+    
 ## Overrides (preview)
 
-The **overrides** property allows you to change the effect of a policy definition without modifying
+The optional **overrides** property allows you to change the effect of a policy definition without modifying
 the underlying policy definition.
 
 The most common use case for overrides is policy initiatives with a large number of associated policy definitions.
