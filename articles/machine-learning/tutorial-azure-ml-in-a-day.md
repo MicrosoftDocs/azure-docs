@@ -70,7 +70,7 @@ You'll complete the following setup in Azure Machine Learning studio. This conso
     
 1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
 
-    :::image type="content" source="media/tutorial-train-deploy-notebook/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
 
