@@ -60,7 +60,6 @@ Speech-to-text automatically punctuates your text to improve clarity. This is he
 |how are you|How are you?|
 |we can go to the mall park or beach|We can go to the mall, park, or beach.|
 
-### Explicit punctuation
 When you're using speech-to-text with continuous recognition, you can configure the Speech service to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
