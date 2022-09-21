@@ -79,5 +79,5 @@ The user will now be able to view the project and manage only the specific Envir
 
 ## Next steps
 
-* [Create and Configure Projects](./quickstart-create-and-configure-projects.md).
+* [Create and Configure Projects](./quickstart-create-and-configure-projects.md)
 * [Provide access to developers](./how-to-configure-deployment-environments-user.md)

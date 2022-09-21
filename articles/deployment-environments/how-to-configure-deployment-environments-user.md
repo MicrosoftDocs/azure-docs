@@ -68,5 +68,5 @@ The user can now view the project and the specific Environment Type that they ha
 
 ## Next steps
 
-* [Create and Configure Projects](./quickstart-create-and-configure-projects.md).
-* [Provide access to Dev Managers](./how-to-configure-project-admin.md).
+* [Create and Configure Projects](./quickstart-create-and-configure-projects.md)
+* [Provide access to Dev Managers](./how-to-configure-project-admin.md)
