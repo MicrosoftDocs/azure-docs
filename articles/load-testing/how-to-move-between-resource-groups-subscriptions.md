@@ -1,5 +1,5 @@
 ---
-title: Move an Azure Load testing resource to another resource group or subscription
+title: Move across resource group or subscription
 titleSuffix: Azure Load Testing
 description: Learn how to move an Azure Load testing resource to another resource group or subscription.
 services: load-testing
@@ -16,8 +16,11 @@ This article describes how to move your Azure Load Testing Preview resource to e
 
 If you want to move Azure Load Testing to a new region, see [Move an Azure Load Testing resource to another region](./how-to-move-between-regions.md).
 
-> [!NOTE]
-> New resource IDs are created as part of the move. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Changed resource ID
+When you move a resource, you change its resource ID. The standard format for a resource ID is /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. When you move a resource to a new resource group or subscription, you change one or more values in that path. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
 
 When you move an Azure Load Testing resource across resource groups or subscriptions, the following guidance applies:
 
