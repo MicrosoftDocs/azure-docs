@@ -1,9 +1,10 @@
 ---
 title: External attack surface management (EASM)
+titleSuffix: Defender for Cloud
 description: Learn how to gain comprehensive visibility and insights over external facing organizational assets and their digital footprint with Defender EASM.
 titleSuffix: Defender EASM and External Attack Surface Management (EASM)
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/21/2022
 ---
 
 # What is an external attack surface

@@ -1,5 +1,6 @@
 ---
 title: Identify and remediate attack paths
+titleSuffix: Defender for Cloud
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.date: 09/20/2022
@@ -117,7 +118,7 @@ While you are [investigating and remediating an attack path](#investigate-and-re
 
 1. Select **Open EASM**.
 
-    :::image type="content" source="media/how-to-manage-attack-path/open-easm.png" alt-text="Screenshot the shows you where on the screen you need to select open Defender EASM from." lightbox="media/how-to-manage-attack-path/easm-zoom.png":::
+    :::image type="content" source="media/how-to-manage-attack-path/open-easm.png" alt-text="Screenshot that shows you where on the screen you need to select open Defender EASM from." lightbox="media/how-to-manage-attack-path/easm-zoom.png":::
 
 1. Follow the [Using and managing discovery](../external-attack-surface-management/using-and-managing-discovery.md) instructions.
 
