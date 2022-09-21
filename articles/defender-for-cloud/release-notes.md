@@ -70,7 +70,7 @@ Agentless vulnerability scanning is available in both Defender CSPM P1 and in [D
 
 ### Auto-provisioning is now available with an updated experience
 
-To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring component into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
+To better help you with at-scale enablement of Defender plan prerequisites, we gathered all of the management of monitoring components into one page, "Settings & monitoring". To better support our expanded capabilities, we are launching a new experience with the following changes:
 
 The Defender plans page:
 - When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
@@ -87,7 +87,7 @@ Learn more about [managing your monitoring settings](monitoring-components.md).
 
 For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
 
-Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. Allowing customers to strengthen the secure configuration of their environments.
+Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations, allowing customers to strengthen the secure configuration of their environments.
 
 The MITRE ATT&CK framework has been integrated in three ways:
 
