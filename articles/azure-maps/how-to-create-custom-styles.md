@@ -10,24 +10,24 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Create custom styles for indoor maps
+# Create custom styles for indoor maps (Preview)
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. This article discusses how to customize these styling elements.
 
 ## Prerequisites
 
 1. Understanding of [Creator concepts](creator-indoor-maps).
-1. An Azure Maps Creator [tileset](tileset). If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial) tutorial helpful.
+1. An Azure Maps Creator [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 ## Create custom styles using Creators visual editor
 
-While it's possible to modify your indoor maps styles using [Creators Rest API](creator api), Creator also offers a visual editor to create custom styles that don't require any coding. This article will focus exclusively on creating custom styles using this visual style editor.
+While it's possible to modify your indoor maps styles using [Creators Rest API][creator api], Creator also offers a visual editor to create custom styles that don't require any coding. This article will focus exclusively on creating custom styles using this visual style editor.
 
 ### Open style
 
 When an indoor map is created in your Azure Maps Creator service, default styles are automatically created for you. In order to customize the styling elements of your indoor map, you'll need to open that default style.
 
-Open the [Creator Style Editor](style editor) and select the **Open** toolbar button.
+Open the [Creator Style Editor][style editor] and select the **Open** toolbar button.
 
 ![](./media/creator-indoor-maps/style-editor/open-menu.png)
 <!--
@@ -35,7 +35,7 @@ Open the [Creator Style Editor](style editor) and select the **Open** toolbar bu
 -->
 The **Open Style** dialog box opens.
 
-Enter your [subscription key](subscription key) in the **Enter your Azure Maps subscription key** field.
+Enter your [subscription key][subscription key] in the **Enter your Azure Maps subscription key** field.
 
 Next, select the geography associated with your subscription key in the drop-down list.
 
@@ -50,7 +50,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
 > [!NOTE]
-> If the map configuration was created as part of a custom style and has a user provided alias, that alias will appear in the map configuration drop-down list, otherwise the `mapConfigurationId` will appear. The default map configuration ID for any given tileset can be found by using the [tileset Get](tileset Get) HTTP request and passing in the tileset ID:
+> If the map configuration was created as part of a custom style and has a user provided alias, that alias will appear in the map configuration drop-down list, otherwise the `mapConfigurationId` will appear. The default map configuration ID for any given tileset can be found by using the [tileset Get][tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
 > https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview
@@ -74,7 +74,7 @@ Once you've selected the desired style, select the **Load selected style** butto
 
 | # | Description                                                                                 |
 |---|---------------------------------------------------------------------------------------------|
-| 1 | Your Azure Maps account [subscription key](subscription key)                                |
+| 1 | Your Azure Maps account [subscription key][subscription key]                                |
 | 2 | Select the geography of the Azure Maps account.                                             |
 | 3 | A list of map configuration aliases. If a given map configuration has no alias, the `mapConfigurationId` will be shown instead. |
 | 4 | This value is created from a combination of the style and tileset. If the style has as alias it will be shown, if not the `styleId` will be shown. The `tilesetId` will always be shown for the tileset value. |
@@ -137,7 +137,7 @@ Once you have entered values into each required field, select the **Upload map c
 
 ### Custom category names
 
-Azure Maps Creator has defined a [list of categories](categories). When you create your [manifest](manifest), you associate each unit in your facility to one of these categories in the [unitProperties](unitProperties) object.
+Azure Maps Creator has defined a [list of categories][categories]. When you create your [manifest][manifest], you associate each unit in your facility to one of these categories in the [unitProperties][unitProperties] object.
 
 There may be times when you want to create a new category name. For example, you may want the ability to apply different styling attributes to all rooms with special accommodations for people with disabilities like a phone room with phones that have screens showing what the caller is saying for those with hearing impairments.
 
@@ -264,8 +264,8 @@ The base map drop-down list on the visual editor toolbar presents a list of base
 > [!div class="nextstepaction"]
 > [TBD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
-[tileset]: /rest/api/maps/v2/tileset
-[tileset Get]: /rest/api/maps/v2/tileset/get
+[tileset]: /rest/api/maps/v20220901preview/tileset
+[tileset get]: /rest/api/maps/v20220901preview/tileset/get
 [tutorial]: tutorial-creator-indoor-maps.md
 [creator api]: /rest/api/maps-creator/
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
@@ -273,6 +273,3 @@ The base map drop-down list on the visual editor toolbar presents a list of base
 [manifest]: drawing-requirements#manifest-file-requirements
 [unitProperties]: drawing-requirements#unitproperties
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
-[subscription key]: quick-demo-map-app#get-the-primary-key-for-your-account
-[tileset get]:  https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/tileset/get?view=azure-rest-preview&branch=result_openapiHub_production_d736341a9e4d&tabs=HTTP
-[instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager

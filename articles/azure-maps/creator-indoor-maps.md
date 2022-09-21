@@ -102,9 +102,9 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 ### Custom styling (Preview)
 
-A style defines the visual appearance of a map. It defines what data to draw, the order to draw it in, and how to style the data when drawing it. Azure Maps Creator styles support the MapLibre standard for [style layers](style layers) and [sprites](sprites).
+A style defines the visual appearance of a map. It defines what data to draw, the order to draw it in, and how to style the data when drawing it. Azure Maps Creator styles support the MapLibre standard for [style layers][style layers] and [sprites][sprites].
 
-When you convert a drawing package after uploading it to your Azure Maps account, default styles are applied to the elements of your map. The custom styling service enables you to customize the visual appearance of your map. You can do this by manually editing the style JSON and importing it into your azure Maps account using the [Style - Create](create-style) HTTP request, however the recommended preferred approach is to use the visual style editor. For more information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).
+When you convert a drawing package after uploading it to your Azure Maps account, default styles are applied to the elements of your map. The custom styling service enables you to customize the visual appearance of your map. You can do this by manually editing the style JSON and importing it into your azure Maps account using the [Style - Create][create-style] HTTP request, however the recommended preferred approach is to use the visual style editor. For more information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).
 
 Example layer in the style.json file:
 
@@ -152,9 +152,13 @@ Example layer in the style.json file:
 
 #### Map configuration
 
-The map configuration is an array of configurations. Each configuration consists of a [basemap](basemap) and one or more layers, each layer consisting of a [style](style) + [tileset](tileset) tuple.
+The map configuration is an array of configurations. Each configuration consists of a [basemap][basemap] and one or more layers, each layer consisting of a [style][style] + [tileset][tileset] tuple.
 
-The map configuration is used when used when you [Instantiate the Indoor Manager](instantiate-indoor-manager) of a Map object when developing a map application in Azure Maps, and can be referenced using the `mapConfigurationId` or the map configuration alias.
+<!------------------------------  Option #1  --------------------------------------------------------------->
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application in Azure Maps. It's referenced using the `mapConfigurationId` or the map configuration alias. Map configurations are immutable. Anytime you make a change, your existing map configuration, including the `mapConfigurationId`, is replaced with a new one. Referencing a map configuration by its ID will result in errors in your code anytime changes are made since the ID will no longer point to an existing map configuration. The alias is constant and can be used to reference your map configuration regardless of how many times it has changed.
+
+<!------------------------------  Option #2  --------------------------------------------------------------->
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application. It's referenced using the `mapConfigurationId` or `alias`. Each time you edit or change a map configuration, its ID changes but its alias remains the same. It is recommended to reference the map configuration by its alias in your applications.
 
 Below is an example of a map configuration JSON showing the default configurations. See the table below for a description of each element of the file:
 
@@ -199,15 +203,15 @@ Below is an example of a map configuration JSON showing the default configuratio
 | Name        | The name of the style.                     |
 | displayName | The display name of the style.             |
 | description | The user defined description of the style. |
-| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For additional information on the style picker, see the [style picker control](style-picker-control). |
+| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For additional information on the style picker, see the [style picker control][style-picker-control]. |
 | baseMap     | Use to Set the base map style.             |
 | layers      | The layers array consists of one or more *tileset + Style* tuples, each being a layer of the map. This enables multiple buildings on a map, each building represented in its own tileset. |
 
 #### Additional information
 
-- For more information how to modify styles using the style editor, see [Create custom styles for indoor maps](style-how-to).
-- For more information on style Rest API, see [style](style) in the Maps Creator Rest API reference.
-- For more information on the map configuration Rest API, see [Creator - map configuration Rest API](map-config-api).
+- For more information how to modify styles using the style editor, see [Create custom styles for indoor maps][style-how-to].
+- For more information on style Rest API, see [style][style] in the Maps Creator Rest API reference.
+- For more information on the map configuration Rest API, see [Creator - map configuration Rest API][map-config-api].
 
 ### Feature statesets
 
@@ -277,11 +281,11 @@ The following example shows how to update a dataset, create a new tileset, and d
 
 [style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
 [sprites]: https://docs.mapbox.com/help/glossary/sprite/
-[create-style]: /rest/api/maps/v2/style/create
+[create-style]: /rest/api/maps/v20220901preview/style/create
 [basemap]: supported-map-styles.md
-[style]: /rest/api/maps/v2/style
-[tileset]: /rest/api/maps/v2/tileset
+[style]: /rest/api/maps/v20220901preview/style
+[tileset]: /rest/api/maps/v20220901preview/tileset
 [style-picker-control]: choose-map-style#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
-[map-config-api]: /rest/api/maps/v2/mapconfiguration
+[map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager

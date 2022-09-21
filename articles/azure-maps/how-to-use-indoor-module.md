@@ -1,9 +1,9 @@
 ---
-title: Use the Azure Maps Indoor Maps module with Microsoft Creator services
+title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (Public Preview)
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 07/13/2021
+ms.date: 19/09/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,17 +11,19 @@ services: azure-maps
 ms.custom: devx-track-js
 ---
 
-# Use the Azure Maps Indoor Maps module
+# Use the Azure Maps Indoor Maps module with custom styles (Public Preview)
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services.
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services. When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing your indoor styles via [Azure Maps Custom Styling REST APIs](https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/style/create?view=azure-rest-preview&branch=result_openapiHub_production_a0998924c560&tabs=HTTP) //TODO: Change the previous link to the custom styling rest API tutorial. Creator also 
+offers a visual editor to create custom styles: [Creator Style Editor](https://azure.github.io/Azure-Maps-Style-Editor/). 
 
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Create a Creator resource](how-to-manage-creator.md)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
- You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
+1. [Create a Creator resource](how-to-manage-creator.md)
+1. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+1. An Azure Maps Creator [map configuration][mapConfiguration] ID or alias. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
+
+You'll need to use these identifiers to render indoor maps with custom styles via the Azure Maps Indoor Maps module
 
 ## Embed the Indoor Maps module
 
@@ -36,7 +38,7 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
 
  Or, you can download the *Azure Maps Indoor* module. The *Azure Maps Indoor* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor* module into your web application.  
   
-  1. Install the [azure-maps-indoor package](https://www.npmjs.com/package/azure-maps-indoor).
+  1. Install the latest [azure-maps-indoor package](https://www.npmjs.com/package/azure-maps-indoor).
   
       ```powershell
       >npm install azure-maps-indoor
@@ -49,63 +51,56 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       <script src="node_modules/azure-maps-indoor/dist/atlas-indoor.min.js"></script>
       ```
 
-## Instantiate the Map object
+## Set the domain and instantiate the Map object
 
-First, create a *Map object*. The *Map object* will be used in the next step to instantiate the *Indoor Manager* object.  The code below shows you how to instantiate the *Map object*:
+Set the map domain with a prefix matching a location of your Creator resource: `atlas.setDomain('us.atlas.microsoft.com');` if your Creator resource has been created in US region, or `atlas.setDomain('eu.atlas.microsoft.com');` if your Creator resource has been created in EU region. Then, instantiate a *Map object* with a `mapConfiguration` option se to `mapConfigurationId` you have acquired earlier and `styleAPIVersion` set to `2022-09-01-preview`. 
+
+The *Map object* will be used in the next step to instantiate the *Indoor Manager* object. The code below shows you how to instantiate the *Map object* with `mapConfiguration`, `styleAPIVersion` and map domain set:
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
+const region = "<Your Creator resource region: us or eu>"    
+atlas.setDomain(`${region}.atlas.microsoft.com`);
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13203, 47.63645],
-  //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
-  style: "blank",
-  view: 'Auto',
-  authOptions: {
+  center: [-122.13315, 47.63637],
+  //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
+  authOptions: { 
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },
   zoom: 19,
+
+  mapConfiguration: mapConfigurationId,
+  styleAPIVersion: '2022-09-01-preview'
 });
 ```
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object* and the corresponding `tilesetId`. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `statesetId`. The `statesetId` variable name is case-sensitive. Your code should like the JavaScript below.
+To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `statesetId`. The `statesetId` variable name is case-sensitive. Your code should like the JavaScript below.
 
 ```javascript
-const tilesetId = "<tilesetId>";
 const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: tilesetId,
-    statesetId: statesetId // Optional
+  statesetId: statesetId // Optional
 });
 ```
 
 To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature such as room can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
 
 ```javascript
-const tilesetId = "<tilesetId>";
 const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: tilesetId,
-    statesetId: statesetId // Optional
+  statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
-```
-
-## Geographic Settings (Optional)
-
-This guide assumes that you've created your Creator service in the United States. If so, you can skip this section. However, if your Creator service was created in Europe, add the following code:
-
-```javascript
-  indoorManager.setOptions({ geography: 'eu' });.
 ```
 
 ## Indoor Level Picker Control
@@ -137,28 +132,33 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 
 The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain the new `facilityId`, the new `levelNumber`, and other metadata.
 
-## Example: Use the Indoor Maps Module
+## Example: Custom Styling: Consume map configuration in WebSDK (Public Preview)
 
-This example shows you how to use the *Azure Maps Indoor* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Azure Maps Indoor* module. The complete HTML code is below these steps.
+When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing your indoor styles via [Azure Maps Custom Styling REST APIs](https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/style/create?view=azure-rest-preview&branch=result_openapiHub_production_a0998924c560&tabs=HTTP) //TODO: Change the previous link to the custom styling rest API tutorial. Creator also 
+offers a visual editor to create custom styles: [Creator Style Editor](https://azure.github.io/Azure-Maps-Style-Editor/). 
 
-1. Use the Azure Content Delivery Network [option](#embed-the-indoor-maps-module) to install the *Azure Maps Indoor* module.
+1. Please follow the guild at [Create custom styles for indoor maps](//TODO:LINK_HERE) (//TODO: Change the previous link to the styling rest API tutorial) to create your map configuration, then record your mapConfiguration id.
 
-2. Create a new HTML file
+2. Use the Azure Content Delivery Network [option](#embed-the-indoor-maps-module) to install the *Azure Maps Indoor* module.
 
-3. In the HTML header, reference the *Azure Maps Indoor* module JavaScript and style sheet styles.
+3. Create a new HTML file
 
-4. Initialize a *Map object*. The *Map object* supports the following options:
+4. In the HTML header, reference the *Azure Maps Indoor* module JavaScript and style sheet styles.
+
+5. Set the map domain with a prefix matching a location of your Creator resource: `atlas.setDomain('us.atlas.microsoft.com');` if your Creator resource has been created in US region, or `atlas.setDomain('eu.atlas.microsoft.com');` if your Creator resource has been created in EU region.
+
+6. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
     - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](/rest/api/maps/v2/tileset/list). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
-    - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
+    - `mapConfiguration` is the id of map configuration that defines the custom styles you want to display on the map, use the map configuration id from the step 1. 
+    - `style` allows you to set the initial style from your map configuration that will be displayed, if unset, the style matching map configuration's default configuration will be used.
     - `zoom` allows you to specify the min and max zoom levels for your map.
+    - `styleAPIVersion`: pass **'2022-09-01-preview'** (which is required while Custom Styling is in public preview)
 
-5. Next, create the *Indoor Manager* module. Assign the *Azure Maps Indoor* `tilesetId`, and optionally add the `statesetId`.
+7. Next, create the *Indoor Manager* module with *Indoor Level Picker* control instantiated as part of *Indoor Manager* options, optionally set the `statesetId` option.
 
-6. Instantiate the *Indoor Level Picker* control.
-
-7. Add *Map object* event listeners.  
+8. Add *Map object* event listeners.  
 
 Your file should now look similar to the HTML below.
 
@@ -196,20 +196,23 @@ Your file should now look similar to the HTML below.
       <div id="map-id"></div>
       <script>
         const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
-        const tilesetId = "<your tilesetId>";
-        const statesetId = "<your statesetId>";
+        const mapConfigurationId = "<Your mapConfigurationId>";
+        const statesetId = "<Your statesetId>";
+        const region = "<Your Creator resource region: us or eu>"    
+        atlas.setDomain(`${region}.atlas.microsoft.com`);
 
         const map = new atlas.Map("map-id", {
           //use your facility's location
           center: [-122.13315, 47.63637],
           //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
-          style: "blank",
-          view: 'Auto',
           authOptions: { 
               authType: 'subscriptionKey',
               subscriptionKey: subscriptionKey
           },
           zoom: 19,
+
+          mapConfiguration: mapConfigurationId,
+          styleAPIVersion: '2022-09-01-preview'
         });
 
         const levelControl = new atlas.control.LevelControl({
@@ -218,7 +221,6 @@ Your file should now look similar to the HTML below.
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
           levelControl: levelControl, //level picker
-          tilesetId: tilesetId,
           statesetId: statesetId // Optional
         });
 
@@ -244,7 +246,7 @@ To see your indoor map, load it into a web browser. It should appear like the im
 
   ![indoor map image](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
-[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
+[See live demo](https://samples.azuremaps.com/?sample=creator-indoor-maps)
 
 ## Next steps
 
@@ -263,3 +265,5 @@ Learn more about how to add more data to your map:
 
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
+
+[mapConfiguration]: /rest/api/maps/v20220901preview/mapconfiguration/

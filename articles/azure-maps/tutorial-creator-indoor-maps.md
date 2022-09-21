@@ -20,6 +20,7 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 > * Convert your Drawing package into map data.
 > * Create a dataset from your map data.
 > * Create a tileset from the data in your dataset.
+> * get the default mapconfigurationId from your tileset.
 
 In the next tutorials in the Creator series you'll learn to:
 
@@ -338,6 +339,12 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 7. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`tilesetId`) of the dataset.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="A screenshot of Postman highlighting the tileset ID that is part of the value of the resource location URL in the responses header.":::
+
+## The map configuration (Preview)
+
+> TODO: Explain what the map configuration is and how to get the default mapconfigurationId from your tileset.
+For more information, see [Map configuration](creator-indoor-maps.md#map-configuration)
+For additional information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).
 
 ## Additional information
 
