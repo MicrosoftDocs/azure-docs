@@ -23,11 +23,19 @@ This article will show you how to use multimedia redirection (MMR) for Azure Vir
 ## Prerequisites
 
 Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
-to do these things:
+the following things:
 
-1. [Install the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+- An Azure Virtual Desktop deployment
+- Windows Desktop client, version 1.2.2999 or later
+- Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
 
-2. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, set the following registry information:
+## Set up the multimedia redirection extension automatically
+
+Usually, setting up the multimedia redirection extension for your users involves using an MSI installer. To set the extension up automatically:
+
+1. If you haven't already, [install the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+
+2. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, [open the registry editor](https://learn.microsoft.com/troubleshoot/windows-server/performance/windows-registry-advanced-users) and edit the following keys:
 
    - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
    - **Type**: REG_SZ
@@ -40,11 +48,11 @@ to do these things:
 
 4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE55eRq) to install both the host native component and the multimedia redirection extensions for your internet browser on your session host VMs.
 
-## Managing group policies for the multimedia redirection browser extension
+## Set up the extension manually with group policies
 
-Using the multimedia redirection MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](troubleshoot-multimedia-redirection.md#known-issues-and-limitations).
+Even though the multimedia redirection MSI is the expected way to install the browser extensions, there may be situations where you need to install the browser extension manually instead. For example, there may be situations when the extension doesn't install properly, or when you'll need to customize settings. 
 
-Keep in mind that when the IT admin installs an extension with MSI, the users will see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, we recommend you use the group policy in the following section.
+When the IT admin installs an extension with MSI, the users will see a prompt that says "New Extension added." In order to use the app, they'll need to confirm the prompt. If they select **Cancel**, then their browser will uninstall the extension. If you want the browser to force install the extension without any input from your users, you'll need to follow the instructions in this section to edit the group policies.
 
 In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
 
@@ -130,15 +138,33 @@ Another way you can check the extension status is by selecting the extension ico
 
 ## Video status overlay
 
-The multimedia redirection extension indicates playback success in a banner on top of the video screen. A success message will appear to indicate that the current video is being successfully optimized through redirection. If the extension encounters any issues, it will also show an error message in a banner on the top of the video. To turn off this message, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Video status overlay**.
+The multimedia redirection extension indicates playback success in a banner on top of the video screen. A success message will appear to indicate that the current video is being successfully optimized through redirection. If the extension encounters any issues, it will also show an error message in a banner on the top of the video.
+
+To turn off status messages:
+
+1. elect the multimedia redirection extension icon in your browser.
+2. Select **Show advanced settings**.
+3. Disable **Video status overlay**.
 
 ## Redirected Video Highlight
 
-Redirected Video Highlight lets admins highlight the currently redirected video elements to diagnose issues. When you enable this feature, you'll see a bright highlighted boarder around the redirected video. To enable this feature, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then disable **Redirected Video Outlines**.
+Redirected Video Highlight lets admins highlight the currently redirected video elements to diagnose issues. When you enable this feature, you'll see a bright highlighted boarder around the redirected video.
+
+To enable Redirected Video Highlight:
+
+1. Select the multimedia redirection extension icon in your browser.
+2. Select **Show advanced settings**.
+3. Enable **Redirected Video Outlines**.
 
 ## Trace collection
 
-If you ever encounter any issues, you can collect traces from the extension and provide them to your IT admin. To collect traces from the extension, open the extension, select the multimedia redirection extension icon in your browser and select **Show advanced settings**, then select **Start tracing**.
+If you ever encounter any issues, you can collect traces from the extension and provide them to your IT admin.
+
+To enable trace collection:
+
+1. Select the multimedia redirection extension icon in your browser.
+2. Select **Show advanced settings**.
+3. Enable **Start tracing**.
 
 ## Next steps
 
