@@ -96,7 +96,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
     ```powershell
-    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} 
+    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Microsoft Cloud Security Benchmark'} 
 
     New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Defender for Cloud Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
     ```

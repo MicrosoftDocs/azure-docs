@@ -88,6 +88,8 @@
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
+    - name: Microsoft Cloud Security Benchmark (MCSB)
+      href: concept-regulatory-compliance.md
     - name: What is the Cloud Security Graph
       displayName: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
       href: concept-attack-path.md
@@ -435,8 +437,8 @@
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=defender%20for%20cloud
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?term=defender%20for%20cloud
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
