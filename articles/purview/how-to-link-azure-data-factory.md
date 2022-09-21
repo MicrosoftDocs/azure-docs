@@ -57,7 +57,7 @@ Follow the steps below to connect an existing data factory to your Microsoft Pur
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
->We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
+>We support adding 10 Data Factory at once. If you want to add more than 10 Data Factory, please do so in multiple batches of 10 Data Factory.
 
 ### How authentication works
 
