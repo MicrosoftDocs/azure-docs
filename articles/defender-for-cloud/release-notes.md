@@ -25,7 +25,7 @@ Updates in October include:
 - [Agentless scanning for Azure and AWS machines](#agentless-scanning-for-azure-and-aws-machines)
 - [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
 - [Added control details and compliance offerings to the regulatory compliance standards](#added-control-details-and-compliance-offerings-to-the-regulatory-compliance-standards)
-- [Auto-provisioning is now available with an updated experience](#auto-provisioning-is-now-available-with-an-updated-experience)
+- [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 
 ### Announcing the Microsoft Cloud Security Benchmark
@@ -95,7 +95,7 @@ You can learn more about the [Microsoft Cloud Security Benchmark in Defender for
 
 You can also [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
-### Auto-provisioning is now available with an updated experience
+### Auto-provisioning has been renamed to Settings & monitoring and has an updated experience
 
 We have renamed the Auto-provisioning page to **Settings & monitoring**. 
 
