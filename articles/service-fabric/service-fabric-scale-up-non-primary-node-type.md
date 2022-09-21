@@ -15,7 +15,7 @@ This article describes how to scale up a Service Fabric cluster non-primary node
 
 1. Add a new node type to your Service Fabric cluster, backed by your upgraded (or modified) virtual machine scale set SKU and configuration. This step also involves setting up a new load balancer, subnet, and public IP for the scale set.
 
-1. Once both the original and upgraded scale sets are running side by side, migrating the workload by setting placement constraints for applications to the new node type.
+1. Once both the original and upgraded scale sets are running side by side, migrate the workload by setting placement constraints for applications to the new node type.
 
 1. Verify the cluster is healthy, then remove the original scale set (and related resources) and node state for the deleted nodes.
 
