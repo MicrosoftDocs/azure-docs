@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Azure Resource Manager template'
+title: 'Quickstart: Create an Azure WAF v2 by using an Azure Resource Manager template'
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure Resource Manager quickstart template (ARM template) to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 09/16/2020
+ms.date: 09/20/2022
 ms.author: victorh
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickstart
+# Customer intent: As a cloud administrator, I want to quickly deploy a Web Application Firewall v2 on Azure Application Gateway for production environments or to evaluate WAF v2 functionality.
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template
