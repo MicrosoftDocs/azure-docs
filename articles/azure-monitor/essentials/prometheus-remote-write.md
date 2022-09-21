@@ -1,4 +1,4 @@
----
+---azure act
 title: Configure remote write for Azure Monitor managed service for Prometheus
 description: Use remote write to send metrics from a local Prometheus server to Azure Monitor managed service for Prometheus.
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 09/15/2022
 Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and creating a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into our managed service.
 
 ## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (AAD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace. Certificates required for AAD based authentication are downloaded to the local mount on your cluster by the [CSI driver](../../aks/csi-secrets-store-driver.md).
+Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace. Certificates required for Azure AD based authentication are downloaded to the local mount on your cluster by the [CSI driver](../../aks/csi-secrets-store-driver.md).
 
 
 ## Configuration steps
@@ -18,7 +18,7 @@ Use the following steps to configure remote-write to Azure Monitor managed servi
 1. [Create Azure Monitor workspace](#create-azure-monitor-workspace) 
 2. [Create data collection endpoint](#create-data-collection-endpoint) 
 3. [Create data collection rule](#create-data-collection-rule) - 
-4. [Grant access to User Assigned Identity or AAD app](#grant-access-to-user-assigned-identity-or-aad-app)
+4. [Grant access to User Assigned Identity or Azure AD app](#grant-access-to-user-assigned-identity-or-aad-app)
 5. [Set up CSI driver](#set-up-csi-driver)
 6. [Deploy the Azure Monitor side car container](#deploy-the-azure-monitor-side-car-container)
 
@@ -28,7 +28,7 @@ Use the following steps to configure remote-write to Azure Monitor managed servi
 
 
 ## Create data collection endpoint
-[Create a data collection endpoint](data-collection-endpoint-overview.md) in the same region as you Azure Monitor workspace. This is the endpoint that the remote Prometheus server will connect to.
+[Create a data collection endpoint](data-collection-endpoint-overview.md) in the same region as your Azure Monitor workspace. This is the endpoint that the remote Prometheus server will connect to.
 
 ## Create data collection rule
 Create a [data collection rule](data-collection-rule-overview.md) that specifies data sent to the data collection endpoint is directed to the Azure Monitor workspace. It must be located in same region as the DCE and Azure Monitor workspace. You must create the rule using the following API request. Once DCR is created, note down the DCR immutable ID, which is returned as part of the response. This is used later to construct the ingestion url.
@@ -38,7 +38,7 @@ Create a [data collection rule](data-collection-rule-overview.md) that specifies
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRulesName}?api-version=2021-09-01-preview
 ```
 
-Followint is the body of the PUT request. Replace the values in brackets with the values for your environment.
+Following is the body of the PUT request. Replace the values in brackets with the values for your environment.
 
 ```json
 {
@@ -81,14 +81,14 @@ Followint is the body of the PUT request. Replace the values in brackets with th
 }
 ```
 
-## Grant access to User Assigned Identity or AAD app
-The User Assigned Identity or the AAD app that is going to be used to push Prometheus remote write metrics should be assigned **Monitoring Metrics Publisher** role in the data collection rule. The role assignment can be done by following [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+## Grant access to User Assigned Identity or Azure AD app
+The User Assigned Identity or the Azure AD app that is going to be used to push Prometheus remote write metrics should be assigned **Monitoring Metrics Publisher** role in the data collection rule. The role assignment can be done by following [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 
 ## Set up CSI driver
 
 >[!IMPORTANT]
-> This step is only required if you are using AAD based authentication. Do not complete this step if you're using User Assigned Identity.
+> This step is only required if you're using Azure AD based authentication. Do not complete this step if you're using User Assigned Identity.
 
 The CSI driver will help in downloading a certificate to the local mount of your cluster in a compliant way. This driver provides three methods of authenticating:
 
@@ -96,13 +96,13 @@ The CSI driver will help in downloading a certificate to the local mount of your
 - User assigned managed identity
 - System assigned managed identity
 
-Follow the procedure at [Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service secrets](../../aks/csi-secrets-store-driver.md) to setup the CSI driver.
+Follow the procedure at [Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service secrets](../../aks/csi-secrets-store-driver.md) to set up the CSI driver.
 
-Once the CSI driver is configured, follow the procedure at [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) to create your *SecretProviderClass.yml* file which will specify the identity being used.
+Once the CSI driver is configured, follow the procedure at [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) to create your *SecretProviderClass.yml* file, which will specify the identity being used.
 
 Necessary configurations while setting up CSI driver:
 
-- The certificate stored in the key vault is used for AAD based authentication.
+- The certificate stored in the key vault is used for Azure AD based authentication.
 - In your secret provider class, specify the following. This will download the certificate with the secret which is necessary for authenticating packets.
   - `objectType` = *secret*
   - `objectFormat` = *pfx*
@@ -111,7 +111,7 @@ Necessary configurations while setting up CSI driver:
 ### Sample configuration
 The following sample *SecretProviderClass.yml* uses system assigned identity. To use this file, modify it with the following values:
 
-- \<YOUR-KEYVAULT\>: Name of your key vault where you have stored certificate which has publishing permissions on the MDM account.
+- \<YOUR-KEYVAULT\>: Name of your key vault where you have stored certificate, which has publishing permissions on the MDM account.
 - \<YOUR-CERTIFICATE-NAME\>: Certificate name as in your key vault.
 - \<YOUR-TENANT-ID\>: Tenant Id.
 
@@ -159,15 +159,15 @@ Modify the YAML file below with the following values:
 - \<YOUR-AKS-CLUSTER-NAME\>: Cluster name of your AKS cluster.
 - \<CONTAINER-IMAGE\>: Choose the latest stable container image from the table below.
 - \<METRICS-INGESTION-URL\>: Metrics Ingestion endpoint from DCE in the format `https://<Metrics-Ingestion-URL>/dataCollectionRules/<DCR-Immutable-ID>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview`. This can be obtained from the DCE.
-- \<YOUR-CERTIFICATE-NAME\>: Certificate name as in your key vault. Required only for AAD based auth.
+- \<YOUR-CERTIFICATE-NAME\>: Certificate name as in your key vault. Required only for Azure AD based auth.
 - \<IDENTITY-TYPE\>: Type of identity used for auth. Possible values: "userAssigned" or "aadApplication".
-- \<AZURE-CLIENT-ID\>: ClientID of the UserAssigned Identity or AAD app.
-- \<AZURE-TENANT-ID\>: TenantID of AAD app. Required only for AAD based auth.
+- \<AZURE-CLIENT-ID\>: ClientID of the UserAssigned Identity or Azure AD app.
+- \<AZURE-TENANT-ID\>: TenantID of Azure AD app. Required only for Azure AD based auth.
 
 
-Verify the following paramters in the YAML file:
+Verify the following parameters in the YAML file:
 
-- If you are using AAD based authentication, uncomment sections of the YAML that is required for AAD based auth.
+- If you're using Azure AD based authentication, uncomment sections of the YAML that is required for Azure AD based auth.
 - Verify that the name of `secretProviderClass` is correct. The example below uses *azure-kvname-system-msi*.
 - The sample uses the path */mnt/secrets-store* to download the certificate. Update this value if you use a different path.
 - The sample uses *8081* as the listening port. Update this value if you use a different port.
@@ -184,7 +184,7 @@ prometheus:
     - url: "http://localhost:8081/api/v1/write"
 
     # Additional volumes on the output StatefulSet definition.
-    # Required only for AAD based auth
+    # Required only for Azure AD based auth
     # volumes:
     # - name: secrets-store-inline
     #   csi:
@@ -194,7 +194,7 @@ prometheus:
     #       secretProviderClass: azure-kvname-system-msi
 
     # Additional VolumeMounts on the output StatefulSet definition.
-    # Required only for AAD based auth
+    # Required only for Azure AD based auth
     # volumeMounts:
     # - name: secrets-store-inline
     #   mountPath: "/mnt/secrets-store"
@@ -204,7 +204,7 @@ prometheus:
     - name: prom-remotewrite
       image: <CONTAINER-IMAGE>
       imagePullPolicy: Always
-      # Required only for AAD based auth
+      # Required only for Azure AD based auth
       # volumeMounts:
       #   - name: secrets-store-inline
       #     mountPath: "/mnt/secrets-store"
@@ -224,10 +224,10 @@ prometheus:
           value: "<IDENTITY-TYPE>"      
         - name: AZURE_CLIENT_ID
           value: "<AZURE-CLIENT-ID>"
-        # Required only for AAD based auth
+        # Required only for Azure AD based auth
         # - name: AZURE_TENANT_ID
-        #   value: "<AZURE-TENANT-ID>"  # TenantId of the AAD app
-        # Required only for AAD based auth
+        #   value: "<AZURE-TENANT-ID>"  # TenantID of the Azure AD app
+        # Required only for Azure AD based auth
         # - name: MDM_CERT_PATH
         #   value: /mnt/secrets-store/<YOUR-CERTIFICATE-NAME>
 ```

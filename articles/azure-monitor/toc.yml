@@ -681,7 +681,7 @@ items:
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Prometheus metric alerts
-      href: alerts/alerts/prometheus-metric-alerts.md
+      href: alerts/prometheus-metric-alerts.md
     - name: Notifications and actions
       items:
       - name: Alert processing rules
