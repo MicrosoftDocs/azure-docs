@@ -41,9 +41,9 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
-* By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+* By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
-* Azure Machine Learning does not support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
+* Azure Machine Learning doesn't support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
 
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
@@ -117,7 +117,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
    | Storage account | The default storage account for the workspace. By default, a new one is created. |
    | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
    | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
-   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is _not_ initially created for the workspace. Instead, it is created once you need it when creating a Docker image during training or deployment. |
+   | Container Registry | The Azure Container Registry for the workspace. By default, a new one isn't_ initially created for the workspace. Instead, it's created once you need it when creating a Docker image during training or deployment. |
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
@@ -150,7 +150,7 @@ This class requires an existing virtual network.
 
 # [Portal](#tab/azure-portal)
 
-1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you have created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.	
+1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you've created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.	
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::	
 
@@ -158,7 +158,7 @@ This class requires an existing virtual network.
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::	
 
-1. When you are finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
+1. When you're finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
 
 ---
 
@@ -233,7 +233,7 @@ ml_client.workspaces.begin_create(ws)
 
 ### Download a configuration file
 
-If you will be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance will create and store copy of this file for you.
+If you'll be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance will create and store copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
@@ -247,7 +247,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
-* **With a configuration file:** This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
+* **With a configuration file:** This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
 
     ```python
     from azure.ai.ml import MLClient
@@ -255,7 +255,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
     # read the config from the current directory
     ws_from_config = MLClient.from_config()
     ```
-* **From parameters**: There is no need to have a config.json file available if you use this approach.
+* **From parameters**: There's no need to have a config.json file available if you use this approach.
     
     [!notebook-python[](~/azureml-examples-main/sdk/resources/workspace/workspace.ipynb?name=ws)]
 
@@ -311,7 +311,7 @@ If you accidentally deleted your workspace, you may still be able to retrieve yo
 ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
 ```
 
-The default action is not to delete resources associated with the workspace, that is, container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
+The default action isn't to delete resources associated with the workspace, that is, container registry, storage account, key vault, and application insights.  Set `delete_dependent_resources` to True to delete these resources as well.
 
 # [Portal](#tab/azure-portal)
 
