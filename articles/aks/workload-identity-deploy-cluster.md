@@ -10,12 +10,12 @@ ms.date: 09/19/2022
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and workload identity (preview)
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity (preview)
 * Grant access to your Azure Key Vault
 * Create an Azure Active Directory (Azure AD) application and Kubernetes service account
 * Configure the Azure AD app for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. 
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you are not familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
 
 - This article requires version 2.32.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -132,12 +132,13 @@ az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESO
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential.  
+In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration]. 
 
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
+[workload-identity-overview]: workload-identity-overview.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account

@@ -1,14 +1,14 @@
 ---
-title: Migrate your application to use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
-description: Learn how to migrate your application to use an Azure Active Directory workload identity (preview) in an Azure Kubernetes Service (AKS) cluster.
+title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
+description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 09/19/2022
+ms.date: 09/21/2022
 author: mgoedtel
 
 ---
 
-# Migrate your application to use an Azure AD workload identity (preview)
+# Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)
 
 Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity] (preview), which integrate with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
 
@@ -20,7 +20,7 @@ Today with Azure Kubernetes Service (AKS), you can assign [managed identities at
 
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
-This article reviews the options available to help you plan your migration phases and project strategy.
+This article helps you understand this new authentication feature, and reviews the options available to plan your migration phases and project strategy.
 
 ## Before you begin
 
@@ -103,9 +103,12 @@ The following table summarizes our migration or deployment recommendations for w
 |Scenario |Description |
 |---------|------------|
 | New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required.<br><br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
-| New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy with newer version, or use the [migration sidecar][deploy-migration-sidecar]. |
+| New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy with newer version, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 ## Next steps
+
+* To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration].
+* See the tutorial [Use a workload identity with an application on Azure Kubernetes Service (AKS)][tutorial-use-workload-identity], which helps you deploy an Azure Kubernetes Service cluster and configure a sample application to use a workload identity.
 
 <!-- EXTERNAL LINKS -->
 [azure-sdk-download]: https://azure.microsoft.com/downloads/
@@ -121,4 +124,4 @@ The following table summarizes our migration or deployment recommendations for w
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
-[deploy-migration-sidecar]: workload-identity-migration-sidecar.md
+[workload-identity-migration-sidecar]: workload-identity-migration-sidecar.md
