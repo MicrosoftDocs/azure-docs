@@ -77,7 +77,7 @@ request_uri = f"{resource_endpoint}{path_and_query}"
 # Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body.
 scopes = ["chat"]
 
-serialized_body = dumps(scopes)
+serialized_body = json.dumps(scopes)
 content = serialized_body.encode("utf-8")
 ```
 
