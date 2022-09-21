@@ -61,7 +61,7 @@ The following example demonstrates how to create a compute instance:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -119,7 +119,7 @@ Start, stop, restart, and delete a compute instance. A compute instance doesn't 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In the examples below, the name of the compute instance is **instance**.
 
