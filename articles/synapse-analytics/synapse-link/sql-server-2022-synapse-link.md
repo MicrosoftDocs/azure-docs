@@ -28,6 +28,8 @@ You can start or stop a link connection. When started, a link connection will st
 
 You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
+You also have the chance to make a trade-off between cost and latency by selecting the continuous or batch mode to replicate the data.  When you select continuous mode, the runtime will be running continuously so that any changes applied to your SQL DB or SQL Server will be replicated to Synapse with low latency. When you select batch mode with specified interval, the changes applied to your SQL DB or SQL Server will be accumulated and replicated to Synapse in a batch mode with specified interval.  By doing so, you can save cost as you are only charged for the time when the runtime is required to replicate your data. After each batch of data is replicated, the runtime will be shut down automatically.
+
 ## Landing zone
 
 The landing zone is an interim staging store required for Azure Synapse Link for SQL Server 2022. First, the operational data is loaded from the SQL Server 2022 to the landing zone. Next, the data is copied from the landing zone to the Synapse dedicated SQL pool. You need to provide your own Azure Data Lake Storage Gen2 account to be used as a landing zone. It is not supported to use this landing zone for anything other than Azure Synapse Link for SQL.
@@ -54,6 +56,14 @@ For each table, you'll see the following status:
 * **Replicating:** any updates on source table are replicated to the destination.
 * **Failed:** the data on source table can't be replicated to destination. If you want to retry after fixing the error, remove the table from link connection and add it back.
 * **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
+
+You can also get the following metrics to enable advanced monitoring of the service:
+
+* **Link connection events:** number of link connection events including start, stop or failure.
+* **Link table event:** number of link table events including snapshot, removal or failure.
+* **Link latency in second:** data processing latency in second.
+* **Link data processed data volume (bytes):** data volume in bytes processed by Synapse link for SQL.
+* **Link processed row:** row counts (changed) processed by Synapse Link for SQL.
 
 For more information, see [Manage Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed-manage).
 

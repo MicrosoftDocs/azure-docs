@@ -34,8 +34,6 @@ To configure FastPath, the virtual network gateway must be either:
 
 While FastPath supports most configurations, it doesn't support the following features:
 
-* UDR on the gateway subnet: FastPath doesn't honor UDRs configured on the gateway subnet. FastPath traffic bypasses any next-hops determined by UDRs configured on the gateway subnet.
-
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
 * Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection will go through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported.
@@ -57,7 +55,11 @@ The following FastPath features are in Public preview:
 
 **VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This preview is available for both IPv4 and IPv6 connectivity.
 
-Available in all regions.
+Available in all regions. This preview doesn't support FastPath connectivity to Azure Dedicated workloads.
+
+**User Defined Routes (UDRs)** - FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
+
+Available in all regions. This preview doesn't support FastPath connectivity to Azure Dedicated workloads.
 
 **Private Link Connectivity for 10Gbps ExpressRoute Direct Connectivity** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
 This preview is available in the following Azure Regions.

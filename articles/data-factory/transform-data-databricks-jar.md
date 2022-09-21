@@ -19,7 +19,7 @@ The Azure Databricks Jar Activity in a [pipeline](concepts-pipelines-activities.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## Add a Jar activity for Azure Databricks to a pipeline with UI
 

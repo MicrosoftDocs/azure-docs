@@ -4,11 +4,11 @@ description: Learn how to grant access to Azure resources for users, groups, ser
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/21/2021
+ms.date: 09/07/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -16,6 +16,11 @@ ms.devlang: azurecli
 # Assign Azure roles using Azure Resource Manager templates
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] In addition to using Azure PowerShell or the Azure CLI, you can assign roles using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how to assign roles using templates.
+
+> [!NOTE]
+> Bicep is a new language for defining your Azure resources. It has a simpler authoring experience than JSON, along with other features that help improve the quality of your infrastructure as code. We recommend that anyone new to infrastructure as code on Azure use Bicep instead of JSON.
+>
+> To learn about how to define role assignments by using Bicep, see [Create Azure RBAC resources by using Bicep](../azure-resource-manager/bicep/scenarios-rbac.md). For a quickstart example, see [Quickstart: Assign an Azure role using Bicep](quickstart-role-assignments-bicep.md).
 
 ## Prerequisites
 
@@ -34,7 +39,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
+objectid=$(az ad user show --id "{email}" --query id --output tsv)
 ```
 
 ### Group
@@ -46,7 +51,7 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+objectid=$(az ad group show --group "{name}" --query id --output tsv)
 ```
 
 ### Managed identities
@@ -58,7 +63,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
 ```
 
 ```azurecli
-objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].id --output tsv)
 ```
 
 ### Application
@@ -70,7 +75,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name "{name}" --query [].id --output tsv)
 ```
 
 ## Assign an Azure role

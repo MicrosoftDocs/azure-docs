@@ -180,8 +180,7 @@ and can read audio or write transcriptions by using a SAS URI with [Blob Storage
 
 ## Batch transcription result
 
-For each audio input, one transcription result file is created. The [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) operation returns a list of result files for this transcription.
-To find the transcription file for a specific input file, filter all returned files with `kind` set to `Transcription`, and  `name` set to `{originalInputName.suffix}.json`.
+For each audio input, one transcription result file is created. The [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) operation returns a list of result files for this transcription. The only way to confirm the audio input for a transcription, is to check the `source` field in the transcription result file. 
 
 Each transcription result file has this format:
 

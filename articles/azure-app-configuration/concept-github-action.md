@@ -1,8 +1,8 @@
 ---
 title: Sync your GitHub repository to App Configuration
 description: Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -20,7 +20,7 @@ A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-acti
 The GitHub [documentation](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
-To start using this GitHub action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
+To start using this GitHub Action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 
@@ -57,7 +57,7 @@ jobs:
 ```
 
 ## Use strict sync
-By default the GitHub action does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
+By default the GitHub Action does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
 
 ```json
 on: 
@@ -307,7 +307,7 @@ Input parameters specify data used by the action during runtime.  The following 
 |----|----|----|
 | configurationFile | Yes | Relative path to the configuration file in the repository.  Glob patterns are supported and can include multiple files. |
 | format | Yes | File format of the configuration file.  Valid formats are: JSON, YAML, properties. |
-| connectionString | Yes | Connection string for the App Configuration instance. The connection string should be stored as a secret in the GitHub repository, and only the secret name should be used in the workflow. |
+| connectionString | Yes | Read-write connection string for the App Configuration instance. The connection string should be stored as a secret in the GitHub repository, and only the secret name should be used in the workflow. |
 | separator | Yes | Separator used when flattening the configuration file to key-value pairs.  Valid values are: . , ; : - _ __ / |
 | prefix | No | Prefix to be added to the start of keys. |
 | label | No | Label used when setting key-value pairs. If unspecified, a null label is used. |

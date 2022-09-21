@@ -4,7 +4,7 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -158,7 +158,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
@@ -240,7 +240,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -291,7 +291,7 @@ In this case, start with the list of attributes in this topic and identify those
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |

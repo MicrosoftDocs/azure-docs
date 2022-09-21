@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 06/20/2022
 ---
 
 # Migrate your MySQL database by using import and export
@@ -138,7 +138,7 @@ You can use the **Data Export** pane to export your MySQL data.
 
 You can use the **Data Import** pane to import or restore exported data from the data export operation or from the mysqldump command.
 
-1. In MySQL Workbench, on the **Navigator** pane, select **Data Export/Restore**.
+1. In MySQL Workbench, on the **Navigator** pane, select **Data Import/Restore**.
 1. Select the project folder or self-contained SQL file, select the schema to import into, or select the **New** button to define a new schema.
 1. Select **Start Import** to begin the import process.
 

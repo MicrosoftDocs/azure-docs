@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in an H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
-ms.date: 09/21/2021
+ms.date: 09/02/2022
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 #### [New Azure monitor experience](#tab/new)
 
 > [!Important]
-> New Azure Monitor experience is only available in East US and West Europe as a preview feature.  
+> New Azure Monitor experience is available in all the regions as a preview feature.  
 >
 
 ## Prerequisites
@@ -43,7 +43,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]  
-> New Azure Monitor experience is only available in East US and West Europe as a preview feature. It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Monitor logs is not available in all Azure regions.
+> New Azure Monitor experience is only available in all the regions as a preview feature. It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance.
 >
 
 ## Enable Azure Monitor using the portal
@@ -285,7 +285,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 ## <a name="oms-with-firewall"></a>Prerequisites for clusters behind a firewall
 
-To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
+To be able to successfully set up Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
 |Agent Resource | Ports | Direction | Bypass HTTPS inspection |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Once the setup is successful, enabling necessary endpoints for data ingestion is
 
 ## Install HDInsight cluster management solutions
 
-HDInsight provides cluster-specific management solutions that you can add for Azure Monitor logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
+HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
 Available HDInsight solutions:
 
@@ -354,6 +354,6 @@ If you have Azure Monitor Integration enabled on a cluster, updating the OMS age
 ```
 
 ## Next steps
-
+* [Selective logging analysis](selective-logging-analysis.md)
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [How to monitor cluster availability with Apache Ambari and Azure Monitor logs](./hdinsight-cluster-availability.md)

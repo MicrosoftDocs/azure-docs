@@ -42,7 +42,7 @@ You can back up each individual secret, key, and certificate in your vault by us
 
 Alternatively, you can download certain secret types manually. For example, you can download certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can upload the PFX files to any key vault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move.
 
-After you have downloaded your keys, secrets, or certificates, you and restore them to your new key vault. 
+After you have downloaded your keys, secrets, or certificates, you can restore them to your new key vault. 
 
 Using the backup and restore commands has two limitations:
 

@@ -3,7 +3,7 @@ title: Use Azure Service Bus Explorer to run data operations (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 06/17/2022
 ms.author: egrootenboer
 ---
 
@@ -80,6 +80,10 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
     > [!NOTE]
     > Since peek is not a destructive operation the message **won't** be removed from the entity.
 
+    > [!NOTE]
+    > For performance reasons, when peeking messages from a queue or subscription which has it's maximum message size set over 1MB, the message body will not be retrieved by default. Instead, you can load the message body for a specific message by clicking on the **Load message body** button. If the message body is over 1MB it will be truncated before being displayed.
+    > :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png" alt-text="Screenshot with overview of peeked messages and button to load message body shown." lightbox="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png":::
+
 ### Peek a message with advanced options
 
 With the peek with options functionality, you can use the Service Bus Explorer to view the top messages in a queue, subscription or the dead-letter queue, specifying the number of messages to peek, and the sequence number to start peeking from.
@@ -131,6 +135,9 @@ The receive function on the Service Bus Explorer permits receiving messages from
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot with overview of received messages and message body content shown." lightbox="./media/service-bus-explorer/receive-message-from-queue-2.png":::
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-3.png" alt-text="Screenshot with overview of received messages and message properties shown." lightbox="./media/service-bus-explorer/receive-message-from-queue-3.png":::
+
+    > [!NOTE]
+    > For performance reasons, when receiving messages from a queue or subscription which has it's maximum message size set over 1MB, only one message will be received at a time. If the message body is over 1MB it will be truncated before being displayed.
 
 After a message has been received in **PeekLock** mode, there are various actions we can take on it.
 
@@ -203,6 +210,9 @@ After peeking or receiving a message, we can re-send it, which will send a copy 
 1. Select the **Send** button to send the messages to the entity.
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the re-send messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
+    
+    > [!NOTE]
+    > If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
 

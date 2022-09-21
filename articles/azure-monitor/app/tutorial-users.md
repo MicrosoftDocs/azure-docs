@@ -4,6 +4,7 @@ description: Tutorial on using Application Insights to understand how customers 
 ms.topic: tutorial
 ms.date: 07/30/2021
 ms.custom: mvc
+ms.reviewer: vitalyg
 ---
 
 # Use Azure Application Insights to understand how customers are using your application

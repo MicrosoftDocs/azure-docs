@@ -2,12 +2,12 @@
 title: Transient connectivity errors - Azure Database for MySQL
 description: Learn how to handle  transient connectivity errors and connect efficiently to Azure Database for MySQL.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error,connect efficiently
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 3/18/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Handle transient errors and connect efficiently to Azure Database for MySQL

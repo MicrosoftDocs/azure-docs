@@ -2,7 +2,8 @@
 title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.service: azure-vmware
+ms.date: 08/23/2022
 ---
 
 # Back up Azure VMware Solution VMs with Azure Backup Server
@@ -15,20 +16,20 @@ Then, we'll walk through all of the necessary procedures to:
 > * Set up a secure channel so that Azure Backup Server can communicate with VMware vCenter Server over HTTPS. 
 > * Add the account credentials to Azure Backup Server. 
 > * Add the vCenter Server to Azure Backup Server. 
-> * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
+> * Set up a protection group that contains the VMware vSphere VMs you want to back up, specify backup settings, and schedule the backup.
 
-## Create a secure connection to the vCenter server
+## Create a secure connection to the vCenter Server
 
 By default, Azure Backup Server communicates with VMware vCenter Server over HTTPS. To set up the HTTPS connection, download the VMware certificate authority (CA) certificate and import it on the Azure Backup Server.
 
 ### Set up the certificate
 
-1. In the browser, on the Azure Backup Server machine, enter the vSphere Web Client URL.
+1. In the browser, on the Azure Backup Server machine, enter the vSphere Client URL.
 
    > [!NOTE] 
-   > If the VMware **Getting Started** page doesn't appear, verify the connection and browser proxy settings and try again.
+   > If the VMware vSphere Client **Getting Started** page doesn't appear, verify the connection and browser proxy settings and try again.
 
-1. On the VMware **Getting Started** page, select **Download trusted root CA certificates**.
+1. On the VMware vSphere Client **Getting Started** page, select **Download trusted root CA certificates**.
 
    :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Web Client Getting Started window to access vSphere remotely.":::
 
@@ -114,7 +115,7 @@ VMware vSphere 6.7 onwards has TLS enabled as the communication protocol.
 1. In the **Add Credential** dialog box, enter a name and a description for the new credential. Specify the user name and password you defined on the VMware server.
 
    > [!NOTE] 
-   > If the VMware server and Azure Backup Server aren't in the same domain, specify the domain in the **User name** box.
+   > If the VMware vSphere virtual machine and Azure Backup Server aren't in the same domain, specify the domain in the **User name** box.
 
    :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png" alt-text="Screenshot showing the credential details in Azure Backup Server.":::
 
@@ -258,7 +259,7 @@ After you configure the protection group to back up Azure VMware Solution VMs, y
 
 :::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Screenshot showing the backup jobs in Azure Backup Server.":::
 
-## Restore VMware virtual machines
+## Restore VMware vSphere virtual machines
 
 In the Azure Backup Server Administrator Console, there are two ways to find recoverable data. You can search or browse. When you recover data, you might or might not want to restore data or a VM to the same location. For this reason, Azure Backup Server supports three recovery options for VMware VM backups:
 

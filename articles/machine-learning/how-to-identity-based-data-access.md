@@ -19,16 +19,13 @@ In this article, you learn how to connect to storage services on Azure by using 
 
 Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
  
-To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md#create-datastores).
+To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md#create-datastores).
 
 To create datastores that use **credential-based** authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
 
 ## Identity-based data access in Azure Machine Learning
 
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
-
-> [!WARNING]
-> Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -61,7 +58,6 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-    - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
@@ -122,22 +118,6 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        account_name='myadls2')
 ```
 
-### Azure SQL database
-
-For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) to register a datastore that connects to an Azure SQL database storage.
-
-The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
-
-```python
-# Create a sqldatabase datastore without credentials
-                                                       
-sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
-                                                       datastore_name='credentialless_sqldb',
-                                                       server_name='myserver',
-                                                       database_name='mydb')                                                       
-                                                   
-```
-
 
 ## Storage access permissions
 
@@ -150,7 +130,6 @@ Identity-based data access supports connections to **only** the following storag
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL Database
 
 To access these storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md). 
 
@@ -162,7 +141,7 @@ If you're training a model on a remote compute target and want to access the dat
 
 By default, Azure Machine Learning can't communicate with a storage account that's behind a firewall or in a virtual network.
 
-You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires additional steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](how-to-access-data.md#virtual-network). 
+You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires extra steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](how-to-access-data.md#virtual-network). 
 
 If your storage account has virtual network settings, that dictates what identity type and permissions access is needed. For example for data preview and data profile, the virtual network settings determine what type of identity is used to authenticate data access. 
  
@@ -176,12 +155,9 @@ If your storage account has virtual network settings, that dictates what identit
 
 We recommend that you use [Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
 
-> [!IMPORTANT]
-> Datasets using identity-based data access are not supported for [automated ML experiments](how-to-configure-auto-train.md).
+Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](v1/how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 
-Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
-
-To create a dataset, you can reference paths from datastores that also use identity-based data access . 
+To create a dataset, you can reference paths from datastores that also use identity-based data access. 
 
 * If you're underlying storage account type is Blob or ADLS Gen 2, your user identity needs Blob Reader role. 
 * If your underlying storage is ADLS Gen 1, permissions need can be set via the storage's Access Control List (ACL). 
@@ -210,11 +186,18 @@ This authentication mode allows you to:
 * Set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts.
 * Audit storage access because the storage logs show which identities were used to access data.
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > This functionality has the following limitations
 > * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
+
+> [!WARNING]
+> This feature is __public preview__ and is __not secure for production workloads__. Ensure that only trusted users have permissions to access your workspace and storage accounts.
+>
+> Preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 
@@ -245,5 +228,5 @@ identity:
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md)
-* [Train with datasets](how-to-train-with-datasets.md)
-* [Create a datastore with key-based data access](how-to-access-data.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
+* [Create a datastore with key-based data access](v1/how-to-access-data.md)

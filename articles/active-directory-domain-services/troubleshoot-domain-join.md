@@ -3,13 +3,13 @@ title: Troubleshoot domain-join with Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot common problems when you try to domain-join a VM or connect an application to Azure Active Directory Domain Services and you can't connect or authenticate to the managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 08/07/2022
 ms.author: justinha
 
 #Customer intent: As a directory administrator, I want to troubleshoot why VMs can't join an Azure Active Directory Domain Services managed domain.

@@ -1,6 +1,5 @@
 ---
-title: Build a web app that authenticates users and calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Build a web app that authenticates users and calls web APIs
 description: Learn how to build a web app that authenticates users and calls web APIs (overview)
 services: active-directory
 author: jmprieur

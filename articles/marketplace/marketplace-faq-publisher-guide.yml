@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq
   author: trkeya
   ms.author: trkeya
-  ms.date: 05/09/2022
+  ms.date: 06/03/2022
 title: Common questions about the Microsoft commercial marketplace
 summary: This article answers commonly asked questions about the commercial marketplace.
 
@@ -72,12 +72,17 @@ sections:
           For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Microsoft 365 add-in through Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
           
       - question: |
-          How can my own employees use our offers from the marketplace without being charged?
+          How can my own employees use our offers from the marketplace without being charged.
         answer: |
           To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](./private-offers.md) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
           
           You can also use our [Private Marketplace](/marketplace/create-manage-private-azure-marketplace) functionality to ensure internal users are only purchasing specific offers that are approved by your administrator.
-          
+
+      - question: |
+          How am I notified of publishing status or required actions?
+        answer: |
+          After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
+
       - question: |
           How do I get support assistance for the commercial marketplace?
         answer: |

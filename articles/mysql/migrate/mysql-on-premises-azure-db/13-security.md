@@ -38,7 +38,7 @@ if a user or application credentials are compromised, logs are not likely to ref
 
 ## Audit logging
 
-MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](../../concepts-audit-logs.md) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](../../../azure-monitor/overview.md) and [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) by turning on [diagnostic logging.](../../howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)
+MySQL has a robust built-in audit log feature. By default, this [audit log feature is disabled](../../concepts-audit-logs.md) in Azure Database for MySQL. Server level logging can be enabled by changing the `audit\_log\_enabled` server parameter. Once enabled, logs can be accessed through [Azure Monitor](../../../azure-monitor/overview.md) and [Log Analytics](../../../azure-monitor/logs/log-analytics-workspace-overview.md) by turning on [diagnostic logging.](../../howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)
 
 To query for user connection-related events, run the following KQL query:
 

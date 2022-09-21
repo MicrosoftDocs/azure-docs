@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Understand how Azure Lighthouse and Azure managed applications can be used together.
-ms.date: 09/08/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 

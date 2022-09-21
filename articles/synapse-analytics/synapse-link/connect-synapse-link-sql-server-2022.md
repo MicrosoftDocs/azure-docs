@@ -100,7 +100,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/view-linked-service-connection.png" alt-text="View the linked service connection.":::
 
    > [!NOTE]
-   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](/synapse-analytics/security/synapse-workspace-access-control-overview).
+   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](../security/synapse-workspace-access-control-overview.md).
 
 ## Create linked service to connect to your landing zone on Azure Data Lake Storage Gen2
 
@@ -136,7 +136,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/storage-gen2-linked-service-created.png" alt-text="New linked service to Azure Data Lake Storage Gen2.":::
 
    > [!NOTE]
-   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](/synapse-analytics/security/synapse-workspace-access-control-overview).
+   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](../security/synapse-workspace-access-control-overview.md).
 
 ## Create the Azure Synapse Link connection
 
@@ -164,7 +164,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    * Input your **link connection name**.
 
-   * Select your **Core count**. We recommend starting from small number and increasing as needed.
+   * Select your **Core count** for the [link connection compute](sql-server-2022-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target. We recommend starting from small number and increasing as needed.
 
    * Configure your landing zone. Select your **linked service** connecting to your landing zone.
 

@@ -2,13 +2,13 @@
 title: Run an app with Fortanix Confidential Computing Manager
 description: Learn how to use Fortanix Confidential Computing Manager to convert your containerized images.
 services: virtual-machines
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
 # Run an application by using Fortanix Confidential Computing Manager
@@ -174,4 +174,4 @@ In this tutorial, you used Fortanix tools to convert your application image to r
 
 To learn more about Azure confidential computing offerings, see [Azure confidential computing overview](overview.md).
 
-You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
+You can also learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).

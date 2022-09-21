@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
-ms.date: 04/29/2022
+ms.date: 05/24/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -89,7 +89,7 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
-Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 10% is mirrored to green. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Mirror traffic functionality is a __preview__ feature.
+Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 10% is mirrored to the green deployment. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Mirror traffic functionality is a __preview__ feature.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
 
@@ -131,7 +131,11 @@ For more information, see [Secure online endpoints](how-to-secure-online-endpoin
 
 ## Managed online endpoints vs Kubernetes online endpoints
 
-There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. 
+
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+
+Kubernetes online endpoint allows you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md),with CPUs or GPUs.
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
@@ -140,8 +144,8 @@ The following table highlights the key differences between managed online endpoi
 | **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
-| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Supported |
+| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Supported |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 	Unsupported |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
@@ -204,13 +208,13 @@ You can [override compute resource settings](how-to-use-batch-endpoint.md#config
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md), which uses SDK v1.
+- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md)
+- Data stored locally - it will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
 
-    > [!NOTE]
-    > Currently V1 FileDataset is supported for batch endpoint, and we will enable V2 data assets in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
-
-- Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
-- Data stored locally
+> [!NOTE]
+> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
+> - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
+> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
@@ -219,7 +223,14 @@ Specify the storage output location to any datastore and path. By default, batch
 ### Security
 
 - Authentication: Azure Active Directory Tokens
-- SSL by default for endpoint invocation
+- SSL: enabled by default for endpoint invocation
+- VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!NOTE]
+Creating batch endpoints in a private-link enabled workspace is only supported in the following versions.
+> - CLI - version 2.15.1 or higher.
+> - REST API - version 2022-05-01 or higher.
+> - SDK V2 - version 0.1.0b3 or higher.
 
 ## Next steps
 

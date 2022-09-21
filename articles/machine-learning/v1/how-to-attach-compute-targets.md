@@ -29,10 +29,10 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Azure Machine Learning Kubernetes
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -42,7 +42,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 
 * The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
@@ -54,14 +54,14 @@ To use compute targets managed by Azure Machine Learning, see:
 
 ## What's a compute target?
 
-With Azure Machine Learning, you can train your model on various resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](../how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on various resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 
 ## Local computer
 
-When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
+When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Remote virtual machines
 
@@ -96,7 +96,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
    compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -168,7 +168,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -344,14 +344,9 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="kubernetes"></a>Kubernetes (preview)
+## <a id="kubernetes"></a>Kubernetes
 
-Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
-
-* [Azure Kubernetes Service](../../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](../../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
-
-[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+Azure Machine Learning provides you with the option to attach your own Kubernetes clusters for training and inferencing. See [Configure Kubernetes cluster for Azure Machine Learning](../how-to-attach-kubernetes-anywhere.md).
 
 To detach a Kubernetes cluster from your workspace, use the following method:
 
@@ -372,8 +367,8 @@ See these notebooks for examples of training with various compute targets:
 
 ## Next steps
 
-* Use the compute resource to [configure and submit a training run](../how-to-set-up-training-targets.md).
+* Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-and-where.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)

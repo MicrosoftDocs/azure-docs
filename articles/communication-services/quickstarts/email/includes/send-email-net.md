@@ -47,7 +47,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Email --version 1.0.0
+dotnet add package Azure.Communication.Email --prerelease
 ```
 
 Open **Program.cs** and replace the existing code with the following
@@ -62,6 +62,7 @@ using System.Threading.Tasks;
 
 using Azure;
 using Azure.Communication.Email;
+using Azure.Communication.Email.Models;
 
 namespace SendEmail
 {
@@ -90,18 +91,39 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| SendStatusResult | This class holds lists of status of the email message delivery .                                             |
+| SendStatusResult | This class holds lists of status of the email message delivery.                                             |
 
 ## Authenticate the client
 
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+#### Option 1: Authenticate using a connection string
+
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
+EmailClient emailClient = new EmailClient(connectionString);
 ```
+
+#### Option 2: Authenticate using Azure Active Directory
+
+To authenticate using Azure Active Directory, install the Azure.Identity library package for .NET by using the `dotnet add package` command.
+
+```console
+dotnet add package Azure.Identity
+```
+
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal-from-cli.md).
+
+```csharp
+// This code demonstrates how to authenticate to your Communication Service resource using
+// DefaultAzureCredential and the environment variables AZURE_CLIENT_ID, AZURE_TENANT_ID,
+// and AZURE_CLIENT_SECRET.
+string resourceEndpoint = "<ACS_RESOURCE_ENDPOINT>";
+EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new DefaultAzureCredential());
+```
+
 ## Send an email message
 
 To send an Email message, you need to
@@ -109,20 +131,19 @@ To send an Email message, you need to
 - Add Recipients 
 - Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Include your Email Content and Recipients and include attachments if any 
-- Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
+- Calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
 
-EmailContent emailContent = new EmailContent();
-emailContent.Subject = "Welcome to Azure Communication Service Email.";
-emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
-List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" }};
+EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
+emailContent.PlainText = "This email message is sent from Azure Communication Service Email using .NET SDK.";
+List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
 EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
-var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
+SendEmailResult emailResult = emailClient.Send(emailMessage,CancellationToken.None);
 
 ```
 ## Getting MessageId to track email delivery
@@ -130,52 +151,31 @@ var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
 To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
 
 ```csharp
-string messageId = string.Empty;
-if (!response.IsError)
-{
-    if (!response.Headers.TryGetValue("x-ms-request-id", out messageId))
-    {
-        Console.WriteLine("MessageId not found");
-        return;
-    }
-    else
-    {
-        Console.WriteLine($"MessageId = {messageId}");
-    }
-}
+ Console.WriteLine($"MessageId = {emailResult.MessageId}");
 ```
 ## Getting status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
 Response<SendStatusResult> messageStatus = null;
-messageStatus = emailClient.GetSendStatus(messageId);
+messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
 Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
 TimeSpan duration = TimeSpan.FromMinutes(3);
 long start = DateTime.Now.Ticks;
 do
 {
-    messageStatus = emailClient.GetSendStatus(messageId);
-    if (messageStatus.Value.Status != SendStatus.Queued )
+    messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
+    if (messageStatus.Value.Status != SendStatus.Queued)
     {
         Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
         break;
     }
-    Thread.Sleep(60000);
+    Thread.Sleep(10000);
     Console.WriteLine($"...");
 
 } while (DateTime.Now.Ticks - start < duration.Ticks);
 ```
 
-| Status Name         | Description                                                                                                                                          |
-| --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| None                | An email with this messageId couldn't be found.                                                                                                     |
-| Queued              | The email has been placed in the queue for delivery.                                                                                                 |
-| OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
-| InternalError       | An error occurred internally during the delivery of this message. Please try again.                                                                  |
-| Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
-| InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
-| InvalidAttachments  | The content bytes string for the attachment isn't valid.                                                                                           |
-| InvalidSenderDomain | The sender's email address domain isn't valid.                                                                                                     |
+[!INCLUDE [Email Message Status](./email-message-status.md)]
 
 ## Run the code
 
@@ -187,4 +187,52 @@ dotnet run
 ## Sample code
 
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/send-email)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
+
+## Advanced
+
+### Send an email message to multiple recipients
+
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+
+```csharp
+var toRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<emailalias1@emaildomain.com>"),
+    new EmailAddress("<emailalias2@emaildomain.com>"),
+};
+
+var ccRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<ccemailalias@emaildomain.com>"),
+};
+
+var bccRecipients = new List<EmailAddress>
+{
+    new EmailAddress("<bccemailalias@emaildomain.com>"),
+};
+
+EmailRecipient emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
+
+```csharp
+byte[] bytes = File.ReadAllBytes(filePath);
+string attachmentFileInBytes = Convert.ToBase64String(bytes);
+
+var emailAttachment = new EmailAttachment(
+    "<your-attachment-name>",
+    "<your-attachment-name>",
+    attachmentFileInBytes
+);
+
+emailMessage.Add(emailAttachment);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)

@@ -8,10 +8,12 @@ ms.author: judubois
 author: jdubois
 ms.devlang: java
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
-ms.date: 08/17/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL](./index.yml).
 
@@ -494,5 +496,6 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./how-to-migrate-using-export-and-import.md)

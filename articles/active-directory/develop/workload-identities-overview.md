@@ -1,6 +1,5 @@
 ---
 title: Workload identities 
-titleSuffix: Microsoft identity platform
 description: Understand the concepts and supported scenarios for using workload identity in Azure Active Directory.
 author: rwike77
 manager: CelesteDG

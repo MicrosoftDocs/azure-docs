@@ -51,7 +51,7 @@ Typically after you create a project, you go ahead and start [tagging the docume
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/language-studio/deploy-model.md)]
 
@@ -93,7 +93,7 @@ Training could take sometime between 10 and 30 minutes for this sample dataset. 
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this tutorial, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/view-model-evaluation.md) if necessary. In this tutorial, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Start deployment job
 
@@ -143,13 +143,13 @@ Generally after training a model you would review its [evaluation details](../ho
 
 6. Get your custom NER project secrets
 
-    1. You’ll need your **project-name**, project names are case-sensitive.
+    1. You will need your **project-name**, project names are case-sensitive. Project names can be found in **project settings** page.
 
-    2. You’ll also need the **deployment-name**. 
+    2. You will also need the **deployment-name**. Deployment names can be found in **Deploying a model** page.
 
 ### Run the indexer command
 
-After you’ve published your Azure function and prepared your configs file, you can run the indexer command.
+After you've published your Azure function and prepared your configs file, you can run the indexer command.
 ```cli
     indexer index --index-name <name-your-index-here> --configs <absolute-path-to-configs-file>
 ```
