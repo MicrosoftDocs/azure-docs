@@ -7,7 +7,7 @@ ms.date: 09/20/2022
 
 # Application Insights overview
 
-Application Insights is an extension of [Azure Monitor](../overview.md) and provides Application Performance Monitoring (also known as “APM”) features. APM tools are useful to both proactively and reactively monitor application code from development, through test, and into production.
+Application Insights is an extension of [Azure Monitor](../overview.md) and provides Application Performance Monitoring (also known as “APM”) features. APM tools are useful to monitor applications from development, through test, and into production in the following ways:
 
 1. *Proactively* understand how an application is performing.
 1. *Reactively* review application execution data to determine the cause of an incident.
