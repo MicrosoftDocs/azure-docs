@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-## Technical Specifications
+## Technical specifications
 
 The following parameters are available to customize the Recognize function:
 
