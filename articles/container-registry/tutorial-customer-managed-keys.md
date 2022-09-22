@@ -10,7 +10,7 @@ ms.author: tejaswikolli
 
 Azure Container Registry automatically encrypts images and other artifacts that you store. By default, Azure automatically encrypts the registry content at rest by using [service-managed keys](../security/fundamentals/encryption-models.md). By using a customer-managed key, you can supplement default encryption with an additional encryption layer.
   
-This article is part one in a four-part tutorial. The tutorial covers:
+This article is part one in a four-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
 > * Overview of customer-managed keys
@@ -57,7 +57,7 @@ For details, see [Key rotation](tutorial-enable-customer-managed-keys.md#key-rot
 
 ## Next steps
 
-* To enable your container registry with a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template, advance to the next tutorial: [Enable a customer-managed key](tutorial-enable-customer-managed-keys.md).
+* To enable your container registry with a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template, advance to the next article: [Enable a customer-managed key](tutorial-enable-customer-managed-keys.md).
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
 * Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-features.md).
 
