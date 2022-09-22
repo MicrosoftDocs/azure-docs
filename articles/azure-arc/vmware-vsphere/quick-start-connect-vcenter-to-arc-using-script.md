@@ -20,11 +20,11 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 - An Azure subscription.
 
-- A resource group in the subscription where you're a member of the *Owner/Contributor* role.
+- A resource group in the subscription where you're a member of the *Azure Arc VMware Private Clouds Onboarding* role for onboarding and a member of the *Azure Arc VMware Administrator role* role for administering.
 
 ### Azure Arc Resource Bridge
 
-- Azure Arc Resource Bridge IP needs access to the URLs listed [here](../vmware-vsphere/support-matrix-for-vcenter-connection#network-requirements).
+- Azure Arc Resource Bridge IP needs access to the URLs listed [here](../vmware-vsphere/support-matrix-for-vcenter-connection#resource-bridge-networking-requirements).
 
 ### vCenter Server
 
