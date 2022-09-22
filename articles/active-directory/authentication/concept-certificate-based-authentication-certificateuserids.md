@@ -28,7 +28,7 @@ The values stored in certificateUserIds should be in the format described in the
 |Certificate mapping ield | Examples of values in CertificateUserIds |
 |--------------------------|--------------------------------------|
 |PrincipalName | “X509:\<PN\>bob@contoso.com” |
-|PrincipalName | “X509:\<P\N>bob@contoso”     | 
+|PrincipalName | “X509:\<PN>bob@contoso”     | 
 |RFC822Name	| “X509:\<RFC822\>user@contoso.com” |
 | X509SKI | “X509:\<SKI\>123456789abcdef”|
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY\>123456789abcdef” |
