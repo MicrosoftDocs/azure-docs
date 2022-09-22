@@ -71,7 +71,7 @@ The following table lists the supported operating systems for Azure VMs and Azur
 # [Azure VMs](#tab/azurevm-os)
 
 >[!NOTE]
-> - For [Azure VMs](../virtual-machines/index.yml), we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. </br>
+> - For [Azure VMs](../virtual-machines/index.yml), we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. 
 > - See the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
 > - Custom images are currently not supported.
 
