@@ -86,7 +86,7 @@ You can also enable access to Azure resources for local development by assigning
 
 ### Implement the application code
 
-#### [C#](#tab/C#)
+#### [C#](#tab/csharp)
 
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
@@ -245,7 +245,7 @@ To configure this setup in your code, make sure your application registers separ
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 
-### [C#](#tab/C#)
+### [C#](#tab/csharp)
 
 ```csharp
 // Get the first user-assigned managed identity ID to connect to shared storage
