@@ -83,7 +83,7 @@ The method to determine the cost of a request, is different for each API:
 * [API for NoSQL](find-request-unit-charge.md)
 * [API for Cassandra](cassandra/find-request-unit-charge.md)
 * [API for Gremlin](gremlin/find-request-unit-charge.md)
-* [API for MongoDB](mongodb/find-request-unit-charge-mongodb.md)
+* [API for MongoDB](mongodb/find-request-unit-charge.md)
 * [API for Table](table/find-request-unit-charge.md)
 
 ## Write requests

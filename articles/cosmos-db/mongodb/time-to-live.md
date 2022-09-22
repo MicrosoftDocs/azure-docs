@@ -13,10 +13,10 @@ ms.custom: devx-track-js, devx-track-csharp
 # Expire data with Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Azure Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Azure Cosmos DB's API for MongoDB is the [same as in Azure Cosmos DB](mongodb-indexing.md).
+Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB's API for MongoDB utilizes Azure Cosmos DB's core TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in Azure Cosmos DB's API for MongoDB is the [same as in Azure Cosmos DB](indexing.md).
 
 ## TTL indexes
-To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](mongodb-indexing.md) needs to be created. The TTL index is an index on the `_ts` field with an "expireAfterSeconds" value.
+To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](indexing.md) needs to be created. The TTL index is an index on the `_ts` field with an "expireAfterSeconds" value.
 
 MongoShell example:
 
@@ -82,5 +82,5 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## Next steps
-* [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)
-* [Indexing your Azure Cosmos DB database configured with Azure Cosmos DB's API for MongoDB](../mongodb-indexing.md)
+* [Expire data in Azure Cosmos DB automatically with time to live](../mongodb/time-to-live.md)
+* [Indexing your Azure Cosmos DB database configured with Azure Cosmos DB's API for MongoDB](../mongodb/indexing.md)

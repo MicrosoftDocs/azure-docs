@@ -16,7 +16,7 @@ ms.author: esarroyo
 
 > [!div class="op_single_selector"]
 > * [API for NoSQL](../advanced-queries.md)
-> * [API for MongoDB](../mongodb/diagnostic-queries-mongodb.md)
+> * [API for MongoDB](../mongodb/diagnostic-queries.md)
 > * [API for Cassandra](../cassandra/diagnostic-queries.md)
 > * [API for Gremlin](diagnostic-queries.md)
 >

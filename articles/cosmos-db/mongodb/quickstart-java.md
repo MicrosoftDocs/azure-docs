@@ -16,10 +16,10 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
-> * [Python](create-mongodb-python.md)
-> * [Java](create-mongodb-java.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Golang](create-mongodb-go.md)
+> * [Golang](quickstart-go.md)
 >  
 
 In this quickstart, you create and manage an Azure Cosmos DB for API for MongoDB account from the Azure portal, and add data by using a Java SDK app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.

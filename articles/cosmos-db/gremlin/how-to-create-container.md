@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 This article explains the different ways to create a container in Azure Cosmos DB for Gremlin. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB for Gremlin. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [API for Cassandra](../cassandra/how-to-create-container.md), [API for Table](../table/how-to-create-container.md), and [API for NoSQL](../how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB for Gremlin. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container.md), [API for Cassandra](../cassandra/how-to-create-container.md), [API for Table](../table/how-to-create-container.md), and [API for NoSQL](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.

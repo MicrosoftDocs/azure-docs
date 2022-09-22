@@ -32,7 +32,7 @@ If you are using a different API, see [API for NoSQL](../how-to-provision-contai
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot of Data Explorer, when creating a new collection with database level throughput":::
+    :::image type="content" source="media/how-to-provision-throughput/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot of Data Explorer, when creating a new collection with database level throughput":::
 
 > [!Note]
 > If you are provisioning throughput on a container in an Azure Cosmos DB account configured with the Azure Cosmos DB for MongoDB, use `myShardKey` for the partition key path.

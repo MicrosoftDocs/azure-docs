@@ -22,13 +22,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB for MongoDB?
-            url: mongodb-introduction.md
+            url: introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET app
             url: create-mongodb-dotnet.md
           - text: Manage your data using a GoLang app
-            url: create-mongodb-go.md  
+            url: quickstart-go.md  
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with MongoDB
@@ -40,10 +40,10 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Query data with MongoDB shell
-            url: tutorial-query-mongodb.md
+            url: tutorial-query.md
       - linkListType: how-to-guide
         links:
           - text: Manage data indexing
-            url: mongodb-indexing.md
+            url: indexing.md
           - text: Connect with Robo 3T
             url: connect-using-robomongo.md

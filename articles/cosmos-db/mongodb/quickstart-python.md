@@ -16,14 +16,14 @@ ms.custom: mode-api
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
-> * [Python](create-mongodb-python.md)
-> * [Java](create-mongodb-java.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Golang](create-mongodb-go.md)
+> * [Golang](quickstart-go.md)
 >  
 
 This [quickstart](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) demonstrates how to:
-1. Create an [Azure Cosmos DB for MongoDB account](mongodb-introduction.md) 
+1. Create an [Azure Cosmos DB for MongoDB account](introduction.md) 
 2. Connect to your account using PyMongo
 3. Create a sample database and collection
 4. Perform CRUD operations in the sample collection

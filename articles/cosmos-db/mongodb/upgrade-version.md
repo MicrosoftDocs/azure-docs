@@ -63,7 +63,7 @@ When upgrading from 3.2, the database account endpoint suffix will be updated to
 
 If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the new API version**. The previous 3.2 endpoint should have the suffix `.documents.azure.com`.
 
-When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.md) are now required to perform sort operations on multiple fields to ensure stable, high performance for these queries. Ensure that these compound indexes are created so that your multi-field sorts succeed. 
+When upgrading from 3.2 to newer versions, [compound indexes](indexing.md) are now required to perform sort operations on multiple fields to ensure stable, high performance for these queries. Ensure that these compound indexes are created so that your multi-field sorts succeed. 
 
 >[!Note]
 > This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
@@ -74,17 +74,17 @@ When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.m
 
 1. Navigate to your Azure Cosmos DB for MongoDB account. Open the **Overview** pane and verify that your current **Server version** is either 3.2 or 3.6.
 
-    :::image type="content" source="./media/upgrade-mongodb-version/check-current-version.png" alt-text="Check the current version of your MongoDB account from the Azure portal." border="true":::
+    :::image type="content" source="media/upgrade-version/check-current-version.png" alt-text="Check the current version of your MongoDB account from the Azure portal." border="true":::
 
 1. From the left menu, open the `Features` pane. This pane shows the account level features that are available for your database account.
 
 1. Select the `Upgrade MongoDB server version` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if that is the case.
 
-    :::image type="content" source="./media/upgrade-mongodb-version/upgrade-server-version.png" alt-text="Open the Features blade and upgrade your account." border="true":::
+    :::image type="content" source="media/upgrade-version/upgrade-server-version.png" alt-text="Open the Features blade and upgrade your account." border="true":::
 
 1. Review the information displayed about the upgrade. Select `Set server version to 4.2` (or 4.0 or 3.6 depending upon your current version).
 
-    :::image type="content" source="./media/upgrade-mongodb-version/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
+    :::image type="content" source="media/upgrade-version/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
 
 1. After you start the upgrade, the **Feature** menu is greyed out and the status is set to *Pending*. The upgrade takes around 15 minutes to complete. This process will not affect the existing functionality or operations of your database account. After it's complete, the **Update MongoDB server version** status will show the upgraded version. Please [contact support](https://azure.microsoft.com/support/create-ticket/) if there was an issue processing your request.
 

@@ -72,7 +72,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB for MongoDB and the Java SDK](create-mongodb-java.md).
+For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB for MongoDB and the Java SDK](quickstart-java.md).
 
 ### [Node.js driver](#tab/node-driver)
 

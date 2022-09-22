@@ -17,7 +17,7 @@ ms.author: diberry
 
 1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the API for MongoDB](../../introduction.md).
 
-   :::image type="content" source="../media/quickstart-javascript/cosmos-api-choices.png" lightbox="../media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB DB.":::
+   :::image type="content" source="../media/quickstart-nodejs/cosmos-api-choices.png" lightbox="../media/quickstart-nodejs/cosmos-api-choices.png" alt-text="Screenshot of select API option page for Azure Cosmos DB DB.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 

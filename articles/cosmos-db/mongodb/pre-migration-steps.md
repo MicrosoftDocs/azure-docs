@@ -166,11 +166,11 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 * The following are key factors that affect the number of required RUs:
    * **Document size**: As the size of an item/document increases, the number of RUs consumed to read or write the item/document also increases.
 
-   * **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](mongodb-indexing.md).
+   * **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](indexing.md).
 
    * **Query patterns**: The complexity of a query affects how many request units are consumed by the query. 
 
-* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-mongodb-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
 
     `db.runCommand({getLastRequestStatistics: 1})`
 

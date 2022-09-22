@@ -28,7 +28,7 @@ The API for MongoDB behaves differently from the Azure Cosmos DB for NoSQL, whic
 
 We recommend editing your indexing policy in the Data Explorer within the Azure portal. You can add single field and wildcard indexes from the indexing policy editor in the Data Explorer:
 
-:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Indexing policy editor":::
+:::image type="content" source="media/indexing/indexing-policy-editor.png" alt-text="Indexing policy editor":::
 
 > [!NOTE]
 > You can't create compound indexes using the indexing policy editor in the Data Explorer.
@@ -43,7 +43,7 @@ You can create indexes on any single field. The sort order of the single field i
 
 You could create the same single field index on `name` in the Azure portal:
 
-:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
+:::image type="content" source="media/indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
 
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per collection.
 
@@ -148,7 +148,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
-:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
+:::image type="content" source="/media/indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
@@ -407,7 +407,7 @@ Currently, you can only create unique indexes when the collection contains no do
 
 ## Indexing for MongoDB version 3.2
 
-Available indexing features and defaults are different for Azure Cosmos DB accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](feature-support-36.md#protocol-support) and [upgrade to version 3.6](upgrade-mongodb-version.md).
+Available indexing features and defaults are different for Azure Cosmos DB accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](feature-support-36.md#protocol-support) and [upgrade to version 3.6](upgrade-version.md).
 
 If you're using version 3.2, this section outlines key differences with versions 3.6+.
 
@@ -424,11 +424,11 @@ After dropping the default indexes, you can add more indexes as you would in ver
 
 ### Compound indexes (version 3.2)
 
-Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](upgrade-mongodb-version.md).
+Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](upgrade-version.md).
 
 ### Wildcard indexes (version 3.2)
 
-If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-mongodb-version.md).
+If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-version.md).
 
 ## Next steps
 

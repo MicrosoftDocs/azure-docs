@@ -24,7 +24,7 @@ sections:
           
           Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via TLS, so be sure to use TLSv1.2.
           
-          For more information, see [Connect to your Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
+          For more information, see [Connect to your Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB](connect-account.md).
           
       - question: |
           Error codes while using Azure Cosmos DB's API for MongoDB?
@@ -41,4 +41,4 @@ additionalContent: |
   ## Next steps
   
   * [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
-  * [Create a console app with Java and the API for MongoDB in Azure Cosmos DB](create-mongodb-java.md)
+  * [Create a console app with Java and the API for MongoDB in Azure Cosmos DB](quickstart-java.md)
