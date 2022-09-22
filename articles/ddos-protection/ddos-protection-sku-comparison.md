@@ -1,11 +1,11 @@
 ---
-title: 'Azure DDoS Protection SKU Comparisons'
-description: Learn about the available configuration settings for Azure DDoS Protection Standard.
+title: 'Azure DDoS Protection SKU Comparison'
+description: Learn about the available SKUs for Azure DDoS Protection.
 author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 09/15/2022
+ms.date: 09/22/2022
 ms.custom: template-concept 
 ---
 
@@ -13,13 +13,12 @@ ms.custom: template-concept
 # About Azure DDoS Protection SKU Comparison
 
 
-The sections in this article discuss the resources and settings of Azure DDoS Protection Standard.
+The sections in this article discuss the resources and settings of Azure DDoS Protection.
 
 
 ## SKUs
 
-Azure DDoS Protection Standard supports two SKU Types,
- DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
+Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
 
 The following table shows features and corresponding SKUs.
 
