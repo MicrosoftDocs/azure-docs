@@ -224,7 +224,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
-When running machine learning tasks using the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an MLClient object from parameters, or with a configuration file.
+When running machine learning tasks using the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an `MLClient` object from parameters, or with a configuration file.
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
 
