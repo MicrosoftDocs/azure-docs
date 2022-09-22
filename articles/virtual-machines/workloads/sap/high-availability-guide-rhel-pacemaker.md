@@ -320,7 +320,7 @@ op monitor interval=3600
 
 #### [Service Principal](#tab/spn)
 
-For RHEL **7.X**, use the following command to configure the fence device:    
+For RHEL **7.x**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" \
 resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -328,7 +328,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.X**, use the following command to configure the fence device:  
+For RHEL **8.x**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
 resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -338,7 +338,7 @@ op monitor interval=3600
 
 ---
 
-If you are using fencing device, based on Service Principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
