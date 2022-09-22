@@ -206,7 +206,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ## 5. Create and connect a PostgreSQL database with identity connectivity
 
-Next, create a PostgreSQL database and configure your container app to connect to a SQL Database with a system-assigned managed identity. The Quarkus app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Next, create a PostgreSQL Database Single Server and configure your container app to connect to a PostgreSQL Database with a system-assigned managed identity. The Quarkus app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Create the database service.
 

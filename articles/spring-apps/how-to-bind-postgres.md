@@ -68,7 +68,7 @@ az spring connection create postgres \
 
 #### [Using a passwordless connection with a managed identity](#tab/Passwordless)
 
-Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
+Configure Azure Spring Apps to connect to the PostgreSQL Database Single Server with a system-assigned managed identity using the `az spring connection create` command.
 
 > [!NOTE]
 > This command requires you to run the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.

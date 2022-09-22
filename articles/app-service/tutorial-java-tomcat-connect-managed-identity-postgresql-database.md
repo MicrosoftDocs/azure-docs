@@ -30,13 +30,13 @@ ms.date: 09/26/2022
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 
 ```bash
-git clone https://github.com/azure/azure-sdk-for-java.git
-cd azure-sdk-for-java/sdk/spring-experimental/samples/spring-credential-free
+git clone https://github.com/Azure-Samples/Passwordless-Connections-for-Java-Apps
+cd Passwordless-Connections-for-Java-Apps/Tomcat/checklist/
 ```
 
 ## Create an Azure Postgres DB
 
-Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres Single Server in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -127,7 +127,7 @@ The changes you made in *application.properties* also apply to the managed ident
 
 ## Connect Postgres Database with identity connectivity
 
-Next, connect your app to an SQL Database with a system-assigned managed identity using Service Connector. To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
+Next, connect your app to an Postgres Database Single Server with a system-assigned managed identity using Service Connector. To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
 
 ```azurecli-interactive
 az webapp connection create postgres \

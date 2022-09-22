@@ -72,13 +72,13 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 #### [Passwordless connection using a managed identity](#tab/Passwordless)
 
-Configure your Spring app to connect to a MySQL Database with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
+Configure your Spring app to connect to a MySQL Database Flexible Server with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
 
 > [!NOTE]
 > This command requires you to run the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
 
 ```azurecli
-az spring connection create mysql \
+az spring connection create mysql-flexible \
     --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
     --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
     --app $APP_NAME \
