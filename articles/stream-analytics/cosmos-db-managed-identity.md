@@ -54,7 +54,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $re
 ```
 
 > [!NOTE]
-> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 10 minutes. Even though test connection mao pass initially, jobs may fail when they are started before the permissions fully propagate.
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 10 minutes. Even though test connection can pass initially, jobs may fail when they are started before the permissions fully propagate.
 
 
 ### Add the Cosmos DB as an output
