@@ -119,7 +119,7 @@ ml_client.data.create_or_update(my_data)
 
 To create a Folder data asset in the Azure Machine Learning Studio, use the following steps:
 
-1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+1. Navigate to [Azure Machine Learning Studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
@@ -186,7 +186,7 @@ ml_client.data.create_or_update(my_data)
 
 To create a File data asset in the Azure Machine Learning Studio, use the following steps:
 
-1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+1. Navigate to [Azure Machine Learning Studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
@@ -317,7 +317,7 @@ To create a Table data asset in the Azure Machine Learning Studio, use the follo
 > [!NOTE]
 > You must have a **folder** prepared containing the MLTable artifact.
 
-1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+1. Navigate to [Azure Machine Learning Studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
