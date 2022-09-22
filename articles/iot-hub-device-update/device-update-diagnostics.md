@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub has several features that help you to diagnose and troubleshoot device-side errors. With the release of the v0.9.0 agent, there are three diagnostic features available:
 
-* **Deployment error codes** can be viewed directly in the latest preview version of the Device Update user interface
+* **Deployment error codes** can be viewed directly in the Device Update user interface
 
 * **Remote log collection** enables the creation of log operations, which instruct targeted devices to upload on-device diagnostic logs to a linked Azure Blob storage account
 
