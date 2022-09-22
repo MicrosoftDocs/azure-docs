@@ -4,7 +4,7 @@
   items:
   - name: What is Azure DDoS Protection?
     href: ddos-protection-overview.md
-  - name: Azure DDoS Protection SKU comparison
+  - name: SKU comparison
     href: ddos-protection-sku-comparison.md
 - name: Quickstarts
   items:
