@@ -126,7 +126,7 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 | **Standard_F8s_HPN_T4_v3**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
 | **Standard_F12s_HPN_T4_v3**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  |
 | **Standard_F16s_HPN_T4_v3**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F12_HPN_T4_v3**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
+| **Standard_F12_HPN_T4_v3**   | 12       | 24            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
