@@ -54,48 +54,50 @@ new to Data Factory, here's a quick guide on how to get started:
 1. Once Data Factory is provisioned, go to your data factory. You see the Data
    Factory home page as shown in the following image:
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-home.png" alt-text="Screenshot showing the landing page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-home.png" alt-text="Screenshot showing the landing page of Azure Data Factory.":::
 
 2. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the Orchestrate page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the Orchestrate page of Azure Data Factory.":::
 
-3. In the General panel under **Properties**, specify the desired pipeline name.
+3. In the General panel under **Properties**, enter a name for the pipeline.
 
 4. In the **Activities** toolbox, expand the **Move & transform** category,
    and drag and drop the **Copy data** activity to the pipeline designer
-   surface. Specify the activity name.
+   surface. Enter a name for the copy activity.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Screenshot showing a pipeline in Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Screenshot showing a pipeline in Azure Data Factory.":::
 
 5. Configure **Source**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-source.png" alt-text="Screenshot that shows configuring Source in Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-source.png" alt-text="Screenshot that shows configuring Source in Azure Data Factory.":::
 
-   1. Go to the **Source** tab. Select **New** to create a source dataset.
+   1. On the **Activities** page, select the **Source** tab. Select **New** to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
    3. Choose the format type of your data, and then select **Continue**.
-   4. Under the **Linked service** text box, select **New**.
-   5. Specify a linked service name and select your storage account from the **Storage account name** list. Test the connection.
-   6. Next to **File path**, select **Browse** and select the desired file from blob storage.
-   7. Select **OK** to save the configuration.
+   4. On the **Set properties** page, under **Linked service**, select **New**.
+   5. On the **New linked service** page, enter a name for the linked service, and select your storage account from the **Storage account name** list. Test the connection.
+   6. Under **Test connection**, select **To file path**, enter the container and directory to connect to, and then select **Test connection**.
+   7. Select **Create** to save the configuration.
+   8. On the **Set properties** screen, select **OK**.
 
 6. Configure **Sink**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Configuring Sink in Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Screenshot that shows configuring Sink in Azure Data Factory.":::
 
-   1. Go to the **Sink** tab. Select **New** to create a source dataset.
+   1. On the **Activities** page, select the **Sink** tab. Select **New** to create a sink dataset.
    2. In the **New Dataset** dialog box, select **Azure Cosmos DB for PostgreSQL**, and then select **Continue**.
-   3. Under the **Linked service** text box, select **New**. 
-   4. Specify the linked service name and select your cluster from the list for clusters. Add connection details and test the connection.
+   3. On the **Set properties** page, under **Linked service**, select **New**.
+   4. On the **New linked service** page, enter a name for the linked service, and select your cluster from the **Server name** list. Add connection details and test the connection.
+   5. Select **Create** to save the configuration.
+   6. On the **Set properties** screen, select **OK**.
 
       > [!NOTE]
       >
       > If your cluster isn't present in the drop down, use the **Enter manually** option to add server details.
 
-   5. Select the table name where you want to ingest the data.
-   6. Specify **Write method** as COPY command.
-   7. Select **OK** to save the configuration.
+   5. In the **Sink** tab on the **Activities** page, select the table name where you want to ingest the data.
+   6. Under **Write method**, select **Copy command**.
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline
    settings. Fix any errors, revalidate, and ensure that the pipeline has
@@ -103,7 +105,7 @@ new to Data Factory, here's a quick guide on how to get started:
 
 8. Select **Debug** from the toolbar to execute the pipeline.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-execute.png" alt-text="Screenshot that shows Debug and Execute in Azure Data Factory.":::
 
 9. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets and pipelines) you created
    to Data Factory.
@@ -111,11 +113,11 @@ new to Data Factory, here's a quick guide on how to get started:
 ## Call a stored procedure in Data Factory
 
 In some specific scenarios, you might want to call a stored procedure/function
-to push aggregated data from staging table to summary table. Data Factory doesn't offer stored procedure activity for Azure Cosmos DB for PostgreSQL, but as
+to push aggregated data from the staging table to the summary table. Data Factory doesn't offer a stored procedure activity for Azure Cosmos DB for PostgreSQL, but as
 a workaround you can use the Lookup activity with a query to call a stored procedure
 as shown below:
 
-:::image type="content" source="media/howto-ingestion/azure-data-factory-call-procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
+:::image type="content" source="media/howto-ingestion/azure-data-factory-call-procedure.png" alt-text="Screenshot that shows calling a procedure in Azure Data Factory.":::
 
 ## Next steps
 
