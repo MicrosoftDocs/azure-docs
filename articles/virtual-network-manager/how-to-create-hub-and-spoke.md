@@ -43,7 +43,7 @@ This section will help you create a network group containing the virtual network
 
 1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Static membership](concept-network-groups.md#static-membership)* or *[Dynamic membership with Azure Policy](concept-network-groups.md#dynamic-membership)*.
 ## Define network group members
-Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually adding virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
+Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
 ### Manually adding members
 To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
 
@@ -112,7 +112,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
 ## Deploy the hub and spoke configuration
 
-To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual network are created.
+To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual networks are created.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
