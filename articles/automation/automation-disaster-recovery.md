@@ -19,7 +19,7 @@ You must have a disaster recovery strategy to handle a region-wide service outag
 
 ## Enable disaster recovery
 
-Every Automation account that you [create](./quickstarts/create-account-portal.md#create-automation-account) requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
+Every Automation account that you [create](../automation/quickstarts/create-account-portal.md#create-automation-account) requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
 
 - Begin by [creating a replica Automation account](./quickstarts/create-account-portal.md#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
@@ -80,10 +80,10 @@ You can use this PowerShell script for migration of Automation account assets fr
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
  1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](../automation/migrate-run-as-accounts-managed-identity.md).
  1. Modules required:
-   - Az.Accounts version 2.8.0 
-   - Az.Resources version 6.0.0 
-   - Az.Automation version 1.7.3 
-   - Az.Storage version 4.6.0 
+    - Az.Accounts version 2.8.0 
+    - Az.Resources version 6.0.0 
+    - Az.Automation version 1.7.3 
+    - Az.Storage version 4.6.0 
 
 ### Create and execute the runbook
 You can use the[PowerShell script](https://github.com/Ab0907/Migrate-Automation-account-from-one-region-to-another) or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
