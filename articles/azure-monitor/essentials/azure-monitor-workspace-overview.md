@@ -21,7 +21,7 @@ The following table lists the contents of Azure Monitor workspaces. This table w
 
 
 ## Workspace design
-A single Azure Monitor workspace can collect data from multiple sources, but there may be circumstances where you require multiple workspace to address your particular business requirements. Azure Monitor workspace design is similar to [Log Analytics workspace design](../logs/workspace-design.md). There are several reasons that you may consider creating additional workspaces including the following.
+A single Azure Monitor workspace can collect data from multiple sources, but there may be circumstances where you require multiple workspaces to address your particular business requirements. Azure Monitor workspace design is similar to [Log Analytics workspace design](../logs/workspace-design.md). There are several reasons that you may consider creating additional workspaces including the following.
 
 - If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant.
 - Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations.

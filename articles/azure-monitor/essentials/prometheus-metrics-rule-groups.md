@@ -7,7 +7,7 @@ ms.date: 09/15/2022
 ---
 
 # Azure Monitor managed service for Prometheus rule groups
-Rules in Prometheus act on data as its collected. They're configured as part of a Prometheus rule group which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they are defined in the group.
+Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they are defined in the group.
 
 
 ## Rule types
@@ -43,14 +43,14 @@ The basic steps are as follows:
 ## Limiting rules to a specific cluster
 
 You can optionally limit the rules in a rule group to query data originating from a specific cluster, using  the rule group `clusterName`  property.
-You should to limit rules to a single cluster if your monitoring workspace contains a large scale of data from multiple clusters, and there is a concern that running a single set of rules on all the data may cause performance or throttling issues. Using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, limiting each group to cover a different cluster. 
+You should try to limit rules to a single cluster if your monitoring workspace contains a large scale of data from multiple clusters, and there is a concern that running a single set of rules on all the data may cause performance or throttling issues. Using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, limiting each group to cover a different cluster. 
 
 - The `clusterName` value must be identical to the `cluster` label that is added to the metrics from a specific cluster during data collection.
 - If clusterName is not specified for a specific rule group, the rules in the group will query all the data in the workspace from all clusters.
 
 
 ## Template example for a Prometheus rule group
-To create a Prometheus rule group using a Resource Manager template, you create a resource of type `Microsoft.AlertsManagement/prometheusRuleGroups` and fill in all related properties. Azure Resource Manager template for a Prometheus rule group configures the group, and one or more alert rules and/or recording rules within the group.The rules are executed in the order they appear within a group. Below is a sample template that creates a Prometheus rule group, including one recording rule and one alert rule.
+To create a Prometheus rule group using a Resource Manager template, you create a resource of type `Microsoft.AlertsManagement/prometheusRuleGroups` and fill in all related properties. Azure Resource Manager template for a Prometheus rule group configures the group, and one or more alert rules and/or recording rules within the group. The rules are executed in the order they appear within a group. Below is a sample template that creates a Prometheus rule group, including one recording rule and one alert rule.
 
 
 ``` json

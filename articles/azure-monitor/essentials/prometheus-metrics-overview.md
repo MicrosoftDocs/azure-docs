@@ -18,7 +18,7 @@ Azure Monitor managed service for Prometheus can currently collect data from any
 - Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning). In this configuration, metrics are collected by a local Prometheus server for each cluster and then consolidated in Azure Monitor managed service for Prometheus.
 
 ## Grafana integration
-The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). Connect your Azure Monitor workspace to a Grafana workspace so that it can be used as a data source in a Grafana dashboard. You then have access to a multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
+The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). Connect your Azure Monitor workspace to a Grafana workspace so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
 ## Alerts
 Azure Monitor managed service for Prometheus adds a new Prometheus metric alert type for creating alerts using PromQL queries. You can view fired and resolved Prometheus alerts in the Azure portal along with other alert types. Prometheus alerts are configured with the same [alert rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) used by Prometheus.
