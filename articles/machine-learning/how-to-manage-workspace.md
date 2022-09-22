@@ -214,7 +214,9 @@ ml_client.workspaces.begin_create(ws)
 
 If you'll be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance will create and store copy of this file for you.
 
-If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
+If you plan to use code on your local environment that references this workspace, download the file:
+1. Select your workspace in [Azure studio](https://ml.azure.com)
+1. At the top right, select the workspace name, then select  **Download config.json**
 
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
 
