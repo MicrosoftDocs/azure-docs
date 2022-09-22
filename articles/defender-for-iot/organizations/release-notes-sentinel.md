@@ -32,7 +32,7 @@ New features in this version include:
 
 - New SOC playbooks for automation with CVEs, triaging incidents that involve sensitive devices, and email notifications to device owners for new incidents.
 
-For more information, see [Updates in the Microsoft Defender for IoT solution](release-notes.md#updates-in-the-microsoft-defender-for-iot-solution).
+For more information, see [Updates to the Microsoft Defender for IoT solution](release-notes.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
 
 ## Version 2.0
 
