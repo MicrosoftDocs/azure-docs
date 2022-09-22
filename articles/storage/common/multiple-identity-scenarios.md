@@ -120,33 +120,55 @@ var sender = serviceBusClient.CreateSender("producttracking");
 Inside of your project, add dependency `azure-identity` to your pom.xml. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
 
 ```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-identity</artifactId>
-  <version>1.6.0-beta.2</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob</artifactId>
-  <version>12.20.0-beta.2</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-messaging-servicebus</artifactId>
-  <version>7.11.0-beta.1</version>
-</dependency>
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-sdk-bom</artifactId>
+      <version>1.2.5</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+<dependencies>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-servicebus</artifactId>
+  </dependency>
+</dependencies>
+
 ```
 
 In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
 
 ```java
-BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-    .endpoint("https://<your-storage-account>.blob.core.windows.net")
-    .credential(credOptions)
-    .buildClient();
+class Demo {
 
-ServiceBusClientBuilder clientBuilder = new ServiceBusClientBuilder().credential(new DefaultAzureCredential());
-ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender().queueName("producttracking").buildClient();
+    public static void main(String[] args) {
+
+        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+
+        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+            .endpoint("https://<your-storage-account>.blob.core.windows.net")
+            .credential(defaultAzureCredential)
+            .buildClient();
+
+        ServiceBusClientBuilder clientBuilder = new ServiceBusClientBuilder().credential(defaultAzureCredential);
+        ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender()
+                                                                     .queueName("producttracking")
+                                                                     .buildClient();
+    }
+
+}
 ```
 
 #### [spring](#tab/spring)
@@ -154,24 +176,56 @@ ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender().queueName
 Inside of your project, only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
 
 ```xml
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-  <version>4.4.0-beta.1</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-starter-servicebus</artifactId>
-  <version>4.4.0-beta.1</version>
-</dependency>
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-dependencies</artifactId>
+      <version>4.5.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+<dependencies>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-servicebus</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
 
-```java
-
+```yaml
+spring:
+  cloud:
+    azure:
+      servicebus:
+        namespace: <service-bus-name>
+        entity-name: <service-bus-entity-name>
+        entity-type: <service-bus-entity-type>
+      storage:
+        blob:
+          account-name: <storage-account-name>
 ```
 
+```java
+@Service
+public class ExampleService {
+
+    @Autowired
+    private BlobServiceClient blobServiceClient;
+
+    @Autowired
+    private ServiceBusSenderClient serviceBusSenderClient;
+
+}
+```
 
 ---
 
@@ -235,13 +289,187 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1))
 
 ```
 
-#### [java](#tab/java)
+### [java](#tab/java)
 
+Add the following to your `pom.xml`:
 
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-sdk-bom</artifactId>
+      <version>1.2.5</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+<dependencies>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-cosmos</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+    <version>11.2.1.jre17</version>
+  </dependency>
+</dependencies>
+```
 
-#### [spring](#tab/spring)
+Add the following to your code:
 
+```java
+class Demo {
 
+    public static void main(String[] args) {
+        // Get the first user-assigned managed identity ID to connect to shared storage
+        String clientIdStorage = System.getenv("Managed_Identity_Client_ID_Storage");
+
+        // Get the DefaultAzureCredential from clientIdStorage
+        DefaultAzureCredential storageCredential =
+            new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdStorage).build();
+
+        // First blob storage client that using a managed identity
+        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+            .endpoint("https://<receipt-storage-account>.blob.core.windows.net")
+            .credential(storageCredential)
+            .buildClient();
+
+        // Second blob storage client that using a managed identity
+        BlobServiceClient blobServiceClient2 = new BlobServiceClientBuilder()
+            .endpoint("https://<contract-storage-account>.blob.core.windows.net")
+            .credential(storageCredential)
+            .buildClient();
+
+        // Get the second user-assigned managed identity ID to connect to shared databases
+        String clientIdDatabase = System.getenv("Managed_Identity_Client_ID_Databases");
+
+        // Create a Cosmos DB client
+        CosmosClient cosmosClient = new CosmosClientBuilder()
+            .endpoint("https://<cosmos-db-account>.documents.azure.com:443/")
+            .credential(new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdDatabase).build())
+            .buildClient();
+
+        // Open a connection to Azure SQL using a managed identity
+        String connectionUrl = "jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;"
+            + "database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database"
+            + ".windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;";
+        try {
+            Connection connection = DriverManager.getConnection(connectionUrl);
+            Statement statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### [spring](#tab/spring)
+
+Add the following to your `pom.xml`:
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-dependencies</artifactId>
+      <version>4.5.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+<dependencies>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-cosmos</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+  </dependency>
+</dependencies>
+```
+Add the following to your `application.yml`:
+
+```yaml
+spring:
+  cloud:
+    azure:
+      cosmos:
+        endpoint: https://<cosmos-db-account>.documents.azure.com:443/
+        credential:
+          client-id: <Managed_Identity_Client_ID_Databases>
+          managed-identity-enabled: true
+      storage:
+       blob:
+         credential:
+           client-id: <Managed_Identity_Client_ID_Storage>
+           managed-identity-enabled: true
+  datasource:
+    url: jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
+```
+
+Add the following to your code:
+
+> [!NOTE]
+> Spring Cloud Azure doesn't support configure multiple clients of the same service, the following codes create multiple beans for this situation. 
+
+```java
+@Configuration
+public class AzureStorageConfiguration {
+
+    @Bean("secondBlobServiceClient")
+    public BlobServiceClient secondBlobServiceClient(BlobServiceClientBuilder builder) {
+        return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net").buildClient();
+    }
+
+    @Bean("firstBlobServiceClient")
+    public BlobServiceClient firstBlobServiceClient(BlobServiceClientBuilder builder) {
+        return builder.endpoint("https://<contract-storage-account>.blob.core.windows.net").buildClient();
+    }
+}
+```
+
+```java
+@Service
+public class ExampleService {
+
+    @Autowired
+    @Qualifier("firstBlobServiceClient")
+    private BlobServiceClient blobServiceClient;
+
+    @Autowired
+    @Qualifier("secondBlobServiceClient")
+    private BlobServiceClient blobServiceClient2;
+
+    @Autowired
+    private CosmosClient cosmosClient;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+}
+```
 
 ---
 
