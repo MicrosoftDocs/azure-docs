@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/15/2022
 ms.custom: sdkv2
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
+#Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Azure Machine Learning in a day
@@ -41,48 +41,37 @@ The steps you'll take are:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
 
-## Clone a notebook folder
+* Create a new notebook or copy our notebook.  If you want start with a fresh notebook:
 
-You'll complete the following setup in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+    1. Select your subscription and the workspace you created.
+    1. On the left, select **Notebooks**.
+    1. Select **Create new file** and name your notebook.    
+        
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+* Or get the full tutorial notebook from studio:
 
-1. Select your subscription and the workspace you created.
-
-1. On the left, select **Notebooks**.
-
-1. At the top, select the **Samples** tab.
-
-1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
-
-1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
-
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
-
-1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
-
-## Open the cloned notebook
-
-1. Open the **tutorials** folder that was cloned into your **User files** section.
-
-    > [!IMPORTANT]
-    > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **Files** section.
+    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+    1. Select your subscription and the workspace you created.
+    1. On the left, select **Notebooks**.
+    1. At the top, select the **Samples** tab.
+    1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
+    1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
     
-1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
+        :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
+    
+    1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
+    1. Open the notebook from the **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder in your **File** section.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+## Run your notebook
 
-
-## Run the notebook
-
-This tutorial is also available on [GitHub](https://github.com/Azure/azureml-examples/blob/main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).
+On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
+> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
 >
-> Switch to the Jupyter Notebook now if you want to run the code while you read along.
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## Connect to the workspace
@@ -274,7 +263,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
++ Convert this tutorial into a production ready [pipeline with reusable components](tutorial-pipeline-python-sdk.md).
++ Learn about all of the [deployment options](how-to-deploy-managed-online-endpoints.md) for Azure Machine Learning.
 + Learn how to [authenticate to the deployed model](how-to-authenticate-online-endpoint.md).
-+ [Make predictions on large quantities of data](./tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 
