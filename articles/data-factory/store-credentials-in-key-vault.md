@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 09/22/2022
 ms.author: abnarain
 ---
 
