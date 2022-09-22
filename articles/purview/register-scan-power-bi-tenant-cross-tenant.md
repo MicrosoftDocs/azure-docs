@@ -124,7 +124,7 @@ Use either of the following deployment checklists during the setup, or for troub
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
       3. **Allow public client flows** is enabled.
 
-1. If delegated authentication is used, in the Power BI Azure AD tenant validate the following Power BI admin user settings:
+1. If delegated authentication is used, in the Power BI Azure AD tenant, validate the following Power BI admin user settings:
    1. The user is assigned to the Power BI administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
    3. If the user is recently created, sign in with the user at least once, to make sure that the password is reset successfully, and the user can successfully initiate the session.
