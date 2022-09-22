@@ -413,7 +413,6 @@ new_deployment = ManagedOnlineDeployment(
     instance_count=2,
 )
 
-
 deployment = ml_client.online_deployments.begin_create_or_update(
     new_deployment, local=True, vscode_debug=True
 )
