@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.author: victorh 
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 Azure Firewall is designed to be available and redundant. Every effort is made to avoid service disruptions. However, there are few scenarios where Azure Firewall can potentially drop long running TCP sessions. 
 
-## Scenarios impacting long running connections
+## Scenarios that impact long running TCP sessions
 
 The following scenarios can potentially drop long running TCP sessions:
 - Scale down
