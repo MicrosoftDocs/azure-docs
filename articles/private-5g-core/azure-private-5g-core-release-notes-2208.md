@@ -42,7 +42,7 @@ The following table provides a summary of known issues in this release.
   | 2 | 4G/5G signaling  | In rare scenarios, Azure Private 5G Core may fail to notify a UE of downlink data that arrives while the UE is idle.  | Toggle airplane mode **on/off** on the UE. The downlink data will then transmit to the UE correctly.  |
   | 3 | Local dashboards  | Azure Private 5G Core local dashboards don't automatically refresh to show the latest data.  | Manually refresh the web browser to refresh the dashboard contents.  |
   | 4 | Local dashboards  | Azure Private 5G Core local dashboard configuration may be lost during a configuration change.  | Manually reset the local dashboard password and recreate any custom dashboards.   |
-  | 5 | Policy configuration  | Azure Private 5G Core may ignore non-default quality of service (QoS) and policy configuration when handling 4G subscribers.  | This configuration issue will be resolved in a future release.   |
+  | 5 | Policy configuration  | Azure Private 5G Core may ignore non-default quality of service (QoS) and policy configuration when handling 4G subscribers.  | Not applicable.   |
   | 6 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.  | Not applicable. |
   | 7 | 4G/5G signaling  | Azure Private 5G Core may, with low periodicity, reject a small number of attach requests.  | The attach requests should be reattempted. |
   | 8 | 4G/5G signaling  | Azure Private 5G Core will incorrectly accept Stream Control Transmission Protocol (SCTP) connections on the wrong N2 IP address.  | Connect to Packet Core's N2 interface on the correct IP and port.  |
