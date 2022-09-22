@@ -46,7 +46,7 @@ For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2
 
 These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications, for example, inferencing workloads. The GPU VM that you deploy should match the GPU type on your Azure Stack Edge device. 
 
-#### For Nvidia's Tesla T4 GPU.
+#### NVIDIA Tesla T4 GPU
 
 | Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
 |-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
@@ -56,7 +56,7 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
 
-#### For Nvidia's A2 Tensor Core GPU
+#### NVIDIA A2 Tensor Core GPU
 
 
 | Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
@@ -114,7 +114,7 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
-#### HPN GPU
+#### HPN and NVIDIA Tesla T4 GPU series
 
 | Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
@@ -130,7 +130,7 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
-#### A2 GPU
+#### HPN and NVIDIA Tesla A2 Tensor Core GPU series
 
 | Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
