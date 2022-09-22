@@ -19,7 +19,7 @@ Speech-to-text offers an array of formatting features to ensure that the transcr
 
 ## ITN
 
-Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech-to-text service and isn't configurable. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. This allows Speech users to speak naturally into their device, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
+Inverse Text Normalization (ITN) is a process that converts spoken words into their written form. For example, the spoken word "four" is converted to the written form "4". This process is performed by the speech-to-text service and isn't configurable. Some of the supported text formats include dates, times, decimals, currencies, addresses, emails, and phone numbers. You can speak naturally, and the service formats text as expected. The following table shows the ITN rules that are applied to the text output.
 
 |Recognized speech|Display text|
 |---|---|
@@ -36,14 +36,13 @@ Speech-to-text models recognize words that should be capitalized to improve read
 
 |Recognized speech|Display text|
 |---|---|
-|i got an iphone s e|I got an iPhone SE.|
+|i got an x l t shirt|I got an XL t-shirt.|
 |my name is jennifer smith|My name is Jennifer Smith.|
 |i want to visit new york city|I want to visit New York City.|
-|i need to service my toyota|I need to service my Toyota.|
 
 ## Disfluency removal
 
-When speaking, it is common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize such disfluencies and remove them from the display text. This is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
+When speaking, it's common for someone to stutter, duplicate words, and say filler words like "uhm" or "uh". Speech-to-text can recognize such disfluencies and remove them from the display text. Disfluency removal is great for transcribing live unscripted speeches to read them back later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -53,7 +52,7 @@ When speaking, it is common for someone to stutter, duplicate words, and say fil
 
 ## Punctuation 
 
-Speech-to-text automatically punctuates your text to improve clarity. This is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
+Speech-to-text automatically punctuates your text to improve clarity. Punctuation is helpful for reading back call or conversation transcriptions. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
@@ -120,7 +119,7 @@ You can specify whether to mask, remove, or show profanity in the final transcri
 > Microsoft also reserves the right to mask or remove any word that is deemed inappropriate. Such words will not be returned by the Speech service, whether or not you enabled profanity filtering.
 
 The profanity filter options are:
-- `Masked`: Replaces letters in profane words with asterisk (*) characters. This is the default option.
+- `Masked`: Replaces letters in profane words with asterisk (*) characters. Masked is the default option.
 - `Raw`: Include the profane words verbatim.
 - `Removed`: Removes profane words.
 
