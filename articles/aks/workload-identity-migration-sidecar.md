@@ -81,7 +81,7 @@ Serviceaccount/workload-identity-sa created
 
 ## Establish federated identity credential
 
-Use the [az rest][az-rest] command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject. Update the values for `subscriptionID`, `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamspace`, and `serviceAccountName`.
+Use the [az rest][az-rest] command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `subscriptionID`, `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamspace`, and `serviceAccountName`.
 
 ```azurecli
 az rest --method put --url "/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userAssignedIdentityName}/federatedIdentityCredentials/$federatedIdentityName?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:serviceAccountNamespace:serviceAccountName','audiences':['api://AzureADTokenExchange'] }}"

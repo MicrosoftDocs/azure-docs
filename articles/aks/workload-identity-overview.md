@@ -65,7 +65,7 @@ Azure AD workload identity supports the following mappings related to a service 
 > [!NOTE]
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
 
-If you've used an Azure AD pod-identity, think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a CRD. The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
+If you've used an Azure AD pod-identity, think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a [Custom Resource Definition][custom-resource-definition] (CRD). The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
 
 ### Service account labels
 
@@ -112,6 +112,7 @@ The following table summarizes our migration or deployment recommendations for w
 
 <!-- EXTERNAL LINKS -->
 [azure-sdk-download]: https://azure.microsoft.com/downloads/
+[custom-resource-definition]: https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/
 
 <!-- INTERNAL LINKS -->
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
