@@ -431,7 +431,7 @@ In an [upgrade scenario](upgrade-version.md), documents written prior to the upg
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | Only supported with unique indexes |
+| Partial | No |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |

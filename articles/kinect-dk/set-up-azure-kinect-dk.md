@@ -3,7 +3,7 @@ title: Quickstart- Set up Azure Kinect DK
 description: This quickstart provides instructions about how to set up Azure Kinect DK hardware
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.topic: quickstart
 ms.date: 02/12/2020
 keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power, viewer, sensor, streaming, setup, SDK, firmware
