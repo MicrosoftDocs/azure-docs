@@ -47,7 +47,7 @@ To enable container monitoring, you require the following permissions:
 - Member of [Log Analytics reader](../logs/manage-access.md#azure-rbac) role if you aren't already a member of [Log Analytics contributor](../logs/manage-access.md#azure-rbac).
 
 **Prometheus**
-Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
+Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
 **Kubelet secure port**
 Log Analytics Containerized Linux Agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet Secure Port (10250) within the cluster to collect Node and Container Performance related Metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows Node and container performance related metrics collection to work.

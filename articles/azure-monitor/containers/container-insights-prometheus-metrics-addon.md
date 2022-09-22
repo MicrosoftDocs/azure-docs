@@ -15,7 +15,7 @@ This article describes how to configure Container insights to send Prometheus me
   - Microsoft.ContainerService 
   - Microsoft.Insights
   - Microsoft.AlertsManagement
-- The `az extension add --name aks-preview` extension needs to be installed for access to this feature. For more information on how to install an az cli extension, see [Use and manage extensions with the Azure CLI](../../cli/azure/azure-cli-extensions-overview.md).
+- The `az extension add --name aks-preview` extension needs to be installed for access to this feature. For more information on how to install an az cli extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
 
 
 
@@ -41,7 +41,6 @@ Use any of the following methods to install the metrics addon on your cluster an
 
 #### Enable only metrics addon
 Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics.
-### [Azure portal](#tab/azure-portal)
 
 1. Create an Azure Monitor workspace using the guidance at [Create an Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
 2. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
@@ -234,7 +233,7 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 - You must get the existing azure monitor workspace integrations for a grafana workspace and update the resource manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 
 
-# Stop collection
+## Stop collection
 Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it does not remove the DCE, DCR or the data already collected and stored in your Azure Monitor Workspace resource.
 
 ```azurecli

@@ -5442,8 +5442,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/container/container-insights-prometheus-integration.md",
-            "redirect_url": "/azure/azure-monitor/container/container-insights-prometheus",
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-integration.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
             "redirect_document_id": false
         }
     ]
