@@ -85,4 +85,3 @@ Now that you've configured the external source, you can also learn about:
 - [Azure VMware Solution identity concepts](concepts-identity.md)
 - [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
 
-
