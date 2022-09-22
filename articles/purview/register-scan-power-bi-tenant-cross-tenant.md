@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -124,7 +124,7 @@ Use either of the following deployment checklists during the setup, or for troub
       2. **Implicit grant and hybrid flows** > **ID tokens (used for implicit and hybrid flows)** is selected.
       3. **Allow public client flows** is enabled.
 
-1. If delegated authentication is used, in the Power BI Azure AD tenant validate the following Power BI admin user settings:
+1. If delegated authentication is used, in the Power BI Azure AD tenant, validate the following Power BI admin user settings:
    1. The user is assigned to the Power BI administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
    3. If the user is recently created, sign in with the user at least once, to make sure that the password is reset successfully, and the user can successfully initiate the session.
@@ -337,9 +337,20 @@ To create and run a new scan by using the self-hosted integration runtime, perfo
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault.png" alt-text="Screenshot of the instance of Azure Key Vault.":::
 
-1. Enter a name for the secret. For **Value**, type the newly created password for the Azure AD user. Select **Create** to complete.
+1. Enter a name for the secret. For **Value**, type the newly created secret for the App registration. Select **Create** to complete.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret.png" alt-text="Screenshot that shows how to generate a secret in Azure Key Vault.":::
+    
+2. Under **Certificates & secrets**, create a new secret and save it securely for next steps.
+
+3. In Azure portal, navigate to your Azure key vault.
+
+4. Select **Settings** > **Secrets** and select **+ Generate/Import**.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault.png" alt-text="Screenshot how to navigate to Azure Key Vault.":::
+
+5. Enter a name for the secret and for **Value**, type the newly created secret for the App registration. Select **Create** to complete.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret-spn.png" alt-text="Screenshot how to generate an Azure Key Vault secret for SPN.":::
 
 1. If your key vault isn't connected to Microsoft Purview yet, you need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account).
    
@@ -364,6 +375,8 @@ To create and run a new scan by using the self-hosted integration runtime, perfo
   - **Authentication method**: Service principal
   - **Tenant ID**: Your Power BI tenant ID
   - **Client ID**: Use Service Principal Client ID (App ID) you created earlier
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-authentication.png" alt-text="Screenshot of the new credential menu, showing Power BI credential for SPN with all required values supplied.":::
 
 1. Select **Test connection** before continuing to the next steps.
 
