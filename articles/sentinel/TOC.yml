@@ -28,7 +28,11 @@
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
+    items: 
+    - name: Connect Defender for IoT data with Microsoft Sentinel
+      href: iot-solution.md
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
