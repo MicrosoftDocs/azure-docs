@@ -40,7 +40,7 @@ Add a new environment type to the Dev center as follows:
   1. Add **Tags** by adding **Name/Value** (optional).
 1. Select **Add**.
 
-:::image type="content" source="./media/configure-dev-center-environment-types/add-new-devcenter-environment-type.png" alt-text="Screenshot of **Add environment type** page.":::
+:::image type="content" source="./media/configure-dev-center-environment-types/add-new-devcenter-environment-type.png" alt-text="Screenshot showing the add environment type page.":::
 
 >[!NOTE]
 > A dev center environment type is available to a specific Project only after an associated project environment type is added.
