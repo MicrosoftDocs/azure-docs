@@ -1244,10 +1244,8 @@ items:
       - name: Overview
         displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: New AKS cluster
-        href: containers/container-insights-enable-new-cluster.md
-      - name: Existing AKS cluster
-        href: containers/container-insights-enable-existing-clusters.md
+      - name: AKS cluster
+        href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Hybrid cluster
