@@ -37,7 +37,7 @@ Security and privacy are among the top priorities for Azure and Azure Spring App
 
 ### How does Azure Spring Apps host my applications?
 
-Each service instance in Azure Spring Apps is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
+Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with 2 or more instances on different nodes.
 
