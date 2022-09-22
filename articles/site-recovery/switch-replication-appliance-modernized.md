@@ -28,11 +28,11 @@ You can switch replication appliance in the following scenarios:
 
 - You will need to perform a switch operation in case your current Azure Site Recovery replication appliance has burnt down, i.e., all its components have no heartbeat.
   - An appliance is considered burnt down only if all its components have no heartbeat. Even if one of the components has a heartbeat, then the switch operation will be blocked.
-  - If your current appliance has burnt down, then you will need to again provide credentials to access the machines that you are trying to switch. If you are load-balancing and your current appliance is still in a non-critical state, then credentials will be auto-selected and you will not be required to re-enter these while switching to a different appliance.
+  - If your current appliance has burnt down, then you will need to again provide credentials to access the machines that you are trying to switch. If you are load-balancing and your current appliance is still in a non-critical state, then credentials will be auto-selected and you need not re-enter these while switching to a different appliance.
 - You might need to perform the switch operation in case you need to load balance your replication appliance.
 - If you are trying to perform a switch with an intent of balancing load on an appliance, then all the components of your current appliance should be either in healthy or warning state. Missing heartbeat of even one component will block the switch operation.
 -  Ensure that the appliance that you're switching to is either in healthy or warning state, for the operation to succeed.
--  Only those machines which are replicating from on-premises to Azure, can be selected when performing the switch operation to another appliance.  
+-  Only those machines that are replicating from on-premises to Azure, can be selected when performing the switch operation to another appliance.  
 
 
 ## Switch a replication appliance

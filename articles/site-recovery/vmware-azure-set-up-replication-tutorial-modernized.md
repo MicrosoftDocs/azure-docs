@@ -54,7 +54,7 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAzure Active Directory apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Azure Active Directory apps.
 
 **Follow these steps to assign required permissions**:
 
