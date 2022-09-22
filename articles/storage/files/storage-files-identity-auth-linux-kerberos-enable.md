@@ -18,7 +18,7 @@ For more information on all supported options and considerations, see [Overview 
 - On-premises Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
 
-Both of these methods use the Kerberos authentication protocol.
+Both of these methods use the Kerberos authentication protocol. In order to use the first option, you must sync your AD DS to the cloud using Azure AD Connect.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -172,17 +172,254 @@ network:
 localadmin@lxsmb-canvm15:~$ sudo netplan --debug apply 
 ```
 
-### Connect to Azure AD DS and make sure that the services are discoverable
+### Connect to Azure AD DS and make sure the services are discoverable
 
-1. Make sure that you're able to ping the domain server by the domain name. 
+1. Make sure that you're able to ping the domain server by the domain name.
 
+```bash
+localadmin@lxsmb-canvm15:~$ ping aadintcanary.onmicrosoft.com
+PING aadintcanary.onmicrosoft.com (10.0.2.4) 56(84) bytes of data.
+64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=1 ttl=128 time=1.41 ms
+64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=2 ttl=128 time=1.02 ms
+64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=3 ttl=128 time=0.740 ms
+64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=4 ttl=128 time=0.925 ms 
 
-## Disable AD Kerberos authentication on your storage account?
+^C 
 
-If you want to use another authentication method, you can disable Azure AD authentication on your storage account by using the Azure portal.
+--- aadintcanary.onmicrosoft.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3016ms
+rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms 
+```
 
-> [!NOTE]
-> Disabling this feature means that there will be no Active Directory configuration for file shares in your storage account until you enable one of the other Active Directory sources to reinstate your Active Directory configuration.
+2. Make sure you can discover the Azure AD services on the network.
+
+```bash
+localadmin@lxsmb-canvm15:~$ nslookup
+> set type=SRV
+> _ldap._tcp.aadintcanary.onmicrosoft.com.
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer: 
+
+_ldap._tcp.aadintcanary.onmicrosoft.com service = 0 100 389 pwe-oqarc11l568.aadintcanary.onmicrosoft.com.
+_ldap._tcp.aadintcanary.onmicrosoft.com service = 0 100 389 hxt4yo--jb9q529.aadintcanary.onmicrosoft.com. 
+```
+
+### Set up hostname and fully qualified domain name (FQDN)
+
+1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now as this line will mainly be used to translate short hostname to FQDN.
+
+```bash
+127.0.0.1       lxsmb-canvm15.aadintcanary.onmicrosoft.com lxsmb-canvm15
+#cmd=sudo vim /etc/hosts   
+#then enter this value instead of localhost "ubuntvm.aadintcanary.onmicrosoft.com UbuntuVM" 
+```
+
+2. Now, your hostname should resolve. You can ignore the IP address it resolves to for now. The short hostname should resolve to the FQDN.
+
+```bash
+localadmin@lxsmb-canvm15:~$ getent hosts lxsmb-canvm15
+127.0.0.1       lxsmb-canvm15.aadintcanary.onmicrosoft.com lxsmb-canvm15
+localadmin@lxsmb-canvm15:~$ dnsdomainname
+aadintcanary.onmicrosoft.com
+localadmin@lxsmb-canvm15:~$ hostname -f
+lxsmb-canvm15.aadintcanary.onmicrosoft.com 
+```
+
+### Set up krb5.conf
+
+1. Configure krb5.conf so that the KDC with the domain server can be contacted for authentication. For more details, refer to [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). A sample `krb5.conf `is shown below.
+
+```bash
+#sudo vim /etc/krb5.conf 
+
+localadmin@lxsmb-canvm15:~$ cat /etc/krb5.conf
+[libdefaults]
+        default_realm = AADINTCANARY.ONMICROSOFT.COM
+        dns_lookup_realm = false
+        dns_lookup_kdc = true
+```
+
+### Set up smb.conf
+
+1. Identify the path to `smb.conf`.
+
+```bash
+localadmin@lxsmb-canvm15:~$ sudo smbd -b | grep "CONFIGFILE"
+   CONFIGFILE: /etc/samba/smb.conf
+```
+
+2. Change the smb configuration to act as a domain member. For more details, refer to [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). A sample `smb.conf` is shown below.
+
+```bash
+localadmin@lxsmb-canvm15:~$ cat /etc/samba/smb.conf
+[global]
+   workgroup = AADINTCANARY
+   security = ADS
+   realm = AADINTCANARY.ONMICROSOFT.COM
+
+   winbind refresh tickets = Yes
+   vfs objects = acl_xattr
+   map acl inherit = Yes
+   store dos attributes = Yes
+
+   dedicated keytab file = /etc/krb5.keytab
+   kerberos method = secrets and keytab
+
+   winbind use default domain = Yes 
+
+   load printers = No
+   printing = bsd
+   printcap name = /dev/null
+   disable spoolss = Yes
+
+   log file = /var/log/samba/log.%m
+   log level = 1
+
+   idmap config * : backend = tdb
+   idmap config * : range = 3000-7999
+
+   idmap config AADINTCANARY : backend = rid
+   idmap config AADINTCANARY : range = 10000-999999
+
+   template shell = /bin/bash
+   template homedir = /home/%U 
+```
+
+3. Force winbind to reload the changed config file.
+
+```bash
+localadmin@lxsmb-canvm15:~$ sudo smbcontrol all reload-config
+```
+
+### Join the domain
+
+1. Use the "net ads join" command to join the host to Azure AD DS domain. If the command throws an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the issue.
+
+```bash
+localadmin@lxsmb-canvm15:~$ sudo net ads join -U lxsmbadmin    # user  - garead
+
+Enter lxsmbadmin's password:
+Using short domain name -- AADINTCANARY
+Joined 'LXSMB-CANVM15' to dns domain 'aadintcanary.onmicrosoft.com' 
+```
+
+2. Make sure that the DNS record has been created for this host on the domain server.
+
+```bash
+localadmin@lxsmb-canvm15:~$ nslookup lxsmb-canvm15.aadintcanary.onmicrosoft.com 10.0.2.5
+Server:         10.0.2.5
+Address:        10.0.2.5#53
+
+Name:   lxsmb-canvm15.aadintcanary.onmicrosoft.com
+Address: 10.0.0.8
+```
+
+3. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, in case of Azure DHCP, this is not true. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
+
+```bash
+localadmin@lxsmb-canvm17:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
+#!/bin/sh 
+
+# only execute on the primary nic
+if [ "$interface" != "eth0" ]
+then
+    return
+fi 
+
+# When you have a new IP, perform nsupdate
+if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+then
+   host=`hostname -f`
+   nsupdatecmds=/var/tmp/nsupdatecmds
+     echo "update delete $host a" > $nsupdatecmds
+     echo "update add $host 3600 a $new_ip_address" >> $nsupdatecmds
+     echo "send" >> $nsupdatecmds
+
+     nsupdate $nsupdatecmds
+fi 
+```
+
+### Set up nsswitch.conf
+
+1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. This is done by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following winbind entries:
+
+passwd:         compat systemd winbind
+group:          compat systemd winbind
+
+2. Enable the winbind service to be automatically started on reboot, and then restart the service.
+
+```bash
+localadmin@lxsmb-canvm15:~$ sudo systemctl enable winbind
+Synchronizing state of winbind.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable winbind
+localadmin@lxsmb-canvm15:~$ sudo systemctl restart winbind
+localadmin@lxsmb-canvm15:~$ sudo systemctl status winbind
+winbind.service - Samba Winbind Daemon
+   Loaded: loaded (/lib/systemd/system/winbind.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2020-04-24 09:34:31 UTC; 10s ago
+     Docs: man:winbindd(8)
+           man:samba(7)
+           man:smb.conf(5)
+ Main PID: 27349 (winbindd)
+   Status: "winbindd: ready to serve connections..."
+    Tasks: 2 (limit: 4915)
+   CGroup: /system.slice/winbind.service
+           ├─27349 /usr/sbin/winbindd --foreground --no-process-group
+           └─27351 /usr/sbin/winbindd --foreground --no-process-group
+
+Apr 24 09:34:31 lxsmb-canvm15 systemd[1]: Starting Samba Winbind Daemon...
+Apr 24 09:34:31 lxsmb-canvm15 winbindd[27349]: [2020/04/24 09:34:31.724211,  0] ../source3/winbindd/winbindd_cache.c:3170(initialize_winbindd_cache)
+Apr 24 09:34:31 lxsmb-canvm15 winbindd[27349]:   initialize_winbindd_cache: clearing cache and re-creating with version number 2
+Apr 24 09:34:31 lxsmb-canvm15 winbindd[27349]: [2020/04/24 09:34:31.725486,  0] ../lib/util/become_daemon.c:124(daemon_ready)
+Apr 24 09:34:31 lxsmb-canvm15 systemd[1]: Started Samba Winbind Daemon.
+Apr 24 09:34:31 lxsmb-canvm15 winbindd[27349]:   STATUS=daemon 'winbindd' finished starting up and ready to serve connections 
+```
+
+3. Make sure that the domain users and groups are discovered.
+
+```bash
+localadmin@lxsmb-canvm15:~$ getent passwd lxsmbadmin
+lxsmbadmin:*:12604:10513::/home/lxsmbadmin:/bin/bash
+localadmin@lxsmb-canvm15:~$ getent group 'domain users'
+domain users:x:10513: 
+```
+
+If the above doesn't work, check if the domain controller is reachable using wbinfo tool:
+
+```bash
+localadmin@lxsmb-canvm15:~$ wbinfo --ping-dc
+```
+
+### Configure PAM for winbind
+
+1. You'll need to place winbind in the authentication stack so that domain users are authenticated through winbind. To do this, configure PAM (Pluggable Authentication Module) for winbind. The second command below ensures that the homedir gets created for a domain user on first login to this system.
+
+```bash
+localadmin@lxsmb-canvm15:~$ sudo pam-auth-update --enable winbind
+localadmin@lxsmb-canvm15:~$ sudo pam-auth-update --enable mkhomedir 
+```
+
+2. Ensure that the PAM authentication config has the following arguments in `/etc/pam.d/common-auth`:
+
+```bash
+localadmin@lxsmb-canvm15:~$ grep pam_winbind.so /etc/pam.d/common-auth
+auth    [success=1 default=ignore]      pam_winbind.so krb5_auth krb5_ccache_type=FILE cached_login try_first_pass 
+```
+
+3. At this point, you should be able to login as the domain user to this system, either through ssh, su, or any other means of authentication.
+
+```bash
+localadmin@lxsmb-canvm15:~$ su - lxsmbadmin
+Password:
+Creating directory '/home/lxsmbadmin'.
+lxsmbadmin@lxsmb-canvm15:~$ pwd
+/home/lxsmbadmin
+lxsmbadmin@lxsmb-canvm15:~$ id
+uid=12604(lxsmbadmin) gid=10513(domain users) groups=10513(domain users),10520(group policy creator owners),10572(denied rodc password replication group),11102(dnsadmins),11104(aad dc administrators),11164(group-readwrite),11165(fileshareallaccess),12604(lxsmbadmin) 
+```
 
 ## Next steps
 
