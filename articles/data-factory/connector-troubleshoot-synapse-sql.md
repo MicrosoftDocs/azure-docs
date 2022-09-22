@@ -295,7 +295,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', Reason: Connection was denied since Deny Public Network Access is set to Yes. To connect to this server, 1. If you persist public network access disabled, please use Managed Vritual Network IR and create private endpoint. https://docs.microsoft.com/en-us/azure/data-factory/managed-virtual-network-private-endpoint; 2. Otherwise you can enable public network access, set "Public network access" option to "Selected networks" on Auzre SQL Networking setting.`
 
-- **Causes**: Azure SQL Database is set to deny public network access and must use managed virtual network and create private endpoint to access.
+- **Causes**: Azure SQL Database is set to deny public network access. This requires to use managed virtual network and create private endpoint to access.
 
 - **Recommendation**:
 
