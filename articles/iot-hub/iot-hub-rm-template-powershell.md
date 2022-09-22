@@ -15,11 +15,13 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a consumer group, using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
+This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](https://learn.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
 
 ## Prerequisites
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview)
+* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview)
+
+  Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
 
 ## Create an IoT hub
 
@@ -43,6 +45,10 @@ New-AzResourceGroupDeployment `
 
 > [!NOTE]
 > To use your own template, upload your template file to the Cloud Shell, and then use the `-TemplateFile` switch to specify the file name.  For example, see [Deploy the template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+
+## Update an IoT hub
+
+
 
 ## Next steps
 
