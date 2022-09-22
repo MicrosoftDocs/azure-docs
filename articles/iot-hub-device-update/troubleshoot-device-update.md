@@ -90,7 +90,7 @@ _Your device may be failing to pull content from the Internet to pass to its MCC
 ### Q: I don’t see an instance of Device Update for IoT Hub when I select the "gear" icon.
 _There are a few possible causes for this issue. See below for troubleshooting steps._
 
-_A Device Update instance needs to be associated with an Azure IoT hub in the same resource group and subscription. If you’ve moved either your Device Update instance or your hub to a different resource group or subscription, you’ll need to do one of the following in order to continue using Device Update for IoT Hub:_
+_A Device Update instance needs to be associated with an Azure IoT hub in the same resource group and subscription. If you’ve moved either your Device Update instance or your hub to a different resource group or subscription, you may not see your instance in the Azure portal. You’ll need to do one of the following steps in order to continue using Device Update for IoT Hub:_
  - _Return the moved item(s) to their original configuration._
  - _If you only moved your IoT hub from one resource group to another, modify your Device Update instance with the IoT hub’s new resourceId._
  - _If you moved item(s) from one subscription to another, make sure the Device Update account and IoT hub are in the same subscription, and then modify your Device Update instance with the IoT hub’s new resourceId._
@@ -104,7 +104,7 @@ _At least Read-level permissions are needed for both your IoT hub and your Devic
     _- Next to “Members”, select “+Select members”._
     _- Add your account in the right-hand flyout, and select the “Select” button._
     _- Select “Review + assign”._
-- _To manage permissions for your Device Update for IoT Hub account, ask the owner of the account to do the following:_
+- _To manage permissions for your Device Update for IoT Hub account, ask the owner of the account to take these steps:_
     - _Select your Device Update account from the Azure portal._
     - _Select “Access control (IAM) from the left-hand navigation bar._
     - _Select “Add role assignment”._
