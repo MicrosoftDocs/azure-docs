@@ -82,7 +82,7 @@ The SQS didn't successfully read the S3 data.
 
     :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
 
-1. One spike of data isn't enough, as shown in the screenshot below. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
+1. One spike of data isn't enough. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
 
     :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
 
@@ -112,9 +112,9 @@ This issue usually happens when Microsoft can’t read files in the S3 folder. M
 ### Determine the cause of your problem
 
 In this section, we cover these causes: 
-1. Log encryption isn't set up correctly
-1. Event notifications aren't defined correctly
-1. Health errors or health disabled
+- Log encryption isn't set up correctly
+- Event notifications aren't defined correctly
+- Health errors or health disabled
 
 ### Cause 1: Log encryption isn't set up correctly
 
@@ -124,7 +124,9 @@ If the logs are fully or partially encrypted by the Key Management Service (KMS)
 
 Make sure that Microsoft Sentinel has permission for this KMS to decrypt the files. Review the [required KMS permissions](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md#sqs-policy) for the GuardDuty and CloudTrail logs.
 
-### Cause 2: Event notifications aren't defined correctly
+### Cause 2: Event notifications aren't configured correctly
+
+When you configure an Amazon S3 event notification, you must specify which supported event types Amazon S3 should send the notification to. If an event type that you didn't specify exists in your Amazon S3 bucket, Amazon S3 doesn't send the notification. 
 
 ### Solution: Verify that event notifications are defined properly
 
