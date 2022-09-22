@@ -135,9 +135,9 @@ To select and restore the required point-in-time for System DB, follow these ste
 
 1. On **Restore Point**, choose **Select**.
 
-1. On the **Select restore point** pane, select the restore point and select **OK**.
-
    :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select restore points of system database instance for restore.":::
+
+1. On the **Select restore point** pane, select the restore point and select **OK**.
 
    >[!Note]
    >The logs appears after the snapshot point that you previously restored.
