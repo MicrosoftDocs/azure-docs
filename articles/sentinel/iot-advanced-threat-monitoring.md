@@ -109,7 +109,7 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
     :::image type="content" source="media/iot-solution/investigate-iot-incidents.png" alt-text="Screenshot of a Microsoft Defender for IoT incident in Microsoft Sentinel.":::
 
     > [!TIP]
-    > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link in an incident details pane.
+    > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
