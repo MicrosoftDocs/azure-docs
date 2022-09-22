@@ -10,7 +10,7 @@ ms.author: juliako
 
 # Enable and view a clapperboard with extracted metadata (preview)
 
-A clapperboard with extracted metadata insight is most useful to customers involved in the movie post-production process. This insight is used to detect clapperboard instances and information written on each (for example, *production*, *roll*, *scene*, *take*, etc.
+The clapperboard insight is used to detect clapper board instances and information written on each. For example, head or tail (the board is upside-down), *production*, *roll*, *scene*, *take*, etc. A [clapperboard](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
 
 When the movie is being edited, the slate is removed from the scene but a metadata with what's on the clapper board is important. Azure Video Indexer extracts the data from clapperboards, preserves and presents the metadata as described in this article.
 
@@ -77,7 +77,7 @@ The following table describes fields found in json:
 |---|---|
 |`id`|The line ID.|
 |`thumbnailId`|The ID of the thumbnail.|
-|`isHeadSlate`|The value stands for head or tail of the clapper board: `true` or `false`.|
+|`isHeadSlate`|The value stands for head or tail (the board is upside-down) of the clapper board: `true` or `false`.|
 |`fields`|The fields found in the clapper board; also each field's name and value.|
 |`instances`|A list of time ranges where this element appeared.|
 
