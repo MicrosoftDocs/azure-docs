@@ -20,7 +20,7 @@ The following slate detection insights (listed below) are automatically identifi
 
 ### The Insight tab
 
-In order to set the index process to include the slate metadata, the user should chose the**Video + audio indexing** -> **Advanced** presets.
+In order to set the indexing process to include the slate metadata, select the **Video + audio indexing** -> **Advanced** presets.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production insights.":::
