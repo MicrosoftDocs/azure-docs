@@ -6,7 +6,11 @@
   - name: About Defender for IoT
     href: overview.md
   - name: What's new?
-    href: release-notes.md
+    items:
+    - name: Whats new in Defender for IoT
+      href: release-notes.md
+    - name: Microsoft Sentinel solution release notes
+      href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
   items:
