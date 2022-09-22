@@ -122,7 +122,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 4. From the list of unmonitored clusters, find the cluster in the list and click **Enable**.
 5. On the **Configure Container insights** page, click **Configure** 
 
-  :::image type="content" source="media/container-insights-enable-aks/container-insights-configure.png" lightbox="media/container-insights-enable-aks/container-insights-configure.png" alt-text="Screenshot of configuration screen for A K S cluster.":::
+  :::image type="content" source="media/container-insights-enable-aks/container-insights-configure.png" lightbox="media/container-insights-enable-aks/container-insights-configure.png" alt-text="Screenshot of configuration screen for AKS cluster.":::
 
 6. On the **Configure Container insights**, fill in the following information:
 
@@ -134,8 +134,6 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
   | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure Managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
 
 8. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
-
-\<NEED A SCREENSHOT WITH PROMETHEUS AND MANAGED IDENTITY\>
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
@@ -367,7 +365,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 ### Existing clusters with service principal 
 AKS Clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
 
-1.	Get the configured Log Analytics workspace resource id:
+1.	Get the configured Log Analytics workspace resource ID:
 
 ```cli
 az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
@@ -394,7 +392,7 @@ az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWo
 ### Existing clusters with system or user assigned identity
 AKS Clusters with system assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user assigned identity, only Azure Public cloud is supported.
 
-1.	Get the configured Log Analytics workspace resource id: 
+1.	Get the configured Log Analytics workspace resource ID: 
 
   ```cli
   az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
@@ -416,7 +414,7 @@ AKS Clusters with system assigned identity must first disable monitoring and the
 To enable network isolation by connecting your cluster to the Log Analytics workspace using [private link](../logs/private-link-security.md), your cluster must be using managed identity authentication with the Azure Monitor agent. 
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
-2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource Id of the AKS cluster.
+2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource ID of the AKS cluster.
 
     ```rest
     PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
