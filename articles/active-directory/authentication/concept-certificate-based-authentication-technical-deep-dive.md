@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/22/2022
 
 
 ms.author: justinha
@@ -209,7 +209,7 @@ For the next test scenario, configure the authentication policy where the **poli
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
-    The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate 
+    The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate. 
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfacert-activity-details.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
    
