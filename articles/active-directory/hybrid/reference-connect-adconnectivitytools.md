@@ -32,7 +32,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 Runs local Dns connectivity tests.
 In order to configure the Active Directory connector, AADConnect server must have both name resolution 
-for the forest its attempting to connect to as well as to the domain controllers
+for the forest it's attempting to connect to as well as to the domain controllers
 associated to this forest.
 
 ### EXAMPLES
