@@ -36,7 +36,7 @@ You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-ver
 A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you'll need to upload the client certificate to your app. The following instructions will load certificates to the trust store of the workers that your app is running on. You only need to upload the certificate once to use it with apps that are in the same App Service plan.
 
 >[!NOTE]
-> Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+> Private client certificates are only supported from custom code in Windows code apps. Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
 
 Follow these steps to upload the certificate (*.cer* file) to your app in your App Service Environment. The *.cer* file can be exported from your certificate. For testing purposes, there's a PowerShell example at the end to generate a temporary self-signed certificate:
 
