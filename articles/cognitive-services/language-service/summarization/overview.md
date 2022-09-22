@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 09/21/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -26,24 +26,32 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive and abstractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. These features are designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents down to key sentences.
+Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive and abstractive text summarization to produce a summary of a document. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization can find the title of novel chapters, and condense them down to a summary. These features are designed to shorten content that could be considered too long to read.
 
 As an example, consider the following paragraph of text:
 
-*"We’re delighted to announce that Cognitive Service for Language service now supports extractive and abstractive summarization! In general, there are two approaches for automatic document summarization: extractive and abstractive. This feature provides extractive summarization. Document summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
+*"We’re delighted to announce that Cognitive Service for Language service now supports extractive summarization! In general, there are two approaches for automatic document summarization: extractive and abstractive. This feature provides extractive summarization. Document summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
 
-The document summarization feature would simplify the text into the following key sentences:
+The document extractive summarization feature would simplify the text into the following key sentences:
 
 :::image type="content" source="media/document-summary-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/document-summary-example.png":::
 
 ## Key features
 
-Document summarization supports the following features:
+Document extractive summarization supports the following features:
 
 * **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
 * **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
 * **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Document summarization will return the three highest scored sentences.
 * **Positional information**: The start position and length of extracted sentences.
+
+Document abstractive summarization supports the following features:
+
+> [!IMPORTANT]
+> Document abstractive summarization is only available in English.
+
+* **Chapter summarization**: Gives the titles of input novel chapters.
+* **Narrative summarization**: Gives summarizes and gives the titles of each input novel chapter.
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -88,7 +96,7 @@ Conversation summarization feature would simplify the text into the following:
 
 |Example summary  | Format | Conversation aspect |
 |---------|----|----|
-|  Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
+| Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
 ---

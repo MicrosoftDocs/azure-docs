@@ -1075,9 +1075,9 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/language/analyze-text
         - name: Conversation summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/language/analyze-conversations
     - name: SDKs
       items:
       - name: Document summarization

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 09/19/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -68,7 +68,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze \
+curl -i -X POST https://<your-language-resource-endpoint>//language/analyze-text/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
@@ -101,13 +101,13 @@ curl -i -X POST https://<your-language-resource-endpoint>/text/analytics/v3.2-pr
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-resource.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
+https://your-resource.cognitiveservices.azure.com/language/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
 ```
 
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
+curl -X GET    https://<your-language-resource-endpoint>/language/language/analyze-text/jobs?api-version=2022-10-01-preview/jobs/my-job-id \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -120,62 +120,90 @@ curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-pre
 
 ```json
 {
-   "jobId":"da3a2f68-eb90-4410-b28b-76960d010ec6",
-   "lastUpdateDateTime":"2021-08-24T19:15:47Z",
-   "createdDateTime":"2021-08-24T19:15:28Z",
-   "expirationDateTime":"2021-08-25T19:15:28Z",
-   "status":"succeeded",
-   "errors":[
-      
-   ],
-   "displayName":"NA",
-   "tasks":{
-      "completed":1,
-      "failed":0,
-      "inProgress":0,
-      "total":1,
-      "extractiveSummarizationTasks":[
-         {
-            "lastUpdateDateTime":"2021-08-24T19:15:48.0011189Z",
-            "taskName":"ExtractiveSummarization_latest",
-            "state":"succeeded",
-            "results":{
-               "documents":[
-                  {
-                     "id":"1",
-                     "sentences":[
+    "jobId": "752383f1-0a86-4a39-8c43-6bf5c673b5bd",
+    "lastUpdateDateTime": "2022-09-13T22:27:03Z",
+    "createdDateTime": "2022-09-13T22:26:31Z",
+    "expirationDateTime": "2022-09-14T22:26:31Z",
+    "status": "succeeded",
+    "errors": [],
+    "tasks": {
+        "completed": 2,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 2,
+        "items": [
+            {
+                "kind": "AbstractiveSummarizationLROResults",
+                "lastUpdateDateTime": "2022-09-13T22:27:03.7003166Z",
+                "status": "succeeded",
+                "results": {
+                    "documents": [
                         {
-                           "text":"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
-                           "rankScore":1.0,
-                           "offset":0,
-                           "length":160
-                        },
-                        {
-                           "text":"In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
-                           "rankScore":0.9582327572675664,
-                           "offset":324,
-                           "length":192
-                        },
-                        {
-                           "text":"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
-                           "rankScore":0.9294747193132348,
-                           "offset":517,
-                           "length":203
+                            "summaries": [
+                                {
+                                    "text": "Microsoft has been on a quest to advance AI beyond existing techniques. As Chief Technology Officer of Azure AI Cognitive Services, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition. At the intersection of all three, there's magic—what we call XYZ-code—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
+                                    "contexts": [
+                                        {
+                                            "offset": 0,
+                                            "length": 247
+                                        }
+                                    ]
+                                }
+                            ],
+                            "id": "0"
                         }
-                     ],
-                     "warnings":[
-                        
-                     ]
-                  }
-               ],
-               "errors":[
-                  
-               ],
-               "modelVersion":"2021-08-01"
+                    ],
+                    "errors": [],
+                }
+            },
+            {
+                "kind": "ExtractiveSummarizationLROResults",
+                "lastUpdateDateTime": "2022-09-13T22:26:33.5711598Z",
+                "status": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "0",
+                            "sentences": [
+                                {
+                                    "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
+                                    "rankScore": 0.69,
+                                    "offset": 0,
+                                    "length": 160
+                                },
+                                {
+                                    "text": "In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
+                                    "rankScore": 0.66,
+                                    "offset": 324,
+                                    "length": 192
+                                },
+                                {
+                                    "text": "At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
+                                    "rankScore": 0.63,
+                                    "offset": 517,
+                                    "length": 203
+                                },
+                                {
+                                    "text": "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages.",
+                                    "rankScore": 1.0,
+                                    "offset": 721,
+                                    "length": 134
+                                },
+                                {
+                                    "text": "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today.",
+                                    "rankScore": 0.74,
+                                    "offset": 856,
+                                    "length": 159
+                                }
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                }
             }
-         }
-      ]
-   }
+        ]
+    }
 }
 ```
 
@@ -262,7 +290,6 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
             "taskName": "analyze 1",
             "kind": "ConversationalSummarizationTask",
             "parameters": {
-                "modelVersion": "2022-05-15-preview",
                 "summaryAspects": [
                     "Issue",
                     "Resolution"
@@ -297,43 +324,86 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
 
 ```json
 {
-    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
-    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
-    "createdDateTime": "2022-05-31T16:52:51Z",
-    "expirationDateTime": "2022-06-01T16:52:51Z",
+    "jobId": "752383f1-0a86-4a39-8c43-6bf5c673b5bd",
+    "lastUpdateDateTime": "2022-09-13T22:27:03Z",
+    "createdDateTime": "2022-09-13T22:26:31Z",
+    "expirationDateTime": "2022-09-14T22:26:31Z",
     "status": "succeeded",
     "errors": [],
-    "displayName": "Analyze conversations from 123",
     "tasks": {
-        "completed": 1,
+        "completed": 2,
         "failed": 0,
         "inProgress": 0,
-        "total": 1,
+        "total": 2,
         "items": [
             {
-                "kind": "conversationalSummarizationResults",
-                "taskName": "analyze 1",
-                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
+                "kind": "AbstractiveSummarizationLROResults",
+                "lastUpdateDateTime": "2022-09-13T22:27:03.7003166Z",
                 "status": "succeeded",
                 "results": {
-                    "conversations": [
+                    "documents": [
                         {
-                            "id": "conversation1",
                             "summaries": [
                                 {
-                                    "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
+                                    "text": "Microsoft has been on a quest to advance AI beyond existing techniques. As Chief Technology Officer of Azure AI Cognitive Services, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition. At the intersection of all three, there's magic—what we call XYZ-code—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
+                                    "contexts": [
+                                        {
+                                            "offset": 0,
+                                            "length": 247
+                                        }
+                                    ]
+                                }
+                            ],
+                            "id": "0"
+                        }
+                    ],
+                    "errors": [],
+                }
+            },
+            {
+                "kind": "ExtractiveSummarizationLROResults",
+                "lastUpdateDateTime": "2022-09-13T22:26:33.5711598Z",
+                "status": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "0",
+                            "sentences": [
+                                {
+                                    "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
+                                    "rankScore": 0.69,
+                                    "offset": 0,
+                                    "length": 160
                                 },
                                 {
-                                    "aspect": "resolution",
-                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
+                                    "text": "In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
+                                    "rankScore": 0.66,
+                                    "offset": 324,
+                                    "length": 192
+                                },
+                                {
+                                    "text": "At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
+                                    "rankScore": 0.63,
+                                    "offset": 517,
+                                    "length": 203
+                                },
+                                {
+                                    "text": "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages.",
+                                    "rankScore": 1.0,
+                                    "offset": 721,
+                                    "length": 134
+                                },
+                                {
+                                    "text": "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today.",
+                                    "rankScore": 0.74,
+                                    "offset": 856,
+                                    "length": 159
                                 }
                             ],
                             "warnings": []
                         }
                     ],
                     "errors": [],
-                    "modelVersion": "2022-05-15-preview"
                 }
             }
         ]

@@ -16,24 +16,28 @@ ms.custom: language-service-summarization, ignite-fall-2021
 # How to use document summarization (preview)
 
 > [!IMPORTANT] 
-> The extractive summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive summarization. 
+> The extractive and abstractive summarization features are preview capabilities provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive and abstractive summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive or abstractive summarization. 
 
-In general, there are two approaches for automatic document summarization: extractive and abstractive. This API provides extractive summarization.
+In general, there are two approaches for automatic document summarization: extractive and abstractive. This API provides both.
 
 Extractive summarization is a feature that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
-This feature is designed to shorten content that users consider too long to read. Extractive summarization condenses articles, papers, or documents to key sentences.
+Abstractive summarization is a feature that produces a summary by extracting chapter titles and compiling summaries from input novel chapters.
+
+These features are designed to shorten content that users consider too long to read. Extractive summarization condenses articles, papers, or documents to key sentences, and abstractive summarization condenses novel chapters.
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
 ## Features
 
 > [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+> If you want to start using these features, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
-The extractive summarization API uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document.
+The extractive and abstractive summarization API uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document.
 
 Extractive summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents. A rank score is an indicator of how relevant a sentence is determined to be, to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. For example, if you request a three-sentence summary, the service returns the three highest scored sentences.
+
+Abstractive summarization returns a summary and chapter title of each input novel chapter.
 
 There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * key phrase extraction returns phrases while extractive summarization returns sentences
@@ -73,7 +77,7 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
-The following is an example of content you might submit for summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See the data limits section for more information.
+The following is an example of content you might submit for extractive summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See the data limits section for more information.
  
 *"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
 
