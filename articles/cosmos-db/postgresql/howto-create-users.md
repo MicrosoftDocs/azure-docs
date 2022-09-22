@@ -27,7 +27,7 @@ Since Azure Cosmos DB for PostgreSQL is a managed PaaS service, only Microsoft c
 `postgres` superuser role. For limited administrative access, Azure Cosmos DB for PostgreSQL
 provides the `citus` role.
 
-## The citus role
+## The Citus role
 
 Permissions for the `citus` role:
 
@@ -45,10 +45,9 @@ Notably, the `citus` role has some restrictions:
 * Can't create roles
 * Can't create databases
 
-## How to create additional user roles
+## How to create user roles
 
-As mentioned, the `citus` admin account lacks permission to create additional
-users. To add a user, use the Azure portal interface.
+As mentioned, the `citus` admin account lacks permission to create user roles. To add a user role, use the Azure portal interface.
 
 1. On your cluster page, select the **Roles** menu item, and on the **Roles** page, select **Add**.
 
@@ -63,7 +62,7 @@ and propagated to all the worker nodes. Roles created through the Azure
 portal have the `LOGIN` attribute, which means they’re true users who
 can sign in to the database.
 
-## How to modify privileges for user role
+## How to modify privileges for user roles
 
 New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using

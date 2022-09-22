@@ -19,7 +19,7 @@ process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data
 processing on IoT devices.
 
-:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Diagram that shows Stream Analytics architecture with Azure Cosmos DB for PostgreSQL." border="false":::
+:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Diagram that shows Stream Analytics architecture with Azure Cosmos DB for PostgreSQL.":::
 
 Azure Cosmos DB for PostgreSQL shines at real-time workloads such as
 [IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
@@ -38,12 +38,12 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
 
 1. In the Azure portal, expand the portal menu at upper left and select **Create a resource**.
 1. Select **Analytics** > **Stream Analytics job** from the results list.
-1. Fill out the Stream Analytics job page with the following information:
+1. Fill out the **New Stream Analytics job** page with the following information:
    * **Subscription** - Select the Azure subscription that you want to use for this job.
    * **Resource group** - Select the same resource group as your IoT hub.
    * **Name** - Enter a name to identify your Stream Analytics job.
    * **Region** - Select the Azure region to host your Stream Analytics job. Use the geographic location that's closest to your users for better performance and to reduce the data transfer cost.
-   * **Hosting environment** - Select **Cloud** to deploy to the Azure cloud, and **Edge** to deploy to an IoT Edge device.
+   * **Hosting environment** - Select **Cloud** to deploy to the Azure cloud, or **Edge** to deploy to an IoT Edge device.
    * **Streaming units** - Select the number of streaming units for the computing resources you need to execute the job.
 1. Select **Review + create**, and then select **Create**. You should see a **Deployment in progress** notification at upper right.
 
@@ -61,7 +61,7 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
       * **Subscription** - Select the Azure subscription that has your IoT Hub account.
       * **IoT Hub** – Select the name of your IoT hub.
    1. Select **Save**.
-   1. Once the input stream is added, you can also verify and download the dataset flowing in.
+   1. Once the input stream is added, you can also verify or download the dataset flowing in.
       The following code shows the data for an example event:
 
       ```json
@@ -86,17 +86,14 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
 
    1. On the Stream Analytics job page, select **Outputs** > **Add** > **PostgreSQL database (preview)**.
 
-   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-output.png" alt-text="Screenshot that shows selecting PostgreSQL database output.":::
+      :::image type="content" source="media/howto-ingestion/azure-stream-analytics-output.png" alt-text="Screenshot that shows selecting PostgreSQL database output.":::
 
    1. Fill out the **Azure PostgreSQL** page with the following values:
       * **Output alias** - Enter a name to identify the job's output.
-      * Select **Provide PostgreSQL database settings manually** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**. For your example dataset, use the table name *device_data*.
+      * Select **Provide PostgreSQL database settings manually** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**. From the example dataset, use the table name *device_data*.
    1. Select **Save**.
 
    :::image type="content" source="media/howto-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
-
-      > [!NOTE]
-      > The **Test Connection** feature for Azure Cosmos DB for PostgreSQL currently isn't supported and might throw an error, even when the connection works fine.
 
 1. Define the transformation query.
 
@@ -148,6 +145,9 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
             20 | sim000001          | 219488e5-c48a-4f04-93f6-12c11ed00a30 | 637842405470327268           | 2022-05-25T18:24:21.4610000Z
       (10 rows)
       ```
+
+> [!NOTE]
+> The **Test Connection** feature currently isn't supported for Azure Cosmos DB for PostgreSQL and might throw an error, even when the connection works fine.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ for storage, processing, and reporting.
 
 :::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factory." border="false":::
 
-## ADF for real-time ingestion
+## Data Factory for real-time ingestion
 
 Here are key reasons to choose Azure Data Factory for ingesting data into
 Azure Cosmos DB for PostgreSQL:
@@ -38,7 +38,7 @@ Azure Cosmos DB for PostgreSQL:
 * **Built-in connectors** - Integrates all your data sources, with more than 90 built-in connectors.
 * **Cost effective** - Supports a pay-as-you-go, fully managed serverless cloud service that scales on demand.
 
-## Steps to use ADF
+## Steps to use Data Factory
 
 In this article, you create a data pipeline by using the Data Factory
 user interface (UI). The pipeline in this data factory copies data from Azure
@@ -60,43 +60,47 @@ new to Data Factory, here's a quick guide on how to get started:
 
    :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the Orchestrate page of Azure Data Factory.":::
 
-3. In the General panel under **Properties**, enter a name for the pipeline.
+3. Under **Properties**, enter a name for the pipeline.
 
 4. In the **Activities** toolbox, expand the **Move & transform** category,
    and drag and drop the **Copy data** activity to the pipeline designer
-   surface. Enter a name for the copy activity.
+   surface. At the bottom of the designer pane, on the **General** tab, enter a name for the copy activity.
 
    :::image type="content" source="media/howto-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Screenshot showing a pipeline in Azure Data Factory.":::
 
 5. Configure **Source**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-source.png" alt-text="Screenshot that shows configuring Source in Azure Data Factory.":::
-
    1. On the **Activities** page, select the **Source** tab. Select **New** to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
    3. Choose the format type of your data, and then select **Continue**.
    4. On the **Set properties** page, under **Linked service**, select **New**.
-   5. On the **New linked service** page, enter a name for the linked service, and select your storage account from the **Storage account name** list. Test the connection.
+   5. On the **New linked service** page, enter a name for the linked service, and select your storage account from the **Storage account name** list.
+
+      :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-source.png" alt-text="Screenshot that shows configuring Source in Azure Data Factory.":::
+
    6. Under **Test connection**, select **To file path**, enter the container and directory to connect to, and then select **Test connection**.
    7. Select **Create** to save the configuration.
    8. On the **Set properties** screen, select **OK**.
 
 6. Configure **Sink**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Screenshot that shows configuring Sink in Azure Data Factory.":::
-
    1. On the **Activities** page, select the **Sink** tab. Select **New** to create a sink dataset.
    2. In the **New Dataset** dialog box, select **Azure Cosmos DB for PostgreSQL**, and then select **Continue**.
    3. On the **Set properties** page, under **Linked service**, select **New**.
    4. On the **New linked service** page, enter a name for the linked service, and select your cluster from the **Server name** list. Add connection details and test the connection.
-   5. Select **Create** to save the configuration.
-   6. On the **Set properties** screen, select **OK**.
 
       > [!NOTE]
       >
       > If your cluster isn't present in the drop down, use the **Enter manually** option to add server details.
 
+      :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Screenshot that shows configuring Sink in Azure Data Factory.":::
+
+   5. Select **Create** to save the configuration.
+   6. On the **Set properties** screen, select **OK**.
    5. In the **Sink** tab on the **Activities** page, select the table name where you want to ingest the data.
+
+      :::image type="content" source="media/howto-ingestion/azure-data-factory-copy-command.png" alt-text="Screenshot that shows selecting the table and Copy command.":::
+
    6. Under **Write method**, select **Copy command**.
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline

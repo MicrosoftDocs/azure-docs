@@ -30,7 +30,7 @@ and check the **Send to Log Analytics workspace** box.  Then select **Save**.
 
 :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Screenshot that shows settings for the diagnostic setting.":::
 
-## Viewing logs
+## View logs
 
 To view and filter the logs, you use Kusto queries. On your cluster's page in the Azure portal, select **Logs** from the left menu. Close the opening splash screen and the query selection screen.
 
