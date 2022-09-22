@@ -27,7 +27,7 @@ The following diagnostic logs are available for Azure DDoS Protection:
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Configure Azure DDoS Protectiondiagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
+> * Configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
 > * Enable diagnostic logging on all public IPs in a defined scope.
 > * View log data in workbooks.
 
@@ -63,7 +63,7 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
 
-1. Under **General**, click on **Logs**
+1. Under **General**, select on **Logs**
 
 1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
 
@@ -168,7 +168,7 @@ You can connect logs to Microsoft Sentinel, view and analyze your data in workbo
 
 :::image type="content" source="./media/ddos-attack-telemetry/azure-sentinel-ddos.png" alt-text="Screenshot of Microsoft Sentinel DDoS Connector." lightbox="./media/ddos-attack-telemetry/azure-sentinel-ddos.png":::
 
-### Azure DDoS Protection Workbook
+### Azure DDoS Protection workbook
 
 You can use [this Azure Resource Manager (ARM) template](https://aka.ms/ddosworkbook) to deploy an attack analytics workbook. This workbook allows you to visualize attack data across several filterable panels to easily understand what’s at stake.
 
