@@ -184,9 +184,9 @@ For the first test scenario, configure the authentication policy where the Issue
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png":::  
 
-   The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate 
+   The **Activity Details** shows this is just part of the expected login flow where the user selects a certificate. 
    
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-activity-details.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-activity-details.png" alt-text="Screenshot of activity details in the sign-in logs." :::  
 
    The **Additional Details** show the certificate information.
 
