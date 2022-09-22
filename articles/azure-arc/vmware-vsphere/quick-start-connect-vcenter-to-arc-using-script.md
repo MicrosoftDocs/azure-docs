@@ -24,7 +24,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### Azure Arc Resource Bridge
 
-- Azure Arc Resource Bridge IP needs access to the URLs listed [here](https://learn.microsoft.com/en-us/azure/azure-arc/vmware-vsphere/support-matrix-for-vcenter-connection#network-requirements).
+- Azure Arc Resource Bridge IP needs access to the URLs listed [here](../vmware-vsphere/support-matrix-for-vcenter-connection#network-requirements).
 
 ### vCenter Server
 

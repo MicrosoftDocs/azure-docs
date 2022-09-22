@@ -1,7 +1,7 @@
 ---
 title: Prerequisites and network requirements to connect VMware vCenter Server to Azure Arc
 description: In this article, you'll understand the prerequisites and network requirements to connect VMware vCenter Server to Azure Arc.
-ms.topic: references 
+ms.topic: reference 
 ms.custom: references_regions
 ms.date: 09/21/2022
 
@@ -32,7 +32,7 @@ To start using the Azure Arc-enabled VMware vSphere (preview) features, you need
 
 - Azure Arc Resource Bridge VM requires DNS resolution when configuring with Static IP. The IP Address(es) of the DNS servers are needed in the DNS Server input of the deployment script.
 
-- Ensure that your user account has all of these [privileges](https://learn.microsoft.com/en-us/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#insufficient-permissions) in VMware vCenter.
+- Ensure that your user account has all of these [privileges](../resource-bridge/troubleshoot-resource-bridge.md#insufficient-permissions) in VMware vCenter.
 
 ### vCenter Server
 
