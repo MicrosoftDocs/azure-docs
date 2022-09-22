@@ -12,7 +12,7 @@
 
 ### General limitations
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2, premium SSDs, and standard SSDs can enable shared disks. Shared disks can be attached to individual VMSS but can't be defined in the VMSS models or automatically deployed.
+Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 managed disks, premium SSD managed disks, and standard SSDs can enable shared disks. Shared disks can be attached to individual VMSS but can't be defined in the VMSS models or automatically deployed.
 
 Each managed disk that has shared disks enabled are also subject to the following limitations, organized by disk type:
 
@@ -28,7 +28,7 @@ When sharing ultra disks, they have the following additional limitations:
 
 ### Premium SSD v2
 
-Premium SSD v2 disks have their own separate list of limitations, unrelated to shared disks. For these limitations, see [Premium SSD v2 limitations](../articles/virtual-machines/disks-types.md#premium-ssd-v2-limitations).
+Premium SSD v2 managed disks have their own separate list of limitations, unrelated to shared disks. For these limitations, see [Premium SSD v2 limitations](../articles/virtual-machines/disks-types.md#premium-ssd-v2-limitations).
 
 When sharing Premium SSD v2 disks, they have the following additional limitation:
 
