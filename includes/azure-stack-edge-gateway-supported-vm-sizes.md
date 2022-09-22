@@ -114,34 +114,34 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
-#### HPN GPU Names
+#### HPN GPU
 
 | Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
-| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 2         |1   |16  |
-| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |1   |16  |
-| **Standard_DS4_v2_HPN_T4_v3**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |1   |16  |
-| **Standard_F2s_HPN_T4_v3**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 4         |1   |16  |
-| **Standard_F4s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |1   |16  |
-| **Standard_F8s_HPN_T4_v3**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |1   |16  |
+| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
+| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_DS4_v2_HPN_T4_v3**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
+| **Standard_F2s_HPN_T4_v3**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  |
+| **Standard_F4s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F8s_HPN_T4_v3**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
 | **Standard_F12s_HPN_T4_v3**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F16s_HPN_T4_v3**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |1   |16  |
-| **Standard_F12_HPN_T4_v3**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 8         |1   |16  |
+| **Standard_F16s_HPN_T4_v3**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  |
+| **Standard_F12_HPN_T4_v3**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
-#### A2 GPU Names
+#### A2 GPU
 
 | Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
-| **Standard_DS2_v2_HPN_A2**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 2         |1   |16  |
-| **Standard_DS3_v2_HPN_A23**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |1   |16  |
-| **Standard_DS4_v2_HPN_A2**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |1   |16  |
-| **Standard_F2s_HPN_A2**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 4         |1   |16  |
-| **Standard_F4s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |1   |16  |
-| **Standard_F8s_HPN_A2**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |1   |16  |
+| **Standard_DS2_v2_HPN_A2**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
+| **Standard_DS3_v2_HPN_A2**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_DS4_v2_HPN_A2**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
+| **Standard_F2s_HPN_A2**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  |
+| **Standard_F4s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F8s_HPN_A2**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
 | **Standard_F12s_HPN_A2**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F16s_HPN_A2**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |1   |16  |
-| **Standard_F12_HPN_A2**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 8         |1   |16  |
+| **Standard_F16s_HPN_A2**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  |
+| **Standard_F12_HPN_A2**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
