@@ -13,11 +13,11 @@ ms.custom: mode-ui
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure portal](create-cosmosdb-resources-portal.md)
+> * [Azure portal](quickstart-portal.md)
 > * [.NET](quickstart-dotnet.md)
-> * [Java](create-sql-api-java.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Python](create-sql-api-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Python](quickstart-python.md)
 >  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
@@ -31,13 +31,11 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]  
 
-<a id="create-account"></a>
-## Create an Azure Cosmos DB account
+## <a id="create-account"></a>Create an Azure Cosmos DB account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-container-database"></a>
-## Add a database and a container 
+## <a id="create-container-database"></a>Add a database and a container 
 
 You can use the Data Explorer in the Azure portal to create a database and container.
 

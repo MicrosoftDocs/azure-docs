@@ -38,7 +38,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which su
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
+|**Get started**|[Get started with the Java SDK](./quickstart-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 

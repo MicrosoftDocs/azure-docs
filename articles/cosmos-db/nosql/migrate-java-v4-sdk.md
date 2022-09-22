@@ -641,7 +641,7 @@ Document responseDocument = documentResourceResponse.getResource();
 
 ## Next steps
 
-* [Build a Java app](create-sql-api-java.md) to manage Azure Cosmos DB for NoSQL data using the V4 SDK
+* [Build a Java app](quickstart-java.md) to manage Azure Cosmos DB for NoSQL data using the V4 SDK
 * Learn about the [Reactor-based Java SDKs](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
 * Learn about converting RxJava async code to Reactor async code with the [Reactor vs RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?

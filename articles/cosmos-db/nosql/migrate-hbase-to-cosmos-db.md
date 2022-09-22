@@ -187,7 +187,7 @@ When executing queries that request sorted data, HBase will return the result qu
 
 ### Deployment considerations
 
-You can use [the Azure portal or Azure CLI to deploy the Azure Cosmos DB for NoSQL](create-cosmosdb-resources-portal.md). Since the migration destination is Azure Cosmos DB for NoSQL, select "NoSQL" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
+You can use [the Azure portal or Azure CLI to deploy the Azure Cosmos DB for NoSQL](quickstart-portal.md). Since the migration destination is Azure Cosmos DB for NoSQL, select "NoSQL" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
 
 ### Network consideration
 
@@ -370,7 +370,7 @@ Here is an example to migrate your data to Azure Cosmos DB. It assumes that HBas
 
 Apache Spark – Apache HBase Connector repository can be found at [Apache Spark - Apache HBase Connector](https://github.com/hortonworks-spark/shc)
 
-For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql-api-spark.md) and download the appropriate library for your Spark version.
+For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](quickstart-spark.md) and download the appropriate library for your Spark version.
 
 1. Copy hbase-site.xml to your Spark configuration directory.
 

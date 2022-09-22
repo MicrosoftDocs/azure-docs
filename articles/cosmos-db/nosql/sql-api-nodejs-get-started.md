@@ -18,8 +18,8 @@ ms.custom: devx-track-js
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-get-started.md)
-> * [Java](./create-sql-api-java.md)
-> * [Async Java](./create-sql-api-java.md)
+> * [Java](./quickstart-java.md)
+> * [Async Java](./quickstart-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 

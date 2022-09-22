@@ -29,7 +29,7 @@ highlightedContent:
       url: choose-api.md
     - title: Create an Azure Cosmos DB account
       itemType: how-to-guide
-      url: create-cosmosdb-resources-portal.md
+      url: nosql/quickstart-portal.md
     - title: Explore Azure Cosmos DB
       itemType: learn
       url: /training/modules/explore-azure-cosmos-db/

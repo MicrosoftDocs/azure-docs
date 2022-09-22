@@ -22,7 +22,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing Azure Cosmos DB API for NoSQL account. [Create an Azure Cosmos DB API for NoSQL account](sql/create-cosmosdb-resources-portal.md)
+- An existing Azure Cosmos DB API for NoSQL account. [Create an Azure Cosmos DB API for NoSQL account](nosql/quickstart-portal.md)
 - An existing Azure Functions function app. [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md)
   - A system-assigned managed identity for the function app. [Add a system-assigned identity](../app-service/overview-managed-identity.md#add-a-system-assigned-identity)
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md)

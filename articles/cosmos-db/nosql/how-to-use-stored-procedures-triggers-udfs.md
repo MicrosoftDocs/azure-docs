@@ -22,9 +22,9 @@ You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (
 | SDK | Getting started |
 | :--- | :--- |
 | .NET v3 | [Quickstart: Build a .NET console app to manage Azure Cosmos DB for NoSQL resources](quickstart-dotnet.md) |
-| Java | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](create-sql-api-java.md)
-| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account](create-sql-api-nodejs.md) |
-| Python | [Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account](create-sql-api-python.md) |
+| Java | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](quickstart-java.md)
+| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account](quickstart-nodejs.md) |
+| Python | [Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account](quickstart-python.md) |
 
 ## How to run stored procedures
 

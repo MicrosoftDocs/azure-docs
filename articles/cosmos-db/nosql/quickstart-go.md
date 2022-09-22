@@ -16,12 +16,12 @@ ms.author: sidandrews
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Java](create-sql-api-java.md)
-> * [Spring Data](create-sql-api-spring-data.md)
-> * [Python](create-sql-api-python.md)
-> * [Spark v3](create-sql-api-spark.md)
-> * [Go](create-sql-api-go.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Java](quickstart-java.md)
+> * [Spring Data](quickstart-java-spring-data.md)
+> * [Python](quickstart-python.md)
+> * [Spark v3](quickstart-spark.md)
+> * [Go](quickstart-go.md)
 >
 
 

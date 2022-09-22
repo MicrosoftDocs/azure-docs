@@ -42,7 +42,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 1: Create an Azure Cosmos DB account
 
-[Create an Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
+[Create an Azure Cosmos DB for NoSQL account](quickstart-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
 
 ## Step 2: Set up your .NET project
 

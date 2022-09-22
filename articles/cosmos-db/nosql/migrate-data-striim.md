@@ -61,7 +61,7 @@ In this section, you configure the Oracle database as the source for data moveme
 
 In this section, you will configure the Azure Cosmos DB for NoSQL account as the target for data movement.
 
-1. Create an [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md) using the Azure portal.
+1. Create an [Azure Cosmos DB for NoSQL account](quickstart-portal.md) using the Azure portal.
 
 1. Navigate to the **Data Explorer** pane in your Azure Cosmos DB account. Select **New Container** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
 

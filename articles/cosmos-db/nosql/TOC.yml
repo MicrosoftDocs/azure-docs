@@ -5,25 +5,25 @@
     - name: Develop app - .NET
       href: quickstart-dotnet.md
     - name: Develop app - Node.js
-      href: create-sql-api-nodejs.md
+      href: quickstart-nodejs.md
     - name: Develop app - Java
-      href: create-sql-api-java.md
+      href: quickstart-java.md
     - name: Develop app - Spring Data
-      href: create-sql-api-spring-data.md
+      href: quickstart-java-spring-data.md
     - name: Develop app - Python
-      href: create-sql-api-python.md
+      href: quickstart-python.md
     - name: Develop app - Spark v3
-      href: create-sql-api-spark.md
+      href: quickstart-spark.md
     - name: Develop app - Go
-      href: create-sql-api-go.md
+      href: quickstart-go.md
     - name: Create resources - Azure portal
-      href: create-cosmosdb-resources-portal.md
+      href: quickstart-portal.md
     - name: Create resources - Bicep template
       displayName: ARM, Resource Manager, Template, Bicep
-      href: quick-create-bicep.md
+      href: quickstart-template-bicep.md
     - name: Create resources - JSON template
       displayName: ARM, Resource Manager, Template, JSON
-      href: quick-create-template.md
+      href: quickstart-template-json.md
 - name: Tutorials
   items:
     - name: Create and manage data
@@ -33,9 +33,9 @@
             - name: .NET
               href: sql-api-get-started.md
             - name: Java
-              href: create-sql-api-java.md
+              href: quickstart-java.md
             - name: Async Java
-              href: create-sql-api-java.md
+              href: quickstart-java.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
         - name: Build a web app

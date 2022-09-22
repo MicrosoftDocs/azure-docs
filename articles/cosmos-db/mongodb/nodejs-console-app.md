@@ -13,14 +13,6 @@ ms.custom: devx-track-js
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET](../sql-api-get-started.md)
-> * [.NET Core](../sql-api-get-started.md)
-> * [Java](../create-sql-api-java.md)
-> * [Node.js for MongoDB](nodejs-console-app.md)
-> * [Node.js](../sql-api-nodejs-get-started.md)
->
-
 This example shows you how to build a console app using Node.js and Azure Cosmos DB's API for MongoDB.
 
 To use this example, you must:

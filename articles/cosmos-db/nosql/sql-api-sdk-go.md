@@ -24,7 +24,7 @@ ms.custom: devx-track-go
 |**SDK download**|[Go pkg](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos)|
 |**API documentation**|[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#pkg-types)|
 |**Samples**|[Code samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#pkg-overview)|
-|**Get started**|[Get started with the Azure Cosmos DB Go SDK](create-sql-api-go.md)|
+|**Get started**|[Get started with the Azure Cosmos DB Go SDK](quickstart-go.md)|
 
 > [!IMPORTANT]
 > The Go SDK for Azure Cosmos DB is currently in beta. This beta is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.

@@ -19,12 +19,12 @@ ms.custom: devx-track-js, mode-api
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Java](create-sql-api-java.md)
-> * [Spring Data](create-sql-api-spring-data.md)
-> * [Python](create-sql-api-python.md)
-> * [Spark v3](create-sql-api-spark.md)
-> * [Go](create-sql-api-go.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Java](quickstart-java.md)
+> * [Spring Data](quickstart-java-spring-data.md)
+> * [Python](quickstart-python.md)
+> * [Spark v3](quickstart-spark.md)
+> * [Go](quickstart-go.md)
 >
 
 Get started with the Azure Cosmos DB client library for JavaScript to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
@@ -43,7 +43,7 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 ### Create an Azure Cosmos DB account
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](includes/quickstart-arm.md)]
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](includes/create-resources.md)]
 
 ### Configure environment variables
 
@@ -119,7 +119,7 @@ In this example, we chose to add a timeStamp to the database and container in ca
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](includes/quickstart-object-model.md)]
+[!INCLUDE [Explain DOCUMENT DB object model](includes/object-model.md)]
 
 You'll use the following JavaScript classes to interact with these resources:
 
@@ -221,7 +221,7 @@ Touring-1000 Blue, 50 read
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](includes/quickstart-clean-up-resources.md)]
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](includes/clean-up-resources.md)]
 
 ## Next steps
 

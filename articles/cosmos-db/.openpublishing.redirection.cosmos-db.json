@@ -1551,6 +1551,51 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-nodejs.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-java.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-spring-data.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-java-spring-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-python.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-spark.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-spark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-go.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-cosmosdb-resources-portal.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/quick-create-bicep.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-template-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/quick-create-template.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-template-json",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-async-java-samples.md",
       "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
       "redirect_document_id": false

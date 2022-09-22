@@ -115,7 +115,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-For more information, see [Quickstart: Build a Java application by using an Azure Cosmos DB for NoSQL account](create-sql-api-java.md).
+For more information, see [Quickstart: Build a Java application by using an Azure Cosmos DB for NoSQL account](quickstart-java.md).
 
 ## Use the Node.js SDK
 
@@ -150,7 +150,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-For more information, see [Quickstart: Build a Node.js app by using an Azure Cosmos DB for NoSQL account](create-sql-api-nodejs.md). 
+For more information, see [Quickstart: Build a Node.js app by using an Azure Cosmos DB for NoSQL account](quickstart-nodejs.md). 
 
 ## Use the Python SDK
 
@@ -166,7 +166,7 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB for NoSQL account](create-sql-api-python.md). 
+For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB for NoSQL account](quickstart-python.md). 
 
 ## Next steps
 

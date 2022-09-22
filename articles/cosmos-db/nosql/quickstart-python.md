@@ -17,12 +17,12 @@ ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Java](create-sql-api-java.md)
-> * [Spring Data](create-sql-api-spring-data.md)
-> * [Python](create-sql-api-python.md)
-> * [Spark v3](create-sql-api-spark.md)
-> * [Go](create-sql-api-go.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Java](quickstart-java.md)
+> * [Spring Data](quickstart-java-spring-data.md)
+> * [Python](quickstart-python.md)
+> * [Spark v3](quickstart-spark.md)
+> * [Go](quickstart-go.md)
 >
 
 In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.

@@ -24,7 +24,7 @@ The Azure Cosmos DB Java SDK v4 for NoSQL combines an Async API and a Sync API i
 >
 > Here are three steps to get going fast!
 > 1. Install the [minimum supported Java runtime, JDK 8](/java/azure/jdk/) so you can use the SDK.
-> 2. Work through the [Quickstart Guide for Azure Cosmos DB Java SDK v4](./create-sql-api-java.md) which gets you access to the Maven artifact and walks through basic Azure Cosmos DB requests.
+> 2. Work through the [Quickstart Guide for Azure Cosmos DB Java SDK v4](./quickstart-java.md) which gets you access to the Maven artifact and walks through basic Azure Cosmos DB requests.
 > 3. Read the Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md) and [troubleshooting](troubleshoot-java-sdk-v4-sql.md) guides to optimize the SDK for your application.
 >
 > The [Azure Cosmos DB workshops and labs](https://aka.ms/cosmosworkshop) are another great resource for learning how to use Azure Cosmos DB Java SDK v4!
@@ -38,7 +38,7 @@ The Azure Cosmos DB Java SDK v4 for NoSQL combines an Async API and a Sync API i
 | **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 | **API documentation** | [Java API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/latest/index.html) |
 | **Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
-| **Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](./create-sql-api-java.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+| **Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](./quickstart-java.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 | **Best Practices** | [Best Practices for Java SDK v4](best-practice-java.md) |
 | **Basic code samples** | [Azure Cosmos DB: Java examples for the API for NoSQL](sql-api-java-sdk-samples.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 | **Console app with Change Feed**| [Change feed - Java SDK v4 sample](create-sql-api-java-changefeed.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 

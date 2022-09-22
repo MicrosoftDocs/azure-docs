@@ -51,7 +51,7 @@ You can create a free tier account from the Azure portal, PowerShell, CLI, or Az
 
 ### Azure portal
 
-When creating the account using the Azure portal, set the **Apply Free Tier Discount** option to **Apply**. See [create a new account with free tier](create-cosmosdb-resources-portal.md) article for step-by-step guidance.
+When creating the account using the Azure portal, set the **Apply Free Tier Discount** option to **Apply**. See [create a new account with free tier](nosql/quickstart-portal.md) article for step-by-step guidance.
 
 ### ARM template
 

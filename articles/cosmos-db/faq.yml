@@ -183,7 +183,7 @@ sections:
       - question: |
           How do I create a database?
         answer: |
-          You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](create-sql-api-java.md#add-a-container), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
+          You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](nosql/quickstart-portal.md#create-container-database), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
           
       - question: |
           How do I set up users and permissions?

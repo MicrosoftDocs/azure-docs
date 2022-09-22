@@ -16,8 +16,8 @@ ms.custom: devx-track-csharp
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](./create-sql-api-java.md)
-> * [Async Java](./create-sql-api-java.md)
+> * [Java](./quickstart-java.md)
+> * [Async Java](./quickstart-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -495,4 +495,4 @@ That's it, build it, and you're on your way!
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
-[cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account
+[cosmos-db-create-account]: quickstart-java.md#create-a-database-account
