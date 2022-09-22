@@ -30,7 +30,7 @@ With HTTPS ingress enabled, your container app features the following characteri
 - HTTPS endpoints always use TLS 1.2, terminated at the ingress point
 - Endpoints always expose ports 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
-- The container app is accessed via fully its qualified domain name (FQDN)
+- The container app is accessed via its fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
 
 ### TCP
@@ -44,7 +44,7 @@ TCP ingress is useful for exposing container apps that use a TCP-based protocol 
 
 With TCP ingress enabled, your container app features the following characteristics:
 
-- The container app is accessed via its fully qualified domain name (FQDN) and exposed port
+- The container app is accessed via its fully qualified domain name (FQDN) and exposed port number
 - Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property) and exposed port number
 
 ## Configuration
