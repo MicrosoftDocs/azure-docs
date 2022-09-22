@@ -188,7 +188,7 @@ Supported User Object attribute fields:
 
 - userPrincipalName
 - onPremisesUserPrincipalName
-- CertificateUserIds
+- certificateUserIds
 
 >[!IMPORTANT]
 >If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with administrative access to the Azure AD Connect server can change the sync attribute mapping, and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. 
@@ -209,9 +209,11 @@ Currently supported set of username bindings:
 - SAN Principal Name > onPremisesUserPrincipalName
 - SAN RFC822Name > userPrincipalName
 - SAN RFC822Name > onPremisesUserPrincipalName
+- SubjectKeyIdentifier > certificateUserIds
+- SHA1PublicKey > certificateUserIds
 
 >[!NOTE]
->If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@contoso.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@contoso.com.
+>If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@woodgrove.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@woodgrove.com.
 
 The final configuration will look like this image:
 
