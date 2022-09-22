@@ -406,7 +406,7 @@ new_deployment = ManagedOnlineDeployment(
         code="../model-2/onlinescoring", scoring_script="score.py"
     ),
     environment=Environment(
-        conda_file="../model-1/environment/conda.yml",
+        conda_file="../model-2/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
     ),
     instance_type="Standard_DS2_v2",
