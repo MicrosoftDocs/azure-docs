@@ -117,7 +117,7 @@ For more information on how to investigate incidents and use the investigation g
 
 When investigating an incident in Microsoft Sentinel, in an incident details pane, select an IoT device entity from the **Entities** list to open its device entity page. You can identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
 
-You can also select **View full details** under the entities listed to open the full incident page. In the **Entities** tab, select an IoT device to open its entity page. For example: 
+If you don't see your IoT device entity right away, select **View full details** under the entities listed to open the full incident page. In the **Entities** tab, select an IoT device to open its entity page. For example: 
 
  :::image type="content" source="media/iot-solution/incident-full-details-iot-device.png" alt-text="Screenshot of a full detail incident page.":::
 
