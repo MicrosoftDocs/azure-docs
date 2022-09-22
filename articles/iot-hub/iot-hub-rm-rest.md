@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Create an IoT hub using the resource provider REST API (.NET)
 
-You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using **Postman**. Alternatively, you can use **cURL**.
+You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using **Postman**. Alternatively, you can use **cURL**. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,12 +47,10 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
    :::image type="content" source="media/iot-hub-rm-rest/select-bearer-token.png" alt-text="Screenshot that shows how to select the Bearer Token type of authorization in **Postman**.":::
 
 1. Paste the access token into the field labeled **Token**.
-   
-## Use the REST API to create, view, update, or delete an IoT hub
 
-The following commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) reference. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
+Keep in mind the access token expires after 5-60 minutes, so you may need to generate another one.
 
-### Create an IoT hub
+## Create an IoT hub
 
 1. Select the REST command dropdown list and choose the PUT command. Copy the URL below, replacing the values in the `{}` with your own values. The `{resourceName}` value is the name you'd like for your new IoT hub. Paste the URL into the field next to the PUT command. 
 
@@ -88,7 +86,7 @@ The following commands are from the [IoT Hub Resource](/rest/api/iothub/iot-hub-
 
 1. Select **Send** to send your request and create a new IoT hub. A successful request will return a **201 Created** response with a JSON printout of your IoT hub specifications. You can save your request if you're using **Postman**.
 
-## View / show an IoT hub
+## View an IoT hub
 
 To see all the specifications of your new IoT hub, use a GET request. You can use the same URL that you used with the PUT request, but must erase the **Body** of that request (if not already blank) because a GET request can't have a body. Here's the GET request template:
 
@@ -98,7 +96,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 See the [GET command in the IoT Hub Resource](/rest/api/iothub/iot-hub-resource/get?tabs=HTTP).
 
-### Update an IoT hub
+## Update an IoT hub
 
 Updating is as simple as using the same PUT request from when we created the IoT hub and editing the JSON body to contain parameters of your choosing. Edit the body of the request by adding a **tags** property, then run the PUT request.
 
