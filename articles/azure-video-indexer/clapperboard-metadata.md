@@ -77,7 +77,7 @@ The following table describes fields found in json:
 
 |Name|Description|
 |---|---|
-|`id`|The line ID.|
+|`id`|The clapperboard ID.|
 |`thumbnailId`|The ID of the thumbnail.|
 |`isHeadSlate`|The value stands for head or tail (the board is upside-down) of the clapper board: `true` or `false`.|
 |`fields`|The fields found in the clapper board; also each field's name and value.|
