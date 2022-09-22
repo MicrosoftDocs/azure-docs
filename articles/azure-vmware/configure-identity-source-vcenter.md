@@ -191,4 +191,7 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
 - [Configure external identity source for NSX-T](configure-external-identity-source-nsx-t.md) 
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
+
 
