@@ -206,7 +206,7 @@ inputs = {'model_name': 'maskrcnn_resnet50_fpn',  # enter the maskrcnn model nam
 
 ---
 
-Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory to submit the script. Use the following command job to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory.
+Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory to submit the script. Use the following command job to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory.
 
 # [Multi-class image classification ](#tab/multi-class)
 For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
