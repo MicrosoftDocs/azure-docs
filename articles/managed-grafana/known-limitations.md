@@ -26,7 +26,7 @@ Managed Grafana has the following known limitations:
 
 * API key usage isn't included in the audit log.
 
-* Users are assigned the following Grafana level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
+* User can be assigned the following Grafana Organization level roles:: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
 
 * Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api) and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
 
