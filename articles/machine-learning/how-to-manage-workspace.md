@@ -39,16 +39,16 @@ As your needs change or requirements for automation increase you can also manage
       
         * (Optional) If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use into the `DefaultAzureCredential`. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
                 
-        ```python
-        DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
-        ```
+            ```python
+            DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
+            ```
                 
         * (Optional) If your working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
                 
-        ```python
-        from azure.identity import AzureAuthorityHosts
-        DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT))
-        ```
+            ```python
+            from azure.identity import AzureAuthorityHosts
+            DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT))
+            ```
 
 ## Limitations
 
