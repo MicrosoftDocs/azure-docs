@@ -1,19 +1,17 @@
 ---
 title: Create users - Azure Cosmos DB for PostgreSQL
-description: This article describes how you can create new user accounts to interact with an Azure Cosmos DB for PostgreSQL.
+description: See how you can create new user accounts to interact with an Azure Cosmos DB for PostgreSQL cluster.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 1/8/2019
+ms.date: 09/21/2022
 ---
 
 # Create users in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-## The server admin account
 
 The PostgreSQL engine uses
 [roles](https://www.postgresql.org/docs/current/sql-createrole.html) to control
@@ -29,6 +27,8 @@ Since Azure Cosmos DB for PostgreSQL is a managed PaaS service, only Microsoft c
 `postgres` superuser role. For limited administrative access, Azure Cosmos DB for PostgreSQL
 provides the `citus` role.
 
+## The citus role
+
 Permissions for the `citus` role:
 
 * Read all configuration variables, even variables normally visible only to
@@ -37,8 +37,8 @@ Permissions for the `citus` role:
   extensions--even views or extensions normally visible only to superusers.
 * Execute monitoring functions that may take ACCESS SHARE locks on tables,
   potentially for a long time.
-* [Create PostgreSQL extensions](reference-extensions.md) (because
-  the role is a member of `azure_pg_admin`).
+* [Create PostgreSQL extensions](reference-extensions.md), because
+  the role is a member of `azure_pg_admin`.
 
 Notably, the `citus` role has some restrictions:
 
@@ -50,14 +50,13 @@ Notably, the `citus` role has some restrictions:
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
-1. Go to the **Roles** page for your cluster, and
-   select **+ Add**:
+1. On your cluster page, select the **Roles** menu item, and on the **Roles** page, select **Add**.
 
-   :::image type="content" source="media/howto-create-users/1-role-page.png" alt-text="The roles page":::
+   :::image type="content" source="media/howto-create-users/1-role-page.png" alt-text="Screenshot that shows the Roles page.":::
 
 2. Enter the role name and password. Select **Save**.
 
-   :::image type="content" source="media/howto-create-users/2-add-user-fields.png" alt-text="Add role":::
+   :::image type="content" source="media/howto-create-users/2-add-user-fields.png" alt-text="Screenshot that shows the Add role page.":::
 
 The user will be created on the coordinator node of the cluster,
 and propagated to all the worker nodes. Roles created through the Azure
@@ -68,7 +67,7 @@ can sign in to the database.
 
 New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using
-a tool such as PgAdmin or psql. (See [Connect to a cluster](quickstart-connect-psql.md).)
+a tool such as PgAdmin or psql. For more information, see [Connect to a cluster](quickstart-connect-psql.md).
 
 For example, to allow `db_user` to read `mytable`, grant the permission:
 

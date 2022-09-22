@@ -1,20 +1,20 @@
 ---
 title: Connect to server - Azure Cosmos DB for PostgreSQL
-description: Learn how to connect to and query a cluster
+description: See how to connect to and query an Azure Cosmos DB for PostgreSQL cluster.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 09/21/2022
 ---
 
 # Connect to a cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Choose your database client below to learn how to configure it to connect to
-the cluster.
+Choose one of the following database clients to see how to configure it to connect to
+an Azure Cosmos DB for PostgreSQL cluster.
 
 # [pgAdmin](#tab/pgadmin)
 
@@ -23,18 +23,18 @@ administration and development platform for PostgreSQL.
 
 1. [Download](https://www.pgadmin.org/download/) and install pgAdmin.
 
-2. Open the pgAdmin application on your client computer. From the Dashboard,
+1. Open the pgAdmin application on your client computer. From the Dashboard,
    select **Add New Server**.
 
-   ![pgAdmin dashboard](media/howto-connect/pgadmin-dashboard.png)
+   :::image type="content" source="media/howto-connect/pgadmin-dashboard.png" alt-text="Screenshot that shows the pgAdmin dashboard.":::
 
-3. Choose a **Name** in the General tab. Any name will work.
+1. Choose a **Name** in the General tab. Any name will work.
 
    ![pgAdmin general connection settings](media/howto-connect/pgadmin-general.png)
 
-4. Enter connection details in the Connection tab.
+1. Enter connection details in the Connection tab.
 
-   ![pgAdmin db connection settings](media/howto-connect/pgadmin-connection.png)
+   :::image type="content" source="media/howto-connect/pgadmin-connection.png" alt-text="Screenshot that shows the pgAdmin connection settings.":::
 
    Customize the following fields:
 
@@ -46,11 +46,11 @@ administration and development platform for PostgreSQL.
    * **Password**: the connection password.
    * **Save password**: enable if desired.
 
-5. In the SSL tab, set **SSL mode** to **Require**.
+1. In the SSL tab, set **SSL mode** to **Require**.
 
-   ![pgAdmin ssl settings](media/howto-connect/pgadmin-ssl.png)
+   :::image type="content" source="media/howto-connect/pgadmin-ssl.png" alt-text="Screenshot that shows the pgAdmin SSL settings.":::
 
-6. Select **Save** to save and connect to the database.
+1. Select **Save** to save and connect to the database.
 
 # [psql](#tab/psql)
 
@@ -62,28 +62,19 @@ interactively, issue them to PostgreSQL, and see the query results.
    installation](https://www.postgresql.org/docs/current/tutorial-install.html),
    or available separately in package managers for several operating systems.
 
-2. Obtain the connection string. In the cluster page, select the
-   **Connection strings** menu item.
+1. In the Azure portal, on the cluster page, select the **Connection strings** menu item, and then copy the **psql** connection string.
 
-   ![get connection string](media/quickstart-connect-psql/get-connection-string.png)
+   :::image type="content" source="media/quickstart-connect-psql/get-connection-string.png" alt-text="Screenshot that shows copying the psql connection string.":::
 
-   Find the string marked **psql**. It will be of the form, `psql
-   "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus
-   user=citus password={your_password} sslmode=require"`
+   The **psql** string is of the form `psql "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`. Notice that the host name starts with a `c.`, for example `c.demo.postgres.database.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` and `username` are `citus` and can't be changed.
 
-   * Copy the string.
-   * Replace "{your\_password}" with the administrative password you chose earlier.
-   * Notice the hostname starts with a `c.`, for instance
-     `c.demo.postgres.database.azure.com`. This prefix indicates the
-     coordinator node of the cluster.
-   * The default dbname and username is `citus` and can't be changed.
+1. In the connection string you copied, replace `{your_password}` with your administrative password.
 
-3. In a local terminal prompt, paste the psql connection string, *substituting
-   your password for the string `{your_password}`*, then press enter.
+1. In a local terminal prompt, paste the psql connection string, and then press Enter.
 
 ---
 
-**Next steps**
+## Next steps
 
 * Troubleshoot [connection issues](howto-troubleshoot-common-connection-issues.md).
 * [Verify TLS](howto-ssl-connection-security.md) certificates in your
