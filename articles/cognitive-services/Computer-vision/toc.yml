@@ -132,9 +132,9 @@ items:
       href: concept-generating-thumbnails.md
     - name: Adult content detection
       href: concept-detecting-adult-content.md
-    - name: Reading text
+    - name: Reading text (preview)
       href: concept-ocr.md
-    - name: People detection
+    - name: People detection (preview)
       href: concept-people-detection.md
   - name: Tutorials
     items:
