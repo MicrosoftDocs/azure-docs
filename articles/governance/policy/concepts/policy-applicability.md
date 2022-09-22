@@ -1,7 +1,7 @@
 ---
 title: Azure Policy applicability logic
 description: Describes the rules Azure Policy uses to determine whether the policy is applied to its assigned resources.
-ms.date: 05/23/2022
+ms.date: 09/22/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
