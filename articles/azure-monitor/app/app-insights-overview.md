@@ -70,7 +70,7 @@ For other scenarios, the [Application Insights SDK](https://docs.microsoft.com/d
 
 ### [Java](#tab/java)
 
-Auto-instrumentation is available for Java 3.x and above using the [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
 
 Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
 
@@ -82,7 +82,7 @@ The [Application Insights SDK](nodejs.md) is an alternative and we also have a p
 
 ### [JavaScript](#tab/javascript)
 
-JavaScript requires the installation of the [Application Insights SDK](javascript.md).
+JavaScript requires the [Application Insights SDK](javascript.md).
 
 ### [Python](#tab/python)
 
