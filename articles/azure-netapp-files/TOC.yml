@@ -81,13 +81,7 @@
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
-  - name: Availability zones
-    items: 
-    - name: Using availability zones for high availability 
-      href: using-availability-zones.md
-    - name: Data replication between availability zones for data redundancy
-      href: data-replication-between-availability-zones.md
-  - name: Data protection 
+  - name: Data protection and resiliency
     items:
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
@@ -97,12 +91,16 @@
         href: backup-introduction.md  
       - name: Requirements and considerations for Azure NetApp Files backup
         href: backup-requirements-considerations.md
-    - name: Cross-region replication
+    - name: Disaster recovery with cross-region replication
       items: 
       - name: Understand cross-region replication
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
+    - name: High availability and resiliency with availability zones and cross-zone replication
+      items: 
+      - name: Using availability zones for high availability 
+        href: using-availability-zones.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -217,8 +215,6 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
-    - name: Manage availability zone volume placement
-      href: manage-availability-zone-volume-placement.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
@@ -295,10 +291,14 @@
         href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
-    - name: Manage cross-region replication
+    - name: Manage replication
       items:
-      - name: Create volume replication
+      - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
+      - name: Manage availability zones and cross-zone replication
+        items:
+        - name: Manage availability zone volume placement
+          href: manage-availability-zone-volume-placement.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
       - name: Manage disaster recovery

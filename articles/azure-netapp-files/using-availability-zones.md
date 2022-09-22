@@ -1,5 +1,5 @@
 ---
-title: Using availability zones in Azure NetApp Files for high availability  | Microsoft Docs
+title: Using availability zones for high availability in Azure NetApp Files | Microsoft Docs
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,22 +12,30 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.author: anfdocs
 ---
-# Using availability zones in Azure NetApp Files for high availability 
+# Using availability zones for high availability in Azure NetApp Files
 
-Azure’s push towards the use of [availability zones](../availability-zones/az-overview.md#availability-zones) (AZs) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in [Azure’s Well Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. 
+Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. 
 
-Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption.  
+>[!IMPORTANT]
+> Availability zones are referred to as _logical zones_. Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and the mapping will be different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription. 
 
-Availability zones are referred to as *logical zones*. Each data center is assigned to a *physical zone*. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping when a subscription is created. Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
+Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 
-This feature lets you deploy new volumes in the logical availability zone of your choice. However, *it does not constitute (close) proximity towards other Azure resources (like VMs), nor does it guarantee lowest possible latencies.*
+The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
+
+Azure NetApp Files lets you deploy volumes in availability zones. The Azure NetApp Files [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in the logical availability zone of your choice, in alignment with Azure compute and other services in the same zone.  
 
 The following diagram summarizes availability zone volume placement for Azure NetApp Files:   
 
-[ ![Diagram that summarizes availability zone volume placement for Azure NetApp Files.](../media/azure-netapp-files/availability-zone-volume-placement.png) ](../media/azure-netapp-files/availability-zone-volume-placement.png#lightbox)
+:::image type="content" source="../media/azure-netapp-files/availability-zone-volume-placement.png" alt-text="Diagram that summarizes availability zone volume placement for Azure NetApp Files." lightbox="../media/azure-netapp-files/availability-zone-volume-placement.png":::
+
+>[!IMPORTANT]
+>Azure NetApp Files availability zone volume placement provides zonal placement. It doesn't provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee, VM-to-storage latencies are within the availability zone latency envelopes. 
+
+Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
 ## Supported regions
 
@@ -53,4 +61,6 @@ Availability zones are available in the following regions for Azure NetApp Files
 * West US 2
 * West US 3
 
-<!-- Geert to provide info -->
+## Next steps
+
+* [Manage availability zone volume placement](manage-availability-zone-volume-placement.md)
