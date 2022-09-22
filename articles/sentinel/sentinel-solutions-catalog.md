@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 Solutions in Microsoft Sentinel provide a consolidated way to acquire Microsoft Sentinel content, like data connectors, workbooks, analytics, and automation, in your workspace with a single deployment step.
 
-This article lists the domain specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace. For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security?filters=solution-templates&page=1).
+This article lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace. For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 
 When you deploy a solution, the security content included with the solution, such as data connectors, playbooks, or workbooks, are available in the relevant views for the content. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
