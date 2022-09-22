@@ -260,7 +260,7 @@
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
