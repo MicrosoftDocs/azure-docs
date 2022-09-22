@@ -201,6 +201,14 @@ Use the [az rest][az-rest] command to invoke a custom request to establish the f
 az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${UAID}/federatedIdentityCredentials/${FICID}?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}','audiences':['api://AzureADTokenExchange'] }}"
 ```
 
+The following output resembles successful creation of the identity:
+
+```output
+NAME
+-----
+federatedIdentityName
+```
+
 ## Deploy the workload
 
 Run the following to deploy a pod that references the service account created in the previous step.
@@ -230,7 +238,7 @@ EOF
 The following output resembles successful creation of the pod:
 
 ```output
-Pod/quick-start created
+pod/quick-start created
 ```
 
 To check whether all properties are injected properly by the webhook, use
