@@ -148,6 +148,7 @@ However, the following steps are performed only for `forecasting` task types:
 * Create features based on time series identifiers to enable fixed effects across different series
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
+* Detect the non-stationary time series and automatically differencing them to mitigate the impact of unit roots.
 
 To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer).
 
