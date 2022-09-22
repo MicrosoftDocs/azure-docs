@@ -86,7 +86,6 @@ The following table describes the out-of-the-box analytics rules provided in the
 
 
 
-    >
 
 ## Investigate Defender for IoT incidents
 
