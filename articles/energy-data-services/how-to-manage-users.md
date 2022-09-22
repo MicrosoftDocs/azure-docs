@@ -123,6 +123,7 @@ Run the below curl command in Azure Cloud Bash to add user(s) to the "Users" gro
 ```
 > [!NOTE]
 > The value to be sent for the param "email" is the Object ID of the user and not the user's email
+
 **Sample request**
 
 ```bash
