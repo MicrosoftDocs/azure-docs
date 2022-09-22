@@ -19,17 +19,25 @@ ms.custom: references_regions
 
 # Understand cross-zone replication of Azure NetApp Files
 
-Cross-zone replication enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
+In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in Using availability zones for high availability. However, often simpler, more cost-effective approaches are considered by using storage-based data replication instead.  
 
-Cross-zone replication builds on the existing workflows of [cross-region replication (generally available)](cross-region-replication-introduction.md) and the availability zone volume placement feature (in private preview). The existing feature of Azure NetApp Files cross-region replication provides data protection through cross-region volume replication. 
+Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
-To establish a cross-zone replication relationship, you create the source volume within an availability zone. The destination volume must be created in a different availability zone in the same Azure region. 
+## Service-level objectives 
 
-Compared to cross-region replication, a cross-zone replication setup provides the following benefits: 
-* Data protection within the same region
-* Failure domain isolation down to the availability zone level
-* With the help of availability zone volume placement feature, bring volumes into the same availability zone as the consuming compute resources
-* Cost saving: there are no network transfers costs
+Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer. 
+
+* For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes. 
+
+* For the hourly replication schedule, the typical RPO is less than two hours. 
+
+* For the daily replication schedule, the typical RPO is less than two days. 
+
+Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute. 
+
+## Cost model for cross-zone replication 
+
+Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand-storage-hierarchy.md#capacity_pools). As such, the cost for cross-zone replication is based on the provisioned capacity pool size and tier as normal. There is no additional cost for data replication.	 
 
 ## Next steps
 

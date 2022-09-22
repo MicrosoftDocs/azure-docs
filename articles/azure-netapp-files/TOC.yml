@@ -91,13 +91,13 @@
         href: backup-introduction.md  
       - name: Requirements and considerations for Azure NetApp Files backup
         href: backup-requirements-considerations.md
-    - name: Cross-region replication
+    - name: Disaster recovery with cross-region replication
       items: 
       - name: Understand cross-region replication
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
-    - name: Cross-zone replication 
+    - name: High availability and resiliency with availability zones and cross-zone replication
       items: 
       - name: Understand cross-zone replication 
         href: cross-zone-replication-introduction.md
@@ -297,8 +297,10 @@
       items:
       - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
-      - name: Create cross-zone replication 
-        href: create-cross-zone-replication.md
+      - name: Manage availability zones and cross-zone replication 
+        items: 
+        - name: Create cross-zone replication 
+          href: create-cross-zone-replication.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
       - name: Manage disaster recovery
