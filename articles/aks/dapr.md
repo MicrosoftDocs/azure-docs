@@ -304,12 +304,7 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires the following URLs on `https://:443` to function.
-
-| URL | Description |
-| --- | ----------- |
-| `https://mcr.microsoft.com/daprio` | Required `mcr` URL for pulling Dapr artifacts. |
-| `https://<region>.dp.kubernetesconfiguration.azure.com/` | Configuration URL for AKS extension. [Learn more about this network requirement](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). Includes a region prefix. [Change this prefix based on region](#cloudsregions). |
+The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). 
 
 ## Troubleshooting extension errors
 
