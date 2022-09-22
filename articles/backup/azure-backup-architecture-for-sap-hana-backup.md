@@ -120,7 +120,7 @@ In the following section you'll learn about the backup flow for new/existing mac
 This section provides you an understanding about the backup process of an HANA database with HANA System replication enabled running on a new Azure VM.
 
 1. Create a custom user and `hdbuserstore` key on all the nodes. 
-1. Run the pre-registration script on both the nodes <link to run-the-pre-registration-script section> with the custom user as the backup user to implement an ID, which indicates that both the nodes belong to a unique/common group. 
+1. Run the pre-registration script on both the nodes with the custom user as the backup user to implement an ID, which indicates that both the nodes belong to a unique/common group. 
 1. During HANA protection configuration, select both the nodes for discovery. This helps to identify both nodes as a single database which you can associate with a policy and protect
 
 
@@ -134,7 +134,7 @@ This section provides you an understanding about the backup process of an HANA d
 
    :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/rediscover-databases-inline.png" alt-text="Screenshot showing you about how to rediscover a database." lightbox="./media/azure-backup-architecture-for-sap-hana-backup/rediscover-databases-expanded.png":::
 
-1. Configure backup for the newly created replicated database from Step 2 of configure backup <link to configure backup in the next doc>.
+1. Configure backup for the newly created replicated database from Step 2 of configure backup.
 1. Delete the backup data of the older standalone backup items for which protection was paused.
 
 >[!Note]

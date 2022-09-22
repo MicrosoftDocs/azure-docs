@@ -412,6 +412,8 @@
       items:
       - name: Database
         href: backup-azure-sap-hana-database.md
+      - name: Database with HANA system replication
+        href: sap-hana-database-with-hana-system-replication-backup.md
       - name: Snapshots
         href: sap-hana-database-instances-backup.md
     - name: Restore
