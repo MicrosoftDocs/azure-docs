@@ -363,7 +363,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## Additional resources
 
-- To set up DNS name resolution for internal services, you must set up [DNS](./networking.md#dns).
+- To use VNET-scope ingress, you must set up [DNS](./networking.md#dns).
 
 ## Next steps
 
