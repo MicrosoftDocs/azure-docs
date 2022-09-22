@@ -1,12 +1,12 @@
 ---
 title: Data-in Replication - Azure Database for MySQL
 description: Learn about using Data-in Replication to synchronize from an external server into the Azure Database for MySQL service.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 04/08/2021
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Replicate data into Azure Database for MySQL
@@ -39,6 +39,10 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 ## Supported in General Purpose or Memory Optimized tier only
 
 Data-in Replication is only supported in General Purpose and Memory Optimized pricing tiers.
+
+## Private Link support
+
+The private link for Azure database for MySQL support only inbound connections. As data-in replication requires outbound connection from service private link is not supported for the data-in traffic.
 
 >[!Note]
 >GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).

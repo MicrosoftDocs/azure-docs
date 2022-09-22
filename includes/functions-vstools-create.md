@@ -20,7 +20,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that runs in-process with version 3.x of the Azure Functions runtime. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
+    | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |
@@ -32,7 +32,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 5 (Isolated)** | This value creates a function project that runs in an isolated process, which supports .NET 5.0. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
+    | **.NET version** | **.NET 6 Isolated** | This value creates a function project that runs in an isolated process, which supports .NET 6.0. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |

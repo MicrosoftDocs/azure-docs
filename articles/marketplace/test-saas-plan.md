@@ -1,7 +1,6 @@
 ---
 title: How to test a SaaS plan - Azure Marketplace
 description: Learn how to test a SaaS plan before publishing your offer live.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

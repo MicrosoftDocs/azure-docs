@@ -8,11 +8,13 @@ ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 11/18/2021
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -31,9 +33,9 @@ Unlike classical time series methods, in automated ML, past time-series values a
 
 For this article you need, 
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
@@ -46,20 +48,25 @@ The most important difference between a forecasting regression task type and reg
 
 You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
-For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is  used for validation by default. Pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
+For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
-![rolling origin cross validation](./media/how-to-auto-train-forecast/rolling-origin-cross-validation.svg)
+:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
 
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+Pass your training and validation data as one dataset to the parameter `training_data`. Set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`. You can also leave either or both parameters empty and AutoML will set them automatically. 
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
                              training_data= training_data,
-                             n_cross_validations=3,
+                             n_cross_validations="auto", # Could be customized as an integer
+                             cv_step_size = "auto", # Could be customized as an integer
                              ...
                              **time_series_settings)
 ```
+
+
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
@@ -92,7 +99,6 @@ The following code,
 * Sets the `time_column_name` to the `day_datetime` field in the data set. 
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
 
-
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
@@ -116,10 +122,11 @@ automl_config = AutoMLConfig(task='forecasting',
                              enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
-                             n_cross_validations=5,
+                             n_cross_validations="auto", # Could be customized as an integer
+                             cv_step_size = "auto", # Could be customized as an integer
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **forecasting_parameters)
+                             forecasting_parameters=forecasting_parameters)
 ```
 
 The amount of data required to successfully train a forecasting model with automated ML is influenced by the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified when you configure your `AutoMLConfig`. 
@@ -142,7 +149,7 @@ However, the following steps are performed only for `forecasting` task types:
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
-To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer.timeindexfeaturizer).
+To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer).
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -222,7 +229,7 @@ To enable deep learning, set the `enable_dnn=True` in the `AutoMLConfig` object.
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **forecasting_parameters)
+                             forecasting_parameters=forecasting_parameters)
 ```
 > [!Warning]
 > When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
@@ -274,6 +281,7 @@ The following table summarizes the available settings for `short_series_handling
 ## Run the experiment 
 
 When you have your `AutoMLConfig` object ready, you can submit the experiment. After the model finishes, retrieve the best run iteration.
+
 
 ```python
 ws = Workspace.from_config()
@@ -352,7 +360,8 @@ automl_settings = {"task" : 'forecasting',
                    "iterations" : 15,
                    "experiment_timeout_hours" : 1,
                    "label_column_name" : 'Quantity',
-                   "n_cross_validations" : 3,
+                   "n_cross_validations" : "auto", # Could be customized as an integer
+                   "cv_step_size" : "auto", # Could be customized as an integer
                    "time_column_name": 'WeekStarting',
                    "max_horizon" : 6,
                    "track_child_runs": False,
@@ -404,7 +413,9 @@ automl_settings = {"task" : "forecasting",
                    "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
                    "iteration_timeout_minutes" : 10,
                    "iterations" : 10,
-                   "n_cross_validations": 2}
+                   "n_cross_validations" : "auto", # Could be customized as an integer
+                   "cv_step_size" : "auto", # Could be customized as an integer
+                   }
 
 hts_parameters = HTSTrainParameters(
     automl_settings=automl_settings,
@@ -426,6 +437,6 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
-* Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.
+

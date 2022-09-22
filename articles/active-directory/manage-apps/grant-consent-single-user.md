@@ -1,7 +1,6 @@
 ---
 title: Grant consent on behalf of a single user
 description: Learn how to grant consent on behalf of a single user when user consent is disabled or restricted.
-titleSuffix: Azure AD
 services: active-directory
 author: psignoret
 manager: CelesteDG

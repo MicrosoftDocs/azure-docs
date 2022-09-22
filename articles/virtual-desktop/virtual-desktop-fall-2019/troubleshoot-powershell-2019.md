@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop (classic) PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Azure Virtual Desktop (classic) tenant environment.
+description: How to troubleshoot issues with PowerShell when you set up an Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 04/05/2022
@@ -78,7 +78,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
 > [!NOTE]
-> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (Azure AD).
 
 ## Error: SessionHostPool could not be deleted
 
@@ -93,7 +93,7 @@ Remove-RdsHostPool -TenantName <TenantName> -Name <HostPoolName>
 **Fix:** Run the following command to delete the session host. 
 
 ```powershell
-Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | remove-RdsSessionhost -Force
+Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | Remove-RdsSessionHost -Force
 ```
 
 Using the force command will let you delete the session host even if it has assigned users.
@@ -101,7 +101,7 @@ Using the force command will let you delete the session host even if it has assi
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in an Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)

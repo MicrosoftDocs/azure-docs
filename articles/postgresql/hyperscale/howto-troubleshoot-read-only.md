@@ -12,6 +12,8 @@ ms.date: 08/03/2021
 
 # Troubleshoot read-only access to Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 PostgreSQL can't run on a machine without some free disk space. To maintain
 access to PostgreSQL servers, it's necessary to prevent the disk space from
 running out.

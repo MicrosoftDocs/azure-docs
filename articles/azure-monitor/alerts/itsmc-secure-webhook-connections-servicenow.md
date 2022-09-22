@@ -3,6 +3,7 @@ title: IT Service Management Connector - Secure Webhook in Azure Monitor - Confi
 description: This article shows you how to connect your ITSM products/services with ServiceNow on Secure Webhook in Azure Monitor.
 ms.topic: conceptual
 ms.date: 03/30/2022
+ms.reviewer: nolavime
 
 ---
 

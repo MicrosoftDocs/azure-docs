@@ -5,9 +5,13 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: references_regions, devx-track-js
+ms.reviewer: newylie
 ---
 
 # Application Insights overriding default endpoints
+
+> [!WARNING]
+> Endpoint modification is not recommended. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
 
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 

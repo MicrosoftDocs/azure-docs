@@ -4,7 +4,7 @@ description: Introduction to usage and insights report in the Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/13/2019
+ms.date: 08/26/2022
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ---
 
 # Usage and insights report in the Azure Active Directory portal
@@ -45,7 +45,7 @@ To access the data from the usage and insights report, you need:
 
 ## Use the report
 
-The usage and insights report shows the list of applications with one or more sign-in attempts, and allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
+The usage and insights report shows the list of applications with one or more sign-in attempts, and allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate. The sign-in graph per application only counts interactive user sign-ins.
 
 Clicking **Load more** at the bottom of the list allows you to view additional applications on the page. You can select the date range to view all applications that have been used within the range.
 

@@ -284,12 +284,16 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.***
-    - Will inform the application if remote video stream data is being received. Such cases are:
-	    - When the remote mobile participant has their video on and they put the browser app in the background, they will stop sending video stream data until the app is brought back to the foreground.
-		- When the remote participant has their video on and they have bad network connectivity and video is cutting off / lagging
-	- This feature improves the user experience for rendering remote video streams.
-	- You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage
+    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK.***
+    - Will inform the application if remote video stream data is being received or not. Such scenarios are:
+        - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag go to false and I see his video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true and I see his video playing normally.
+        - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, his video start to look pretty laggy, bad quality, probbaly because of network issues, so i see the RemoteVideoStream.isReceiving flag go to false.
+        - I am viewing the video of a Remote participant who is On MacOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I'll see a black/frozen video since they paused their camera and I'll see the RemoteVideoStream.isReceiving flag go to false. Once they resume playing the camera, then I'll see the RemoteVideoStream.isReceiving flag go to true.
+        - I am viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I'll see his video frozen/black frame, and ill see RemoteVideoStream.isReceiving flag go to false. The remote participant can get network back and reconnect and his audio/video should start flowing normally and I'll see the RemoteVideoStream.isReceiving flag to true.
+        - I am viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see him in the call and his video will be frozen, and so I'll see the RemoteVideoStream.isReceiving flag go to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
+        - I am viewing the video of a remote participant who is on mobile browser and they locks device. I'll see the RemoteVideoStream.isReceiving flag go to false and. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
+    - This feature improves the user experience for rendering remote video streams.
+    - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js
 const isReceiving: boolean = remoteVideoStream.isReceiving;
 ```

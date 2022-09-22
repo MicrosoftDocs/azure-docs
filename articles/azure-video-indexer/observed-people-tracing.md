@@ -2,14 +2,14 @@
 title: Trace observed people in a video
 description: This topic gives an overview of a Trace observed people in a video concept.
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2022
 ms.author: juliako
 ---
 
 # Trace observed people in a video (preview)
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including detection confidence.  
+Azure Video Indexer detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including detection confidence.  
  
 Some scenarios where this feature could be useful:
 

@@ -1,11 +1,13 @@
 ---
-title: Manage lab accounts in Azure Lab Services (deprecated) | Microsoft Docs
+title: Manage lab accounts in Azure Lab Services | Microsoft Docs
 description: Learn how to create a lab account, view all lab accounts, or delete a lab account in an Azure subscription.  
 ms.topic: how-to
 ms.date: 02/02/2022
 ---
 
-# Create and manage lab accounts (deprecated)
+# Create and manage lab accounts
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 In Azure Lab Services, a lab account is a container for labs. An administrator creates a lab account with Azure Lab Services and provides access to lab owners who can create labs in the account. This article describes how to create a lab account, view all lab accounts, and delete a lab account.
 
@@ -127,5 +129,5 @@ The **Shut down virtual machines when users do not connect** setting will catch 
 ## Next steps
 
 - As an admin, [configure automatic shutdown settings for a lab account](how-to-configure-lab-accounts.md).
-- As an admin, use the [Az.LabServices PowerShell module (preview)](https://aka.ms/azlabs/samples/PowerShellModule) to manage lab accounts.
+- As an admin, use the [Az.LabServices PowerShell module](https://aka.ms/azlabs/samples/PowerShellModule) to manage lab accounts.
 - As an educator, [configure automatic shutdown settings for a lab](how-to-enable-shutdown-disconnect.md).

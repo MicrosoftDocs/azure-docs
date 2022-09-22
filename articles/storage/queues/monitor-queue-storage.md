@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.author: normesta
 ms.reviewer: fryu
-ms.date: 05/06/2022
+ms.date: 05/23/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
@@ -623,7 +623,7 @@ Get started with any of these guides.
 
 | Guide | Description |
 |---|---|
-| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
 | [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of storage performance, capacity, and availability |
 | [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) | A tour of Metrics Explorer. 
 | [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md) | A tour of Log Analytics. |
@@ -631,3 +631,6 @@ Get started with any of these guides.
 | [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)| The basics of logs and how to collect and analyze them |
 | [Transition to metrics in Azure Monitor](../common/storage-metrics-migration.md) | Move from Storage Analytics metrics to metrics in Azure Monitor. |
 | [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md) | A reference of the logs and metrics created by Azure Queue Storage |
+| [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=/azure/storage/queues/toc.json)| Common performance issues and guidance about how to troubleshoot them. |
+| [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=/azure/storage/queues/toc.json)| Common availability issues and guidance about how to troubleshoot them.|
+| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/queues/toc.json)| Common issues with connecting clients and how to troubleshoot them.|

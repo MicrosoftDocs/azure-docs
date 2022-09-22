@@ -38,7 +38,7 @@ Each route contains an address prefix and next hop type. When traffic leaving a 
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Explanations for the next hop types follow:
 
-* **Virtual network**: Routes traffic between address ranges within the [address space](manage-virtual-network.md#add-or-remove-an-address-range) of a virtual network. Azure creates a route with an address prefix that corresponds to each address range defined within the address space of a virtual network. If the virtual network address space has multiple address ranges defined, Azure creates an individual route for each address range. Azure automatically routes traffic between subnets using the routes created for each address range. You don't need to define gateways for Azure to route traffic between subnets. Though a virtual network contains subnets, and each subnet has a defined address range, Azure doesn't* create default routes for subnet address ranges, because each subnet address range is within an address range of the address space of a virtual network.
+* **Virtual network**: Routes traffic between address ranges within the [address space](manage-virtual-network.md#add-or-remove-an-address-range) of a virtual network. Azure creates a route with an address prefix that corresponds to each address range defined within the address space of a virtual network. If the virtual network address space has multiple address ranges defined, Azure creates an individual route for each address range. Azure automatically routes traffic between subnets using the routes created for each address range. You don't need to define gateways for Azure to route traffic between subnets. Though a virtual network contains subnets, and each subnet has a defined address range, Azure doesn't create default routes for subnet address ranges. This is because each subnet address range is within an address range of the address space of a virtual network.
 * **Internet**: Routes traffic specified by the address prefix to the Internet. The system default route specifies the 0.0.0.0/0 address prefix. If you don't override Azure's default routes, Azure routes traffic for any address not specified by an address range within a virtual network, to the Internet, with one exception. If the destination address is for one of Azure's services, Azure routes the traffic directly to the service over Azure's backbone network, rather than routing the traffic to the Internet. Traffic between Azure services doesn't traverse the Internet, regardless of which Azure region the virtual network exists in, or which Azure region an instance of the Azure service is deployed in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](#custom-routes).  
 * **None**: Traffic routed to the **None** next hop type is dropped, rather than routed outside the subnet. Azure automatically creates default routes for the following address prefixes:  
 
@@ -117,11 +117,6 @@ The same command for CLI will be:
 ```azurecli-interactive
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
-
-
-#### Known Issues (April 2021)
-
-When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature doesn't currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
 
 ## Next hop types across Azure tools
 

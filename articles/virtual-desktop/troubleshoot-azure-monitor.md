@@ -3,13 +3,16 @@ title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Monitor for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/29/2021
+ms.date: 08/12/2022
 ms.author: helohr
 manager: femila
 ---
 # Troubleshoot Azure Monitor for Azure Virtual Desktop
 
 This article presents known issues and solutions for common problems in Azure Monitor for Azure Virtual Desktop.
+
+>[!IMPORTANT]
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Monitor currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Monitor by August 31, 2024.
 
 ## Issues with configuration and setup
 
@@ -27,7 +30,7 @@ If your data isn't displaying properly, check the following common solutions:
 
 - First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
 - Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
-    - Read-access to the Azure subscriptions that hold your Azure Virtual Desktop resources
+    - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
     - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
     - Read-access to whichever Log Analytics workspaces you're using
 - You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
@@ -52,7 +55,7 @@ Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glo
 If you want to monitor more Performance counters or Windows Event Logs, you can enable them to send diagnostics info to your Log Analytics workspace and monitor them in **Host Diagnostics: Host browser**. 
 
 - To add performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
-- To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
+- To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 

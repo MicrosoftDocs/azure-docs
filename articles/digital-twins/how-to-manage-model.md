@@ -47,7 +47,7 @@ This model defines a name and a unique ID for the patient room, and properties t
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
 > [!NOTE]
-> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
+> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
 
 ### Validate syntax
 
@@ -238,7 +238,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
+For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
 
 To delete an individual model, follow the instructions and considerations from the rest of this section.
 

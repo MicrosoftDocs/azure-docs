@@ -1,15 +1,16 @@
 ---
-title: Authentication and authorization in Azure Container Apps Preview
+title: Authentication and authorization in Azure Container Apps
 description: Use built-in authentication in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Authentication and authorization in Azure Container Apps Preview
+# Authentication and authorization in Azure Container Apps
 
 Azure Container Apps provides built-in authentication and authorization features (sometimes referred to as "Easy Auth"), to secure your external ingress-enabled container app with minimal or no code.
 

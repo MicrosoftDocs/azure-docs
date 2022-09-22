@@ -4,7 +4,7 @@ description: Use the JDBC driver from a Java application to submit Apache Hive q
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/20/2020
+ms.date: 06/08/2022
 ---
 
 # Query Apache Hive through the JDBC driver in HDInsight

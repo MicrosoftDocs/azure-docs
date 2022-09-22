@@ -28,11 +28,11 @@ To back up a SQL Server database to Azure and to recover it from Azure:
 * You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
 * When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) feature enabled.
 * When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream) feature enabled.
-* Protection for SQL Server AlwaysOn:
+* Protection for SQL Server Always On:
   * DPM detects Availability Groups when running inquiry at protection group creation.
   * DPM detects a failover and continues protection of the database.
   * DPM supports multi-site cluster configurations for an instance of SQL Server.
-* When you protect databases that use the AlwaysOn feature, DPM has the following limitations:
+* When you protect databases that use the Always On feature, DPM has the following limitations:
   * DPM will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
     * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
     * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
@@ -46,7 +46,7 @@ To back up a SQL Server database to Azure and to recover it from Azure:
     * Recovery to the original location isn't supported.
 * SQL Server 2014 or above backup issues:
   * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). DPM can't be used to protect this configuration.
-  * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. DPM always takes a backup from secondary. If no secondary can be found, then the backup fails.
+  * There are some known issues with "Prefer secondary" backup preference for the SQL Always On option. DPM always takes a backup from secondary. If no secondary can be found, then the backup fails.
 
 ## Before you start
 

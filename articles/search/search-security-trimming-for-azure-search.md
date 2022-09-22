@@ -13,7 +13,7 @@ ms.date: 12/16/2020
 
 # Security filters for trimming results in Azure Cognitive Search
 
-You can apply security filters to trim search results in Azure Cognitive Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
+You can apply security filters to trim search results in Azure Cognitive Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principals who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
 
 One way to achieve security filtering is through a complicated disjunction of equality expressions: for example, `Id eq 'id1' or Id eq 'id2'`, and so forth. This approach is error-prone, difficult to maintain, and in cases where the list contains hundreds or thousands of values, slows down query response time by many seconds. 
 

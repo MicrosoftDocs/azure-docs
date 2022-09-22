@@ -1,11 +1,12 @@
 ---
 title: PowerShell script to update the default consistency level on an Azure Cosmos account
 description: Azure PowerShell script sample - Update default consistency level on an Azure Cosmos DB account using PowerShell
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

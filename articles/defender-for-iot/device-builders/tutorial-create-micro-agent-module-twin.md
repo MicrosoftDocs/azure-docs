@@ -1,6 +1,6 @@
 ---
 title: Create a DefenderforIoTMicroAgent module twin (Preview)
-description: In this tutorial, you will learn how to create a DefenderIotMicroAgent module twin for new devices.
+description: In this tutorial, you'll learn how to create a DefenderIotMicroAgent module twin for new devices.
 ms.date: 01/16/2022
 ms.topic: tutorial
 ms.custom: mode-other
@@ -34,7 +34,7 @@ Defender for IoT uses the module twin mechanism, and maintains a Defender-IoT-mi
 
 To take full advantage of all Defender for IoT feature's, you need to create, configure, and use the Defender-IoT-micro-agent twins for every device in the service.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Create a DefenderIotMicroAgent module twin
@@ -83,10 +83,6 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 1. Under the Module identities menu, confirm the existence of the `DefenderIotMicroAgent` module in the list of module identities associated with the device.  
 
     :::image type="content" source="media/quickstart-create-micro-agent-module-twin/device-details-module.png" alt-text="Select module identities from the tab.":::
-
-## Clean up resources
-
-There are no resources to clean up.
 
 ## Next steps
 

@@ -4,7 +4,8 @@ description: Demonstrates how to deploy Azure Arc-enabled data services in indir
 author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data-sqlmi
 ms.topic: quickstart 
 ms.date: 12/09/2021
 ms.custom: template-quickstart , devx-track-azurecli
@@ -25,7 +26,7 @@ When you complete the steps in this article, you will have:
 
 Use these objects to experience Azure Arc-enabled data services. 
 
-Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL Hyperscale data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
+Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL server data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
 
 ## Install client tools
 
@@ -160,7 +161,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance
+## Create an instance of Azure Arc-enabled SQL Managed Instance
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
 

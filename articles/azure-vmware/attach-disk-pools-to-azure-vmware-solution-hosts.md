@@ -2,6 +2,7 @@
 title: Attach Azure disk pools to Azure VMware Solution hosts (Preview)
 description: Learn how to attach an Azure disk pool surfaced through an iSCSI target as the VMware vSphere datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and consume them from your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 11/02/2021
 #Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware vSphere environment to disk storage for the secondary site.
 ms.custom: ignite-fall-2021, devx-track-azurecli 

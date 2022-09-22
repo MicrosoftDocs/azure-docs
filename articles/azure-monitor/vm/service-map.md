@@ -5,12 +5,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
+ms.reviewer: Xema Pathak
 
 ---
 
 # Using Service Map solution in Azure
 
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
+
+> [!IMPORTANT]
+> Service map will be retired on 30 September 2025. To monitor connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, make sure to [migrate to Azure Monitor VM insights](../vm/vminsights-migrate-from-service-map.md) before this date.
 
 This article describes the details of onboarding and using Service Map. The prerequisites of the solution are the following:
 

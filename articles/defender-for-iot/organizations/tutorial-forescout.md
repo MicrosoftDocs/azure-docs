@@ -1,6 +1,6 @@
 ---
 title: Integrate Forescout with Microsoft Defender for IoT
-description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Forescout.
+description: In this tutorial, you'll learn how to integrate Microsoft Defender for IoT with Forescout.
 ms.topic: tutorial
 ms.date: 02/08/2022
 ms.custom: template-tutorial
@@ -40,11 +40,11 @@ In this tutorial, you learn how to:
 > - View device attributes in Forescout
 > - Create Microsoft Defender for IoT policies in Forescout
 
-If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- Microsoft Defender for IoT version 2.4 or above
+- Microsoft Defender for IoT version 2.4 or above 
 
 - Forescout version 8.0 or above
 
@@ -121,7 +121,7 @@ To make the Forescout platform, communicate with a different sensor, the configu
 
 ## Verify communication
 
-Once the connection has been configured, you will need to confirm that the two platforms are communicating.
+Once the connection has been configured, you'll need to confirm that the two platforms are communicating.
 
 **To confirm the two platforms are communicating**:
 
@@ -196,7 +196,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Forescout integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
+In this article, you learned how to get started with the Forescout integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
 
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-palo-alto.md)
+

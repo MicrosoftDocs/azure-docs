@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 09/16/2022
 ms.author: eur
 ---
 
@@ -35,12 +35,15 @@ When preparing your text file, make sure it:
   * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
+> [!NOTE]
+> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The `audio`, `mstts:backgroundaudio`, and `lexicon` elements are not supported by Long Audio API. The `audio` and `lexicon` elements will be ignored without any error message. The `mstts:backgroundaudio` element will cause the systhesis task failure. If your synthesis task fails, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
+
 ## Sample code
 
 The rest of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
 
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/LongAudioAPI/CSharp/LongAudioAPISample)
 * [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## Python example
@@ -57,7 +60,7 @@ These libraries are used to construct the HTTP request, and call the text-to-spe
 
 ### Get a list of supported voices
 
-The Long Audio API supports a subset of [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./language-support.md#custom-neural-voice).
+The Long Audio API supports a subset of [Public Neural Voices](language-support.md?tabs=stt-tts) and [Custom Neural Voices](language-support.md?tabs=stt-tts).
 
 To get a list of supported voices, send a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
@@ -80,7 +83,7 @@ get_voices()
 
 Replace the following values:
 
-* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<your_key>` with your Speech resource key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
 You'll see output that looks like this:
@@ -163,10 +166,10 @@ submit_synthesis()
 
 Replace the following values:
 
-* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<your_key>` with your Speech resource key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input_file_path>` with the path to the text file you've prepared for text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#prebuilt-neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md?tabs=stt-tts).
 
 Use one of the voices returned by your previous call to the `/voices` endpoint.
 
@@ -416,8 +419,8 @@ The following table details the HTTP response codes and messages from the REST A
 
 | API | HTTP status code | Description | Solution |
 |-----|------------------|-------------|----------|
-| Create | 400 | The voice synthesis is not enabled in this region. | Change the speech subscription key with a supported region. |
-|        | 400 | Only the **Standard** speech subscription for this region is valid. | Change the speech subscription key to the "Standard" pricing tier. |
+| Create | 400 | The voice synthesis is not enabled in this region. | Change the speech resource key with a supported region. |
+|        | 400 | Only the **Standard** speech resource for this region is valid. | Change the speech resource key to the "Standard" pricing tier. |
 |        | 400 | Exceed the 20,000 request limit for the Azure account. Remove some requests before submitting new ones. | The server will keep up to 20,000 requests for each Azure account. Delete some requests before submitting new ones. |
 |        | 400 | This model cannot be used in the voice synthesis: {modelID}. | Make sure the {modelID}'s state is correct. |
 |        | 400 | The region for the request does not match the region for the model: {modelID}. | Make sure the {modelID}'s region match with the request's region. |

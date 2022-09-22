@@ -57,6 +57,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure SQL Always Encryption](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protects sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
 | [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| A database security feature that encrypts the storage of an entire database. |
 | [Azure SQL Database Auditing](/azure/azure-sql/database/auditing-overview)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
+| [Virtual network rules](/azure/azure-sql/database/vnet-service-endpoint-rule-overview)|A firewall security feature that controls whether the server for your databases and elastic pools in Azure SQL Database or for your dedicated SQL pool (formerly SQL DW) databases in Azure Synapse Analytics accepts communications that are sent from particular subnets in virtual networks.  |
 
 
 ## Identity and access management
@@ -88,3 +89,4 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
 |[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|
+|[Azure Private Link](../../private-link/private-link-overview.md)|Provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services.|
