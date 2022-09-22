@@ -614,6 +614,8 @@
         href: cybersolutions-cybermail-tutorial.md  
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
+      - name: Cytric
+        href: cytric-tutorial.md   
     - name: D - E
       items:
       - name: Dagster Cloud
