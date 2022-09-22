@@ -38,7 +38,7 @@ The complexity of attacks (for example, multi-vector DDoS attacks) and the appli
 
 - Minimizing false positives, considering that the scale of Azure allows it to absorb a significant amount of traffic.
 
-:::image type="content" source="./media/ddos-best-practices/ddos-protection-real-time-tuning.png" alt-text="Diagram of how DDoS Protection works, with 'Policy Generation' circled." lightbox="./media/ddos-best-practices/ddos-protection-real-time-tuning.png":::
+:::image type="content" source="./media/ddos-best-practices/ddos-protection-real-time-tuning.png" alt-text="Diagram of how DDoS Protection works." lightbox="./media/ddos-best-practices/ddos-protection-real-time-tuning.png":::
 
 ## DDoS Protection telemetry, monitoring, and alerting
 
@@ -50,7 +50,7 @@ In the Azure portal, select **Monitor** > **Metrics**. In the **Metrics** pane, 
 
 DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP, and UDP) for each public IP of the protected resource, in the virtual network that has DDoS enabled. You can view the policy thresholds by selecting the metric **Inbound packets to trigger DDoS mitigation**.
 
-:::image type="content" source="./media/ddos-best-practices/ddos-protection-mitigation-metrics.png" alt-text="Screenshot of available metrics and metrics chart circled." lightbox="./media/ddos-best-practices/ddos-protection-mitigation-metrics.png":::
+:::image type="content" source="./media/ddos-best-practices/ddos-protection-mitigation-metrics.png" alt-text="Screenshot of available metrics and metrics chart." lightbox="./media/ddos-best-practices/ddos-protection-mitigation-metrics.png":::
 
 The policy thresholds are auto-configured via machine learning-based network traffic profiling. DDoS mitigation occurs for an IP address under attack only when the policy threshold is exceeded.
 
@@ -58,7 +58,7 @@ The policy thresholds are auto-configured via machine learning-based network tra
 
 If the public IP address is under attack, the value for the metric **Under DDoS attack or not** changes to 1 as DDoS Protection performs mitigation on the attack traffic.
 
-:::image type="content" source="./media/ddos-best-practices/ddos-protection-ddos-attack.png" alt-text="Screenshot of 'Under DDoS attack or not' metric and chart." lightbox="./media/ddos-best-practices/ddos-protection-ddos-attack.png":::
+:::image type="content" source="./media/ddos-best-practices/ddos-protection-ddos-attack.png" alt-text="Screenshot of Under DDoS attack or not metric and chart." lightbox="./media/ddos-best-practices/ddos-protection-ddos-attack.png":::
 
 We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
 
