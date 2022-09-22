@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/22/2022
 ---
 
 # Create a tumbling window trigger dependency
@@ -26,7 +26,7 @@ For a demonstration on how to create dependent pipelines using tumbling window t
 
 To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the changes for the dependencies to take effect.
 
-:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Dependency Creation":::
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Screenshot of the dependency creation window." lightbox="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png":::
 
 ## Tumbling window dependency properties
 
