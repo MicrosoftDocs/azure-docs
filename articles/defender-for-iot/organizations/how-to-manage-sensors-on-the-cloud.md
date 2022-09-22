@@ -109,6 +109,7 @@ When onboarding a new OT sensor to the Defender for IoT, you can add it to a new
 To edit a site's details, select the site's name on the **Sites and sensors** page. In the **Edit site** pane that opens on the right, modify any of the following values:
 
 - **Display name**: Enter a meaningful name for your site.
+
 - **Tags**: (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag.
 - **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel. In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
 
