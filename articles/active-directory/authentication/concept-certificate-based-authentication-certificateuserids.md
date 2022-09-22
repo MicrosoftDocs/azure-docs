@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 # CertificateUserIds 
 
-Azure AD has added a new user object attribute **CertificateUserIds**, which is multivalued. The attribute allows up to four values and each value can be of 120-character length. This attribute can store any value and doesn't need to be in email Id format. It can store non-routable UPNs like _bob@contoso_ or _bob@local_.
+Azure AD has added a new user object attribute **CertificateUserIds**, which is multivalued. The attribute allows up to four values and each value can be of 120-character length. This attribute can store any value and doesn't need to be in email Id format. It can store non-routable UPNs like _bob@woodgrove or _bob@local_.
  
 ## Supported patterns for certificateUserIds
  
@@ -27,9 +27,9 @@ The values stored in certificateUserIds should be in the format described in the
  
 |Certificate mapping ield | Examples of values in CertificateUserIds |
 |--------------------------|--------------------------------------|
-|PrincipalName | “X509:\<PN\>bob@contoso.com” |
-|PrincipalName | “X509:\<PN>bob@contoso”     | 
-|RFC822Name	| “X509:\<RFC822\>user@contoso.com” |
+|PrincipalName | “X509:\<PN\>bob@woodgrove.com” |
+|PrincipalName | “X509:\<PN>bob@woodgrove”     | 
+|RFC822Name	| “X509:\<RFC822\>user@woodgrove.com” |
 | X509SKI | “X509:\<SKI\>123456789abcdef”|
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY\>123456789abcdef” |
  
