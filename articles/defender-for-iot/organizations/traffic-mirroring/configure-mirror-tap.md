@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 
 
-## Configure traffic mirroring with active or passive aggregation (TAP)
+# Configure traffic mirroring with active or passive aggregation (TAP)
 
 When using active or passive aggregation to mirror traffic, an active or passive aggregation terminal access point (TAP) is installed inline to the network cable. The TAP duplicates both *Receive* and *Transmit* traffic to the OT network sensor so that you can monitor the traffic with Defender for IoT.
 
