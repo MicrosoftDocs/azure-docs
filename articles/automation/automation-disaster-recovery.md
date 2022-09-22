@@ -79,11 +79,12 @@ You can use this PowerShell script for migration of Automation account assets fr
  1. Ensure that the primary Automation account's Managed Identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
  1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](../automation/migrate-run-as-accounts-managed-identity.md).
- 1. Modules required:
-    - Az.Accounts version 2.8.0 
-    - Az.Resources version 6.0.0 
-    - Az.Automation version 1.7.3 
-    - Az.Storage version 4.6.0 
+ 1. Modules required are:
+ 
+      - Az.Accounts version 2.8.0 
+      - Az.Resources version 6.0.0 
+      - Az.Automation version 1.7.3 
+      - Az.Storage version 4.6.0 
 
 ### Create and execute the runbook
 You can use the[PowerShell script](https://github.com/Ab0907/Migrate-Automation-account-from-one-region-to-another) or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
