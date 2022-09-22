@@ -52,5 +52,5 @@ landingContent:
             url: configure-catalog-item.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
-          - text: Configure an environment type
-            url: how-to-configure-environment-types.md
+          - text: Configure a dev center environment type
+            url: how-to-configure-devcenter-environment-types.md
