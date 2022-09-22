@@ -96,7 +96,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <load balancer resou
 ### Example: retry a failed upgrade (due to error or script termination) by providing the Basic load balancer and VMSS backup state file
 
 ```powerhsell
-PS C:\> Start-AzBasicLoadBalancerMigration -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
+PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ## Common Questions
