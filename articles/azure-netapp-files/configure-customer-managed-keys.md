@@ -128,7 +128,46 @@ Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./
 
 Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
 
-:::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot Azure-AsyncOperation command." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
+
+```bash
+---------- RESPONSE (6363ms) ----------
+HTTP/1.1 202 Accepted
+Content-Length: 848
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Pragma: no-cache
+x-ms-request-id: <request ID>
+Azure-AsyncOperation: https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultId>?api-version=2022-03-01
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: <correlation-request-id>
+x-ms-routing-request-id: LOCATION:TIMESTAMP:<routing-request-id>
+Strict-Transport-Security: max-age=315360000; includeSubDuomains
+X-Content-Type-Options: noniff
+Cache-Control: no-cache
+Date: Mon, 16 May 2022 13:59:09 GMT
+ETag: W/"datetime"2022-05-16-T13%3A59%3A10.1633
+Location: https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultsID>?api-version=2022-03-01
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+```
+
+```azurecli
+armclient get https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultsID>?api-version=2022-03-01
+```
+
+```json
+{
+"id": "/subscriptions/<subscriptionID>/providres/Microsoft.NetApp/locations/<region>/operationResults/<operationResultsID>",
+"name": "<operationResultsID>",
+"status": "Succeeded",
+"startTime": "2022-05-16T13:59:10.1809382Z",
+"endTime": "2022-05-16T13:59:13.638715Z",
+"percentComplete": 100.0,
+"properties": {
+	"resourceName": "/subscriptions/<subscriptionID>/resourceGroups/<userID>-rotterdam-<region>/providers/Microsoft.NetApp/netAppAccounts/<account>"
+	}
+}
+```
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
