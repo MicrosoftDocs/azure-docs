@@ -435,7 +435,7 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume which then reduces your cost. Azure Monitor provides a custom sampler that is specially designed to preserve your traces across services using existing Application Insights SDKs.
+You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. [Learn More about sampling.](sampling.md#brief-summary)
 
 #### [.NET](#tab/net)
 
@@ -452,7 +452,7 @@ Placeholder
 ---
 
 > [!TIP]
-> Setting your sampling rate requires a tradeoff between cost-optimization and accuracy. The Azure Monitor sampler uses fixed-rate sampling which, for example, multiplies exception count by a factor to compensate for the sampling rate. Setting the sampling rate too low can lead to wildly innacurate log-based metrics, especially for uncommon events. Many users start at 5% and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy.
+> If you're not sure where to set the sampling rate, start at 5% and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy.
 
 > [!TIP]
 > OpenTelemetry pre-aggregated metrics generated from instrumentation libraries or via custom metrics bypass sampling and therefore are highly accurate for alerting. Even though log-based metrics power some experiences in Application Insights including parts of the failures and performance blades, we recommend using pre-aggregated metrics for alerting whenever possible.
