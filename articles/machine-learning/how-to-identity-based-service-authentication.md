@@ -243,7 +243,7 @@ from azure.ai.ml.entities import IdentityConfiguration, AmlCompute
 from azure.ai.ml.constants import IdentityType
 
 # Create an identity configuration for a system-assigned managed identity
-identity_config = IdentityConfiguration(type = IdentityType..SYSTEM_ASSIGNED)
+identity_config = IdentityConfiguration(type = IdentityType.SYSTEM_ASSIGNED)
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
