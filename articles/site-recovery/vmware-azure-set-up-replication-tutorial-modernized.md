@@ -54,13 +54,13 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAD apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAzure Active Directory apps.
 
 **Follow these steps to assign required permissions**:
 
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
 ## Prepare an account for automatic discovery
 
