@@ -78,8 +78,6 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
 
-![Attack alert](./media/manage-ddos-protection/ddos-alert.png)
-
 :::image type="content" source="./media/manage-ddos-protection/ddos-alert.png" alt-text="Screenshot of a DDoS Attack Alert." lightbox="./media/manage-ddos-protection/ddos-alert.png":::
 
 You can also learn more about [configuring webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
