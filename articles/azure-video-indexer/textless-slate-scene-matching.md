@@ -1,6 +1,6 @@
 ---
-title: Slate detection insights
-description: Learn about slate detection insights.
+title: Enable and view a textless slate with matching scene
+description: Learn about how to enable and view a textless slate with matching scene.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -15,13 +15,21 @@ This article shows how to enable and view  a textless slate with matching scene 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::
 
-## View the insight
+## View post-production insights
 
-## View JSON
+In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
 
-```json
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
 
-```
+After the file has been uploaded and indexed, if you want to view the timeline of the insight, select the **Post-production** checkmark from the list of insights.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
+
+### Insight
+
+This insight can only be viewed in the form of the downloaded json file.
 
 ## Next steps
 

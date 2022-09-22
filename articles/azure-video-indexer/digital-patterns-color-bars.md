@@ -1,6 +1,6 @@
 ---
-title: Slate detection insights
-description: Learn about slate detection insights.
+title: Enable and view digital patterns with color bars
+description: Learn about how to enable and view digital patterns with color bars.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -12,6 +12,11 @@ ms.author: juliako
 
 This article shows how to enable and view digital patterns with color bars (preview). 
 
+You can view the names of the specific digital patterns. <!-- They are searchable by the color bar type (Color Bar/Test card) in the insights. -->The timeline includes the following types: 
+
+- Color Bar
+- Test card
+
 ## View post-production insights
 
 In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
@@ -19,15 +24,38 @@ In order to set the index process to include the slate metadata, the user should
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
 
-After the file has been uploaded and indexed, select the "Post-production" checkmark from the list of insights.
+After the file has been uploaded and indexed, if you want to view the timeline of the insight, select the **Post-production** checkmark from the list of insights.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
 
-### Labels
+### View digital patterns insights
+
+#### View the insight
+
+To see the instances on the website, select **Insights** and scroll to **Labels**.
+The insight shows under **Labels** in the **Insight** tab.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/slate-detection-process/labels-color-bars.png" alt-text="This image shows the color bars under labels.":::
+> :::image type="content" source="./media/slate-detection-process/insights-color-bars.png" alt-text="This image shows the color bars under labels.":::
+
+If you checked the **Post-production** insight, you can find the color bars instance and timeline under the **Timeline** tab.
+
+#### View JSON
+
+To display the JSON file: 
+
+1. Select Download and then Insights (JSON).  
+1. Copy the `framePatterns` element, under `insights`, and paste it into your Online JSON Viewer. 
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/color-bar-json.png" alt-text="This image shows the color bars json.":::
+
+## Limitations
+
+- There can be a mismatch if the input video is of low quality (for example – old Analog recordings). 
+- The digital patterns will be identified over the 10 min of the beginning and 10 min of the ending part of the video.  
+<!-- -  What about the limited set of digital patterns that we compare to? It's not any digital pattern -->
 
 ## Next steps
 

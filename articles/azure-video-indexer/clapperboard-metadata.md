@@ -1,6 +1,6 @@
 ---
-title: Slate detection insights
-description: Learn about slate detection insights.
+title: Enable and view a clapperboard with extracted metadata
+description: Learn about how to enable and view a clapperboard with extracted metadata.
 author: Juliako
 manager: femila
 ms.topic: article
@@ -23,7 +23,7 @@ In order to set the index process to include the slate metadata, the user should
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
 
-After the file has been uploaded and indexed, select the "Post-production" checkmark from the list of insights.
+After the file has been uploaded and indexed, if you want to view the timeline of the insight, select the **Post-production** checkmark from the list of insights.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
@@ -57,9 +57,9 @@ To see the instances on the website, select **Insights** and scroll to **Clapper
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/clapperboard-metadata.png" alt-text="This image shows the clapperboard metadata.":::
 
-You can also find the clapperboard instance and timeline on the **Timeline** tab.
+If you checked the **Post-production** insight, You can also find the clapperboard instance and timeline of the clapper board (includes time, fields' values) on the **Timeline** tab.
 
-#### JSON
+#### Vew JSON
 
 To display the JSON file: 
 
@@ -71,12 +71,12 @@ To display the JSON file:
 
 ## Clapperboard limitations
 
-- The fields/titles appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
-- Handwritten text or digital digits may not be correctly identified by the fields detection algorithm. 
+- The titles of the fields appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
+- Handwritten text or digital digits may not be correctly identified by the fields detection algorithm.
 - The algorithm is optimized to identify fields categories that appear horizontally.  
 - The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
-- Empty fields’ values may lead to alignment fields to wrong fields categories.  
-- Maybe include something about hiding part of the clapper and the fact that “For adjustment frames, should show one value with the highest read confidence.” 
+- Empty fields’ values may lead to to wrong fields categories.  
+<!-- If a part of a clapper board is hidden a value with the highest confidence is shown.  -->
 
 ## Next steps
 
