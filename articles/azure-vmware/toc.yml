@@ -110,6 +110,12 @@
     href: configure-identity-source-vcenter.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
+  - name: Configure Identity
+    items:
+    - name: Configure external identity source for vCenter Server
+      href: configure-identity-source-vcenter.md
+    - name: Configure external identity source for NSX-T
+      href: configure-external-identity-source-nsx-t.md
   - name: Configure Internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
