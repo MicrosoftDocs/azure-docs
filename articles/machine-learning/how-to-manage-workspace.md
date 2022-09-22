@@ -283,7 +283,7 @@ If you accidentally deleted your workspace, you may still be able to retrieve yo
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
