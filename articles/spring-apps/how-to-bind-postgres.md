@@ -1,10 +1,10 @@
 ---
 title: How to bind an Azure Database for PostgreSQL to your application in Azure Spring Apps
-description: Learn how to bind an Azure Database for a PostgreSQL instance to your application in Azure Spring Apps.
-author: shizn
+description: Learn how to bind an Azure Database for PostgreSQL instance to your application in Azure Spring Apps.
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 09/26/2022
 ms.author: xshi
 ---
 
@@ -17,30 +17,28 @@ ms.author: xshi
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for a PostgreSQL instance.
+With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 
 ## Prerequisites
 
-* An app deployed Azure Spring Apps
-* An Azure Database for PostgreSQL Flexible Server
-* Azure CLI
-
-If you don't have an app deployed Azure Spring Apps, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md) to deploy your first Azure Spring App.
+* An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+* An Azure Database for PostgreSQL Flexible Server instance.
+* [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Prepare your Java project
 
 1. In your project's *pom.xml* file, add the following dependency:
 
-    ```xml
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-jpa</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+   </dependency>
+   ```
 
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
@@ -49,14 +47,23 @@ If you don't have an app deployed Azure Spring Apps, follow the instructions in 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
 #### [Using admin credentials](#tab/Secrets)
+
 1. Note the admin username and password of your Azure Database for PostgreSQL account.
 
 1. Connect to the server, create a database named **testdb** from a PostgreSQL client, and then create a new non-admin account.
 
 1. Run the following command to connect to the database with admin username and password.
 
-```azurecli-interactive
-az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $POSTGRES_RESOURCE_GROUP --server $POSTGRES_SERVER_NAME --database testdb --secret name=$USERNAME secret=$PASSWORD
+```azurecli
+az spring connection create postgres \
+    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $POSTGRES_RESOURCE_GROUP \
+    --server $POSTGRES_SERVER_NAME \
+    --database testdb \
+    --secret name=$USERNAME secret=$PASSWORD
 ```
 
 #### [Using a passwordless connection with a managed identity](#tab/Passwordless)
@@ -64,9 +71,9 @@ az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $SP
 Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
 > [!NOTE]
-> This command requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform. 
+> This command requires you to run the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
 
-```azurecli-interactive
+```azurecli
 az spring connection create postgres \
     --resource-group $SPRING_APP_RESOURCE_GROUP \
     --service $Spring_APP_SERVICE_NAME \

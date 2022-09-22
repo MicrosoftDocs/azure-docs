@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 09/26/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -27,12 +27,11 @@ This article shows you how to create a managed identity for an Azure Spring Apps
 * Follow the [Spring Data JPA tutorial](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally
 * Follow the [Azure Spring Apps system-assigned managed identity tutorial](./how-to-enable-system-assigned-managed-identity.md) to provision an Azure Spring Apps app with MI enabled
 
+## Connect to Azure SQL Database with a managed identity
 
-## Connect Azure SQL Database with a managed identity
+You can connect your application deployed to Azure Spring Apps to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../service-connector/overview.md).
 
-You can connect your application deployed to Azure Spring Apps, to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../service-connector/overview.md).
-
-#### [Manual configuration](#tab/manual)
+### [Manual configuration](#tab/manual)
 
 ### Grant permission to the managed identity
 
@@ -46,15 +45,15 @@ ALTER ROLE db_ddladmin ADD MEMBER [<MIName>];
 GO
 ```
 
-This `<MIName>` follows the rule: `<service instance name>/apps/<app name>`, for example: `myspringcloud/apps/sqldemo`. You can also query the MIName with Azure CLI:
+The value of the `<MIName>` placeholder follows the rule `<service-instance-name>/apps/<app-name>`; for example: `myspringcloud/apps/sqldemo`. You can also query the MIName with Azure CLI:
 
 ```azurecli
-az ad sp show --id <identity object ID> --query displayName
+az ad sp show --id <identity-object-ID> --query displayName
 ```
 
 ### Configure your Java app to use a managed identity
 
-Open the *src/main/resources/application.properties* file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for $AZ_DATABASE_NAME variable.
+Open the *src/main/resources/application.properties* file, then add `Authentication=ActiveDirectoryMSI;` at the end of the `spring.datasource.url` line, as shown in the following example. Be sure to use the correct value for the $AZ_DATABASE_NAME variable.
 
 ```properties
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
@@ -62,10 +61,10 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 
 #### [Service Connector](#tab/service-connector)
 
-Configure your app deployed to Azure Spring to connect to an SQL Database with a system-assigned managed identity using the `az spring connection create` command.
+Configure your app deployed to Azure Spring to connect to an SQL Database with a system-assigned managed identity using the `az spring connection create` command, as shown in the following example.
 
 > [!NOTE]
-> This command requires that you are running the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform. 
+> This command requires you to run the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
 
 ```azurecli-interactive
 az spring connection create sql \
