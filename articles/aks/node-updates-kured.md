@@ -60,7 +60,7 @@ To deploy the `kured` DaemonSet, install the following official Kured Helm chart
 
 ```console
 # Add the Kured Helm repository
-helm repo add kured https://weaveworks.github.io/kured
+helm repo add kubereboot https://kubereboot.github.io/charts/
 
 # Update your local Helm chart repository cache
 helm repo update
