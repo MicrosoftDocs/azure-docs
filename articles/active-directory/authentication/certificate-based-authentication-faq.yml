@@ -18,10 +18,6 @@ summary: |
   This article addresses frequently asked questions about how Azure AD certificate-based authentication (CBA) works. 
   Keep checking back for updated content.
 
-  >[!NOTE]
-  >Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-
 
 sections:
   - name: General
@@ -82,10 +78,15 @@ sections:
       - question: |
           Is there a limit for CRL size?
         answer: |
-          Today, as part of the public preview, CRL sizes are limited as follows:
-          
-          - 20 MB in Azure Global
-          - 45 MB in Azure Government
+          Today, as part of the GA, we have increased the CRL size limit as follows. 
+
+           - Interactive sign in download limit: 20MB (Azure Global includes GCC), 45 for (Azure US government, includes GCC High, Dept. of Defense)
+           - Service download limit: 45MB (Azure Global includes GCC), 150MB for (Azure US government, includes GCC High, Dept. of Defense)
+
+            When a CRL download fails, customer will see an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
+            Once this happens, we move to background download with higher limits as above and the limit will remain high.
+
+            We're reviewing the impact of these limits during GA and have plans to remove the limits.
 
       - question: |
           I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
