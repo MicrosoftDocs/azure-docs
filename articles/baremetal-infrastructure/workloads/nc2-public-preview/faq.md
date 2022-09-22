@@ -53,7 +53,7 @@ Technically, yes. Raise a support ticket from Azure portal to get this functiona
 
 ## Does Microsoft BareMetal service store customer data outside the Azure region that a customer has chosen?
 
-No. 
+No.
 
 ## Next steps
 
