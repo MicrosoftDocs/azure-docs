@@ -58,6 +58,8 @@ items:
       href: how-to-recognize-speech.md
     - name: Get speech recognition results
       href: get-speech-recognition-results.md
+    - name: Display text formatting
+      href: display-text-format.md
     - name: Batch transcription
       items:
       - name: What is batch transcription?
