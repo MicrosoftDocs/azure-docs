@@ -8,6 +8,8 @@ items:
     items:
     - name: What is Azure HDInsight?
       href: ./hdinsight-overview.md
+    - name: Before you start
+      href: ./hdinsight-overview-before-you-start.md
   - name: Tutorials
     expanded: true
     items:
