@@ -108,7 +108,6 @@ Please execute the following commands prior to creating a cluster:
 ```azurecli
  az extension add --name aks-preview
  az extension update --name aks-preview
- az feature register --namespace Microsoft.ContainerService --name AKSWindows2022Preview
  az feature register --namespace Microsoft.ContainerService --name WindowsNetworkPolicyPreview
  az provider register -n Microsoft.ContainerService
 ```
