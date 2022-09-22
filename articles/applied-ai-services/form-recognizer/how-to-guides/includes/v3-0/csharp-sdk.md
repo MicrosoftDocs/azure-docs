@@ -35,7 +35,7 @@ ms.custom: devx-track-csharp
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. 
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API.
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -53,6 +53,8 @@ ms.custom: devx-track-csharp
     | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
+
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 ## Set up your environment
 
@@ -89,56 +91,7 @@ ms.custom: devx-track-csharp
 
 ### Set your environment variables
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll instantiate the client with your `key` and endpoint from the Azure portal. For this project using environment variables is a secure way to store and access your credentials.
 
-> [!IMPORTANT]
->
-> Don't include your key directly in the code and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../cognitive-services/use-key-vault.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
-
-#### [Windows](#tab/windows)
-
-```console
-setx SPEECH_KEY your-key
-```
-
-> [!NOTE]
-> If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
-
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
-
-#### [Linux](#tab/linux)
-
-```bash
-export SPEECH_KEY=your-key
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/macos)
-
-##### Bash
-
-Edit your .bash_profile, and add the environment variable:
-
-```bash
-export SPEECH_KEY=your-key
-```
-
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
-
-##### Xcode
-
-For iOS and macOS development, you set the environment variables in Xcode. For example, follow these steps to set the environment variable in Xcode 13.4.1.
-
-1. Select **Product** > **Scheme** > **Edit scheme**
-1. Select **Arguments** on the **Run** (Debug Run) page
-1. Under **Environment Variables** select the plus (+) sign to add a new environment variable. 
-1. Enter `SPEECH_KEY` for the **Name** and enter your Speech resource key for the **Value**.
-
-For more configuration options, see the [Xcode documentation](https://help.apple.com/xcode/#/dev745c5c974).
-***
-
-To set the environment variable for your Speech resource region, follow the same steps. Set `SPEECH_REGION` to the region of your resource. For example, `westus`.
 
 ## Build your application
 
