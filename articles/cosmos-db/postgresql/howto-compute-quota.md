@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 09/20/2022
 ---
 
 # Change compute quotas from the Azure portal
@@ -19,22 +19,21 @@ worker nodes.
 
 ## Request quota increase
 
-1. Select **New support request** in the Azure portal menu for your
+1. Select **New Support Request** in the Azure portal menu for your
    cluster.
 2. Fill out **Summary** with the quota increase request for your region, for
-   example "Quota increase in West Europe region."
+   example *Quota increase in West Europe region.*
 3. These fields should be autoselected, but verify:
-   * **Issue Type** should be "Technical + your subscription"
-   * **Service type** should be "Azure Cosmos DB for PostgreSQL"
-4. Select "Create, Update, and Drop Resources" for **Problem type**.
-5. Select "Node compute or storage scaling" for **Problem subtype**.
-6. Select **Next: Solutions >>** then **Next: Details >>**
-7. In the problem description include two pieces of information:
-   * The region where you want the quota(s) increased
-   * Quota increase details, for example "Need to increase worker node quota
-     in West Europe to 512 vCores"
+   - **Issue Type** should be **Technical**.
+   - **Service type** should be **Azure Cosmos DB for PostgreSQL**.
+4. For **Problem type**, select **Create, Update, and Drop Resources**.
+5. For **Problem subtype**, select **Scaling Compute**.
+6. Select **Next** to view recommended solutions, and then select **Return to support request**.
+7. Select **Next** again. Under **Problem details**, provide the following information:
+   - For **When did the problem start**, the date, time, and timezone when the problem started, or select **Not sure, use current time**.
+   - For **Description**, quota increase details, for example *Need to increase worker node quota in West Europe to 512 vCores*.
 
-![support request in Azure portal](media/howto-compute-quota/support-request.png)
+:::image type="content" source="media/howto-compute-quota/support-request.png" alt-text="Screenshot that shows a support request in the Azure portal.":::
 
 ## Next steps
 
