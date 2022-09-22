@@ -20,7 +20,7 @@ A reservation discount is on a "*use-it-or-lose-it*" basis. So, if you don't hav
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
-Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+Stopped or suspended Azure Data Explorer clusters are not using reservation hours for compute and Azure Data Explorer markup since the cluster's underlying compute resources are deallocated when the cluster is stopped or suspended. 
 
 ## Discount for other resources
 
