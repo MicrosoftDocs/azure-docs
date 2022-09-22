@@ -69,7 +69,7 @@ az ml workspace create -w <workspace name> -g <resource group> --primary-user-as
 
 # [Studio](#tab/azure-studio)
 
-Currently there is no option to create a workspace from Azure Machine Learning studio. However, you can create using the Azure portal. Use the following steps while creating the cluster:
+Currently there is no option to create a workspace from Azure Machine Learning studio. However, you can create using the [Azure portal](https://portal.azure.com). Use the following steps while creating the cluster:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
@@ -143,7 +143,27 @@ __System-assigned managed identity__
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[TBD]
+```python
+from azure.ai.ml.entities import UserAssignedIdentity, IdentityConfiguration, AmlCompute
+from azure.ai.ml.constants import IdentityType
+
+# Create an identity configuration from the user-assigned managed identity
+managed_identity = UserAssignedIdentity(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
+identity_config = IdentityConfiguration(type = IdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
+
+# specify aml compute name.
+cpu_compute_target = "cpu-cluster"
+
+try:
+    ml_client.compute.get(cpu_compute_target)
+except Exception:
+    print("Creating a new cpu compute target...")
+    # Pass the identity configuration
+    compute = AmlCompute(
+        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4, identity=identity_config
+    )
+    ml_client.compute.begin_create_or_update(compute)
+```
 
 # [Studio](#tab/azure-studio)
 
@@ -204,7 +224,7 @@ az ml workspace create -w <workspace name> \
 
 ### Create compute with managed identity to access Docker images for training
 
-To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
+To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 # [Azure CLI](#tab/cli)
 
@@ -218,7 +238,26 @@ az ml compute create --name cpucluster --type <cluster name>  --identity-type sy
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[TBD]
+```python
+from azure.ai.ml.entities import IdentityConfiguration, AmlCompute
+from azure.ai.ml.constants import IdentityType
+
+# Create an identity configuration for a system-assigned managed identity
+identity_config = IdentityConfiguration(type = IdentityType..SYSTEM_ASSIGNED)
+
+# specify aml compute name.
+cpu_compute_target = "cpu-cluster"
+
+try:
+    ml_client.compute.get(cpu_compute_target)
+except Exception:
+    print("Creating a new cpu compute target...")
+    # Pass the identity configuration
+    compute = AmlCompute(
+        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4, identity=identity_config
+    )
+    ml_client.compute.begin_create_or_update(compute)
+```
 
 
 # [Studio](#tab/azure-studio)
@@ -310,7 +349,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
         The user-assigned managed identity resource ID is Azure resource ID of the user assigned identity, in the format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned managed identity name>`.
 
-1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using [Workspace.set_connection method](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
+1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using :
 
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
