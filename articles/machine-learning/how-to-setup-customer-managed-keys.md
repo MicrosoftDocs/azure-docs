@@ -111,7 +111,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | Creation method | Article |
 | ----- | ----- |
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 | REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
@@ -160,6 +160,6 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
 * [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 * [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 * [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
