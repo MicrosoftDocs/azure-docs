@@ -28,7 +28,7 @@ Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment w
 
 - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
 - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts
-- Read access to the Log Analytics workspace or workspaces
+- Read access to the Log Analytics workspace (or *all* Log Analytics workspaces, if more than one) configured in the diagnostics settings of the resources
 
 >[!NOTE]
 > Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
