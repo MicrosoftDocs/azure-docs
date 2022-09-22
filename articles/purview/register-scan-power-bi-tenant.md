@@ -222,7 +222,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
        :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-   - If you are using **delegated authentication** or **service principal** as authentication method, add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
+   - If you are using **delegated authentication** or **service principal** as authentication method, add your **service principal** to this security group. Select **Members**, then select **+ Add members**.
 
 5. Search for your Microsoft Purview managed identity or service principal and select it.
 
