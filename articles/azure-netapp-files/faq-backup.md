@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 09/10/2022
 ---
 # Azure NetApp Files backup FAQs
 
@@ -23,6 +23,8 @@ If a problem occurs during a backup operation, Azure NetApp Files backup automat
 ## Can I change the location or storage tier of my backup vault?
 
 No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier cannot be modified by the user.
+
+You can create multiple backup vaults for your Azure NetApp Files subscription, though Azure NetApp Files will automatically manage the backup data location. For more information about backup vaults, refer to [Understand Azure NetApp Files backups](backup-introduction.md#backup-vault).
 
 ## What types of security are provided for the backup data?
 
