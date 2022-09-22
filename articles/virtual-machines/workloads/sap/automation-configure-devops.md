@@ -25,7 +25,7 @@ You can use the following script to do a basic installation of Azure Devops Serv
 Log in to Azure Cloud Shell
 ```bash
    export ADO_ORGANIZATION=https://dev.azure.com/<yourorganization>
-   export ADO_PROJECT=SAP Deployment Automation
+   export ADO_PROJECT=SAP-Deployment-Automation
    wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/create_devops_artifacts.sh -O devops.sh
    chmod +x ./devops.sh
    ./devops.sh
@@ -48,7 +48,9 @@ You can finalize the Azure DevOps configuration by running the following scripts
    $Env:YourPrefix="<yourPrefix>"
 
    $Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
+   $Env:ControlPlaneSubscriptionName="<YourControlPlaneSubscriptionName>"
    $Env:DevSubscriptionID="<YourDevSubscriptionID>"
+   $Env:DevSubscriptionName="<YourDevSubscriptionName>"
 
 ```
 > [!NOTE]
