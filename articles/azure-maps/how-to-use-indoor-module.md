@@ -13,15 +13,16 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps Indoor Maps module with custom styles (Public Preview)
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services. When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing your indoor styles via [Azure Maps Custom Styling REST APIs](https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/style/create?view=azure-rest-preview&branch=result_openapiHub_production_a0998924c560&tabs=HTTP) //TODO: Change the previous link to the custom styling rest API tutorial. Creator also 
-offers a visual editor to create custom styles: [Creator Style Editor](https://azure.github.io/Azure-Maps-Style-Editor/). 
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator services.
+
+When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing the styles of the different elements of your indoor maps using the [Style REST API](/rest/api/maps/v20220901preview/style). Creator also offers a [visual Style Editor](https://azure.github.io/Azure-Maps-Style-Editor/).
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-1. [Create a Creator resource](how-to-manage-creator.md)
-1. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-1. An Azure Maps Creator [map configuration][mapConfiguration] ID or alias. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
+1. [An Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [An Azure Maps Creator resource](how-to-manage-creator.md)
+1. [A subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+1. A [map configuration][mapConfiguration] ID or alias. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 You'll need to use these identifiers to render indoor maps with custom styles via the Azure Maps Indoor Maps module
 

@@ -16,7 +16,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 ## Prerequisites
 
-1. Understanding of [Creator concepts](creator-indoor-maps).
+1. Understanding of [Creator concepts](creator-indoor-maps.md).
 1. An Azure Maps Creator [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 ## Create custom styles using Creators visual editor
@@ -128,12 +128,12 @@ Some important things to know about aliases:
 1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since neither the style or map configuration can be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, that style or map configuration will be overwritten.
+> Duplicate aliases are not allowed. If the alias of an existing map configuration is used, that map configuration will be overwritten and the `mapConfigurationId` will change.  See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save your style and map configuration data to your Creator resource.
 
 > [!TIP]
-> Make a note of the `mapConfigurationId` or the map configuration alias, these values will be used when you [Instantiate the Indoor Manager](instantiate-indoor-manager) of a Map object when developing a map application in Azure Maps.
+> Make a note of the map configuration ID or alias values, they are needed when you [Instantiate the Indoor Manager](instantiate-indoor-manager.md) of a Map object when developing applications in Azure Maps.
 
 ### Custom category names
 

@@ -366,7 +366,7 @@ Once your tileset creation completes you can get the `mapConfigurationId` using 
     "defaultMapConfigurationId": "5906cd57-2dba-389b-3313-ce6b549d4396"
     ```
 
-For more information, see [Map configuration](creator-indoor-maps.md#map-configuration).
+For more information, see [Map configuration](creator-indoor-maps.md#map-configuration) in the indoor maps concepts article.
 
 <!--For additional information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).-->
 
