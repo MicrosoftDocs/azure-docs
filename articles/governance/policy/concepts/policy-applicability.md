@@ -13,7 +13,7 @@ When a policy definition is assigned to a scope, Azure Policy scans every resour
 Applicability is determined by several factors:
 - **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).
 - **Mode** of the policy definition.
-- **Excluded scopes** secified in the assignment. 
+- **Excluded scopes** specified in the assignment. 
 - **Exemptions** of resources or resource hierarchies.
 
 Condition(s) in the `if` block of the policy rule are evaluated for applicability in slightly different ways based on the effect.
