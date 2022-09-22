@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 08/30/2022
+ms.date: 09/22/2022
 ms.author: radeltch
 
 ---
@@ -472,7 +472,7 @@ This section applies only if you want to use a fencing device with an Azure fenc
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
 
 #### Using managed identity
-To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time.
+To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on SLES 15 SP1 and above.  
 
 #### Using service principal
 
@@ -640,7 +640,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    >[!IMPORTANT]
    > If using managed identity, the installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later. Earlier versions will not work correctly with a managed identity configuration.  
-   > Currently only SLES 15 SP1 and older are supported for managed identity configuration.
+   > Currently only SLES 15 SP1 and newer are supported for managed identity configuration.
 
 1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
@@ -822,6 +822,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure property stonith-timeout=900
    </code></pre>
+
+   If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
    > [!IMPORTANT]
    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
