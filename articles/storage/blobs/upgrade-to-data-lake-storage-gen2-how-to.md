@@ -18,16 +18,17 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
 
-## Review feature support
+## Prepare to upgrade
 
-You're account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. 
+1. Review feature support
 
-Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
+   You're account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
+
+2. Ensure that the segments of each blob path are named
+
+   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name, so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then you must copy those blobs to a new path that is compatible with these naming requirements. Then, you can proceed with the migration.
 
 ## Perform the upgrade
-
-> [!NOTE]
-> The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name, so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then you must copy those blobs to a new path that is compatible with these naming requirements. Then, you can proceed with the migration.
 
 ### [Portal](#tab/azure-portal)
 
