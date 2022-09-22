@@ -42,7 +42,7 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureFrontDoor.Frontend, AzureMonitor |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureFrontDoor.Frontend, AzureMonitor, AzureCloud |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | 20.118.99.224, 40.83.235.53 (azkms.core.windows.net) |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246 (kms.core.windows.net) |
