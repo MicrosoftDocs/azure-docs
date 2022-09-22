@@ -10,10 +10,9 @@ ms.author: juliako
 
 # Enable and view a textless slate with matching scene (preview)
 
-This article shows how to enable and view  a textless slate with matching scene (preview). In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+This article shows how to enable and view  a textless slate with matching scene (preview).
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting":::
+ This insight is most useful to customers involved in the movie post-production process.
 
 ## View post-production insights
 
