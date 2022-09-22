@@ -75,7 +75,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`| |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
-| `optional` | boolean | Whether the input is required. | | `false` |
+| `optional` | boolean | Whether the input is required. If set to `true`, you need use the command includes optional inputs with `$[[]]`| | `false` |
 | `min` | integer or number | The minimum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `max` | integer or number | The maximum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `enum` | array | The list of allowed values for the input. Only applicable if `type` field is `string`.| |
@@ -104,6 +104,22 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: Component with different input types
 
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+
+### Define optional inputs in command line
+When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
+- If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
+
+```azurecli
+python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
+If no value is specified at runtime, `learning_rate` and `learning_rate_schedule` will use the default value.
+
+- If all inputs/outputs provide values during runtime, the command line will look like:
+```azurecli
+python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
 
 ## Next steps
 

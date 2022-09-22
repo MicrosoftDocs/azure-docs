@@ -4,6 +4,8 @@
   items:
   - name: What is DevOps Starter?
     href: overview.md
+  - name: Retirement
+    href: retirement-and-migration.md
 - name: Quickstarts
   expanded: true
   items:

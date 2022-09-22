@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Azure Video Indexer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
@@ -85,6 +85,16 @@ Now supporting word level time annotation with confidence score.
 The new set of logs, described below, enables you to better monitor your indexing pipeline.
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+
+### Expanded the supported languages in LID and MLID through the API
+
+We expanded the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
+
+For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
 
 ## August 2022
 

@@ -376,7 +376,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
-    href: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+    href: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
   - name: Framework and architectures
     items:
     - name: Cloud Adoption Framework
