@@ -19,7 +19,7 @@ This article shows you how to use an Azure Resource Manager template to create a
 
 ## Prerequisites
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps) or Azure Cloud Shell
+* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview)
 
 ## Create an IoT hub
 
