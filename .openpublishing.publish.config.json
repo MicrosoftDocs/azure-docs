@@ -459,6 +459,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-v2samplesreorg",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "v2samplesreorg",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "sdk-preview",
