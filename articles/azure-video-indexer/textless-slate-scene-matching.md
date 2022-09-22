@@ -12,11 +12,11 @@ ms.author: juliako
 
 This article shows how to enable and view  a textless slate with matching scene (preview).
 
- This insight is most useful to customers involved in the movie post-production process.
+This insight is most useful to customers involved in the movie post-production process.
 
 ## View post-production insights
 
-In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+In order to set the index process to include the slate metadata, the user should chose the **Video + audio indexing** -> **Advanced** presets.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::

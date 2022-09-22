@@ -14,11 +14,13 @@ The clapperboard insight is used to detect clapper board instances and informati
 
 When the movie is being edited, the slate is removed from the scene but a metadata with what's on the clapper board is important. Azure Video Indexer extracts the data from clapperboards, preserves and presents the metadata as described in this article.
 
+This insight is most useful to customers involved in the movie post-production process.
+
 ## View the insight
 
 ### View post-production insights
 
-In order to set the index process to include the slate metadata, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+In order to set the index process to include the slate metadata, the user should chose the **Video + audio indexing** -> **Advanced** presets.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
