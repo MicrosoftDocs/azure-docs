@@ -15,9 +15,9 @@ ms.reviewer: akkumari
 
 # Autoscale with different profiles
 
-Scaling your resources for a particular day of the week, or a specific date and time can reduce costs while still providing the capacity you need when you need it.
+Scaling your resources for a particular day of the week, or a specific date and time can reduce your costs while still providing the capacity you need when you need it.
 
-Use multiple profiles in autoscale to scale in different ways at different times. If for example, your business isn't active on the weekend, create a recurring profile to scale in your resources on Saturdays and Sundays. If black Friday is a busy day, create a profile to automatically scale out your resources on black Friday.
+You can use multiple profiles in autoscale to scale in different ways at different times. If for example, your business isn't active on the weekend, create a recurring profile to scale in your resources on Saturdays and Sundays. If black Friday is a busy day, create a profile to automatically scale out your resources on black Friday.
 
 This article explains the different profiles in autoscale and how to use them.
 
@@ -25,39 +25,39 @@ You can have one or more profiles in your autoscale setting.
 
 There are three types of profile:
 
+* The default profile. The default profile is created automatically and isn't dependent on a schedule. The default profile can't be deleted. The default profile is used when there are no other profiles that match the current date and time.
 * Recurring profiles. A recurring profile is valid for a specific time range and repeats for selected days of the week.
 * Fixed date and time profiles. A profile that is valid for a time range on a specific date.
-* The default profile. The default profile is created automatically and isn't dependent on a schedule. The default profile can't be deleted. The default profile is used when there are no other profiles that match the current date and time.
-  
+
+
 Each time the autoscale service runs, the profiles are evaluated in the following order:
 
 1. Fixed date profiles
 1. Recurring profiles
 1. Default profile
 
-If a profile's date and time conditions match the current time, autoscale will apply that profile's limits and rules. Only the first applicable profile is used.
+If a profile's date and time settings match the current time, autoscale will apply that profile's rules and capacity limits. Only the first applicable profile is used.
 
 The example below shows an autoscale setting with a default profile and recurring profile.
 
 :::image type="content" source="./media/autoscale-multiple-profiles/autoscale-default-recurring-profiles.png" alt-text="A screenshot showing an autoscale setting with default and recurring profile or scale condition":::
 
-On Monday after 6 AM, the recurring profile will be used. If the instance count is two, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 6 PM.
+In the above example, on Monday after 6 AM, the recurring profile will be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 6 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 6 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
 
-At all other times scaling will be done according to the default profile, based on the number of requests.
-After 6 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
+## Multiple profiles using templates, CLI, and PowerShell
 
-## Multiple profiles using templates and CLI
-
-When creating multiple profiles using templates and the CLI, follow the guidelines below.
+When creating multiple profiles using templates, the CLI, and PowerShell, follow the guidelines below.
 
 ## [ARM templates](#tab/templates)
 
 Follow the rules below when using ARM templates to create autoscale settings with multiple profiles:
 
+See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
+
 * Create a default profile for each recurring profile. If you have two recurring profiles, create two matching default profiles.
 * The default profile must contain a `recurrence` section that is the same as the recurring profile, with the `hours` and `minutes` elements set for the end time of the recurring profile. If you don't specify a recurrence with a start time for the default profile, the last recurrence rule will remain in effect.
-These rules don't apply for a non-recurring scheduled profile.
 * The `name` element for the default profile is an object with the following format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Recurring profile name\"}"` where the recurring profile name is the value of the `name` element for the recurring profile. If the name isn't specified correctly, the default profile will appear as another recurring profile.
+ *The rules above don't apply for non-recurring scheduled profiles.
 
 ## Add a recurring profile using AIM templates
 
@@ -65,7 +65,7 @@ The example below shows how to create two recurring profiles. One profile for we
 
 Use the following command to deploy the template:
 ` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
-where `VMSS1-autoscale.json` is the the file containing the JSON object below.
+where *VMSS1-autoscale.json* is the the file containing the JSON object below.
 
 ``` JSON
 {
@@ -325,9 +325,12 @@ where `VMSS1-autoscale.json` is the the file containing the JSON object below.
 
 The CLI can be used to create multiple profiles in your autoscale settings.
 
-The following steps show how to create an autoscale profile using the CLI.
-1. Create the profile using `az monitor autoscale profile create`. Specify the `--start` and `--end` time and the `--recurrence` 
-1. Create a scale-out rule using `az monitor autoscale rule create` using `--scale out`
+See the [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest) for the full set of autoscale CLI commands.
+
+The following steps show how to create a recurring autoscale profile using the CLI.
+
+1. Create the recurring profile using `az monitor autoscale profile create`. Specify the `--start` and `--end` time and the `--recurrence`
+1. Create a scale out rule using `az monitor autoscale rule create` using `--scale out`
 1. Create a scale in rule using `az monitor autoscale rule create` using `--scale in`
 
 ## Add a recurring profile using CLI
@@ -345,7 +348,7 @@ az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-60
 
 > [!NOTE]  
 > The JSON for your autoscale default profile is modified by adding a recurring profile.  
-> The `name` of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name from the `az monitor autoscale profile create` command.  
+> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name of your recurring profile.
 > The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
 > A new default profile is created for each recurring profile.  
 
@@ -361,24 +364,26 @@ az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607
 az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607 --scale out 8 --condition "Percentage CPU > 52 avg 5m"  --profile-name "{\"name\": \"Auto created default scale condition\", \"for\": \"Thursdays\"}"  
 ```
 
-## [Powershell](#tab/powershell)
+## [PowerShell](#tab/powershell)
 
-Powershell can be used to create multiple profiles in your autoscale settings.
+PowerShell can be used to create multiple profiles in your autoscale settings.
 
-The following steps show how to create an autoscale profile using Powershell.
+See the [PowerShell Az.Monitor Reference ](https://learn.microsoft.com/powershell/module/az.monitor/#monitor) for the full set of autoscale PowerShell commands.
 
-1. Create rules using `New-AzAutoscaleRule`
-1. Create profiles using `New-AzAutoscaleProfile` using the rules from the previous step
-1. Use `Add-AzureRmAutoscaleSetting` to apply the profiles to your autoscale setting.
+The following steps show how to create an autoscale profile using PowerShell.
 
-## Add a recurring profile using Powershell
+1. Create rules using `New-AzAutoscaleRule`.
+1. Create profiles using `New-AzAutoscaleProfile` using the rules from the previous step.
+1. Use `Add-AzAutoscaleSetting` to apply the profiles to your autoscale setting.
+
+## Add a recurring profile using PowerShell
 
 The example below shows how to create default profile and a recurring autoscale profile, recurring on Wednesdays and Fridays between 07:00 and 19:00.
-The default profile uses the  CpuIn and CpuOut Rules. The recurring profile uses the HTTPRuleIn and HTTPRuleOut rules
+The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile uses the `HTTPRuleIn` and `HTTPRuleOut` rules
 
 ```azurepowershell
-$ResourceGroup="ed-rg-001"
-$TargetResourceId="/subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
+$ResourceGroup="rg-001"
+$TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
 
 $ScaleSettingName="MultipleProfiles-001"
 
@@ -394,14 +399,14 @@ $HTTPRuleOut = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResource
 
 $RecurringProfile=New-AzAutoscaleProfile -Name WednesdaysFridays  -DefaultCapacity 2  -MaximumCapacity 12   -MinimumCapacity 2   -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday"   -ScheduleHour 7   -ScheduleMinute 00   -ScheduleTimeZone  "Pacific Standard Time"   -Rule $HTTPRuleOut, $HTTPRuleIn
 
-Add-AzureRmAutoscaleSetting  -Location "West Central US" -name $ScaleSettingName -ResourceGroup $ResourceGroup -TargetResourceId $TargetResourceId -AutoscaleProfile $DefaultProfile, $RecurringProfile
+Add-AzAutoscaleSetting  -Location "West Central US" -name $ScaleSettingName -ResourceGroup $ResourceGroup -TargetResourceId $TargetResourceId -AutoscaleProfile $DefaultProfile, $RecurringProfile
 ```
 
 > [!NOTE]  
 > Each recurring profile must have a corresponding default profile. 
-> The `-Name` parameter of the default profile is is an object in the format: `'{"name":"Default scale condition","for":"recurring profile"}'` where *recurring profile* is the profile name from the `New-AzAutoscaleProfile` command for the recurring profile.  
-> The default profile also has a recurrence parameters as the recurring profile but it starts at the time you want the recurring profile to end.
-> A distinct default profile is created for each recurring profile.  
+> The `-Name` parameter of the default profile is an object in the format: `'{"name":"Default scale condition","for":"recurring profile"}'` where *recurring profile* is the profile name of the recurring profile.  
+> The default profile also has a recurrence parameters which match the recurring profile but it starts at the time you want the recurring profile to end.
+> Create a distinct default profile for each recurring profile.  
 
 ## Updating the default profile when you have recurring profiles
 
@@ -421,7 +426,9 @@ $DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -Ma
 ---
 
 ## Next steps
-* [Autoscale CLI reference](cli/azure/monitor/autoscale?view=azure-cli-latest).
-* [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
-* [REST API reference. Autoscale Settings](rest/api/monitor/autoscale-settings).
+
+* [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
+* [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
+* [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
 * [Advanced autoscale configuration using Resource Manager templates for virtual machine scale sets](autoscale-virtual-machine-scale-sets.md) for different resources in Azure.
