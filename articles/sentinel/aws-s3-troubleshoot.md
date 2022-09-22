@@ -83,9 +83,6 @@ The SQS didn't successfully read the S3 data.
     :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
 
 1. One spike of data isn't enough. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
-
-    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
-
 1. If at least one of the widgets is empty, check the health logs by running this query:
 
     ```kusto
