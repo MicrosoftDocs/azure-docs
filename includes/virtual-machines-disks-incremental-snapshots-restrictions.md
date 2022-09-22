@@ -17,3 +17,6 @@
 - Up to seven incremental snapshots per disk can be created every five minutes.
 - A total of 500 incremental snapshots can be created for a single disk.
 - You can't get the changes between snapshots taken before and after you changed the size of the parent disk across 4 TB boundary. For example, You took an incremental snapshot `snapshot-a` when the size of a disk was 2 TB. Now you increased the size of the disk to 6 TB and then took another incremental snapshot `snapshot-b`. You can't get the changes between `snapshot-a` and `snapshot-b`. You have to again download the full copy of `snapshot-b` created after the resize. Subsequently, you can get the changes between `snapshot-b` and snapshots created after `snapshot-b`.
+- Available for Ultra disks and Premium SSD v2 managed disks as a preview.
+    - Snapshots of Ultra disks and Premium SSD v2 managed disks have a delay between when they are initially taken and when they can be used. For details see this section.
+    - Ultra disks and Premium SSD v2 managed disks can create up to seven incremental snapshots every five minutes for a particular disk.

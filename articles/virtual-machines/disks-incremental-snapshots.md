@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli 
@@ -145,6 +145,32 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 ```
 ---
 
+## Snapshot completion percentage
+
+Snapshots of Ultra disks and Premium SSD v2 managed disks must complete a background copy from the disk to a snapshot before their snapshot can be used to create a new disk.
+
+You can check if your disk's background copy has completed with either the Azure PowerShell module or the Azure CLI.
+
+The following PowerShell script will return a snapshot's **CompletionPercent**.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupName"
+$snapshotName = "yourSnapshotName"
+
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+$targetSnapshot.CompletionPercent
+```
+
+The following CLI script will return a snapshot's **completionPercent**.
+
+```azurecli
+subscriptionId=yourSubscriptionID
+resourceGroupName=yourResourceGroupName
+diskName=yourDiskName
+
+az account set --subscription $subscriptionId
+az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2022-03-02 --query [properties.completionPercent] -o tsv
+```
 
 ## Next steps
 
