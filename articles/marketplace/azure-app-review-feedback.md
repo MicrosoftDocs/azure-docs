@@ -15,7 +15,7 @@ This article explains how to access feedback from the Microsoft Azure Marketplac
 
 You can [download our TTK](/azure/azure-resource-manager/templates/test-toolkit) and test your offers locally before you submit them to ensure that they will pass once you go live.
 
-:::image type="content" alt-text="Screenshot of Azure apps verification process" source ="./media/azure-app/azure-apps-verification-process.png", lightbox="./media/azure-app/azure-apps-verification-process.png" :::
+:::image type="content" alt-text="Screenshot of Azure apps verification process" source ="./media/azure-app/azure-apps-verification-process.png" lightbox="./media/azure-app/azure-apps-verification-process.png" :::
 
 Typically, review issues are referenced as a pull request (PR). Each PR is linked to an online Azure DevOps item, which contains details about the issue. The following image displays an example of the Partner Center experience if issues are found during reviews. 
 
