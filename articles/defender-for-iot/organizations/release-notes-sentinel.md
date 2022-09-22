@@ -7,21 +7,16 @@ ms.topic: overview
 
 # Release notes for the Microsoft Defender for IoT solution in Microsoft Sentinel
 
-Defender for IoT's built-in integration with Microsoft Sentinel helps customers to bridge the gap between IT and OT security challenges.
+This article lists the updates to out-of-the-box security content available from each version of the **Microsoft Defender for IoT** solution. The **Microsoft Defender for IoT** solution is available from the Microsoft Sentinel content hub.
 
-In Microsoft Sentinel, deploy the Defender for IoT data connector and install the **Microsoft Defender for IoT** solution to stream Defender for IoT data into Microsoft Sentinel.
-
-Microsoft regularly releases new versions of the **Microsoft Defender for IoT** solution, with updates that increasingly streamline SOC workflows to analyze, investigate, and respond efficiently to OT incidents.
-
-This article lists the new features available in each version of the **Microsoft Defender for IoT** solution.
+The **Microsoft Defender for IoT** solution enhances the integration between Defender for IoT and Microsoft Sentinel, helping to streamline SOC workflows to analyze, investigate, and respond efficiently to OT incidents.
 
 For more information, see:
 
 - [What's new in Microsoft Defender for IoT?](release-notes.md)
 - [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json)
 - [Tutorial: Investigate and detect threats for IoT devices](/azure/sentinel/iot-advanced-threat-monitoring?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json).
-
-## Version 2.0
+## Version 2.1
 
 **Released**: September 2022
 
@@ -39,7 +34,13 @@ New features in this version include:
 
 For more information, see [Updates in the Microsoft Defender for IoT solution](release-notes.md#updates-in-the-microsoft-defender-for-iot-solution).
 
+## Version 2.0
 
+**Released**: September 2022
+
+This version provides enhanced experiences for managing, installing, and updating the solution package in the Microsoft Sentinel content hub.
+
+For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](/azure/sentinel/sentinel-solutions-deploy)
 ## Version 1.0.14
 
 **Released**: July 2022
