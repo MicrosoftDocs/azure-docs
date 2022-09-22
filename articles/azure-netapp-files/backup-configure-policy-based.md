@@ -95,7 +95,7 @@ To enable a policy-based (scheduled) backup:
 5. Select **Add**. 
 6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.
 
-    ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
+  :::image type="content" source="../media/azure-netapp-files/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="../media/azure-netapp-files/backup-policy-window-daily.png":::
 
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
