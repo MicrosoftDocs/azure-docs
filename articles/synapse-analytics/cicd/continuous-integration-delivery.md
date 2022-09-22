@@ -4,7 +4,7 @@ description: Learn how to use continuous integration and continuous delivery (CI
 author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
@@ -155,6 +155,9 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 #### Configure the deployment task 
 
 The deployment task supports 3 types of operations,  validate only, deploy and validate and deploy.
+
+   > [!NOTE]
+   > This workspace deployment extension in is not backward compatible. Please make sure that the latest version is installed and used. You can read the release note in [overview](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy&ssr=false#overview)in Azure DevOps and the [latest version](https://github.com/marketplace/actions/synapse-workspace-deployment) in GitHub action. 
 
 **Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline. The sample YAML file is as below: 
 
@@ -315,7 +318,7 @@ In your GitHub repository, go to **Actions**.
 
 If you use automated CI/CD and want to change some properties during deployment, but the properties aren't parameterized by default, you can override the default parameter template.
 
-To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
+To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch or the deployment task validates the artifacts in other branches, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
 
 ### Custom parameter syntax
 
@@ -358,14 +361,19 @@ Here's an example of what a parameter template definition looks like:
     },
     "Microsoft.Synapse/workspaces/pipelines": {
         "properties": {
-            "activities": [
-                {
-                    "typeProperties": {
-                        "waitTimeInSeconds": "-::int",
-                        "headers": "=::object"
-                    }
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object",
+                    "activities": [
+                        {
+                            "typeProperties": {
+                                "url": "-:-webUrl:string"
+                            }
+                        }
+                    ]
                 }
-            ]
+            }]
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -391,7 +399,10 @@ Here's an example of what a parameter template definition looks like:
         "*": {
             "properties": {
                 "typeProperties": {
-                    "*": "="
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
                 }
             }
         },
@@ -401,12 +412,32 @@ Here's an example of what a parameter template definition looks like:
                     "dataLakeStoreUri": "="
                 }
             }
+        },
+        "AzureKeyVault": {
+            "properties": {
+                "typeProperties": {
+                    "baseUrl": "|:baseUrl:secureString"
+                },
+                "parameters": {
+                    "KeyVaultURL": {
+                        "type": "=",
+                        "defaultValue": "|:defaultValue:secureString"
+                    }
+                }
+            }
         }
     },
     "Microsoft.Synapse/workspaces/datasets": {
         "properties": {
             "typeProperties": {
                 "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
             }
         }
     }

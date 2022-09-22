@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 08/02/2022
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -35,10 +35,10 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview**, custom neural models will support tabular fields (tables):
+With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
 
-* Models trained with API version 2022-06-30-preview or later will accept tabular field labels. 
-* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. 
+* Models trained with API version 2022-08-31,  or later will accept tabular field labels.
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
 * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
 Tabular fields support **cross page tables** by default:
@@ -50,34 +50,30 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-For the **2022-06-30-preview**, custom neural models can only be trained in the following Azure regions:
+As of September 16, 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
 
-* AustraliaEast
-* BrazilSouth
-* CanadaCentral
-* CentralIndia
-* CentralUS
-* EastUS
-* EastUS2
-* FranceCentral
-* JapanEast
-* JioIndiaWest
-* KoreaCentral
-* NorthEurope
-* SouthCentralUS
-* SoutheastAsia
-* UKSouth
-* WestEurope
-* WestUS
-* WestUS2
-* WestUS3
+* Australia East
+* Brazil South
+* Canada Central
+* Central India
+* Central US
+* East Asia
+* France Central
+* Japan East
+* South Central US
+* Southeast Asia
+* UK South
+* West Europe
+* West US2
 
 > [!TIP]
-> You can copy a model trained in one of the select regions listed above to **any other region** and use it accordingly.
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed above to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 ## Best practices
 
-Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model and test to determine if it supports your functional needs.
+Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model, and test to determine if it supports your functional needs.
 
 ### Dealing with variations
 
@@ -98,7 +94,6 @@ Value tokens/words of one field must be either
 
 Values in training cases should be diverse and representative. For example, if a field is named "date", values for this field should be a date. synthetic value like a random string can affect model performance.
 
-
 ## Current Limitations
 
 * The model doesn't recognize values split across page boundaries.
@@ -112,12 +107,12 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
+https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 {
   "modelId": "string",
@@ -130,6 +125,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
   }
 }
 ```
+
 ## Next steps
 
 * Train a custom model:
@@ -145,4 +141,4 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 * View the REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

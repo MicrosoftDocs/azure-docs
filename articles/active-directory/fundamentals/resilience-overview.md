@@ -2,15 +2,15 @@
 title: Resilience in identity and access management with Azure Active Directory
 description: Learn how to build resilience into identity and access management. Resilience helps endure disruption to system components and recover with minimal effort.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 04/29/2022
-ms.author: baselden
+ms.date: 08/26/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom:
   - it-pro

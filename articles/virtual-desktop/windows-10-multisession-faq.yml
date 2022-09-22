@@ -47,7 +47,7 @@ sections:
       - question: How do I manage Windows 10 Enterprise multi-session after deployment?
         answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows 10 Enterprise multi-session or [Microsoft Endpoint Manager](management.md) for Azure AD-joined or Hybrid Azure AD-joined session hosts.
 
-      - question: Can Windows 10 Enterprise multi-session be Azure Active Directory (AD)-joined?
+      - question: Can Windows 10 Enterprise multi-session be Azure Active Directory (Azure AD)-joined?
         answer: |
           Windows 10 Enterprise multi-session can be Azure AD-joined. To get started, follow the steps to [Deploy Azure AD-joined virtual machines](deploy-azure-ad-joined-vm.md).
           
@@ -87,16 +87,16 @@ sections:
           
           To disable the Store app:
           
-          1. Create a new Group Policy.
-          2. Select **Computer Configuration** > **Administrative Templates** > **Windows Components**.
-          3. Select **Store**.
-          4. Select **Store Application**.
-          5. Select **Disabled**, then select **OK**.
-          6. Select **Apply**.
+          1. Create and edit a new Group Policy Object.
+          2. Select **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Store**.
+          3. Open the **Turn off the Store Application** setting.
+          4. Select the **Enabled** option.
+          5. Click the **Apply** button.
+          6. Click the **OK** button.
           
-      - question: Can Windows 10 or 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
+      - question: Can Windows 10 Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
-          Currently, WSUS can't provide feature updates to Windows 10 or 11 Enterprise multi-session.
+          Yes. You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
                    
           
 additionalContent: |

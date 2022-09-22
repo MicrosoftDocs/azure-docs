@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View notification settings for a rule in the Autopilot dashboard
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to view notification settings for a rule in the Permissions Management **Autopilot** dashboard.
 
 > [!NOTE]

@@ -3,9 +3,9 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Microsoft Sentinel
+  - name: What is Microsoft Sentinel?
     href: overview.md
-  - name: What's new in Microsoft Sentinel?
+  - name: What's new
     href: whats-new.md
 - name: Quickstart
   items:
@@ -13,6 +13,8 @@
     href: quickstart-onboard.md
 - name: Tutorials
   items:
+  - name: Forward syslog data to workspace
+    href: forward-syslog-monitor-agent.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -24,9 +26,13 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+    href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
+    items: 
+    - name: Connect Defender for IoT data with Microsoft Sentinel
+      href: iot-solution.md
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -62,13 +68,15 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find solutions and content
     items:
     - name: About Sentinel content
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: Manage custom content with repositories
+      href: ci-cd-custom-content.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -82,13 +90,13 @@
       - name: Overview
         href: kusto-overview.md
       - name: Query best practices
-        href: /azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: SQL to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Splunk to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: KQL quick reference
-        href: /azure/data-explorer/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
+        href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
         href: kusto-resources.md
   - name: Normalize data
@@ -129,6 +137,8 @@
     items:
     - name: Investigate large datasets
       href: investigate-large-datasets.md
+    - name: Investigate entities with entity pages
+      href: entity-pages.md
   - name: Automate responses
     items:
     - name: Orchestration, automation, and response
@@ -143,10 +153,8 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate SAP
     items:
-    - name: Deployment overview
-      href: sap/deployment-overview.md
-    - name: Deployment prerequisites
-      href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+    - name: Solution overview
+      href: sap/solution-overview.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -236,6 +244,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API
@@ -260,8 +270,6 @@
       href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
-    - name: Monitor data connector health
-      href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
   - name: Normalize data
@@ -280,14 +288,22 @@
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
       href: connect-threat-intelligence-taxii.md
+    - name: Add indicators in bulk by file
+      href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Add entity to threat indicators
+      href: add-entity-to-threat-intelligence.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Enable health monitoring
+      href: monitor-sentinel-health.md
+    - name: Monitor data connector health
+      href: monitor-data-connector-health.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -342,8 +358,12 @@
         href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
-      - name: Large-scale security analytics with Azure Synapse
+      - name: Configure big data analytics settings
         href: notebooks-with-synapse.md
+      - name: Export and transform historical log data
+        href: notebooks-with-synapse-export-data.md
+      - name: Hunt on large historical datasets
+        href: notebooks-with-synapse-hunt.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
@@ -354,6 +374,10 @@
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -366,10 +390,14 @@
     items:
     - name: Create automation rules
       href: create-manage-use-automation-rules.md
+    - name: Add advanced conditions to automation rules
+      href: add-advanced-conditions-to-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Migrate alert playbooks to automation rules
+      href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
   - name: Manage Microsoft Sentinel
@@ -394,12 +422,18 @@
     items: 
     - name: Deployment guide
       items: 
+      - name: Deployment overview
+        href: sap/deployment-overview.md
+      - name: Deployment prerequisites
+        href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
       - name: Deploy data connector agent
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
+      - name: Configure Microsoft Sentinel Solution for SAP
+        href: sap/deployment-solution-configuration.md
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
@@ -458,6 +492,8 @@
         href: normalization-common-fields.md 
       - name: ASIM helper functions
         href: normalization-functions.md
+      - name: ASIM known issues
+        href: normalization-known-issues.md
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema
@@ -490,14 +526,18 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
       href: top-workbooks.md
     - name: Entities reference
       href: entities-reference.md
-    - name: UEBA enrichments
-      href: ueba-enrichments.md
+    - name: UEBA reference
+      href: ueba-reference.md
+    - name: Anomalies reference
+      href: anomalies-reference.md
     - name: Multistage attack detection scenarios
       href: fusion-scenario-reference.md
     - name: Watchlist template schemas
@@ -528,11 +568,13 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
     href: ../security/fundamentals/feature-availability.md
-  - name: Build your skills with Microsoft Learn training
+  - name: Build your skills for Microsoft Sentinel
     items: 
-    - name: Microsoft Sentinel training 
-      href: /learn/browse/?expanded=azure&products=azure-sentinel
-    - name: Kusto Query Language (KQL) training 
-      href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
+    - name: Microsoft Sentinel skill-up training  
+      href: skill-up-resources.md
+    - name: Learn modules for Microsoft Sentinel
+      href: /training/browse/?expanded=azure&products=azure-sentinel
+    - name: Learn modules for Kusto Query Language (KQL)
+      href: /training/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

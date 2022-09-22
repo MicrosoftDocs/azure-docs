@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 # Indexer access to content protected by Azure network security
 
-If your search application requirements include an Azure virtual network, this concept article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence your approach. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers network considerations that are specific to search and storage connectivity.
+If your search application requirements include an Azure virtual network, this concept article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence your security strategy. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers network considerations that are specific to search and storage connectivity.
 
 Looking for step-by-step instructions instead? See [How to configure firewall rules to allow indexer access](search-indexer-howto-access-ip-restricted.md) or [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
@@ -102,9 +102,9 @@ When integrating Azure Cognitive Search into a solution that runs on a virtual n
 
 Given the above constrains, your choices for achieving search integration in a virtual network are:
 
-- Configure an inbound firewall rule on your Azure resource that admits indexer requests for data.
+- Configure an inbound firewall rule on your Azure PaaS resource that admits indexer requests for data.
 
-- Configure an outbound connection that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
+- Configure an outbound connection from Search that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
 
   For a private endpoint, the search service connection to your protected resource is through a *shared private link*. A shared private link is an [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Cognitive Search. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice.
 

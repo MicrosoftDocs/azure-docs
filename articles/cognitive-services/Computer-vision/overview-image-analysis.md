@@ -26,7 +26,7 @@ You can use Image Analysis through a client library SDK or by calling the REST A
 Or, you can try out the capabilities of Image Analysis quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -34,8 +34,8 @@ This documentation contains the following types of articles:
 * The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-For a more structured approach, follow a Microsoft Learn module for Image Analysis.
-* [Analyze images with the Computer Vision service](/learn/modules/analyze-images-computer-vision/)
+For a more structured approach, follow a Learn module for Image Analysis.
+* [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
 ## Image Analysis features
 

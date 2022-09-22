@@ -5,6 +5,8 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: Dale Koetke 
+
 ---
 # Roles, permissions, and security in Azure Monitor
 

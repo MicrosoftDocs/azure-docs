@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/28/2022
+ms.date: 09/07/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -71,11 +71,11 @@ Every 5 minutes, the Azure Cosmos SDK client reads the account configuration and
 
 If you remove a region and later add it back to the account, if the added region has a higher regional preference order in the SDK configuration than the current connected region, the SDK will switch back to use this region permanently. After the added region is detected, all the future requests are directed to it.
 
-If you configure the client to preferably connect to a region that the Azure Cosmos account does not have, the preferred region is ignored. If you add that region later, the client detects it and will switch permanently to that region.
+If you configure the client to preferably connect to a region that the Azure Cosmos account doesn't have, the preferred region is ignored. If you add that region later, the client detects it, and will switch permanently to that region.
 
 ## <a id="manual-failover-single-region"></a>Fail over the write region in a single write region account
 
-If you initiate a failover of the current write region, the next write request will fail with a known backend response. When this response is detected, the client will query the account to learn the new write region and proceeds to retry the current operation and permanently route all future write operations to the new region.
+If you initiate a failover of the current write region, the next write request will fail with a known backend response. When this response is detected, the client will query the account to learn the new write region, and proceed to retry the current operation and permanently route all future write operations to the new region.
 
 ## Regional outage
 
@@ -83,13 +83,13 @@ If the account is single write region and the regional outage occurs during a wr
 
 ## Session consistency guarantees
 
-When using [session consistency](../consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region has not yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the primary region to ensure session consistency.
+When using [session consistency](../consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region hasn't yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the primary region to ensure session consistency.
 
 ## Transient connectivity issues on TCP protocol
 
-In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts and Service Unavailable (HTTP 503) errors. The client will retry the request locally on the same endpoint for some seconds before surfacing the error.
+In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts and Service Unavailable (HTTP 503) errors. The client will, if possible, [retry the request locally](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) on the same endpoint for some seconds.
 
-If the user has configured a preferred region list with more than one region and the Azure Cosmos account is multiple write regions or single write region and the operation is a read request, the client will detect the local failure, and retry that single operation in the next region from the preference list.
+If the user has configured a preferred region list with more than one region and the client exhausted all local retries, it can attempt to retry that single operation in the next region from the preference list. Write operations can only be retried in other region if the Azure Cosmos DB account has multiple write regions enabled, while read operations can be retried in any available region.
 
 ## Next steps
 

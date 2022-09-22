@@ -1,12 +1,15 @@
 ---
-title: Authenticate from an application - Azure Relay (Preview)
+title: Authenticate from an application - Azure Relay 
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Relay resources. 
 ms.topic: article
-ms.date: 06/21/2022
+ms.date: 07/22/2022
 ---
 
-# Authenticate and authorize an application with Azure Active Directory to access Azure Relay entities (Preview)
+# Authenticate and authorize an application with Azure Active Directory to access Azure Relay entities 
 Azure Relay supports using Azure Active Directory (Azure AD) to authorize requests to Azure Relay entities (Hybrid Connections, WCF Relays). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).   
+
+> [!NOTE]
+> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet (Azure China).
 
 
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]
@@ -92,6 +95,12 @@ Here's the code from the sample that shows how to use Azure AD authentication to
     var sender = new HybridConnectionClient(hybridConnectionUri, tokenProvider);    
     ```
 
+## Samples
+
+- Hybrid Connections: [.NET](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol), [Java](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/java/role-based-access-control), [JavaScript](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/node/rolebasedaccesscontrol)
+- WCF Relay: [.NET](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl)
+
+ 
 ## Next steps
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:

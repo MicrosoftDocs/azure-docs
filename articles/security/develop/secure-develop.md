@@ -110,7 +110,7 @@ The verification phase involves a comprehensive effort to ensure that the code m
 
 ### Find and fix vulnerabilities in your application dependencies
 
-You scan your application and its dependent libraries to identify any known vulnerable components. Products that are available to perform this scan include [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/), and [Black Duck](https://www.blackducksoftware.com/).
+You scan your application and its dependent libraries to identify any known vulnerable components. Products that are available to perform this scan include [OWASP Dependency Check](https://owasp.org/www-project-dependency-check/),[Snyk](https://snyk.io/), and [Black Duck](https://www.blackducksoftware.com/).
 
 ### Test your application in an operating state
 
@@ -130,7 +130,7 @@ In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 
 Reviewing the attack surface after code completion helps ensure that any design or implementation changes to an application or system has been considered. It helps ensure that any new attack vectors that were created as a result of the changes, including threat models, has been reviewed and mitigated.
 
-You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Zed Attack Proxy Project](https://owasp.org/www-project-zap/), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### Perform security penetration testing
 

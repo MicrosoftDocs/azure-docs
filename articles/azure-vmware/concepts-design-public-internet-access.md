@@ -1,5 +1,5 @@
 ---
-title: Concept - Internet connectivity design considerations (Preview)
+title: Concept - Internet connectivity design considerations
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
 ms.service: azure-vmware
@@ -18,7 +18,7 @@ Your requirements for security controls, visibility, capacity, and operations dr
 
 ## Internet Service hosted in Azure 
 
-There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution private cloud or on-premise. The options are as follows: 
+There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution private cloud or on-premises. The options are as follows: 
 
 - An Azure firewall in a Virtual WAN Hub. 
 - A third-party Network Virtual Appliance in a Virtual WAN Hub Spoke Virtual Network.

@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Route Server
-            url: /learn/modules/intro-to-azure-route-server
+            url: /training/modules/intro-to-azure-route-server
             
   # Card
   - title: Get started
@@ -48,6 +48,14 @@ landingContent:
           - text: Create and configure Route Server and Quagga NVA
             url: tutorial-configure-route-server-with-quagga.md          
 
+  # Card
+  - title: Learn about Route Server architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Update route tables by using Azure Route Server
+            url: /azure/architecture/example-scenario/networking/manage-routing-azure-route-server
+            
   # Card
   - title: Manage features and options
     linkLists:

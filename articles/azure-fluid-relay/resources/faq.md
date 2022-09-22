@@ -12,6 +12,10 @@ ms.topic: reference
 
 The following are frequently asked questions about Azure Fluid Relay
 
+## When will Azure Fluid Relay be Generally Available?
+
+Azure Fluid Relay is Generally Available now. For a complete list of available regions, see [Azure Fluid Relay regions and availability](https://azure.microsoft.com/global-infrastructure/services/?products=fluid-relay). For our pricing list, see [Azure Fluid Relay pricing](https://azure.microsoft.com/pricing/details/fluid-relay).
+
 ## Which Azure regions currently provide Fluid Relay?
 
 For a complete list of available regions, see [Azure Fluid Relay regions and availability](https://azure.microsoft.com/global-infrastructure/services/?products=fluid-relay).

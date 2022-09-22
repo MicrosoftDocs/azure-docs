@@ -96,6 +96,35 @@ Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/cassandra/too
    ```bash
    COPY exampleks.tablename FROM 'data.csv' WITH HEADER = TRUE;
    ```
+> [!NOTE]
+> Cassandra API supports protocol version 4, which shipped with Cassandra 3.11. There may be issues with using later protocol versions with our API. COPY FROM with later protocol version can go into a loop and return duplicate rows. 
+> Add the protocol-version to the cqlsh command.
+```sql
+cqlsh <USERNAME>.cassandra.cosmos.azure.com 10350 -u <USERNAME> -p <PASSWORD> --ssl --protocol-version=4
+```
+##### Add throughput-limiting options to CQL Copy command
+
+The COPY command in cqlsh supports various parameters to control the rate of ingestion of documents into Azure Cosmos DB.
+
+The default configuration for COPY command tries to ingest data at very fast pace and does not account for the rate-limiting behavior of CosmosDB. You should reduce the CHUNKSIZE or INGESTRATE depending on the throughput configured on the collection.
+
+We recommend the below configuration (at minimum) for a collection at 20,000 RUs if the document or record size is 1 KB.
+
+- CHUNKSIZE = 100
+- INGESTRATE = 500
+- MAXATTEMPTS = 10
+
+###### Example commands
+
+- Copying data from Cassandra API to local csv file
+```sql
+COPY standard1 (key, "C0", "C1", "C2", "C3", "C4") TO 'backup.csv' WITH PAGESIZE=100 AND MAXREQUESTS=1 ;
+```
+
+- Copying data from local csv file to Cassandra API
+```sql
+COPY standard2 (key, "C0", "C1", "C2", "C3", "C4") FROM 'backup.csv' WITH CHUNKSIZE=100 AND INGESTRATE=100 AND MAXATTEMPTS=10;
+```
 
 >[!IMPORTANT]
 > Only the open-source Apache Cassandra version of CQLSH COPY is supported. Datastax Enterprise (DSE) versions of CQLSH may encounter errors. 

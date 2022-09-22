@@ -4,7 +4,7 @@ description: Least privileged roles to delegate for tasks in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -355,7 +355,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Read all configuration | [Security Reader](permissions-reference.md#security-reader) |  |
 > | Read users flagged for risk | [Security Reader](permissions-reference.md#security-reader) |  |
 
-## Temporary Access Pass (Preview)
+## Temporary Access Pass 
 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |

@@ -86,7 +86,7 @@ While you'll need to migrate your connections before the [legacy version reaches
 
 After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
+For more information, see [Update OT system software](update-ot-software.md) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
 
 ## Next steps
 

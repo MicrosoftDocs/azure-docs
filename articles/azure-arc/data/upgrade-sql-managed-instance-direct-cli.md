@@ -3,12 +3,12 @@ title: Upgrade a directly connected Azure SQL Managed Instance for Azure Arc usi
 description: Article describes how to upgrade a directly connected Azure SQL Managed Instance for Azure Arc using the CLI
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -107,6 +107,4 @@ Status:
   State:                 Ready
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

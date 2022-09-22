@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Display an inventory of created resources and licenses for your authorization system
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 You can use the **Inventory** dashboard in Permissions Management to display an inventory of created resources and licensing information for your authorization system and its associated accounts.
 
 ## View resources created for your authorization system

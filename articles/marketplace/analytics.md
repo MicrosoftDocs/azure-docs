@@ -4,9 +4,8 @@ description: Access analytic reports to monitor sales, evaluate performance, and
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen-ms
-ms.author: mingshen
-ms.reviewer: sroy
+author: smannepalle
+ms.author: smannepalle
 ms.date: 06/21/2022
 ---
 

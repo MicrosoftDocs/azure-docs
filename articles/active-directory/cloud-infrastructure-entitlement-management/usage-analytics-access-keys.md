@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View analytic information about access keys
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Analytics** dashboard in Permissions Management provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
 - **Users**: Tracks assigned permissions and usage of various identities.

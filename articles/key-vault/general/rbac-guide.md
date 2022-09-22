@@ -16,7 +16,7 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
 > [!NOTE]
-> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. It is supported using client libraries like Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts.
 
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
@@ -36,7 +36,6 @@ Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
 -   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
--   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
 
 More about Azure Key Vault management guidelines, see:
 
@@ -198,6 +197,9 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 ---
 
 ### Secret scope role assignment
+
+> [!NOTE]
+> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](rbac-guide.md?i#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
 
 1. Open a previously created secret.
 

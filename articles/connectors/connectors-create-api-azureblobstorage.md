@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/28/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
@@ -52,6 +52,9 @@ Only one Blob trigger exists and has either of the following names, based on whe
 | Consumption | Managed connector only: **When a blob is added or modified (properties only)** | The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
 | Standard | - Built-in: **When a blob is Added or Modified in Azure Storage** <br><br>- Managed connector: **When a blob is added or modified (properties only)** | - Built-in: The trigger fires when a blob is added or updated in your storage container. The trigger also fires for any nested folders in your storage container, not just the root folder. <br><br>- Managed connector: The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
 ||||
+
+> [!IMPORTANT]
+> When you set up the Blob trigger, the built-in version processes all existing blobs in the container, while the managed version ignores existing blobs in the container.
 
 When the trigger fires each time, Azure Logic Apps creates a logic app instance and starts running the workflow.
 
@@ -115,7 +118,7 @@ To add a Blob trigger to a logic app workflow in single-tenant Azure Logic Apps,
       | Check the root folder for changes to a specific blob. | **<*container-name*>/<*blob-name*>.<*blob-extension*>** |
       | Check the root folder for changes to any blobs with the same extension, for example, **.txt**. | **<*container-name*>/{name}.txt** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
       | Check the root folder for changes to any blobs with names starting with a specific string, for example, **Sample-**. | **<*container-name*>/Sample-{name}** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
-      | Check a subfolder for a newly added blob. | **<*container-name*>/<*subfolder*>** |
+      | Check a subfolder for a newly added blob. | **<*container-name*>/<*subfolder*>/{blobname}.{blobextension}** <br><br>**Important**: Make sure that you use **{blobname}.{blobextension}** as a literal. |
       | Check a subfolder for changes to a specific blob. | **<*container-name*>/<*subfolder*>/<*blob-name*>.<*blob-extension*>** |
       |||
 
@@ -293,7 +296,7 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
 
-  - [Access storage accounts in same region with managed identities](#access-blob-storage-in-same-region-with-managed-identities)
+  - [Access storage accounts in same region with system-managed identities](#access-blob-storage-in-same-region-with-system-managed-identities)
 
   - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
@@ -345,7 +348,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
   You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
 
-### Access Blob Storage in same region with managed identities
+### Access Blob Storage in same region with system-managed identities
 
 To connect to Azure Blob Storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Microsoft trusted services, such as a managed identity, access to your storage account through a firewall.
 
@@ -360,10 +363,9 @@ To use managed identities in your logic app to access Blob Storage, follow these
 > [!NOTE]
 > Limitations for this solution:
 >
-> - You must set up a managed identity to authenticate your storage account connection.
+> - To authenticate your storage account connection, you have to set up a system-assigned managed identity. 
+> A user-assigned managed identity won't work.
 > 
-> - For Standard logic apps in the single-tenant Azure Logic Apps environment, only the system-assigned 
-> managed identity is available and supported, not the user-assigned managed identity.
 
 #### Configure storage account access
 

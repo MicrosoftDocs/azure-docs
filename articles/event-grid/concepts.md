@@ -80,6 +80,8 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 When you use a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB and the maximum size of an event is 1 MB. 
 
+## Inline event type definitions
+Event Grid lets you define the types of events that will be published to a channel. With inline event type definitions, subscribers will be able to easily filter by event type when creating an event subscription. 
 
 ## Next steps
 

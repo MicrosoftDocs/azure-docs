@@ -1,11 +1,11 @@
 ---
 title: Zone-redundant HA with Azure Database for MySQL - Flexible Server
 description: Get a conceptual overview of zone-redundant high availability in Azure Database for MySQL - Flexible Server.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 08/26/2021
 ---
 
@@ -29,7 +29,9 @@ You can choose the availability zone for the primary and the standby replica. Pl
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram that shows the architecture for zone-redundant high availability.":::
 
-The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). These files are replicated to the standby server via the storage-level replication available with ZRS. If there's a failover: 
+The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). The log files are replicated to the standby server via the storage-level replication available with ZRS and applied to stand by server continuously.
+
+If there's a failover: 
 - The standby replica is activated. 
 - The binary log files of the primary server continue to apply to the standby server to bring it online to the last committed transaction on the primary. 
 
@@ -49,7 +51,7 @@ The standby server offers infrastructure redundancy with a separate virtual mach
 
 :::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Diagram that shows the architecture for same-zone high availability.":::
 
-The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). These files are replicated to the standby server via the storage-level replication available with LRS.
+The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). The log files are replicated to the standby server via the storage-level replication available with LRS and applied to stand by server continuously.
 
 If there's a failover: 
 - The standby replica is activated. 
@@ -161,7 +163,7 @@ You can disable HA on a server after you create it. Billing stops immediately.  
 You need to be able to mitigate downtime for your application even when you're not using HA. Service downtime, like scheduled patches, minor version upgrades, or customer-initiated operations like scaling of compute can be performed during scheduled maintenance windows. To mitigate application impact for Azure-initiated maintenance tasks, you can schedule them on a day of the week and time that minimizes the impact on the application.</br>
 
 - **Can I use a read replica for an HA-enabled server?**</br>
-Read replicas aren't supported for HA servers. This feature is on our roadmap, and we're working to make it available soon.</br>
+Yes, read replicas are supported for HA servers.</br>
 
 - **Can I use Data-in Replication for HA servers?**</br>
 Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is on our roadmap and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:

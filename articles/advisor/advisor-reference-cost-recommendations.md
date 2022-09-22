@@ -293,6 +293,8 @@ We analyzed your VMware Cloud Simple usage over last 30 days and calculated rese
 
 Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMware Cloud Simple reserved instance )](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
 
+## Subscription
+
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
 With Ephemeral OS Disk, Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads

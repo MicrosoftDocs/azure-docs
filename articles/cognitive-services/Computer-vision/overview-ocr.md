@@ -21,7 +21,7 @@ Optical character recognition (OCR) allows you to extract printed or handwritten
 Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ![OCR demos](./Images/ocr-demo.gif)
 
@@ -31,8 +31,8 @@ This documentation contains the following types of articles:
 <!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
-For a more structured approach, follow a Microsoft Learn module for OCR.
-* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
+For a more structured approach, follow a Learn module for OCR.
+* [Read Text in Images and Documents with the Computer Vision Service](/training/modules/read-text-images-documents-with-computer-vision-service/)
 
 ## Read API 
 

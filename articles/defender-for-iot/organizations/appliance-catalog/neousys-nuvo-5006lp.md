@@ -13,7 +13,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Office |
+|**Hardware profile** | L100 |
 |**Performance** | 	Max bandwidth: 30 Mbp/s<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
@@ -142,6 +142,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

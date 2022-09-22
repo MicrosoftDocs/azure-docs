@@ -11,11 +11,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/02/2021 
+ms.date: 08/18/2022 
 ms.author: alkohli
 
 ---
-# Options to migrate data from StorSimple 5000-7000 series 
+# Options to migrate data from StorSimple 5000-7000 series
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 > [!IMPORTANT]
 > On July 9, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.

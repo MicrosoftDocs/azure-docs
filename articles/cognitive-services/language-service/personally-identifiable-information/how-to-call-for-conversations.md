@@ -31,7 +31,7 @@ Currently the conversational PII preview API only supports English language.
 
 ### Region support
 
-Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
+Currently the conversational PII preview API supports all Azure regions supported by the Language service.
 
 ## Submitting data
 
@@ -39,7 +39,7 @@ You can submit the input to the API as list of conversation items. Analysis is p
 
 When using the async feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-When you submit data to conversational PII, we can send one conversation (chat or spoken) per request.
+When you submit data to conversational PII, you can send one conversation (chat or spoken) per request.
 
 The API will attempt to detect all the [defined entity categories](concepts/conversations-entity-categories.md) for a given conversation input. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories.
 
@@ -62,22 +62,18 @@ When you get results from PII detection, you can stream the results to an applic
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
-    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample9_RecognizeCustomEntities.md)
-    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples/Sample8_AnalyzeConversation_ConversationPII_Transcript.md)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples/sample_conv_pii_transcript_input.py)
     
 5. See the following reference documentation for more information on the client, and return object:
     
-    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
-    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    * [C#](/dotnet/api/azure.ai.language.conversations)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)
     
 # [REST API](#tab/rest-api)
 
@@ -86,7 +82,7 @@ When you get results from PII detection, you can stream the results to an applic
 Use the following example if you have conversations transcribed using the Speech service's [speech-to-text](../../Speech-Service/speech-to-text.md) feature:
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -217,7 +213,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Use the following example if you have conversations that originated in text. For example, conversations through a text-based chat client.
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \

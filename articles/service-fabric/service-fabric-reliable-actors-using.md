@@ -2,9 +2,13 @@
 title: Implement features in Azure Service Fabric actors 
 description: Describes how to write your own actor service that implements service-level features in the same way as when you inherit StatefulService.
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Implement service-level features in your actor service
 
 As described in [service layering](service-fabric-reliable-actors-platform.md#service-layering), the actor service itself is a reliable service. You can write your own service that derives from `ActorService`. You also can implement service-level features in the same way as when you inherit a stateful service, such as:

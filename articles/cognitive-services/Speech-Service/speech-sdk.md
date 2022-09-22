@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/14/2022
+ms.date: 09/16/2022
 ms.author: eur
 ---
 
@@ -38,6 +38,12 @@ The Speech SDK supports the following languages and platforms:
 <sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>  
 
 [!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
+
+## Speech SDK demo
+
+The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
+
+> [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 
 ## Code samples
 

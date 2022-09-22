@@ -32,6 +32,9 @@ An example target JSON document:
  "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
  "name": "R-410 Road Bicycle",
  "price": 455.95,
+ "inventory": {
+   "quantity": 15
+ },
  "used": false,
  "categoryId": "road-bikes"
 }
@@ -44,6 +47,7 @@ A JSON Patch document:
  { "op": "add", "path": "/color", "value": "silver" },
  { "op": "remove", "path": "/used" },
  { "op": "set", "path": "/price", "value": 355.45 }
+ { "op": "increment", "path": "/inventory/quantity", "value": 10 }
 ]
 ```
 
@@ -54,6 +58,9 @@ The resulting JSON document:
  "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
  "name": "R-410 Road Bicycle",
  "price": 355.45,
+ "inventory": {
+   "quantity": 25
+ },
  "categoryId": "road-bikes",
  "color": "silver"
 }

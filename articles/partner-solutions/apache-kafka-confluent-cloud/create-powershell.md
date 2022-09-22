@@ -3,8 +3,8 @@ title: Create Apache Kafka for Confluent Cloud through Azure PowerShell - Azure 
 description: This article describes how to use Azure PowerShell to create an instance of Apache Kafka for Confluent Cloud.
 ms.topic: quickstart
 ms.date: 11/03/2021
-author: davidsmatlak
-ms.author: davidsmatlak
+author: flang-msft
+ms.author: franlanglois
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

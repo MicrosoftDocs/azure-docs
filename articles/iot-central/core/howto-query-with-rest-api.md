@@ -3,7 +3,7 @@ title: Use the REST API to query devices in Azure IoT Central
 description: How to use the IoT Central REST API to query devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2021
+ms.date: 06/14/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -30,12 +30,14 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
+
 ## Run a query
 
 Use the following request to run a query:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=2022-06-30-preview
 ```
 
 The query is in the request body and looks like the following example:
@@ -181,7 +183,7 @@ To find a device template ID, navigate to the **Devices** page in your IoT Centr
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
-You can also use the [Devices - Get](/rest/api/iotcentral/1.2-previewdataplane/devices/get) REST API call to get the device template ID for a device.
+You can also use the [Devices - Get](/rest/api/iotcentral/2022-07-31dataplane/devices/get) REST API call to get the device template ID for a device.
 
 ## WHERE clause
 

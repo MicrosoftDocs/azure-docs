@@ -47,8 +47,6 @@ landingContent:
             url: how-to/add-faces.md
           - text: Use the large-scale feature
             url: how-to/use-large-scale.md
-          - text: Use the PersonDirectory structure
-            url: how-to/use-persondirectory.md
           - text: Specify a face recognition model version
             url: how-to/specify-recognition-model.md
 

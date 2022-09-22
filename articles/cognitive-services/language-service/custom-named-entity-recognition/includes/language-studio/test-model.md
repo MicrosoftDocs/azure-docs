@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/05/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---
@@ -13,7 +13,7 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
 To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):
 1. Select **Testing deployments** from the left side menu.
 
-2. Select the model you want to test. You can only test models that are assigned to deployments. 
+2. Select the deployment you want to test. You can only test models that are assigned to deployments. 
 
 3. For multilingual projects, from the language dropdown, select the language of the text you are testing.
 

@@ -89,6 +89,10 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
+## I'm using Alias minor version, but I can't seem to upgrade in the same minor version? Why?
+
+When upgrading by alias minor version, only a higher minor version is supported. For example, upgrading from 1.14.x to 1.14 will not trigger an upgrade to the latest GA 1.14 patch, but upgrading to 1.15 will trigger an upgrade to the latest GA 1.15 patch.
+
 ## My application is failing with `argument list too long`
 
 You may receive an error message similar to:
@@ -130,6 +134,31 @@ To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -
 
 * If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
+
+## I'm receiving an error due to "PodDrainFailure"
+
+This error is due to the requested operation being blocked by a PodDisruptionBudget (PDB) that has been set on the deployments within the cluster. To learn more about how PodDisruptionBudgets work, please visit check out [the official Kubernetes example](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pdb-example).
+
+You may use this command to find the PDBs applied on your cluster:
+
+```
+kubectl get poddisruptionbudgets --all-namespaces
+```
+or
+```
+kubectl get poddisruptionbudgets -n {namespace of failed pod}
+```
+Please view the label selector to see the exact pods that are causing this failure.
+
+There are a few ways this error can occur:
+1. Your PDB may be too restrictive such as having a high minAvailable pod count, or low maxUnavailable pod count. You can change it by updating the PDB with less restrictive.
+2. During an upgrade, the replacement pods may not be ready fast enough. You can investigate your Pod Readiness times to attempt to fix this situation.
+3. The deployed pods may not work with the new upgraded node version, causing Pods to fail and fall below the PDB.
+
+>[!NOTE]
+  > If the pod is failing from the namespace 'kube-system', please contact support. This is a namespace managed by AKS.
+
+For more information about PodDisruptionBudgets, please check out the [official Kubernetes guide on configuring a PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/).
 
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
@@ -234,6 +263,10 @@ If you're using Azure Firewall like on this [example](limit-egress-traffic.md#re
 
 If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
+## Windows containers have connectivity issues after a cluster upgrade operation
+
+For older clusters with Calico network policies applied before Windows Calico support, Windows Calico will be enabled by default after a cluster upgrade. After Windows Calico is enabled on Windows, you may have connectivity issues if the Calico network policies denied ingress/egress. You can mitigate this issue by creating a new Calico policy on the cluster that allows all ingress/egress for Windows using either PodSelector or IPBlock.
+
 ## Azure Storage and AKS Troubleshooting
 
 ### Failure when setting uid and `GID` in mountOptions for Azure Disk
@@ -300,6 +333,17 @@ If your node is in a failed state, you can mitigate by manually updating the VM 
     ```
 
 ## Azure Files and AKS Troubleshooting
+
+### Azure Files CSI storage driver fails to mount a volume with a secret not in default namespace
+
+If you have configured an Azure Files CSI driver persistent volume or storage class with a storage
+access secrete in a namespace other than *default*, the pod does not search in its own namespace 
+and returns an error when trying to mount the volume.
+
+This issue has been fixed in the 2022041 release. To mitigate this issue, you have two options:
+
+1. Upgrade the agent node image to the latest release.
+1. Specify the *secretNamespace* setting when configuring the persistent volume configuration.
 
 ### What are the default mountOptions when using Azure Files?
 
@@ -412,7 +456,6 @@ As a result, to mitigate this issue you can:
 3. Delete the older node pool
 
 AKS is investigating the capability to mutate active labels on a node pool to improve this mitigation.
-
 
 
 <!-- LINKS - internal -->

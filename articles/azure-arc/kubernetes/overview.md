@@ -3,8 +3,6 @@ title: "Overview of Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 ms.custom: event-tier1-build-2022
-author: shashankbarsin
-ms.author: shasb
 ms.date: 05/03/2022
 ms.topic: overview
 description: "This article provides an overview of Azure Arc-enabled Kubernetes."
@@ -43,7 +41,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled Data Services (SQL Managed Instances, PostgreSQL Hyperscale.), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
+* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled data services (SQL Managed Instances, PostgreSQL server (preview)), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

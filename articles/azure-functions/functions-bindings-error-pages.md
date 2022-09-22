@@ -3,7 +3,7 @@ title: Azure Functions error handling and retry guidance
 description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors, including information on retry policies.
 
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 08/03/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -14,7 +14,7 @@ Handling errors in Azure Functions is important to avoid lost data, missed event
 This article describes general strategies for error handling and the available retry strategies. 
 
 > [!IMPORTANT]
-> The retry policy support in the runtime for triggers other than Timer and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in October 2022. 
+> The retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in October 2022. For more information, see the [Retries section below](#retries).
 
 ## Handling errors
 
@@ -37,7 +37,7 @@ Capturing and logging errors is critical to monitoring the health of your applic
 
 ### Plan your retry strategy
 
-Several Functions bindings extensions provide built-in support for retries. In addition, the runtime lets you define retry policies for Timer and Event Hubs triggered functions. To learn more, see [Retries](#retries). For triggers that don't provide retry behaviors, you may want to implement your own retry scheme.
+Several Functions bindings extensions provide built-in support for retries. In addition, the runtime lets you define retry policies for Timer, Kafka, and Event Hubs triggered functions. To learn more, see [Retries](#retries). For triggers that don't provide retry behaviors, you may want to implement your own retry scheme.
 
 ### Design for idempotency
 
@@ -57,12 +57,13 @@ There are two kinds of retries available for your functions: built-in retry beha
 | RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
 | Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | 
 |Timer | [Retry policies](#retry-policies) | Function-level |
+|Kafka | [Retry policies](#retry-policies) | Function-level |
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define a retry policies for Timer and Event Hubs triggers that are enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
+Starting with version 3.x of the Azure Functions runtime, you can define a retry policies for Timer, Kafka, and Event Hubs triggers that are enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
 
-A retry policy is evaluated when a Timer or Event Hubs triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch has completed.
+A retry policy is evaluated when a Timer, Kafka, or Event Hubs triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch has completed.
 
 #### Retry strategies
 
@@ -252,7 +253,7 @@ def main(mytimer: azure.functions.TimerRequest, context: azure.functions.Context
     logging.info(f'Current retry count: {context.retry_context.retry_count}')
     
     if context.retry_context.retry_count == context.retry_context.max_retry_count:
-        logging.info(
+        logging.warn(
             f"Max retries of {context.retry_context.max_retry_count} for "
             f"function {context.function_name} has been reached")
    

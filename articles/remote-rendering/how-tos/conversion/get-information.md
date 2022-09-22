@@ -20,15 +20,19 @@ There will be at most one error (either `error` or `internal error`) and there w
 
 ## Example *result* file
 
-The following example describes a conversion that successfully generated an arrAsset. 
+The following example describes a conversion that successfully generated an arrAsset.
 However, since there was a missing texture, the resulting arrAsset may not be as intended.
 
 ```JSON
 [
+  {"conversionId":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"},
   {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
   {"result":"succeeded with warnings"}
 ]
 ```
+
+> [!NOTE]
+> The `conversionId` is an internal Id that does not correlate with the Id that was used to create the conversion.
 
 ## Information about a converted model: The info file
 

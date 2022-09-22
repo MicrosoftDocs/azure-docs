@@ -77,7 +77,7 @@ When the twin is created successfully, the CLI output from the command should lo
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
-1. First, create a new Azure Functions project. 
+1. First, create a new Azure Functions project of Event Grid trigger type. 
 
     You can do this using **Visual Studio** (for instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)), **Visual Studio Code** (for instructions, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#create-an-azure-functions-project)), or the **Azure CLI** (for instructions, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#create-a-local-function-project)).
 
@@ -130,7 +130,7 @@ You can test your new ingress function by using the device simulator from [Conne
 
 1. Navigate to the [Azure Digital Twins end-to-end sample project repository](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Get the sample project on your machine by selecting the **Browse code** button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
-      This will download a .zip folder to your machine as *digital-twins-samples-master.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
+      This will download a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files. You'll be using the *DeviceSimulator* project folder.
 1. [Register the simulated device with IoT Hub](tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 2. [Configure and run the simulation](tutorial-end-to-end.md#configure-and-run-the-simulation)
 

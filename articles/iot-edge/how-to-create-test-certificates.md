@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create demo certificates to test IoT Edge device features
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
 If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
@@ -233,8 +233,9 @@ These certificates are required for **gateway scenarios** because the device CA 
 The **device CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificate if device CA isn't configured. Device CA certificates go in the **Certificate** section of the `config.yaml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 :::moniker-end
+<!--end 1.1-->
 
-<!--1.2-->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 ## Create edge CA certificates
@@ -244,6 +245,7 @@ These certificates are required for **gateway scenarios** because the edge CA ce
 The **edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 :::moniker-end
+<!-- end iotedge-2020-11 -->
 
 # [Windows](#tab/windows)
 

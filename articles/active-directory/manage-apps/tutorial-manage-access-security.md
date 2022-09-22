@@ -7,7 +7,7 @@ ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 07/18/2022
 
 # Customer intent: As an administrator of an Azure AD tenant, I want to manage access to my applications and make sure they are secure.
 ---
@@ -60,7 +60,7 @@ It's easier for an administrator to manage access to the application by assignin
 1. In the left menu of the tenant overview, select **Security**.
 1. Select **Conditional Access**, select **+ New policy**, and then select **Create new policy**.
 1. Enter a name for the policy, such as *MFA Pilot*.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
 1. On the **Include** tab, choose **Select users and groups**, and then select **Users and groups**.
 1. Browse for and select the *MFA-Test-Group* that you previously created, and then choose **Select**.
 1. Don't select **Create** yet, you add MFA to the policy in the next section.
@@ -76,7 +76,7 @@ In this tutorial, the administrator can find the basic steps to configure the ap
 1. Set **Enable policy** to **On**.
 1. To apply the Conditional Access policy, select **Create**.
 
-## Test multi-factor authentication
+### Test multi-factor authentication
 
 1. Open a new browser window in InPrivate or incognito mode and browse to the URL of the application.
 1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign into the Azure portal.
@@ -98,10 +98,10 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 1. For **Enforce with conditional access policy templates**, select **Custom policy**.
 1. Select **Create**.
 
-## Add the terms of use to the policy
+### Add the terms of use to the policy
 
 1. In the left menu of the tenant overview, select **Security**.
-1. Select **Conditional Access**, and then select the *MFA Pilot* policy.
+1. Select **Conditional Access**, and then **Policies**. From the list of policies, select the *MFA Pilot* policy.
 1. Under **Access controls** and **Grant**, select the controls selected link.
 1. Select *My TOU*.
 1. Select **Require all the selected controls**, and then choose **Select**.
@@ -114,6 +114,8 @@ The My Apps portal enables administrators and users to manage the applications u
 > [!NOTE]
 > Applications only appear in a user's my Apps portal after the user is assigned to the application and the application is configured to be visible to users. See [Configure application properties](add-application-portal-configure.md) to learn how to make the application visible to users.
 
+By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. In this section, you create a collection  and assign it to users and groups.
+
 1. Open the Azure portal.
 1. Go to **Azure Active Directory**, and then select **Enterprise Applications**.
 1. Under **Manage**, select **Collections**.
@@ -123,6 +125,13 @@ The My Apps portal enables administrators and users to manage the applications u
 1. Select the **Owners** tab. Select **+ Add users and groups**, and then in the Add users and groups page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
 1. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the Search box to find users or groups. When you're finished selecting users and groups, choose **Select**.
 1. Select **Review + Create**, and then select **Create**. The properties for the new collection appear.
+
+### Check the collection in the My Apps portal
+
+1. Open a new browser window in InPrivate or incognito mode and browse to the [My Apps](https://myapps.microsoft.com/) portal.
+1. Sign in with the user account that you assigned to the application. 
+1. Check that the collection you created appears in the My Apps portal.
+1. Close the browser window.
 
 ## Clean up resources
 

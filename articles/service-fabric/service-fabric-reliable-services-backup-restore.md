@@ -1,13 +1,14 @@
 ---
 title: Service Fabric Backup and Restore 
 description: Conceptual documentation for Service Fabric Backup and Restore, a service for configuring backup of Reliable Stateful services and Reliable Actors.
-author: mcoskun
-
-ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: mcoskun
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Backup and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 

@@ -1,13 +1,13 @@
 ---
 title: Install Update on Azure Stack Edge Pro GPU device | Microsoft Docs
-description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device
+description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 09/20/2022
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,22 +20,25 @@ The procedure described in this article was performed using a different version 
 
 ## About latest update
 
-The current update is Update 2205. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2209. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version - **2.2.1983.5094**
-- Kubernetes server version - **v1.21.7**
-- IoT Edge version: **0.1.0-beta15**
-- Azure Arc version: **1.6.6**
-- GPU driver version: **510.47.03**
-- CUDA version: **11.6**
+- Device software version: Azure Stack Edge 2209 (2.2.2088.5593)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2209 (2.2.2088.5593)
+- Kubernetes server version: v1.22.6
+- IoT Edge version: 0.1.0-beta15
+- Azure Arc version: 1.7.18
+- GPU driver version: 515.48.07
+- CUDA version: 11.7
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2205-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2209-release-notes.md).
 
-**To apply 2205 update, your device must be running 2106 or later.** 
+**To apply 2209 update, your device must be running version 2207.**
 
-- If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
-- You can update to 2106 from an older version and then install 2205.
+- If you are not running the minimum required version, you'll see this error:
+ 
+  *Update package cannot be installed as its dependencies are not met.*
 
+- You can update to 2207 from 2106, and then install 2209.
 
 ### Updates for a single-node vs two-node
 
@@ -156,7 +159,7 @@ Depending on the software version that you are running, install process may diff
 
     Go to the local web UI and then go to **Software update** page. Verify that the Kubernetes update has successfully installed and the software version reflects that.
 
-    ![Software version after update 17](./media/azure-stack-edge-gpu-install-update/portal-update-16-m.png)
+    ![Screenshot of software version after update 17.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 
 Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. 
@@ -189,7 +192,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2205**.
+    The update listing appears as **Azure Stack Edge Update 2209**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
@@ -240,8 +243,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
 
-    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-16-m.png)
-
+    ![Screenshot of update device 6.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 ## Next steps
 

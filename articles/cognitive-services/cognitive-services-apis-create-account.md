@@ -7,18 +7,18 @@ author: aahill
 manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: aahi
 ---
 
 # Quickstart: Create a Cognitive Services resource using the Azure portal
 
-Use this quickstart to create a Cognitive Services resource. After you create a Cognitive Service resource in the Azure portal , you'll get an endpoint and a key for authenticating your applications.
+Use this quickstart to create a Cognitive Services resource. After you create a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
 
-Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-## Types of Cognitive Services resource
+## Types of Cognitive Services resources
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -38,7 +38,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 * **Speech** - Speech
 * **Vision** - Computer Vision, Custom Vision, Face
 
-1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
 1. On the **Create** page, provide the following information:
 
@@ -46,59 +46,30 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
     
     :::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Multi-service resource creation screen":::
 
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+1. Configure other settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
 
 ### [Decision](#tab/decision)
 
-1. You can select one of these links to create a Decision resource: 
-    - [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
-    - [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-    - [Metrics Advisor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesMetricsAdvisor)
-    - [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Decision resource for subscription](./includes/quickstarts/create-decision-resource-portal.md)]
 
 ### [Language](#tab/language)
 
-1. You can select one of these links to create a Language resource: 
-    - [Immersive reader](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)
-    - [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-    - [Language service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
-    - [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
-    - [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Language resource for subscription](./includes/quickstarts/create-language-resource-portal.md)]
 
 ### [Speech](#tab/speech)
 
-1. You can select this link to create a Speech resource: [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+1. Select the following links to create a Speech resource: 
+   - [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 
 1. On the **Create** page, provide the following information:
 
     [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
 
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+1. Select **Review + create**.
 
 ### [Vision](#tab/vision)
 
-1. You can select one of these links to create a Vision resource: 
-    - [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-    - [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
-    - [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
-
-1. On the **Create** page, provide the following information:
-
-    [!INCLUDE [Create Azure resource for subscription](./includes/quickstarts/cognitive-resource-project-details.md)]
-
-1. Configure additional settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
+[!INCLUDE [Create Vision resource for subscription](./includes/quickstarts/create-vision-resource-portal.md)]
 
 ---
 
@@ -112,7 +83,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 1. From the quickstart pane that opens, you can access the resource endpoint and manage keys.
 <!--
-1. If you missed the previous steps or need to find your resource later, go to the [Azure services](https://ms.portal.azure.com/#home) home page. From here you can view recent resources, select **My resources**, or use the search box to find your resource by name.
+1. If you missed the previous steps or need to find your resource later, go to the [Azure services](https://portal.azure.com/#home) home page. From here you can view recent resources, select **My resources**, or use the search box to find your resource by name.
 
     :::image type="content" source="media/cognitive-services-apis-create-account/home-my-resources.png" alt-text="Find resource keys from home screen":::
 -->
@@ -126,7 +97,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 1. Locate the resource group containing the resource to be deleted.
 1. If you want to delete the entire resource group, select the resource group name. On the next page, Select **Delete resource group**, and confirm.
-1. If you want to delete only the Cognitive Service resource, select the resource group to see all the resources within it. On the next page, select the resource that you want to delete, click the ellipsis menu for that row, and select **Delete**. 
+1. If you want to delete only the Cognitive Service resource, select the resource group to see all the resources within it. On the next page, select the resource that you want to delete, select the ellipsis menu for that row, and select **Delete**. 
 
 If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
@@ -135,5 +106,5 @@ If you need to recover a deleted resource, see [Recover deleted Cognitive Servic
 * See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
 * See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
 * See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-premises.
 * See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.

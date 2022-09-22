@@ -2,8 +2,8 @@
 title: Azure Lab Services Quickstart - Create a lab  using the Azure Lab Services labs.azure.com portal.
 description: In this quickstart, you learn how to create an Azure Lab Services lab using the labs.azure.com portal.
 ms.topic: quickstart
-ms.date: 1/18/2022
-ms.custom: template-quickstart
+ms.date: 6/18/2022
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create a lab using the Azure Lab Services portal

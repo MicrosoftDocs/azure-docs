@@ -1,5 +1,5 @@
 ---
-title: Implement security recommendations in Microsoft Defender for Cloud | Microsoft Docs
+title: Implement security recommendations in Microsoft Defender for Cloud
 description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
 ms.topic: how-to
 ms.author: benmansheim
@@ -10,7 +10,9 @@ ms.date: 11/09/2021
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
-## Remediation steps <a name="remediation-steps"></a>
+<a name="remediation-steps"></a>
+
+## Remediation steps
 
 After reviewing all the recommendations, decide which one to remediate first. We recommend that you prioritize the security controls with the highest potential to increase your secure score.
 
@@ -58,7 +60,9 @@ To implement a **Fix**:
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## Fix actions logged to the activity log <a name="activity-log"></a>
+<a name="activity-log"></a>
+
+## Fix actions logged to the activity log
 
 The remediation operation uses a template deployment or REST API `PATCH` request to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
 

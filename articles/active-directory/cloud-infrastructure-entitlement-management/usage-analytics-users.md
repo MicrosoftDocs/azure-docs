@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View analytic information about users
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Analytics** dashboard in Permissions Management collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
 - **Users**: Tracks assigned permissions and usage of various identities.
@@ -112,7 +108,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity Subtype**, select the type of user: **All**, **ED**, **Local**, or **Cross Account**.
+1. From the **Identity Subtype**, select the type of user: **All**, **ED** (Enterprise Directory), **Local**, or **Cross Account**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.

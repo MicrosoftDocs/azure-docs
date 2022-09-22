@@ -7,16 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Form Recognizer W-2 model | Preview
+# Form Recognizer W-2 model | v3.0
 
-The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2). It's used to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee's federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
-
-A W-2 is a multipart form divided into state and federal sections and consisting of more than 14 boxes that details an employee's income from the previous year. The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present. Both [single and multiple forms](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements) are also supported.
+The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported on [US Internal Revenue Service (IRS) tax forms](https://www.irs.gov/forms-pubs/about-form-w-2). A W-2 tax form is a multipart form divided into state and federal sections consisting of more than 14 boxes detailing an employee's income from the previous year. The W-2 tax form is a key document used in employees' federal and state tax filings, as well as other processes like mortgage loans and Social Security Administration (SSA) benefits. The Form Recognizer W-2 model supports both single and multiple standard and customized forms from 2018 to the present.
 
 ***Sample W-2 tax form processed using Form Recognizer Studio***
 
@@ -28,7 +26,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
+|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
 ### Try Form Recognizer
 
@@ -36,14 +34,14 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 #### Form Recognizer Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with v3.0 preview API.
+> Form Recognizer studio is available with v3.0 API.
 
 1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
 
@@ -58,14 +56,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
-* The total size of the training data is 500 pages or less.
-* If your PDFs are password-locked, you must remove the lock before submission.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 
@@ -119,17 +110,17 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 ### Migration guide and REST API v3.0
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
 > [!div class="checklist"]
 >
-> * [**REST API**](quickstarts/try-v3-rest-api.md)
-> * [**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)
-> * [**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)
-> * [**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)
-> * [**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>
+> * [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)
+> * [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
+> * [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
+> * [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
+> * [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>

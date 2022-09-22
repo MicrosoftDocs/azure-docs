@@ -1,5 +1,5 @@
 ---
-title: "Face detection and attributes concepts"
+title: "Face detection and attributes - Face"
 titleSuffix: Azure Cognitive Services
 description: Learn more about face detection; face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 07/20/2022
 ms.author: pafarley
 ---
 
@@ -27,7 +27,7 @@ Each detected face corresponds to a `faceRectangle` field in the response. This 
 
 Try out the capabilities of face detection quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Face ID
 

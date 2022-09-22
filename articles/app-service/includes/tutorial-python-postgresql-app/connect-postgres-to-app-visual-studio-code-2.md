@@ -10,8 +10,10 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-In the **App Service** section of the Azure Tools extension:
+In the Azure Tools extension:
 
-1. Locate your web app, expand the node, and under **Application Settings** right-click to bring up the context menu.
+1. Expand **RESOURCES**. (Make sure resources are sorted by resource type.)
+
+1. Locate your web app, expand its node, and right-click **Application Settings** to bring up the context menu.
 
 1. Select **Add new setting...** from the menu.

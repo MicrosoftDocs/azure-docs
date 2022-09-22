@@ -6,5 +6,5 @@ ms.date: 04/30/2022
 ---
 In the Azure Tools extension for VS Code:
 
-1. Locate the **App Service** section in the Azure Tools extension.
-1. Click the **Deploy to web app...** button.
+1. Find the **RESOURCES** section and select your subscription.
+1. Select **+** (**Create Resource...**)

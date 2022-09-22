@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/14/2021
+ms.date: 07/21/2022
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
@@ -129,6 +129,7 @@ $defaultlistener = New-AzApplicationGatewayHttpListener `
 $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
+  -Priority 100 `
   -HttpListener $defaultlistener `
   -BackendAddressPool $backendPool `
   -BackendHttpSettings $poolSettings

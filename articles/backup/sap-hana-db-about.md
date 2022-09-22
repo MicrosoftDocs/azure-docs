@@ -2,7 +2,7 @@
 title: About SAP HANA database backup in Azure VMs
 description: In this article, learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 08/11/2022
 ---
 
 # About SAP HANA database backup in Azure VMs
@@ -20,7 +20,7 @@ Using Azure Backup to back up and restore SAP HANA databases, gives the followin
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup Management from Azure**: Use Azure Backup's management and monitoring capabilities for improved management experience. Azure CLI is also supported.
 
-To view the backup and restore scenarios that we support today, refer to the [SAP HANA scenario support matrix](./sap-hana-backup-support-matrix.md#scenario-support).
+To view the backup and restore scenarios that we support today, see the [SAP HANA scenario support matrix](./sap-hana-backup-support-matrix.md#scenario-support).
 
 ## Backup architecture
 

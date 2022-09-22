@@ -1,10 +1,14 @@
 ---
 title: Events in actor-based Azure Service Fabric actors
 description: Learn about events for Service Fabric Reliable Actors, an effective way to communicate between actor and client.
-ms.topic: conceptual
-ms.date: 10/06/2017
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Actor events
 Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and shouldn't be used for actor-to-actor communication.
 

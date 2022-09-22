@@ -103,7 +103,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
 
 To manage the automation method to control the start and stop of your VMs, you configure one or more of the included logic apps based on your requirements.
 
-- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
+- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs. **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
 - Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
@@ -325,7 +325,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "EnableClassic": false,    
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_Severity": "2",
       "AutoStop_Threshold": "5",
@@ -347,7 +347,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",
@@ -372,7 +372,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",

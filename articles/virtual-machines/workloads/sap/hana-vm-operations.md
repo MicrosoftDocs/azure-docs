@@ -1,21 +1,15 @@
 ---
 title: SAP HANA infrastructure configurations and operations on Azure | Microsoft Docs
 description: Operations guide for SAP HANA systems that are deployed on Azure virtual machines.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2022
+ms.date: 08/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP HANA infrastructure configurations and operations on Azure
@@ -49,7 +43,7 @@ Site-to-site connectivity via VPN or ExpressRoute is necessary for production sc
 
 
 ### Choose Azure VM types
-The Azure VM types that can be used for production scenarios are listed in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). For non-production scenarios, a wider variety of native Azure VM types is available.
+SAP lists which [Azure VM types that you can use for production scenarios](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:24). For non-production scenarios, a wider variety of native Azure VM types is available.
 
 >[!NOTE]
 > For non-production scenarios, use the VM types that are listed in the [SAP note #1928533](https://launchpad.support.sap.com/#/notes/1928533). For the usage of Azure VMs for production scenarios, check for SAP HANA certified VMs in the SAP published [Certified IaaS Platforms list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).
@@ -136,7 +130,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes aren't shared among the different nodes and aren't based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 
@@ -168,7 +162,7 @@ As your Azure VM infrastructure is deployed, and all other preparations are done
 - Install the SAP HANA main node according to SAP's documentation
 - When using Azure Premium Storage or Ultra disk storage with non-shared disks of `/hana/data` and `/hana/log`, add the parameter `basepath_shared = no` to the `global.ini` file. This parameter enables SAP HANA to run in scale-out without shared `/hana/data` and `/hana/log` volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991). If you're using NFS volumes based on ANF for /hana/data and /hana/log, you don't need to make this change
 - After the eventual change in the global.ini parameter, restart the SAP HANA instance
-- Add more worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Add more worker nodes. For more information, see [Add Hosts Using the Command-Line Interface](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html). Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 To set up an SAP HANA scale-out system with a standby node, see the [SUSE Linux deployment instructions](./sap-hana-scale-out-standby-netapp-files-suse.md) or the [Red Hat deployment instructions](./sap-hana-scale-out-standby-netapp-files-rhel.md). 
 
@@ -327,7 +321,7 @@ Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The se
 For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux Enterprise Server or Red Hat, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information listed in the 'next steps' section.
+If you're running SUSE Linux Enterprise Server or Red Hat, you can establish a Pacemaker cluster with fencing devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information listed in the 'next steps' section.
 
 ## Next Steps
 Get familiar with the articles as listed

@@ -43,7 +43,6 @@ Follow these steps to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review the test details, and then select **Save and close**.
 
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"

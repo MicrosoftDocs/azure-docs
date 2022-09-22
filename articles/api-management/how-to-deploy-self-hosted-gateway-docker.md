@@ -40,7 +40,7 @@ This article provides the steps for deploying self-hosted gateway component of A
    docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
    ```
 
-9. Execute the command. The command instructs your Docker environment to run the container using a [container image](https://aka.ms/apim/sputnik/registry-portal) from the Microsoft Artifact Registry, and to map the container's HTTP (8080) and HTTPS (8081) ports to ports 80 and 443 on the host.
+9. Execute the command. The command instructs your Docker environment to run the container using a [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry, and to map the container's HTTP (8080) and HTTPS (8081) ports to ports 80 and 443 on the host.
 10. Run the below command to check if the gateway container is running:
     ```console
     docker ps
