@@ -86,7 +86,6 @@ The following table describes the out-of-the-box analytics rules provided in the
 
 
 
-    > [!CAUTION]
     > This option may cause a large number of incidents to be created in your workspace.
     >
 
