@@ -22,7 +22,11 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.  For older months' updates refer to the [What's new archive](whats-new-archive.md).
 
+Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
+
 ## August 2022
+
+> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
 
 ### Data flow
 - Appfigures connector added as Source (Preview) [Doc](connector-appfigures.md)
@@ -42,6 +46,8 @@ When CI/CD integrating ARM template, instead of turning off all triggers, it can
 
 
 ## July 2022
+
+> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
 
 ### Data flow
 

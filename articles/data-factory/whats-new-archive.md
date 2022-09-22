@@ -19,9 +19,14 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 - Deprecated functionality.
 - Plans for changes.
 
-This archive page retains updates from older months.
+This archive page retains updates from older months.  
+
+Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
 ## June 2022
+
+> [!VIDEO https://www.youtube.com/embed?v=Ay3tsJe_vMM&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=3]
+
 <br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
@@ -35,8 +40,8 @@ This archive page retains updates from older months.
 <tr><td><b>Orchestration</b></td><td>‘turnOffAsync' property is available in Web activity</td><td>Web activity supports an async request-reply pattern that invokes HTTP GET on the Location field in the response header of an HTTP 202 Response. It helps web activity automatically poll the monitoring end-point till the job runs. ‘turnOffAsync' property is supported to disable this behavior in cases where polling isn't needed<br><a href="control-flow-web-activity.md#type-properties">Learn more</a></td></tr>
 </table>
  
-
 ## May 2022
+
 <br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
@@ -61,6 +66,9 @@ This archive page retains updates from older months.
 </table>
 
 ## March 2022
+
+> [!VIDEO https://www.youtube.com/embed?v=MkgBxFyYwhQ&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=2]
+
 <br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
@@ -82,6 +90,9 @@ This archive page retains updates from older months.
 </table>
 
 ## February 2022
+
+> [!VIDEO https://www.youtube.com/embed?v=r22nthp-f4g&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=1]
+
 <br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
