@@ -1,6 +1,6 @@
 ---
 title: How to enable your own persistent storage in Azure Spring Apps | Microsoft Docs
-description: How to bring your own storage as persistent storages in Azure Spring Apps
+description: Learn how to bring your own storage as persistent storages in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
@@ -26,8 +26,8 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 ## Prerequisites
 
-* An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
-* The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+- An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
+- The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 > [!IMPORTANT]
 > If you deployed your Azure Spring Apps in your own virtual network and you want the storage account to be accessed only from the virtual network, consult the following guidance:
@@ -163,9 +163,9 @@ You can enable your own storage with the Azure CLI by using the following steps.
 
 Use the following best practices when adding your own persistent storage to Azure Spring Apps.
 
-* To avoid potential latency issues, place the Azure Spring Apps instance and the Azure Storage Account in the same Azure region.
+- To avoid potential latency issues, place the Azure Spring Apps instance and the Azure Storage Account in the same Azure region.
 
-* In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the persistent storage remains available to the applications during key regeneration.
+- In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the persistent storage remains available to the applications during key regeneration.
 
    For example, assuming that you used key1 to bind a storage account to Azure Spring Apps, you would use the following steps:
 
@@ -174,44 +174,44 @@ Use the following best practices when adding your own persistent storage to Azur
    1. Restart the applications that mount the persistent storage from this storage resource. (You can use `az spring storage list-persistent-storage` to list all related applications.)
    1. Regenerate key1.
 
-* If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storage in the applications to avoid possible errors.
+- If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storage in the applications to avoid possible errors.
 
 ## FAQs
 
 The following are frequently asked questions (FAQ) about using your own persistent storage with Azure Spring Apps.
 
-* If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Storage Account?
+- If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Storage Account?
 
    *No. But we're going to provide a document to help you do the migration yourself soon.*
 
-* What are the reserved mount paths?
+- What are the reserved mount paths?
 
    *These mount paths are reserved by the Azure Spring Apps service:*
 
-   * */tmp*
-   * */persistent*
-   * */secrets*
-   * */app-insights/agents*
-   * */etc/azure-spring-cloud/certs*
-   * */app-insights/agents/settings*
-   * */app-lifecycle/settings*
+   - */tmp*
+   - */persistent*
+   - */secrets*
+   - */app-insights/agents*
+   - */etc/azure-spring-cloud/certs*
+   - */app-insights/agents/settings*
+   - */app-lifecycle/settings*
 
-* What are the available mount options?
+- What are the available mount options?
 
    *We currently support the following mount options:*
 
-   * `uid`
-   * `gid`
-   * `file_mode`
-   * `dir_mode`
+   - `uid`
+   - `gid`
+   - `file_mode`
+   - `dir_mode`
 
    *The `mountOptions` property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
-* I'm using the service endpoint to configure the storage account to allow access only from my own virtual network. Why did I receive *Permission Denied* while trying to mount custom persistent storage to my applications?
+- I'm using the service endpoint to configure the storage account to allow access only from my own virtual network. Why did I receive *Permission Denied* while trying to mount custom persistent storage to my applications?
 
     *A service endpoint provides network access on a subnet level only. Be sure you've added both subnets used by the Azure Spring Apps instance to the scope of the service endpoint.*
 
 ## Next steps
 
-* [How to use Logback to write logs to custom persistent storage](how-to-write-log-to-custom-persistent-storage.md).
-* [Scale an application in Azure Spring Apps](how-to-scale-manual.md).
+- [How to use Logback to write logs to custom persistent storage](how-to-write-log-to-custom-persistent-storage.md).
+- [Scale an application in Azure Spring Apps](how-to-scale-manual.md).
