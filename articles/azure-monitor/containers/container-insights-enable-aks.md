@@ -159,7 +159,7 @@ This method includes two JSON templates. One template specifies the configuratio
 
   - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
   - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
+  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this is first-time onboarding, you can set the arbitrary tag values.
 
 
 **If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
