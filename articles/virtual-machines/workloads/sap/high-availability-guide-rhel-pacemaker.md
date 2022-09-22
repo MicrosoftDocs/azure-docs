@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 08/29/2022
+ms.date: 09/22/2022
 ms.author: radeltch
 
 ---
@@ -337,6 +337,8 @@ op monitor interval=3600
 </code></pre>
 
 ---
+
+If you are using fencing device, based on Service Principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) to learn how to convert to managed identity configuration.
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
