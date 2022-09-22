@@ -44,7 +44,7 @@ An Azure PowerShell module is available to upgrade from Basic load balancer to a
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
-Install the module from [PowerShell gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade/0.1.0)
+Install the module from [PowerShell gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
 
 ```powershell
 PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
@@ -162,10 +162,6 @@ The module is designed to accommodate failures, either due to unhandled errors o
   1. [Remove the new Standard load balancer](/azure/load-balancer/update-load-balancer-with-vm-scale-set) (if created). Depending on which stage of the migration failed, you may have to remove the Standard load balancer reference from the VMSS network interfaces (IP configurations) and health probes in order to remove the Standard load balancer and try again.
   1. Locate the basic load balancer state backup file. This will either be in the directory where the script was executed, or at the path specified with the `-RecoveryBackupPath` parameter during the failed execution. The file will be named: `State_<basicLBName>_<basicLBRGName>_<timestamp>.json`
   1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters instead of -BasicLoadBalancerName or passing the Basic load balancer over the pipeline
-
-## Next Steps
-
-[Learn about the Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 
 ## Next steps
 
