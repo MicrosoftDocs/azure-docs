@@ -150,4 +150,3 @@ For more information, see:
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 - [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
 - [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
