@@ -33,7 +33,7 @@ curl --location --request POST 'https://INSERT_REGION_HERE.tts.speech.microsoft.
 --header 'User-Agent: curl' \
 --data-raw '<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
     <voice xml:lang='\''en-US'\'' xml:gender='\''Female'\'' name='\''en-US-JennyNeural'\''>
-        my voice is my passport verify me
+        I am excited to try text to speech
     </voice>
 </speak>' > output.mp3
 ```

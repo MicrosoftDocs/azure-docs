@@ -20,7 +20,7 @@ Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognit
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     config.setSpeechSynthesisLanguage("en-US"); 
     config.setSpeechSynthesisVoiceName("en-US-JennyNeural");
@@ -49,7 +49,7 @@ To start, create an `AudioConfig` instance to automatically write the output to 
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -58,11 +58,11 @@ Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` objec
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("A simple test to write to a file.");
+    synthesizer.SpeakText("I'm excited to try text-to-speech");
 }
 ```
 
@@ -74,11 +74,11 @@ In some cases, you might want to output synthesized speech directly to a speaker
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("Synthesizing directly to speaker output.");
+    synthesizer.SpeakText("I'm excited to try text to speech");
 }
 ```
 
@@ -99,10 +99,10 @@ This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.micr
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
-    SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
+    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
 }
@@ -129,13 +129,13 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    SpeechSynthesisResult result = synthesizer.SpeakText("Customizing audio output format.");
+    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }
@@ -181,7 +181,7 @@ From here, the result object is exactly the same as previous examples:
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");

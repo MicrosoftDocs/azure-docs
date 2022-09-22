@@ -19,7 +19,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     speechConfig.speechSynthesisLanguage = "en-US"; 
     speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";
@@ -47,12 +47,12 @@ In some cases, you might want to output synthesized speech directly to a speaker
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
-        "Synthesizing directly to speaker output.",
+        "I'm excited to try text to speech",
         result => {
             if (result) {
                 synthesizer.close();
@@ -79,7 +79,7 @@ To start, create an `AudioConfig` instance to automatically write the output to 
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
@@ -88,12 +88,12 @@ Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` and `
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
-        "A simple test to write to a file.",
+        "I'm excited to try text-to-speech",
         result => {
             synthesizer.close();
             if (result) {
@@ -133,11 +133,11 @@ The following code works for the client side:
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
-        "Getting the response as an in-memory stream.",
+        "I'm excited to try text-to-speech",
         result => {
             synthesizer.close();
             return result.audioData;
@@ -155,11 +155,11 @@ For any server-based code, if you need to work with the data as a stream, you ne
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
-        "Getting the response as an in-memory stream.",
+        "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
@@ -192,11 +192,11 @@ The following code works for the client side:
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
-        "Getting the response as an in-memory stream.",
+        "I'm excited to try text-to-speech",
         result => {
             synthesizer.close();
             return result.audioData;
@@ -214,11 +214,11 @@ For any server-based code, if you need to work with the data as a stream, you ne
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
-        "Getting the response as an in-memory stream.",
+        "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
@@ -257,14 +257,14 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
     synthesizer.speakTextAsync(
-        "Customizing audio output format.",
+        "I'm excited to try text-to-speech",
         result => {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
@@ -308,7 +308,7 @@ For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.h
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
 
     const ssml = xmlToString("ssml.xml");

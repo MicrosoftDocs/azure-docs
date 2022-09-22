@@ -50,7 +50,7 @@ Next, instantiate `SpeechSynthesizer` by passing your `speech_config` object and
 
 ```python
 synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-synthesizer.speak_text_async("A simple test to write to a file.")
+synthesizer.speak_text_async("I'm excited to try text-to-speech")
 ```
 
 Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
@@ -80,7 +80,7 @@ This time, you save the result to a [`SpeechSynthesisResult`](/python/api/azure-
 
 ```python
 synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-result = synthesizer.speak_text_async("Getting the response as an in-memory stream.").get()
+result = synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
 stream = AudioDataStream(result)
 ```
 
@@ -108,7 +108,7 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
 synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
-result = synthesizer.speak_text_async("Customizing audio output format.").get()
+result = synthesizer.speak_text_async("I'm excited to try text-to-speech").get()
 stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```

@@ -58,8 +58,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription := "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription := "YourSpeechKey"
+    region := "YourSpeechRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
 	if err != nil {
@@ -192,8 +192,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-	subscription := "<paste-your-speech-key-here>"
-	region := "<paste-your-speech-location/region-here>"
+	subscription := "YourSpeechKey"
+	region := "YourSpeechRegion"
 
 	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
