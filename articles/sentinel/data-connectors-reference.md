@@ -12,9 +12,7 @@ ms.custom: ignite-fall-2021
 
 This article describes how to deploy data connectors in Microsoft Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors.
 
-> [!TIP]
-> Some data connectors are deployed only via solutions. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
->
+Some data connectors are deployed only via solutions. For more information, see the [Discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
 
 ## How to use this guide
 
@@ -2044,6 +2042,6 @@ You can find the value of your workspace ID on the ZScaler Private Access connec
 
 For more information, see:
 
-- See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
+- Solutions catalog for Microsoft Sentinel in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
 - [Microsoft Sentinel solution catalog for domain content](sentinel-solutions-catalog.md)
 - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)
