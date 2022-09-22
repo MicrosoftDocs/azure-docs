@@ -202,9 +202,9 @@ Automated ML doesn't impose any constraints on training or validation data size 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Training data is a required parameter and is passed in using the `training` key of the data section. You can optionally specify another MLtable as a validation data with the `validation` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
+Training data is a required parameter and is passed in using the `training_data` key. You can optionally specify another MLtable as a validation data with the `validation_data` key. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
-Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key in the data section. For example,
+Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key. For example,
 
 ```yaml
 target_column_name: label
@@ -303,23 +303,23 @@ Before doing a large sweep to search for the optimal models and hyperparameters,
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in image_model section. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in training_parameters section. For example,
 
 ```yaml
-image_model:
-    model_name: "yolov5"
+training_parameters:
+    model_name: yolov5
 ```
 # [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_image_model method of the task specific `automl` job. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_training_parameters method of the task specific `automl` job. For example,
 
 ```python
-image_object_detection_job.set_image_model(model_name="yolov5")
+image_object_detection_job.set_training_parameters(model_name="yolov5")
 ```
 ---
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
+Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to [sweep over the hyperparameters](./how-to-auto-train-image-models.md#sweeping-hyperparameters-for-your-model) for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
@@ -354,6 +354,46 @@ limits:
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
 With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+search_space:
+  - model_name:
+      type: choice
+      values: [yolov5]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.01
+    model_size:
+      type: choice
+      values: [small, medium]
+
+  - model_name:
+      type: choice
+      values: [fasterrcnn_resnet50_fpn]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.001
+    optimizer:
+      type: choice
+      values: [sgd, adam, adamw]
+    min_size:
+      type: choice
+      values: [600, 800]
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+
+---
 
 ### Define the parameter search space
 
@@ -437,7 +477,7 @@ You can pass fixed settings or parameters that don't change during the parameter
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-image_model:
+training_parameters:
   early_stopping: True
   evaluation_frequency: 1
 ```
@@ -466,7 +506,7 @@ You can pass the run ID that you want to load the checkpoint from.
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-image_model:
+training_parameters:
   checkpoint_run_id : "target_checkpoint_run_id"
 ```
 
@@ -496,7 +536,7 @@ mlflow_parent_run = mlflow_client.get_run(automl_job.name)
 target_checkpoint_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
 ```
 
-To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter in `set_image_model` function.
+To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter in `set_training_parameters` function.
 
 ```python
 image_object_detection_job = automl.image_object_detection(
@@ -509,7 +549,7 @@ image_object_detection_job = automl.image_object_detection(
     tags={"my_custom_tag": "My custom value"},
 )
 
-image_object_detection_job.set_image_model(checkpoint_run_id=target_checkpoint_run_id)
+image_object_detection_job.set_training_parameters(checkpoint_run_id=target_checkpoint_run_id)
 
 automl_image_job_incremental = ml_client.jobs.create_or_update(
     image_object_detection_job
@@ -722,7 +762,7 @@ this is how your review page looks like. we can select instance type, instance c
 
 ### Update inference settings
 
-In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although its's recommended to use the same parameters as training for best performance.
+In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although it's recommended to use the same parameters as training for best performance.
 
 Each of the tasks (and some models) has a set of parameters. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
 
