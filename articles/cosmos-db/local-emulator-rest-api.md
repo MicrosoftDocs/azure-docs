@@ -2,7 +2,7 @@
 title: Use REST API to populate data in Azure Cosmos DB Emulator
 description: Learn how to send HTTP requests to the emulator. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 author: Ivar
 ms.author: iprudnikovas
@@ -81,7 +81,7 @@ create_cosmos_rest_token() {
 }
 ```
 
-### Create a token for multiple operations
+### Create a token for each operation
 
 * A token to pass when creating a database
 
