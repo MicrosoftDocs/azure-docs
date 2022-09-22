@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 09/22/2022
 ms.author: anfdocs
 ---
 
