@@ -18,9 +18,6 @@ GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clu
 
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-> [!IMPORTANT]
-> Add-on Azure management services, like Kubernetes Configuration, are charged when enabled. Costs related to use of Flux v2 will start to be billed on July 1, 2022. For more information, see [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/).
-
 >[!IMPORTANT]
 > The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
 
@@ -51,6 +48,10 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   ```
 
 ### Common to both cluster types
+
+* Read and write permissions on these resource types:
+    * `Microsoft.KubernetesConfiguration/extensions`
+    * `Microsoft.KubernetesConfiguration/fluxConfigurations`
 
 * Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
