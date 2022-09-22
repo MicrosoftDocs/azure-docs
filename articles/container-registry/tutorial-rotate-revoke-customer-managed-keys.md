@@ -9,14 +9,7 @@ ms.author: tejaswikolli
 
 # Rotate and revoke a customer-managed key 
 
-This tutorial is part three in a four-part series. [Part one](tutorial-customer-managed-keys.md) provides an overview of customer-managed keys, their features, and considerations before you enable one on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you learn how to enable a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template. 
-
-In this tutorial, you will:
-
-> [!div class="checklist"]
-> * Perform key rotation.
-> * Update key versions by using the Azure CLI and the Azure portal.
-> * Revoke a customer-managed key on your container registry.
+This article is part three in a four-part tutorial series. [Part one](tutorial-customer-managed-keys.md) provides an overview of customer-managed keys, their features, and considerations before you enable one on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you learn how to enable a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template. This article walks you through rotating, updating, and revoking a customer-managed key. 
 
 ## Rotate a customer-managed key
 
@@ -116,5 +109,5 @@ az keyvault key delete  \
 
 ## Next steps
 
-Advance to the [next tutorial](tutorial-troubleshoot-customer-managed-keys.md) to troubleshoot common problems like errors when you're removing a managed identity, 403 errors, and accidental key deletions.
+Advance to the [next article](tutorial-troubleshoot-customer-managed-keys.md) to troubleshoot common problems like errors when you're removing a managed identity, 403 errors, and accidental key deletions.
 
