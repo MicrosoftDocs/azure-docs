@@ -9,7 +9,7 @@ ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2022
+ms.date: 09/22/2022
 ms.author: greglin
 ms.custom: fasttrack-edit
 ---
@@ -81,17 +81,38 @@ Points to consider when you are using Azure-provided name resolution:
 
 ### Reverse DNS Considerations
 
-Reverse DNS is supported in all ARM based virtual networks. You can issue reverse DNS queries (PTR queries) to map IP addresses of virtual machines to FQDNs of virtual machines.
-* All PTR queries for IP addresses of virtual machines will return FQDNs of form \[vmname\].internal.cloudapp.net
-* Forward lookup on FQDNs of form \[vmname\].internal.cloudapp.net will resolve to IP address assigned to the virtual machine.
-* If the virtual network is linked to an [Azure DNS private zones](../dns/private-dns-overview.md) as a registration virtual network, the reverse DNS queries will return two records. One record will be of the form \[vmname\].[privatednszonename] and the other will be of the form \[vmname\].internal.cloudapp.net
-* Reverse DNS lookup is scoped to a given virtual network even if it is peered to other virtual networks. Reverse DNS queries (PTR queries) for IP addresses of virtual machines located in peered virtual networks will return NXDOMAIN.
-* If you want to turn off reverse DNS function in a virtual network you can do so by creating a reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md) and link this zone to your virtual network. For example if the IP address space of your virtual network is 10.20.0.0/16 then you can create a empty private DNS zone 20.10.in-addr.arpa and link it to the virtual network. While linking the zone to your virtual network you should disable auto registration on the link. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you will get NXDOMAIN for your reverse DNS queries. See our [Quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
+Reverse DNS for VMs is supported in all ARM based virtual networks. Azure-managed reverse DNS (PTR) records of form \[vmname\].internal.cloudapp.net are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
+
+```cmd
+C:\>nslookup -type=ptr 10.11.0.4
+Server:  UnKnown
+Address:  168.63.129.16
+
+Non-authoritative answer:
+4.0.11.10.in-addr.arpa  name = myeastspokevm1.internal.cloudapp.net
+```
+This reverse DNS zone is Azure-managed and can't be directly viewed or edited. Forward lookup on the FQDN of form \[vmname\].internal.cloudapp.net will also resolve to the IP address assigned to the virtual machine.
+
+If the vnet is linked to an [Azure DNS private zone](../dns/private-dns-overview.md) and auto-registration is enabled, then reverse DNS queries will return two records. One record is of the form \[vmname\].[privatednszonename] and the other is of the form \[vmname\].internal.cloudapp.net. See the following example:
+
+```cmd
+C:\>nslookup -type=ptr 10.20.2.4
+Server:  UnKnown
+Address:  168.63.129.16
+
+Non-authoritative answer:
+4.2.20.10.in-addr.arpa  name = mywestvm1.internal.cloudapp.net
+4.2.20.10.in-addr.arpa  name = mywestvm1.azure.contoso.com
+```
+
+When two auto-registered PTR records are returned as shown above, then forward lookup of either FQDN will return the IP address of the VM.
+
+Reverse DNS lookups are scoped to a given virtual network even if it is peered to other virtual networks. Reverse DNS queries for IP addresses of virtual machines located in peered virtual networks will return **NXDOMAIN**.
+
+You can disable the reverse DNS function in a virtual network by creating your own reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md), and then linking this zone to your virtual network. For example, if the IP address space of your virtual network is 10.20.0.0/16, then you can create a empty private DNS zone **20.10.in-addr.arpa** and link it to the virtual network. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you will get **NXDOMAIN** for your reverse DNS queries, unless you manually create these entries. Auto-registration of PTR records is not supported, so if you wish to create entries, these must be entered manually. You must also disable auto-registration in the vnet if it is enabled for other zones due to [restrictions](private-dns-autoregistration.md#restrictions) that permit only one private zone to be linked if autoregistration is enabled. See the [Quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
 
 > [!NOTE]
-> If you want reverse DNS lookup to span across virtual network you can create a reverse lookup zone (in-addr.arpa) [Azure DNS private zones](../dns/private-dns-overview.md) and links it to multiple virtual networks. You'll however have to manually manage the reverse DNS records for the virtual machines.
->
-
+> If you want reverse DNS lookup to span across virtual networks you can create a reverse lookup zone (in-addr.arpa) [Azure DNS private zones](../dns/private-dns-overview.md) and link it to multiple virtual networks. You'll have to manually manage the reverse DNS records for the VMs.
 
 ## DNS client configuration
 
