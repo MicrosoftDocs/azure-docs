@@ -55,18 +55,18 @@ Each provisioned server comes preconfigured with sets of Ethernet interfaces. Th
 - **A**: Used for or by client access.
 - **B**: Used for node-to-node communication. This interface is configured on all servers no matter what topology you request. However, it's used only for scale-out scenarios.
 - **C**: Used for node-to-storage connectivity.
-- **D**: Used for node-to-iSCSI device connection for STONITH setup. This interface is configured only when an HSR setup is requested.  
+- **D**: Used for node-to-iSCSI device connection for fencing setup. This interface is configured only when an HSR setup is requested.  
 
 | NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
 | A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node|
 | C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
-| D | TYPE I | eth4.tenant | eno4.tenant | STONITH |
+| D | TYPE I | eth4.tenant | eno4.tenant | Fencing |
 | A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node|
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
-| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Fencing |
 
 You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
 
@@ -90,7 +90,7 @@ For HANA system replication or HANA scale-out deployment, a blade configuration 
 
 - Ethernet “C” should have an assigned IP address that's used for communication to NFS storage. This type of address shouldn't be maintained in the *etc/hosts* directory.
 
-- Ethernet “D” should be used exclusively for access to STONITH devices for Pacemaker. This interface is required when you configure HANA system replication and want to achieve auto failover of the operating system by using an SBD-based device.
+- Ethernet “D” should be used exclusively for access to fencing devices for Pacemaker. This interface is required when you configure HANA system replication and want to achieve auto failover of the operating system by using an SBD-based device.
 
 
 ### Storage
@@ -112,7 +112,7 @@ Here are the supported scenarios:
 * Single node MCOS
 * Single node with DR (normal)
 * Single node with DR (multipurpose)
-* HSR with STONITH
+* HSR with fencing
 * HSR with DR (normal/multipurpose) 
 * Host auto failover (1+1) 
 * Scale-out with standby
@@ -286,7 +286,7 @@ The following mount points are preconfigured:
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
-## HSR with STONITH for high availability
+## HSR with fencing for high availability
  
 This topology supports two nodes for the HANA system replication configuration. This configuration is supported only for single HANA instances on a node. MCOS scenarios *aren't* supported.
 
@@ -296,7 +296,7 @@ This topology supports two nodes for the HANA system replication configuration. 
 
 ### Architecture diagram  
 
-![HSR with STONITH for high availability](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR with fencing for high availability](media/hana-supported-scenario/hsr-with-fencing.png)
 
 
 
@@ -308,11 +308,11 @@ The following network interfaces are preconfigured:
 | A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
-| D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
+| D | TYPE I | eth4.tenant | eno4.tenant | Used for fencing |
 | A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
-| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for fencing |
 
 ### Storage
 The following mount points are preconfigured:
@@ -333,7 +333,7 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](./hana-overview-architecture.md).
-- STONITH: An SBD is configured for the STONITH setup. However, the use of STONITH is optional.
+- Fencing: An SBD is configured for the fencing device setup. However, the use of fencing is optional.
 
 
 ## High availability with HSR and DR with storage replication
@@ -354,11 +354,11 @@ The following network interfaces are preconfigured:
 | A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
-| D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
+| D | TYPE I | eth4.tenant | eno4.tenant | Used for fencing |
 | A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
-| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for fencing |
 
 ### Storage
 The following mount points are preconfigured:
@@ -387,7 +387,7 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](./hana-overview-architecture.md).
-- STONITH: An SBD is configured for the STONITH setup. However, the use of STONITH is optional.
+- Fencing: An SBD is configured for the fencing setup. However, the use of fencing is optional.
 - At the DR site: *Two sets of storage volumes are required* for primary and secondary node replication.
 - At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](./hana-overview-high-availability-disaster-recovery.md). 

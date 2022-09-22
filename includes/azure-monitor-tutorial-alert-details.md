@@ -13,4 +13,4 @@ Configure different settings for the alert rule in the **Alert rule details** se
 - **Subscription** and **Resource group** where the alert rule will be stored. This doesn't need to be in the same resource group as the resource that you're monitoring.
 - **Severity** for the alert. The severity allows you to group alerts with a similar relative importance. A severity of **Error** is appropriate for an unresponsive virtual machine.
 - Keep the box checked to **Enable alert upon creation**.
-- Keep the box checked to **Automatically resolve alerts**. This will automatically resolve the alert when the metric value drops below the threshold. 
+- Keep the box checked to **Automatically resolve alerts**. This will make the alert stateful, which means that the alert is resolved when the condition isn't met anymore. 
