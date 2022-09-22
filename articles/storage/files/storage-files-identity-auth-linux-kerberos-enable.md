@@ -40,12 +40,12 @@ Only the following client operating systems are currently supported:
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
 - Linux VM running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
-- User credentials to a local user account which has full sudo rights (for this guide, localadmin).
+- User credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - Winbind should be configured correctly to perform Kerberos authentication with the AD, and collect the Kerberos tickets in the local cred cache. If access control is needed, Winbind should be configured to map Linux UID/GID consistently to corresponding SID on the AD (idmap configure).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
-Installing the samba package is not strictly necessary, but it gives you some useful tools like smbd. Use the commands below to install it. During installation, if you're asked for any input values, leave them blank.
+Installing the samba package isn't strictly necessary, but it gives you some useful tools like smbd. Use the commands below to install it. During installation, if you're asked for any input values, leave them blank.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ sudo apt update -y
@@ -62,27 +62,23 @@ FallbackNTP=ntp.ubuntu.com
 localadmin@lxsmb-canvm15:~$ sudo systemctl restart systemd-timesyncd.service
 ```
 
-Does the user need to do anything to enable the feature on their storage account?
-
 ## Access control models
 
 Three access control models are available while mounting SMB Azure file shares:
 
 1. **Server enforced access control (default):** Uses NT access control lists (ACLs) for enforcing access control. Linux tools that update NT ACLs are minimalistic, so use accordingly. 
 
-2. **Client enforced access control (modefromsid,idsfromsid)**: File permissions and ownership information is encoded into NT ACLs. This method should be used when all clients accessing the files are Linux machines.
+2. **Client enforced access control (modefromsid,idsfromsid)**: File permissions and ownership information are encoded into NT ACLs. This method should be used when all clients accessing the files are Linux machines.
 
-3. **Client translated access control (cifsacl)**: File permissions and ownership information is translated to NT ACLs.
+3. **Client translated access control (cifsacl)**: File permissions and ownership information are translated to NT ACLs.
 
-There are known issues with each access control model. We'll need to state this, along with the kernel version where the fix is available, and impact to customers without the fix.
-
-## Enable AD Kerberos authentication (on the client?)
+## Enable AD Kerberos authentication
 
 Follow these steps to enable AD Kerberos authentication on Ubuntu-18.04.
 
 ### Make sure the domain server is reachable and discoverable
 
-1. Make sure that the DNS servers supplied contain the AAD domain server IP addresses.
+1. Make sure that the DNS servers supplied contain the Azure AD domain server IP addresses.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ systemd-resolve --status 
@@ -145,9 +141,9 @@ PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
 ```
 
-4. If the ping doesn't work, first go back to prerequisites and make sure that your VM is on a VNET that has access to the Azure AD tenant. (or that AD DS is synced to Azure AD with Azure AD Connect?)
+4. If the ping doesn't work, first go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Azure AD tenant.
 
-5. If the IP addresses are pinging but not automatically discovering the DNS servers, you can add the DNS servers manually.
+5. If the IP addresses are pinging but the DNS servers aren't automatically discovered, you can add the DNS servers manually.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ cat /etc/netplan/50-cloud-init.yaml
@@ -229,7 +225,7 @@ lxsmb-canvm15.aadintcanary.onmicrosoft.com
 
 ### Set up krb5.conf
 
-1. Configure krb5.conf so that the KDC with the domain server can be contacted for authentication. For more details, refer to [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). A sample `krb5.conf `is shown below.
+1. Configure krb5.conf so that the KDC with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). A sample `krb5.conf `is shown below.
 
 ```bash
 #sudo vim /etc/krb5.conf 
@@ -250,7 +246,7 @@ localadmin@lxsmb-canvm15:~$ sudo smbd -b | grep "CONFIGFILE"
    CONFIGFILE: /etc/samba/smb.conf
 ```
 
-2. Change the smb configuration to act as a domain member. For more details, refer to [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). A sample `smb.conf` is shown below.
+2. Change the SMB configuration to act as a domain member. For more information, see [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). A sample `smb.conf` is shown below.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ cat /etc/samba/smb.conf
@@ -316,7 +312,7 @@ Name:   lxsmb-canvm15.aadintcanary.onmicrosoft.com
 Address: 10.0.0.8
 ```
 
-3. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, in case of Azure DHCP, this is not true. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
+3. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
 
 ```bash
 localadmin@lxsmb-canvm17:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
@@ -344,7 +340,7 @@ fi
 
 ### Set up nsswitch.conf
 
-1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. This is done by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following winbind entries:
+1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following winbind entries:
 
 passwd:         compat systemd winbind
 group:          compat systemd winbind
@@ -395,7 +391,7 @@ localadmin@lxsmb-canvm15:~$ wbinfo --ping-dc
 
 ### Configure PAM for winbind
 
-1. You'll need to place winbind in the authentication stack so that domain users are authenticated through winbind. To do this, configure PAM (Pluggable Authentication Module) for winbind. The second command below ensures that the homedir gets created for a domain user on first login to this system.
+1. You'll need to place winbind in the authentication stack so that domain users are authenticated through winbind by configuring PAM (Pluggable Authentication Module) for winbind. The second command below ensures that the homedir gets created for a domain user on first login to this system.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ sudo pam-auth-update --enable winbind
@@ -409,7 +405,7 @@ localadmin@lxsmb-canvm15:~$ grep pam_winbind.so /etc/pam.d/common-auth
 auth    [success=1 default=ignore]      pam_winbind.so krb5_auth krb5_ccache_type=FILE cached_login try_first_pass 
 ```
 
-3. At this point, you should be able to login as the domain user to this system, either through ssh, su, or any other means of authentication.
+3. At this point, you should be able to log in as the domain user to this system, either through ssh, su, or any other means of authentication.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ su - lxsmbadmin
