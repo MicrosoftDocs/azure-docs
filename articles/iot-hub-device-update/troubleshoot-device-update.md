@@ -113,6 +113,8 @@ _At least Read-level permissions are needed for both your IoT hub and your Devic
     - _Add your account in the right-hand flyout, and select the “Select” button._
     - _Select “Review + assign”._
 
+Learn more about [role-based access control](device-update-control-access.md) for the Device Update service.
+
 ## <a name="contact"></a> Contacting Microsoft Support
 
 If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
