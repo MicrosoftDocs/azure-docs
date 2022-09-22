@@ -4,7 +4,7 @@ description: Learn how to send HTTP requests to the emulator. Using the emulator
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-author: Ivar
+author: ivarprudnikov
 ms.author: iprudnikovas
 ms.reviewer: iprudnikovas
 ms.date: 09/22/2022
