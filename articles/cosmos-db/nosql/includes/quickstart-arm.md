@@ -1,14 +1,14 @@
 ---
- title: include file
- description: include file
- services: cosmos-db
- author: seesharprun
- ms.service: cosmos-db
- ms.topic: include
- ms.date: 09/15/2022
- ms.author: sidandrews
+title: include file
+description: include file
+services: cosmos-db
+author: seesharprun
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 09/15/2022
+ms.author: sidandrews
 ms.reviewer: mjbrown
- ms.custom: include file
+ms.custom: include file
 ---
 
 

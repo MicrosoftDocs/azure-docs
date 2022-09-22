@@ -6,13 +6,14 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
@@ -42,43 +43,41 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 ### Create an Azure Cosmos DB account
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/quickstart-arm.md)]
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](includes/quickstart-arm.md)]
 
 ### Configure environment variables
 
-[!INCLUDE [Create environment variables for key and endpoint](./includes/environment-variables.md)]
+[!INCLUDE [Create environment variables for key and endpoint](includes/environment-variables.md)]
 
 ### Create a new JavaScript project
 
-1. Create a new Node.js application in an empty folder using your preferred terminal. 
+1. Create a new Node.js application in an empty folder using your preferred terminal.
 
     ```bash
     npm init -y
     ```
 
-2. Edit the `package.json` file to use ES6 modules by adding the `"type": "module",` entry. This allows your code to use modern async/await syntax.
+2. Edit the `package.json` file to use ES6 modules by adding the `"type": "module",` entry. This setting allows your code to use modern async/await syntax.
 
     :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/package.json" highlight="6":::
 
 ### Install the package
 
-
-1. Add the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) npm package to the Node.js project. 
+1. Add the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) npm package to the Node.js project.
 
     ```bash
     npm install @azure/cosmos
     ```
-    
 
-1. Add the [dotenv](https://www.npmjs.com/package/dotenv) npm package to read environment variables from a `.env` file. 
- 
+1. Add the [dotenv](https://www.npmjs.com/package/dotenv) npm package to read environment variables from a `.env` file.
+
     ```bash
     npm install dotenv
     ```
 
 ### Create local development environment files
 
-1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. This ensures that only the secure and relevant information can be checked into source code.
+1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. This configuration file ensures that only secure and relevant files are checked into source code.
 
     ```text
     .env
@@ -112,7 +111,7 @@ Add the following code at the end of the `index.js` file to include the required
 
 ### Add variables for names
 
-Add the following variables to manage unique database and container names as well as the [partition key (pk)](/azure/cosmos-db/partitioning-overview).
+Add the following variables to manage unique database and container names and the [partition key (pk)](/azure/cosmos-db/partitioning-overview).
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="13-19":::
 
@@ -120,8 +119,7 @@ In this example, we chose to add a timeStamp to the database and container in ca
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](./includes/quickstart-object-model.md)]
-
+[!INCLUDE [Explain DOCUMENT DB object model](includes/quickstart-object-model.md)]
 
 You'll use the following JavaScript classes to interact with these resources:
 
@@ -130,7 +128,7 @@ You'll use the following JavaScript classes to interact with these resources:
 * [``Container``](/javascript/api/@azure/cosmos/container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
 * [``SqlQuerySpec``](/javascript/api/@azure/cosmos/sqlqueryspec) - This interface represents a SQL query and any query parameters.
 * [``QueryIterator<>``](/javascript/api/@azure/cosmos/queryiterator) - This class represents an iterator that can track the current page of results and get a new page of results.
-* [``FeedResponse<>``](/javascript/api/@azure/cosmos/feedresponse) - This class represents a single page of responses from the iterator. 
+* [``FeedResponse<>``](/javascript/api/@azure/cosmos/feedresponse) - This class represents a single page of responses from the iterator.
 
 ## Code examples
 
@@ -148,7 +146,6 @@ For this sample code, the container will use the category as a logical partition
 ### Authenticate the client
 
 In the `index.js`, add the following code to use the resource **endpoint** and **key** to authenticate to Cosmos DB. Define a new instance of the [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) class.
-
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="21-22":::
 
@@ -170,7 +167,7 @@ Add the following code to provide your data set. Each _product_ has a unique ID,
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="37-84":::
 
-Create a few items in the container by calling [``Container.Items.create``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-create) in a loop. 
+Create a few items in the container by calling [``Container.Items.create``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-create) in a loop.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="86-91":::
 
@@ -224,7 +221,7 @@ Touring-1000 Blue, 50 read
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/quickstart-clean-up-resources.md)]
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](includes/quickstart-clean-up-resources.md)]
 
 ## Next steps
 
@@ -232,4 +229,3 @@ In this quickstart, you learned how to create an Azure Cosmos DB SQL API account
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build a Node.js console app](sql-api-nodejs-get-started.md)
-
