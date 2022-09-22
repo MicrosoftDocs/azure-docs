@@ -7,7 +7,7 @@ ms.date: 09/21/2022
 
 # Linter rule - secure params in nested deploy
 
-Outer-scoped nested deployment resources shouldn't be used for secure parameters or list* functions. You could expose the secure parameter values in the deployment history.
+Outer-scoped nested deployment resources shouldn't use for secure parameters or list* functions. You could expose the secure values in the deployment history.
 
 ## Linter rule code
 
