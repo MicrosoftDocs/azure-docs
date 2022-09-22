@@ -114,11 +114,34 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
-#### HPN GPU
+#### HPN GPU Names
 
 | Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
 |----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
-| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 14         |
-| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |
+| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
+| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_DS4_v2_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F2s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F4s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F8s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F12s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F16s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F12_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+
+<sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
+
+#### A2 GPU Names
+
+| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
+| **Standard_DS2_v2_HPN_A2**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
+| **Standard_DS3_v2_HPN_A23**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_DS4_v2_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F2s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F4s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F8s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F12s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F16s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
+| **Standard_F12_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
