@@ -1272,8 +1272,6 @@ items:
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Prometheus metric scraping
-        href: containers/container-insights-prometheus-integration.md
       - name: Enable metrics
         href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)

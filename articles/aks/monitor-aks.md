@@ -48,7 +48,7 @@ When you enable Container insights for your AKS cluster, it deploys a containeri
 
 
 ### Configure collection from Prometheus
-Container insights allows you to collect certain Prometheus metrics in your Log Analytics workspace without requiring a Prometheus server. You can analyze this data using Azure Monitor features along with other data collected by Container insights. See [Configure scraping of Prometheus metrics with Container insights](../azure-monitor/containers/container-insights-prometheus-integration.md) for details on this configuration.
+Container insights allows you to send Prometheus metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) or to your Log Analytics workspace without requiring a local Prometheus server. You can analyze this data using Azure Monitor features along with other data collected by Container insights. See [Collect Prometheus metrics with Container insights](../azure-monitor/containers/container-insights-prometheus.md) for details on this configuration.
 
 
 ### Collect resource logs
