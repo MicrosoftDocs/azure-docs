@@ -15,7 +15,7 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> * Install the **Microsoft Defender for IoT** solution
+> * Install the **Microsoft Defender for IoT** solution in your Microsoft Sentinel workspace
 > * Learn how to investigate Defender for IoT alerts in Microsoft Sentinel incidents
 > * Learn about the analytics rules, workbooks, and playbooks deployed to your Microsoft Sentinel workspace with the Defender for IoT solution
 
