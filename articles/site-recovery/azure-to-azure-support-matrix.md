@@ -64,7 +64,7 @@ This table summarizes support for the cache storage account used by Site Recover
 **Setting** | **Support** | **Details**
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is recommended because GPv1 does not support ZRS (Zonal Redundant Storage). 
-Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
+Premium storage | Supported | Premium Block Blob storage accounts can be used to get High Churn support (in Public Preview). For more information, see Azure VM Disaster Recovery - High Churn Support.
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
@@ -324,6 +324,9 @@ The following table summarizes Site Recovery limits.
 - Actual results can vary based on your app I/O mix.
 - There are two limits to consider, per disk data churn and per virtual machine data churn.
 - The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
+
+>[!Note]
+>Site Recovery has launched High churn support where churn limit for per virtual machine data churn has increased up to 100 MB/s. For more information, see Azure VM Disaster Recovery - High Churn Support.
 
 **Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---

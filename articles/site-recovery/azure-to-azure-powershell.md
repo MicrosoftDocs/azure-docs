@@ -322,7 +322,7 @@ $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 
 ## Create cache storage account and target storage account
 
-A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine.
+A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. Site Recovery has come up with High Churn option (in Public Preview) where customers can create Premium Block Blob type of storage accounts that can be used as cache storage account to get high churn limits. For more information, see Azure VM Disaster Recovery - High Churn Support. You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine. If you are using different cache storage accounts, please make sure they are of the same type (Standard or Premium Block Blobs). 
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
