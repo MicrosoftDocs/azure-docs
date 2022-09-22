@@ -46,7 +46,11 @@ Use the following steps to bind an Azure Storage account as a storage resource i
 
 1. Go to the service **Overview** page, then select **Storage** in the left-hand navigation pane.
 
-1. On the **Storage** page, select **Add storage**, add the values in the following table, and then select **Apply**.
+1. On the **Storage** page, select **Add storage**.
+
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage.png" alt-text="Screenshot of Azure portal showing the Storage page and Add storage button." lightbox="media/how-to-custom-persistent-storage/add-storage.png":::
+
+1. Add the values in the following table, and then select **Apply**.
 
    | Setting      | Value                                                                                      |
    |--------------|--------------------------------------------------------------------------------------------|
