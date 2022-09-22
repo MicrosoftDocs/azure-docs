@@ -23,12 +23,12 @@ Inverse Text Normalization (ITN) is a process that converts spoken words into th
 
 |Recognized speech|Display text|
 |---|---|
-|that will cost nine hundred dollars|That will cost $900.|
-|my phone number is one eight hundred, four five six, eight nine ten|My phone number is 1-800-456-8910.|
-|the time is six forty five p m|The time is 6:45 PM.|
-|I live on thirty five lexington avenue|I live on 35 Lexington Ave.|
-|the answer is six point five|The answer is 6.5.|
-|send it to support at help dot com|Send it to support@help.com.|
+|`that will cost nine hundred dollars`|`That will cost $900.`|
+|`my phone number is one eight hundred, four five six, eight nine ten`|`My phone number is 1-800-456-8910.`|
+|`the time is six forty five p m`|`The time is 6:45 PM.`|
+|`I live on thirty five lexington avenue`|`I live on 35 Lexington Ave.`|
+|`the answer is six point five`|`The answer is 6.5.`|
+|`send it to support at help dot com`|`Send it to support@help.com.`|
 
 ## Capitalization
 
@@ -36,9 +36,9 @@ Speech-to-text models recognize words that should be capitalized to improve read
 
 |Recognized speech|Display text|
 |---|---|
-|i got an x l t shirt|I got an XL t-shirt.|
-|my name is jennifer smith|My name is Jennifer Smith.|
-|i want to visit new york city|I want to visit New York City.|
+|`i got an x l t shirt`|`I got an XL t-shirt.`|
+|`my name is jennifer smith`|`My name is Jennifer Smith.`|
+|`i want to visit new york city`|`I want to visit New York City.`|
 
 ## Disfluency removal
 
@@ -46,9 +46,9 @@ When speaking, it's common for someone to stutter, duplicate words, and say fill
 
 |Recognized speech|Display text|
 |---|---|
-|i uh said that we can go to the uhmm movies|I said that we can go to the movies.|
-|its its not that big of uhm a deal|It's not that big of a deal.|
-|umm i think tomorrow should work|I think tomorrow should work.|
+|`i uh said that we can go to the uhmm movies`|`I said that we can go to the movies.`|
+|`its its not that big of uhm a deal`|`It's not that big of a deal.`|
+|`umm i think tomorrow should work`|`I think tomorrow should work.`|
 
 ## Punctuation 
 
@@ -56,17 +56,17 @@ Speech-to-text automatically punctuates your text to improve clarity. Punctuatio
 
 |Recognized speech|Display text|
 |---|---|
-|how are you|How are you?|
-|we can go to the mall park or beach|We can go to the mall, park, or beach.|
+|`how are you`|`How are you?`|
+|`we can go to the mall park or beach`|`We can go to the mall, park, or beach.`|
 
 When you're using speech-to-text with continuous recognition, you can configure the Speech service to recognize explicit punctuation marks. Then you can speak punctuation aloud in order to make your text more legible. This is especially useful in a situation where you want to use complex punctuation without having to merge it later. Some examples are shown in this table.
 
 |Recognized speech|Display text|
 |---|---|
-|they entered the room dot dot dot|They entered the room...|
-|i heart emoji you period|I <3 you.|
-|the options are apple forward slash banana forward slash orange period|The options are apple/banana/orange.|
-|are you sure question mark|Are you sure?|
+|`they entered the room dot dot dot`|`They entered the room...`|
+|`i heart emoji you period`|`I <3 you.`|
+|`the options are apple forward slash banana forward slash orange period`|`The options are apple/banana/orange.`|
+|`are you sure question mark`|`Are you sure?`|
 
 Use the Speech SDK to enable dictation mode when you're using speech-to-text with continuous recognition. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation.
 
