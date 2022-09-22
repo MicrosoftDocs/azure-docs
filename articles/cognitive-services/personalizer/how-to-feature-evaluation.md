@@ -8,7 +8,7 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/21/2022
 ---
 
 # Evaluate feature importances
