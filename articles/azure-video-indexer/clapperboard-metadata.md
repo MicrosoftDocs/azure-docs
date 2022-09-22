@@ -57,7 +57,9 @@ To see the instances on the website, select **Insights** and scroll to **Clapper
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/clapperboard-metadata.png" alt-text="This image shows the clapperboard metadata.":::
 
-If you checked the **Post-production** insight, You can also find the clapperboard instance and timeline of the clapper board (includes time, fields' values) on the **Timeline** tab.
+#### View the timeline
+
+If you checked the **Post-production** insight, You can also find the clapperboard instance and its timeline (includes time, fields' values) on the **Timeline** tab.
 
 #### Vew JSON
 
@@ -68,6 +70,16 @@ To display the JSON file:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/clapperboard-json.png" alt-text="This image shows the clapperboard metadata in json.":::
+
+The following table describes fields found in json:
+
+|Name|Description|
+|---|---|
+|`id`|The line ID.|
+|`thumbnailId`|The ID of the thumbnail.|
+|`isHeadSlate`|The value stands for head or tail of the clapper board: `true` or `false`.|
+|`fields`|The fields found in the clapper board; also each field's name and value.|
+|`instances`|A list of time ranges where this element appeared.|
 
 ## Clapperboard limitations
 

@@ -34,7 +34,7 @@ After the file has been uploaded and indexed, if you want to view the timeline o
 
 For details about viewing each slate insight, see:
 
-- [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
+- [How to enable and view clapper board with extracted metadata](clapperboard-metadata.md).
 - [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md)
 - [How to enable and view textless slate with scene matching](textless-slate-scene-matching.md).
 

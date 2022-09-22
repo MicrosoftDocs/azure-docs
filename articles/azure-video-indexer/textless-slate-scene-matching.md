@@ -34,5 +34,5 @@ This insight can only be viewed in the form of the downloaded json file.
 ## Next steps
 
 * [Slate detection overview](slate-detection-insight.md)
-* [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md).
+* [How to enable and view clapper board with extracted metadata](clapperboard-metadata.md).
 * [How to enable and view digital patterns with color bars](digital-patterns-color-bars.md).

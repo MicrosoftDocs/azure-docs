@@ -14,8 +14,8 @@ This article shows how to enable and view digital patterns with color bars (prev
 
 You can view the names of the specific digital patterns. <!-- They are searchable by the color bar type (Color Bar/Test card) in the insights. -->The timeline includes the following types: 
 
-- Color Bar
-- Test card
+- Color bars
+- Test cards
 
 ## View post-production insights
 
@@ -39,7 +39,12 @@ The insight shows under **Labels** in the **Insight** tab.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/insights-color-bars.png" alt-text="This image shows the color bars under labels.":::
 
+#### View the timeline
+
 If you checked the **Post-production** insight, you can find the color bars instance and timeline under the **Timeline** tab.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/slate-detection-process/timeline-color-bars.png" alt-text="This image shows the color bars under timeline.":::
 
 #### View JSON
 
@@ -51,6 +56,18 @@ To display the JSON file:
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/color-bar-json.png" alt-text="This image shows the color bars json.":::
 
+The following table describes fields found in json:
+
+|Name|Description|
+|---|---|
+|`id`|The line ID.|
+|`patternType`|The following types are supported: ColorBars, TestCards.|
+|`confidence`|The confidence level for color bar accuracy.|
+|`name`|The  name of fhe element. For example, "SMPTE color bars".|
+|`displayName`| The friendly/display name.
+|`thumbnailId`|The ID of the thumbnail.|
+|`instances`|A list of time ranges where this element appeared.|
+
 ## Limitations
 
 - There can be a mismatch if the input video is of low quality (for example – old Analog recordings). 
@@ -60,5 +77,5 @@ To display the JSON file:
 ## Next steps
 
 * [Slate detection overview](slate-detection-insight.md)
-* [How to enable and view clapper board with extracted metadata](clapper-board-metadata.md)
+* [How to enable and view clapper board with extracted metadata](clapperboard-metadata.md)
 * [How to enable and view textless slate with matched scene](textless-slate-scene-matching.md)
