@@ -30,24 +30,68 @@ This section will help you create a network group containing the virtual network
 
 1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network groups** under *Settings*, and then select **+ Add** to create a new network group.
+1. Select **Network Groups** under *Settings*, then select **+ Create**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Basics* tab, enter a **Name** and a **Description** for the network group.
+1. On the *Create a network group* page, enter a **Name** for the network group. This example will use the name **myNetworkGroup**. Select **Add** to create the network group.
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/basics.png" alt-text="Screenshot of basics tab for add a network group.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
 
-1. To add virtual network manually, select the **Static group members** tab. For more information, see [static members](concept-network-groups.md#static-membership).
+1. You'll see the new network group added to the *Network Groups* page.
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/static-group.png" alt-text="Screenshot of static group members tab.":::
+1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *Static membership* or *Dynamic membership* with Azure Policy.
+## Define membership for a mesh configuration
+Azure Virtual Network manager allows you two methods for adding membership to a network group. Static membership involves manually adding virtual networks, and dynamic membership involves using Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
+### Static membership option
+Using static membership, you'll manually add the virtual networks for your Mesh configuration to your Network Group using the steps below:
 
-1. To add virtual networks dynamically, select the **Conditional statements** tab. For more information, see [dynamic membership](concept-network-groups.md#dynamic-membership).
+1. From the list of network groups, select your network group and select **Add virtual networks** under *Static membership* on the network group page.
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/conditional-statements.png" alt-text="Screenshot of conditional statements tab.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network.":::
 
-1. Once you're satisfied with the virtual networks selected for the network group, select **Review + create**. Then select **Create** once validation has passed.
- 
+1. On the *Add static members* page, select all the virtual networks created you. Then select **Add** to add the 3 virtual networks to the network group.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
+
+1. On the **Network Group** page under *Settings*, select **Group Members** to view the membership of the group you manually selected.
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+
+### Dynamic membership with Azure Policy
+Using [Azure Policy](concept-azure-policy-integration.md), you'll define a condition to dynamically add three VNets for your Mesh configuration to your Network Group using the steps below.
+
+1. From the list of network groups, select **myNetworkGroup**.
+
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-page.png" alt-text="Screenshot of the network groups page.":::
+
+1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
+
+1. On the **Create Azure Policy** page, select or enter the following information:
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Policy name | Enter **ProdVNets** in the text box. |
+    | Scope | Select **Select Scopes** and choose your current subscription. |
+    | Criteria |  |
+    | Parameter | Select **Tags** from the drop-down.|
+    | Operator | Select **Exists** from the drop-down.| 
+    | Condition | Enter **NetworkType** to dynamically add the three previously created virtual networks into this network group. |
+
+1. Select **Advanced (JSON) editor** to modify the JSON code.
+1. On line 5, replace **exists** with **equals** and set the value to **"Prod"** from **true**.
+1. 
+    :::image type="content" source="./media/create-virtual-network-manager-portal/json-advanced-editor.png" alt-text="Screenshot of Advanced (JSON) editor.":::
+
+1. Select **Save** to deploy the group membership.
+
+1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 ## Create a hub and spoke connectivity configuration
 
 This section will guide you through how to create a hub-and-spoke configuration with the network group you created in the previous section.
