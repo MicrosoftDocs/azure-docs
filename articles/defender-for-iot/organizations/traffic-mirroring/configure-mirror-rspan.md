@@ -1,6 +1,6 @@
 ---
 title: Configure traffic mirroring with a Remote SPAN (RSPAN) port - Microsoft Defender for IoT
-description: This article describes how to configure a SPAN port for traffic mirroring when monitoring OT networks with Microsoft Defender for IoT.
+description: This article describes how to configure a remote SPAN (RSPAN) port for traffic mirroring when monitoring OT networks with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---

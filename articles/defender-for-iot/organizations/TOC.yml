@@ -145,7 +145,7 @@
       - name: Configure traffic mirroring
         items:
         - name: Overview
-          href: traffic-mirroring/traffic-mirroring-methods.md
+          href: best-practices/traffic-mirroring-methods.md
         - name: Configure a switch SPAN port
           href: traffic-mirroring/configure-mirror-span.md
         - name: Configure a remote SPAN (RSPAN)
