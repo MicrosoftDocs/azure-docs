@@ -226,7 +226,7 @@ Body
 
 ```http
 {
-    "@odata.id":https://graph.microsoft.com/v1.0/devices/{device-id}
+    "@odata.id":"https://graph.microsoft.com/v1.0/devices/{device-id}"
 }
 ```
 
