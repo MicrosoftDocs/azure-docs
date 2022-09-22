@@ -45,9 +45,9 @@ To check and modify your diagnostics settings in the Azure portal:
 
 7. Repeat this process for all other host pools you want to measure.
 
-8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics:-network-data). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
-   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics:-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ### Connection network data
 
@@ -122,7 +122,7 @@ In contrast to other diagnostics tables that report data at regular intervals th
 >[!NOTE]
 >For end-to-end delay per frame, if any frame in a single second is delayed by over 300 ms, the service registers it as "Bad". If all frames in a single second take between 150 ms and 300 ms, the service marks it as "Okay."
 
-## Sample queries for Azure Log Analytics: Network Data
+## Sample queries for Azure Log Analytics: network data
 
 In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
