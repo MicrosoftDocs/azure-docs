@@ -82,16 +82,16 @@ The following table shows which operations are supported by each of the tools av
 | Submit training jobs with inputs and outputs |  | **&check;** | **&check;** |
 | Submit training jobs by using machine learning pipelines | | **&check;** | **&check;** |
 | Manage experiments and runs | **&check;** | **&check;** | **&check;** |
-| Manage MLflow models | **&check;**<sup>2</sup> | **&check;** | **&check;** |
+| Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |
 | Manage non-MLflow models | | **&check;** | **&check;** |
-| Deploy MLflow models to Azure Machine Learning (Online & Batch) | **&check;**<sup>3</sup> | **&check;** | **&check;** |
+| Deploy MLflow models to Azure Machine Learning (Online & Batch) | **&check;**<sup>4</sup> | **&check;** | **&check;** |
 | Deploy non-MLflow models to Azure Machine Learning | | **&check;** | **&check;** |
 
 > [!NOTE]
 > - <sup>1</sup> Only artifacts and models can be downloaded.
 > - <sup>2</sup> On preview.
 > - <sup>3</sup> Some operations may not be supported. View [Manage model registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md) for details.
-> - <sup>2</sup> Deployment of MLflow models to batch inference by using the MLflow SDK is not possible at the moment. View [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) for details.
+> - <sup>4</sup> Deployment of MLflow models to batch inference by using the MLflow SDK is not possible at the moment. View [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) for details.
 
 ## Example notebooks
 
@@ -107,3 +107,7 @@ If you're getting started with MLflow in Azure Machine Learning, we recommend th
 * [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb): Demonstrates how to train models in Azure Databricks and deploy them in Azure Machine Learning. It also includes how to handle cases where you also want to track the experiments with the MLflow instance in Azure Databricks.
 * [Migrating models with a scoring script to MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/migrating-scoring-to-mlflow/scoring_to_mlmodel.ipynb): Demonstrates how to migrate models with scoring scripts to no-code deployment with MLflow.
 * [Using MLflow REST with Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/using-rest-api/using_mlflow_rest_api.ipynb): Demonstrates how to work with the MLflow REST API when you're connected to Azure Machine Learning.
+
+## Next steps
+
+* [Track machine learning experiments and models running locally or in the cloud](how-to-use-mlflow-cli-runs.md) with MLflow in Azure Machine Learning.
