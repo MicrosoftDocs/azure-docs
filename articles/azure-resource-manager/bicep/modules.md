@@ -22,7 +22,7 @@ Bicep modules are converted into a single Azure Resource Manager template with [
 
 ### Training resources
 
-If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/).
+If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/training/modules/create-composable-bicep-files-using-modules/).
 
 ## Definition syntax
 
@@ -227,5 +227,5 @@ When used as module, you can get that output value.
 
 ## Next steps
 
-- For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Deploy Azure resources by using Bicep templates](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [getSecret](bicep-functions-resource.md#getsecret) function.

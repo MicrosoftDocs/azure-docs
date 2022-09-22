@@ -45,7 +45,7 @@ Use the following steps to add Application Insights monitoring to your static we
 The following highlights a few locations in the portal used to inspect aspects of your application's API endpoints.
 
 > [!NOTE]
-> For more detail on Application Insights usage, refer to [Where do I see my telemetry?](../azure-monitor/app/app-insights-overview.md#where-do-i-see-my-telemetry).
+> For more detail on Application Insights usage, refer to [Application Insights overview](../azure-monitor/app/app-insights-overview.md).
 
 | Type | Menu location | Description |
 |--- | --- | --- |
