@@ -2,12 +2,12 @@
 title: Linter rule - secure params in nested deploy
 description: Linter rule - secure params in nested deploy
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ---
 
 # Linter rule - secure params in nested deploy
 
-Outer-scoped nested deployment resources shouldn't be used for secure parameters or list* functions. You could expose the secure parameter values in the deployment history.
+Outer-scoped nested deployment resources shouldn't use for secure parameters or list* functions. You could expose the secure values in the deployment history.
 
 ## Linter rule code
 
@@ -19,7 +19,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 Either set the [deployment's properties.expressionEvaluationOptions.scope](/azure/templates/microsoft.resources/deployments?pivots=deployment-language-bicep) to `inner` or use a Bicep module instead.
 
-The following example fails this test because a secure parameter is used in an outer-scoped nested deployment resource.
+The following example fails this test because a secure parameter is referenced in an outer-scoped nested deployment resource.
 
 ```bicep
 @secure()
