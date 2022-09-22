@@ -62,8 +62,13 @@ Use the Content hub to centrally discover and deploy solutions and out-of-the-bo
 For more information, see:
 
 - [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
+<<<<<<< HEAD
 - Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security?filters=solution-templates&page=1)
 - [Microsoft Sentinel catalog for domain solutions](sentinel-solutions-catalog.md)
+=======
+- Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
+- [Microsoft Sentinel content hub catalog for domain solutions](sentinel-solutions-catalog.md)
+>>>>>>> 900b1d7285002e2b37958a5b6fb0a858843ea405
 
 ## Categories for Microsoft Sentinel out-of-the-box content and solutions
 
