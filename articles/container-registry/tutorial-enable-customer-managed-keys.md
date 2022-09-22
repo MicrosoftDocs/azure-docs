@@ -8,14 +8,7 @@ ms.author: tejaswikolli
 
 # Enable a customer-managed key: CLI, portal, and Resource Manager template 
 
-This tutorial is part two in a four-part series. [Part one](tutorial-customer-managed-keys.md) provides an overview of customer-managed keys, their features, and considerations before you enable one on your registry.
-
-In this tutorial, you will:
-
-> [!div class="checklist"]
-> * Enable a customer-managed key on a container registry by using the Azure CLI, the Azure portal, or an Azure Resource Manager template.
-> * Create a resource group.
-> * Create resources for the encryption and verify the encryption status of your registry.
+This article is part two in a four-part tutorial series. [Part one](tutorial-customer-managed-keys.md) provides an overview of customer-managed keys, their features, and considerations before you enable one on your registry. This article walks you through the steps of enabling a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template.
 
 ## Prerequisites
 
@@ -419,7 +412,7 @@ You can use a Resource Manager template to create a container registry and enabl
 
 ## Next steps
 
-Advance to the [next tutorial](tutorial-rotate-revoke-customer-managed-keys.md) to walk through rotating customer-managed keys, updating key versions, and revoking a customer-managed key. 
+Advance to the [next article](tutorial-rotate-revoke-customer-managed-keys.md) to walk through rotating customer-managed keys, updating key versions, and revoking a customer-managed key. 
 
 
 <!-- LINKS - external -->
