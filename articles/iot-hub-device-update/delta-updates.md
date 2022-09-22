@@ -33,7 +33,7 @@ The Device Update agent _orchestrates_ the update process on the device, includi
 
 ### Update handler
 
-An update handler integrates with the Device Update agent to perform the actual update install. Add an SWUpdate [update handler](device-update-agent-overview.md#update-handlers).  We recommend starting with the [`microsoft/swupdate:2` update handler](https://github.com/Azure/iot-hub-device-update/blob/release/1.0/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have your own SWUpdate update handler that you want to modify. If you use your own update handler, be sure to enable zstd decompression in SWUpdate.
+An update handler integrates with the Device Update agent to perform the actual update install. For delta updates, start with the [`microsoft/swupdate:2` update handler](https://github.com/Azure/iot-hub-device-update/blob/release/1.0/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have your own SWUpdate update handler that you want to modify. **If you use your own update handler, be sure to enable zstd decompression in SWUpdate**.
 
 ### Delta processor
 
@@ -80,7 +80,7 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) Github repo | Download all content and place into a known directory. |
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) Github repo | Clone the repo. |
 | .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux-ubuntu.md). Only the Runtime is required. |
 
 ### Dependencies
@@ -138,7 +138,7 @@ sudo ./DiffGenTool
 /mnt/o/temp/[recompressed file to be created.swu]
 ```  
 
-If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script **that you previously downloaded**. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
+If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
 
 _Creating diff between input source file and recompressed/re-signed target file:_
 
@@ -161,11 +161,11 @@ The basic process of importing an update to the Device Update service is unchang
 
 [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
-The first step to import an update into the Device Update service is always to create an import manifest. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
+The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
 
 To create an import manifest for your delta update using the Related Files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) elements to your import manifest.
 
-The `relatedFiles` element is used to specify information about the delta update file, including the file name, file size and sha256 hash (examples available at the links above). Importantly, you also need to specify two properties which are unique to the delta update feature:
+The `relatedFiles` element is used to specify information about the delta update file, including the file name, file size and sha256 hash (examples available at the link above). Importantly, you also need to specify two properties which are unique to the delta update feature:
 
 ```json
 "properties": {
@@ -173,7 +173,7 @@ The `relatedFiles` element is used to specify information about the delta update
       "microsoft.sourceFileHash": "[insert the source SWU image file hash]"
 }
 ```
-Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you will not actually be importing the source image. The delta components use this metadata about the source image to locate and validate it on the device once the delta has been downloaded to that device.
+Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you will not actually be importing the source image. The delta components on the device use this metadata about the source image to locate the image on the device once the delta has been downloaded.
 
 The `downloadHandler` element is used to specify how the Device Update agent will orchestrate the delta update, using the Related Files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
 
@@ -200,21 +200,21 @@ Once you've created the deployment for your delta update, the Device Update serv
 There are three possible outcomes for a delta update deployment:
 
 - Delta update installed successfully. Device is on new version.
-- Delta update failed to install, but a successful fallback install of the full image occurred instead. Device is on new version.
+- Delta update was unavailable or failed to install, but a successful fallback install of the full image occurred instead. Device is on new version.
 - Both delta and fallback to full image failed. Device is still on old version.
 
 To determine which of the above outcomes occurred, you can view the install results with error code and extended error code by selecting any device that is in a failed state. You can also [collect logs](device-update-log-collection.md) from multiple failed devices if needed.
 
-If the delta update succeeded, it will show a "Succeeded" status.
+If the delta update succeeded, the device will show a "Succeeded" status.
 
-If the delta update failed but did a successful fallback to full image, it will show the following error status:
+If the delta update failed but did a successful fallback to the full image, it will show the following error status:
 
 - resultCode: _[value greater than 0]_
 - extendedResultCode: _[non-zero]_
 
 If the update was unsuccessful, it will show an error status that can be interpreted using the instructions below:
 
-- Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/early-access/0.9/src/inc/aduc/result.h).
+- Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/release/1.0/src/inc/aduc/result.h).
 
   - Errors from the Device Update Agent that are specific to the Download Handler functionality used for delta updates begin with 0x9:
 
@@ -233,7 +233,7 @@ If the update was unsuccessful, it will show an error status that can be interpr
     - 0A is "Delta Processor Component" (ADUC_COMPONENT_DELTA_DOWNLOAD_HANDLER_DELTA_PROCESSOR)
     - XXXXX is the 20-bit error code from FIT delta processor
 
-- If you aren't able to solve the issue based on the error code information, file a GitHub issue so we can address it.
+- If you aren't able to solve the issue based on the error code information, file a GitHub issue to get further assistance.
 
 ## Next steps
 
