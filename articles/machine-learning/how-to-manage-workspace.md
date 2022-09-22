@@ -43,7 +43,7 @@ As your needs change or requirements for automation increase you can also manage
             DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
             ```
                 
-        * (Optional) If your working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
+        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
                 
             ```python
             from azure.identity import AzureAuthorityHosts
