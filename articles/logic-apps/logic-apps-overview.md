@@ -1,17 +1,17 @@
 ---
-title: Overview for Azure Logic Apps
-description: Azure Logic Apps is a cloud platform for automating workflows that integrate apps, data, services, and systems using little to no code. Workflows can run in a multi-tenant, single-tenant, or dedicated environment.
+title: Overview
+description: Azure Logic Apps is a cloud platform for creating and running automated workflows that integrate apps, data, services, and systems using little to no code. Workflows can run in a multi-tenant, single-tenant, or dedicated environment.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
-ms.date: 01/27/2022
+ms.date: 09/22/2022
 ---
 
 # What is Azure Logic Apps?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated [*workflows*](#workflow) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Azure Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
+Azure Logic Apps is a cloud-based platform for creating and running automated [*workflows*](#workflow) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Azure Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments. Learn more about [Azure Logic Apps on the Azure website](https://azure.microsoft.com/services/logic-apps).
 
 The following list describes just a few example tasks, business processes, and workloads that you can automate using the Azure Logic Apps service:
 
@@ -25,7 +25,9 @@ The following list describes just a few example tasks, business processes, and w
 
 > [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
 
-Based on the logic app resource type that you choose and create, your logic apps run in multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
+Based on the logic app resource type that you choose and create, your logic app workflows run in either multi-tenant Azure Logic Apps, [single-tenant Azure Logic Apps](single-tenant-overview-compare.md), or a dedicated [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md)
+
+when accessing an Azure virtual network. To run logic apps in containers, [create single-tenant based logic apps using Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) and [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 To securely access and run operations on various data sources, you can use [*managed connectors*](#managed-connector) in your workflows. Choose from [many hundreds of connectors in an abundant and growing Azure ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors), for example:
 
