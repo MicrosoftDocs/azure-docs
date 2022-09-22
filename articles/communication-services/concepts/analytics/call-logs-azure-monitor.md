@@ -95,14 +95,14 @@ There are two types of Calls (represented by `callType`): P2P and Group.
 
 **P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
-  :::image type="content" source="media\call-logs-azure-monitor\p2p-diagram.png" alt-text="p2p call"::: [Screenshot displays P2P call across 2 endpoints]
+  :::image type="content" source="media\call-logs-azure-monitor\p2p-diagram.png" alt-text="Screenshot displays P2P call across 2 endpoints"::: 
 
 **Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
 
-  :::image type="content" source="media\call-logs-azure-monitor\group-call-version-a.png" alt-text="Group Call":::
+  :::image type="content" source="media\call-logs-azure-monitor\group-call-version-a.png" alt-text="Screenshot displays group call across multiple endpoints":::
 
-[Screenshot displays group call across multiple endpoints]
+
 ## Log Structure
 
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
@@ -115,29 +115,26 @@ Call Diagnostic Logs contain information about the Stream as well as a set of me
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (one per `participantID`) and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
 
-:::image type="content" source="media\call-logs-azure-monitor\example-1-p2p-call-same-tenant.png" alt-text="P2P Call detail":::
-[Screenshot displays P2P call within the same tenant]
+:::image type="content" source="media\call-logs-azure-monitor\example-1-p2p-call-same-tenant.png" alt-text="Screenshot displays P2P call within the same tenant":::
+
 
 ### Example 2: Group Call
 
 The below diagram represents a Group Call example with three `participantIDs`, which means three `participantIDs` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. One Call Summary Logs would be created per `participantID`, and four Call Diagnostic Logs would be created relating to each `participantID`, one for each media stream. 
 
-:::image type="content" source="media\call-logs-azure-monitor\example-2-group-call-same-tenant.png" alt-text="group Call detail":::
-
-[Screenshot displays group call within the same tenant]                                                                       
+:::image type="content" source="media\call-logs-azure-monitor\example-2-group-call-same-tenant.png" alt-text="Screenshot displays group call within the same tenant":::
+                                                                   
 ### Example 3: P2P Call cross-tenant
 The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, one Call Summary Logs would be created (one per participant) with redacted OS and SDK versioning and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
  
-:::image type="content" source="media\call-logs-azure-monitor\example-3-p2p-call-cross-tenant.png" alt-text="p2p Call detail cross tenant":::
+:::image type="content" source="media\call-logs-azure-monitor\example-3-p2p-call-cross-tenant.png" alt-text="Screenshot displays P2P call cross-tenant":::
 
-[Screenshot displays P2P call cross-tenant]
 
 ### Example 4: Group Call cross-tenant
 The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
 
-:::image type="content" source="media\call-logs-azure-monitor\example-4-group-call-cross-tenant.png" alt-text="group Call detail cross tenant":::
+:::image type="content" source="media\call-logs-azure-monitor\example-4-group-call-cross-tenant.png" alt-text="Screenshot displays group call cross-tenant":::
 
-[Screenshot displays group call cross-tenant]
 
 > **Please note**: Only outbound diagnostic logs will be supported in this release. 
 Please note that participants and bots identity are treated the same way, as a result OS and SDK versioning associated to the bot and the participant will be redacted 
