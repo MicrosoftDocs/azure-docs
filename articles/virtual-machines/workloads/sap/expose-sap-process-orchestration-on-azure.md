@@ -17,7 +17,7 @@ Enabling internal systems and external partners to interact with SAP back ends i
 This article describes configuration options on Azure, with emphasis on internet-facing implementations.
 
 > [!NOTE]
-> SAP mentions [SAP Integration Suite](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all) - specifically, [SAP Cloud Integration](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/9af2f05c7eb04457aee5906fd8553e00.html) - running on [Business Technology Platform (BTP)](https://www.sap.com/products/business-technology-platform.html) as the successor for SAP PO/PI. Both the BTP platform and the services are available on Azure. For more information, see [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan&provider=azure). For more info about the maintenance support timeline for the legacy components, See SAP OSS note [1648480](https://launchpad.support.sap.com/#/notes/1648480).
+> SAP mentions [SAP Integration Suite](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)--specifically, [SAP Cloud Integration](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/9af2f05c7eb04457aee5906fd8553e00.html)-- running on [Business Technology Platform (BTP)](https://www.sap.com/products/business-technology-platform.html) as the successor for SAP PO and PI. Both the BTP platform and the services are available on Azure. For more information, see [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan&provider=azure). For more info about the maintenance support timeline for the legacy components, see SAP OSS note [1648480](https://launchpad.support.sap.com/#/notes/1648480).
 
 ## Overview
 
@@ -46,7 +46,7 @@ Azure Application Gateway is focused on exposing web applications, so it offers 
 
 Integration architecture needs differ, depending on the interface that an organization uses. SAP-proprietary technologies like [Intermediate Document (IDoc) framework](https://help.sap.com/docs/SAP_DATA_SERVICES/e54136ab6a4a43e6a370265bf0a2d744/577710e16d6d1014b3fc9283b0e91070.html), [Business Application Programming Interface (BAPI)](https://help.sap.com/docs/SAP_ERP/c5a8d544836649a1af6eaef358d08e3f/4dc89000ebfc5a9ee10000000a42189b.html), [transactional Remote Function Calls (tRFCs)](https://help.sap.com/docs/SAP_NETWEAVER_700/108f625f6c53101491e88dc4cf51a6cc/4899b963ee2b73e7e10000000a42189b.html), or plain [RFCs](https://help.sap.com/docs/SAP_ERP/be79bfef64c049f88262cf6cb5de1c1f/0502cbfa1c2f184eaa6ba151d1aaf4fe.html) require a specific runtime environment. They operate on layers 4 to 7 of the OSI model, unlike modern APIs that typically rely on HTP-based communication (layer 7 of the OSI model). Because of that, the interfaces can't be treated the same way.
 
-This article focuses on modern APIs and HTTP, including integration scenarios like [Applicability Statement 2 (AS2)](https://wikipedia.org/wiki/AS2). [File Transfer Protocol (FTP)](https://wikipedia.org/wiki/File_Transfer_Protocol) will serve as an example to handle non-HTTP integration needs. For more information about Microsoft load-balancing solutions, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
+This article focuses on modern APIs and HTTP, including integration scenarios like [Applicability Statement 2 (AS2)](https://wikipedia.org/wiki/AS2). [File Transfer Protocol (FTP)](https://wikipedia.org/wiki/File_Transfer_Protocol) serves as an example to handle non-HTTP integration needs. For more information about Microsoft load-balancing solutions, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 > [!NOTE]
 > SAP publishes dedicated [connectors](https://support.sap.com/en/product/connectors.html) for its proprietary interfaces. Check SAP's documentation for [Java](https://support.sap.com/en/product/connectors/jco.html) and [.NET](https://support.sap.com/en/product/connectors/msnet.html), for example. They're supported by [Microsoft gateways](../../../data-factory/connector-sap-table.md?tabs=data-factory#prerequisites) too. Be aware that IDocs can also be posted via [HTTP](https://blogs.sap.com/2012/01/14/post-idoc-to-sap-erp-over-http-from-any-application/).
@@ -75,7 +75,7 @@ One of the scenarios for SAP Process Orchestration communication is inbound flow
 
 ## Scenario: Outbound HTTP/FTP connectivity focused
 
-For the reverse communication direction, SAP Process Orchestration can use virtual network routing to reach workloads on-premises or internet-based targets via the internet breakout. Azure Application Gateway acts as a reverse proxy in such scenarios. For non-HTTP communication, consider adding Azure Firewall. For more information, see [Scenario: File based](#scenario-file-based) and [Comparing Gateway components](#comparing-gateway-setups) later in this article.
+For the reverse communication direction, SAP Process Orchestration can use virtual network routing to reach on-premises workloads or internet-based targets via the internet breakout. Azure Application Gateway acts as a reverse proxy in such scenarios. For non-HTTP communication, consider adding Azure Firewall. For more information, see [Scenario: File based](#scenario-file-based) and [Comparison of Gateway components](#comparison-of-gateway-setups) later in this article.
 
 The following outbound scenario shows two possible methods. One uses HTTPS via Azure Application Gateway calling a web service (for example, SOAP adapter). The other uses FTP over SSH (SFTP) via Azure Firewall transferring files to a business partner's SFTP server.
 
@@ -89,7 +89,7 @@ Compared to the scenarios for inbound and outbound connectivity, the introductio
 - [API governance](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
 - Additional security options like [modern authentication flows](../../../api-management/api-management-howto-protect-backend-with-aad.md).
 - [Azure Active Directory](../../../active-directory/develop/active-directory-v2-protocols.md) integration.
-- The opportunity to add the SAP APIs to a central API solution across the company.
+- The opportunity to add SAP APIs to a central API solution across the company.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-api-management-2.png" alt-text="Diagram that shows an inbound scenario with Azure API Management and SAP Process Orchestration on Azure.":::
 
@@ -152,18 +152,18 @@ In this scenario, the SAP-managed Process Orchestration instance writes files to
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/rise-5b.png" alt-text="Diagram that shows a file share scenario with SAP Process Orchestration on Azure in the RISE context.":::
 
-## Comparing gateway setups
+## Comparison of gateway setups
 
 > [!NOTE]
 > Performance and cost metrics assume production-grade tiers. For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Also see the following articles: [Azure Firewall performance](../../../firewall/firewall-performance.md), [Application Gateway high-traffic support](../../../application-gateway/high-traffic-support.md), and [Capacity of an Azure API Management instance](../../../api-management/api-management-capacity.md).
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/compare.png" alt-text="A table that compares the gateway components discussed in this article.":::
 
-Depending on the integration protocols you're using, you might need multiple components. For more information about the benefits of the various combinations of chaining Azure Application Gateway with Azure Firewall, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-before-firewall).
+Depending on the integration protocols you're using, you might need multiple components. For more information about the benefits of the various combinations of chaining Azure Application Gateway with Azure Firewall, see [Azure Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-before-firewall).
 
 ## Integration rule of thumb
 
-To determine which integration scenarios described in this article best fits your requirements, evaluate them on a case-by-case basis. Consider enabling the following capabilities:
+To determine which integration scenarios described in this article best fit your requirements, evaluate them on a case-by-case basis. Consider enabling the following capabilities:
 
 - [Request throttling](../../../api-management/api-management-sample-flexible-throttling.md) by using API Management
 
@@ -183,7 +183,7 @@ To determine which integration scenarios described in this article best fits you
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 
-With the [Azure Integration Services portfolio](https://azure.microsoft.com/product-categories/integration/), you can natively address the integration scenarios covered by SAP Process Orchestration. To get started, view the [Azure Logic Apps connectors](../../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces. 
+With the [Azure Integration Services portfolio](https://azure.microsoft.com/product-categories/integration/), you can natively address the integration scenarios that SAP Process Orchestration covers. To get started, view the [Azure Logic Apps connectors](../../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces. 
 
 The connector guide contains more details about [AS2](../../../logic-apps/logic-apps-enterprise-integration-as2.md) and [EDIFACT](../../../logic-apps/logic-apps-enterprise-integration-edifact.md). For insights on how to design SAP IFlow patterns through cloud-native means, see [this blog series](https://blogs.sap.com/2022/08/30/port-your-legacy-sap-middleware-flows-to-cloud-native-paas-solutions/).
 
