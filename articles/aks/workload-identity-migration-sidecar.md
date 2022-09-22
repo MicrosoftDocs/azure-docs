@@ -62,15 +62,15 @@ Copy and paste the following multi-line input in the Azure CLI.
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
- kind: ServiceAccount
- metadata:
-   annotations:
-     azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-   labels:
-     azure.workload.identity/use: "true"
-   name: ${SERVICE_ACCOUNT_NAME}
-   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
- EOF
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
+  labels:
+    azure.workload.identity/use: "true"
+  name: ${SERVICE_ACCOUNT_NAME}
+  namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+EOF
 ```
 
 The following output resemble successful creation of the identity:
@@ -101,26 +101,26 @@ Update the pod with the annotation by performing the following steps.
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
-     kind: Pod
-     metadata:
-       name: quick-start
-       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
-       annotations:
-         azure.workload.identity/inject-proxy-sidecar: true
-         azure.workload.identity/proxy-sidecar-port: 8080
-     spec:
-       serviceAccountName: ${SERVICE_ACCOUNT_NAME}
-       containers:
-         - image: ghcr.io/azure/azure-workload-identity/msal-go
-           name: oidc
-           env:
-           - name: KEYVAULT_NAME
-             value: ${KEYVAULT_NAME}
-           - name: SECRET_NAME
-             value: ${KEYVAULT_SECRET_NAME}
-       nodeSelector:
-         kubernetes.io/os: linux
-     EOF
+    kind: Pod
+    metadata:
+      name: quick-start
+      namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+      annotations:
+        azure.workload.identity/inject-proxy-sidecar: true
+        azure.workload.identity/proxy-sidecar-port: 8080
+    spec:
+      serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+        containers:
+          - image: ghcr.io/azure/azure-workload-identity/msal-go
+            name: oidc
+            env:
+          - name: KEYVAULT_NAME
+            value: ${KEYVAULT_NAME}
+          - name: SECRET_NAME
+            value: ${KEYVAULT_SECRET_NAME}
+      nodeSelector:
+        kubernetes.io/os: linux
+    EOF
     ```
 
     The following output resembles successful creation of the pod:

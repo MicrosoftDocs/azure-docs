@@ -105,15 +105,15 @@ Copy and paste the following multi-line input in the Azure CLI, and update the v
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
- kind: ServiceAccount
- metadata:
-   annotations:
-     azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-   labels:
-     azure.workload.identity/use: "true"
-   name: serviceAccountName
-   namespace: serviceAccountNamespace
- EOF
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
+  labels:
+    azure.workload.identity/use: "true"
+  name: serviceAccountName
+  namespace: serviceAccountNamspace
+EOF
 ```
 
 The following output resemble successful creation of the identity:
