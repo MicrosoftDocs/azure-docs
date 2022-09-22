@@ -1,6 +1,6 @@
 ---
-title: Autoscale with different profiles
-description: "Using different profiles in autoscale"
+title: Autoscale with multiple profiles
+description: "Using multiple and recurring profiles in autoscale"
 author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
@@ -13,7 +13,7 @@ ms.reviewer: akkumari
 # Customer intent: As a user or dev ops administrator, I want to understand how set up autoscale with more than one profile so I can scale my resources with more flexibility.
 ---
 
-# Autoscale with different profiles
+# Autoscale with multiple profiles
 
 Scaling your resources for a particular day of the week, or a specific date and time can reduce your costs while still providing the capacity you need when you need it.
 
@@ -28,7 +28,6 @@ There are three types of profile:
 * The default profile. The default profile is created automatically and isn't dependent on a schedule. The default profile can't be deleted. The default profile is used when there are no other profiles that match the current date and time.
 * Recurring profiles. A recurring profile is valid for a specific time range and repeats for selected days of the week.
 * Fixed date and time profiles. A profile that is valid for a time range on a specific date.
-
 
 Each time the autoscale service runs, the profiles are evaluated in the following order:
 
