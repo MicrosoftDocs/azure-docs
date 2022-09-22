@@ -98,7 +98,7 @@ The download will self-resume when connectivity is restored within a 24-hour per
 
 ### Q: I am encountering an issue when attempting to deploy the MCC module on my IoT Edge device
 
-Refer to the [IoT Edge documentation](../iot-edge/) for deploying Edge modules to IoT Edge devices. You can check if the MCC module is running successfully on your IoT Edge device by navigating to http://localhost:5100/Summary.
+Refer to the [IoT Edge documentation](../iot-edge/index.yml) for deploying Edge modules to IoT Edge devices. You can check if the MCC module is running successfully on your IoT Edge device by navigating to http://localhost:5100/Summary.
 
 ### Q: One of my IoT devices is attempting to download an update through MCC, but is failing
 
@@ -145,7 +145,7 @@ If you run into issues that can't be resolved using the FAQs above, you can file
 
 Please see below for instructions on how to gather each data type.
 
-<!-->You can use [getDevices]() to check for additional information in the payload response of the API.<!-->
+You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclient.getdevice?view=azure-dotnet-preview&preserveview=true) to check for additional information in the payload response of the API.
 
 In addition, the following information can be useful for narrowing down the root cause of your issue:
 
