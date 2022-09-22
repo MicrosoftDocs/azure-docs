@@ -129,6 +129,6 @@ Azure Policy helps you to enforce organizational standards and to assess complia
 
 ## Next steps
 
-* Provision an Azure Cosmos DB account with [periodic backup mode'(configure-periodic-backup-restore.md).
+* Provision an Azure Cosmos DB account with [periodic backup mode](configure-periodic-backup-restore.md).
 * Provision an account with continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
