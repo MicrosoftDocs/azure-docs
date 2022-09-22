@@ -56,7 +56,7 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
             context.bindings.outputBlob = JSON.stringify(eventGridEvent);
         };
         ```    
-1. Create a Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
+1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
      
@@ -101,3 +101,4 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 
 - [Auth0 Partner Topic](auth0-overview.md)
 - [Subscribe to Auth0 events](auth0-how-to.md)
+- [Send Auth0 events to Azure Blob Storage](auth0-log-stream-blob-storage.md)

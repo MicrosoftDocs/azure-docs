@@ -1,18 +1,16 @@
 ---
-title: Send Auth0 events to Blob Storage via Application Insights
+title: Send Auth0 events Azure Monitor's Application Insights
 description: This article shows how to send Auth0 events received by Azure Event Grid to Azure Monitor's Application Insights.
 ms.topic: how-to
 ms.date: 09/16/2022
 ---
 
-# Use Auth0's Log Streaming to Event Grid feature to save logs to Azure Blob Storage
+# Send Auth0 events to Azure Monitor's Application Insights
 This article shows how to send Auth0 events received by Azure Event Grid to Azure Monitor's Application Insights.
 
 ## Prerequisites
 
-- [Create an Azure Event Grid stream on Auth0](https://marketplace.auth0.com/integrations/azure-log-streaming).
-- [Create a Azure Blob Storage resource](../storage/common/storage-account-create.md?tabs=azure-portal)
-- [Get connection string to Azure Storage account](../storage/common/storage-account-keys-manage.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal#view-account-access-keys). Make sure you select the **Copy** button to copy connection string to the clipboard.
+[Create an Azure Event Grid stream on Auth0](https://marketplace.auth0.com/integrations/azure-log-streaming).
 
 ## Create an Azure function
 
@@ -63,7 +61,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
             context.log(`Sent to App Insights successfully`);
         };
         ```    
-1. Create a Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
+1. Create an Azure function app using instructions from [Quick function app create](../azure-functions/functions-develop-vs-code.md?tabs=csharp#quick-function-app-create).
 1. Deploy your function to the function app on Azure using instructions from [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files).
 
      
@@ -95,3 +93,4 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
 
 - [Auth0 Partner Topic](auth0-overview.md)
 - [Subscribe to Auth0 events](auth0-how-to.md)
+- [Send Auth0 events to Azure Monitor's Application Insights](auth0-log-stream-app-insights.md)
