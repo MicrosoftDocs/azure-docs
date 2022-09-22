@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Require Terms of Use at sign-in
-description: Learn how to require that your terms of use acceptance before access to selected cloud apps is granted with Azure Active Directory Conditional Access.
+title: Quickstart require Terms of Use at sign-in
+description: Quickstart require terms of use acceptance before access to selected cloud apps is granted with Azure Active Directory Conditional Access.
 
 services: active-directory
 ms.service: active-directory
@@ -17,15 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 # Quickstart: Require terms of use to be accepted before accessing cloud apps
 
-In this quickstart you, configure a Conditional Access policy in Azure Active Directory (Azure AD) to require users to accept terms of use. 
+In this quickstart, you'll configure a Conditional Access policy in Azure Active Directory (Azure AD) to require users to accept terms of use. 
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- **An Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- **Azure AD Premium P1 or P2** - Azure AD Conditional Access is an Azure AD Premium capability. You can sign up for a trial in the Azure portal.
-- **A test account to sign-in with** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability. You can sign up for a trial in the Azure portal.
+- A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## Sign-in without terms of use
 
