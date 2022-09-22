@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 08/10/2022
 author: mgoedtel
 
 ---
@@ -20,7 +20,7 @@ Mounting Azure Blob storage as a file system into a container or pod, enables yo
 * Images, documents, and streaming video or audio
 * Disaster recovery data
 
-The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver (preview) is enabled on AKS, there are two built-in storage classes: *blob-fuse* and *blob-nfs*.
+The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver (preview) is enabled on AKS, there are two built-in storage classes: *azureblob-fuse-premium* and *azureblob-nfs-premium*.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
@@ -40,58 +40,7 @@ Azure Blob storage CSI driver (preview) supports the following features:
 
 ### Uninstall open-source driver
 
-Perform the following steps if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
-
-1. Copy the following Shell script and create a file named `uninstall-driver.sh`:
-
-    ```bash
-    # Copyright 2020 The Kubernetes Authors.
-    #
-    # Licensed under the Apache License, Version 2.0 (the "License");
-    # you may not use this file except in compliance with the License.
-    # You may obtain a copy of the License at
-    #
-    #     http://www.apache.org/licenses/LICENSE-2.0
-    #
-    # Unless required by applicable law or agreed to in writing, software
-    # distributed under the License is distributed on an "AS IS" BASIS,
-    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    # See the License for the specific language governing permissions and
-    # limitations under the License.
-    
-    set -euo pipefail
-    
-    ver="master"
-    if [[ "$#" -gt 0 ]]; then
-      ver="$1"
-    fi
-    
-    repo="https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/$ver/deploy"
-    if [[ "$#" -gt 1 ]]; then
-      if [[ "$2" == *"local"* ]]; then
-        echo "use local deploy"
-        repo="./deploy"
-      fi
-    fi
-    
-    if [ $ver != "master" ]; then
-      repo="$repo/$ver"
-    fi
-    
-    echo "Uninstalling Azure Blob Storage CSI driver, version: $ver ..."
-    kubectl delete -f $repo/csi-blob-controller.yaml --ignore-not-found
-    kubectl delete -f $repo/csi-blob-node.yaml --ignore-not-found
-    kubectl delete -f $repo/csi-blob-driver.yaml --ignore-not-found
-    kubectl delete -f $repo/rbac-csi-blob-controller.yaml --ignore-not-found
-    kubectl delete -f $repo/rbac-csi-blob-node.yaml --ignore-not-found
-    echo 'Uninstalled Azure Blob Storage CSI driver successfully.'
-    ```
-
-2. Run the script using the following command:
-
-    ```bash
-    ./uninstall-driver.sh
-    ```
+Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 
 ## Install the Azure CLI aks-preview extension
 
@@ -144,10 +93,6 @@ You're prompted to confirm there isn't an open-source Blob CSI driver installed.
     "blobCsiDriver": {
       "enabled": true
     },
-    "diskCsiDriver": {
-      "enabled": true,
-      "version": "v1"
-    },
 ```
 
 ## Disable CSI driver on an existing AKS cluster
@@ -179,7 +124,7 @@ When you use storage CSI drivers on AKS, there are two additional built-in Stora
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable by default, as the `set allowVolumeExpansion` parameter is set to **true**.
 
-Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `blob-fuse` and `blob-nfs` storage classes available within an AKS cluster:
+Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `azureblob-fuse-premium` and `azureblob-nfs-premium` storage classes available within an AKS cluster:
 
 ```bash
 NAME                                  PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION     AGE
@@ -229,7 +174,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
         - metadata:
             name: persistent-storage
             annotations:
-              volume.beta.kubernetes.io/storage-class: blob-nfs
+              volume.beta.kubernetes.io/storage-class: azureblob-nfs-premium
           spec:
             accessModes: ["ReadWriteMany"]
             resources:
@@ -279,7 +224,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
         - metadata:
             name: persistent-storage
             annotations:
-              volume.beta.kubernetes.io/storage-class: blob-fuse
+              volume.beta.kubernetes.io/storage-class: azureblob-fuse-premium
           spec:
             accessModes: ["ReadWriteMany"]
             resources:
@@ -313,6 +258,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [csi-blob-storage-open-source-driver]: https://github.com/kubernetes-sigs/blob-csi-driver
+[csi-blob-storage-open-source-driver-uninstall-steps]: https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/docs/install-csi-driver-master.md#clean-up-blob-csi-driver
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -3,7 +3,7 @@ title: Run Azure Machine Learning workloads on Apache Spark in HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 09/15/2022
 ---
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight

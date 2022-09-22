@@ -20,7 +20,7 @@ The following section addresses the common errors when installing the EFLOW MSI 
 - [Azure IoT Edge for Linux on Windows prerequisites](https://aka.ms/AzEFLOW-Requirements)
 - [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md)
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
-- [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
+- [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md)
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -90,7 +90,7 @@ The following section addresses the common errors related to EFLOW networking an
 
 - [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md)
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
-- [Azure IoT Edge for Linux on Windows virtual switch creation](/how-to-create-virtual-switch.md)
+- [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Error | Error Description | Solution |

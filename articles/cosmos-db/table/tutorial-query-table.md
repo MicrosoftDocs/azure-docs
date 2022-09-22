@@ -1,8 +1,8 @@
 ---
 title: How to query table data in Azure Cosmos DB? 
 description: Learn how to query data stored in the Azure Cosmos DB Table API account by using OData filters and LINQ queries
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial

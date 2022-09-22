@@ -168,7 +168,7 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
+    href: /javascript/api/overview/azure/container-instances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
   - name: YAML  
@@ -182,8 +182,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

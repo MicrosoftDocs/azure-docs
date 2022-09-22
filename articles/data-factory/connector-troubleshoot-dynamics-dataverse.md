@@ -167,7 +167,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Cause**: The virtual column is not supported now. 
 
 - **Recommendation**: For the Option Set value, follow the options below to get it:
-  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) and [Dynamics 365 blog](https://dynamicscrmdotblog.wordpress.com/).
+  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/).
   - You can link the StringMap entity to your target entity and get the associated values.
 
 ## The parallel copy in a Dynamics CRM data store

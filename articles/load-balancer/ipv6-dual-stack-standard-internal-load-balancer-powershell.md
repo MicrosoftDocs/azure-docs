@@ -15,7 +15,7 @@ ms.author: mbender
 ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure - PowerShell (Preview)
+# Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure - PowerShell
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network and subnet, a Standard Internal Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 

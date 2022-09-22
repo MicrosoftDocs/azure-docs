@@ -74,8 +74,8 @@ To use the key when deploying a model to Azure Container Instance, create a new 
 For more information on creating and using a deployment configuration, see the following articles:
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-* [Where and how to deploy](how-to-deploy-and-where.md)
 
+* [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
 
 For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
@@ -142,6 +142,6 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 * [Connect to Azure storage](how-to-access-data.md)
 * [Get data from a datastore](how-to-create-register-datasets.md)
-* [Connect to data](how-to-connect-data-ui.md)
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Connect to data](v1/how-to-connect-data-ui.md)
+* [Train with datasets](v1/how-to-train-with-datasets.md)
 * [Customer-managed keys](concept-customer-managed-keys.md).

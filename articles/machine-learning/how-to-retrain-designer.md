@@ -116,4 +116,4 @@ In this article, you learned how to create a parameterized training pipeline end
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
 
-For how to publish and submit a job to pipeline endpoint using SDK, see [this article](how-to-deploy-pipelines.md).
+For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](v1/how-to-deploy-pipelines.md).

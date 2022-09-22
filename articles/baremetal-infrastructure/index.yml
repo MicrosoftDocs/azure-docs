@@ -137,7 +137,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: HA Setup with STONITH
-            url: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            url: ../virtual-machines/workloads/sap/ha-setup-with-fencing-device.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: OS Backup
             url: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Enable Kdump for HANA Large Instances

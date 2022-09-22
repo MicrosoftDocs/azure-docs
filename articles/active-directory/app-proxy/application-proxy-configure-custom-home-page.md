@@ -3,7 +3,7 @@ title: Custom home page for published apps - Azure Active Directory Application 
 description: Covers the basics about Azure Active Directory Application Proxy connectors
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

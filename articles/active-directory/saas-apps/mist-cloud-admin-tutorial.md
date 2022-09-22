@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2022
+ms.date: 08/02/2022
 ms.author: jeedes
 
 ---
@@ -18,8 +18,8 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate Mist Cloud Admin SSO with Azure Active Directory (Azure AD). When you integrate Mist Cloud Admin SSO with Azure AD, you can:
 
-* Control in Azure AD who has access to Mist Cloud Admin SSO.
-* Enable your users to be automatically signed-in to Mist Cloud Admin SSO with their Azure AD accounts.
+* Control in Azure AD who has access to the Mist dashboard.
+* Enable your users to be automatically signed-in to the Mist dashboard with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Mist Cloud Admin SSO with Azure 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Mist Cloud Admin SSO single sign-on (SSO) enabled subscription.
+* Mist Cloud account, you can create an account [here](https://manage.mist.com/).
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -48,18 +48,39 @@ To configure the integration of Mist Cloud Admin SSO into Azure AD, you need to 
 1. In the **Add from the gallery** section, type **Mist Cloud Admin SSO** in the search box.
 1. Select **Mist Cloud Admin SSO** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Mist Cloud Admin SSO
 
-Configure and test Azure AD SSO with Mist Cloud Admin SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user at Mist Cloud Admin SSO.
+Configure and test Azure AD SSO with Mist Cloud Admin SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link between your Azure AD app and Mist organization SSO.
 
 To configure and test Azure AD SSO with Mist Cloud Admin SSO, perform the following steps:
 
+1.	**[Perform initial configuration of the Mist Cloud SSO](#perform-initial-configuration-of-the-mist-cloud-sso)** - to generate ACS URL on the application side.
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1.	**[Create Role for the SSO Application](#create-role-for-the-sso-application)**
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Mist Cloud Admin SSO](#configure-mist-cloud-admin-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Mist Cloud Admin SSO test user](#create-mist-cloud-admin-sso-test-user)** - to have a counterpart of B.Simon in Mist Cloud Admin SSO that is linked to the Azure AD representation of user.
+
+1.	**[Complete configuration of the Mist Cloud](#complete-configuration-of-the-mist-cloud)**
+
+1.	**[Create Roles to link roles sent by the Azure AD](#create-roles-to-link-roles-sent-by-the-azure-ad)**
+
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+## Perform Initial Configuration of the Mist Cloud SSO
+
+1.	Sign in to the Mist dashboard using a local account.
+2.	Go to **Organization > Settings > Single Sign-On > Add IdP**.
+3.	Under **Single Sign-On** section select **Add IDP**.
+4.	In the **Name** field type `Azure AD` and select **Add**.
+
+    ![Screenshot shows to add identity provider.](./media/mist-cloud-admin-tutorial/identity-provider.png)
+
+1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    ![Screenshot shows to Reply URL value.](./media/mist-cloud-admin-tutorial/reply-url.png)
+
 
 ## Configure Azure AD SSO
 
@@ -101,14 +122,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    > [!NOTE]
    > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to configure Role in Azure AD.
+   > Mist Cloud requires Role attribute to assign correct admin privileges to the user.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
-1. On the **Set up Mist Cloud Admin SSO** section, copy the appropriate URL(s) based on your requirement.
+1. 8. On the **Set up Mist Cloud Admin SSO** section, copy the appropriate **Login URL** and **Azure AD Identifier**.
 
-	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")  
+	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
+
+### Create Role for the SSO Application
+
+In this section, you'll create a Superuser Role to later assign it to test user B.Simon.
+ 
+1.	In the Azure portal, select **App Registrations**, and then select **All Applications**.
+2.	In the applications list, select **Mist Cloud Admin SSO**.
+3.	In the app's overview page, find the **Manage** section and select **App Roles**.
+4.	Select **Create App Role**, then type **Mist Superuser** in the **Display Name** field.
+5.	Type **Superuser** in the **Value** field, then type **Mist Superuser Role** in the **Description** field, then select **Apply**.
+
 
 ### Create an Azure AD test user
 
@@ -131,20 +164,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. 6.	Click Select a **Role**, then select **Mist Superuser** and click **Select**.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Mist Cloud Admin SSO
-
-1. Log in to your Mist Cloud Admin SSO company site as an administrator.
-
-1. Go to **Organization** > **Settings** > **Single Sign-On** > **Add IdP**.
-    
-    ![Screenshot that shows the Configuration Settings.](./media/mist-cloud-admin-tutorial/settings.png "Configuration")
+## Complete configuration of the Mist Cloud
 
 1. In the **Create Identity Provider** section, perform the following steps:
 
-    ![Screenshot that shows the Organization Algorithm.](./media/mist-cloud-admin-tutorial/certificate.png "Organization")
+    ![Screenshot that shows the Organization Algorithm.](./media/mist-cloud-admin-tutorial/configure-mist.png "Organization")
 
     1. In the **Issuer** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
@@ -152,15 +179,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    1. In the **Custom Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
-
-    1. Copy **ACS URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
-
     1. Click **Save**.
 
-### Create Mist Cloud Admin SSO test user
+## Create Roles to link roles sent by the Azure AD
 
-In this section, you create a user called Britta Simon at Mist Cloud Admin SSO. Work with [Mist Cloud Admin SSO support team](mailto:support@mist.com) to add the users in the Mist Cloud Admin SSO platform. Users must be created and activated before you use single sign-on.
+1. In the Mist dashboard navigate to **Organization > Settings**. Under **Single Sign-On** section, select **Create Role**.
+
+    ![Screenshot that shows the Create Role section.](./media/mist-cloud-admin-tutorial/create-role.png)
+
+1. Role name must match Role claim value sent by Azure AD, for example type `Superuser` in the **Name** field, specify desired admin privileges for the role and select **Create**.
+
+    ![Screenshot that shows the Create Role button.](./media/mist-cloud-admin-tutorial/create-button.png)
 
 ## Test SSO 
 
@@ -171,6 +200,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Click on **Test this application** in Azure portal. This will redirect to Mist Cloud Admin SSO Sign-on URL where you can initiate the login flow.  
 
 * Go to Mist Cloud Admin SSO Sign-on URL directly and initiate the login flow from there.
+
+    > [!NOTE]
+    > For each user first login must be performed from the IdP prior to using SP initiated flow.
 
 #### IDP initiated:
 

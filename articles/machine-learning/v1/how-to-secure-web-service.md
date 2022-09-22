@@ -49,6 +49,8 @@ This is the general process to secure a web service:
 
 There are slight differences when you secure across [deployment targets](how-to-deploy-and-where.md).
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Get a domain name
 
 If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as www\.contoso.com) to the IP address that hosts your web service.
@@ -264,6 +266,6 @@ aks_target.update(update_config)
 
 ## Next steps
 Learn how to:
-+ [Consume a machine learning model deployed as a web service](../how-to-consume-web-service.md)
++ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
 + [Virtual network isolation and privacy overview](../how-to-network-security-overview.md)
 + [How to use your workspace with a custom DNS server](../how-to-custom-dns.md)
