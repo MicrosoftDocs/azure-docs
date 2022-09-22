@@ -59,6 +59,9 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 Once the add operation is complete, you see your domain name in the list of custom domains.
 
+> [!NOTE]
+> For container apps in internal Container Apps environments, [additional configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
+
 ## Managing certificates
 
 You can manage certificates via the Container Apps environment or through an individual container app.
