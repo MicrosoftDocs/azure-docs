@@ -238,6 +238,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | Endpoint |
 |----------|
 |gr-prod-\*.cloudapp.net:443 |
+|gr-prod-\*.azurewebsites.windows.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |

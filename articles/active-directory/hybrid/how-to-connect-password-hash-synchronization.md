@@ -124,6 +124,9 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
+> [!NOTE]
+> The Set-AzureADUser PowerShell command will not work on federated domains. 
+
 #### Synchronizing temporary passwords and "Force Password Change on Next Logon"
 
 It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
