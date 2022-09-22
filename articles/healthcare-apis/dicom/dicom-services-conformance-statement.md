@@ -50,7 +50,7 @@ The service ignores the 128-byte File Preamble, and replaces its contents with n
 
 The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM Studies, Series, and Instances. We have added the non-standard Delete transaction to enable a full resource lifecycle.
 
-## Store (STOW-RS)
+### Store (STOW-RS)
 
 This transaction uses the POST method to store representations of studies, series, and instances contained in the request payload.
 
@@ -67,7 +67,7 @@ The following `Accept` header(s) for the response are supported:
 
 The following `Content-Type` header(s) are supported:
 
-* `multipart/related; type="application/dicom"`
+* `multipart/related; type="application/dicom`
 * `application/dicom`
 
 > [!NOTE]
@@ -86,11 +86,9 @@ The following DICOM elements are required to be present in every DICOM file atte
 
 Each file stored must have a unique combination of StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID. The warning code `45070` will be returned if a file with the same identifiers already exists.
 
-**DICOM File Size Limit:** there's a size limit of 2 GB for a DICOM file by default.
-
 Only transfer syntaxes with explicit Value Representations are accepted.
 
-### Store response status codes
+#### Store response status codes
 
 | Code      | Description |
 | :-------- | :---------- |
@@ -186,7 +184,7 @@ An example response with `Accept` header `application/dicom+json`:
 }
 ```
 
-### Store failure reason codes
+#### Store failure reason codes
 
 | Code  | Description |
 | :---- | :---------- |
@@ -196,7 +194,7 @@ An example response with `Accept` header `application/dicom+json`:
 | `45070` | A DICOM instance with the same StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID has already been stored. If you wish to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
 
-## Retrieve (WADO-RS)
+### Retrieve (WADO-RS)
 
 This Retrieve Transaction offers support for retrieving stored studies, series, instances, and frames by reference.
 
@@ -210,7 +208,7 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 | GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
 
-### Retrieve instances within study or series
+#### Retrieve instances within study or series
 
 The following `Accept` header(s) are supported for retrieving instances within a study or a series:
 
@@ -219,7 +217,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
 
-### Retrieve an Instance
+#### Retrieve an Instance
 
 The following `Accept` header(s) are supported for retrieving a specific instance:
 
@@ -232,7 +230,7 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
 
-### Retrieve Frames
+#### Retrieve Frames
 
 The following `Accept` headers are supported for retrieving frames:
 
@@ -242,7 +240,7 @@ The following `Accept` headers are supported for retrieving frames:
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 
-### Retrieve transfer syntax
+#### Retrieve transfer syntax
 
 When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the formats below for transcoding to succeed; otherwise, transcoding may fail:
 
@@ -295,7 +293,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
-## Search (QIDO-RS)
+### Search (QIDO-RS)
 
 Query based on ID for DICOM Objects (QIDO) enables you to search for studies, series, and instances by attributes.
 
@@ -476,7 +474,7 @@ The query API returns one of the following status codes in the response:
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 * Only the first value will be indexed of a single valued data element that incorrectly has multiple values.
 
-## Delete
+### Delete
 
 This transaction is not part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of studies, series, and instances from the store.
 
