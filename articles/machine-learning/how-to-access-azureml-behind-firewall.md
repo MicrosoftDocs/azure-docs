@@ -122,7 +122,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 * For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. 
 * For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/limit-egress-traffic.md#cluster-extensions). 
 
-Besidese above requirements, the following outbound URLs are also required for Azure Machine Learning,
+Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
 | Outbound Endpoint| Port | Description|Training |Inference |
 |--|--|--|--|--|
