@@ -1,25 +1,27 @@
 ---
-title: Linter rule - no hardcoded locations
-description: Linter rule - no hardcoded locations
+title: Linter rule - use resourceId functions
+description: Linter rule - use resourceId functions
 ms.topic: conceptual
-ms.date: 1/6/2022
+ms.date: 09/21/2022
 ---
 
-# Linter rule - no hardcoded locations
+# Linter rule - use resourceId function
 
 This rule finds uses of Azure location values that aren't parameterized.
+
+If property "id" represents a resource ID, it must use a symbolic resource reference, be a parameter or start with one of these functions: extensionResourceId, guid, if, reference, resourceId, subscription, subscriptionResourceId, tenantResourceId. Found nonconforming expression at id -> serviceBusConnectionId [https://aka.ms/bicep/linter/use-resource-id-functions]
 
 ## Linter rule code
 
 Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
-`no-hardcoded-location`
+`use-resource-id-functions`
 
 ## Solution
 
-Template users may have limited access to regions where they can create resources. A hardcoded resource location might block users from creating a resource, thus preventing them from using the template. By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
+Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource, thus preventing them from using the template. By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
 
-Rather than using a hardcoded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
+Rather than using a hard-coded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
 
 The following example fails this test because the resource's `location` property uses a string literal:
 
