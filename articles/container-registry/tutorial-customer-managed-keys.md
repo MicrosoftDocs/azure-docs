@@ -14,7 +14,7 @@ This article is part one in a four-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
 > * Overview of customer-managed keys
-> * Enable a customer-managed key: Azure CLI, Azure portal, and Azure Resource Manager template
+> * Enable a customer-managed key
 > * Rotate and revoke a customer-managed key
 > * Troubleshoot a customer-managed key
 
