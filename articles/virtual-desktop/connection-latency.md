@@ -3,7 +3,7 @@ title: Azure Virtual Desktop user connection quality - Azure
 description: Connection quality for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 09/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -45,9 +45,9 @@ To check and modify your diagnostics settings in the Azure portal:
 
 7. Repeat this process for all other host pools you want to measure.
 
-8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics:-network-data). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
-   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics:-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ### Connection network data
 
@@ -57,7 +57,7 @@ The network data you collect for your data tables includes the following informa
 
 - The **estimated round trip time (milliseconds)** is the average estimated round trip time during each connection time interval. Round trip time is how long a network request takes to go from the end-user's device to the session host through the network, then return from the session host to the end-user device.
 
-- The **Correlation ID** is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
+- The **Correlation ID** is the ActivityId of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
 
 - The **time generated** is a timestamp in Coordinated Universal Time (UTC) time that marks when an event the data counter is tracking happened on the virtual machine (VM). All averages are measured by the time window that ends at the marked timestamp.
 
@@ -101,7 +101,7 @@ The graphics data you collect for your data tables includes the following inform
 
 - The **estimated round trip time (milliseconds)**, which is the average estimated round trip time during the second with the highest end-to-end delay in the time interval. Round trip time is how long a network request takes to go from the end-user's device to the session host through the network, then return from the session host to the end-user device.
 
-- The **Correlation ID**, which is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
+- The **Correlation ID**, which is the ActivityId of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
 
 - The **time generated**, which is a timestamp in UTC time that marks when an event the data counter is tracking happened on the virtual machine (VM). All averages are measured by the time window that ends that the marked timestamp.
 
