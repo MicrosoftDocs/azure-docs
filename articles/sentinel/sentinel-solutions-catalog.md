@@ -35,7 +35,7 @@ When you deploy a solution, the security content included with the solution, suc
 |**Security Threat Essentials**|Analytic rules, Hunting queries|Security - Others|Microsoft|
 |**Zero Trust** (TIC3.0) |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Identity, Security - Others |Microsoft  |
 
-For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security?filters=solution-templates&page=1).
+For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 
 ## Next steps
 
