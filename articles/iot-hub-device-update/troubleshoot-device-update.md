@@ -75,6 +75,7 @@ _This may have been caused if you did not remove the older agent that was commun
 
 ### Q: How do I resume a download when a device has reconnected after a period of disconnection?
 _The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the download will need to be reinitiated by the user._
+
 ## <a name="mcc"></a> Using Microsoft Connected Cache (MCC)
 
 ### Q: I am encountering an issue when attempting to deploy the MCC module on my IoT Edge device.
@@ -83,6 +84,35 @@ _Refer to the [IoT Edge documentation]() for deploying Edge modules to IoT Edge 
 _There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, please collect the DO client and Nginx logs from the failing device (see the [Contacting Microsoft Support](#contact) section for instructions on gathering client logs)._
 
 _Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure portal._
+
+## <a name="instance"></a> Troubleshooting a missing instance in the Azure portal
+
+### Q: I don’t see an instance of Device Update for IoT Hub when I select the "gear" icon.
+_There are a few possible causes for this issue. See below for troubleshooting steps._
+
+_A Device Update instance needs to be associated with an Azure IoT hub in the same resource group and subscription. If you’ve moved either your Device Update instance or your hub to a different resource group or subscription, you may not see your instance in the Azure portal. You’ll need to do one of the following steps in order to continue using Device Update for IoT Hub:_
+ - _Return the moved item(s) to their original configuration._
+ - _If you only moved your IoT hub from one resource group to another, modify your Device Update instance with the IoT hub’s new resourceId._
+ - _If you moved item(s) from one subscription to another, make sure the Device Update account and IoT hub are in the same subscription, and then modify your Device Update instance with the IoT hub’s new resourceId._
+ 
+_At least Read-level permissions are needed for both your IoT hub and your Device Update for IoT Hub account in order to access Device Update functionality via the IoT hub experience in the Azure portal._
+- _To manage permissions for your IoT Hub:_
+    _- Select your hub from the Azure portal_
+    _- Select “Access control (IAM) from the left-hand navigation bar._
+    _- Select “Add role assignment”._
+    _- Select a role with at least Read access and select Next._
+    _- Next to “Members”, select “+Select members”._
+    _- Add your account in the right-hand flyout, and select the “Select” button._
+    _- Select “Review + assign”._
+- _To manage permissions for your Device Update for IoT Hub account, ask the owner of the account to take these steps:_
+    - _Select your Device Update account from the Azure portal._
+    - _Select “Access control (IAM) from the left-hand navigation bar._
+    - _Select “Add role assignment”._
+    - _Select the Reader role (or one with equivalent permissions)._
+    - _Next to “Members”, select “+Select members”._
+    - _Add your account in the right-hand flyout, and select the “Select” button._
+    - _Select “Review + assign”._
+
 ## <a name="contact"></a> Contacting Microsoft Support
 
 If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
