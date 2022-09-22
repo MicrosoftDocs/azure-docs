@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.author: abell
 ms.custom: fasttrack-edit
 ---
@@ -30,13 +30,13 @@ The load balancer distributes incoming internet requests to the VM instances. Vi
 [Windows N-tier application on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm).
 #### DDoS Network Protection virtual machine architecture
 
-:::image type="content" source="./media/reference-architectures/ddos-network-protection-vm.png" alt-text="Diagram of the DDoS Network PRotection reference architecture for an application running on load-balanced virtual machines." lightbox="./media/reference-architectures/ddos-network-protection-vm.png":::
+:::image type="content" source="./media/reference-architectures/ddos-network-protection-vm.png" alt-text="Diagram of the DDoS Network PRotection reference architecture for an application running on load-balanced virtual machines.":::
 
  DDoS Network Protection is enabled on the virtual network of the Azure (internet) load balancer that has the public IP associated with it.
 
 #### DDoS IP Protection virtual machine architecture
 
-:::image type="content" source="./media/reference-architectures/ddos-IP-protection-vm.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on load-balanced virtual machines." lightbox="./media/reference-architectures/ddos-IP-protection-vm.png":::
+:::image type="content" source="./media/reference-architectures/ddos-IP-protection-vm.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on load-balanced virtual machines.":::
 
 DDoS IP Protection is enabled on the frontend public IP address of a public load balancer.
 
