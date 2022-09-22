@@ -22,10 +22,10 @@ Speech-to-text REST API is used for [Batch transcription](batch-transcription.md
 > Speech-to-text REST API v3.1 is currently in public preview. Once it's generally available, version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be deprecated. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
 
 > [!div class="nextstepaction"]
-> [See the Speech to Text API v3.1 preview reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/)
+> [See the Speech to Text API v3.1 preview reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/)
 
 > [!div class="nextstepaction"]
-> [See the Speech to Text API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
+> [See the Speech to Text API v3.0 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
 
 Use Speech-to-text REST API to:
 

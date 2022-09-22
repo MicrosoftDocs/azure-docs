@@ -249,13 +249,13 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
   "baseModel": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
   },
   "links": {
-    "manifest": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
-    "copyTo": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
   },
   "properties": {
     "deprecationDates": {
@@ -313,7 +313,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```
@@ -328,16 +328,16 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [UpdateModel](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [UpdateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 
 Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscriptionToSubscription) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models"
 ```
@@ -347,7 +347,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```
