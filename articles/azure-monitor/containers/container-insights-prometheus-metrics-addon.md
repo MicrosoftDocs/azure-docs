@@ -19,10 +19,12 @@ This article describes how to configure Container insights to send Prometheus me
 
 
 
-## Cluster is already configured for Container insights.
-Use the following procedure to add collection of Prometheus metrics for a cluster that's already configured for Container insights. This will add the metrics addon to the agent and monitoring addon.
+## Enable Prometheus metric collection
+Use any of the following methods to install the metrics addon on your cluster and send Prometheus metrics to an Azure Monitor workspace. 
 
 ### [Azure portal](#tab/azure-portal)
+
+
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
 2. Click **Insights**.
@@ -37,24 +39,44 @@ Use the following procedure to add collection of Prometheus metrics for a cluste
 
 6. Click **Configure** to complete the configuration.
 
+#### Enable only metrics addon
+Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics.
+### [Azure portal](#tab/azure-portal)
+
+1. Create an Azure Monitor workspace using the guidance at [Create an Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
+2. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
+3. Select **Managed Prometheus** to display a list of AKS clusters.
+4. Click **Configure** next to the cluster you want to enable.
+
+    :::image type="content" source="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" lightbox="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot of Azure Monitor workspace with Prometheus configuration.":::
+
+
 ### [CLI](#tab/cli)
+Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics addon. There are multiple options depending on the Azure Monitor workspace and Grafana workspace you want to use.
 
 > [!NOTE]
 > Azure CLI version 2.41.0 or higher is required for this feature.
 
-Use the following command to create a new default Azure Monitor workspace.
+**Create a new default Azure Monitor workspace.**
 
-`az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
+```
 
-Use the following command to use an existing Azure Monitor workspace.
+**Use an existing Azure Monitor workspace.**
 
-`az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>`
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
+--azure-monitor-workspace-resource-id <workspace-name-resource-id>
+```
 
+**Use an existing Azure Monitor workspace and integrate with an existing Grafana workspace.**
 
-Use the following command to use an existing Azure Monitor workspace and integrate with an existing Grafana workspace.
-
-`az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>`
-
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
+--azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> /
+--grafana-resource-id  <grafana-workspace-name-resource-id>`
+```
 
 The output will look similar to the following:
 
@@ -70,12 +92,14 @@ The output will look similar to the following:
 }
 ```
 
-### Optional parameters
+#### Optional parameters
 
-- `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional annotations provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them (Example: `namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)`. A single '*' can be provided per resource instead to allow any annotations, but that has severe performance implications (Example: `pods=[*]`).
-- `--ksm-metric-labels-allow-list` is a comma-separated list of additional Kubernetes label keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional labels provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them (Example: `namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...)`. A single '*' can be provided per resource instead to allow any labels, but that has severe performance implications (Example: `pods=[*]`).
+- `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional annotations provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them. A single `*` can be provided per resource instead to allow any annotations, but that has severe performance implications.
+- `--ksm-metric-labels-allow-list` is a comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional labels provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them.A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications.
 
-Run the following command to enable the Azure Monitor Metrics add-on, replacing the value for the `--ksm-metric-labels-allow-list` and/or `--ksm-metric-annotations-allow-list` parameters. The string value must be within the double quotes:
+**Use annotations and labels.**
+
+Replace the values for `--ksm-metric-labels-allow-list` and `--ksm-metric-annotations-allow-list`.
  
 ```azurecli
 az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
@@ -97,9 +121,6 @@ The output will be similar to the following:
       }
 ```
 
----
-
-
 ## [Resource Manager](#tab/resource-manager)
 
 >[!NOTE]
@@ -107,36 +128,46 @@ The output will be similar to the following:
 
 ### Prerequisites
 
-- The Azure Monitor Workspace and Azure Managed Grafana instance must be created before you deploy the Resource Manager template.
-- If you're using an existing Azure Managed Grafana instance that already has been linked to an azure monitor workspace while onboarding another cluster, get the list of azureMonitorWorkspaceIntegrations from the **Azure Managed Grafana Overview** page for the Azure Managed Grafana instance. Open the JSON View (with API version 2022-08-01) and copy the value of the following field. If it does not exists then the instance has not been linked with any Azure Monitor Workspace.
+- The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 
-    ```json
-    "properties": {
-        "grafanaIntegrations": {
-            "azureMonitorWorkspaceIntegrations": [
-                {
-                    "azureMonitorWorkspaceResourceId": "full_resource_id_1"
-                },
-                {
-                    "azureMonitorWorkspaceResourceId": "full_resource_id_2"
-                }
-            ]
-        }
+### Retrieve list of Grafana integrations
+If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the the JSON view. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it does not exist then the instance has not been linked with any Azure Monitor workspace.
+
+```json
+"properties": {
+    "grafanaIntegrations": {
+        "azureMonitorWorkspaceIntegrations": [
+            {
+                "azureMonitorWorkspaceResourceId": "full_resource_id_1"
+            },
+            {
+                "azureMonitorWorkspaceResourceId": "full_resource_id_2"
+            }
+        ]
     }
-    ```
+}
+```
 
-### Create or download templates
+### Download and edit template and parameter file
 
 1. Download the template at [https://aka.ms/aks-enable-azuremonitormetrics](https://aka.ms/aks-enable-azuremonitormetrics) and save it as **existingClusterOnboarding.json**.
 2. Download the parameter file at [https://aka.ms/aks-enable-azuremonitormetricsparameters](https://aka.ms/aks-enable-azuremonitormetricsparameters) and save it as **existingClusterParam.json**.
 3. Edit the values in the parameter file.
 
-  - For `clusterResourceId` and `clusterLocation`, use the values on the **AKS Overview** page for the AKS cluster.
-  - For `azureMonitorWorkspaceResourceId` and `azureMonitorWorkspaceLocation`, use the values on the **Azure Monitor workspace Properties** page for the Azure Monitor workspace. 
-  - For `metricLabelsAllowlist`, comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric.
-  - For `metricAnnotationsAllowList`, comma-separated list of additional Kubernetes label keys that will be used in the resource' labels metric.
-  - For `grafanaResourceId`, `grafanaLocation` and `grafanaSku` , use the values on the **Azure Managed Grafana Overview** page for the Azure Managed Grafana instance (from the **id**, **location** and **sku.name** fields of the JSON View with API version 2022-08-01).
-4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you stored in the pre-requisite. This will be similar to the following :
+    | Parameter | Value |
+    |:---|:---|
+    | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
+    | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
+    | `azureMonitorWorkspaceResourceId` | Resource ID for the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
+    | `azureMonitorWorkspaceLocation` | Location of the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
+    | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric. |
+    | `metricAnnotationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+    | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
+    | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
+    | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
+    
+    
+4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will be similar to the following :
 
     ```json
     {
@@ -167,22 +198,6 @@ The output will be similar to the following:
 ---
 
 
-### Enable only metrics addon
-Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics.
-### [Azure portal](#tab/azure-portal)
-
-1. Create an Azure Monitor workspace using the guidance at [Create an Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
-2. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
-3. Select **Managed Prometheus** to display a list of AKS clusters.
-4. Click **Configure** next to the cluster you want to enable.
-
-    :::image type="content" source="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" lightbox="media/container-insights-prometheus-metrics-addon/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot of Azure Monitor workspace with Prometheus configuration.":::
-
-### [CLI](#tab/cli)
-
-## [Resource Manager](#tab/resource-manager)
-
----
 
 ## Verify Deployment
 
@@ -217,10 +232,68 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There is a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pods has any issues with malformed parameters and isn't running, then the feature will not work as expected.
 - A data collection rule, data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names cannot currently be modified.
 - You must get the existing azure monitor workspace integrations for a grafana workspace and update the resource manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
-- Azure CLI is currently the only available method to offboard.
 
 
+# Stop collection
+Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it does not remove the DCE, DCR or the data already collected and stored in your Azure Monitor Workspace resource.
 
+```azurecli
+az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
+```
+
+## Region mappings
+When you allow a defuatl Azure Monitor workspace to be created when you install the metrics addon, it's created in the region listed in the following table.
+
+| AKS Cluster region | Azure Monitor workspace region |
+|-----------------------|------------------------------------|
+|australiacentral |eastus|
+|australiacentral2 |eastus|
+|australiaeast |eastus|
+|australiasoutheast |eastus|
+|brazilsouth |eastus|
+|canadacentral |eastus|
+|canadaeast |eastus|
+|centralus |centralus|
+|centralindia |centralindia|
+|eastasia |westeurope|
+|eastus |eastus|
+|eastus2 |eastus2|
+|francecentral |westeurope|
+|francesouth |westeurope|
+|japaneast |eastus|
+|japanwest |eastus|
+|koreacentral |westeurope|
+|koreasouth |westeurope|
+|northcentralus |eastus|
+|northeurope |westeurope|
+|southafricanorth |westeurope|
+|southafricawest |westeurope|
+|southcentralus |eastus|
+|southeastasia |westeurope|
+|southindia |centralindia|
+|uksouth |westeurope|
+|ukwest |westeurope|
+|westcentralus |eastus|
+|westeurope |westeurope|
+|westindia |centralindia|
+|westus |westus|
+|westus2 |westus2|
+|westus3 |westus|
+|norwayeast |westeurope|
+|norwaywest |westeurope|
+|switzerlandnorth |westeurope|
+|switzerlandwest |westeurope|
+|uaenorth |westeurope|
+|germanywestcentral |westeurope|
+|germanynorth |westeurope|
+|uaecentral |westeurope|
+|eastus2euap |eastus2euap|
+|centraluseuap |westeurope|
+|brazilsoutheast |eastus|
+|jioindiacentral |centralindia|
+|swedencentral |westeurope|
+|swedensouth |westeurope|
+|qatarcentral |westeurope|
 
 ## Next steps
 
