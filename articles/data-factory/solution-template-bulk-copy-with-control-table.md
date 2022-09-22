@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 09/22/2022
 ---
 
 # Bulk copy from a database with a control table
@@ -63,15 +63,15 @@ The last three parameters, which define the path in your destination store are o
 
 2. Go to the **Bulk Copy from Database** template. Create a **New** connection to the external control table that you created in step 1.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png" alt-text="Create a new connection to the control table":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-2.png" alt-text="Create a new connection to the control table":::
 
 3. Create a **New** connection to the source database that you're copying data from.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png" alt-text="Create a new connection to the source database":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-3.png" alt-text="Create a new connection to the source database":::
 	
 4. Create a **New** connection to the destination data store that you're copying the data to.
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png" alt-text="Create a new connection to the destination store":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-4.png" alt-text="Create a new connection to the destination store":::
 
 5. Select **Use this template**.
 
