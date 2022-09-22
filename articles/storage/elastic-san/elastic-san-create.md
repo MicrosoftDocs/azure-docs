@@ -227,7 +227,7 @@ Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, 
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands.
 
 ```bash
-iscsiadm -m node --target LoginTarget **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
+iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
 
-iscsiadm -m node --targetname LoginTarget **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
+iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```
