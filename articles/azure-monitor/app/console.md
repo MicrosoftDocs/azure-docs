@@ -15,13 +15,13 @@ ms.reviewer: casocha
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 > [!NOTE]
-> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
+> It is *highly recommended* to use the newer [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). For application type, choose **General**.
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md).
 * Take a copy of the connection string. Find the connection string in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the connection string in your code before tracking any telemetry (or set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
@@ -44,9 +44,9 @@ You may initialize and configure Application Insights from the code or using `Ap
 > [!NOTE]
 > Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
 
-### Using config file
+### Using config file 
 
-By default, Application Insights SDK looks for `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created
+For .NET Framework based application, by default, Application Insights SDK looks for `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created. Reading config file is not supported on .NET Core.
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present
@@ -94,7 +94,7 @@ You may get a full example of the config file by installing latest version of [M
 
 ### Configuring telemetry collection from code
 > [!NOTE]
-> Reading config file is not supported on .NET Core. You may consider using [Application Insights SDK for ASP.NET Core](./asp-net-core.md)
+> Reading config file is not supported on .NET Core. 
 
 * During application start-up, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 

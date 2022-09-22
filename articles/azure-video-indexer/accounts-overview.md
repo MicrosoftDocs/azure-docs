@@ -27,7 +27,7 @@ The trial account option is not available on the Azure Government cloud. For oth
 
 You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (recommended) and classic. The main difference between the two is account management platform. 
 
-* ARM-based accounts management is built on Azure, which enables using [Azure RBAC](../role-based-access-control/overview.md).
+* ARM-based accounts management is built on Azure, which enables using [Azure RBAC](../role-based-access-control/overview.md) (recommended).
 * Classic accounts are built on the API Management.
 
 With the paid option, you pay for indexed minutes, for more information, see [Azure Video Indexer pricing](https://azure.microsoft.com/pricing/details/video-indexer/).

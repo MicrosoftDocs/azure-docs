@@ -190,6 +190,8 @@
         href: ardoq-tutorial.md
       - name: Arena
         href: arena-tutorial.md
+      - name: Arena EU
+        href: arena-eu-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -582,6 +584,8 @@
         href: coverity-static-application-security-testing-tutorial.md  
       - name: Cincom CPQ
         href: cpqsync-by-cincom-tutorial.md
+      - name: Crayon
+        href: crayon-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
       - name: Create!Webフロー
@@ -610,6 +614,8 @@
         href: cybersolutions-cybermail-tutorial.md  
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
+      - name: Cytric
+        href: cytric-tutorial.md   
     - name: D - E
       items:
       - name: Dagster Cloud
@@ -1399,8 +1405,6 @@
         href: litmos-tutorial.md
       - name: LMS and Education Management System Leaf
         href: lms-and-education-management-system-leaf-tutorial.md
-      - name: LockPath Keylight
-        href: keylight-tutorial.md
       - name: LogicMonitor
         href: logicmonitor-tutorial.md
       - name: LoginRadius
@@ -1555,6 +1559,8 @@
         href: nature-research-tutorial.md
       - name: NAVEX One
         href: navex-one-tutorial.md
+      - name: NAVEX IRM (Lockpath/Keylight)
+        href: keylight-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
@@ -1931,6 +1937,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RocketReach SSO
+        href: rocketreach-sso-tutorial.md
       - name: RSA Archer Suite
         href: rsa-archer-suite-tutorial.md  
       - name: RStudio Connect SAML Authentication
@@ -2441,6 +2449,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: Valence Security Platform
+        href: valence-tutorial.md
       - name: valid8Me
         href: valid8me-tutorial.md
       - name: ValidSign
@@ -2639,6 +2649,8 @@
         href: zohoone-tutorial.md
       - name: Zoho One China
         href: zoho-one-china-tutorial.md        
+      - name: Zola
+        href: zola-tutorial.md
       - name: Zoom
         href: zoom-tutorial.md
       - name: Zscaler
