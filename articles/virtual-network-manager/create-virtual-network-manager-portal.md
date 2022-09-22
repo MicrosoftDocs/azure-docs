@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/20/2021
-ms.custom: template-quickstart, ignite-fall-2021, mode-ui
+ms.date: 09/22/2022
+ms.custom: template-quickstart, ignite-fall-2022, mode-ui
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal
