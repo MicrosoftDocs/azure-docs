@@ -9,32 +9,30 @@ ms.topic: how-to
 
 This article introduces the supported traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
 
-To see only relevant information for traffic analysis, you'll need to connect Defender for IoT to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic.
+To ensure that Defender for IoT only analyzes the traffic that you want to monitor, we recommend that you configure traffic mirroring on a switch or a terminal access point (TAP) that includes only industrial ICS and SCADA traffic.
 
 > [!NOTE]
 > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
 >
 
-## Choose a mirroring method
+## Supported mirroring methods
 
-Use the following table to help you choose a mirroring method for your OT network monitoring:
+The decision as to which traffic mirroring method to use depends on your network configuration and the needs of your organization.
 
-|Method  |Use when ...  |
+Defender for IoT supports the following methods:
+
+|Method  |Description  |
 |---------|---------|
-|Switch SPAN port     |   Mirrors local traffic from interfaces on the switch to a different interface on the same switch. <br><br>Use when: <br>- Your switch supports port mirroring <br>- Port mirroring is disabled by default      |
-|Remote SPAN (RSPAN)     |         |
-|Active or passive aggregation (TAP)     |         |
-|ERSPAN     |         |
-|ESXi vSwitch     |         |
-|Hyper-V vSwitch     |         |
-
-
-
+|[A switch SPAN port](../traffic-mirroring/configure-mirror-span.md)     |  Mirrors local traffic from interfaces on the switch to a different interface on the same switch       |
+|[Remote SPAN (RSPAN) port](../traffic-mirroring/configure-mirror-rspan.md)     |  Mirrors traffic from multiple, distributed source ports into a dedicated remote VLAN      |
+|[An encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md)     | Mirrors input interfaces to your OT sensor's monitoring interface  |
+|[Active or passive aggregation (TAP)](../traffic-mirroring/configure-mirror-tap.md)     |   Installs an active / passive aggregation TAP inline to your network cable, which duplicates traffic to the OT network sensor. Best method for forensic monitoring.      |
+|[An ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)    |  Mirrors traffic using *Promiscuous mode* on an ESXi vSwitch.        |
+|[A Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)    |   Mirrors traffic using *Promiscuous mode* on a Hyper-V vSwitch.       |
 
 ## Next steps
 
-After you've [understood your own network's OT architecture](understand-network-architecture.md) and [planned out your deployment](plan-network-monitoring.md), learn more about sample connectivity methods and active or passive monitoring.
-
 For more information, see:
 
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
 - [Sample OT network connectivity models](sample-connectivity-models.md)

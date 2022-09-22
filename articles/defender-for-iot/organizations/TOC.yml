@@ -145,19 +145,19 @@
       - name: Configure traffic mirroring
         items:
         - name: Overview
-          href: traffic-mirroring-methods.md
-        - name: Switch SPAN port
-          href: configure-mirror-span.md
-        - name: Remote SPAN (RSPAN)
-          href: configure-mirror-rspan.md
-        - name: Active and passive aggregation (TAP)
-          href: configure-mirror-tap.md
-        - name: ERSPAN
-          href: configure-mirror-erspan.md
-        - name: ESXi vSwitch
-          href: configure-mirror-esxi.md
-        - name: Hyper-V vSwitch
-          href: configure-mirror-hyper-v.md
+          href: traffic-mirroring/traffic-mirroring-methods.md
+        - name: Configure a switch SPAN port
+          href: traffic-mirroring/configure-mirror-span.md
+        - name: Configure a remote SPAN (RSPAN)
+          href: traffic-mirroring/configure-mirror-rspan.md
+        - name: Configure active and passive aggregation (TAP)
+          href: traffic-mirroring/configure-mirror-tap.md
+        - name: Configure ERSPAN mirroring
+          href: traffic-mirroring/configure-mirror-erspan.md
+        - name: Configure mirroring with an ESXi vSwitch
+          href: traffic-mirroring/configure-mirror-esxi.md
+        - name: Configure mirroring with a Hyper-V vSwitch
+          href: traffic-mirroring/configure-mirror-hyper-v.md
       - name: Deploy OT certificates
         href: how-to-deploy-certificates.md
       - name: Install OT system software

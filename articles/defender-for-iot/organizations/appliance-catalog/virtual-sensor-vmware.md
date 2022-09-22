@@ -26,7 +26,7 @@ Before you begin the installation, make sure you have the following items:
 
 - The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal).
 
-- Traffic mirroring configured on your vSwitch. For more information, see [Configure a monitoring interface using an ESXi vSwitch](../traffic-mirroring/configure-esxi.md).
+- Traffic mirroring configured on your vSwitch. For more information, see [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md).
 
 Make sure the hypervisor is running.
 

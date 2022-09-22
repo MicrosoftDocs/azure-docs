@@ -1,6 +1,6 @@
 ---
 title: Configure a monitoring interface using a Hyper-V vSwitch - Microsoft Defender for IoT
-description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
+description: This article describes traffic mirroring with a Hyper-V vSwitch for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
@@ -53,7 +53,7 @@ If you use PowerShell, you'll define the name of the newly added adapter hardwar
 
 ### Attach a SPAN virtual interface to the virtual switch with PowerShell
 
-1. Select the newly added SPAN virtual switch you'd configured [earlier](#configure-a-span-port-with-hyper-v), and run the following command to add a new network adapter:
+1. Select the newly added SPAN virtual switch you'd configured [earlier](#configure-a-traffic-mirroring-port-with-hyper-v), and run the following command to add a new network adapter:
 
     ```powershell
     ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span

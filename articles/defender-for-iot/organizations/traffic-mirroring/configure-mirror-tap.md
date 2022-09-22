@@ -1,6 +1,6 @@
 ---
-title: Configure traffic mirroring with active or passive aggregation (TAP) - Microsoft Defender for IoT
-description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
+title: Configure traffic mirroring with active or passive aggregation with terminal access points - Microsoft Defender for IoT
+description: This article describes traffic mirroring with active passive aggregation with terminal access points (TAP) for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---

@@ -1,6 +1,6 @@
 ---
 title: Configure a monitoring interface using an ESXi vSwitch - Sample - Microsoft Defender for IoT
-description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
+description: This article describes traffic mirroring methods with an ESXi vSwitch for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
