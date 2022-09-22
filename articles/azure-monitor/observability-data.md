@@ -14,7 +14,7 @@ Enabling observability across today's complex computing environments running dis
 [Azure Monitor](overview.md) collects and aggregates data from various sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources, which gives you deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
 
-:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
+:::image type="content" source="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg":::
 
 ## Pillars of observability
 
