@@ -42,19 +42,19 @@ Use the following steps to enable or disable built-in persistent storage using t
 
 1. Select **Apps** to view apps for your service instance, and then select an app to display the app's **Overview** page.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/app-selected.png" lightbox="media/how-to-built-in-persistent-storage/app-selected.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
+   :::image type="content" source="media/how-to-built-in-persistent-storage/app-selected.png" lightbox="media/how-to-built-in-persistent-storage/app-selected.png" alt-text="Screenshot of Azure portal showing the Apps page.":::
 
 1. On the **Overview** page, select **Configuration**.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/select-configuration.png" lightbox="media/how-to-built-in-persistent-storage/select-configuration.png" alt-text="Screenshot of details for an app.":::
+   :::image type="content" source="media/how-to-built-in-persistent-storage/select-configuration.png" lightbox="media/how-to-built-in-persistent-storage/select-configuration.png" alt-text="Screenshot of Azure portal showing details for an app.":::
 
 1. On the **Configuration** page, select **Persistent Storage**.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/select-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/select-persistent-storage.png" alt-text="Screenshot of the Configuration pane showing the Persistent Storage tab.":::
+   :::image type="content" source="media/how-to-built-in-persistent-storage/select-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/select-persistent-storage.png" alt-text="Screenshot of Azure portal showing the Configuration page.":::
 
 1. On the **Persistent Storage** tab, select **Enable** to enable persistent storage, or **Disable** to disable persistent storage.
 
-   :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" alt-text="Screenshot of the Persistent Storage tab.":::
+   :::image type="content" source="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" lightbox="media/how-to-built-in-persistent-storage/enable-persistent-storage.png" alt-text="Screenshot of Azure portal showing the Persistent Storage tab.":::
 
 If persistent storage is enabled, the **Persistent Storage** tab displays the storage size and path.
 
@@ -93,5 +93,5 @@ Other operations:
 
 ## Next steps
 
-- Learn about [quotas and service plans for Azure Spring Apps](./quotas.md).
-- Learn how to [scale an application in Azure Spring Apps](./how-to-scale-manual.md).
+- [Quotas and service plans for Azure Spring Apps](./quotas.md).
+- [Scale an application in Azure Spring Apps](./how-to-scale-manual.md).
