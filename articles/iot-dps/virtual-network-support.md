@@ -128,7 +128,7 @@ For example, the provisioning device client sample ([pro_dev_client_sample](http
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-To use the sample with a private endpoint, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
+To use the sample with a private endpoint, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if your service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";

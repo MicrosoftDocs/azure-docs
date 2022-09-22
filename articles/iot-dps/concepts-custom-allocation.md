@@ -188,7 +188,7 @@ For the TPM registration request in the previous section, the device runtime con
 } 
 ```
 
-If this isn't the initial registration for the device then the runtime context will also include the **currentIoTHubHostname** and the **currentDeviceId** properties.
+If this isn't the initial registration for the device, then the runtime context will also include the **currentIoTHubHostname** and the **currentDeviceId** properties.
 
 ### Custom allocation webhook returns data to DPS
 
@@ -249,7 +249,7 @@ The following points describe the requirements that your custom allocation webho
 
 * On initial assignment, if the **initialTwin** property is returned by the webhook, DPS will set the initial twin for the device on the assigned IoT hub accordingly. If the **initialTwin** property is omitted or is **null**, DPS sets the initial twin for the device to the initial twin setting specified in the enrollment entry.
 
-* On reprovsioning, DPS follows the reprovisioning policy set in the enrollment entry. DPS only uses **initialTwin** property in the response if the current IoT hub is changed and the reprovisioning policy set on the enrollment entry is *Re-provision and reset to initial config*. In this case, DPS sets the initial twin for the device on the new IoT hub exactly as it would during initial assignment in the previous bullet. In all other cases, DPS ignores the **initialTwin** property.
+* On reprovisioning, DPS follows the reprovisioning policy set in the enrollment entry. DPS only uses **initialTwin** property in the response if the current IoT hub is changed and the reprovisioning policy set on the enrollment entry is *Re-provision and reset to initial config*. In this case, DPS sets the initial twin for the device on the new IoT hub exactly as it would during initial assignment in the previous bullet. In all other cases, DPS ignores the **initialTwin** property.
 
 * If the **payload** property is set in the response, DPS will always return it to the device regardless of whether the request is for initial assignment or reprovisioning.
 
@@ -268,7 +268,7 @@ The following points describe the requirements that your custom allocation webho
 
 The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Azure DPS SDKs](./libraries-sdks.md).
 
-## Next Steps
+## Next steps
 
 * For an end-to-end example using a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md)
 

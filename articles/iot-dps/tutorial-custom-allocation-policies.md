@@ -145,7 +145,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 5. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
 
-6. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then se;ect the **HTTP Trigger** template followed by the **Create** button.
+6. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then select the **HTTP Trigger** template followed by the **Create** button.
 
 7. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
 
