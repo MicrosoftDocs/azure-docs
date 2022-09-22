@@ -128,7 +128,7 @@ Some important things to know about aliases:
 1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since neither the style or map configuration can be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing map configuration is used, that map configuration will be overwritten and the `mapConfigurationId` will change.  See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
+> Duplicate aliases are not allowed. If the alias of an existing map configuration is used, the map configuration that alias points to will be overwritten, the existing map configuration will be deleted and references to that `mapConfigurationId` will result in errors. See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save your style and map configuration data to your Creator resource.
 
@@ -139,7 +139,7 @@ Once you have entered values into each required field, select the **Upload map c
 
 Azure Maps Creator has defined a [list of categories][categories]. When you create your [manifest][manifest], you associate each unit in your facility to one of these categories in the [unitProperties][unitProperties] object.
 
-There may be times when you want to create a new category name. For example, you may want the ability to apply different styling attributes to all rooms with special accommodations for people with disabilities like a phone room with phones that have screens showing what the caller is saying for those with hearing impairments.
+There may be times when you want to create a new category. For example, you may want the ability to apply different styling attributes to all rooms with special accommodations for people with disabilities like a phone room with phones that have screens showing what the caller is saying for those with hearing impairments.
 
 To do this, enter the desired value in the `categoryName` for the desired `unitName` in the manifest JSON before uploading your drawing package.
 

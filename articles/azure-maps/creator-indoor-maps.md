@@ -104,7 +104,7 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 A style defines the visual appearance of a map. It defines what data to draw, the order to draw it in, and how to style the data when drawing it. Azure Maps Creator styles support the MapLibre standard for [style layers][style layers] and [sprites][sprites].
 
-When you convert a drawing package after uploading it to your Azure Maps account, default styles are applied to the elements of your map. The custom styling service enables you to customize the visual appearance of your map. You can do this by manually editing the style JSON and importing it into your azure Maps account using the [Style - Create][create-style] HTTP request, however the recommended approach is to use the [visual style editor][style editor]. For more information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).
+When you convert a drawing package after uploading it to your Azure Maps account, default styles are applied to the elements of your map. The custom styling service enables you to customize the visual appearance of your map. You can do this by manually editing the style JSON and importing it into your Azure Maps account using the [Style - Create][create-style] HTTP request, however the recommended approach is to use the [visual style editor][style editor]. For more information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md).
 
 Example layer in the style.json file:
 
@@ -155,10 +155,10 @@ Example layer in the style.json file:
 The map configuration is an array of configurations. Each configuration consists of a [basemap][basemap] and one or more layers, each layer consisting of a [style][style] + [tileset][tileset] tuple.
 
 <!------------------------------  Option #1  --------------------------------------------------------------->
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing  applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. Anytime you make a change and save it using the same `alias` as an existing map configuration, your existing map configuration, including the `mapConfigurationId`, is replaced with a new one. This will result in errors in code that reference `mapConfigurationId` since the ID will no longer point to an existing map configuration. The alias is constant and can be used to reference your map configuration regardless of how many times the map configuration it points to has changed.
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing  applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. Anytime you make a change and save it using the same `alias` as an existing map configuration, your existing map configuration, including the `mapConfigurationId`, is replaced with a new one. This will result in errors in code referencing that `mapConfigurationId` since the ID will no longer point to an existing map configuration. The alias is constant and can be used to reference your map configuration regardless of how many times the map configuration it points to has changed.
 
 <!------------------------------  Option #2  ---------------------------------------------------------------
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application. It's referenced using the `mapConfigurationId` or `alias`. Each time you edit or change a map configuration, its ID changes but its alias remains the same. It is recommended to reference the map configuration by its alias in your applications.
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application. It's referenced using the `mapConfigurationId` or `alias`. Each time you change a map configuration, its ID changes but its alias remains the same. It is recommended to reference the map configuration by its alias in your applications.
 ------------------------------------------------------------------------------------------------------------>
 
 Below is an example of a map configuration JSON showing the default configurations. See the table below for a description of each element of the file:
@@ -204,7 +204,7 @@ Below is an example of a map configuration JSON showing the default configuratio
 | Name        | The name of the style.                     |
 | displayName | The display name of the style.             |
 | description | The user defined description of the style. |
-| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For additional information on the style picker, see the [style picker control][style-picker-control]. |
+| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For more information, see the [style picker control][style-picker-control]. |
 | baseMap     | Use to Set the base map style.             |
 | layers      | The layers array consists of one or more *tileset + Style* tuples, each being a layer of the map. This enables multiple buildings on a map, each building represented in its own tileset. |
 
@@ -241,7 +241,7 @@ You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query 
 
 ### Alias API
 
-Creator services such as Conversion, Dataset, Tileset, and Feature State return an identifier for each resource that's created from the APIs. The [Alias API](/rest/api/maps/v2/alias) allows you to assign an alias to reference a resource identifier.
+Creator services such as Conversion, Dataset, Tileset and Feature State return an identifier for each resource that's created from the APIs. The [Alias API](/rest/api/maps/v2/alias) allows you to assign an alias to reference a resource identifier.
 
 ### Indoor Maps module
 

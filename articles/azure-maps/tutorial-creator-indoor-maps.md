@@ -342,7 +342,7 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 
 ## The map configuration (Preview)
 
-Once your tileset creation completes you can get the `mapConfigurationId` using the [tileset get](/rest/api/maps/v20220901preview/tileset/get) HTTP request:
+Once your tileset creation completes, you can get the `mapConfigurationId` using the [tileset get](/rest/api/maps/v20220901preview/tileset/get) HTTP request:
 
 1. In the Postman app, select **New**.
 
@@ -381,3 +381,6 @@ To learn how to query Azure Maps Creator [datasets](/rest/api/maps/v2/dataset) u
 
 > [!div class="nextstepaction"]
 > [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md)
+
+> [!div class="nextstepaction"]
+> [Create custom styles for indoor maps](how-to-create-custom-styles.md)
