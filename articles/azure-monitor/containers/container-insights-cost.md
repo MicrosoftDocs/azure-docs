@@ -176,7 +176,7 @@ The following are examples of what changes you can apply to your cluster by modi
       ttlSecondsAfterFinished: 100
     ```
 
-After applying one or more of these changes to your ConfigMaps, see [Apply updated ConfigMap](container-insights-prometheus-integration.md#apply-updated-configmap) to apply it to your cluster.
+After applying one or more of these changes to your ConfigMaps, apply it to your cluster withe the command `kubectl apply -f <config3. map_yaml_file.yaml>`. For example, run the command `kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
 
 ### Prometheus metrics scraping
 

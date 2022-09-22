@@ -137,7 +137,7 @@ If you want to tweak the default resource requests and limits, you can use the a
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
-Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
+Check out the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
 
 ### Option 4 - On Azure Stack Edge
 

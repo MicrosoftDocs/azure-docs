@@ -7,11 +7,20 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: aul
 ---
 
-# Enable monitoring for existing Azure Kubernetes Service (AKS) cluster
+# Enable Container insights for Azure Kubernetes Service (AKS) cluster
 This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
+## New AKS cluster
+You can enable monitoring for an AKS cluster as when it's created using any of the following methods:
+
+- Azure CLI. Follow the steps in [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md). 
+- Terraform. If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) and complete the profile by including the [**addon_profile**](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specify **oms_agent**. 
+- Azure Policy. Follow the steps in [Enable AKS monitoring addon using Azure Policy](container-insights-enable-aks-policy.md).
+
+## Existing AKS cluster
+Use any of the following methods to enable monitoring for an existing AKS cluster.
 
 ## [CLI](#tab/azure-cli)
 
@@ -100,60 +109,35 @@ To enable monitoring using Terraform, do the following:
 
 3. The metrics are not collected by default through Terraform, so once onboarded, there is an additional step to assign the monitoring metrics publisher role, which is required to [enable the metrics](./container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli). 
 
-## [Azure Monitor portal](#tab/portal-azure-monitor)
+## [Azure portal](#tab/portal-azure-monitor)
+
+> [!NOTE]
+> You can initiate this same process from the **Insights** option in the AKS menu for your cluster in the Azure portal.
 
 To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor, do the following:
 
 1. In the Azure portal, select **Monitor**.
-
 2. Select **Containers** from the list.
-
 3. On the **Monitor - containers** page, select **Unmonitored clusters**.
-
 4. From the list of unmonitored clusters, find the cluster in the list and click **Enable**.
+5. On the **Configure Container insights** page, click **Configure** 
 
-5. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
-    The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
+  :::image type="content" source="media/container-insights-enable-aks/container-insights-configure.png" lightbox="media/container-insights-enable-aks/container-insights-configure.png" alt-text="Screenshot of configuration screen for AKS cluster.":::
 
-    ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
+6. On the **Configure Container insights**, fill in the following information:
 
-    >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../logs/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
+  | Option | Description |
+  |:---|:---|
+  | Log Analytics workspace | Select a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) from the drop-down list or click **Create new** to create a default Log Analytics workspace. The Log Analytics workspace must be in the same subscription as the AKS container. |
+  | Enable Prometheus metrics | Select this option to collect Prometheus metrics for the cluster in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). |
+  | Azure Monitor workspace | If you select **Enable Prometheus metrics**, then you must select an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md).  The Azure Monitor workspace must be in the same subscription as the AKS container and the Log Analytics workspace. |
+  | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure Managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
 
-6. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
+8. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
-## [AKS portal](#tab/portal-aks)
-
-To enable monitoring directly from one of your AKS clusters in the Azure portal, do the following:
-
-1. In the Azure portal, select **All services**.
-
-2. In the list of resources, begin typing **Containers**.  The list filters based on your input.
-
-3. Select **Kubernetes services**.
-    
-4. In the list of Kubernetes services, select a service.
-
-5. On the Kubernetes service overview page, select **Monitoring - Insights**.
-
-6. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
-    The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
-
-    ![Enable AKS container health monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
-
-    >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../logs/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
-
-6. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
-
-
-After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster.
-
 ## [Resource Manager template](#tab/arm)
-
-
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
 * The AKS container resource ID.
@@ -161,10 +145,6 @@ This method includes two JSON templates. One template specifies the configuratio
 
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the cluster.
-
-
-### Prerequisites
-The Log Analytics workspace must be created before you deploy the Resource Manager template.
 
 
 ### Create or download templates
@@ -179,7 +159,7 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
   - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
   - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
+  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this is first-time onboarding, you can set the arbitrary tag values.
 
 
 **If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
@@ -317,11 +297,6 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 ---
 
 ## Verify agent and solution deployment
-
-With agent version *06072018* or later, you can verify that both the agent and the solution were deployed successfully. With earlier versions of the agent, you can verify only agent deployment.
-
-### Agent version 06072018 or later
-
 Run the following command to verify that the agent is deployed successfully.
 
 ```
@@ -364,22 +339,6 @@ NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
 ```
 
-### Agent version earlier than 06072018
-
-To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:
-
-```
-kubectl get ds omsagent --namespace=kube-system
-```
-
-The output should resemble the following, which indicates that it was deployed properly:
-
-```output
-User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```
-
 ## View configuration with CLI
 
 Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.
@@ -406,7 +365,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 ### Existing clusters with service principal 
 AKS Clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
 
-1.	Get the configured Log Analytics workspace resource id:
+1.	Get the configured Log Analytics workspace resource ID:
 
 ```cli
 az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
@@ -433,7 +392,7 @@ az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWo
 ### Existing clusters with system or user assigned identity
 AKS Clusters with system assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user assigned identity, only Azure Public cloud is supported.
 
-1.	Get the configured Log Analytics workspace resource id: 
+1.	Get the configured Log Analytics workspace resource ID: 
 
   ```cli
   az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
@@ -455,7 +414,7 @@ AKS Clusters with system assigned identity must first disable monitoring and the
 To enable network isolation by connecting your cluster to the Log Analytics workspace using [private link](../logs/private-link-security.md), your cluster must be using managed identity authentication with the Azure Monitor agent. 
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
-2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource Id of the AKS cluster.
+2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource ID of the AKS cluster.
 
     ```rest
     PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
