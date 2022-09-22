@@ -40,10 +40,10 @@ landingContent:
           url: quickstart-create-resources.md
         - text: "Train with the v2 CLI"
           url: how-to-train-cli.md   
-        - text: "Train with the v2 SDK (preview)"
+        - text: "Train with the v2 SDK"
           url: how-to-train-sdk.md   
-        - text: "Day 1: Get started with Python"
-          url: tutorial-1st-experiment-hello-world.md
+        - text: "Azure ML in a day"
+          url: tutorial-azure-ml-in-a-day.md
         - text: "Migrate from ML Studio (classic)"
           url: migrate-overview.md
   # Card
