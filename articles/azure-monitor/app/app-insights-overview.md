@@ -60,7 +60,7 @@ To use the SDK, you install a small instrumentation package in your app and then
 
 ### [.NET](#tab/net)
 
-Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core), [Azure Functions](../../azure-functions/functions-monitoring.md#monitor-executions-in-azure-functions), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
+Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md#monitor-executions-in-azure-functions), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
 [Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
 
