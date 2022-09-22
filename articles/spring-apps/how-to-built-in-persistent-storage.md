@@ -93,5 +93,5 @@ Other operations:
 
 ## Next steps
 
-- [Quotas and service plans for Azure Spring Apps](./quotas.md).
-- [Scale an application in Azure Spring Apps](./how-to-scale-manual.md).
+- [Quotas and service plans for Azure Spring Apps](./quotas.md)
+- [Scale an application in Azure Spring Apps](./how-to-scale-manual.md)
