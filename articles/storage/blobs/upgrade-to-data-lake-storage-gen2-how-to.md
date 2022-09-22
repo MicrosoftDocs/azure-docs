@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 09/22/2022
 ms.author: normesta
 
 ---
@@ -25,6 +25,9 @@ You're account might be configured to use features that aren't yet supported in 
 Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
 
 ## Perform the upgrade
+
+> [!NOTE]
+> The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name, so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then you must copy those blobs to a new path that is compatible with these naming requirements. Then, you can proceed with the migration.
 
 ### [Portal](#tab/azure-portal)
 
