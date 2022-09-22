@@ -74,7 +74,7 @@ Azure Maps Creator provides the following services that support map creation:
 - [Dataset service](/rest/api/maps/v2/dataset).
 - [Tileset service](/rest/api/maps/v2/tileset).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-- Custom styles. Use the [style service](/rest/api/maps/v2/style) or [visual style editor](https://azure.github.io/Azure-Maps-Style-Editor) to customize the visual elements of an indoor map.
+- Custom styles. Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
 - [Feature State service](/rest/api/maps/v2/feature-state). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
 
 ### Datasets
