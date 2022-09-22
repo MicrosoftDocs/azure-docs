@@ -1,8 +1,10 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/01/2021
+author: timwarner-msft
+ms.date: 09/21/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand Azure Policy effects
 
@@ -18,6 +20,7 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
+- [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
 The following effects are _deprecated_:
@@ -154,7 +157,7 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See
@@ -193,7 +196,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
     of Kubernetes object to limit evaluation to.
-   - Defining `["*"]` for _kinds_ is disallowed.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
@@ -275,7 +278,7 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -451,7 +454,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
-when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
@@ -497,7 +500,7 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -742,13 +745,108 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 }
 ```
 
+## Manual (preview)
+
+The new `manual` (preview) effect enables you to define and track your own custom attestation
+resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
+allows for manual changes to the compliance state. To change the compliance for a manual policy,
+you'll need to create an attestation for that compliance state.
+
+> [!NOTE]
+> During Public Preview, support for manual policy is available through various Microsoft Defender
+> for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
+
+The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
+
+```json
+{
+  "if": {
+    "field":  "type",
+    "equals": "Microsoft.Resources/subscriptions"
+  },
+  "then": {
+    "effect": "manual",
+    "details": {
+      "defaultState": "Unknown"
+    }
+  }
+}
+```
+
+The `defaultState` property has three possible values:
+
+- **Unknown**: The initial, default state of the targeted resources.
+- **Compliant**: Resource is compliant according to your manual policy standards
+- **Non-compliant**: Resource is non-compliant according to your manual policy standards
+
+The Azure Policy compliance engine evaluates all applicable resources to the default state specified
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that you
+must manually attest the resource compliance state. If the effect state is unspecified, it defaults
+to `Unknown`. The `Unknown` compliance state indicates that you must attest the compliance state yourself.
+
+The following screenshot shows how a manual policy assignment with the `Unknown`
+state appears in the Azure portal:
+
+![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+
+When a policy definition with `manual` effect is assigned, you have the option to include **evidence**, which refers to optional supplemental information which supports the custom compliance attestation. Evidence itself is stored in Azure Storage, and you can specify the storage blob container in the [policy assignment's metadata](../concepts/assignment-structure.md#metadata) under the property `evidenceStorages`. Further details of the evidence file are described in the attestation JSON resource.
+
+### Attestations
+
+`Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
+ that sets the compliance states for targeted resources in a manual policy. You can only have one
+ attestation on one resource for an individual policy. In preview, Attestations are available
+only through the Azure Resource Manager (ARM) API.
+
+Below is an example of creating a new attestation resource:
+
+```http
+PUT http://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{name}?api-version=2019-10-01
+```
+
+#### Request body
+
+Below is a sample attestation resource JSON object:
+
+```json
+"properties": {
+    "policyAssignmentId": "/subscriptions/{subscriptionID}/providers/microsoft.authorization/policyassignments/{assignmentID}",
+    "policyDefinitionReferenceId": "{definitionReferenceID}",
+    "complianceState": "Compliant",
+    "expiresOn": "2023-07-14T00:00:00Z",
+    "owner": "{AADObjectID}",
+    "comments": "This subscription has passed a security audit. See attached details for evidence",
+    "evidence": [
+        {
+          "description": "The results of the security audit.",
+          "sourceUri": "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011"
+        },
+        {
+          "description": "Description of the attached evidence document.",
+          "sourceUri": "https://storagesamples.blob.core.windows.net/sample-container/contingency_evidence_adendum.docx"
+        },
+    ],
+}
+```
+
+|Property  |Description  |
+|---------|---------|
+|policyAssignmentId     |Required assignment ID for which the state is being set. |
+|policyDefinitionReferenceId     |Optional definition reference ID, if within a policy initiative. |
+|complianceState     |Desired state of the resources. Allowed values are `Compliant`, `NonCompliant`, and `Unknown`. |
+|owner     |Optional Azure AD object ID of responsible party. |
+|comments     |Optional description of why state is being set. |
+|evidence     |Optional link array for attestation evidence. |
+
+Because attestations are a separate resource from policy assignments, they have their own lifecycle. You can PUT, GET and DELETE attestations by using the ARM API. See the [Policy REST API Reference](/rest/api/policy) for more details.
+
 ## Modify
 
 Modify is used to add, update, or remove properties or tags on a subscription or resource during
 creation or update. A common example is updating tags on resources such as costCenter. Existing
 non-compliant resources can be remediated with a
 [remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
-operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
+operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation.
 
 The following operations are supported by Modify:
 
@@ -772,7 +870,7 @@ The following operations are supported by Modify:
 Modify evaluates before the request gets processed by a Resource Provider during the creation or
 updating of a resource. The Modify operations are applied to the request content when the **if**
 condition of the policy rule is met. Each Modify operation can specify a condition that determines
-when it's applied. Operations with conditions that are evaluated to _false_ are skipped.
+when it's applied. Operations with _false_ condition evaluations are skipped.
 
 When an alias is specified, the following additional checks are performed to ensure that the Modify
 operation doesn't change the request content in a way that causes the resource provider to reject
