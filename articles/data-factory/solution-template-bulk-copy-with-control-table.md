@@ -77,7 +77,7 @@ The last three parameters, which define the path in your destination store are o
 
 6. You see the pipeline, as shown in the following example:
 
-    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png" alt-text="Review the pipeline":::
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/bulk-copy-from-db-with-control-table-6.png" alt-text="Review the pipeline":::
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
