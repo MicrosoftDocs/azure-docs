@@ -256,4 +256,4 @@ In this article, you've learned about the `$convert-data` endpoint for convertin
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

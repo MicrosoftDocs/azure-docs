@@ -87,4 +87,4 @@ In this article, you've learned about exporting FHIR resources by using the `$ex
 >[!div class="nextstepaction"]
 >[Copy data from the FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
