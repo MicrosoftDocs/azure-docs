@@ -145,7 +145,7 @@ If you run into issues that can't be resolved using the FAQs above, you can file
 
 Please see below for instructions on how to gather each data type.
 
-You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclient.getdevice?view=azure-dotnet-preview&preserveview=true) to check for additional information in the payload response of the API.
+You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclient.getdevice?view=azure-dotnet-preview&preserve-view=true) to check for additional information in the payload response of the API.
 
 In addition, the following information can be useful for narrowing down the root cause of your issue:
 
