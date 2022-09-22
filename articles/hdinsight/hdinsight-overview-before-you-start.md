@@ -12,23 +12,24 @@ As part of the best practices, consider the following points before starting to 
 
 ## Bring your own database
 
-HDInsight have two options to configure the databased in the clusters.
+HDInsight have two options to configure the databases in the clusters.
 
-1. Bring your own database (external). 
-1. Internal default database.
+1. Bring your own database (external)
+1. Default database (internal)
  
-During cluster creation, default configuration will use internal database. Once the cluster is created, customer can’t change the database type.  Hence, it is recommended to create and use the external database. You can create custom databases for Ambari, Hive, and Ranger.
+During cluster creation, default configuration will use internal database. Once the cluster is created, customer can’t change the database type.  Hence, it's recommended to create and use the external database. You can create custom databases for Ambari, Hive, and Ranger.
 
 For more information, see how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db.md)
           
-# Keep your clusters up to date
+## Keep your clusters up to date
 
 To take advantage of the latest HDInsight features, we recommend regularly migrating your HDInsight clusters to the latest version. HDInsight doesn't support in-place upgrades where existing clusters are upgraded to new component versions. You need to create a new cluster with the desired components and platform version and migrate your application to use the new cluster.
-As part of the best practices, we recommend you keep your clusters updated on regular basis.
-HDInsight release happens every 30 to 60 days. It is always good to move to the latest release as early possible. The recommended max period is less six months.
-For more information, see how to 
 
-For more information, see how to [Migrate HDInsight cluster to a newer version](/azure/hdinsight/hdinsight-upgrade-cluster)
+As part of the best practices, we recommend you keep your clusters updated on regular basis.
+
+HDInsight release happens every 30 to 60 days. It's always good to move to the latest release as early possible. The recommended maximum duration for cluster upgrades is less than six months.
+
+For more information, see how to [Migrate HDInsight cluster to a newer version](/azure/hdinsight/hdinsight-upgrade-cluster.md)
 
 ## Next steps
 
