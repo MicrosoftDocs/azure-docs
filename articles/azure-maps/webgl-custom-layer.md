@@ -218,8 +218,6 @@ This sample renders an arc-layer from the [deck.gl][deckgl] library.
 
 Learn more about the classes and methods used in this article:
 
-TODO: Need links for all of the following:
-
 > [!div class="nextstepaction"]
 > [WebGLLayer][WebGLLayer]
 
