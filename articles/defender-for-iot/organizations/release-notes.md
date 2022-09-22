@@ -67,7 +67,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ### Investigation enhancements with IOT device entities
 
-Defender for IoT's integration with Microsoft Sentinel now supports an IoT device entity page. The IoT device entity page provides contextual device information about an IoT device, with basic device details and device owner contact information.
+Defender for IoT's integration with Microsoft Sentinel now supports an IoT device entity page. The IoT device entity page provides contextual device information about an IoT device, with basic device details and device owner contact information. Device owners are defined by site in the **Sites and sensors** page in Defender for IoT.
 
 The IoT device entity page can help prioritize remediation based on device importance and business impact, as per each alert's site, zone, and sensor. For example:
 
@@ -77,7 +77,7 @@ You can also now hunt for vulnerable devices on the Microsoft Sentinel **Entity 
 
 :::image type="content" source="media/iot-solution/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of IoT devices by number of alerts on entity behavior page.":::
 
-For more information, see [Investigate further with IoT device entities](https://review.learn.microsoft.com/en-us/azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities).
+For more information, see [Investigate further with IoT device entities](https://review.learn.microsoft.com/en-us/azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
 ### Updates in the Microsoft Defender for IoT solution
 
