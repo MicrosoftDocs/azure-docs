@@ -418,7 +418,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)** <br><br>Also available in the [Azure SQL and Microsoft Sentinel for SQL PaaS solutions](sentinel-solutions-catalog.md#azure)|
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)** <br><br>Also available in the Azure SQL and Microsoft Sentinel for SQL PaaS solutions|
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
