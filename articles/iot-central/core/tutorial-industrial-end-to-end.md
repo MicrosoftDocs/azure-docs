@@ -147,7 +147,7 @@ The configuration file run by the tool defines the Azure resources to deploy and
 
 The following sections describe the resources you deployed and what they do. The order here follows the device data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer:
 
-:::image type="content" source="media/tutorial-industrial-end-to-end/data-flow.svg" alt-text="Daigram that shows the flow of data through the solution.":::
+:::image type="content" source="media/tutorial-industrial-end-to-end/data-flow.svg" alt-text="Diagram that shows the flow of data through the solution." border="false":::
 
 ### IoT Edge
 
@@ -178,7 +178,7 @@ The [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/module
 
 The IoT Central application in the solution:
 
-- Handles provides a cloud-hosted endpoint to receive OPC-UA data from the IoT Edge device.
+- Provides a cloud-hosted endpoint to receive OPC-UA data from the IoT Edge device.
 - Lets you manage and control the connected devices and gateways.
 - Transforms the OPC-UA data it receives and exports it to Azure Data Explorer.
 
@@ -203,7 +203,7 @@ The configuration file uses the following data plane REST APIs to add the device
 - [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md).
 - [How to use the IoT Central REST API to control devices](howto-control-devices-with-rest-api.md).
 
-You can also use the IoT Central UI or CLI to manage the devices and gateways in you solution. For example, to check the **opc-anomaly-device** is sending data, navigate to the **Raw data** view for the device in the IoT Central application. If the device is sending telemetry, you see telemetry messages in the **Raw data** view. If there are no telemetry messages, restart the Azure virtual machine in the Azure portal.
+You can also use the IoT Central UI or CLI to manage the devices and gateways in your solution. For example, to check the **opc-anomaly-device** is sending data, navigate to the **Raw data** view for the device in the IoT Central application. If the device is sending telemetry, you see telemetry messages in the **Raw data** view. If there are no telemetry messages, restart the Azure virtual machine in the Azure portal.
 
 > [!TIP]
 > You can find the Azure virtual machine with IoT Edge runtime in the resource group created by the configuration tool.
@@ -243,7 +243,7 @@ opcDeviceData
 | render timechart
 ```
 
-The configuration file use a control plane REST API to deploy the Azure Data Explorer cluster and data plane REST APIS to create and configure the database.
+The configuration file uses a control plane REST API to deploy the Azure Data Explorer cluster and data plane REST APIS to create and configure the database.
 
 ## Customize the solution
 
