@@ -213,11 +213,21 @@ items:
       displayName: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+  - name: Azure Monitor workspace
+    href: essentials/azure-monitor-workspace-overview.md
   - name: Azure Monitor Metrics
     items:
     - name: Overview
       displayName: Metrics, Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
+    - name: Prometheus metrics
+      items: 
+      - name: Overview
+        href: essentials/prometheus-metrics-overview.md
+      - name: Configure remote write
+        href: essentials/prometheus-remote-write.md
+      - name: Rule groups
+        href: essentials/prometheus-metrics-rule-groups.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -670,6 +680,8 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Prometheus metric alerts
+      href: alerts/prometheus-metric-alerts.md
     - name: Notifications and actions
       items:
       - name: Alert processing rules

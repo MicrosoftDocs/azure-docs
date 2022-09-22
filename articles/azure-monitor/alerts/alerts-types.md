@@ -16,6 +16,7 @@ This article describes the kinds of Azure Monitor alerts you can create and help
 Azure Monitor has four types of alerts:
 
 - [Metric alerts](#metric-alerts)
+- [Prometheus metric alerts](#prometheus-alerts-preview)
 - [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
@@ -29,6 +30,7 @@ This table can help you decide when to use each type of alert. For more informat
 |Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Metric data is stored in the system already pre-computed, so metric alerts are less expensive than log alerts. If the data you want to monitor is available in metric data, we recommend that you use metric alerts.|Each metric alert rule is charged based on the number of time series that are monitored. |
 |Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation by using log alerts. Log alerts are more expensive than metric alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for [at-scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
 |Activity log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to receive an alert when a resource experiences a specific event. Examples are a restart, a shutdown, or the creation or deletion of a resource.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
+|Prometheus alert| Prometheus alerts are primarily used for alerting on performance of Kubernetes clusters including AKS. The alert rules are based on PromQL, which is an open source query language. | There is no charge for Prometheus alerts during the preview period. |
 
 ## Metric alerts
 
@@ -204,6 +206,10 @@ As data comes into Application Insights from your web app, Smart Detection compa
 Metric alerts tell you there might be a problem, but Smart Detection starts the diagnostic work for you. It performs much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, which helps you get to the root of the problem quickly.
 
 Smart Detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
+
+## Prometheus alerts (preview)
+
+Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the results of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they first, but they are configured with a Prometheus rule. See [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-rule-groups.md) for details.
 
 ## Next steps
 
