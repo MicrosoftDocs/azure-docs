@@ -48,7 +48,7 @@ Deploy a network manager instance with the defined scope and access you need.
 1. Select **Review + create** and then select **Create** once validation has passed.
 
 ## Create virtual networks
-Create five virtual networks using the portal. This example creates virtual networks named VNetA, VNetB, VNetC and VNetD in the West US location. Each virtual network will have a tag of networkType used for dynamic membership. If you already have virtual networks you want create a mesh network with, you'll need to add tags listed below to your virtual networks and then you can skip to the next section.
+Create five virtual networks using the portal. This example creates virtual networks named VNetA, VNetB, VNetC and VNetD in the West US location. Each virtual network will have a tag of networkType used for dynamic membership. If you have existing virtual networks for your mesh configuration, you'll need to add tags listed below to your virtual networks and skip to the next section.
 
 1. From the **Home** screen, select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
 
