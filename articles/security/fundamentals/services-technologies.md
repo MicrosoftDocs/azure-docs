@@ -81,7 +81,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Network&nbsp;Security&nbsp;Groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md)| A network-based access control feature using a 5-tuple to make allow or deny decisions.  |
 | [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)| A network device used as a VPN endpoint to allow cross-premises access to Azure Virtual Networks.  |
 | [Azure Application Gateway](../../application-gateway/overview.md)|An advanced web application load balancer that can route based on URL and perform SSL-offloading. |
-|[Web application firewall](../../web-application-firewall/afds/afds-overview.md) (WAF)|A feature that provides centralized protection of your web applications from common exploits and vulnerabilities|
+|[Web application firewall](../../web-application-firewall/overview.md) (WAF)|A feature that provides centralized protection of your web applications from common exploits and vulnerabilities|
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| A dedicated WAN link between on-premises networks and Azure Virtual Networks. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
