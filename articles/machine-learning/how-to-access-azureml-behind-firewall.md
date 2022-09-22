@@ -92,7 +92,6 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
-    | **graph.windows.net** | Used by Azure Machine Learning compute instance/cluster. |
     | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
     | **\*.anaconda.org** | Used to get repo data. |
     | **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
@@ -260,11 +259,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
-| AutoML NLP | automlresources-prod.azureedge.net | TCP | 443 |
-| AutoML NLP | aka.ms | TCP | 443 |
+| AutoML NLP, Vision | automlresources-prod.azureedge.net | TCP | 443 |
+| AutoML NLP, Vision | aka.ms | TCP | 443 |
 
 > [!NOTE]
-> AutoML NLP is currently only supported in Azure public regions.
+> AutoML NLP, Vision are currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 

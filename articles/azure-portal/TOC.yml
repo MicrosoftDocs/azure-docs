@@ -76,8 +76,8 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-portal
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-portal
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
