@@ -34,7 +34,7 @@ ms.author: diberry
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="../media/quickstart-javascript/new-cosmos-account-page.png" lightbox="../media/quickstart-javascript/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB DB SQL API.":::
+   :::image type="content" source="../media/quickstart-nodejs/new-cosmos-account-page.png" lightbox="../media/quickstart-nodejs/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos DB DB SQL API.":::
 
 1. Select **Review + create**.
 
@@ -42,4 +42,4 @@ ms.author: diberry
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-   :::image type="content" source="../media/quickstart-javascript/cosmos-deployment-complete.png" lightbox="../media/quickstart-javascript/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB DB SQL API resource.":::
+   :::image type="content" source="../media/quickstart-nodejs/cosmos-deployment-complete.png" lightbox="../media/quickstart-nodejs/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos DB DB SQL API resource.":::
