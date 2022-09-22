@@ -7,7 +7,9 @@ ms.topic: how-to
 
 # Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)
 
-Use an encapsulated remote switched port analyzer (ERSPAN) to mirror input interfaces to your OT sensor's monitoring interface. When configuring ERSPAN, we recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
+Use an encapsulated remote switched port analyzer (ERSPAN) to mirror input interfaces to your OT sensor's monitoring interface, to monitor the input traffic with Defender for IoT.
+
+When configuring ERSPAN, we recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
 
 The sensor's monitoring interface doesn't have a specifically allocated IP address <!--it doesn't?-->, and when ERSPAN support is configured, GRE headers are stripped from the monitored traffic.<!--i don't understand any of this. does it make sense?-->
 

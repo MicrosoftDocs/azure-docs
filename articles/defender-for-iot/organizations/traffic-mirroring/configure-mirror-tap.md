@@ -8,28 +8,29 @@ ms.topic: how-to
 
 ## Configure traffic mirroring with active or passive aggregation (TAP)
 
-A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
+When using active or passive aggregation to mirror traffic, an active or passive aggregation terminal access point (TAP) is installed inline to the network cable. The TAP duplicates both *Receive* and *Transmit* traffic to the OT network sensor so that you can monitor the traffic with Defender for IoT.
 
+A TAP is a hardware device that allows network traffic to flow back and forth between ports without interruption. The TAP creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity.
 
-An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
-
-The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation isn't supported, each TAP uses two sensor ports to monitor send and receive traffic.
-
-The advantages of TAPs include:
-
-- TAPs are hardware-based and can't be compromised
-- TAPs pass all traffic, even damaged messages, which the switches often drop
-- TAPs aren't processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets
-
-For forensic purposes, a TAP is the best device.
-
-TAP aggregators can also be used for port monitoring. These devices are processor-based and aren't as intrinsically secure as hardware TAPs, and therefore might not reflect exact packet timing.
-
-The following diagram shows an example of a network setup with an active and passive TAP:
+For example:
 
 :::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs." border="false":::
 
-### Common TAP models
+Some TAPs aggregate both *Receive* and *Transmit*, depending on the switch configuration. If your switch doesn't support aggregation, each TAP uses two ports on your OT network sensor to monitor both *Receive* and *Transmit* traffic.
+
+## Advantages of mirroring traffic with a TAP
+
+We recommend TAPs especially when traffic mirroring for forensic purposes. Advantages of mirroring traffic with TAPs include:
+
+- TAPs are hardware-based and can't be compromised
+
+- TAPs pass all traffic, even damaged messages that are often dropped by the switches
+
+- TAPs aren't processor-sensitive, which means that packet timing is exact. In contrast, switches handle mirroring functionality as a low-priority task, which can affect the timing of the mirrored packets.
+
+You can also use a TAP aggregator to monitor your traffic ports. However, TAP aggregators aren't processor-based, and aren't as intrinsically secure as hardware TAPs. TAP aggregators may not reflect exact packet timing.
+
+## Common TAP models
 
 The following TAP models have been tested for compatibility with Defender for IoT. Other vendors and models might also be compatible.
 

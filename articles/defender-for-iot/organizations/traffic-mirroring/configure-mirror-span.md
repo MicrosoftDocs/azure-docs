@@ -14,11 +14,13 @@ This article provides sample configuration procedures for configuring a SPAN por
 > [!IMPORTANT]
 > This article is intended only as guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently.
 
-## Traffic mirroring scope recommendations
+## SPAN port scope recommendations
 
 We recommend configuring your SPAN port to mirror traffic from all of your switch's ports, even if no data is connected to them. If you don't, rogue devices can later be connected to an unmonitored port, and those devices won't be detected by the Defender for IoT network sensors.
 
 For OT networks that use broadcast or multicast messaging, configure your SPAN port to mirror only RX (*Recieve*) transmissions. Multicast messages will be repeated for any relevant active ports, and you'll be using more bandwidth unnecessarily.
+
+<!--is this relevant to all traffic mirroring or only SPAN?-->
 
 ## Configure a SPAN port via CLI
 

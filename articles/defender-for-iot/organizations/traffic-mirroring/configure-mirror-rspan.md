@@ -7,13 +7,25 @@ ms.topic: how-to
 
 # Configure traffic mirroring with a Remote SPAN (RSPAN) port
 
-Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from multiple, distributed source ports into a dedicated remote VLAN. Data in the VLAN is then delivered through trunked ports, across multiple switches to a specified switch that contains the physical destination port. The destination port connects to the Defender for IoT OT sensor.
+Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from multiple, distributed source ports into a dedicated remote VLAN.
+
+Data in the VLAN is then delivered through trunked ports, across multiple switches to a specified switch that contains the physical destination port. Connect the destination port to your OT network sensor to monitor traffic with Defender for IoT.
+<!--worth a diagram?-->
+
+The following diagram shows an example of a remote VLAN architecture:
+
+:::image type="content" source="../media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN." border="false":::
+
+This article describes a sample procedure for configuring RSPAN on a Cisco 2960 switch with 24 ports running IOS. The steps described are intended as high-level guidance. For more information, see the Cisco documentation.
+
+> [!IMPORTANT]
+> This article is intended only as guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently.
 
 ## Prerequisites
 
 - RSPAN requires a specific VLAN to carry the monitored SPAN traffic between switches. Before you start, make sure that your switch supports RSPAN.
 
-- Make sure that the mirroring option on your switch is disabled by default.
+- Make sure that the mirroring option on your switch is turned off.
 
 - Make sure that the remote VLAN is allowed on the trunked port between the source and destination switches.
 
@@ -21,46 +33,31 @@ Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from mu
 
 - Make sure that the trunk port sharing the same remote VLAN between switches isn't already defined as a mirror session source port.
 
-- 
-- The remote VLAN must be allowed on the trunked port between the source and destination switches.
-- All switches that connect the same RSPAN session must be from the same vendor.
-- Make sure that the trunk port that's sharing the remote VLAN between the switches isn't defined as a mirror session source port.
-- The remote VLAN increases the bandwidth on the trunked port by the size of the mirrored session's bandwidth. Verify that the switch's trunk port supports the increased bandwidth.
+- The remote VLAN increases the bandwidth on the trunked port by the amount of traffic being mirrored from the source session. Make sure that your switch's trunk port can support the increased bandwidth.
 
-The following diagram shows an example of a remote VLAN architecture:
-
-:::image type="content" source="../media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN." border="false":::
-
-For example, use the following steps to set up an RSPAN for a Cisco 2960 switch with 24 ports running IOS.
 ## Configure the source switch
 
-1. Enter global configuration mode.
+On your source switch:
 
-1. Create a dedicated VLAN.
+1. Enter `global configuration` mode and create a new, dedicated VLAN.
 
-1. Identify the VLAN as the RSPAN VLAN.
-
-1. Return to "configure terminal" mode.
+1. Identify your new VLAN as the RSPAN VLAN, and then return to `configure terminal` mode.
 
 1. Configure all 24 ports as session sources.
 
 1. Configure the RSPAN VLAN to be the session destination.
 
-1. Return to privileged EXEC mode.
-
-1. Verify the port mirroring configuration.
+1. Return to the privileged `EXEC` mode and verify the port mirroring configuration.
 
 ## Configure the destination switch
 
-1. Enter global configuration mode.
+On your destination switch:
 
-1. Configure the RSPAN VLAN to be the session source.
+1. Enter `global configuration` mode, and configure the RSPAN VLAN to be the session source.
 
 1. Configure physical port 24 to be the session destination.
 
-1. Return to privileged EXEC mode.
-
-1. Verify the port mirroring configuration.
+1. Return to privileged `EXEC` mode and verify the port mirroring configuration.
 
 1. Save the configuration.
 
