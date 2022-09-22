@@ -126,7 +126,7 @@ MulticastDNS setting: no
 
 2. If the above worked, skip the following steps and proceed to the next section.
 
-3. Make sure that the Azure AD domain server IP addresses are pinging.
+3. If it didn't work, make sure that the Azure AD domain server IP addresses are pinging.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ ping 10.0.2.5
@@ -340,10 +340,12 @@ fi
 
 ### Set up nsswitch.conf
 
-1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following winbind entries:
+1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following entries to `nsswitch.conf`:
 
+```bash
 passwd:         compat systemd winbind
 group:          compat systemd winbind
+```
 
 2. Enable the winbind service to be automatically started on reboot, and then restart the service.
 
@@ -419,8 +421,6 @@ uid=12604(lxsmbadmin) gid=10513(domain users) groups=10513(domain users),10520(g
 
 ## Next steps
 
-For more information, see these resources:
+To mount the SMB file share, see:
 
-- [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
-- [Enable AD DS authentication to Azure file shares](storage-files-identity-ad-ds-enable.md)
-- [FAQ](storage-files-faq.md)
+- [Mount SMB Azure file share on Linux](storage-how-to-use-files-linux.md)
