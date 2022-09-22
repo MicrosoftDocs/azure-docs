@@ -38,7 +38,72 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 
 3. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
 
-    **TLS/SSL:**
+
+#### [Passwordless (Recommended)](#tab/passwordless)
+
+ **OAuth:**
+
+Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
+
+If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
+
+> [!NOTE]
+> You need to set the following data plane access roles: `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver`.
+
+To authenticate using the Azure CLI, use the following steps.
+
+1. First, use the following command to get the resource ID for your Azure Event Hubs namespace:
+
+   ```azurecli
+   export AZURE_RESOURCE_ID=$(az resource show \
+       --resource-group $AZ_RESOURCE_GROUP \
+       --name $AZ_EVENTHUBS_NAMESPACE_NAME \
+       --resource-type Microsoft.EventHub/Namespaces \
+       --query "id" \
+       --output tsv)
+   ```
+
+1. Second, use the following command to get your user object ID of your Azure CLI user account:
+
+   ```azurecli
+   export AZURE_ACCOUNT_ID=$(az ad signed-in-user show \
+       --query "id" --output tsv)
+   ```
+
+1. Then, use the following commands to assign the `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles to your account.
+
+   ```azurecli
+   az role assignment create \
+       --assignee $AZURE_ACCOUNT_ID \
+       --role "Azure Event Hubs Data Receiver" \
+       --scope $AZURE_RESOURCE_ID
+   
+   az role assignment create \
+       --assignee $AZURE_ACCOUNT_ID \
+       --role "Azure Event Hubs Data Sender" \
+       --scope $AZURE_RESOURCE_ID
+   ```
+
+For more information about granting access roles, see [Authorize access to Event Hubs resources using Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory).
+
+Once your user account is authenticated, you can update use following configuration in `src/main/resources/producer.config` as shown below. 
+
+```xml
+bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=OAUTHBEARER
+sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+```    
+
+You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on GitHub [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+
+
+---
+
+#### [Connection string](#tab/connection-string)
+
+**TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -46,21 +111,15 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-    
-    > [!IMPORTANT]
-    > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
-    **OAuth:**
+> [!IMPORTANT]
+> Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
-    ```xml
-    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-    security.protocol=SASL_SSL
-    sasl.mechanism=OAUTHBEARER
-    sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
-    ```    
+---
 
-    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on GitHub [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+
+
+   
 4. Run the producer code and stream events into Event Hubs:
    
     ```shell
@@ -72,31 +131,46 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 
 6. Update the configuration details for the consumer in `src/main/resources/consumer.config` as follows:
    
-    **TLS/SSL:**
 
-    ```xml
-    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-    security.protocol=SASL_SSL
-    sasl.mechanism=PLAIN
-    sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-    ```
+#### [Passwordless (Recommended)](#tab/passwordless)
 
-    > [!IMPORTANT]
-    > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+Make sure you configure Azure AD authentication as mentioned in step 3 and use the followning consumer configuration.  
+**OAuth:**
 
-    **OAuth:**
+```xml
+bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=OAUTHBEARER
+sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+``` 
 
-    ```xml
-    bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-    security.protocol=SASL_SSL
-    sasl.mechanism=OAUTHBEARER
-    sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
-    ``` 
+You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on GitHub [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 
-    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on GitHub [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+You can find all the OAuth samples for Event Hubs for Kafka [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
-    You can find all the OAuth samples for Event Hubs for Kafka [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+
+---
+
+#### [Connection string](#tab/connection-string)
+
+**TLS/SSL:**
+
+```xml
+bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
+
+> [!IMPORTANT]
+> Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
+---
+
+
+
+
 7. Run the consumer code and process events from event hub using your Kafka clients:
 
     ```java
