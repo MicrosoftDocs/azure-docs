@@ -30,7 +30,7 @@ administration and development platform for PostgreSQL.
 
 1. Choose a **Name** in the General tab. Any name will work.
 
-   ![pgAdmin general connection settings](media/howto-connect/pgadmin-general.png)
+   :::image type="content" source="media/howto-connect/pgadmin-general.png" alt-text="Screenshot that shows the pgAdmin general connection settings.":::
 
 1. Enter connection details in the Connection tab.
 

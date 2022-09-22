@@ -26,8 +26,7 @@ Data Factory has a data sink for Azure Cosmos DB for PostgreSQL. The data sink a
 your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreSQL tables
 for storage, processing, and reporting.
 
-![Dataflow diagram for Azure Data Factory.](media/howto-ingestion/azure-data-factory-architecture.png)
-:::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Diagram showing the landing page of Azure Data Factory." border="false":::
+:::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factory." border="false":::
 
 ## ADF for real-time ingestion
 
@@ -41,7 +40,7 @@ Azure Cosmos DB for PostgreSQL:
 
 ## Steps to use ADF
 
-In this article, you'll create a data pipeline by using the Data Factory
+In this article, you create a data pipeline by using the Data Factory
 user interface (UI). The pipeline in this data factory copies data from Azure
 Blob storage to a database. For a list of data stores
 supported as sources and sinks, see the [supported data
@@ -52,7 +51,7 @@ In Data Factory, you can use the **Copy** activity to copy data among
 data stores located on-premises and in the cloud to Azure Cosmos DB for PostgreSQL. If you're
 new to Data Factory, here's a quick guide on how to get started:
 
-1. Once Data Factory is provisioned, go to your data factory. You'll see the Data
+1. Once Data Factory is provisioned, go to your data factory. You see the Data
    Factory home page as shown in the following image:
 
    :::image type="content" source="media/howto-ingestion/azure-data-factory-home.png" alt-text="Screenshot showing the landing page of Azure Data Factory." border="true":::

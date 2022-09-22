@@ -19,7 +19,7 @@ process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data
 processing on IoT devices.
 
-:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Azure Cosmos DB for PostgreSQL." border="true":::
+:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Diagram that shows Stream Analytics architecture with Azure Cosmos DB for PostgreSQL." border="false":::
 
 Azure Cosmos DB for PostgreSQL shines at real-time workloads such as
 [IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
@@ -41,25 +41,25 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
 1. Fill out the Stream Analytics job page with the following information:
    * **Subscription** - Select the Azure subscription that you want to use for this job.
    * **Resource group** - Select the same resource group as your IoT hub.
-   * **Name** - Name to identify your Stream Analytics job.
+   * **Name** - Enter a name to identify your Stream Analytics job.
    * **Region** - Select the Azure region to host your Stream Analytics job. Use the geographic location that's closest to your users for better performance and to reduce the data transfer cost.
-   * **Hosting environment** - **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.
-   * **Streaming units** - Select the number of streaming units that represent the computing resources required to execute a job.
+   * **Hosting environment** - Select **Cloud** to deploy to the Azure cloud, and **Edge** to deploy to an IoT Edge device.
+   * **Streaming units** - Select the number of streaming units for the computing resources you need to execute the job.
 1. Select **Review + create**, and then select **Create**. You should see a **Deployment in progress** notification at upper right.
 
-   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-02-create.png" alt-text="Create Azure Stream Analytics form." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-02-create.png" alt-text="Screenshot that shows the create Stream Analytics job form." border="true":::
 
 1. Configure job input.
 
-   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-03-input.png" alt-text="Configure job input in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-03-input.png" alt-text="Screenshot that shows configuring job input in Stream Analytics." border="true":::
 
    1. Once the resource deployment is complete, navigate to your Stream Analytics
       job. Select **Inputs** > **Add stream input** > **IoT Hub**.
 
    1. Fill out the **IoT Hub** page with the following values:
-      * **Input alias** - Name to identify the job's input.
+      * **Input alias** - Enter a name to identify the job input.
       * **Subscription** - Select the Azure subscription that has your IoT Hub account.
-      * **IoT Hub** – Select the name of your IoT Hub.
+      * **IoT Hub** – Select the name of your IoT hub.
    1. Select **Save**.
    1. Once the input stream is added, you can also verify and download the dataset flowing in.
       The following code shows the data for an example event:
@@ -85,10 +85,12 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
 1. Configure job output.
 
    1. On the Stream Analytics job page, select **Outputs** > **Add** > **PostgreSQL database (preview)**.
+
+   :::image type="content" source="media/howto-ingestion/azure-stream-analytics-output.png" alt-text="Screenshot that shows selecting PostgreSQL database output.":::
+
    1. Fill out the **Azure PostgreSQL** page with the following values:
-      * **Output alias** - Name to identify the job's output.
-      * Select **"Provide PostgreSQL database settings manually"** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**.
-      * For your example dataset, use the table name *device_data*.
+      * **Output alias** - Enter a name to identify the job's output.
+      * Select **Provide PostgreSQL database settings manually** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**. For your example dataset, use the table name *device_data*.
    1. Select **Save**.
 
    :::image type="content" source="media/howto-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
