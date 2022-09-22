@@ -81,13 +81,15 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
 
-- A delete-only lock on a **Log Analytics workspace** does not prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger role from the user instead. 
+- A cannot-delete lock on a **Log Analytics workspace** does not prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user instead. 
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/rest/api/application-gateway/application-gateways/backend-health), which a read-only lock blocks.
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
+
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to re-protect the VM later, you need to remove the lock prior to disabling protection. In case you miss to remove the lock, you need to follow certain steps to clean up the stale links before you can re-protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
 
 ## Who can create or delete locks
 

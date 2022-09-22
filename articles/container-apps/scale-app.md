@@ -29,7 +29,7 @@ There are two scale properties that apply to all rules in your container app:
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
 - Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
 - It's recommended to set the  `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
-- Container Apps implements the KEDA ScaledObject with the following default settings.
+- Container Apps implements the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) and HTTP scaler with the following default settings.
   - pollingInterval: 30 seconds
   - cooldownPeriod: 300 seconds
 

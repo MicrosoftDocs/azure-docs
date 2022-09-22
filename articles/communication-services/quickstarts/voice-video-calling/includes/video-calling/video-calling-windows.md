@@ -12,7 +12,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 - A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
@@ -257,6 +257,22 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
 All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected we can access the remote participants of the call and handle the remote video streams. 
 
 ```C#
+private async void Call_OnVideoStreamsUpdated(object sender, RemoteVideoStreamsEventArgs args)
+{
+    foreach (var remoteVideoStream in args.AddedRemoteVideoStreams)
+    {
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+        {
+            RemoteVideo.Source = await remoteVideoStream.Start();
+        });
+    }
+
+    foreach (var remoteVideoStream in args.RemovedRemoteVideoStreams)
+    {
+        remoteVideoStream.Stop();
+    }
+}
+
 private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs args)
 {
     foreach (var call in args.AddedCalls)
@@ -266,7 +282,7 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
             String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
             remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
             await AddVideoStreams(remoteParticipant.VideoStreams);
-            remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
+            remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
         }
     }
 }
@@ -278,7 +294,13 @@ private async void Call_OnRemoteParticipantsUpdated(object sender, ParticipantsU
         String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
         remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
         await AddVideoStreams(remoteParticipant.VideoStreams);
-        remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
+        remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
+    }
+
+    foreach (var remoteParticipant in args.RemovedParticipants)
+    {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        remoteParticipantDictionary.Remove(remoteParticipantMRI);
     }
 }
 ```
@@ -305,7 +327,7 @@ private async Task AddVideoStreams(IReadOnlyList<RemoteVideoStream> streams)
 ```
 
 ## Call state update
-We need to clean the video renderers once the call is disconnected. 
+We need to clean the video renderers once the call is disconnected and handle the case when the remote participants initially join the call.
 
 ```C#
 private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs args)
@@ -319,8 +341,18 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
                 RemoteVideo.Source = null;
             });
             break;
+
+        case CallState.Connected:
+            foreach (var remoteParticipant in call.RemoteParticipants)
+            {
+                String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+                remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+                await AddVideoStreams(remoteParticipant.VideoStreams);
+                remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
+            }
+            break;
+
         default:
-            Debug.WriteLine(((Call)sender).State);
             break;
     }
 }

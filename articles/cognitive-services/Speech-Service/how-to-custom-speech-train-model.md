@@ -53,9 +53,6 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
     > [!IMPORTANT]
     > Take note of the **Expiration** date. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -66,7 +63,7 @@ To create a model with datasets for training, use the `spx csr model create` com
 - Set the required `dataset` parameter to the ID of a dataset that you want used for training. To specify multiple datasets, set the `datasets` (plural) parameter and separate the IDs with a semicolon.
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
-- Optionally, you can set the `baseModel` parameter. If you don't specify the `baseModel`, the default base model for the locale is used. 
+- Optionally, you can set the `base` property. For example: `--base 1aae1070-7972-47e9-a977-87e3b05c457d`. If you don't specify the `base`, the default base model for the locale is used. The Speech CLI `base` parameter corresponds to the `baseModel` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a model with datasets for training:
 
@@ -75,10 +72,7 @@ spx csr model create --project YourProjectId --name "My Model" --description "My
 ```
 
 > [!NOTE]
-> In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
+> In this example, the `base` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
 
 You should receive a response body in the following format:
 
@@ -138,7 +132,7 @@ To create a model with datasets for training, use the [CreateModel](https://east
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
 - Set the required `locale` property. The model locale must match the locale of the project and base model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
-- Optionally, you can set the `baseModel` property. If you don't specify the `baseModel`, the default base model for the locale is used. 
+- Optionally, you can set the `baseModel` property. For example: `"baseModel": {"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"}`. If you don't specify the `baseModel`, the default base model for the locale is used. 
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -161,9 +155,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -229,9 +220,6 @@ Follow these instructions to copy a model to a project in another region:
 
 After the model is successfully copied, you'll be notified and can view it in the target project.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -256,9 +244,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > Only the `targetSubscriptionKey` property in the request body has information about the destination Speech resource.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

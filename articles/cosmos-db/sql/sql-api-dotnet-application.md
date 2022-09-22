@@ -20,7 +20,7 @@ ms.custom: devx-track-dotnet
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
 
 :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png" alt-text="Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step":::
 
@@ -42,7 +42,7 @@ This tutorial covers:
 
 Before following the instructions in this article, make sure that you have the following resources:
 
-* An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An active Azure account. If you don't have an Azure subscription, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
