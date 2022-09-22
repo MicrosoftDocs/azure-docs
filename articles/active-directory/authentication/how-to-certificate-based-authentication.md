@@ -15,20 +15,17 @@ ms.reviewer: tommma
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# How to configure Azure AD certificate-based authentication (Preview)
+# How to configure Azure AD certificate-based authentication
 
-Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant authentication by using an x.509 certificate.
+Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant modern passwordless authentication by using an x.509 certificate.
  
-During sign-in, users will see an option to authenticate with a certificate instead of entering a password. 
-If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated, the binding to the user account is checked, and if successful, they are signed in.
+During sign-in, users will see also an option to authenticate with a certificate instead of entering a password. 
+If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated against the user account and if successful, they are signed in.
 
 <!---Clarify plans that are covered --->
 This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
 Follow these instructions to configure and use Azure AD CBA.
-
->[!NOTE]
->Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
@@ -280,7 +277,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1. Create an issuer Subject rule with protection level as single factor authentication and value set to your CAs Subject value. For example: 
 
-   `CN=ContosoCA,DC=Contoso,DC=org`
+   `CN = WoodgroveCA`
 
 1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
 
@@ -312,7 +309,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1. Select the client certificate and click **OK**.
 
-1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multifactor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=ContosoCA,DC=Contoso,DC=org** and it will satisfy single-factor authentication.
+1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multifactor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=WoodgroveCA** and it will satisfy single-factor authentication.
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
@@ -373,7 +370,7 @@ To enable the certificate-based authentication and configure username bindings u
             "rules": [
                 {
                     "x509CertificateRuleType": "issuerSubject",
-                    "identifier": "CN=ContosoCA,DC=Contoso,DC=org ",
+                    "identifier": "CN=WoodgroveCA ",
                     "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
                 },
                 {
