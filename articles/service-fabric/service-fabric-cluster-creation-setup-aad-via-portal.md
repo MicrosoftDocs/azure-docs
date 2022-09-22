@@ -45,9 +45,13 @@ Open Azure AD 'App Registrations' blade in Azure portal and select '+ New regist
 
 - **Supported account types:** Select 'Accounts in this organizational directory only'.
 
-- **Redirect URI:** Select 'Web' and Enter Service Fabric Explorer (SFX) URL.
+- **Redirect URI:** Select 'Web' and enter the URL that the client will redirect to. In this example the Service Fabric Explorer (SFX) URL is used. After registration is complete, additional Redirect URIs can be added by selecting the 'Authentication' and select 'Add URI'.
 
   - Example:  'https://{{cluster name}}.{{location}}.cloudapp.azure.com:19080/Explorer/index.html'
+
+> [!NOTE]
+> Add additional Redirect URIs if planning to access SFX using a shortened URL such as 'https://{{cluster name}}.{{location}}.cloudapp.azure.com:19080/Explorer'. An exact URL is required to avoid AADSTS50011 error (The redirect URI specified in the request does not match the redirect URIs configured for the application. Make sure the redirect URI sent in the request matches one added to the application in Azure portal. Navigate to https://aka.ms/redirectUriMismatchError to learn more about troubleshooting this error.
+
 
 ![portal cluster app registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-app-registration.png)
 
