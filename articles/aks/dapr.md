@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 08/12/2022
+ms.date: 09/08/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
@@ -109,6 +109,28 @@ If the `k8s-extension` extension is already installed, you can update it to the 
 
 ```azurecli-interactive
 az extension update --name k8s-extension
+```
+
+### Register the `KubernetesConfiguration` service provider
+
+If you have not previously used cluster extensions, you may need to register the service provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
+```
+
+The *Microsoft.KubernetesConfiguration* provider should report as *Registered*, as shown in the following example output:
+
+```output
+Namespace                          RegistrationState    RegistrationPolicy
+---------------------------------  -------------------  --------------------
+Microsoft.KubernetesConfiguration  Registered           RegistrationRequired
+```
+
+If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
 ## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
@@ -269,6 +291,20 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=3"
 ```
+
+## Set the outbound proxy for Dapr extension for Azure Arc on-prem
+
+If you want to use an outbound proxy with the Dapr extension for AKS, you can do so by:
+
+1. Setting the proxy environment variables using the [`dapr.io/env` annotations](https://docs.dapr.io/reference/arguments-annotations-overview/):
+   - `HTTP_PROXY`
+   - `HTTPS_PROXY`
+   - `NO_PROXY`
+1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
+
+## Meet network requirements
+
+The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). 
 
 ## Troubleshooting extension errors
 

@@ -1,14 +1,14 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
+author: nikhilpatel909
 ms.author: erd
-ms.reviewer: amjads
+ms.reviewer: erd
 ms.custom: 
 
 ---
@@ -65,6 +65,7 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
 
 ## Cost
@@ -131,7 +132,7 @@ It's possible to use a different interpreter like Chocolatey or PowerShell, as l
 
 ## How updates are handled
 
-When you update an application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
+When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 

@@ -1,18 +1,14 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| Microsoft Docs
 description: Establish high availability for SAP NW on Azure virtual machines (VMs) RHEL with NFS on Azure Files.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/28/2022
+ms.date: 08/24/2022
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files
@@ -585,7 +581,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update the /usr/sap/sapservices file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file.
 
     ```bash
     sudo vi /usr/sap/sapservices
@@ -868,6 +864,7 @@ Thoroughly test your Pacemaker cluster. [Execute the typical failover tests](./h
 
 ## Next steps
 
+* To deploy cost optimization scenario where PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md)
 * [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]

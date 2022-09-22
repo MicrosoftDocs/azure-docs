@@ -8,8 +8,8 @@ manager: RKarlin
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

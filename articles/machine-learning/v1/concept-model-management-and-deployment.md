@@ -146,7 +146,7 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
-- Azure ML [integrates with Git](../how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- Azure ML [integrates with Git](../concept-train-model-git-integration.md) to track information on which repository / branch / commit your code came from.
 - [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](../how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
@@ -173,7 +173,7 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 ## Retrain your model on new data
 
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](../how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
 There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
@@ -199,7 +199,7 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 * [Azure Machine Learning MLOps](https://aka.ms/mlops) repository
 * [Azure Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository
 
-You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](../how-to-cicd-data-ingestion.md).
+You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 09/09/2022
 ms.custom: devx-track-js, mode-api
 ---
 
@@ -19,7 +19,6 @@ ms.custom: devx-track-js, mode-api
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
-
 
 Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 
@@ -33,30 +32,29 @@ Before you begin, have the following tools and services:
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
-+ [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com)
++ [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com)
 
 + [Visual Studio Code](https://code.visualstudio.com) or another IDE
 
-
 ## Set up your project
 
-Start by getting the endpoint and key for your search service. Then create a new project with NPM as outlined below.
+Start by getting the endpoint and key for your search service. Then create a new project with npm as outlined below.
 
 <a name="get-service-info"></a>
 
 ### Copy a key and endpoint
 
-Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You will specify both values when creating the client in a later step.
+Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You'll specify both values when creating the client in a later step.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you are creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
+2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
 
    ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-### Create a new NPM project
+### Create a new npm project
 
 Begin by opening VS Code and its [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) or another terminal such as the Node.js command prompt.
 
@@ -67,20 +65,20 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     cd quickstart
     ```
 
-2. Initialize an empty project with NPM by running 
+2. Initialize an empty project with npm by running the following command. To fully initialize the project, press Enter multiple times to accept the default values, except for the License, which you should set to "MIT". 
 
     ```cmd
     npm init
     ```
-     Accept the default values, except for the License, which you should set to "MIT". 
-
-3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
+     
+3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme). 
 
     ```cmd
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as our service name and API key.
+4. Install `dotenv`, which is used to import the environment variables such as your search service name and API key.
+
     ```cmd
     npm install dotenv
     ```
@@ -103,8 +101,8 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
       "author": "Your Name",
       "license": "MIT",
       "dependencies": {
-        "@azure/search-documents": "^11.2.0",
-        "dotenv": "^8.2.0"
+        "@azure/search-documents": "^11.3.0",
+        "dotenv": "^16.0.2"
       }
     }
     ```
@@ -165,7 +163,7 @@ With that in place, we're ready to create an index.
 
 Create a file **hotels_quickstart_index.json**.  This file defines how Azure Cognitive Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Cognitive Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](/rest/api/searchservice/supported-data-types) and index attributes described in [Create Index (REST)](/rest/api/searchservice/create-index). 
 
-Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
+Add the following content to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 
 ```json
 {
@@ -311,7 +309,7 @@ Within the main function, we then create a `SearchIndexClient`, which is used to
 const indexClient = new SearchIndexClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
-Next, we want to delete the index if it already exists. This is a common practice for test/demo code.
+Next, we want to delete the index if it already exists. This operation is a common practice for test/demo code.
 
 We do this by defining a simple function that tries to delete the index.
 
@@ -356,7 +354,7 @@ If you [downloaded the source code](https://github.com/Azure-Samples/azure-searc
 
 You should see a series of messages describing the actions being taken by the program. 
 
-Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
+Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following example:
 
 :::image type="content" source="media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
 
@@ -504,7 +502,7 @@ The queries are written in a `sendQueries()` function that we'll call in the mai
 await sendQueries(searchClient);
 ```
 
-Queries are sent using the `search()` method of `searchClient`. The first parameter is the search text and the second parameter is any additional search options.
+Queries are sent using the `search()` method of `searchClient`. The first parameter is the search text and the second parameter specifies search options.
 
 The first query searches `*`, which is equivalent to searching everything and selects three of the fields in the index. It's a best practice to only `select` the fields you need because pulling back unnecessary data can add latency to your queries.
 
@@ -528,7 +526,7 @@ async function sendQueries(searchClient) {
 }
 ```
 
-The remaining queries outlined below should also be added to the `sendQueries()` function. They are separated here for readability.
+The remaining queries outlined below should also be added to the `sendQueries()` function. They're separated here for readability.
 
 In the next query, we specify the search term `"wifi"` and also include a filter to only return results where the state is equal to `'FL'`. Results are also ordered by the Hotel's `Rating`.
 
@@ -547,7 +545,7 @@ for await (const result of searchResults.results) {
 }
 ```
 
-Next, the search is limited to a single searchable field using the `searchFields` parameter. This is a great option to make your query more efficient if you know you're only interested in matches in certain fields. 
+Next, the search is limited to a single searchable field using the `searchFields` parameter. This approach is a great option to make your query more efficient if you know you're only interested in matches in certain fields. 
 
 ```javascript
 console.log('Query #3 - Limit searchFields:');
@@ -597,7 +595,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember the limit of three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

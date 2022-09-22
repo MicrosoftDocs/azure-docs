@@ -29,7 +29,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
 * Azure Machine Learning Kubernetes
@@ -59,7 +59,7 @@ With Azure Machine Learning, you can train your model on various resources or en
 
 ## Local computer
 
-When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
+When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
 When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -367,7 +367,7 @@ See these notebooks for examples of training with various compute targets:
 
 ## Next steps
 
-* Use the compute resource to [configure and submit a training run](../how-to-set-up-training-targets.md).
+* Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).

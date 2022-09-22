@@ -1,20 +1,14 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files| Microsoft Docs
 description: Establish high availability for SAP NW on Azure virtual machines (VMs) RHEL with Azure NetApp Files.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/08/2022
+ms.date: 08/24/2022
 ms.author: radeltch
-
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications
@@ -599,7 +593,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update the /usr/sap/sapservices file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file.
 
    ```
    sudo vi /usr/sap/sapservices
@@ -611,7 +605,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # LD_LIBRARY_PATH=/usr/sap/QAS/ERS01/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/QAS/ERS01/exe/sapstartsrv pf=/usr/sap/QAS/ERS01/profile/QAS_ERS01_anftstsapers -D -u qasadm
    ```
 
-1. **[1]** Create the SAP cluster resources
+2. **[1]** Create the SAP cluster resources
 
    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
@@ -739,7 +733,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    ```
 
-1. **[A]** Add firewall rules for ASCS and ERS on both nodes
+3. **[A]** Add firewall rules for ASCS and ERS on both nodes
    Add the firewall rules for ASCS and ERS on both nodes.
    ```
    # Probe Port of ASCS
@@ -1284,6 +1278,7 @@ Follow these steps to install an SAP application server.
 
 ## Next steps
 
+* To deploy cost optimization scenario where PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md)
 * [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]

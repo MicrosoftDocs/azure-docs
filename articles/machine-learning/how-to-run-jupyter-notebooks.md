@@ -62,7 +62,7 @@ Use focus mode to expand your current view so you can focus on your
 * Learn more about the code you're using
 * Keep track of the parameters you're typing
 * Add calls to properties and methods 
-
+<!--
 ### Insert code snippets (preview)
 
 Use **Ctrl+Space** to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
@@ -78,7 +78,7 @@ You can browse and search the list of snippets by using the notebook toolbar to 
 From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
-
+-->
 ## Share a notebook
 
 Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
@@ -348,7 +348,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 * **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
 
     * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
-    * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
+    * Use [Azure Data Factory](v1/how-to-data-ingest-adf.md) to create a data ingestion pipeline.
 
 
 ## Next steps

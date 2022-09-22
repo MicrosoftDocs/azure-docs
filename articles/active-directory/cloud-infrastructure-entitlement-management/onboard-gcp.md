@@ -48,14 +48,18 @@ Choose from 3 options to manage GCP projects.
 
 This option allows projects to be automatically detected and monitored without additional configuration. Steps to detect list of projects and onboard for collection:  
 
-- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope.  
+Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
+
+Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI.
+
+Once this has been configured, click next, then 'Verify Now & Save'.
 
 Any current or future projects found get onboarded automatically. 
 
 To view status of onboarding after saving the configuration: 
 
-- Navigate to data collectors tab.  
-- Click on the status of the data collector.  
+- Navigate to data collectors tab
+- Click on the status of the data collector
 - View projects on the In Progress page 
 
 #### Option 2: Enter authorization systems 
@@ -76,11 +80,13 @@ To view status of onboarding after saving the configuration:
 
 This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
-- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
-- Click Verify and Save. 
-- Navigate to newly create Data Collector row under GCP data collectors. 
+- Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
+- Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI
+- Click Next
+- Click 'Verify Now & Save' 
+- Navigate to newly create Data Collector row under GCP data collectors
 - Click on Status column when the row has “Pending” status 
-- To onboard and start collection, choose specific ones from the detected list and consent for collection. 
+- To onboard and start collection, choose specific ones from the detected list and consent for collection
 
 ### 3. Set up GCP member projects.
 

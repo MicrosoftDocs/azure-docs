@@ -1,15 +1,14 @@
 ---
-title: Release notes for Azure SQL Edge 
-description: Release notes detailing what's new or what has changed in the Azure SQL Edge images. 
-keywords: release notes SQL Edge
-services: sql-edge
+title: Release notes for Azure SQL Edge
+description: Release notes detailing what's new or what has changed in the Azure SQL Edge images.
+author: kendalvandyke
+ms.author: kendalv
+ms.reviewer: randolphwest
+ms.date: 6/21/2022
 ms.service: sql-edge
 ms.topic: conceptual
-ms.subservice:
-author: kendalvandyke
-ms.author: kendalv 
-ms.reviewer: jroth
-ms.date: 6/21/2022
+keywords: release notes SQL Edge
+services: sql-edge
 ---
 # Azure SQL Edge release notes 
 

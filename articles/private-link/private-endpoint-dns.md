@@ -97,8 +97,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.net | {region}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
-| Azure Managed HSM (Microsoft.Keyvault/managedHSMs) | privatelink.managedhsm.azure.net | managedhsm.azure.net |
-| Azure API Management (Microsoft.ApiManagement/service) | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
+| Azure Managed HSM (Microsoft.Keyvault/managedHSMs) / managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net |
+| Azure API Management (Microsoft.ApiManagement/service) / gateway | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
 | Microsoft PowerBI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Bot | botplinks.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | bottoken.botframework.com | token.botframework.com </br> europe.directline.botframework.com |

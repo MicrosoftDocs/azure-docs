@@ -3,7 +3,7 @@ title: 'Install the Azure AD Connect provisioning agent'
 description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Azure portal.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
