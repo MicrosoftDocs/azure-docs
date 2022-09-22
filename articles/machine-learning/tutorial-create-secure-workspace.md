@@ -340,7 +340,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
 
     * __Virtual machine name__: A unique name for the VM.
-    * __Username__: The username you will use to login to the VM.
+    * __Username__: The username you will use to log in to the VM.
     * __Password__: The password for the username.
     * __Security type__: Standard.
     * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
