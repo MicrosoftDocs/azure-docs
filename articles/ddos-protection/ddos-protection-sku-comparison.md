@@ -41,7 +41,7 @@ The following table shows features and corresponding SKUs.
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >[!Note]
->At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more details on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
+>At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
 
 ## DDoS Network Protection
 
@@ -49,9 +49,9 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
 ## DDoS IP Protection
 
- DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection have the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
+ DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
 
 ## Next steps
 
-* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
-* [Azure DDoS Protection Standard features](ddos-protection-standard-features.md)
+* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
+* [Azure DDoS Protection features](ddos-protection-features.md)

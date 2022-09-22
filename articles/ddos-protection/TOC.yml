@@ -22,11 +22,11 @@
     href: manage-ddos-protection-template.md
 - name: Tutorials
   items:
-  - name: View and configure DDoS protection telemetry
+  - name: View and configure Azure DDoS Protection telemetry
     href: telemetry.md
-  - name: View and configure DDoS diagnostic logging
+  - name: View and configure Azure DDoS Protection diagnostic logging
     href: diagnostic-logging.md
-  - name: View and configure DDoS protection alerts
+  - name: View and configure Azure DDoS Protection alerts
     href: alerts.md
 - name: Concepts
   items:
@@ -35,7 +35,7 @@
   - name: Fundamental best practices
     href: fundamental-best-practices.md
   - name: Azure DDoS Protection features
-    href: ddos-protection-standard-features.md
+    href: ddos-protection-features.md
   - name: Components of a DDoS response strategy
     href: ddos-response-strategy.md
   - name: Reference architectures
