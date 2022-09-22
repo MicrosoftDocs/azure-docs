@@ -1,6 +1,6 @@
 ---
-title: Azure DDoS Protection Standard Overview
-description: Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks.
+title: Azure DDoS Protection Overview
+description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
 documentationcenter: na
 author: AbdullahBell
@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2022
+ms.date: 09/22/2022
 ms.author: abell
 
 ---
@@ -18,7 +18,7 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
-:::image type="content" source="./media/ddos-best-practices/image-11.png" alt-text="Diagram of the reference architecture for a DDoS Protection Standard protected PaaS web application.":::
+:::image type="content" source="./media/ddos-best-practices/image-11.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 ## Key benefits
 
 ### Always-on traffic monitoring
@@ -35,34 +35,21 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
  
 ## SKU
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [DDoS Protection SKU comparison](ddos-protection-sku-comparison.md).
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
 
-The following table shows features and corresponding SKUs.
-
-| Feature | DDoS IP Protection | DDoS Network Protection |
-|---|---|---|
-| Active traffic monitoring & always on detection |  Yes| Yes |
-| Automatic attack mitigation | Yes | Yes |
-| Availability guarantee| Yes | Yes |
-| Cost protection | Not available  | Yes |
-| Application based mitigation policies | Yes| Yes |
-| Metrics & alerts | Yes | Yes |
-| Mitigation reports | Yes | Yes |
-| Mitigation flow logs| Yes| Yes |
-| Mitigation policy customizations | Yes| Yes |
-| DDoS rapid response support | Not available | Yes |
-| Price | Per protected IP | Per 100 protected IP addresses |
 
 ### Native platform integration
- Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
-### Turnkey protection
-Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Network Protection is enabled. No intervention or user definition is required. Similarily, simplified configuraiton immediately protects a public IP resource when DDoS IP Proteciton is enabled for it.
+ Natively integrated into Azure. Includes configuration through the Azure portal. Azure DDoS Protection understands your resources and resource configuration.
 
-### Multi-Layered protection:
+### Turnkey protection
+Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Network Protection is enabled. No intervention or user definition is required. Similarly, simplified configuration immediately protects a public IP resource when DDoS IP Protection is enabled for it.
+
+### Multi-Layered protection
 When deployed with a web application firewall (WAF), Azure DDoS Protection protects both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=/azure/virtual-network/toc.json) and third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 ### Extensive mitigation scale
  All L3/L4 attack vectors can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
+
 ### Attack analytics
 Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
@@ -76,11 +63,10 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 ### Cost guarantee
  Receive data-transfer and application scale-out service credit for resource costs incurred as a result of documented DDoS attacks.
 
-
-
 ## Architecture
 
 Azure DDoS Protection is designed for [services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default infrastructure-level DDoS protection applies, which defends against common network-layer attacks. To learn more about supported architectures, see [DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
+
 ## Pricing
 
 For DDoS Network Protection, under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
