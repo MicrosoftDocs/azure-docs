@@ -62,7 +62,7 @@ The following table describes fields found in json:
 
 |Name|Description|
 |---|---|
-|`id`|The line ID.|
+|`id`|The digital pattern ID.|
 |`patternType`|The following types are supported: ColorBars, TestCards.|
 |`confidence`|The confidence level for color bar accuracy.|
 |`name`|The name of the element. For example, "SMPTE color bars".|
