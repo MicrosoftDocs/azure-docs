@@ -584,6 +584,8 @@
         href: coverity-static-application-security-testing-tutorial.md  
       - name: Cincom CPQ
         href: cpqsync-by-cincom-tutorial.md
+      - name: Crayon
+        href: crayon-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
       - name: Create!Webフロー
@@ -612,6 +614,8 @@
         href: cybersolutions-cybermail-tutorial.md  
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
+      - name: Cytric
+        href: cytric-tutorial.md   
     - name: D - E
       items:
       - name: Dagster Cloud
@@ -2445,6 +2449,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: Valence Security Platform
+        href: valence-tutorial.md
       - name: valid8Me
         href: valid8me-tutorial.md
       - name: ValidSign
