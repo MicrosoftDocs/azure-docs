@@ -582,7 +582,7 @@ The following Defender for IoT options and configurations have been moved, remov
 
 The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
 
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md) and [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](../../sentinel/iot-advanced-threat-monitoring.md).
+For information on integrating with Microsoft Sentinel, see [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md) and [Tutorial: Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
 
 ### Apache Log4j vulnerability
 

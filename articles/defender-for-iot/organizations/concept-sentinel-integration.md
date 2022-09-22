@@ -85,7 +85,7 @@ The following table shows how both the OT team, on the Defender for IoT side, an
 
 For more information, see:
 
-- [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md)
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
 - [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
 - [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)
 - [Tutorial Use playbooks with automation rules in Microsoft Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
