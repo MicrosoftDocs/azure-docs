@@ -757,7 +757,7 @@ Review detailed code examples and use cases in the [azureml-examples repository 
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). 
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs). 
 
 ---
 ## Next steps
