@@ -48,7 +48,7 @@ cd azureml-examples/sdk
 
 ## Start on your local machine
 
-Start by running a script, which trains a model using `lightgbm`. The script file is available [here](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py). The script needs three inputs
+Start by running a script, which trains a model using `lightgbm`. The script file is available [here](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/src/main.py). The script needs three inputs
 
 * _input data_: You'll use data from a web location for your run - [web location](https://azuremlexamples.blob.core.windows.net/datasets/iris.csv). In this example, we're using a file in a remote location for brevity, but you can use a local file as well.
 * _learning-rate_: You'll use a learning rate of _0.9_
@@ -88,7 +88,7 @@ Let us tackle these steps below
 
 ### 1. Connect to the workspace
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries

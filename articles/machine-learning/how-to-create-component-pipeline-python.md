@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 This article uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The article assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook.
 
-This article is based on the [image_classification_keras_minist_convnet.ipynb](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb) notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository.
+This article is based on the [image_classification_keras_minist_convnet.ipynb](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb) notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository.
 
 ## Import required libraries
 
@@ -210,7 +210,7 @@ In this section, you'll learn to create a component specification in the valid Y
 
 #### Specify component run-time environment
 
-The score component uses the same image and conda.yaml file as the train component. The source file is in the [sample repository](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml).
+The score component uses the same image and conda.yaml file as the train component. The source file is in the [sample repository](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml).
 
 Now, you've got all source files for score-model component.
 
