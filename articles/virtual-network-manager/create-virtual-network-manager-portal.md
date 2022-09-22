@@ -153,7 +153,7 @@ Using [Azure Policy](concept-azure-policy-integration.md), you'll define a condi
     | Operator | Select **Exists** from the drop-down.| 
     | Condition | Enter **Prod** to dynamically add the three previously created virtual networks into this network group. |
 
-1. Select **Save** to deploy the group membership. It can take up to 1 minute for the policy to take affect and your group membership to be populated.
+1. Select **Save** to deploy the group membership. It can take up to one minute for the policy to take effect and be added to your network group.
 
 1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
 
