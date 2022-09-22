@@ -41,9 +41,10 @@ This section will help you create a network group containing the virtual network
 1. You'll see the new network group added to the *Network Groups* page.
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Static membership](concept-network-groups.md#static-membership)* or *[Dynamic membership with Azure Policy](concept-network-groups.md#dynamic-membership)*.
+1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Manually add membership](concept-network-groups.md#static-membership)* or *[Create policy to dynamically add members](concept-network-groups.md#dynamic-membership)*.
 ## Define network group members
 Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
+
 ### Manually adding members
 To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
 
