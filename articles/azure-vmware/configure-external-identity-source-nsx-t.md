@@ -82,5 +82,6 @@ After adding an external identity, you can assign NSX-T Roles to Active Director
 Now that you've configured the external source, you can also learn about:
 
 - [Configure external identity source for vCenter Server](configure-identity-source-vcenter.md)
-
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
 
