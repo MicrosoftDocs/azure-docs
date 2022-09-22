@@ -3,7 +3,7 @@ title: Upgrade Mobility Service and appliance components - Modernized
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - Modernized.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/16/2022
+ms.date: 09/21/2022
 ---
 
 
@@ -46,7 +46,7 @@ To manually update mobility agent on multiple protected items, follow these step
    >If prerequisites to upgrade Mobility service are not met, then the VM cannot be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
 
 
-4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
+4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation, and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
 
 ### Update mobility agent for a single protected machine
 
