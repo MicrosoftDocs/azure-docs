@@ -20,3 +20,39 @@ Version 4.0 of Image Analysis offers the ability to detect people appearing in i
 > [!IMPORTANT]
 > you need 4.0 for this TBD
 
+## Image description example
+
+The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
+
+![A woman in a kitchen](./Images/windows-kitchen.jpg).
+
+```json
+{
+   "kind":"imageAnalysisResult",
+   "metadata":{
+      "height":473,
+      "width":1260
+   },
+   "peopleResult":{
+      "people":[
+         {
+            "rectangle":{
+               "x":660,
+               "y":0,
+               "w":582,
+               "h":473
+            },
+            "confidence":0.9680353999137878
+         }
+      ]
+   }
+}
+```
+
+## Use the API
+
+The people detection feature is part of the [Analyze Image](TBD) API. You can call this API using REST. Include `People` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
+
+## Next steps
+
+Learn the related concept of [Face detection](concept-face-detection.md).
