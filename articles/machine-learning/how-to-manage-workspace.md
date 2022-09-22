@@ -242,7 +242,9 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 ## Find a workspace
 
-See a list of all the workspaces you can use.
+See a list of all the workspaces you can use.  
+You can also search for workspace inside studio.  See [Search for Azure Machine Learning assets (preview)](how-to-search-assets.md).
+
 
 # [Python SDK](#tab/python)
 
@@ -333,8 +335,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Examples
 
-Examples of creating a workspace:
-* Use Azure portal to [create a workspace and compute instance](quickstart-create-resources.md)
+Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/resources/workspace/workspace.ipynb).
 
 ## Next steps
 
@@ -344,8 +345,6 @@ To learn more about planning a workspace for your organization's requirements, s
 
 * If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-* To find a workspace, see [Search for Azure Machine Learning assets (preview)](how-to-search-assets.md).
 
-* If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
 For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
