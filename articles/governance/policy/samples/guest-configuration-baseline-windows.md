@@ -24,7 +24,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |---|---|---|---|
 |Account Lockout Duration<br /><sub>(AZ-WIN-73312)</sub> |**Description**: This policy setting determines the length of time that must pass before a locked account is unlocked and a user can try to log on again. The setting does this by specifying the number of minutes a locked out account will remain unavailable. If the value for this policy setting is configured to 0, locked out accounts will remain locked out until an administrator manually unlocks them.  Although it might seem like a good idea to configure the value for this policy setting to a high value, such a configuration will likely increase the number of calls that the help desk receives to unlock accounts locked by mistake. Users should be aware of the length of time a lock remains in place, so that they realize they only need to call the help desk if they have an extremely urgent need to regain access to their computer.  The recommended state for this setting is: `15 or more minute(s)`.  **Note:** Password Policy settings (section 1.1) and Account Lockout Policy settings (section 1.2) must be applied via the **Default Domain Policy** GPO in order to be globally in effect on **domain** user accounts as their default behavior. If these settings are configured in another GPO, they will only affect **local** user accounts on the computers that receive the GPO. However, custom exceptions to the default password policy and account lockout policy rules for specific domain users and/or groups can be defined using Password Settings Objects (PSOs), which are completely separate from Group Policy and most easily configured using Active Directory Administrative Center.<br />**Key Path**: [System Access]LockoutDuration<br />**OS**: WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member |\>\= 15<br /><sub>(Policy)</sub> |Warning |
 
-## Administrative Template - Window Defender
+## Administrative Template - Windows Defender
 
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |
 |---|---|---|---|
@@ -123,7 +123,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |---|---|---|---|
 |Prevent users from modifying settings<br /><sub>(AZ-WIN-202209)</sub> |**Description**: This policy setting prevent users from making changes to the Exploit protection settings area in the Windows Security settings.  The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection\DisallowExploitProtectionOverride<br />**OS**: WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member |\= 1<br /><sub>(Registry)</sub> |Warning |
 
-## Administrative Template - Window Defender
+## Administrative Templates - Windows Defender
 
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |
 |---|---|---|---|
