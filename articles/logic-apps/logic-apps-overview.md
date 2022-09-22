@@ -63,7 +63,7 @@ The following list briefly defines terms and core concepts in Azure Logic Apps.
 
 ### Logic app
 
-A *logic app* is the Azure resource you create when you want to built a workflow. There are [multiple logic app resource types that run in different environments](#resource-environment-differences).
+A *logic app* is the Azure resource you create when you want to build a workflow. There are [multiple logic app resource types that run in different environments](#resource-environment-differences).
 
 ### Workflow
 
@@ -101,7 +101,7 @@ For example, you can define trading partners, agreements, schemas, maps, and oth
 
 ## How logic apps work
 
-In a logic app, each workflow always starts with a single [trigger](#trigger). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#action) run operations that, for example, process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
+In a logic app, each workflow always starts with a single [trigger](#trigger). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. Following the trigger, one or more [actions](#action) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
@@ -127,7 +127,7 @@ You can visually create workflows using the Azure Logic Apps workflow designer i
 
 To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
-The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn the differences between the *single-tenant environment*, *multi-tenant environment*, *integration service environment (ISE)*, and *App Service Environment v3 (ASEv3)* for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn the differences between the *single-tenant environment*, *multi-tenant environment*, *integration service environment* (ISE), and *App Service Environment v3 (ASEv3)* for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -171,7 +171,7 @@ You can start small with your current systems and services, and then grow increm
 
 * Create an [integration account](./logic-apps-enterprise-integration-create-integration-account.md) to store and manage B2B artifacts, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md), [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md), [transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md), [validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md), and more.
 
-For example, if you use Microsoft BizTalk Server, your workflows can communicate with your BizTalk Server using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then run or extend BizTalk-like operations in your workflows by using [integration account connectors](../connectors/managed.md#integration-account-connectors). Going in the other direction, BizTalk Server can communicate with your workflows by using the [Microsoft BizTalk Server Adapter for Azure Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
+For example, if you use Microsoft BizTalk Server, your workflows can communicate with your BizTalk Server using the [BizTalk Server connector](../connectors/managed.md#on-premises-connectors). You can then run or extend BizTalk-like operations in your workflows by using [integration account connectors](../connectors/managed.md#integration-account-connectors). In the other direction, BizTalk Server can communicate with your workflows by using the [Microsoft BizTalk Server Adapter for Azure Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
 
 #### Built-in extensibility
 
@@ -179,7 +179,7 @@ If no suitable connector is available to run the code you want, you can create a
 
 #### Access resources inside Azure virtual networks
 
-Logic app workflows can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Azure Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Azure Logic Apps service.
+Logic app workflows can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Azure Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Azure Logic Apps service.
 
 Running logic apps in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
