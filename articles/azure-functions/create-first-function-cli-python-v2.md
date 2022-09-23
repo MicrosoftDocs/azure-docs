@@ -13,8 +13,6 @@ adobe-target-content: ./create-first-function-cli-python-uiex
 
 # Quickstart: Create a function in Azure with the Python V2 Programming Model from the command line. 
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
-
 In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
