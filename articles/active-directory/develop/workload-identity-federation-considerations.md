@@ -9,17 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 09/22/2022
 ms.author: ryanwi
-ms.reviewer: shkhalid, udayh, vakarand
+ms.reviewer: shkhalid, udayh, vakarand, cbrooks
 ms.custom: aaddev
 ---
 
 # Important considerations and restrictions for federated identity credentials
 
-This article describes important considerations, restrictions, and limitations for federated identity credentials on Azure AD apps and user-assigned managed identities.  For more information on the scenarios enabled by federated identity credentials, see [workload identity federation overview](workload-identity-federation.md).
+This article describes important considerations, restrictions, and limitations for federated identity credentials on Azure AD apps and user-assigned managed identities.  
+
+For more information on the scenarios enabled by federated identity credentials, see [workload identity federation overview](workload-identity-federation.md).
 
 ## General federated identity credential considerations
+
+The following considerations apply to federated identity credentials on applications and user-assigned managed identities.
 
 Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
 
@@ -30,6 +34,8 @@ Federated identity credentials do not consume the Azure AD tenant service princi
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
 ## Unsupported regions (user-assigned managed identities)
+
+The following considerations apply to federated identity credentials on user-assigned managed identities.
 
 During the public preview of workload identity federation for user-assigned managed identities, the creation of federated identity credentials is available on user-assigned managed identities created in most Azure regions. However, creation of federated identity credentials is **not supported** on user-assigned managed identities in the following regions:
 
@@ -46,6 +52,8 @@ Resources in these regions can still use federated identity credentials created 
 
 ## Azure Active Directory issuers are not supported
 
+The following considerations apply to federated identity credentials on applications and user-assigned managed identities.
+
 Creating a federation between two Azure AD identities from the same or different tenants is not supported. When creating a federated identity credential, configuring the *issuer* (the URL of the external identity provider) with the following values is not supported:
 
 - *.login.microsoftonline.com
@@ -57,15 +65,21 @@ While it is possible to create a federated identity credential with an Azure AD 
 
 ## Amazon Web Services (AWS) issuers are not supported
 
+The following considerations apply to federated identity credentials on applications and user-assigned managed identities.
+
 Creating a federated identity credential with an AWS *issuer* (the URL of the external identity provider) is not supported.
 
 ## Time for federated credential changes to propagate
+
+The following considerations apply to federated identity credentials on applications and user-assigned managed identities.
 
 It takes time for the federated identity credential to be propagated throughout a region after being initially configured. A token request made several minutes after configuring the federated identity credential may fail because the cache is populated in the directory with old data. During this time window, an authorization request might fail with error message: `AADSTS70021: No matching federated identity record found for presented assertion.`
 
 To avoid this issue, wait a short time after adding the federated identity credential before requesting a token to ensure replication completes across all nodes of the authorization service. We also recommend adding retry logic for token requests.  Retries should be done for every request even after a token was successfully obtained. Eventually after the data is fully replicated the percentage of failures will drop.
 
 ## Concurrent updates are not supported (user-assigned managed identities)
+
+The following considerations apply to federated identity credentials on user-assigned managed identities.
 
 Creating multiple federated identity credentials under the same user-assigned managed identity concurrently triggers concurrency detection logic which causes requests to fail with 409-conflict HTTP status code.  
 
@@ -144,7 +158,29 @@ The following example creates three new federated identity credentials on a user
 } 
 ```
 
+## Azure policy
+
+The following considerations apply to federated identity credentials on user-assigned managed identities.
+
+Currently federated identity credential properties are not supported by [Azure Policy](/azure/governance/policy/overview). However, it is still possible to use a deny policy as in the following ARM template example:
+
+```json
+{ 
+"policyRule": { 
+            "if": { 
+                "field": "type", 
+                "equals": "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials" 
+            }, 
+            "then": { 
+                "effect": "deny" 
+            } 
+        } 
+}
+```
+
 ## Throttling limits
+
+The following considerations apply to federated identity credentials on user-assigned managed identities.
 
 | Operation         | Requests-per-second per Azure AD tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
 |-------------------|----------------|----------------|----------------|
@@ -154,6 +190,8 @@ The following example creates three new federated identity credentials on a user
 | FederatedIdentityCredentialDeleteRequest | 10 | 2 | 0.25 |
 
 ## Errors
+
+The following considerations apply to federated identity credentials on user-assigned managed identities.
 
 | HTTP code         | Error message    | Comments    |
 |-------------------|----------------|----------------|
