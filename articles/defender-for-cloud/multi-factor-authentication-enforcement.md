@@ -118,7 +118,7 @@ To exempt account(s), follow these steps:
 
 If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
 
-    > [!TIP]
+> [!TIP]
     > When you exempt an account, it won't be shown as unhealthy and won't cause a subscription to appear unhealthy.
 
 ### Are there any limitations to Defender for Cloud's identity and access protections?
