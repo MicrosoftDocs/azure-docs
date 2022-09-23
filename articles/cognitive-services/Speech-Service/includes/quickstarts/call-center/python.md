@@ -24,7 +24,7 @@ Follow these steps to create a new console application.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/call-center/"  title="Copy the samples"  target="_blank">scenarios/python/console/call-center/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `call-center.py`.
-1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
+1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here's an example:
     ```console
     python call-center.py --input "https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/main/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav" --speechKey YourResourceKey --speechRegion YourResourceRegion --languageKey YourResourceKey --languageEndpoint YourResourceEndpoint --stereo --output call.output.txt > call.json.txt
     ```

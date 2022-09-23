@@ -19,10 +19,10 @@ ms.author: eur
 This quickstart requires *nlohmann::json*, *libcurl*, and a PEM certificate.
 
 1. Download the latest version of the [nlohmann::json](https://github.com/nlohmann/json/releases) library.
-1. Install libcurl. On Windows you install it from [https://curl.se/download.html]. 
+1. Install libcurl. On Windows, you install it from [https://curl.se/download.html]. 
 1. Get a `cacert.pem` file from [https://curl.se/ca/cacert.pem](https://curl.se/ca/cacert.pem).
 1. Copy YourPathTo\curl\bin\libcurl-x64.def and YourPathTo\curl\bin\libcurl-x64.dll to your project folder.
-1. Run the `lib /def:libcurl-x64.def` command to generate the .lib file.
+1. Run the `lib /def:libcurl-x64.def` command to generate the `.lib` file.
 
 ## Run post-call transcription analysis
 
@@ -34,7 +34,7 @@ Follow these steps to run post-call transcription analysis:
 1. Open **Build** > **Configuration Manager**.
     - On a 64-bit Windows installation, set **Active solution platform** to `x64`.
     - On a 32-bit Windows installation, set **Active solution platform** to `x86`.
-1. Open **Project** > **Properties** > **Debugging**. Enter your preferred command line arguments at **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
+1. Open **Project** > **Properties** > **Debugging**. Enter your preferred command line arguments at **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here's an example:
     ```
     --certificate "YourPathTo\\cacert.pem" --input "https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/main/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav" --speechKey YourResourceKey --speechRegion YourResourceRegion --languageKey YourResourceKey --languageEndpoint YourResourceEndpoint --stereo --output call.output.txt > call.json.txt
     ```

@@ -6,12 +6,12 @@ ms.date: 09/18/2022
 ms.author: eur
 ---
 
-In this C# quickstart, you perform sentiment analysis and conversation summarization of [call center](/azure/cognitive-services/speech-service/call-center-overview) transcriptions. The sample will automatically identify, categorize, and redact sensitive information. This is a cross-service scenario that uses features of the [Azure Cognitive Speech](/azure/cognitive-services/speech-service/) and [Azure Cognitive Language](/azure/cognitive-services/language-service/) services.
+In this C# quickstart, you perform sentiment analysis and conversation summarization of [call center](/azure/cognitive-services/speech-service/call-center-overview) transcriptions. The sample will automatically identify, categorize, and redact sensitive information. The quickstart implements a cross-service scenario that uses features of the [Azure Cognitive Speech](/azure/cognitive-services/speech-service/) and [Azure Cognitive Language](/azure/cognitive-services/language-service/) services.
 
 > [!TIP]
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
-The following Azure Cognitive Service for Speech features are used:
+The following Azure Cognitive Services for Speech features are used:
 - [Batch transcription](/azure/cognitive-services/speech-service/batch-transcription): Submit a batch of audio files for transcription.
 - [Speaker separation](/azure/cognitive-services/speech-service/batch-transcription): Separate multiple speakers through diarization of mono 16khz 16 bit PCM wav files. 
 
