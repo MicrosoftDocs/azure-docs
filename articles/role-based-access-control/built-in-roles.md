@@ -1060,18 +1060,18 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/diskAccesses/read | Get the properties of DiskAccess resource |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/galleries/images/read | Gets the properties of Gallery Image |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/images/read | Get the properties of the Image |
-> | Microsoft.AzureStackHCI/Clusters/Read | Gets clusters |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
-> | Microsoft.AzureStackHCI/Operations/Read | Gets operations |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Operations/Read | Gets operations |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/WACLoginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator |
-> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
 > | **NotDataActions** |  |
 > | *none* |  |
 

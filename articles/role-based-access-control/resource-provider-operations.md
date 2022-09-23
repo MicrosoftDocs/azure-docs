@@ -97,6 +97,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.ApiManagement](#microsoftapimanagement) |
 | [Microsoft.AppConfiguration](#microsoftappconfiguration) |
 | [Microsoft.AzureStack](#microsoftazurestack) |
+| [Microsoft.AzureStackHCI](#microsoftazurestackhci) |
 | [Microsoft.DataBoxEdge](#microsoftdataboxedge) |
 | [Microsoft.DataCatalog](#microsoftdatacatalog) |
 | [Microsoft.EventGrid](#microsofteventgrid) |
@@ -9074,7 +9075,7 @@ Azure service: core
 
 ### Microsoft.AzureStack
 
-Azure service: core
+Azure service: [Azure Stack](/azure-stack/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -9103,6 +9104,54 @@ Azure service: core
 > | Microsoft.AzureStack/registrations/products/getProducts/action | Retrieves a list of Azure Stack Marketplace products |
 > | Microsoft.AzureStack/registrations/products/getProduct/action | Retrieves Azure Stack Marketplace product |
 > | Microsoft.AzureStack/registrations/products/uploadProductLog/action | Record Azure Stack Marketplace product operation status and timestamp |
+
+### Microsoft.AzureStackHCI
+
+Azure service: [Azure Stack HCI](/azure-stack/hci/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AzureStackHCI/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
+> | Microsoft.AzureStackHCI/Unregister/Action | Unregisters the subscription for the Azure Stack HCI resource provider. |
+> | Microsoft.AzureStackHCI/Clusters/Read | Gets clusters |
+> | Microsoft.AzureStackHCI/Clusters/Write | Creates or updates a cluster |
+> | Microsoft.AzureStackHCI/Clusters/Delete | Deletes cluster resource |
+> | Microsoft.AzureStackHCI/Clusters/CreateClusterIdentity/Action | Create cluster identity |
+> | Microsoft.AzureStackHCI/Clusters/UploadCertificate/Action | Upload cluster certificate |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Write | Create or updates arc resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Delete | Delete arc resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/GeneratePassword/Action | Generate password for Arc settings identity |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/CreateArcIdentity/Action | Create Arc settings identity |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
+> | Microsoft.AzureStackHCI/GalleryImages/Delete | Deletes gallery images resource |
+> | Microsoft.AzureStackHCI/GalleryImages/Write | Creates/Updates gallery images resource |
+> | Microsoft.AzureStackHCI/GalleryImages/Read | Gets/Lists gallery images resource |
+> | Microsoft.AzureStackHCI/NetworkInterfaces/Delete | Deletes network interfaces resource |
+> | Microsoft.AzureStackHCI/NetworkInterfaces/Write | Creates/Updates network interfaces resource |
+> | Microsoft.AzureStackHCI/NetworkInterfaces/Read | Gets/Lists network interfaces resource |
+> | Microsoft.AzureStackHCI/Operations/Read | Gets operations |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Restart/Action | Restarts virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Start/Action | Starts virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Stop/Action | Stops virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Delete | Deletes virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Write | Creates/Updates virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Read | Gets/Lists virtual machine resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Extensions/Read | Gets/Lists virtual machine extensions resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Extensions/Write | Creates/Updates virtual machine extensions resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/Extensions/Delete | Deletes virtual machine extensions resource |
+> | Microsoft.AzureStackHCI/VirtualMachines/HybridIdentityMetadata/Read | Gets/Lists virtual machine hybrid identity metadata proxy resource |
+> | Microsoft.AzureStackHCI/VirtualNetworks/Delete | Deletes virtual networks resource |
+> | Microsoft.AzureStackHCI/VirtualNetworks/Write | Creates/Updates virtual networks resource |
+> | Microsoft.AzureStackHCI/VirtualNetworks/Read | Gets/Lists virtual networks resource |
+> | **DataAction** | **Description** |
+> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
 
 ### Microsoft.DataBoxEdge
 
