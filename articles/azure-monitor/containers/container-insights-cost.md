@@ -180,7 +180,7 @@ After applying one or more of these changes to your ConfigMaps, apply it to your
 
 ### Prometheus metrics scraping
 
-If you are utilizing [Prometheus metric scraping](container-insights-prometheus-integration.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
+If you are utilizing [Prometheus metric scraping](container-insights-prometheus.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
 
 - Ensure scraping frequency is set optimally (the default is 60 seconds). While you can increase the frequency to 15 seconds, you need to ensure that the metrics you are scraping are published at that frequency. Otherwise there will be many duplicate metrics scraped and sent to your Log Analytics workspace at intervals adding to data ingestion and retention costs, but are of less value. 
 

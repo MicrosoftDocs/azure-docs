@@ -1244,10 +1244,8 @@ items:
       - name: Overview
         displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: New AKS cluster
-        href: containers/container-insights-enable-new-cluster.md
-      - name: Existing AKS cluster
-        href: containers/container-insights-enable-existing-clusters.md
+      - name: AKS cluster
+        href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Hybrid cluster
@@ -1258,14 +1256,20 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Collect Prometheus metrics
+      items: 
+      - name: Overview
+        href: containers/container-insights-prometheus.md
+      - name: Monitoring addon
+        href: containers/container-insights-prometheus-monitoring-addon.md
+      - name: Metrics addon
+        href: containers/container-insights-prometheus-metrics-addon.md
     - name: Configure
       items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Prometheus metric scraping
-        href: containers/container-insights-prometheus-integration.md
       - name: Enable metrics
         href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)
