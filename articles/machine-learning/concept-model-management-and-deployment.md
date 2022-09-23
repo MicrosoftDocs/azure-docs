@@ -79,7 +79,7 @@ Registered models are identified by name and version. Each time you register a m
 > * When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
 > * You can't delete a registered model that's being used in an active deployment.
 
-For more information, [Work with models in Azure Machine Learning](how-to-manage-models.md).
+For more information, [Work with models in Azure Machine Learning](how-to-manage-model-cli.md).
 
 ### Package and debug models
 
@@ -159,31 +159,6 @@ Machine Learning gives you the capability to track the end-to-end audit trail of
 ## Notify, automate, and alert on events in the machine learning lifecycle
 
 Machine Learning publishes key events to Azure Event Grid, which can be used to notify and automate on events in the machine learning lifecycle. For more information, see [Use Event Grid](how-to-use-event-grid.md).
-
-## Monitor for operational and machine learning issues
-
-Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
-
-This information helps you understand how your model is being used. The collected input data might also be useful in training future versions of the model.
-
-For more information, see [Enable model data collection](v1/how-to-enable-data-collection.md) (Note this feature is only availabie in v1).
-
-## Retrain your model on new data
-
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](v1/how-to-monitor-datasets.md) (Note this feature is only availabie in v1), model performance can degrade because of:
-
-- Changes to a particular sensor.
-- Natural data changes such as seasonal effects.
-- Features shifting in their relation to other features.
-
-There's no universal answer to "How do I know if I should retrain?" The Machine Learning event and monitoring tools previously discussed are good starting points for automation. After you've decided to retrain, you should:
-
-- Preprocess your data by using a repeatable, automated process.
-- Train your new model.
-- Compare the outputs of your new model to the outputs of your old model.
-- Use predefined criteria to choose whether to replace your old model.
-
-A theme of the preceding steps is that your retraining should be automated, not improvised. [Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows that relate to data preparation, training, validation, and deployment. Read [Retrain models with Machine Learning designer](how-to-retrain-designer.md) to see how pipelines and the Machine Learning designer fit into a retraining scenario.
 
 ## Automate the machine learning lifecycle
 
