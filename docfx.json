@@ -215,7 +215,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zr-msft",
+        "articles/aks/**/*.md": "MGoedtel",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -260,8 +260,8 @@
         "articles/azure-vmware/**/*.md": "jjaygbay1",
         "articles/backup/**/*.md": "v-amallick",
         "articles/backup/**/*.yml": "v-amallick",
-        "articles/baremetal-infrastructure/**/*.md": "jjaygbay1",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/baremetal-infrastructure/**/*.md": "dineshga",
+        "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
@@ -591,7 +591,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "zarhoads",
+        "articles/aks/**/*.md": "magoedte",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
