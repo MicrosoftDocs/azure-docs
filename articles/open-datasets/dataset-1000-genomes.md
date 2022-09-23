@@ -20,8 +20,6 @@ Phase 1 Analysis: [An integrated map of genetic variation from 1,092 human genom
 Phase 3 Analysis: [A global reference for human genetic variation](https://www.nature.com/articles/nature15393)
                   [An integrated map of structural variation in 2,504 human genomes](https://www.nature.com/articles/nature15394)
 
-[Explore the meta data](https://msit.powerbi.com/reportEmbed?reportId=d01abe4c-4c1f-40d0-ad65-d97819be29e9&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
-
 For details on data formats refer to http://www.internationalgenome.org/formats
 
 **[NEW]** the dataset is also available in [parquet format](https://github.com/microsoft/genomicsnotebook/tree/main/vcf2parquet-conversion/1000genomes)
