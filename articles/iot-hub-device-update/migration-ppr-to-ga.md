@@ -15,7 +15,7 @@ As the Device Update for IoT Hub service releases new versions, you'll want to u
 To migrate successfully, you will have to upgrade the DU agent running on your devices.Note that as there are major changes with the GA release, we recommend that you follow the instructions closely to avoid errors.
 
 > [!NOTE] 
-> PPR device groups created before 6/15/2022 will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the the updated GA groups. 
+> All PPR device groups created will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the the updated GA groups. 
 
 ## Update the device update agent
 
@@ -27,7 +27,8 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 3. SSH into your device and update the Device Update agent.
    ```bash
-   sudo apt install deviceupdate-agent 
+   sudo apt install deviceupdate-agent
+   sudo systemctl restart deviceupdate-agent
    sudo systemctl status deviceupdate-agent
    ```
 2. Confirm that the DU agent is running correctly. Look for 'HealthCheck passed'
@@ -109,13 +110,8 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 - Device with the Public Preview Refresh DU agent ( 0.8.x) and GA DU agent (1.0.x) can be managed through the Device Update portal. 
 - 
-- The Groups created in the Public Preview Refresh release portal will only allow addition of devices with the latest Device Update Agent (0.8.0). Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
- 
-- Any new devices using the latest agent will automatically be added to a Default DeviceClass Group in the ‘Groups and Deployments’ tab. If a group tag is added to the device properties, then the device will be added to that group if a group for that tag exists. 
- 
-- For the device using the latest agent, if a group tag is added to the device properties but the corresponding group is not yet created the device will not be visible in the ‘Groups and Deployments’ tab.
- 
-- Devices using the older agents will show up as ungrouped in the old portal if the group tag is not added.
+- Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
+
 
 ## Next steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
