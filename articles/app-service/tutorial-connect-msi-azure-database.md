@@ -237,7 +237,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
 
     ```sql
     SET aad_validate_oids_in_tenant = off;
-    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user;
+    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-user-assigned-identity>' IN ROLE azure_ad_user;
     ```
 
     Whatever name you choose for *\<postgresql-user-name>*, it's the PostgreSQL user you'll use to connect to the database later from your code in App Service.
