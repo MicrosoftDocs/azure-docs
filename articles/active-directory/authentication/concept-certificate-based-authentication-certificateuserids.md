@@ -119,7 +119,7 @@ certificateUserIds = x509:<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p
 
 **Tenant User Binding Policy**
  
-Priority 1 Principal Name in SAN -> Azure AD UPN 
+Priority 1 Principal Name in SAN -> Azure AD UPN
 Priority 2 Certificate SKI -> certificateUserIds
 
 The above configuration would allow the same certificate to be used by Bob for both his productivity and developer account.
