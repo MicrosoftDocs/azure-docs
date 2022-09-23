@@ -106,8 +106,6 @@
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Create a placement policy
     href: create-placement-policy.md
-  - name: Configure external identity source for vCenter Server
-    href: configure-identity-source-vcenter.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
   - name: Configure Identity
