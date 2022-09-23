@@ -116,7 +116,7 @@ items:
     - name: Multi-level industrial IoT (IIOT) configuration
       href: connected-cache-industrial-iot-nested.md
   - name: Migrate devices to public preview refresh
-    href: migration-PPR-to-GA.md
+    href: migration-public-preview-refresh-to-ga.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot device updates
