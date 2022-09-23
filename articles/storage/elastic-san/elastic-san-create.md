@@ -105,7 +105,7 @@ Now that you've configured the basic settings and provisioned your storage, you 
 
 
 1. Select **+ Create volume group** and name your volume.
-    The volume group name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
+    The volume group name can't be changed once created.
 1. Select **Next : Volumes**
 
 # [PowerShell](#tab/azure-powershell)
