@@ -53,7 +53,7 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 ## List DevOps policies
 This section describes the steps to list DevOps policies in Microsoft Purview.
 
-Ensure you have the the Microsoft Purview permissions as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
+Ensure you have the Microsoft Purview permissions as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -64,7 +64,7 @@ Ensure you have the the Microsoft Purview permissions as described [here](./how-
 
 
 ## Update a DevOps policy
-This section describes the steps to update a DevOps policies in Microsoft Purview.
+This section describes the steps to update a DevOps policy in Microsoft Purview.
 
 Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
 
@@ -80,7 +80,7 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 1. Continue same as with step 5 and 6 of the policy create.
 
 ## Delete a DevOps policy
-This section describes the steps to delete a DevOps policies in Microsoft Purview.
+This section describes the steps to delete a DevOps policy in Microsoft Purview.
 
 Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
 
