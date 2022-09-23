@@ -20,7 +20,7 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-use-identity-based-service-authentication.md)
+> * [v2 (current version)](../how-to-identity-based-service-authentication.md)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
