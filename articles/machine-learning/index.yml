@@ -115,7 +115,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Python SDK code examples
-          url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          url: https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/README.md
         - text: v2 CLI code examples (preview)
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation
