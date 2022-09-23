@@ -19,7 +19,7 @@ What you will learn:
 
 > [!div class="checklist"]
 > * Configure a Quarkus app to authenticate using Azure Active Directory (Azure AD) with a PostgreSQL Database.
-> * Create an Azure Container Registry and push a Java app image to it.
+> * Create an Azure container registry and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.
 > * Connect to a PostgreSQL Database with managed identity using Service Connector.
@@ -45,7 +45,7 @@ The following example creates a resource group named `myResourceGroup` in the Ea
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container Registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, `myContainerRegistry007` is used. Update this to a unique value.
+Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, `myContainerRegistry007` is used. Update this to a unique value.
 
 ```azurecli
 az acr create \
@@ -153,7 +153,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    mvnw clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=myContainerRegistry007 -Dquarkus.container-image.name=quarkus-postgres-passwordless-app -Dquarkus.container-image.tag=v1
    ```
 
-1. Log in to registry
+1. Log in to the registry.
 
    Before pushing container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry resource name when signing in with the Azure CLI. Don't use the fully qualified login server name.
 
@@ -186,7 +186,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
        --location $LOCATION
    ```
 
-1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find Container Registry admin account details, please check [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md)
+1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find the container registry admin account details, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md)
 
    ```azurecli
    CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1
