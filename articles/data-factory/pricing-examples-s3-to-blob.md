@@ -16,7 +16,7 @@ ms.date: 09/22/2022
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule for 8 hours per day, for 30 days.
 
-The prices used in this example below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+The prices used in this example below are hypothetical and aren't intended to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
 Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
@@ -24,18 +24,18 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. I will copy data from AWS S3 to Azure Blob storage, and this will move 10GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
+1. I'll copy data from AWS S3 to Azure Blob storage, and this will move 10 GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
 
 3. A schedule trigger to execute the pipeline every hour for 8 hours every day.
 
-   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.":::
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger.":::
 
 ## Costs estimation
 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 2 Activity runs per execution (1 for the trigger to run, 1 for activity to run) |
-| Copy Data Assumption: execution hours **per run** | .5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Copy Data Assumption: execution hours **per run** | 0.5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Total execution hours: 8 runs per day for 30 days | 240 runs * 2 DIU/run = 480 DIUs |
 
 ## Pricing calculator example

@@ -14,9 +14,9 @@ ms.date: 09/22/2022
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 30 days. You will do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
+In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule.  We'll calculate the price for 30 days. You'll do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
 
-The prices used in this example below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+The prices used in this example below are hypothetical and aren't intended to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
 Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
@@ -34,7 +34,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 6 Activity runs per execution (2 for trigger run, 4 for activity runs) |
-| Execute Delete Activity: each execution time = 5 min. If the Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC and the Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There is a 60 minutes Time To Live (TTL) for pipeline activity|
+| Execute Delete Activity: each execution time = 5 min. If the Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC and the Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There's a 60 minutes Time To Live (TTL) for pipeline activity|
 | Copy Data Assumption: each execution time = 10 min if the Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC and the Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
 ## Pricing calculator example
