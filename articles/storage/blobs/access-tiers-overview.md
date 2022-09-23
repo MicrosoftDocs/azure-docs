@@ -121,7 +121,7 @@ The following table summarizes the approaches you can take to move blobs between
 |--|--|--|--|
 | **Hot tier** | N/A | Change a blob's tier from hot to cool with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md)<br /><br />Move blobs to the cool tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | Change a blob's tier from hot to archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
 | **Cool tier** | Change a blob's tier from cool to hot with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md) <br /><br />Move blobs to the hot tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | N/A | Change a blob's tier from cool to archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
-| **Archive tier** | Rehydrate to hot tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | Rehydrate to cool tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | N/A |
+| **Archive tier** | Rehydrate to the hot tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | Rehydrate to cool tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | N/A |
 
 ## Blob lifecycle management
 
@@ -184,8 +184,8 @@ Changing the account access tier results in tier change charges for all blobs th
 Keep in mind the following billing impacts when changing a blob's tier:
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
-- When a blob is moved to a cooler tier (hot to cool, hot to archive, or cool to archive), the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
-- When a blob is moved to a warmer tier (Archive to cool, archive to hot, or cool to hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
+- When a blob is moved to a cooler tier, the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
+- When a blob is moved to a warmer tier, the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
 - While a blob is being rehydrated from the archive tier, that blob's data is billed as archived data until the data is restored and the blob's tier changes to hot or cool.
 
 The following table summarizes how tier changes are billed.
