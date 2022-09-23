@@ -12,17 +12,15 @@ keywords: "Kubernetes, Azure, multi-cluster, multi, containers"
 
 # What is Azure Kubernetes Fleet Manager (preview)?
 
-Azure Kubernetes Fleet Manager enables multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters. An Azure Kubernetes Fleet Manager resource, called a fleet, creates a cluster that can be used to manage other member clusters.
+Azure Kubernetes Fleet Manager (Fleet) enables multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters. A Fleet resource creates a cluster that can be used to manage other member clusters.
 
-Azure Kubernetes Fleet Manager supports the following scenarios:
+Fleet supports the following scenarios:
 
-* Create a fleet resource and group AKS clusters as member clusters of the fleet.
+* Create a Fleet resource and group AKS clusters as member clusters.
 
-* Create Kubernetes objects on fleet cluster and control their propagation to all or a subset of all member clusters.
+* Create Kubernetes objects on the Fleet resource's cluster and control their propagation to all or a subset of all member clusters.
 
-* Export a service from one member cluster to the fleet. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any fleet-scoped load balancer) can consume.
-
-<!-- need clarity on this final point. Is "the hub" referring to the fleet cluster? -->
+* Export a service from one member cluster to the Fleet resource. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any Fleet resource-scoped load balancer) can consume.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 

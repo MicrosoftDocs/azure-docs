@@ -1,6 +1,6 @@
 ---
-title: "How to set up multi-cluster Layer 4 load balancing (preview)"
-description: Learn how to use Kubernetes Fleet Manager to set up multi-cluster Layer 4 load balancing across workloads deployed on multiple clusters.
+title: "How to set up multi-cluster Layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)"
+description: Learn how to use Azure Kubernetes Fleet Manager to set up multi-cluster Layer 4 load balancing across workloads deployed on multiple member clusters.
 ms.topic: how-to
 ms.date: 09/09/2022
 author: shashankbarsin
@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
 
-Once an application has been deployed across multiple clusters using the [Kubernetes configuration propagation](./configuration-propagation.md) capability of Azure Kubernetes Fleet Manager, admins often have a need to set up load balancing for incoming traffic across the service responsible for exposing the application in each of the fleet's member clusters.
+Once an application has been deployed across multiple clusters using the [Kubernetes configuration propagation](./configuration-propagation.md) capability of Azure Kubernetes Fleet Manager (Fleet), admins often have a need to set up load balancing for incoming traffic across the service responsible for exposing the application in each of the Fleet resource's member clusters.
 
 In this how-to guide, you'll set up layer 4 load balancing across workloads deployed across a fleet's member clusters.
 
@@ -20,13 +20,13 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Kubernetes Fleet Manager fleet resource with member clusters to which a workload has been deployed. This can be done by following [Quickstart: Create an Azure Kubernetes Fleet Manager and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager to member clusters](configuration-propagation.md)
+* You must have a Fleet resource with member clusters to which a workload has been deployed. This can be done by following [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
 
 * The target AKS clusters on which the workloads are deployed need to be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
 * The target AKS clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
-* The target AKS clusters on which these workloads are deployed need to be [added as member clusters to the fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
+* The target AKS clusters on which these workloads are deployed need to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
 
 [!INCLUDE [preview features note](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -36,7 +36,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 >
 > * The steps in this how-to guide refer to a sample application, called `app`, for demonstration purposes only. You can substitute this workload for any of your own existing Deployment and Service objects.
 >
-> * These steps deploy the sample workload from the Kubernetes Fleet Manager cluster to member clusters using Kubernetes configuration propagation. Alternatively, you can choose to deploy these Kubernetes configurations to each member cluster separately, one at a time.
+> * These steps deploy the sample workload from the Fleet cluster to member clusters using Kubernetes configuration propagation. Alternatively, you can choose to deploy these Kubernetes configurations to each member cluster separately, one at a time.
 
 1. Obtain `kubeconfig` for the fleet cluster
 
@@ -121,7 +121,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     	namespace: demo
 	```
 
-	The `ServiceExport` specification above allows you to export a service from one member cluster to the Kubernetes Fleet Manager fleet. Once successfully exported, Kubernetes Fleet Manager will sync this service and all endpoints behind it to the hub, which other member clusters and fleet-scoped load balancers can then consume.
+	The `ServiceExport` specification above allows you to export a service from one member cluster to the Fleet resource. Once successfully exported, Fleet will sync this service and all endpoints behind it to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
 
 	<!-- same as in overview, this statement needs clarification on what "the hub" is -->
 

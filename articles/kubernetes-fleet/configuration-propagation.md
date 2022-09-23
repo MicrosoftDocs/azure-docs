@@ -1,6 +1,6 @@
 ---
-title: "Propagate Kubernetes configurations from a fleet to member clusters (preview)"
-description: Learn how to control how Kubernetes configurations get propagated to all or a subset of member clusters of an Azure Kubernetes Fleet Manager fleet.
+title: "Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager resource to member clusters (preview)"
+description: Learn how to control how Kubernetes configurations get propagated to all or a subset of member clusters of an Azure Kubernetes Fleet Manager resource.
 ms.topic: how-to
 ms.date: 09/09/2022
 author: shashankbarsin
@@ -8,15 +8,15 @@ ms.author: shasb
 ms.service: kubernetes-fleet
 ---
 
-# Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager fleet to member clusters (preview)
+# Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
 
-Platform admins and application developers need a way to deploy the same workload across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
+Platform admins and application developers need a way to deploy the same workload across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-* You have a fleet resource with one or more member clusters. If not, follow the [quickstart](quickstart-create-fleet-and-members.md) to create a fleet resource and join AKS clusters as members.
+* You have a Fleet resource with one or more member clusters. If not, follow the [quickstart](quickstart-create-fleet-and-members.md) to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members.
 
 ## Resource selection
 
@@ -125,7 +125,7 @@ An example of targeting a specific cluster by name is given below :
 
 
 > [!INFO]
-> While the above steps gave an example of one method of identifying the target clusters specifically by name, more methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
+> The above steps gave an example of one method of identifying the target clusters specifically by name. More methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
 
 ## Next steps
 
