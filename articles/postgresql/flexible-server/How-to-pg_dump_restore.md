@@ -36,8 +36,9 @@ Specifies the compression level to use.Zero means no compression.Zero compressio
 Before the starting the pg_dump process consider if vacuuming of tables is necessary.Bloat on tables significantly increases pg_dump times.Execute below query to identify table bloats 
 
 ```
-select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0 and round(n_dead_tup::float/n_live_tup::float*100) >=10;
+select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
 ```
+- **Dead_pct**: percentage of dead tuples when compared to live tuples.
 
 Perform vacuum analyze of the tables which are identified or deemed necessary. 
 
