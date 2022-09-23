@@ -48,7 +48,7 @@ Application Insights pricing is consumption-based; you pay for only what you use
 
 ## How do I instrument an application?
 
-[Auto-Instrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's the only way to instrument an application in which you don't have access to the source code.
+[Auto-Instrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's also the only way to instrument an application in which you don't have access to the source code.
 
 You only need to install the Application Insights SDK in the following circumstances:
 
@@ -58,48 +58,41 @@ You only need to install the Application Insights SDK in the following circumsta
 
 To use the SDK, you install a small instrumentation package in your app and then instrument the web app, any background components, and JavaScript within the web pages. The app and its components don't have to be hosted in Azure. The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique token. The effect on your app's performance is small; tracking calls are non-blocking and batched to be sent in a separate thread.
 
-Refer to the decision tree below to see what is available to instrument your app.
-
 ### [.NET](#tab/net)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-dotnet.png" alt-text="Diagram of a decision tree providing .NET instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-dotnet.png":::
+Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md#monitor-executions-in-azure-functions), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
-- [Auto-Instrumentation](codeless-overview.md)
-- [Azure Application Insights libraries for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights)
-- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](azure-vm-vmss-apps.md)
-- [Deploy Azure Monitor Application Insights Agent for on-premises servers](status-monitor-v2-overview.md)
+[Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
 
+A detailed view of all Auto-instrumentation supported environments, languages, and resource providers are available [here](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
+For other scenarios, the [Application Insights SDK](https://docs.microsoft.com/dotnet/api/overview/azure/insights) is required.
+
+A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
 ### [Java](#tab/java)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-java.png" alt-text="Diagram of a decision tree providing Java instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-java.png":::
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
 
-Links:
-- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
+Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
 
 ### [Node.js](#tab/nodejs)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-node.png" alt-text="Diagram of a decision tree providing Node instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-node.png":::
+Auto-instrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
-Links:
-- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
-- [Monitor your Node.js services and apps with Application Insights](nodejs.md)
+The [Application Insights SDK](nodejs.md) is an alternative and we also have a preview [Open Telemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
 ### [JavaScript](#tab/javascript)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-js.png" alt-text="Diagram of a decision tree providing JavaScript instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-js.png":::
-
-Links:
-- [Application Insights for webpages](javascript.md)
+JavaScript requires the [Application Insights SDK](javascript.md).
 
 ### [Python](#tab/python)
 
-:::image type="content" source="media/app-insights-overview/instrumentation-decision-tree-python.png" alt-text="Diagram of a decision tree providing Python instrumentation guidance." lightbox="media/app-insights-overview/instrumentation-decision-tree-python.png":::
+Python applications can be monitored using [OpenCensus Python SDK via the Azure Monitor exporters](opencensus-python.md).
 
-Links:
-- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications](opentelemetry-enable.md)
-- [Set up Azure Monitor for your Python application](opencensus-python.md)
+An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
+
+A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
 ---
 
