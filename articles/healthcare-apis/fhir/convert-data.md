@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps
 
 # Convert your data to FHIR
 
-By using the `$convert-data` custom endpoint in the Fast Healthcare Interoperability Resources (FHIR) service, you can convert health data from various formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion mapping. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports three types of data conversion: 
+By using the `$convert-data` custom endpoint in the FHIR service, you can convert health data from various formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports three types of data conversion: 
 * HL7v2 to FHIR
 * C-CDA to FHIR
 * JSON to FHIR (intended for custom conversion mapping)
@@ -28,11 +28,11 @@ The `$convert-data` operation is integrated into the FHIR service as a RESTful A
 
 `POST {{fhirurl}}/$convert-data`
 
-The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return an FHIR `Bundle` response with the data converted to FHIR.
+The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the data converted to FHIR.
 
-### Parameters resource
+### Parameters Resource
 
-A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
+A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [Parameters Resource](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
 
 | Parameter name      | Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Accepted values |
 | ----------- | ----------- | ----------- |
@@ -45,7 +45,7 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 > JSON templates are sample templates for use in building your own conversion mappings. They are *not* "default" templates that adhere to any pre-defined health data message types. JSON itself is not specified as a health data format, unlike HL7v2 or C-CDA. Therefore, instead of providing "default" JSON templates, we provide some sample JSON templates that you can use as a starting guide for your own customized mappings.
 
 > [!WARNING]
-> Default templates are released under the Massachusetts Institute of Technology (MIT) License and are *not* supported by Microsoft Support.
+> Default templates are released under the MIT License and are *not* supported by Microsoft Support.
 >
 > We provide default templates only to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
 > 1. Host your own copy of the templates in an Azure Container Registry instance.
