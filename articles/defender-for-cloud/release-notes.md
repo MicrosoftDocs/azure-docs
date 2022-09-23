@@ -6,7 +6,6 @@ ms.author: benmansheim
 ms.topic: reference
 ms.date: 09/20/2022
 ---
----
 
 # What's new in Microsoft Defender for Cloud?
 
