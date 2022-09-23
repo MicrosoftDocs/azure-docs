@@ -54,9 +54,11 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
+### Set your environment variables
+
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
-## Set up your environment
+## Set up your programming environment
 
 1. Start Visual Studio.
 
@@ -89,10 +91,6 @@ ms.custom: devx-track-csharp
  1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
-### Set your environment variables
-
-
-
 ## Build your application
 
 > [!NOTE]
@@ -106,42 +104,35 @@ ms.custom: devx-track-csharp
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
-    * The [prebuilt-read](#read-model) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+  > * [prebuilt-read](#read-model)
+  >
+  > * [prebuilt-layout](#layout-model)
+  >
+  > * [prebuilt-document](#general-document-model)
+  >
+  > * [prebuilt-tax.us.w2](#w2-model)
+  >
+  > * [prebuilt-invoice](#invoice-model)
+  >
+  > * [prebuilt-receipt](#receipt-model)
+  >
+  > * [prebuilt-idDocument](#id-document-model)
+  >
+  > * [prebuilt-businessCard](#business-card-model)
 
-    * The [prebuilt-layout](#layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
+1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-    * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
-
-    * The [prebuilt-tax.us.w2](#w2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
-
-    * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
-
-    * The [prebuilt-receipt](#receipt-model) model extracts key information from printed and handwritten sales receipts.
-
-    * The [prebuilt-idDocument](#id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
-
-    * The [prebuilt-businessCard](#business-card-model) model extracts key information from business card images.
+  :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ## Read model
-
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
-
-> [!div class="checklist"]
->
-> * For this example, we've added the file URI value to the `Uri fileUri` variable at the top of the script.
-> * To analyze a file at a given URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-read` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
-
-1. Open the **Program.cs** file.
-
-2. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
 
 ```csharp
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
-string endpoint = "<your-endpoint>";
-string key = "<your-key>";
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -195,14 +186,6 @@ foreach (DocumentLanguage language in result.Languages)
 
 ```
 
-> [!IMPORTANT]
->
-> * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md).
-
-3. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-    :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
-
 ### Read Model Output
 
 Here's a snippet of the expected output:
@@ -225,26 +208,109 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 ## Layout model
 
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
+
+AnalyzeResult result = operation.Value;
+
+foreach (DocumentPage page in result.Pages)
+{
+    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+    Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
+
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        DocumentLine line = page.Lines[i];
+        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {line.BoundingPolygon[0].X}, Y= {line.BoundingPolygon[0].Y}");
+        Console.WriteLine($"      Upper right => X: {line.BoundingPolygon[1].X}, Y= {line.BoundingPolygon[1].Y}");
+        Console.WriteLine($"      Lower right => X: {line.BoundingPolygon[2].X}, Y= {line.BoundingPolygon[2].Y}");
+        Console.WriteLine($"      Lower left => X: {line.BoundingPolygon[3].X}, Y= {line.BoundingPolygon[3].Y}");
+    }
+
+    for (int i = 0; i < page.SelectionMarks.Count; i++)
+    {
+        DocumentSelectionMark selectionMark = page.SelectionMarks[i];
+
+        Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {selectionMark.BoundingPolygon[0].X}, Y= {selectionMark.BoundingPolygon[0].Y}");
+        Console.WriteLine($"      Upper right => X: {selectionMark.BoundingPolygon[1].X}, Y= {selectionMark.BoundingPolygon[1].Y}");
+        Console.WriteLine($"      Lower right => X: {selectionMark.BoundingPolygon[2].X}, Y= {selectionMark.BoundingPolygon[2].Y}");
+        Console.WriteLine($"      Lower left => X: {selectionMark.BoundingPolygon[3].X}, Y= {selectionMark.BoundingPolygon[3].Y}");
+    }
+}
+
+foreach (DocumentStyle style in result.Styles)
+{
+    // Check the style and style confidence to see if text is handwritten.
+    // Note that value '0.8' is used as an example.
+
+    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+    if (isHandwritten && style.Confidence > 0.8)
+    {
+        Console.WriteLine($"Handwritten content found:");
+
+        foreach (DocumentSpan span in style.Spans)
+        {
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
+        }
+    }
+}
+
+Console.WriteLine("The following tables were extracted:");
+
+for (int i = 0; i < result.Tables.Count; i++)
+{
+    DocumentTable table = result.Tables[i];
+    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+
+    foreach (DocumentTableCell cell in table.Cells)
+    {
+        Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
+    }
+}
+
+
+
+
+```
+
+
 ## General document model
 
-The [prebuilt-document](../../../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
+
 
 ## W2 model
 
-The [prebuilt-tax.us.w2](../../../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+
 
 ## Invoice model
 
-The [prebuilt-invoice](../../../concept-invoice.md) model extracts key fields and line items from sales invoices of various formats and quality including phone-captured images, scanned documents, and digital PDFs.
+
 
 ## Receipt-model
 
-The [prebuilt-receipt](../../../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
+
 
 ## ID document model
 
-The [prebuilt-idDocument](../../../concept-id-document.md) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
+
 
 ## Business card model
 
-The [prebuilt-businessCard](../../../concept-business-card.md) model extracts key information from business card images.

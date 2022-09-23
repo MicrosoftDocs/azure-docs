@@ -22,21 +22,21 @@ In this project, you'll learn how-to use the following Form Recognizer models to
 
 > [!div class="checklist"]
 >
-> * [prebuilt-read](#read-model)
+> * The [prebuilt-read](../concept-read.md) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
 >
-> * [prebuilt-layout](#layout-model)
+> * The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 >
-> * [prebuilt-document](#general-document-model)
+> * The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
 >
-> * [prebuilt-tax.us.w2](#w2-model)
+> * The [prebuilt-tax.us.w2](../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 >
-> * [prebuilt-invoice](#invoice-model)
+> * The [prebuilt-invoice](../concept-invoice.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 >
-> * [prebuilt-receipt](#receipt-model)
+> * The [prebuilt-receipt](../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 >
-> * [prebuilt-idDocument](#id-document-model)
+> * The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
 >
-> * [prebuilt-businessCard](#business-card-model)
+> * The [prebuilt-businessCard](../concept-business-card.md) model extracts key information from business card images.
 
 ::: zone pivot="programming-language-csharp"
 

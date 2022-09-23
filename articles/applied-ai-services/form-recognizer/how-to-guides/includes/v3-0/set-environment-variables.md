@@ -30,31 +30,28 @@ To set the environment variable for your Form Recognizer resource key, open a co
 ##### **Set your key variable**
 
 ```console
-  set KEY={yourKey}
+  setx FR_KEY {yourKey}
+
 ```
 
 ##### **Set your endpoint variable**
 
 ```console
-set ENDPOINT={yourEndpoint}
+setx FR_ENDPOINT {yourEndpoint}
+
 ```
 
-* After you `set` your environment variables, you restart any running programs that will read the environment variable, including the console window. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
+* After you set your environment variables, you need to exit the shell and reopen it before the changes will be available. The value will remain modified until you change it again.
 
-    > [!NOTE]
-    > If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
-    >
-    > **set** modifies the current shell's (the window's) environment values, and the change is available immediately, but it is temporary. The change won't affect other shells that are running, and as soon as you close the shell, the new value is lost until you run set again.
-    >
-     > **setx** modifies the value permanently and affects all future shells. However,  bit doesn't modify the environment where shells are already running. You have to exit the shell and reopen it before the change will be available. The variable's value will remain modified until you change it again.
+* Restart any running programs that will read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
  Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** KEY=`{yourKey}`|
-  | **setx** VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.|**setx** KEY= |
-  | **set** VARIABLE_NAME | Display the value of a specific environment variable| **set** KEY|
+  | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** FR_KEY=`{yourKey}`|
+  | **setx** VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.|**setx** FR_KEY= |
+  | **set** VARIABLE_NAME | Display the value of a specific environment variable| **set** FR_KEY|
   | **set**| Display all environment variables.|**set**|
 
 #### [macOS](#tab/macOS)
@@ -80,10 +77,10 @@ export endpoint={yourEndpoint}
   1. Use your favorite text editor to open the `~/.bash_profile` and add the following command to create a permanent environment variable:
 
       ```bash
-      export KEY={yourKey} ENDPOINT={yourEndpoint}
+      export FR_KEY={yourKey} FR_ENDPOINT={yourEndpoint}
       ```
 
-        Example: **export KEY="{yourKey}"**
+        Example: **export FR_KEY="{yourKey}"**
 
   1. Save your changes to the `.bash_profile` file.
 
@@ -97,9 +94,9 @@ Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| **export** KEY=`{yourKey}`|
-  | **unset** VARIABLE_NAME | Delete an environment variable.|**unset** KEY |
-  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** KEY </br>&bullet; **echo** $KEY</br>|
+  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| **export** FR_KEY=`{yourKey}`|
+  | **unset** VARIABLE_NAME | Delete an environment variable.|**unset** FR_KEY |
+  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
   | **printenv**| Display all environment variables.|**printenv**|
 
 #### [Linux](#tab/linux)
@@ -111,13 +108,13 @@ The `export` command sets the variable and exports it to the global environment 
 ##### **Set your key variable**
 
 ```bash
-export KEY={yourKey}
+export FR_KEY={yourKey}
 ```
 
 ##### **Set your endpoint variable**
 
 ```bash
-export ENDPOINT={yourEndpoint}
+export FR_ENDPOINT={yourEndpoint}
 ```
 
 * You can set an environment variable permanently by placing an export command in your Bash `~/.bashrc` startup script:
@@ -128,7 +125,7 @@ export ENDPOINT={yourEndpoint}
       export <VARIABLE>=<value>
       ```
 
-        Example: **export KEY={yourKey}**
+        Example: **export FR_KEY={yourKey}**
 
   1. Save your changes to the `.bashrc` file.
 
@@ -142,9 +139,9 @@ Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** KEY=`{yourKey}`|
-  | **unset** VARIABLE_NAME| Delete an environment variable.|**unset** KEY= |
-  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable.</br>&bullet; With the **echo** command, precede the variable with $.| &bullet; **printenv** KEY </br>&bullet; **echo** $KEY</br>|
+  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** FR_KEY=`{yourKey}`|
+  | **unset** VARIABLE_NAME| Delete an environment variable.|**unset** FR_KEY= |
+  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable.</br>&bullet; With the **echo** command, precede the variable with $.| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
   | **printenv**| Display all environment variables.|**printenv**|
 
 ---
