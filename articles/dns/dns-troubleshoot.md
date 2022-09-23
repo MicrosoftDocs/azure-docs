@@ -160,20 +160,23 @@ Example SRV record names (service name 'sip', protocol 'tcp'):
 * [Create DNS record sets and records by using the Azure portal](./dns-getstarted-portal.md)
 * [SRV record type (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
-## Point to Site clients won't resolve Private DNS Zones unless you set VNET DNS to Private Resolver Inbound IP address
+## I cannot resolve records in Private DNS Zones using Private Resolver from point to site clients.
 
-If VNET DNS Servers is configured with Default (Azure-Provided), Point to Site clients wont be able to resolve Private DNS Zones.
+**Scenario**:
+
+If you are using Azure provided DNS server on VNET then Point to Site clients will not be able to resolve records Private DNS Zones(including private endpoints).
 
 ![image](https://user-images.githubusercontent.com/101088482/189837694-7343d311-355b-4780-a1ad-407a761e61fc.png)
 
-However, if VNET DNS Server is configured with the Private Resolver Inbound IP address, P2S clients will be able to resolve Private DNS Zones (including those created from Private Endpoints). Please note the Private DNS zones must be associated with the VNET that has the Private Resolver.
+The following step will help you resolve records from Private DNS zone:
+
+Configuring custom DNS servers on VNET with Private resolver inbound IP address will help you resolve records in private DNS zone (including those created from Private Endpoints). Please note the Private DNS zones must be associated with the VNET that has the Private Resolver.
 
 ![Screenshot 2022-09-16 174123](https://user-images.githubusercontent.com/101088482/190636070-3f577f86-7b44-4c3b-97ba-9276d7a06877.jpg)
 
-You can get away with settings up your local DNS to use Private Resolver Inbound IP address, but that does not scale.
+**More information**:
 
-The recommended scenario would be to make P2S clients resolve Private DNS zones seamlessly with VNET configured with Default (Azure-Provided) DNS, since we would have the Private Resolver Inbound IP address to route traffic.
-
+Private resolver inbound IP address will be pushed to point to site clients as DNS server when VNET is configured with custom DNS.
 
 ## Next steps
 
