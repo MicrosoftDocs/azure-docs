@@ -30,14 +30,14 @@ sections:
       - question: |
           Where can I get more diagnostic information after a user sign-in failed? 
         answer: |
-          There is a known issue when the authentication sometimes fails, the failure screen may not have an error message or troubleshooting information. For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly.
-          To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
+          The error page has a **More Details** link which gives log information that help your tenant admin look into sign in logs for detailed information. For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly.
+          To get more diagnostic information, look in **Sign-in logs**.
 
       - question: |
           How can an administrator enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **On** to enable certificate-based authentication.
+          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **Yes** to enable certificate-based authentication.
 
       - question: |
           Is Azure AD CBA a free feature?
