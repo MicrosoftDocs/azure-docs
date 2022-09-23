@@ -412,18 +412,17 @@ To setup Kerberos, deploy the `KerberosDeployment.json` ARM template by running 
 New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
 ```
 This template does the following:
-- Deploys these Azure resources: 
-  - Vnet
-  - Bastion, Bastion-ip
-  - ClientVM, ServerVM
-- Have the DNS Server of the VNET point to the private IP address of the Server-vm (domain controller). This is required for the target ClientVM to successfully domain-join to the Domain Controller (ServerVM).
+- Deploys the following Azure resources: 
+  - Virtual Network
+  - A Standard SKU Bastion with a public IP and Kerberos feature enabled
+  - A Windows 10 ClientVM and a Windows Server 2019 ServerVM
+- Have the DNS Server of the VNET point to the private IP address of the ServerVM (domain controller).
 - Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
 - Runs a Custom Script Extension on the ClientVM to have it: 
   - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication).
   - Domain-join the `bastionkrb.test` domain.
 
-Login to ClientVM using Bastion with Kerberos authentication:
-- Make sure to have the `Kerberos` feature enabled on the bastion.
+Now, login to ClientVM using Bastion with Kerberos authentication:
 - Login to ClientVM with Bastion using credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
 
 
