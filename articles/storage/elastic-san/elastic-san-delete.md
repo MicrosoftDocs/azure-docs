@@ -11,7 +11,7 @@ ms.subservice: elastic-san
 
 # Delete an Elastic SAN (preview)
 
-In order to delete an elastic storage area network (SAN), you first need to disconnect every volume in your elastic SAN (preview) from any connected hosts.
+In order to delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN (preview) from any connected hosts.
 
 You can disconnect a volume from a connected host with the iSCSI disconnect command.
 
@@ -47,7 +47,7 @@ az elastic-san delete -e $sanName -g $resourceGroupName -n $volumeGroupName
 ```
 ---
 
-Finally, delete the elastic SAN itself.
+Finally, delete the Elastic SAN itself.
 
 # [PowerShell](#tab/azure-powershell)
 

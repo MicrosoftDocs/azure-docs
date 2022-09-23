@@ -30,7 +30,7 @@ Elastic SAN simplifies deploying and managing storage at scale through grouping 
 
 ### Performance
 
-With an elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes, as long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 64,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
+With an Elastic SAN, it's possible to scale your performance up to millions of IOPS, with double-digit GB/s throughput, and have single-digit millisecond latency. The performance of a SAN is shared across all of its volumes, as long as the SAN's caps aren't exceeded and the volumes are large enough, each volume can scale up to 64,000 IOPs. Elastic SAN volumes connect to your clients using the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol, which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization and consolidation
 
@@ -40,19 +40,19 @@ Cost optimization can be achieved with Elastic SAN since you can increase your S
 
 Elastic SAN has three resources:
 
-- The elastic SAN itself
+- The Elastic SAN itself
 - Volume groups
 - Volumes
 
 The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to the resources of an on-premises SAN:
 
-:::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic SAN is like an on-premises SAN appliance and is where billing and provisioning are handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises SAN.":::
+:::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The Elastic SAN is like an on-premises SAN appliance and is where billing and provisioning are handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises SAN.":::
 
 ### Elastic SAN
 
-When you configure an elastic SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
+When you configure an Elastic SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
-Your elastic SAN's name has some limitations. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must be between 3 and 24 characters long.
+Your Elastic SAN's name has some limitations. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must be between 3 and 24 characters long.
 
 ### Volume groups 
 

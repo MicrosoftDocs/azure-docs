@@ -31,7 +31,7 @@ Currently, Elastic SAN (preview) is only available in the following regions:
 
 ## Configure virtual network
 
-Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your elastic SAN.
+Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your Elastic SAN.
 
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
@@ -145,7 +145,7 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
 
 # [PowerShell](#tab/azure-powershell)
 
-In this article, we provide you the command to create a single volume. To create a batch of volumes, see [Create multiple elastic SAN volumes](elastic-san-batch-create-sample.md).
+In this article, we provide you the command to create a single volume. To create a batch of volumes, see [Create multiple Elastic SAN volumes](elastic-san-batch-create-sample.md).
 
 > [!IMPORTANT]
 > The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.

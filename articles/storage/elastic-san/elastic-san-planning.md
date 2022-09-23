@@ -23,21 +23,21 @@ Answering those three questions can help you to successfully provision a SAN tha
 
 ## Storage and performance
 
-There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput(MBps) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput(MBps). The maximum total capacity an elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
+There are two ways to provision storage for an Elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput(MBps) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput(MBps). The maximum total capacity an Elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an Elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
 
 When you provision this storage into an individual volume, that volume's potential maximum performance is determined.
 
 ### IOPS
 
-Your elastic SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an elastic SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
+Your Elastic SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an Elastic SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
 
-The IOPS of an elastic SAN are distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your elastic SAN.
+The IOPS of an Elastic SAN are distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your Elastic SAN.
 
 ### Throughput
 
-Your elastic SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an elastic SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an elastic SAN is distributed among all its volumes.
+Your Elastic SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an Elastic SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
-The throughput of an elastic SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your elastic SAN.
+The throughput of an Elastic SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your Elastic SAN.
 
 ## Networking
 

@@ -15,21 +15,21 @@ There are three main components to an elastic storage area network (SAN): the SA
 
 ## The Elastic SAN
 
-An elastic SAN (preview) has three attributes that determine its performance: total capacity, IOPS, and throughput.
+An Elastic SAN (preview) has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
 ### Capacity
 
-The total capacity of your elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
+The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
 
-The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an elastic SAN is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
-The IOPS of an elastic SAN increases by 5,000 per base TiB. So if you had an elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still provide 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an elastic SAN are distributed among all its volumes.
+The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still provide 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an Elastic SAN are distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an elastic SAN increases by 80 MB/s per base TiB. So if you had an elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an elastic SAN is distributed among all its volumes.
+The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
 ### Elastic SAN scale targets
 
@@ -47,7 +47,7 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 ## Volume group
 
-An elastic SAN can have a maximum of 20 volume groups, and a volume group can contain up to 1,000 volumes.
+An Elastic SAN can have a maximum of 20 volume groups, and a volume group can contain up to 1,000 volumes.
 
 ## Volume
 
