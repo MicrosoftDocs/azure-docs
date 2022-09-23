@@ -14,7 +14,7 @@ ms.custom: mvc
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure.
 When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](../postgresql/index.yml) database running on [Azure App Service on Linux](overview.md).
 
-![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
+:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
 In this tutorial, you learn how to:
 
