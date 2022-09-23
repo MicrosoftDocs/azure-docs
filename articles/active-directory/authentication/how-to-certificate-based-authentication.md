@@ -5,31 +5,29 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 09/23/2022
 
 ms.author: justinha
-author: justinha
-manager: daveba
-ms.reviewer: tommma
+author: vimrang
+manager: amycolannino
+ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 # How to configure Azure AD certificate-based authentication
 
-Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant modern passwordless authentication by using an x.509 certificate.
+Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables organizations to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables organizations to adopt phishing-resistant modern passwordless authentication by using an x.509 certificate.
  
 During sign-in, users will see also an option to authenticate with a certificate instead of entering a password. 
 If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated against the user account and if successful, they are signed in.
 
 <!---Clarify plans that are covered --->
-This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
-
-Follow these instructions to configure and use Azure AD CBA.
+Follow these instructions to configure and use Azure AD CBA for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
 ## Prerequisites
 
-Make sure that the following prerequisites are in place.
+Make sure that the following prerequisites are in place:
 
 - Configure at least one certification authority (CA) and any intermediate certification authorities in Azure Active Directory.
 - The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Azure AD. 
@@ -49,6 +47,8 @@ Optionally, you can also configure authentication bindings to map certificates t
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Azure Active Directory certificate-based authentication.":::
 
 ## Step 1: Configure the certification authorities
+
+You can configure certification authorities (CAs) by using the Azure portal or PowerShell.
 
 ### Configure certification authorities using the Azure portal
 
