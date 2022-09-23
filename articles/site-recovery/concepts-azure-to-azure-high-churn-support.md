@@ -13,21 +13,21 @@ ms.author: v-pgaddala
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
 
-Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. This is currently in Public Preview. With this, you should be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may also be able to achieve better RPO performance as well for your high churning workloads. 
+Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may achieve better RPO performance for your high churning workloads. 
 
 ## Prerequisites 
 
-- High Churn support is only available for DR of Azure VMs. 
-- VM SKUs with RAM of min 32GB is recommended for this. 
-- Source disks should be Managed Disks.
-- This feature will only be available for source VMs in regions where Premium Blob storage accounts are available. Review supported regions for Premium Blob storage [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
+- Available for DR of Azure VMs. 
+- VM SKUs with RAM of min 32GB is recommended. 
+- Source disks must be Managed Disks.
+- Will be available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
 The following table summarizes Site Recovery limits:
 
-- These limits are based on our tests, but obviously don't cover all possible application I/O combinations. 
-- Actual results can vary based on your app I/O mix. 
+- These limits are based on our tests, doesn't cover all possible application I/O combinations. 
+- Actual results may vary based on your app I/O mix. 
 - There are two limits to consider, per disk data churn and per virtual machine data churn. 
-- The current limit for per virtual machine data churn is 100 MB/s. 
+- Limit per virtual machine data churn - 100 MB/s. 
 
 |Target Disk Type|Avg I/O Size|Avg Churn Supported|
 |---|---|---|
@@ -54,43 +54,36 @@ The following table summarizes Site Recovery limits:
 
 2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. **Customize target settings** page opens.
 
-3. Under **Churn for the VM**, you will find two options:  
+3. Under **Churn for the VM**,  
 
-   - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. If you select Normal churn, you will be able to use Standard storage accounts only for Cache Storage.  Hence, Cache storage dropdown will only list down Standard storage accounts. 
+   - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. Select Normal Churn to use Standard storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Standard storage accounts. 
 
-   - **High Churn** - You can get up to 100 MB/s per VM. If you select this option, you will be able to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will only list-down Premium Block blob storage accounts. 
+   - **High Churn** - You can get up to 100 MB/s per VM. Select High Churn to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Premium Block blob storage accounts. 
 
 4. Select **High Churn**.
    
-   If you have selected multiple source VMs for configuring Site Recovery and want to enable High Churn for all these VMs in one step, you can select High Churn at the top level. This will select High Churn for all the VMs. 
+   If you select multiple source VMs to configure Site Recovery and want to enable High Churn for all these VMs, select High Churn at the top level.
 
-5. Once you select **High Churn** for the VM, you will see Premium Block Blob options only available for cache storage account.  Select the cache storage account 
+5. Select cache storage account and then select **Confirm Selection**. 
 
-6. After selecting required target settings, click on **Confirm Selection**. 
-
-7. Configure other settings and enable the replication. 
+6. Configure other settings and enable the replication. 
 
 ### From Azure VM screen 
 
-1. In the portal, go to the virtual machine. 
+1. In the portal, go to **Virtual machines** and select the VM. 
 
-2. On the left, under Operations, select Disaster Recovery 
+2. On the left pane, under **Operations**, select **Disaster recovery**.
+   
+   
 
-3. From Basics, select the Target region. 
+3. Under **Basics**, select the **Target region** and then select **Next: Advanced settings**. 
 
-4. All the available Azure regions across the globe are displayed under the drop-down menu. Choose the target region as per your preference. 
+4. Under **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability**, and **Proximity placement group** as required.
 
-5. Click Advanced Settings. 
+5. Under **Advanced settings** > **Storage settings**, select **[+] Show details**.
+   - **Churn for the VM**: Select **High Churn(Public Preview)**. You will be able to use Premium Block Blob type of storage accounts only for cache storage. 
 
-6. Here you can select relevant **Target Subscription**, **Target Virtual Network**, **Target Availability**, **Target Proximity Placement Group**.
-
-7. Go to **Storage** and click on **[+] Show Details**.
-
-8. In **Churn of the VM** option, select High Churn. 
-
-9. Once you select High Churn, You will be able to use Premium Block Blob type of of storage accounts only for cache storage. 
-
-10. Click on **Review + Start Replication**.
+6. Select **Next: Review + Start replication**.
 
 >[!Note]
 >- You can enable High Churn only when you enable replication while configuring Azure Site Recovery on a VM.
