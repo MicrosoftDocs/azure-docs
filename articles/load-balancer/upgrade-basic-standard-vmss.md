@@ -142,7 +142,7 @@ The script migrates the following from the Basic load balancer to the Standard l
   - All virtual machine scale set network interfaces and IP configurations will be migrated to the new Standard load balancer
   - If a virtual machine scale set is using Rolling Upgrade policy, the script will update the virtual machine scale set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
-**Private Load Balancer:**
+**Internal Load Balancer:**
 
 - Private frontend IP configuration
   - Converts the public IP to a static IP, if dynamic
