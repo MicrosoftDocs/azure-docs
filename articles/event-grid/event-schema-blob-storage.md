@@ -248,18 +248,18 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
 ---
 
-## Azure Data Lake Storage Gen 2 events
+## Data Lake Storage Gen 2 events
 
 These events are triggered if you enable a hierarchical namespace on the storage account, and clients use Azure Data Lake Storage Gen2 REST APIs. For more information bout Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Event name|Description|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** | Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
-|**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
-|**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-data-lake-storage-gen2) | Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
+| [Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event-data-lake-storage-gen2) |Triggered when a blob is deleted. <br>Specifically, This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
+| [Microsoft.Storage.BlobRenamed](#microsoftstorageblobrenamed-event-data-lake-storage-gen2) |Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+| [Microsoft.Storage.DirectoryCreated](#microsoftstoragedirectorycreated-event-data-lake-storage-gen2) |Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+| [Microsoft.Storage.DirectoryRenamed](#microsoftstoragedirectoryrenamed-event-data-lake-storage-gen2) |Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+| [Microsoft.Storage.DirectoryDeleted](#microsoftstoragedirectorydeleted-event-data-lake-storage-gen2) |Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
 
 > [!NOTE]
 > For **Azure Data Lake Storage Gen2**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
@@ -616,20 +616,20 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 
 ---
 
-### List of the events for SFTP APIs
+## SFTP events
 
 These events are triggered if you enable a hierarchical namespace on the storage account, and clients use SFTP APIs. For more information about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](../storage/blobs/secure-file-transfer-protocol-support.md).
 
 |Event name|Description|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
-|**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
-|**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
-|**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
-|**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on a directory, which corresponds to the `SftpRename` API.|
-|**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `rmdir` operation, which corresponds to the `SftpRemoveDir` API.|
+| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-sftp) |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
+| [Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event-sftp) |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
+| [Microsoft.Storage.BlobRenamed](#microsoftstorageblobrenamed-event-sftp) |Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
+| [Microsoft.Storage.DirectoryCreated](#microsoftstoragedirectorycreated-event-sftp) |Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
+| [Microsoft.Storage.DirectoryRenamed](#microsoftstoragedirectoryrenamed-event-sftp) |Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on a directory, which corresponds to the `SftpRename` API.|
+| [Microsoft.Storage.DirectoryDeleted](#microsoftstoragedirectorydeleted-event-sftp) |Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `rmdir` operation, which corresponds to the `SftpRemoveDir` API.|
 
-## Example events
+### Example events
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -1076,16 +1076,16 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
 
 ---
 
-### Policy-related events
+## Policy-related events
 
 These events are triggered when the actions defined by a policy are performed.
 
  |Event name |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
- |**Microsoft.Storage.LifecyclePolicyCompleted** |Triggered when the actions defined by a lifecycle management policy are performed. |
+ | [Microsoft.Storage.BlobInventoryPolicyCompleted](#microsoftstorageblobinventorypolicycompleted-event) |Triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ | [Microsoft.Storage.LifecyclePolicyCompleted](#microsoftstoragelifecyclepolicycompleted-event) |Triggered when the actions defined by a lifecycle management policy are performed. |
 
-## Example events
+### Example events
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
