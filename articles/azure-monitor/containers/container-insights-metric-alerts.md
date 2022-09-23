@@ -21,7 +21,7 @@ This section describes creating [Prometheus metric alert rules](../alerts/alerts
 ### Create Prometheus metric alert rules
 The only method currently available for creating recommended Prometheus metric alert rules is a Resource Manager template. To edit the Prometheus metric alerts threshold or configure an action group for your AKS cluster, edit the appropriate values in the ARM template and redeploy it using any deployment method.
 
-1. Download the template that includes a definition for each of the recommended alert rules from [Github](https://github.com/Azure/prometheus-collector/blob/main/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json). 
+1. Download the template that includes a definition for each of the recommended alert rules from [GitHub](https://github.com/Azure/prometheus-collector/blob/main/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json). 
 2. Deploy this template using any standard methods for installing Resource Manager templates. See [Resource Manager template samples for Azure Monitor](../resource-manager-samples.md) for guidance
 
 > [!NOTE] 
