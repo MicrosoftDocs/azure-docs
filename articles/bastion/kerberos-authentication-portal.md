@@ -115,7 +115,7 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
     "SafeModeAdministratorPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "SafeModeAdministratorPassword."
+        "description": "See https://learn.microsoft.com/en-us/powershell/module/addsdeployment/install-addsdomaincontroller?view=windowsserver2022-ps#-safemodeadministratorpassword"
       }
     },
     "ClientVMUsername": {
