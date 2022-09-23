@@ -62,7 +62,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 
 ## Assign a subscription role assignment to the managed identity
 
-An identity attached to a project environment type will be used to deploy environments.The identity attached to the dev center or the identity configured for the project environment type will need 'Owner' access to all the deployment subscriptions, as well as 'Reader' access to all subscriptions that a project lives in.
+An identity attached to a project environment type will be used to deploy environments. The identity attached to the dev center or the identity configured for the project environment type will need 'Owner' access to all the deployment subscriptions, as well as 'Reader' access to all subscriptions that a project lives in.
 
 1. To add a role assignment to the managed identity:
     1. For a system-assigned identity, select **Azure role assignments**.
