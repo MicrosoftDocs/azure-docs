@@ -6,7 +6,7 @@ ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 09/28/2022
 ms.custom: template-concept 
 ---
  
@@ -69,5 +69,6 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 
 ## Next steps
 
+- [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md) 
 - [Learn more about the guest attestation feature](guest-attestation-confidential-vms.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)

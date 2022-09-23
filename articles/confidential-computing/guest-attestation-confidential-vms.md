@@ -6,7 +6,7 @@ ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 09/28/2022
 ms.custom: template-concept 
 ---
 
@@ -51,15 +51,15 @@ A workload (**Platform checker client** in the diagram) must integrate with the 
    This diagram shows a customer's confidential VM that contains a customer-provided workload, platform checker client, and Microsoft's guest attestation library. First, the platform checker client requests attestation from the library. The library gets a platform report from the hardware, then attests the report to the Microsoft Azure Attestation service. The attestation service returns the JSON web token response to the library, which returns the response to the platform checker client. Last, the platform checker client launches the customer workload. An extract of the JSON web token response shows the parameter "x-ms-attestation-type" value as "sevsnpvm", a virtual TPM claim parameter "kid" value of "TpmEphermeralEncryptionKey", and a secure boot claim with the parameter "secureboot" value of "true".
 :::image-end:::
 
-This scenario is very similar to the [following scenario](#scenario-request-from-inside-workload). The main difference is how each scenario achieves the same goal based on the location of the request.
+This scenario is similar to the [following scenario](#scenario-request-from-inside-workload). The main difference is how each scenario achieves the same goal based on the location of the request.
 
 ### Scenario: request from inside workload
 
 In this example scenario, attestation requests are made inside the workload at the start of the program. The requests check if the confidential VM runs on the correct hardware platform before a workload is launched.
 
-This scenario is very similar to the [previous scenario](#scenario-request-in-separate-workload). The main difference is how each scenario achieves the same goal based on the location of the request.
+This scenario is similar to the [previous scenario](#scenario-request-in-separate-workload). The main difference is how each scenario achieves the same goal based on the location of the request.
 
-The customer workload must integrate with the attestation library and run inside the confidential VM. After making a request to the attestation library, the customer workload parses the response to determine if the VM runs on the correct hardware platform and/or secure boot setting before fully setting up the sensitive workload.
+The customer workload must integrate with the attestation library and run inside the confidential VM. After the customer workload makes a request to the attestation library, the customer workload parses the response to determine if the VM runs on the correct hardware platform and/or secure boot setting before fully setting up the sensitive workload.
 
 :::image type="complex" source="./media/guest-attestation-confidential-vms/request-inside-workload.png" lightbox="./media/guest-attestation-confidential-vms/request-inside-workload.png" alt-text="Diagram of an attestation request being made from within a workload inside a confidential VM.":::
    This diagram shows a customer's confidential VM that contains a customer workload and Microsoft's guest attestation library. The workload makes an attestation request to the library. The library gets a platform report from the hardware, then attests that platform report to the Microsoft Azure Attestation service. The attestation service returns a JSON web token response to the library. The library then returns the JSON web token response to the customer workload. An extract of the JSON web token response shows the parameter "x-ms-attestation-type" value as "sevsnpvm", a virtual TPM claim parameter "kid" value of "TpmEphermeralEncryptionKey", and a secure boot claim with the parameter "secureboot" value of "true". 
@@ -348,4 +348,5 @@ You can extract different parts of the JSON web token for the [different API sce
 ## Next steps
 
 - [Learn to use a sample application with the guest attestation APIs](guest-attestation-example.md)
+- [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)

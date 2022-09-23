@@ -61,6 +61,8 @@
       href: virtual-machine-solutions-amd.md
     - name: Guest attestation for confidential VMs
       href: guest-attestation-confidential-vms.md
+    - name: Microsoft Defender for Cloud integration
+      href: guest-attestation-defender-for-cloud.md
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
