@@ -1,6 +1,6 @@
 ---
-title: What is platform guest attestation for confidential VMs? (preview)
-description: Learn how you can use platform guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform. 
+title: What is guest attestation for confidential VMs? (preview)
+description: Learn how you can use guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform. 
 author: prasadmsft
 ms.author: reprasa
 ms.service: virtual-machines
@@ -10,19 +10,19 @@ ms.date: 09/01/2022
 ms.custom: template-concept 
 ---
 
-# What is platform guest attestation for confidential VMs? (preview)
+# What is guest attestation for confidential VMs? (preview)
 
 > [!IMPORTANT]
-> Platform guest attestations for confidential virtual machines is currently in PREVIEW.
+> Guest attestation for confidential virtual machines is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [Confidential virtual machines (confidential VMs)](confidential-vm-overview.md) are an offering within Azure Confidential Computing. You can use this offering when you have stringent security and confidentiality requirements for your VMs. 
 
-The *platform guest attestation* feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
+The *guest attestation* feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
 
-Platform guest attestation gives you and the relying party increased confidence that the workloads are running on a hardware-based TEE.
+Guest attestation gives you and the relying party increased confidence that the workloads are running on a hardware-based TEE.
 
-You can use platform guest attestation to:
+You can use guest attestation to:
 
 - Make sure that the confidential VM runs on the expected confidential hardware platform (AMD SEV-SNP)
 - Check that a confidential VM has secure boot enabled. This setting protects lower layers of the VM (firmware, boot loader, kernel) from malware (rootkits, bootkits).
@@ -31,15 +31,15 @@ You can use platform guest attestation to:
 
 ## Scenarios
 
-The major components and services involved in platform guest attestation are:
+The major components and services involved in guest attestation are:
 
 - The workload
-- The platform guest attestation library
+- The guest attestation library
 - Hardware (for reporting). For example, AMD-SEVSNP.
 - The [Microsoft Azure Attestation service](../attestation/overview.md)
 - JSON web token response
 
-:::image type="complex" source="./media/guest-attestation-confidential-vms/attestation-workflow.png" lightbox="./media/guest-attestation-confidential-vms/attestation-workflow.png" alt-text="Diagram of platform guest attestation scenario for a confidential VM.":::
+:::image type="complex" source="./media/guest-attestation-confidential-vms/attestation-workflow.png" lightbox="./media/guest-attestation-confidential-vms/attestation-workflow.png" alt-text="Diagram of guest attestation scenario for a confidential VM.":::
    This diagram shows an Azure confidential VM that contains a customer application and the C++ guest attestation library. First, the customer application requests the attestation from the library. Next, the library gets the AMD-SEVSNP report from the hardware. Then, the library attests the AMD-SEVSNP report to the Microsoft Azure Attestation service. Next, the attestation service returns a JSON web token response to the library. Last, the library returns the JSON web token response to the customer application. An extract of the JSON web token report shows the parameter "x-ms-attestation-type" value as "sevsnpvm".
 :::image-end:::
 
@@ -97,7 +97,7 @@ The following sequence diagram further explains the relying party scenario. The 
 
 ## APIs
 
-Microsoft provides the platform guest attestation library with APIs to [perform attestations](#attest-api), and both [encrypt](#encrypt-api) and [decrypt](#decrypt-api) data. There's also an API to [reclaim memory](#free-api).
+Microsoft provides the guest attestation library with APIs to [perform attestations](#attest-api), and both [encrypt](#encrypt-api) and [decrypt](#decrypt-api) data. There's also an API to [reclaim memory](#free-api).
 
 You can use these APIs for the different [scenarios](#scenarios) described previously.
 
@@ -237,7 +237,7 @@ The APIs can return the following error codes:
 
 ## JSON web token
 
-You can extract different parts of the JSON web token for the [different API scenarios](#apis) described previously. The following are important fields for the platform guest attestation feature:
+You can extract different parts of the JSON web token for the [different API scenarios](#apis) described previously. The following are important fields for the guest attestation feature:
 
 | Claim | Attribute | Example value |
 | ----- | --------- | ------------ |
@@ -351,5 +351,5 @@ You can extract different parts of the JSON web token for the [different API sce
 
 ## Next steps
 
-- [Learn to use a sample application with the platform guest attestations APIs](guest-attestation-example.md)
+- [Learn to use a sample application with the guest attestation APIs](guest-attestation-example.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)

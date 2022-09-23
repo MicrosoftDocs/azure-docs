@@ -10,15 +10,15 @@ ms.date: 09/01/2022
 ms.custom: template-concept 
 ---
  
-# Use sample application for platform guest attestations (preview)
+# Use sample application for guest attestation (preview)
 
 > [!IMPORTANT]
-> Platform guest attestations for confidential virtual machines is currently in PREVIEW.
+> guest attestation for confidential virtual machines is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The [*platform guest attestation*](guest-attestation-confidential-vms.md) feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
+The [*guest attestation*](guest-attestation-confidential-vms.md) feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
 
-Sample applications for use with the platform guest attestations APIs are [available on GitHub](https://github.com/Azure/confidential-computing-cvm-guest-attestation) for [Linux](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-linux-app) and [Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-windows-app).
+Sample applications for use with the guest attestation APIs are [available on GitHub](https://github.com/Azure/confidential-computing-cvm-guest-attestation) for [Linux](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-linux-app) and [Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-windows-app).
 
 Depending on your [type of scenario](guest-attestation-confidential-vms.md#scenarios), you can reuse the sample code in your client program or workload code. 
 
@@ -28,7 +28,7 @@ Depending on your [type of scenario](guest-attestation-confidential-vms.md#scena
 - An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Linux or Windows VM.
 ## Use sample application
 
-To use a sample application in C++ for use with the platform guest attestation APIs, follow the instructions for your operating system (OS).
+To use a sample application in C++ for use with the guest attestation APIs, follow the instructions for your operating system (OS).
 
 #### [Linux](#tab/linux)
 
@@ -73,5 +73,5 @@ To use a sample application in C++ for use with the platform guest attestation A
 
 ## Next steps
 
-- [Learn more about the platform guest attestations feature](guest-attestation-confidential-vms.md)
+- [Learn more about the guest attestation feature](guest-attestation-confidential-vms.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)
