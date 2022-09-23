@@ -109,7 +109,7 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Get Microsoft 365 admin center support
 
-Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](https://docs.microsoft.com/microsoft-365/admin).
+Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](/microsoft-365/admin).
 
 ## Stay informed
 Things can change quickly. The following resources provide updates and information on the latest releases.
@@ -126,4 +126,4 @@ Things can change quickly. The following resources provide updates and informati
 
 * [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)]
 
-* [Learn about the diagnostic data Azure identity support can access](active-directory-troubleshooting-diagnostic-data-access.md)
+* [Learn about the diagnostic data Azure identity support can access](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)
