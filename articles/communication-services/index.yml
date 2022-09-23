@@ -106,7 +106,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+            url: /training/modules/communication-service-send-sms-console-app/
   - title: Chat
     linkLists:
       - linkListType: quickstart
