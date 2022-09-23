@@ -37,3 +37,7 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Configure project environment types
       href: how-to-configure-project-environment-types.md
+    - name: Provide access to Dev Managers
+      href: how-to-configure-project-admin.md
+    - name: Provide access to developers
+      href: how-to-configure-deployment-environments-user.md
