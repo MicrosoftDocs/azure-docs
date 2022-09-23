@@ -65,6 +65,9 @@ The following example shows the rules that are available for configuration.
         "secure-secrets-in-params": {
           "level": "warning"
         },
+        "use-resource-id-functions": {
+          "level": "warning"
+        },
         "use-stable-resource-identifiers": {
           "level": "warning"
         },

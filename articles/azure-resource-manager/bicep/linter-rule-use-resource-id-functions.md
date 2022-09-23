@@ -2,14 +2,23 @@
 title: Linter rule - use resourceId functions
 description: Linter rule - use resourceId functions
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 09/23/2022
 ---
 
 # Linter rule - use resourceId function
 
-This rule finds uses of Azure location values that aren't parameterized.
+Ensures that the ID of a symbolic resource name or a suitable function is used rather than a manually-created ID, such as a concatenating string, for all properties representing a resource ID. Use resource symbolic names whenever it is possible.
 
-If property "id" represents a resource ID, it must use a symbolic resource reference, be a parameter or start with one of these functions: extensionResourceId, guid, if, reference, resourceId, subscription, subscriptionResourceId, tenantResourceId. Found nonconforming expression at id -> serviceBusConnectionId [https://aka.ms/bicep/linter/use-resource-id-functions]
+The allowed functions include:
+
+- [`extensionResourceId`](./bicep-functions-resource.md#extensionresourceid)
+- [`resourceId`](./bicep-functions-resource.md#resourceid)
+- [`subscriptionResourceId`](./bicep-functions-resource.md#subscriptionresourceid)
+- [`tenantResourceId`](./bicep-functions-resource.md#tenantresourceid)
+- [`if`](./conditional-resource-deployment.md)
+- [`reference`](./bicep-functions-resource.md#reference)
+- [`subscription`](./bicep-functions-scope.md#subscription)
+- [`guid`](./bicep-functions-string.md#guid)
 
 ## Linter rule code
 
@@ -19,75 +28,84 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource, thus preventing them from using the template. By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
-
-Rather than using a hard-coded string or variable value, use a parameter, the string 'global', or an expression (but not `resourceGroup().location` or `deployment().location`, see [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)). Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. This parameter may default to the resource group or deployment location (`resourceGroup().location` or `deployment().location`).
-
-The following example fails this test because the resource's `location` property uses a string literal:
+The following example fails this test because the resource's `api/id` property uses a manually-created string:
 
 ```bicep
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-      location: 'westus'
-  }
-```
-You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used as a default):
+@description('description')
+param connections_azuremonitorlogs_name string
 
-```bicep
-  param location string = resourceGroup().location
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-      location: location
-  }
-```
-
-The following example fails this test because the resource's `location` property uses a variable with a string literal.
-
-```bicep
-  var location = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-      location: location
-  }
-```
-
-You can fix it by turning the variable into a parameter:
-
-```bicep
-  param location string = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-      location: location
-  }
-```
-
-The following example fails this test because a string literal is being passed in to a module parameter that is in turn used for a resource's `location` property:
-
-```bicep
-module m1 'module1.bicep' = {
-  name: 'module1'
-  params: {
-    location: 'westus'
-  }
-}
-```
-where module1.bicep is:
-```bicep
+@description('description')
 param location string
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'storageaccount'
+@description('description')
+param resourceTags object
+param tenantId string
+
+resource connections_azuremonitorlogs_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_azuremonitorlogs_name
   location: location
-  kind: 'StorageV2'
-  sku: {
-    name: 'Premium_LRS'
+  tags: resourceTags
+  properties: {
+    displayName: 'azuremonitorlogs'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    nonSecretParameterValues: {
+      'token:TenantId': tenantId
+      'token:grantType': 'code'
+    }
+    api: {
+      name: connections_azuremonitorlogs_name
+      displayName: 'Azure Monitor Logs'
+      description: 'Use this connector to query your Azure Monitor Logs across Log Analytics workspace and Application Insights component, to list or visualize results.'
+      iconUri: 'https://connectoricons-prod.azureedge.net/releases/v1.0.1501/1.0.1501.2507/${connections_azuremonitorlogs_name}/icon.png'
+      brandColor: '#0072C6'
+      id: '/subscriptions/<subscription_id_here>/providers/Microsoft.Web/locations/<region_here>/managedApis/${connections_azuremonitorlogs_name}'
+      type: 'Microsoft.Web/locations/managedApis'
+    }
   }
 }
 ```
 
-You can fix the failure by creating a new parameter for the value:
+You can fix it by using the `subscriptionResourceId()` function:
+
 ```bicep
-param location string // optionally with a default value
-module m1 'module1.bicep' = {
-  name: 'module1'
-  params: {
-    location: location
+@description('description')
+param connections_azuremonitorlogs_name string
+
+@description('description')
+param location string
+
+@description('description')
+param resourceTags object
+param tenantId string
+
+resource connections_azuremonitorlogs_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_azuremonitorlogs_name
+  location: location
+  tags: resourceTags
+  properties: {
+    displayName: 'azuremonitorlogs'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    nonSecretParameterValues: {
+      'token:TenantId': tenantId
+      'token:grantType': 'code'
+    }
+    api: {
+      name: connections_azuremonitorlogs_name
+      displayName: 'Azure Monitor Logs'
+      description: 'Use this connector to query your Azure Monitor Logs across Log Analytics workspace and Application Insights component, to list or visualize results.'
+      iconUri: 'https://connectoricons-prod.azureedge.net/releases/v1.0.1501/1.0.1501.2507/${connections_azuremonitorlogs_name}/icon.png'
+      brandColor: '#0072C6'
+      id: subscriptionResourceId('Microsoft.Web/locations/managedApis', location, connections_azuremonitorlogs_name)
+      type: 'Microsoft.Web/locations/managedApis'
+    }
   }
 }
 ```
