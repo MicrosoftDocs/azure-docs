@@ -72,6 +72,8 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 
 ## More information
 
+- [What's new archive](whats-new-archive.md)
+- [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv)
 - [Blog - Azure Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
