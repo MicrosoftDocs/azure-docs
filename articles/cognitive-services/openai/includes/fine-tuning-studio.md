@@ -43,7 +43,7 @@ The fine-tuning workflow in Azure OpenAI Studio requires the following steps:
 
 Your training data and validation data sets consist of input & output examples for how you would like the model to perform.
 
-The training and validation data you use **must** be formatted as a JSON lines (JSONL) document in which each line represents a single prompt-completion pair. The OpenAI command-line interface (CLI) includes [a data preparation tool](#openai-cli-data-preparation-tool) that validates, gives suggestions, and reformats your training data into a JSONL file ready for fine-tuning.
+The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document in which each line represents a single prompt-completion pair. The OpenAI command-line interface (CLI) includes [a data preparation tool](#openai-cli-data-preparation-tool) that validates, gives suggestions, and reformats your training data into a JSONL file ready for fine-tuning.
 
 Here's an example of the training data format:
 
@@ -67,22 +67,31 @@ For more information about preparing training data for various tasks, see [Learn
 
 We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool which validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
-To install the CLI, run the following command:
+To install the CLI, run the following Python command:
 
 ```console
 pip install --upgrade openai 
 ```
-To analyze your training data with the data preparation tool, run the following command:
+To analyze your training data with the data preparation tool, run the following Python command, replacing `<LOCAL_FILE>` with the full path and file name of the training data file to be analyzed:
 
 ```console
 openai tools fine_tunes.prepare_data -f <LOCAL_FILE>
 ```
 
-This tool accepts different data formats, with the only requirement that they contain a prompt and a completion column/key. You can pass a CSV, TSV, XLSX, JSON, or JSONL file, and the tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
+This tool accepts files in the following data formats, if they contain a prompt and a completion column/key:
+
+- Comma-separated values (CSV)
+- Tab-separated values (TSV)
+- Microsoft Excel workbook (XLSX)
+- JavaScript Object Notation (JSON)
+- JSON Lines (JSONL)
+ 
+The tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
 
 ## Use the Create customized model wizard
 
 Azure OpenAI Studio provides the **Create customized model** wizard, so you can interactively create and train a fine-tuned model for your Azure resource. 
+
 ### Go to the Azure OpenAI Studio
 
 Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
@@ -105,7 +114,8 @@ To create a customized model, select the **Create customized model** button unde
 
 #### Select a base model
 
-The first step in creating a customized model is to choose a base model. The **Base model** pane allows you to select a base model to use for your customized model, and the choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
+The first step in creating a customized model is to choose a base model. The **Base model** pane lets you choose a base model to use for your customized model, and the choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
+
 - `ada`
 - `babbage`
 - `curie`
@@ -114,7 +124,7 @@ The first step in creating a customized model is to choose a base model. The **B
 
 For more information about our base models, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
 
-:::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the **Base model** pane of the **Create customized model** wizard." lightbox="../media/fine-tuning/studio-base-model.png":::
+:::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the Base model pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-base-model.png":::
 
 #### Choose your training data
 
@@ -127,7 +137,7 @@ If your training data has already been uploaded to the service, select **Choose 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Training data files must be formatted as JSON Lines (.jsonl) files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
 
 ##### To upload training data from a local file
 
@@ -158,7 +168,7 @@ If your validation data has already been uploaded to the service, select **Choos
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Like training data files, validation data files must be formatted as JSON Lines (.jsonl) files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size. 
+> Like training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size. 
 
 ##### To upload validation data from a local file
 
@@ -180,11 +190,20 @@ After you've imported the validation dataset, select **Next** to optionally [cho
 
 #### Choose advanced options
 
-You can either use default values for the parameters of the fine-tune job that the wizard runs to train your fine-tuned model, or you can adjust those parameters for your customization needs in the **Advanced options** pane, shown in the following picture.
+You can either use default values for the hyperparameters of the fine-tune job that the wizard runs to train your fine-tuned model, or you can adjust those hyperparameters for your customization needs in the **Advanced options** pane, shown in the following picture.
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options-default.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with default options selected." lightbox="../media/fine-tuning/studio-advanced-options-default.png":::
 
-Either select **Default** to use the default values for the fine-tune job, or select **Advanced** to display and edit the parameter values, as shownn in the following picture. For more information about the various parameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
+Either select **Default** to use the default values for the fine-tune job, or select **Advanced** to display and edit the hyperparameter values, as shown in the following picture. The following hyperparameters are available:
+
+| Parameter name | Description |
+| --- | --- |
+| **Number of epochs** | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. |
+| **Batch size** | The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass. |
+| **Learning rate multiplier** | The learning rate multiplier to use for training. The fine tuning learning rate is the original learning rate used for pre-training, multiplied by this value. |
+| **Prompt loss weight** | The weight to use for loss on the prompt tokens. This controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0), and can add a stabilizing effect to training when completions are short. |
+
+For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
 
@@ -205,7 +224,12 @@ The **Models** page displays information about your fine-tuned model in the **Cu
 :::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
 After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of the fine-tune job for your customized model in the **Status** column of the **Customized models** tab on the **Models** page, and you can select **Refresh** to update the information on that page. 
-You can also select the name of the model from the **Model name** column of the **Models** page to display more information about your customized model, including the status of the fine-tune job, and select the **Refresh** button on that page to refresh the information for your model.
+
+You can also select the name of the model from the **Model name** column of the **Models** page to display more information about your customized model, including the status of the fine-tune job, training results, training events, and hyperparameters used in the job. You can select the **Refresh** button to refresh the information for your model, as shown in the following picture.
+
+:::image type="content" source="../media/fine-tuning/studio-model-details.png" alt-text="Screenshot of the model page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+
+From the model page, you can also select **Download training file** to download the training data you used for the model, or select **Download results** to download the result file attached to the fine-tune job for your model and [analyze your customized model](#analyze-your-customized-model) for training and validation performance.
 
 ## Deploy a customized model
 
@@ -233,76 +257,44 @@ Once your customized model has been deployed, you can use it like any other mode
 
 :::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
-## Clean up your deployments, customized models, and training data
+## Analyze your customized model
 
-When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service. 
+Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model in the **Result file id** column of the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
+
+The result file is a CSV file containing a header row and a row for each training step performed by the fine-tune job.  The result file contains the following columns:
+
+| Column name | Description |
+| --- | --- |
+| `step` | The number of the training step. A training step represents one forward and backward pass on a batch of training data. |
+| `elapsed_tokens` | The number of tokens the customized model has seen so far, including repeats. |
+| `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the **Batch size** parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
+| `training_loss` | The loss for the training batch. |
+| `training_sequence_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `training_token_accuracy` | The percentage of tokens in the training batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `validation_loss` | The loss for the validation batch. |
+| `validation_sequence_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `validation_token_accuracy` | The percentage of tokens in the validation batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+
+## Clean up your deployments, customized models, and training files
+
+When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
 
-To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
+You can delete the deployment for your customized model from the **Deployments** page for Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
 
-```console
-az cognitiveservices account deployment delete --name
-                                               --resource-group
-                                               [--deployment-name]
+### Delete your customized model
 
-```
+You can delete a customized model from the **Models** page for Azure OpenAI Studio. Select the customized model to delete from the **Customized models** tab, and then select **Delete** to delete the customized model.
 
-### Delete your fine-tuned model
-
-You can delete a fine-tuned model either with the [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) or via the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs:
-
-```python
-openai.FineTune.delete(sid=job_id)
-```
+> [!NOTE]
+> You cannot delete a customized model if it has an existing deployment. You must first [delete your model deployment](#delete-your-model-deployment) before you can delete your customized model.
 
 ### Delete your training files
 
-You can also delete any files you've uploaded for training with the [REST APIs](../reference.md#files) or with the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs.
+You can optionally delete training and validation files you've uploaded for training, as well as result files generated during training, from the **File Management** page for Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
 
-```python
-print('Checking for existing uploaded files.')
-results = []
-files = openai.File.list().data
-print(f'Found {len(files)} total uploaded files in the subscription.')
-for item in files:
-    if item["filename"] in [training_file_name, validation_file_name]:
-        results.append(item["id"])
-print(f'Found {len(results)} already uploaded files that match our
-
-
-print(f'Deleting already uploaded files.')
-for id in results:
-    openai.File.delete(sid = id)
-```
-
-## Advanced usage
-
-### Analyzing your fine-tuned model
-
-We attach a result file to each job once it has been completed. This results file ID will be listed when you retrieve a fine-tune, and also when you look at the events on a fine-tune. You can download these files:
-
-```console
-curl -X GET https://example_resource_name.openai.azure.com/openai/files/RESULTS_FILE_ID/content?api-version=2022-06-01-preview \
-  -H "api-key: YOUR_API_KEY" > results.csv
-```
-
-The **results.csv** file contains a row for each training step, where a step refers to one forward and backward pass on a batch of data. In addition to the step number, each row contains the following fields corresponding to that step:
-
-- **elapsed_tokens**: the number of tokens the model has seen so far (including repeats)
-- **elapsed_examples**: the number of examples the model has seen so far (including repeats), where one example is one element in your batch. For example, if batch_size = 4, each step will increase elapsed_examples by 4.
-- **training_loss**: loss on the training batch
-- **training_sequence_accuracy**: the percentage of completions in the training batch for which the model's predicted tokens matched the true completion tokens exactly. For example, with a batch_size of 3, if your data contains the completions [[1, 2], [0, 5], [4, 2]] and the model predicted [[1, 1], [0, 5], [4, 2]], this accuracy will be 2/3 = 0.67
-- **training_token_accuracy**: the percentage of tokens in the training batch that were correctly predicted by the model. For example, with a batch_size of 3, if your data contains the completions [[1, 2], [0, 5], [4, 2]] and the model predicted [[1, 1], [0, 5], [4, 2]], this accuracy will be 5/6 = 0.83
-- **validation_loss** loss on the validation batch
-- **validation_sequence_accuracy**  the percentage of completions in the validation batch for which the model's predicted tokens matched the true completion tokens exactly. For example, with a batch_size of 3, if your data contains the completion [[1, 2], [0, 5], [4, 2]] and the model predicted [[1, 1], [0, 5], [4, 2]], this accuracy will be 2/3 = 0.67
-- **validation_token_accuracy**  the percentage of tokens in the validation batch that were correctly predicted by the model. For example, with a batch_size of 3, if your data contains the completion [[1, 2], [0, 5], [4, 2]] and the model predicted [[1, 1], [0, 5], [4, 2]], this accuracy will be 5/6 = 0.83
-
-### Validation
-
-It's a best practice to reserve some of your data for validation and testing. Both files can have the same format as your training file and all should be mutually exclusive. You can optionally include a validation file when creating your fine-tune job. If you do, the generated results file will include evaluations on how well the fine-tuned model performs against your validation data at periodic intervals during training.
-
-## Next Steps
+## Next steps
 
 - Explore the full REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [full REST documentation here](../reference.md).
 - Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
