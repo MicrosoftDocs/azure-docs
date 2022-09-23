@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 08/17/2022
+ms.date: 09/14/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,21 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.22 - September 2022
+
+### New features
+
+- The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
+- If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
+
+### Fixed
+
+- The agent can now be installed on Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
+- Agent telemetry is now sent through the proxy server if one is configured.
+- Improved accuracy of network connectivity checks
+- When switching the agent from monitoring mode to full mode, existing restrictions are now retained. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
@@ -32,6 +47,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Extension installation failures are now reported to Azure more reliably to prevent extensions from being stuck in the "creating" state
 - Metadata for Google Cloud Platform virtual machines can now be retrieved when the agent is configured to use a proxy server
 - Improved network connection retry logic and error handling
+- Linux only: resolves local escalation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
 
 ## Version 1.20 - July 2022
 
@@ -82,22 +98,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
 - Improved reliability when extracting extensions and guest configuration policy packages
 - Improved reliability for guest configuration policies that have child processes
-
-## Version 1.17 - April 2022
-
-### New features
-
-- The default resource name for AWS EC2 instances is now the instance ID instead of the hostname. To override this behavior, use the `--resource-name PreferredResourceName` parameter to specify your own resource name when connecting a server to Azure Arc.
-- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](manage-agent.md#check) with the new `--use-private-link` parameter.
-- You can now disable the extension manager with the [local agent security controls](security-overview.md#local-agent-security-controls).
-
-### Fixed
-
-- If you attempt to run `azcmagent connect` on a server that is already connected to Azure, the resource ID is now printed to the console to help you locate the resource in Azure.
-- The `azcmagent connect` timeout has been extended to 10 minutes.
-- `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine), or [REST API](/rest/api/hybridcompute/machines/get).
-- `azcmagent logs` collects only the 2 most recent logs for each service to reduce ZIP file size.
-- `azcmagent logs` collects Guest Configuration logs again.
 
 ## Next steps
 

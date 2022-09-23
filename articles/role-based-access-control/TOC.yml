@@ -177,5 +177,5 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-active-directory
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-active-directory

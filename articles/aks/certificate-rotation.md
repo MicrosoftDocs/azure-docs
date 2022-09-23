@@ -66,6 +66,9 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 > If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.
 > Do not disable bootstrap to keep your auto-rotation enabled.
 
+> [!NOTE]
+> If the cluster is in a stopped state during the auto certificate rotation only the control plane certificates are rotated.  In this case the nodepool should be recreated, after certificate rotation, in order to initiate the nodepool certificate rotation.
+
 For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Service will automatically rotate non-CA certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
 
 ### How to check whether current agent node pool is TLS Bootstrapping enabled?

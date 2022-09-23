@@ -147,6 +147,7 @@ The following client apps are confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
@@ -154,6 +155,7 @@ The following client apps are confirmed to support this setting:
 - Microsoft Outlook
 - Microsoft Planner
 - Microsoft Power BI
+- Microsoft PowerApps
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Teams
@@ -164,6 +166,7 @@ The following client apps are confirmed to support this setting:
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
+- Yammer (iOS and iPadOS)
 
 This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
 

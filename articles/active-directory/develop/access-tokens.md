@@ -280,7 +280,7 @@ An application may receive tokens for a user or directly from an application thr
 - Use `roles` to see permissions that have been granted to the subject of the token.
 - Use `oid` or `sub` to validate that the calling service principal is the expected one.
 
-If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). Add the `idtyp` claim to the `accessToken` field, and check for the value `app`, app-only access tokens can be detected. ID tokens and access tokens for users won't have the `idtyp` claim included.
+If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). To detect app-only access tokens, add the `idtyp` claim to the `accessToken` field, and check for the value `app`. ID tokens and access tokens for users won't have the `idtyp` claim included.
 
 ## Token revocation
 

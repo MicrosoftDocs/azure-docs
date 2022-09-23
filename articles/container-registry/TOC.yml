@@ -40,6 +40,16 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+    - name: Encrypt a registry with customer managed key
+      items:
+      - name: Customer managed keys - Overview
+        href: tutorial-customer-managed-keys.md
+      - name: Enable Customer managed key on your registry 
+        href: tutorial-enable-customer-managed-keys.md
+      - name: Rotate or revoke a Customer managed key
+        href: tutorial-rotate-revoke-customer-managed-keys.md
+      - name: Troubleshoot
+        href: tutorial-troubleshoot-customer-managed-keys.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -115,6 +125,8 @@
         items:
         - name: Delete image data - CLI
           href: container-registry-delete.md
+        - name: Soft delete policy
+          href: container-registry-soft-delete-policy.md
         - name: Retention policy for untagged manifests (preview)
           href: container-registry-retention-policy.md
         - name: Automatically purge tags and manifests (preview)

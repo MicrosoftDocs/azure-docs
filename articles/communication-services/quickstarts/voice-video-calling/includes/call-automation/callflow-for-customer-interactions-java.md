@@ -169,19 +169,18 @@ public class App
                     // Play audio to participants in the call
                     CallMedia callMedia = callConnection.getCallMedia();
                     FileSource fileSource = new FileSource().setUri("<Audio file URL>");
-                    PlayOptions playOptions = new PlayOptions.setLoop(false);
-                    callMedia.playToAllWithResponse(fileSource, playOptions);
-                } else if (event.getClass() == CallDisconnectedEvent.class) {
-                    // Call disconnected, perform some custom logic
-                } else if (event.getClass() == AddParticipantsSucceededEvent.class) {
-                    // CommunicationUser was added to the call
-                } else if (event.getClass() == AddParticipantsFailedEvent.class) {
-                    // CommunicationUser failed to be added to the call
-                } else if (event.getClass() == ParticipantsUpdatedEvent.class) {
-                    // Participant list of the call is updated
-                } else if (event.getClass() == PlayCompleted.class) {
-                    PlayCompleted event = (PlayCompleted) acsEvent;
-                    // Add participant to the call after audio has completed playing.
+                    CommunicationIdentifier targetParticipant = new PhoneNumberIdentifier("<Target-Participant-Phone-Number>");
+                    CallMediaRecognizeOptions recognizeDtmfOptions= new CallMediaRecognizeDtmfOptions(targetParticipant, 3)
+                        .setInterToneTimeoutInSeconds(2)
+                        .setStopTones(Collections.singletonList(Tone.POUND))
+                        .setInterruptPromptAndStartRecognition(true)
+                        .setInitialSilenceTimeoutInSeconds(5)
+                        .setPlayPrompt(fileSource)
+                        .setStopCurrentOperations(true);
+                    callMedia.startRecognizing(recognizeDtmfOptions);
+                } else if (event.getClass() == RecognizeCompleted.class) {
+                    RecognizeCompleted event = (RecognizeCompleted) acsEvent;
+                    // Add participant to the call after recognize has completed playing.
                     String callConnectionId = event.getCallConnectionId();
                     CallConnection callConnection = client.getCallConnection(callConnectionId);
                     // Invite other participants to the call
@@ -192,7 +191,7 @@ public class App
                         .setOperationContext(UUID.randomUUID().toString())
                         .setSourceCallerId(new PhoneNumberIdentifier("[phoneNumber]"));
                     callConnection.addParticipants(options);
-                }
+                } 
             }
             return "";
         });
@@ -240,8 +239,8 @@ Now, given that all setup is completed, you can test your application:
 1. Call the number you acquired in the prerequisites section of this guide.
 2. The incoming call event is sent to the application’s `/api/incomingCall` endpoint. Application answers the call using Call Automation SDK.
 3. `CallConnected` event is delivered to `/api/callback` endpoint.
-4. Play audio on a loop to all participants on the call.
-5. When the audio file has played, a `PlayCompleted` event is received. 
+4. Play audio and request user input from targeted phone number.
+5. When the input has been received and recognized, a `RecognizeCompleted` event is received.
 6. Application adds a participant to the call (web app user created earlier in this quickstart).
 7. User accepts the invitation to join the call. 
 8. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
