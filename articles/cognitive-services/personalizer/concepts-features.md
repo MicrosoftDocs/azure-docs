@@ -366,11 +366,11 @@ Enabling inference explainability will add a collection to the JSON response fro
     },
     {
       "id": "SportsArticle",
-      "probability": 0.15
+      "probability": 0.10
     },
     {
       "id": "NewsArticle",
-      "probability": 0.05
+      "probability": 0.10
     }
   ],
  "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
