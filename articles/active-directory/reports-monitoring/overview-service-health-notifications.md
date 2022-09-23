@@ -4,7 +4,7 @@ description: Learn how Service Health notifications provide you with a customiza
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 1c5002e4-079e-4c28-a4e8-a5841942030a6
@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/15/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: davey  
 

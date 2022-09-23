@@ -95,7 +95,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 ### Configure continuous export using the REST API
 
-Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
+Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/defenderforcloud/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
 - Azure Event Hub
 - Log Analytics workspace
@@ -114,7 +114,7 @@ Here are some examples of options that you can only use in the the API:
     > [!TIP]
     > These API-only options are not shown in the Azure portal. If you use them, there'll be a banner informing you that other configurations exist.
 
-Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
+Learn more about the automations API in the [REST API documentation](/rest/api/defenderforcloud/automations).
 
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 

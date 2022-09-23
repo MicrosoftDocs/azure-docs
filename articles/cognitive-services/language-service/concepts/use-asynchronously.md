@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/25/2022
 ms.author: aahi
 ---
 
@@ -67,6 +67,10 @@ Afterwards, use the client object to send asynchronous calls to the API. The met
 ## Result availability 
 
 When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
+## Automatic language detection
+
+Starting in version `2022-07-01-preview` of the REST API, you can request automatic [language detection](../language-detection/overview.md) on your documents. By setting the `language` parameter to `auto`, the detected language code of the text will be returned as a language value in the response. This language detection will not incur extra charges to your Language resource.
 
 ## Data limits
 

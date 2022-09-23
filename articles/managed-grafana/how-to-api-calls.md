@@ -134,4 +134,4 @@ If you're not going to continue to use these resources, delete them with the fol
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and manage API keys](./how-to-create-api-keys.md)
+> [How to configure data sources](./how-to-data-source-plugins-managed-identity.md)

@@ -12,6 +12,8 @@ ms.date: 08/20/2022
 
 # Validate XML in workflows with Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 In enterprise integration business-to-business (B2B) scenarios, the trading partners in an agreement often have to make sure that the messages they exchange are valid before any data processing can start. Your logic app workflow can validate XML messages and documents by using the **XML Validation** action and a predefined [schema](logic-apps-enterprise-integration-schemas.md).
 
 If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).

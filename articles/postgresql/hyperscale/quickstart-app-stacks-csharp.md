@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ---
 
 # C# app to connect and query Hyperscale (Citus)
@@ -347,6 +347,76 @@ namespace Driver
                 }
                 Console.WriteLine("in-memory data copied sucessfully");
             }
+        }
+    }
+}
+```
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```csharp
+using System;
+using System.Data;
+using System.Runtime.InteropServices;
+using System.Text;
+using Npgsql;
+
+namespace Driver
+{
+    public class Reconnect
+    {
+        static string connStr = new NpgsqlConnectionStringBuilder("Server = <host name>; Database = citus; Port = 5432; User Id = citus; Password = {Your Password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50;TrustServerCertificate = true").ToString();
+        static string executeRetry(string sql, int retryCount)
+        {
+            for (int i = 0; i < retryCount; i++)
+            {
+                try
+                {
+                    using (var conn = new NpgsqlConnection(connStr))
+                    {
+                        conn.Open();
+                        DataTable dt = new DataTable();
+                        using (var _cmd = new NpgsqlCommand(sql, conn))
+                        {
+                            NpgsqlDataAdapter _dap = new NpgsqlDataAdapter(_cmd);
+                            _dap.Fill(dt);
+                            conn.Close();
+                            if (dt != null)
+                            {
+                                if (dt.Rows.Count > 0)
+                                {
+                                    int J = dt.Rows.Count;
+                                    StringBuilder sb = new StringBuilder();
+
+                                    for (int k = 0; k < dt.Rows.Count; k++)
+                                    {
+                                        for (int j = 0; j < dt.Columns.Count; j++)
+                                        {
+                                            sb.Append(dt.Rows[k][j] + ",");
+                                        }
+                                        sb.Remove(sb.Length - 1, 1);
+                                        sb.Append("\n");
+                                    }
+                                    return sb.ToString();
+                                }
+                            }
+                        }
+                    }
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    Thread.Sleep(60000);
+                    Console.WriteLine(e.Message);
+                }
+            }
+            return null;
+        }
+        static void Main(string[] args)
+        {
+            string result = executeRetry("select 1",5);
+            Console.WriteLine(result);
         }
     }
 }

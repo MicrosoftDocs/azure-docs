@@ -56,7 +56,7 @@ If your script was doing something specific to azureuser such as installing cond
 
 The command `sudo -u azureuser` changes the current working directory to `/home/azureuser`. You also can't access the script arguments in this block.
 
-For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
+For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/setup/setup-ci).
 
 You can also use the following environment variables in your script:
 
@@ -131,4 +131,3 @@ Logs from the setup script execution appear in the logs folder in the compute in
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](how-to-set-up-training-targets.md)

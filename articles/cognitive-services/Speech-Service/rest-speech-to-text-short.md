@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Speech-to-text REST API for short audio
 
-Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md), you should always use [Speech to Text API v3.0](rest-speech-to-text.md).
+Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md), you should always use [Speech to Text REST API](rest-speech-to-text.md).
 
 Before you use the speech-to-text REST API for short audio, consider the following limitations:
 
@@ -37,7 +37,7 @@ The endpoint for the REST API for short audio has this format:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your subscription.
+Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your Speech resource.
 
 > [!NOTE]
 > You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
@@ -48,7 +48,7 @@ These parameters might be included in the query string of the REST request:
 
 | Parameter | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
+| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt-tts). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
 | `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
@@ -59,7 +59,7 @@ This table lists required and optional headers for speech-to-text requests:
 
 |Header| Description | Required or optional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your resource key for the Speech service. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Pronunciation-Assessment` | Specifies the parameters for showing pronunciation scores in recognition results. These scores assess the pronunciation quality of speech input, with indicators like accuracy, fluency, and completeness. <br><br>This parameter is a Base64-encoded JSON that contains multiple detailed parameters. To learn how to build this header, see [Pronunciation assessment parameters](#pronunciation-assessment-parameters). | Optional |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
@@ -124,7 +124,7 @@ The following sample includes the host name and required headers. It's important
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
 Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
@@ -145,8 +145,8 @@ The HTTP status code for each response indicates success or common errors.
 | 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (This code is used with chunked transfer.) |
 | 200 | OK | The request was successful. The response body is a JSON object. |
 | 400 | Bad request | The language code wasn't provided, the language isn't supported, or the audio file is invalid (for example). |
-| 401 | Unauthorized | A subscription key or an authorization token is invalid in the specified region, or an endpoint is invalid. |
-| 403 | Forbidden | A subscription key or authorization token is missing. |
+| 401 | Unauthorized | A resource key or an authorization token is invalid in the specified region, or an endpoint is invalid. |
+| 403 | Forbidden | A resource key or authorization token is missing. |
 
 ### Chunked transfer
 
@@ -162,7 +162,7 @@ request.Method = "POST";
 request.ProtocolVersion = HttpVersion.Version11;
 request.Host = host;
 request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_RESOURCE_KEY";
 request.AllowWriteStreamBuffering = false;
 
 using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))

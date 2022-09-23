@@ -4,7 +4,7 @@ description: Provides information about how password hash synchronization works 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
@@ -123,6 +123,9 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
+
+> [!NOTE]
+> The Set-AzureADUser PowerShell command will not work on federated domains. 
 
 #### Synchronizing temporary passwords and "Force Password Change on Next Logon"
 
