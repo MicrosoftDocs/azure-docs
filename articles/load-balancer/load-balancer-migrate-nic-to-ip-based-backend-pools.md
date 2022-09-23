@@ -38,7 +38,7 @@ Request: List (string) of backend pools to be migrated.
 
 A full example using the CLI to migrate all backend pools in a load balancer is shown here: 
 
-```azurecli
+```azurecli-interactive
 
 az rest –m post –u “https://management.azure.com/subscriptions/MySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLB/migrateToIpBased?api-version=2022-01-01”
 
@@ -47,7 +47,7 @@ az rest –m post –u “https://management.azure.com/subscriptions/MySubscript
 
 A full example using the CLI to migrate a set of specific backend pool in a load balancer is shown below. To migrate a specific group of backend pools from NIC-based to IP-based, you can pass in a list of the backend pool names in the request body: 
 
-```azurecli
+```azurecli-interactive
 
 az rest –m post –u “https://management.azure.com/subscriptions/MySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLB/migrateToIpBased?api-version=2022-01-01”
 
@@ -62,9 +62,9 @@ To upgrade a NIC-based load balancer to IP based load balancer with virtual mach
 
 A full example using the CLI is shown here: 
 
-```azurecli
+```azurecli-interactive
 
-Az rest –m post –u “https://management.azure.com/subscriptions/MySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLB/migrateToIpBased?api-version=2022-01-01”
+az rest –m post –u “https://management.azure.com/subscriptions/MySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLB/migrateToIpBased?api-version=2022-01-01”
 
 az virtual machine scale sets update --resource-group MyResourceGroup --name MyVMSS --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
 
