@@ -20,7 +20,7 @@
   - name: Cancellation policy
     href: cancel-savings-plan.md
 - name: How-to guides
-  expanded: true
+  items:
   - name: Choose a commitment amount
     href: choose-commitment-amount.md
   - name: Buy a saving plan
