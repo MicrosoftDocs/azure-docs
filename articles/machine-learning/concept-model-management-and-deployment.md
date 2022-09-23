@@ -79,7 +79,7 @@ Registered models are identified by name and version. Each time you register a m
 > * When you use the **Filter by** `Tags` option on the **Models** page of Azure Machine Learning Studio, instead of using `TagName : TagValue`, use `TagName=TagValue` without spaces.
 > * You can't delete a registered model that's being used in an active deployment.
 
-For more information, [Work with models in Azure Machine Learning](how-to-manage-model-cli.md).
+For more information, [Work with models in Azure Machine Learning](./how-to-manage-models.md).
 
 ### Package and debug models
 
@@ -150,7 +150,7 @@ Machine Learning gives you the capability to track the end-to-end audit trail of
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
 - Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
-- The [Machine Learning Model Registry](how-to-manage-models?tabs=use-local#create-a-model-in-the-model-registry) captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
+- The [Machine Learning Model Registry](./how-to-manage-models.md?tabs=use-local#create-a-model-in-the-model-registry) captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
 - [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (job) events.
 
 > [!TIP]
