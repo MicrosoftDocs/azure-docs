@@ -60,7 +60,7 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To upload a CA, click **Upload**: 
    1. Select the CA file.
    1. Select **Yes** if the CA is a root certificate, otherwise select **No**.
-   1. Set the http internet-facing URL for the certification authority's base CRL that contains all revoked certificates. This should be set or authentication with revoked certificates will not fail.
+   1. Set the http internet-facing URL for the CA base CRL that contains all revoked certificates. This should be set or authentication with revoked certificates won't fail.
    1. Set **Delta CRL URL** - the http internet-facing URL for the CRL that contains all revoked certificates since the last base CRL was published.
    1. Click **Add**.
 
@@ -92,9 +92,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 **crlDistributionPoint**
 
-You can validate the crlDistributionPoint value you provide in the preceding PowerShell example are valid for the certification authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
+You can download the CRL and compare the CA certificate and the CRL information to validate the crlDistributionPoint value in the preceding PowerShell example is valid for the CA you want to add.
 
-The following table and graphic show how to map information from the CA Certificate to the attributes of the downloaded CRL.
+The following table and graphic show how to map information from the CA certificate to the attributes of the downloaded CRL.
 
 | CA Certificate Info |= |Downloaded CRL Info|
 |----|:-:|----|
@@ -106,13 +106,13 @@ The following table and graphic show how to map information from the CA Certific
 >[!TIP]
 >The value for crlDistributionPoint in the preceding example is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
 >
->- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
+>- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA.
 >
 >If Issuing CA is Windows Server:
 >
 >- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
- of the CA in the certification authority Microsoft Management Console (MMC)
->- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
+ of the CA in the certification authority Microsoft Management Console (MMC).
+>- On the CA by running `certutil -cainfo cdp`. For more information, see [certutil](/windows-server/administration/windows-commands/certutil#-cainfo).
 
 For additional details, see [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
 
@@ -124,12 +124,11 @@ For additional details, see [Understanding the certificate revocation process](.
 
 [!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
-
 ## Step 2: Configure authentication binding policy 
 
 The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
-To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
+To enable Azure AD CBA and configure user bindings in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
@@ -161,7 +160,6 @@ To enable the certificate-based authentication and configure user bindings in th
 
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
-
    To create a rule by Policy OID, click **Policy OID**.
 
    1. Enter a value for **Policy OID**.
@@ -182,7 +180,7 @@ Supported certificate fields in username binding:
 - Subject Key Identifier (SKI)
 - SHA1PU (SHA 1public key)  
  
-Supported User Object attribute fields:
+Supported user object attribute fields:
 
 - userPrincipalName
 - onPremisesUserPrincipalName
@@ -219,10 +217,10 @@ The final configuration will look like this image:
 
 ## Step 4: Enable CBA on the tenant
 
-To enable the certificate-based authentication in the Azure MyApps portal, complete the following steps:
+To enable Azure AD CBA in the Azure MyApps portal, complete the following steps:
 
 1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as an Authentication Policy Administrator.
-1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Select **Azure Active Directory** > **Security**.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 1.	Under **Basics**, select **Yes** to enable CBA.
 1. CBA can be enabled for a targeted set of users.
@@ -233,7 +231,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
  
-Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
+Once CBA is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for CBA will be able to authenticate using the X.509 certificate. 
 
 >[!NOTE]
 >The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
@@ -254,13 +252,14 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-   If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
+   If you enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
 1. Select **Sign in with a certificate**.
 
 1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
+
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 
 1. Users should be signed into [MyApps portal](https://myapps.microsoft.com/). 
@@ -268,22 +267,22 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 If your sign-in is successful, then you know that:
 
 - The user certificate has been provisioned into your test device.
-- Azure Active Directory is configured correctly with trusted CAs.
+- Azure AD is configured correctly with trusted CAs.
 - Username binding is configured correctly, and the user is found and authenticated.
 
 ### Testing custom authentication binding rules
 
-Let's walk through a scenario where we will validate strong authentication by creating two authentication policy rules, one via issuer subject satisfying single factor and one via policy OID satisfying multi factor. 
+Let's walk through a scenario where we will validate strong authentication by creating two authentication policy rules, one by using issuer subject to satisfy single-factor authentication and another by using policy OID to satisfy multifactor authentication. 
 
-1. Create an issuer Subject rule with protection level as single factor authentication and value set to your CAs Subject value. For example: 
+1. Create an issuer Subject rule with protection level as single-factor authentication and value set to your CAs Subject value. For example: 
 
    `CN = WoodgroveCA`
 
-1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
+1. Create a policy OID rule, with protection level as multifactor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
 
-1. Create a conditional access policy for the user to require multi-factor authentication by following steps at [Conditional Access - Require MFA](../conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy).
+1. Create a Conditional Access policy for the user to require multifactor authentication by following steps at [Conditional Access - Require MFA](../conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy).
 1. Navigate to [MyApps portal](https://myapps.microsoft.com/). Enter your UPN and click **Next**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
@@ -292,7 +291,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-   If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
+   If you enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
@@ -311,11 +310,11 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multifactor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=WoodgroveCA** and it will satisfy single-factor authentication.
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
-1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
+1. The Conditional Access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
 ## Enable Azure AD CBA using Microsoft Graph API
 
-To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
+To enable CBA and configure username bindings using Graph API, complete the following steps.
 
 >[!NOTE]
 >The following steps use Graph Explorer which is not available in the US Government cloud. US Government cloud tenants can use Postman to test the Microsoft Graph queries.
