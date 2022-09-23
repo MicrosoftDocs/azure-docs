@@ -330,7 +330,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 
 ## Inference Explainability
 Personalizer can help you to understand which features of a chosen action are the most and least influential to then model during inference. When enabled, inference explainability includes feature scores from the underlying model into the Rank API response, so your application receives this information at the time of inference.
-Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to analyze whether your model is exhibiting bias toward or against certain contextual settings, users, and actions.
+Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to further analyze how the data is being used by the underlying model.
 
 Setting the service configuration flag IsInferenceExplainabilityEnabled in your service configuration enables Personalizer to include feature values and weights in the Rank API response. To update your current service configuration, use the [Service Configuration – Update API](/rest/api/personalizer/1.1preview1/service-configuration/update?tabs=HTTP). In the JSON request body, include your current service configuration and add the additional entry: “IsInferenceExplainabilityEnabled”: true. If you don’t know your current service configuration, you can obtain it from the [Service Configuration – Get API](/rest/api/personalizer/1.1preview1/service-configuration/get?tabs=HTTP)
 
