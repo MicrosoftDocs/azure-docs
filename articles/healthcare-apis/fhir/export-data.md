@@ -10,7 +10,7 @@ ms.author: mikaelw
 ---
 # Export your FHIR data
 
-By using the bulk `$export` operation in the Fast Healthcare Interoperability Resources (FHIR) service, you can export data as described in the [HL7 FHIR Bulk Data Access specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
+By using the bulk `$export` operation in the FHIR service, you can export data as described in the [HL7 FHIR Bulk Data Access specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
 Before you attempt to use `$export`, make sure that your FHIR service is configured to connect with an Azure Data Lake Storage Gen2 account. To configure export settings and create a Data Lake Storage Gen2 account, refer to [Configure settings for export](./configure-export-data.md).
 
