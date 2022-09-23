@@ -330,16 +330,25 @@ The primary metric used for model optimization and hyperparameter tuning depends
 * `mean_average_precision` for IMAGE_OBJECT_DETECTION
 * `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
     
-### Experiment budget
+### Job Limits
 
-You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.
+
+Parameter | Detail
+-----|----
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. default value is 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency. default value is 1.
+`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
+
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits:
-  timeout: 60
+  timeout_minutes: 60
+  max_trials: 10
+  max_concurrent_trials: 2
 ```
 
 # [Python SDK](#tab/python)
@@ -391,7 +400,7 @@ search_space:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
 
 ---
 
@@ -429,16 +438,9 @@ You can automatically end poorly performing runs with an early termination polic
 
 Learn more about [how to configure the early termination policy for your hyperparameter sweep](how-to-tune-hyperparameters.md#early-termination).
 
-### Resources for the sweep
-
-You can control the resources spent on your hyperparameter sweep by specifying the `max_trials` and the `max_concurrent_trials` for the sweep.
 > [!NOTE]
 > For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
 
-Parameter | Detail
------|----
-`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 You can configure all the sweep related parameters as shown in the example below.
 
@@ -448,9 +450,6 @@ You can configure all the sweep related parameters as shown in the example below
 
 ```yaml
 sweep:
-  limits:
-    max_trials: 10
-    max_concurrent_trials: 2
   sampling_algorithm: random
   early_termination:
     type: bandit
