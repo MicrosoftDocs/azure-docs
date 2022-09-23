@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 09/23/2022
 ms.custom:
 ---
 # Provision access to Azure SQL DB for DevOps actions (preview)
@@ -18,14 +18,14 @@ This how-to guide shows how to provision access from Microsoft Purview to system
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](https://docs.microsoft.com/azure/purview/./create-catalog-portal).
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](https://docs.microsoft.com/azure/purview/../azure-resource-manager/management/manage-resource-groups-portal)
+- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-microsoft-purview-portal.md).
+- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 ### Data source configuration
 Before authoring policies in the Microsoft Purview policy portal, you'll need to configure the data sources so that they can enforce those policies.
 
-1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](https://docs.microsoft.com/azure/purview/./microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
-1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](https://docs.microsoft.com/azure/purview/./microsoft-purview-connector-overview.md) for your resources.
+1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](./microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](./microsoft-purview-connector-overview.md) for your resources.
 1. [Enable the Data use management toggle on the data source](how-to-enable-data-use-management.md). Additional permissions for this step are described in the linked document.
 
 
@@ -92,5 +92,8 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 ![Screenshot shows to enter SQL DevOps policies to list](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
 ## Next steps
-Check the blog
+Check the blog and related videos
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Video: [Pre-requisite for policies: The Data use management feature](https://youtu.be/v_lOzevLW-Q)
+* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
+* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8))

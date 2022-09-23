@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 09/23/2022
 ms.custom: references_regions
 ---
 # Provision access to Azure SQL DB for DevOps actions (preview)
@@ -18,9 +18,9 @@ This how-to guide shows how to provision access from Microsoft Purview to Azure 
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](https://docs.microsoft.com/azure/purview/./create-catalog-portal).
+- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-microsoft-purview-portal.md).
 - Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](https://docs.microsoft.com/azure/purview/../azure-resource-manager/management/manage-resource-groups-portal)
+- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
 - Create a new Azure SQL Database or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](https://docs.microsoft.com/azure/azure-sql/database/single-database-create-quickstart).
 
 **Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
@@ -40,10 +40,10 @@ This how-to guide shows how to provision access from Microsoft Purview to Azure 
 
 ### Azure SQL Database configuration
 Azure SQL Database needs an Azure Active Directory Admin to be configured to honor policies from Microsoft Purview. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Azure Active Directory on the side menu. Set an Admin name and then select **Save**. See screenshot:
-![Screenshot shows how to assign Active Directory Admin to Azure SQL Server.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
+![Screenshot shows how to assign Active Directory Admin to Azure SQL Server.](./media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
 
 Then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and then select **Save**. See screenshot:
-![Screenshot shows how to assign system managed identity to Azure SQL Server.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
+![Screenshot shows how to assign system managed identity to Azure SQL Server.](./media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
 
 You'll also need to enable (and verify) external policy based authorization on the Azure SQL server. You can do this in PowerShell:
 
@@ -63,12 +63,12 @@ After issuing the GET, you should see in the response, under Content, "propertie
 ### Register the data sources in Microsoft Purview
 The Azure SQL Database data source needs to be registered first with Microsoft Purview, before access policies can be created. You can follow these guides:
 
-[Register and scan Azure SQL Database](https://docs.microsoft.com/azure/purview/./register-scan-azure-sql-database)
+[Register and scan Azure SQL Database](./register-scan-azure-sql-database.md)
 
-After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](https://docs.microsoft.com/azure/purview/./how-to-enable-data-use-management)
+After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given data source
-![Screenshot shows how to register a data source for policy.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
+![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
 
 ## Create a new DevOps policy
@@ -148,4 +148,6 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check the blog and related docs
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
 * Document: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Video: [Enabling Microsoft Purview DevOps policies on resource group](./media/how-to-policies-devops-authoring-generic/Microsoft%20Purview%20DevOps%20policies%20demo%208-22-22.mp4)
+* Video: [Pre-requisite for policies: The Data use management feature](https://youtu.be/v_lOzevLW-Q)
+* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
+* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8))

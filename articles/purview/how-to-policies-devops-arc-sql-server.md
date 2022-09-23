@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 09/23/2022
 ms.custom: references_regions
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
@@ -18,9 +18,9 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](https://docs.microsoft.com/azure/purview/./create-catalog-portal).
+- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-catalog-portal.md).
 - Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](https://docs.microsoft.com/azure/purview/../azure-resource-manager/management/manage-resource-groups-portal)
+- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
 - SQL server version 2022 CTP 2.0 or later running on Windows. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022)
 - Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-AADauth).
 
@@ -49,7 +49,7 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 1. Navigate to **Azure Active Directory** feature on the left pane
 
 1. Verify that Azure Active Directory Authentication is configured. This means that all these have been entered: an admin login, a SQL Server service certificate, and a SQL Server app registration.
-![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
+![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
 
 1. Scroll down to set **External Policy Based Authorization** to enabled
 
@@ -65,7 +65,7 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 1. Sign in to Microsoft Purview Studio.
 
 1. Navigate to the **Data map** feature on the left pane, select **Sources**, then select **Register**. Type "Azure Arc" in the search box and select **SQL Server on Azure Arc**. Then select **Continue**
-![Screenshot shows how to select a source for registration.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/select-arc-sql-server-for-registration.png)
+![Screenshot shows how to select a source for registration.](./media/how-to-policies-data-owner-sql/select-arc-sql-server-for-registration.png)
 
 1. Enter a **Name** for this registration. It is best practice to make the name of the registration the same as the server name in the next step.
 
@@ -73,14 +73,14 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 
 1. **Select a collection** to put this registration in. 
 
-1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](https://docs.microsoft.com/azure/purview/./how-to-enable-data-use-management)
+1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
 1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply** at the bottom
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
-![Screenshot shows how to register a data source for policy.](https://docs.microsoft.com/azure/purview/./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
+![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
 > [!Important]
 > You can assign the data source side permission (i.e., *IAM Owner*) **only** by entering Azure portal through this [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers). Alternatively, you can configure this permission at the parent resource group level so that it gets inherited by the "SQL Server - Azure Arc" data source.
@@ -166,4 +166,6 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check the blog and related docs
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
 * [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
-* Video: [Enabling Microsoft Purview DevOps policies on resource group](./media/how-to-policies-devops-authoring-generic/Microsoft%20Purview%20DevOps%20policies%20demo%208-22-22.mp4)
+* Video: [Pre-requisite for policies: The Data use management feature](https://youtu.be/v_lOzevLW-Q)
+* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
+* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8))
