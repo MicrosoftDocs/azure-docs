@@ -11,7 +11,7 @@ ms.date: 09/22/2022
 
 # TCGA Open Data
 
-The Cancer Genome Atlas (TCGA), a landmark cancer genomics program, molecularly characterized over 20,000 primary cancer and matched normal samples spanning 33 cancer types[1](https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga).. The TCGA cancer data made available publically is 2 tiers: open or controlled access. 
+The Cancer Genome Atlas (TCGA), a landmark cancer genomics program, molecularly characterized over 20,000 primary cancer and matched normal samples spanning 33 cancer types[1](https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga).The TCGA cancer data made available publically is 2 tiers: open or controlled access. 
 
 1. Open access [available on azure]: This contains deindentified clininal and biospecimen data or summarized data that doesnot contain any individually identifiable information. The data types included are Gene expression, methylation beta values, protein qunatification, gene level copy number, masked copy number segment.
 2. Controlled access: This is the individual level sequence data and requires approval through dbGap for access.
@@ -28,7 +28,7 @@ This dataset contains approximately 387 GB
 
 ### Storage location
 
-This dataset is stored in the East US 2 and West Central US Azure regions. Allocating compute resources in West US 2 or West Central US is recommended for affinity.
+This dataset is stored in the East US 2 Azure regions. Allocating compute resources in East US 2 is recommended for affinity.
 
 ### Data Access
 
