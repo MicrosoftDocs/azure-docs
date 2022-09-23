@@ -452,7 +452,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
-    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-by-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
     - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
     - If you need the raw search results or for any other advanced customizations, use Logic Apps.
 - The new alert rule wizard doesn't support customization of the JSON payload.

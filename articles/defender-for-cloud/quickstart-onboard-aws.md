@@ -123,7 +123,7 @@ The native cloud connector requires:
  
    (Optional) Select **Management account** to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
 
-1. Select **Next: Select plans**.
+1. Select **Next: Select plans**.<a name="cloudtrail-implications-note"></a>
 
     > [!NOTE]
     > Each plan has its own requirements for permissions, and might incur charges.

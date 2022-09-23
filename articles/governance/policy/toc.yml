@@ -193,6 +193,9 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Policy applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
   - name: React to policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./concepts/event-overview.md
