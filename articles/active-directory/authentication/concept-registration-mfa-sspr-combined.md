@@ -142,6 +142,8 @@ A user who hasn't yet set up all required security info goes to [https://myaccou
 
 If a user has partially satisfied MFA or SSPR registration due to existing authentication method registrations performed by the user or admin, users will only be asked to register additional information allowed by the Authentication methods policy. If more than one other authentication method is available for the user to choose and register, an option on the registration experience titled **I want to set up another method** will be shown and allow the user to set up their desired authentication method.  
 
+:::image type="content" border="true" source="./media/concept-registration-mfa-sspr-combined/other-method.png" alt-text="Screenshot of how to set up another method." :::  
+
 ### Delete security info from My Account
 
 A user who has previously set up at least one method navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user chooses to delete one of the previously registered methods. When finished, the user no longer sees that method on the Security info page.
