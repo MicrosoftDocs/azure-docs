@@ -355,4 +355,5 @@ The secondary region restore user experience will be similar to the primary regi
 
 ## Next steps
 
-* [Learn how](sap-hana-db-manage.md) to manage SAP HANA databases backed up using Azure Backup
+- [Learn how](sap-hana-db-manage.md) to manage SAP HANA databases backed up using Azure Backup
+- [About backup of SAP HANA databases in Azure VMs](sap-hana-database-about.md).
