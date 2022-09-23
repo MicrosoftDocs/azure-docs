@@ -114,21 +114,21 @@ The following table lists the additional firewall configuration required for man
 
 
 ## Authentication
-Container Insights now supports authentication using managed identity (preview). This is a secure and simplified authentication model where the monitoring agent uses the cluster’s managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
+Container insights now supports authentication using managed identity (preview). This is a secure and simplified authentication model where the monitoring agent uses the cluster’s managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
 
 > [!NOTE]
-> Container Insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Container Insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](../../aks/faq.md).
+> Container insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Container insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](../../aks/faq.md).
 
 ## Agent
 
 ### Azure Monitor agent
-When using managed identity authentication (preview), Container insights relies on a containerized Azure Monitor agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
+Container insights relies on a containerized Azure Monitor agent for Linux when using managed identity authentication (preview), . This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
 
 ### Log Analytics agent 
 When not using managed identity authentication, Container insights relies on a containerized Log Analytics agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
-The agent version is *microsoft/oms:ciprod04202018* or later, and it's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+The agent version is `microsoft/oms:ciprod04202018` or later, and it's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 
 >[!NOTE]

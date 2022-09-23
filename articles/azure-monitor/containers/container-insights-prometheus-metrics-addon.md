@@ -15,7 +15,6 @@ This article describes how to configure Container insights to send Prometheus me
   - Microsoft.ContainerService 
   - Microsoft.Insights
   - Microsoft.AlertsManagement
-- The `az extension add --name aks-preview` extension needs to be installed for access to this feature. For more information on how to install an az cli extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
 
 
 
@@ -51,6 +50,13 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 
 
 ### [CLI](#tab/cli)
+
+#### Prerequisites
+
+- The `az extension add --name aks-preview` extension needs to be installed for access to this feature. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
+
+#### Enable Prometheus metrics
+
 Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics addon. There are multiple options depending on the Azure Monitor workspace and Grafana workspace you want to use.
 
 > [!NOTE]
@@ -130,7 +136,7 @@ The output will be similar to the following:
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 
 ### Retrieve list of Grafana integrations
-If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the the JSON view. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it does not exist then the instance has not been linked with any Azure Monitor workspace.
+If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it does not exist then the instance has not been linked with any Azure Monitor workspace.
 
 ```json
 "properties": {
@@ -166,7 +172,7 @@ If you're using an existing Azure Managed Grafana instance that already has been
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
     
     
-4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will be similar to the following :
+4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will be similar to the following:
 
     ```json
     {
@@ -200,7 +206,7 @@ If you're using an existing Azure Managed Grafana instance that already has been
 
 ## Verify Deployment
 
-Run the following command to which verify that the daemonset was deployed properly:
+Run the following command to which verify that the daemon set was deployed properly:
 
 `kubectl get ds ama-metrics-node --namespace=kube-system`
 
@@ -212,7 +218,7 @@ NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SEL
 ama-metrics-node   1         1         1       1            1           <none>          10h
 ```
 
-Run the following command to which verify that the replicaset was deployed properly:
+Run the following command to which verify that the replica set was deployed properly:
 
 `kubectl get rs --namespace=kube-system`
 
@@ -228,9 +234,9 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 
 ## Limitations
 
-- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There is a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pods has any issues with malformed parameters and isn't running, then the feature will not work as expected.
+- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There is a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature will not work as expected.
 - A data collection rule, data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names cannot currently be modified.
-- You must get the existing azure monitor workspace integrations for a grafana workspace and update the resource manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
+- You must get the existing Azure Monitor workspace integrations for a grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 
 
 ## Stop collection

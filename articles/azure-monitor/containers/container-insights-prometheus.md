@@ -7,7 +7,7 @@ ms.reviewer: aul
 ---
 
 # Collect Prometheus metrics with Container insights
-[Prometheus](https://prometheus.io/) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Using its containerized agent, Container insights collects much of the same data that is typically collected from the cluster by Prometheus without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
+[Prometheus](https://prometheus.io/) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that is typically collected from the cluster by Prometheus without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
 
 Container insights can also scrape Prometheus metrics from your cluster for the cases described below. This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram.
 
@@ -16,7 +16,7 @@ Container insights can also scrape Prometheus metrics from your cluster for the 
 
 
 ## Collect additional data
-You may want to collect additional data in addition to the predefined set of data collected by Container insights. This data won't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the monitoring addon for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace. 
+You may want to collect additional data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the monitoring addon for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace. 
 
 See [Collect Prometheus metrics Logs with Container insights](container-insights-prometheus-monitoring-addon.md) to configure your cluster to collect additional Prometheus metrics with the monitoring addon.
 
