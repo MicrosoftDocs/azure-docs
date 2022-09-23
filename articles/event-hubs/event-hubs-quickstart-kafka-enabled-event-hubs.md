@@ -22,6 +22,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
+* To run this quickstart using managed identity, you need to run it on an Azure virtual machine. 
 
 
 ## Create an Event Hubs namespace
@@ -34,31 +35,33 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
-1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
-2. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer`.
-3. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
-
-    Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+1. Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
     Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
     
-    To use Managed Identity, you can create a (or configure an existing) virtual machine using a system-assigned managed identity. See [Configure managed identities for Azure resources on a VM using the Azure portal](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) for more details. 
+    To use Managed Identity, you can create a (or configure an existing) virtual machine using a system-assigned managed identity. For more information about configuring managed identity on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity). 
+
+1. In the virtual machine that you configure managed identity, clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
+1. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer`.
+1. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
+
     
-    Once you configure the virtual machine with managed identity, you need to add managed idendity to Event Hubs namespace. For that you need to follow these steps. 
     
-    - In the Azure Portal, navigate to your Event Hubs namespace. Go to "Access Control (IAM)" in the left navigation.
+    Once you configure the virtual machine with managed identity, you need to add managed identity to Event Hubs namespace. For that you need to follow these steps. 
     
-    - Click + Add and select `Add role assignment`.
+    - In the Azure portal, navigate to your Event Hubs namespace. Go to "Access Control (IAM)" in the left navigation.
     
-    - In the Role tab, select `Azure Event Hubs Data Owner` and click the Next button.
+    - Select + Add and select `Add role assignment`.
+    
+    - In the Role tab, select `Azure Event Hubs Data Owner` and select the Next button.
     
     - In the `Members` tab, select the `Managed Identity` radio button for type to assign access to.
     
-    - Click the `+Select members` link. In the Managed Identity dropdown, select Virtual Machine and select your virtual machine's managed identity.
+    - Select the `+Select members` link. In the Managed Identity dropdown, select Virtual Machine and select your virtual machine's managed identity.
     
-    - Click `Review + Assign`.
+    - Select `Review + Assign`.
 
-1. Once you configure managed identity you can update `src/main/resources/producer.config` as shown below. 
+1. Once you configure managed identity, you can update `src/main/resources/producer.config` as shown below. 
     
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
