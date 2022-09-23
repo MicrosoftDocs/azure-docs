@@ -247,7 +247,7 @@ az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resour
 ```
 
 ## Region mappings
-When you allow a defuatl Azure Monitor workspace to be created when you install the metrics addon, it's created in the region listed in the following table.
+When you allow a default Azure Monitor workspace to be created when you install the metrics addon, it's created in the region listed in the following table.
 
 | AKS Cluster region | Azure Monitor workspace region |
 |-----------------------|------------------------------------|

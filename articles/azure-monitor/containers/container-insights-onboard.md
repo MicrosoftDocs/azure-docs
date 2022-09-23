@@ -122,7 +122,7 @@ Container insights now supports authentication using managed identity (preview).
 ## Agent
 
 ### Azure Monitor agent
-Container insights relies on a containerized Azure Monitor agent for Linux when using managed identity authentication (preview), . This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
+Container insights relies on a containerized Azure Monitor agent for Linux when using managed identity authentication (preview). This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
 
 ### Log Analytics agent 
