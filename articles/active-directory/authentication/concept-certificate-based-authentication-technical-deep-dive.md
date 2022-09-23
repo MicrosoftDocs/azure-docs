@@ -123,7 +123,7 @@ An admin can configure the CRL distribution point during the setup process of th
 
 When a user performs an interactive sign-in with a certificate, and the CRL exceeds the interactive limit for a cloud, their initial sign-in will fail with the following error:
 
-The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators.
+"The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
 
 After the error, Azure AD will attempt to download the CRL subject to the service-side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
 
