@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/19/2022
+ms.date: 09/22/2022
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -29,6 +29,7 @@ Vertical Pod Autoscaler provides the following benefits:
 ## Limitations
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
+* With this preview release, you cannot change the `controllerValue` and `updateMode` fields.
 
 ## Before you begin
 
@@ -38,14 +39,19 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
-## VPA configuration options
+## API Object
 
-The following table describes the options and supported values to configure and use the VPA feature for your pods.
+The Virtical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported in this preview release is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
-|Value |Description |Default value |
-|------|------------|--------------|
-|`--vpa-controlled-values` |Specifies the behavior of VPA. Options are: **Requests**, **limits**, or **RequestsAndLimits** | None |
-|`--vpa-update-mode` |Specifies the allowed modes. Options are:<ul><li> **Off** - VPA does not automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.</ul></li> <ul><li>**Initial** - VPA only assigns resource requests on pod creation and never changes them later.</ul></li> <ul><li>**Recreate** - VPA assigns resource requests on pod creation, and updates them on existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, prefer the "Auto" mode that might take advantage of restart-free updates once they are available. >[!NOTE] The VPA feature is in preview and may cause application downtime. </ul></li> <ul><li>**Auto** - VPA assigns resource requests during pod creation, and updates them on existing pods using the preferred update mechanism. Currently, this is equivalent to **Recreate**. Once restart free, *in-place* update of pod requests is available. It may be used as the preferred update mechanism by the **Auto** mode. >[!NOTE] The VPA feature is in preview and may cause application downtime.</ul></li>| None |
+## Register the VPA provider feature
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-vpapreview preview feature, run the following command:
+
+```azurecli
+az feature register Microsoft.ContainerService/AKS-VPAPreview
+```
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
@@ -154,6 +160,64 @@ The following steps create a deployment with two pods, each running a single con
     
     ```
 
+## Set Pod Autoscaler requests automatically
+
+Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automatically set resource requests on Pods when the updateMode is set to **Auto**.
+
+1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
+
+    ```azurecli
+    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    ```
+
+2. Create a file named `azure-autodeploy.yaml`, and copy in the following manifest.
+
+    ```yml
+    apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-autodeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: azure-autodeploy
+  template:
+    metadata:
+      labels:
+        app: azure-autodeploy
+    spec:
+      containers:
+      - name: mycontainer
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done"]
+    ```
+    This manifest describes a deployment that has two Pods. Each Pod has one container that requests 100 milliCPU and 50 MiB of memory.
+
+3. Create the pod with the [kubectl create][kubectl-create] command, as shown in the following example:
+
+    ```bash
+    kubectl create -f azure-autodeploy.yaml
+    ```
+
+    After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+4. Run the following [kubectl get][kubectl-get] command to get the pods:
+
+    ```bash
+    kubectl get pods
+    ```
+
+    The output resembles the following example showing the name and status of the pods:
+
+    ```output
+    ```
+
 ## Next steps
 
 This article showed you how to automatically scale resource utilization, such as CPU and memory, of cluster nodes to match application requirements. You can also use the horizontal pod autoscaler to automatically adjust the number of pods that run your application. For steps on using the horizontal pod autoscaler, see [Scale applications in AKS][scale-applications-in-aks].
@@ -161,8 +225,10 @@ This article showed you how to automatically scale resource utilization, such as
 <!-- EXTERNAL LINKS -->
 [kubernetes-autoscaler-github-repo]: https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/examples/hamster.yaml
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[github-autoscaler-repo-v011]: https://github.com/kubernetes/autoscaler/blob/vpa-release-0.11/vertical-pod-autoscaler/pkg/apis/autoscaling.k8s.io/v1/types.go
 
 <!-- INTERNAL LINKS -->
 [get-started-with-aks]: /azure/architecture/reference-architectures/containers/aks-start-here
