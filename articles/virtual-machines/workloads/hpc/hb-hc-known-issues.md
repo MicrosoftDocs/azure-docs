@@ -16,9 +16,6 @@ author: mamccrea
 
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
-## InfiniBand Errors on HBv3
-As of the week of August 12, we've identified a bug in the firmware of the ConnectX-6 InfiniBand NIC adapters in HBv3-series VMs that can cause MPI jobs to fail on a transient basis. This issue applies to all VM sizes within the HBv3-series. This issue doesn't apply to other H-series VMs (HB-series, HBv2-series, or HC-series). A firmware update will be issued in the coming days to remediate this issue.
-
 ## Memory Capacity on Standard_HB120rs_v2
 As of the week of December 6, 2021 we've temporarily reducing the amount of memory (RAM) exposed to the Standard_HB120rs_v2 VM size, otherwise known as [HBv2](../../hbv2-series.md). We've reducing the memory footprint to 432 GB from its current value of 456 GB (a 5.2% reduction). This reduction is temporary and the full memory capacity should be restored in early 2022. We've made this change to ensure to address an issue that can result in long VM deployment times or VM deployments for which not all devices function correctly. The reduction in memory capacity doesn't affect VM performance. 
 
