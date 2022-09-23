@@ -237,7 +237,7 @@ sections:
 
       - question: Can I restore an Azure Virtual Machine in a different subscription?
         answer: |
-          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is only supported from vault tier and not from [snapshots](backup-azure-vms-introduction.md#snapshot-creation).
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
@@ -245,7 +245,7 @@ sections:
 
       - question: Can I use Azure VM snapshots to restore in another subscription?
         answer: |
-          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is only supported from vault tier and not from [snapshots](backup-azure-vms-introduction.md#snapshot-creation).
+          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is unsupported from [snapshot](backup-azure-vms-introduction.md#snapshot-creation) restore.
 
       - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
         answer: |
@@ -253,7 +253,7 @@ sections:
 
       - question: Can I use Enhanced policy for Cross Subscription Restore?
         answer: |
-          No, [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is currently enabled only in [standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
+          Yes, it's supported for [Cross subscription Restore](backup-azure-arm-restore-vms.md#restore-options).
 
   - name: Manage VM backups
     questions:

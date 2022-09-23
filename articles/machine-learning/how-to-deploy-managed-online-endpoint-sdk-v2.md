@@ -1,7 +1,7 @@
 ---
-title: Deploy machine learning models to managed online endpoint using Python SDK v2 (preview).
+title: Deploy machine learning models to managed online endpoint using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model to Azure using Python SDK v2 (preview).
+description: Learn to deploy your machine learning model to Azure using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 (preview) 
+# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -262,7 +262,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -308,4 +308,4 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 
 Try these next steps to learn how to use the Azure Machine Learning SDK (v2) for Python:
 * [Managed online endpoint safe rollout](how-to-safely-rollout-managed-endpoints-sdk-v2.md)
-* Explore online endpoint samples - [https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints)
+* Explore online endpoint samples - [https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)

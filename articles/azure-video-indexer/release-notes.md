@@ -3,13 +3,13 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 09/08/2022
+ms.date: 09/15/2022
 ms.author: juliako
 ---
 
 # Azure Video Indexer release notes
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
@@ -40,6 +40,35 @@ In order to upload a video from a URL, change your code to send nu
 ```csharp
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
+
+## September 2022
+
+### General availability of Azure Resource Management (ARM)
+
+With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
+
+- [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+- Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
+- Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
+- [Create logic apps connector for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
+ 
+To create an ARM-based account, see [create an account](create-account-portal.md).
+
+### New source languages support for STT, translation, and search
+
+Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
+
+For more information, see [supported languages](language-support.md).
+
+### Expanded the supported languages in LID and MLID through the API
+
+We expanded the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
+
+For more information, see [supported languages](language-support.md).
+
+### Configure confidence level in a person model with an API
+
+Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Patch-Person-Model) API to configure the confidence level for face recognition within a person model.
 
 ## August 2022
 

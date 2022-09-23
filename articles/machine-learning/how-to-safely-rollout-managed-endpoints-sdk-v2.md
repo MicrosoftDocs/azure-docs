@@ -1,7 +1,7 @@
 ---
-title: Safe rollout for managed online endpoints using Python SDK v2 (preview).
+title: Safe rollout for managed online endpoints using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Safe rollout for online endpoints using Python SDK v2 (preview).
+description: Safe rollout for online endpoints using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Safe rollout for managed online endpoints using Python SDK v2 (preview)
+# Safe rollout for managed online endpoints using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -189,7 +189,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -258,7 +258,7 @@ ml_client.begin_create_or_update(green_deployment)
 
 ### Test the new deployment
 
-Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-2/sample-request.json) file.
+Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-2/sample-request.json) file.
 
 ```python
 ml_client.online_endpoints.invoke(
@@ -341,7 +341,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 ## Next steps
-- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints)
+- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)

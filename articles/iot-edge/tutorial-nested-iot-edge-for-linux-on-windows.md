@@ -93,7 +93,7 @@ The `iotedge-config` tool will also make the module deployments to your IoT Edge
 
 To use the `iotedge-config` tool to create and configure your hierarchy, follow the steps below in the **top layer IoT Edge for Linux on Windows device**:
 
-1. Log in to [Azure Bash Shell](/azure/cloud-shell/quickstart.md) and start a new bash session.
+1. Log in to [Azure Bash Shell](../cloud-shell/quickstart.md) and start a new bash session.
 
 1. Make a directory for your tutorial's resources:
 

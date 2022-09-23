@@ -61,7 +61,7 @@ The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user in
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
 
-If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+If you're an ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
 
 ## Enterprise-readiness and security
 
@@ -202,5 +202,5 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 
 Start using Azure Machine Learning:
 - [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
-- [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
+- [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)
 - [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)
