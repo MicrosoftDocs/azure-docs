@@ -18,7 +18,7 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
-:::image type="content" source="./media/ddos-best-practices/image-11.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
+:::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 ## Key benefits
 
 ### Always-on traffic monitoring
