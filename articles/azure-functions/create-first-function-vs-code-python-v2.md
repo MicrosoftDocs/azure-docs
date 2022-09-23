@@ -61,11 +61,11 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 ## Create a function
 
-Note that by default, the file `function_app.py` will contain the functions. To get started with an HTTP triggered function, you can uncomment the code in the file. To create a new function, open the Command Palette by navigating to View > Command Palette, or by pressing <kbd>Ctrl-Shift-P<kbd> (Windows) or <kbd>Command-Shift-P<kbd> (macOS).
+Note that by default, the file `function_app.py` will contain the functions. To get started with an HTTP triggered function, you can uncomment the code in the file. To create a new function, open the Command Palette by navigating to View > Command Palette, or by pressing Ctrl-Shift-P (Windows) or Command-Shift-P (macOS).
 
 Once opening the Command Palette, select the function trigger you'd like to use and fill in the requested details.
 
-![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options)
+![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options.png)
 
 * Select "Preview Template" to learn more about the trigger and see sample code directly in the IDE.
 * Select "Append to 'function_app.py'" if you are ready to use the template to create the function
