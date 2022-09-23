@@ -22,6 +22,8 @@ Some example scenarios for the implementation of Azure Cognitive Services in cal
 
 > [!TIP]
 > Try the [Post-call transcription and analytics quickstart](/azure/cognitive-services/speech-service/call-center-quickstart).
+> 
+> To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
 ## Cognitive Services features for call centers
 
