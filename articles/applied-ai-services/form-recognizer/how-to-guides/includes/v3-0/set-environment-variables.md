@@ -21,7 +21,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 >
 > Don't include your key directly in the code and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../cognitive-services/use-key-vault.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
-To set the environment variable for your Form Recognizer resource key, open a console window, and follow the instructions for your operating system and development environment. Replace `<yourKey>` and `<yourEndpoint>` with the values from your resource in the Azure portal.
+To set the environment variable for your Form Recognizer resource key, open a console window, and follow the instructions for your operating system and development environment. Replace `{yourKey}` and `{yourEndpoint}` with the values from your resource in the Azure portal.
 
 #### [Windows](#tab/windows)
 
@@ -30,13 +30,13 @@ To set the environment variable for your Form Recognizer resource key, open a co
 ##### **Set your key variable**
 
 ```console
-  set KEY=<yourKey>
+  set KEY={yourKey}
 ```
 
 ##### **Set your endpoint variable**
 
 ```console
-set ENDPOINT=<yourEndpoint>
+set ENDPOINT={yourEndpoint}
 ```
 
 * After you `set` your environment variables, you restart any running programs that will read the environment variable, including the console window. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
@@ -52,7 +52,7 @@ set ENDPOINT=<yourEndpoint>
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** KEY=`<yourKey>`|
+  | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** KEY=`{yourKey}`|
   | **setx** VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.|**setx** KEY= |
   | **set** VARIABLE_NAME | Display the value of a specific environment variable| **set** KEY|
   | **set**| Display all environment variables.|**set**|
@@ -66,13 +66,13 @@ Environment variables in macOS are case-sensitive. Conventionally, the variable 
 ##### **Set your key variable**
 
 ```bash
-export key=<yourKey>
+export key={yourKey}
 ```
 
 ##### **Set your endpoint variable**
 
 ```bash
-export endpoint=<yourEndpoint>
+export endpoint={yourEndpoint}
 ```
 
 * You can set an environment variable permanently by placing an export command in your Bash  `~/.bash_profile` startup script:
@@ -80,10 +80,10 @@ export endpoint=<yourEndpoint>
   1. Use your favorite text editor to open the `~/.bash_profile` and add the following command to create a permanent environment variable:
 
       ```bash
-      export KEY=<yourKey> ENDPOINT=<yourEndpoint>
+      export KEY={yourKey} ENDPOINT={yourEndpoint}
       ```
 
-        Example: **export KEY="<yourKey>"**
+        Example: **export KEY="{yourKey}"**
 
   1. Save your changes to the `.bash_profile` file.
 
@@ -97,7 +97,7 @@ Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| **export** KEY=`<yourKey>`|
+  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| **export** KEY=`{yourKey}`|
   | **unset** VARIABLE_NAME | Delete an environment variable.|**unset** KEY |
   | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** KEY </br>&bullet; **echo** $KEY</br>|
   | **printenv**| Display all environment variables.|**printenv**|
@@ -111,13 +111,13 @@ The `export` command sets the variable and exports it to the global environment 
 ##### **Set your key variable**
 
 ```bash
-export KEY=<yourKey>
+export KEY={yourKey}
 ```
 
 ##### **Set your endpoint variable**
 
 ```bash
-export ENDPOINT=<yourEndpoint>
+export ENDPOINT={yourEndpoint}
 ```
 
 * You can set an environment variable permanently by placing an export command in your Bash `~/.bashrc` startup script:
@@ -128,7 +128,7 @@ export ENDPOINT=<yourEndpoint>
       export <VARIABLE>=<value>
       ```
 
-        Example: **export KEY=<yourKey>**
+        Example: **export KEY={yourKey}**
 
   1. Save your changes to the `.bashrc` file.
 
@@ -142,7 +142,7 @@ Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** KEY=`<yourKey>`|
+  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** KEY=`{yourKey}`|
   | **unset** VARIABLE_NAME| Delete an environment variable.|**unset** KEY= |
   | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable.</br>&bullet; With the **echo** command, precede the variable with $.| &bullet; **printenv** KEY </br>&bullet; **echo** $KEY</br>|
   | **printenv**| Display all environment variables.|**printenv**|
