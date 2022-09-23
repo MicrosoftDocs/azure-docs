@@ -236,7 +236,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`mpi_step`| command job|command component|
 |`parallel_run_step`|`Parallel` job| `Parallel` component|
 |`python_script_step`| `command` job|command component|
-|`r_script_step`| `command` job|command component|
+|`r_script_step`| `command` job|`command` component|
 |`synapse_spark_step`| coming soon|coming soon|
 
 ## Related documents
