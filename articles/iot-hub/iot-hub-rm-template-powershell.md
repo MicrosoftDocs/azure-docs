@@ -19,13 +19,13 @@ This article shows you how to use an Azure Resource Manager template to create a
 
 ## Prerequisites
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview)
+[Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview)
 
-  Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
+Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
 
 ## Create an IoT hub
 
-The [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The JSON template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](/azure/templates/microsoft.devices/iothub-allversions).
+The [Resource Manager JSON template](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/) used in this article is one of many templates from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). The JSON template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging) and a consumer group. For more information on the Iot Hub template schema, see [Microsoft.Devices (IoT Hub) resource types](https://learn.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
 Use the following PowerShell command to create a resource group which is then used to create an IoT hub. The JSON template is used in `-TemplateUri`.
 
