@@ -64,9 +64,12 @@ From an elevated command prompt rerun *w32tm /query /source* and compare the out
 2. Browse to *Task Scheduler* Library -> *Microsoft* -> *Windows* -> *Time Synchronization* -> Right-click in the right hand side pane and select *Create New Task*.
 3. In the *General* tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*.
 4. Under *Configure for:* select your operating system version.
-5. Switch to the *Triggers* tab, click the *New...* button, and set the schedule as per your requirements. Before clicking OK, make sure the box next to *Enabled* is checked.
-6. Go to the *Actions* tab. Click the *New...* button and enter the following details: *Action: Start a program*. *Program/script:* set the path to *%windir%\system32\w32tm.exe*. On the *Add arguments:* textbox type */resync*, and click OK to save changes.
-7. Under the *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is *not selected*. Click Ok.
+5. Switch to the *Triggers* tab, click the *New...* button, and set the schedule as per your requirements. Before clicking *OK*, make sure the box next to *Enabled* is checked.
+6. Go to the *Actions* tab. Click the *New...* button and enter the following details: 
+- On *Action:* set *Start a program*. 
+- On *Program/script:* set the path to *%windir%\system32\w32tm.exe*. 
+- On *Add arguments:* type */resync*, and click *OK* to save changes.
+7. Under the *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is *not selected*. Click *OK*.
 
 ## GPO for Clients
 
