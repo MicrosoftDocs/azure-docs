@@ -93,6 +93,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
 	"subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
 	"eventType": "Microsoft.Storage.BlobTierChanged",
+	"eventTime": "2021-05-04T15:00:00.8350154Z",
 	"id": "0fdefc06-b01e-0034-39f6-4016610696f6",
 	"data": {
 		"api": "SetBlobTier",
@@ -108,8 +109,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		}
 	},
 	"dataVersion": "",
-	"metadataVersion": "1",
-	"eventTime": "2021-05-04T15:00:00.8350154Z"
+	"metadataVersion": "1"
 }
 ```
 
@@ -120,6 +120,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
 	"subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
 	"eventType": "Microsoft.Storage.AsyncOperationInitiated",
+	"eventTime": "2021-05-04T14:44:59.3204652Z",
 	"id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
 	"data": {
 		"api": "SetBlobTier",
@@ -135,8 +136,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		}
 	},
 	"dataVersion": "",
-	"metadataVersion": "1",
-	"eventTime": "2021-05-04T14:44:59.3204652Z"
+	"metadataVersion": "1"
 }
 ```
 
@@ -194,6 +194,58 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 }]
 ```
 
+### Microsoft.Storage.BlobTierChanged event
+
+```json
+{
+	"source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
+	"type": "Microsoft.Storage.BlobTierChanged",
+	"time": "2021-05-04T15:00:00.8350154Z",  
+	"id": "0fdefc06-b01e-0034-39f6-4016610696f6",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
+		"requestId": "0fdefc06-b01e-0034-39f6-401661000000",
+		"contentType": "image/jpeg",
+		"contentLength": 105891,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
+		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
+		"storageDiagnostics": {
+			"batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
+		}
+	},
+  "specversion": "1.0"
+}
+```
+
+### Microsoft.Storage.AsyncOperationInitiated event
+
+```json
+{
+	"source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
+	"type": "Microsoft.Storage.AsyncOperationInitiated",
+	"time": "2021-05-04T14:44:59.3204652Z",
+	"id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
+		"requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
+		"contentType": "application/octet-stream",
+		"contentLength": 3660,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
+		"sequencer": "000000000000000000000000000089A4000000000018c6d7",
+		"storageDiagnostics": {
+			"batchId": "34128c8a-7006-0014-00f4-406dc6000000"
+		}
+	},
+	"specversion": "1.0"
+}
+```
+
 ---
 
 ## Azure Data Lake Storage Gen 2 events
@@ -218,7 +270,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
-If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with an exception of these changes:
+If the blob storage account has a hierarchical namespace, the data looks similar to the Blob Storage example with an exception of these changes:
 
 * The `dataVersion` key is set to a value of `2`.
 
@@ -490,6 +542,77 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
+### Microsoft.Storage.DirectoryCreated event (Data Lake Storage Gen2)
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/my-file-system/blobs/my-new-directory",
+  "type": "Microsoft.Storage.DirectoryCreated",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "CreateDirectory",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-new-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.Storage.DirectoryRenamed event (Data Lake Storage Gen2)
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/my-file-system/blobs/my-renamed-directory",
+  "type": "Microsoft.Storage.DirectoryRenamed",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "RenameDirectory",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-renamed-directory",
+    "sourceUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-original-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.Storage.DirectoryDeleted event (Data Lake Storage Gen2)
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/my-file-system/blobs/directory-to-delete",
+  "type": "Microsoft.Storage.DirectoryDeleted",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "DeleteDirectory",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/directory-to-delete",
+    "recursive": "true", 
+    "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
 
 ---
 
@@ -735,6 +858,221 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
+### Microsoft.Storage.BlobCreated event (SFTP)
+
+If the blob storage account uses SFTP to create or overwrite a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `3`.
+
+* The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
+
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
+* The `contentOffset` key is included in the data set.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+> [!NOTE]
+> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/new-file.txt",
+  "type": "Microsoft.Storage.BlobCreated",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpCommit",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "contentType": "application/octet-stream",
+    "contentLength": 0,
+    "contentOffset": 0,
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+
+### Microsoft.Storage.BlobDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpRemove`.
+
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/new-file.txt",
+  "type": "Microsoft.Storage.BlobDeleted",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemove",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "contentType": "text/plain",
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+
+### Microsoft.Storage.BlobRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-file.txt",
+  "type": "Microsoft.Storage.BlobRenamed",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-file.txt",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-file.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.Storage.DirectoryCreated event (SFTP)
+
+If the blob storage account uses SFTP to create a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpMakeDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-new-directory",
+  "type": "Microsoft.Storage.DirectoryCreated",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpMakeDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/my-new-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+
+### Microsoft.Storage.DirectoryRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-directory",
+  "type": "Microsoft.Storage.DirectoryRenamed",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-directory",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+
+### Microsoft.Storage.DirectoryDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRemoveDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/directory-to-delete",
+  "type": "Microsoft.Storage.DirectoryDeleted",
+  "time": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemoveDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/directory-to-delete",
+    "recursive": "false", 
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"localuser",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
 
 ---
 
@@ -744,7 +1082,7 @@ These events are triggered when the actions defined by a policy are performed.
 
  |Event name |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule that is defined an inventory policy . This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
  |**Microsoft.Storage.LifecyclePolicyCompleted** |Triggered when the actions defined by a lifecycle management policy are performed. |
 
 ## Example events
@@ -759,6 +1097,7 @@ When an event is triggered, the Event Grid service sends data about that event t
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
   "subject": "BlobDataManagement/BlobInventory",
   "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "eventTime": "2021-05-28T15:03:18Z",  
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "data": {
     "scheduleDateTime": "2021-05-28T03:50:27Z",
@@ -770,8 +1109,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
   },
   "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-05-28T15:03:18Z"
+  "metadataVersion": "1"
 }
 ```
 
@@ -782,6 +1120,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
     "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
     "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "eventTime": "2022-05-26T00:00:40.1880331",    
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "data": {
         "scheduleTime": "2022/05/24 22:57:29.3260160",
@@ -802,12 +1141,64 @@ When an event is triggered, the Event Grid service sends data about that event t
         }
     },
     "dataVersion": "1",
-    "metadataVersion": "1",
-    "eventTime": "2022-05-26T00:00:40.1880331"
+    "metadataVersion": "1"
 }
 ```
 
 # [Cloud event schema](#tab/cloud-event-schema)
+
+### Microsoft.Storage.BlobInventoryPolicyCompleted event
+
+```json
+{
+  "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "type": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "time": "2021-05-28T15:03:18Z",  
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "specversion": "1.0"
+}
+```
+
+### Microsoft.Storage.LifecyclePolicyCompleted event
+
+```json
+{
+    "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "type": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "time": "2022-05-26T00:00:40.1880331",    
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "specversion": "1.0"
+}
+```
 
 
 ---
