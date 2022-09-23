@@ -354,7 +354,6 @@ All the pre-trained text DNN models currently available in AutoML NLP for fine-t
 * bert_base_multilingual_cased 
 * bert_base_german_cased 
 * bert_large_cased 
-* *ert_large_uncased 
 * distilbert_base_cased 
 * distilbert_base_uncased 
 * roberta_base 
