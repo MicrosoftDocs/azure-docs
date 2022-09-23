@@ -235,7 +235,7 @@ def get_random_users(k = 5):
     return random.choices(list(user_profiles.keys()), k=k)
 ```
 
-The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance.
 
 
 ## Define a reward score based on user behavior

@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 05/12/2022
+ms.date: 09/21/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -87,7 +87,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   value. However, the scope isn't locked to the value and it can be changed to another scope.
 
   The following example of `parameterScopes` is for a _strongType_ parameter named
-  **backupPolicyId** that sets a scope for resource selection when the assignment is edited in the
+  `backupPolicyId` that sets a scope for resource selection when the assignment is edited in the
   Portal.
 
   ```json
@@ -102,12 +102,33 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
+- `evidenceStorages` (object): An array of storage containers that holds attestation evidence for policy assignments with a `manual` effect. The `displayName` property is the name of the storage account. The `evidenceStorageAccountID` property is the resource ID of the storage account. The  `evidenceBlobContainer` property is the blob container name in which you plan to store the evidence.
 
-## Enforcement Mode
+    ```json
+    {
+      "properties": {
+        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
+        "metadata": {
+          "evidenceStorages": [
+            {
+              "displayName": "Default evidence storage",
+              "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+              "evidenceBlobContainer": "evidence-container"
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+## Enforcement mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md).
+
+This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
@@ -204,7 +225,8 @@ same policy definition is reusable with a different set of parameters for a diff
 reducing the duplication and complexity of policy definitions while providing flexibility.
 
 ## Identity
-For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
+
+For policy assignments with effect set to **deployIfNotExist** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
 
 > [!NOTE]
 > A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
@@ -231,4 +253,3 @@ For policy assignments with effect set to **deployIfNotExisit** or **modify**, i
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
-
