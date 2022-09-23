@@ -5,11 +5,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/23/2022
 ---
-# Significant version changes in HDI 4.0 and advantages
+# Significant version changes in HDInsight 4.0 and advantages
 
 HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of what's new in Azure HDInsight 4.0.
 
-| # | OSS component | HDI 4.0 Version | HDI 3.6 Version |
+| # | OSS component | HDInsight 4.0 Version | HDInsight 3.6 Version |
 | --- | --- | --- | --- |
 | 1 | Apache Hadoop  | 3.1.1 | 2.7.3 |
 | 2 | Apache HBase  | 2.1.6 | 1.1.2 |
