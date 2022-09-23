@@ -24,7 +24,7 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Terraform should be installed on your local computer. Installation instructions can b
+Terraform should be installed on your local computer. Installation instructions can be found [here](https://learn.hashicorp.com/tutorials/terraform/install-cli).
 
 ## Review the Terraform File
 
@@ -64,17 +64,19 @@ Three Cosmos DB resources are defined in the main terraform file.
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-### [CLI](#tab/CLI)
+# [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az resource list --resource-group "your resource group name"
 ```
 
-### [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzResource -ResourceGroupName "your resource group name"
 ```
+
+---
 
 ## Clean up resources
 
@@ -92,6 +94,8 @@ az group delete --name exampleRG
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG
 ```
+
+---
 
 ## Next steps
 
