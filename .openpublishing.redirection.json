@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-hub/iot-hub-rm-template.md",
+            "redirect_url": "articles/iot-hub/iot-hub-rm-rest.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-blobs.md",
             "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-blobs",
             "redirect_document_id": false
