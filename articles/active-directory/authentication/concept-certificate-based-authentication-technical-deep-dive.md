@@ -22,7 +22,7 @@ ms.custom: has-adal-ref
 
 This article explains how Azure Active Directory (Azure AD) certificate-based authentication (CBA) works, with background information and testing scenarios.
 
-## How does Azure Active Directory certificate-based authentication work?
+## How does Azure AD certificate-based authentication work?
 
 Let's start by looking at what happens when a user tries to sign in to an application in a tenant where Azure AD CBA is enabled.
 
@@ -116,12 +116,12 @@ The certificate revocation process allows the admin to revoke a previously issue
 
 Azure AD downloads and caches the customers certificate revocation list (CRL) from their certificate authority to check if certificates are revoked during the authentication of the user.
 
-An admin can configure the CRL distribution point during the setup process of the trusted issuers in the Azure AD tenant. Each trusted issuer should have a CRL that can be referenced via an internet-facing URL.
+An admin can configure the CRL distribution point during the setup process of the trusted issuers in the Azure AD tenant. Each trusted issuer should have a CRL that can be referenced by using an internet-facing URL.
  
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download on an interactive sign in and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
+>The maximum size of a CRL for Azure AD to successfully download on an interactive sign-in and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure AD can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. As a best practice to keep CRL files within size limits, keep certificate lifetimes within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
 
-When a user performs an  interactive sign-in with a certificate and the CRL exceed the the interactive limit for a cloud (20MB in Azure Global and 45MB in Azure US Government clouds) this initial sign-in will fail showing the user an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators". Once this happens, Azure AD will attempt to download the CRL subject to the service side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
+When a user performs an  interactive sign-in with a certificate, and the CRL exceeds the interactive limit for a cloud (20MB in Azure Global and 45MB in Azure US Government clouds) this initial sign-in will fail showing the user an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators". Once this happens, Azure AD will attempt to download the CRL subject to the service side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
 
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
