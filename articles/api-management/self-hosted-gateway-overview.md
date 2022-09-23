@@ -96,12 +96,12 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 |:------------|:---------------------|:---------------------|:------|
 | Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP addresses of primary location is sufficient. |
-| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | ❔<sup>1</sup> | IP addresses must correspond to primary location of API Management instance. |
-| Hostname of Azure Blob Storage account | ✔️ | ❔<sup>1</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
-| Hostname of Azure Table Storage account | ✔️ | ❔<sup>1</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | ❔<sup>2</sup> | ❔<sup>2</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
-| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | ❔<sup>2</sup> | ❔<sup>2</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
-| Endpoints for [external cache integration](api-management-howto-cache-external.md) | ❔<sup>2</sup> | ❔<sup>2</sup> | This requirement depends on the external cache that is being used |
+| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>1</sup> | IP addresses must correspond to primary location of API Management instance. |
+| Hostname of Azure Blob Storage account | ✔️ | Optional<sup>1</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
+| Hostname of Azure Table Storage account | ✔️ | Optional<sup>1</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
+| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | This requirement depends on the external cache that is being used |
 
 <sup>1</sup> Only required in v2 when API inspector or quotas are used in policies.<br/>
 <sup>2</sup> Only required when feature is used and requires public IP address, port and hostname information.<br/>
