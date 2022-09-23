@@ -274,7 +274,7 @@ Perform the following steps if your Linux computers need to communicate through 
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ```
 
-## Uninstall the agent
+## Uninstall agent
 
 Use one of the following procedures to uninstall the Windows or Linux agent by using the command line or Setup Wizard.
 

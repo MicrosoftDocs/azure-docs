@@ -50,7 +50,7 @@ You can add a new facility by selecting **Add facility**. For each facility, onl
 
 By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, clear the **Apply below configuration to my machines** checkbox.
 
-### Configure Syslog on the Linux agent
+### Configure Syslog on Linux agent
 
 When the [Log Analytics agent is installed on a Linux client](../vm/monitor-virtual-machine.md), it installs a default Syslog configuration file that defines the facility and severity of the messages that are collected. You can modify this file to change the configuration. The configuration file is different depending on the Syslog daemon that the client has installed.
 

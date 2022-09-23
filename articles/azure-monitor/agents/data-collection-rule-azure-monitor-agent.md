@@ -20,7 +20,7 @@ To collect data from virtual machines by using Azure Monitor Agent, you'll:
 
     You can associate virtual machines to multiple data collection rules. For this reason, you can define each data collection rule to address a particular requirement. You can associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
 
-## Create a data collection rule and association
+## Create data collection rule and association
 
 To send data to Log Analytics, create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
@@ -107,7 +107,7 @@ This capability is enabled as part of the Azure CLI monitor-control-service exte
 For sample templates, see [Azure Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md).
 
 ---
-## Filter events by using XPath queries
+## Filter events using XPath queries
 
 You're charged for any data you collect in a Log Analytics workspace, so collect only the data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events.
 
