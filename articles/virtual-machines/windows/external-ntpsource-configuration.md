@@ -55,6 +55,19 @@ To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In th
 
 From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the NTP Server you chose.
 
+>[!TIP]
+>Follow the steps below if you want to speed-up the process of changing the NTP source on your PDC. You can create a scheduled task to run at **System Start-up** with the **Delay** task for up to (random delay) set to **2 minutes**.
+
+## Scheduled Task to Set NTP Source on your PDC
+
+1. From *Start* run *Task Scheduler*.
+2. Browse to *Task Scheduler* Library -> *Microsoft* -> *Windows* -> *Time Synchronization* -> Right-click in the right hand side pane and select *Create New Task*.
+3. In the *General* tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*.
+4. Under *Configure for:* select your operating system version.
+5. Switch to the *Triggers* tab, click the *New...* button, and set the schedule as per your requirements. Before clicking OK, make sure the box next to *Enabled* is checked.
+6. Go to the *Actions* tab. Click the *New...* button and enter the following details: *Action: Start a program*. *Program/script:* set the path to *%windir%\system32\w32tm.exe*. On the *Add arguments:* textbox type */resync*, and click OK to save changes.
+7. Under the *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is *not selected*. Click Ok.
+
 ## GPO for Clients
 
 Configure the following Group Policy Object to enable your clients to synchronize time with any Domain Controller in your Domain:
@@ -83,17 +96,3 @@ Below are links to more details about the time sync:
 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary)
-
-## Force NTP Source Update after System Reboot
-
-As reported in the documentation the System will take up to 15 minutes to update the Time Sync with the External NTP Source. During the reboot the VMs will load the standard Azure configuration. After 15 minutes from startup the correct NTP Source will be loaded. In order to load in a fast way the custom configuration you can create a scheduled task to run after the System Reboot.
-
-1. From the PDC Domain Controller go to *Start* and open the *Task Scheduler*.
-2. Browse to -> Microsoft -> Windows -> Time Synchronization branch and click *Create Task* in the menu on the right hand side.
-3. In the Create Task window -> General tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*. 
-4. Under *Configure for:* select your operating system.
-5. Switch to the *Triggers tab*, click the *New...* button, and enter your preferred settings. Before click to *OK*, make sure the box next to *Enabled* is checked. The suggestion is to trigger the task *At system startup* and delay the task for *2 minutes*.
-6. Now go to the *Actions* tab. Click the *New...* button and enter the following details: *Action:* Start a program. *Program/script:* set *%windir%\system32\w32tm.exe* . *Add arguments:* /resync. Click *OK*.
-7. Under *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is not selected. Click *Ok*.
-
-The configuration is completed. If the VMs needs to be restarted the NTP Configuration will be loaded after the startup in 2 minutes.
