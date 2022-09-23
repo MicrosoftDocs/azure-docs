@@ -21,7 +21,7 @@ The solution shows how to use Azure IoT Central to ingest industrial IoT data fr
 
 The following diagram shows the data flow in the scenario and highlights the key capabilities of IoT Central relevant to industrial solutions:
 
-:::image type="content" source="media/tutorial-industrial-end-to-end/industrial-iot-architecture.png" alt-text="A diagram that shows the architecture of an industrial I O T scenario.":::
+:::image type="content" source="media/tutorial-industrial-end-to-end/industrial-iot-architecture.png" alt-text="A diagram that shows the architecture of an industrial IoT scenario.":::
 
 The sample uses a custom tool to deploy and configure all of the resources. The tool shows you what resources it deploys and provides links to further information.
 
@@ -60,10 +60,7 @@ To create an Active Directory app registration in your Azure subscription:
   ```
 
   > [!TIP]
-  > If you're using the Azure Cloud Shell, you're signed in automatically.
-
-  > [!TIP]
-  > If you want to use a different subscription, use the [az account](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) command.
+  > If you're using the Azure Cloud Shell, you're signed in automatically. If you want to use a different subscription, use the [az account](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) command.
 
 - Make a note of the `id` value from the previous command. This value is your *subscription ID*. You use this value later in the tutorial.
 
@@ -97,7 +94,7 @@ To configure the **IoT Central Solution Builder** tool:
 - Run the **IoT Central Solution Builder** tool.
 - Select **Action > Edit Azure config**:
 
-  :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-azure-config.png" alt-text="Screenshot that shows the edit Azure config menu option in the I O T solution builder tool.":::
+  :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-azure-config.png" alt-text="Screenshot that shows the edit Azure config menu option in the IoT solution builder tool.":::
 
 - Enter the application ID, subscription ID, and tenant ID that you made a note of previously. Select **OK**.
 
@@ -127,17 +124,17 @@ Each step uses either an ARM template or REST API call to deploy or configure re
 To deploy the solution:
 
 - Select **Start Provisioning**.
-- Optionally, change the suffix and Azure location to use. The suffix is appended to the name of all the resources the tool creates to help you identify them in the Azure p.
+- Optionally, change the suffix and Azure location to use. The suffix is appended to the name of all the resources the tool creates to help you identify them in the Azure portal.
 - Select **Configure**.
 - The tool shows its progress as it deploys the solution.
 
   > [!TIP]
   > The tool takes about 15 minutes to deploy and configure all the resources.
 
-- Navigate to the Azure p and sign in with the same credentials you used to sign in to the tool.
+- Navigate to the Azure portal and sign in with the same credentials you used to sign in to the tool.
 - Find the resource group the tool created. The name of the resource group is **iotc-rg-{suffix from tool}**. In the following screenshot, the suffix used by the tool is  **iotcsb29472**:
 
-  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-portal-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure p.":::
+  :::image type="content" source="media/tutorial-industrial-end-to-end/azure-portal-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure portal.":::
 
 To customize the deployed solution, you can edit the `adxconfig-opcpub.json` configuration file and then run the tool.
 
