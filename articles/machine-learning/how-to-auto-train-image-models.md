@@ -309,6 +309,9 @@ If you wish to use the default hyperparameter values for a given algorithm (say 
 training_parameters:
     model_name: yolov5
 ```
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_training_parameters method of the task specific `automl` job. For example,
 
