@@ -47,7 +47,7 @@ For this article you need,
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](../concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 >[!NOTE]
-> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](../concept-automated-ml.md#computer-vision-preview). 
+> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](../concept-automated-ml.md#computer-vision). 
 >
 >Support for natural language processing (NLP) tasks: image classification (multi-class and multi-label) and named entity recognition is available in public preview. [Learn more about NLP tasks in automated ML](../concept-automated-ml.md#nlp). 
 >
