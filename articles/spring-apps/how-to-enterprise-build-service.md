@@ -25,7 +25,7 @@ In Azure Spring Apps, the existing Standard tier already supports compiling user
 
 Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool when you create a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with VMware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
 
 The following Build Agent Pool scale set sizes are available:
 
@@ -98,7 +98,9 @@ az spring app deploy \
 
 If you're using the `tanzu-buildpacks/java-azure` buildpack, we recommend that you set the `BP_JVM_VERSION` environment variable in the `build-env` argument.
 
-When you use a custom builder in an app deployment, the builder can't make edits and deletions. If you want to change the configuration, create a new builder and use the new builder to deploy the app. After you deploy the app with the new builder, the deployment is linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and make edits and deletions.
+When you use a custom builder in an app deployment, the builder can't make edits and deletions. If you want to change the configuration, create a new builder. Use the new builder to deploy the app.
+
+After you deploy the app with the new builder, the deployment is linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and make edits and deletions.
 
 ## Real-time build logs
 
@@ -134,10 +136,10 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-Not all Tanzu Buildpacks support all kinds of Service Bindings. Here is the relational tables about Tanzu Buildpacks and Tanzu Partner Buildpacks.
+Not all Tanzu Buildpacks support all kinds of Service Bindings. The following table shows the binding types supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
 
-|      |ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
-|------|-------------------|--------|-----------|---------|----------|
+|Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
+|---------|-------------------|--------|-----------|---------|----------|
 |Java  |✅|✅|✅|✅|✅|
 |Dotnet|❌|❌|❌|✅|❌|
 |Go    |❌|❌|❌|✅|❌|
@@ -153,7 +155,7 @@ Click **Edit** to edit service bindings for the builder. After bound the Service
 > [!NOTE]
 > When configuring environment variables for APM bindings, please do use key names without prefix. For example, always use "" instead of "DT_" for Dynatrace. Tanzu APM buildpacks will help transform them to be the original environment variable names with a prefix.
 
-Here is an example of Dynatrace properties.
+The following example shows Dynatrace properties.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of editing Dynatrace Service Binding pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
 
