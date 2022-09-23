@@ -61,7 +61,6 @@ Azure Functions expects a function to be a stateless method in your Python scrip
 Triggers and bindings can be declared and used in a function in a decorator based approach. They are defined in the same file, `function_app.py`, as the functions. As an example, the below _function_app.py_ file represents a function trigger by an HTTP request.
 
 ```python
-
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
 
@@ -1400,8 +1399,8 @@ Following is a list of troubleshooting guides for common issues:
 
 Following is a list of troubleshooting guides for known issues with the V2 programming model:
 
-* [insert-link] Cached bundles
-* [insert-link] DurableTask not found
+* [Could not load file or assembly](recover-python-functions.md#troubleshoot-could-not-load-file-or-assembly)
+* [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-Azure-Storage-connection-named-Storage)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
