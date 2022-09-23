@@ -196,7 +196,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs." :::  
 
-   These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
+   These additional entries show that the authentication is complete, a primary refresh token is sent back to the browser, and user is given access to the resource.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
 
@@ -206,10 +206,10 @@ For the next test scenario, configure the authentication policy where the **poli
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
-1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign-in logs**, including and entry with **Interrupted** status.
+1. Sign in to the Azure portal using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Click **Azure Active Directory** > **Sign-in logs**.
 
-   You'll see several entries in the Sign-in logs. 
+   You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
@@ -237,7 +237,7 @@ For the next test scenario, configure the authentication policy where the **poli
 
   When an iOS client sees a client TLS challenge and the user clicks **Sign in with certificate**, iOS client knows it cannot handle it and sends a completely new authorization request using the Safari browser. The user clicks **Sign in with certificate** again, at which point Safari which has access to certificates for authentication in device storage. This requires users to click **Sign in with certificate** twice, once in app’s WKWebView and once in Safari’s System WebView.
 
-  We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
+  We're aware of the UX experience issue and we're working to fix this on iOS to have a seamless UX experience.
 
 ## Understanding the certificate-based authentication error page
 
@@ -254,7 +254,7 @@ Click **More details** to get logging information that can be sent to an adminis
 Click **Other ways to sign in** to try other methods available to the user to sign in. 
  
 >[!NOTE]
->If you retry CBA in a browser, it will keep failing due to the browser caching issue. Users need to open a new browser session and sign in again.
+>If you retry CBA in a browser, it'll keep failing due to the browser caching issue. Users need to open a new browser session and sign in again.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/new-sign-in.png" alt-text="Screenshot of a new sign-in attempt." :::  
 
