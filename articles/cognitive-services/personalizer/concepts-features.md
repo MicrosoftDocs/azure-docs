@@ -406,9 +406,9 @@ For the best actions returned by Personalizer, the feature scores can provide ge
 * Scores close to zero have a small effect on the decision to choose this action.
 
 ### Important considerations for Inference Explainability
-* **Increased latency.** Enabling _Inference Explainability_ will significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. Future versions of Inference Explainability will mitigate this issue.
+* **Increased latency.** Currently, enabling _Inference Explainability_ may significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. 
 * **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when using _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
-* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm. Future releases will enable the use of this capability with additional exploration algorithms.
+* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm at this time.
 
 ## Next steps
 
