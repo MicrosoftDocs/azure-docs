@@ -63,6 +63,28 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 1. End the VM session.
 1. Connect to the target VM again using Bastion. Sign-in should succeed, indicating that Bastion used Kerberos (and not NTLM) for authentication.
 
+## Setup
+
+To setup Kerberos, deploy the `KerberosDeployment.json` ARM template by running the following PS cmd: 
+```
+New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
+```
+This template does the following:
+- Deploys these Azure resources: 
+  - Vnet
+  - Bastion, Bastion-ip
+  - ClientVM, ServerVM
+- Have the DNS Server of the VNET point to the private IP address of the Server-vm (domain controller). This is required for the target ClientVM to successfully domain-join to the Domain Controller (ServerVM).
+- Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `<domain-name-specified-in-deployment.json-file>`
+- Runs a Custom Script Extension on the ClientVM to have it: 
+  - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication)
+  - Domain-join the `<domain-name-specified-in-deployment.json-file>` domain
+
+Login to ClientVM using Bastion with Kerberos authentication:
+- Make sure to have the `Kerberos` feature enabled on the bastion
+- Login to ClientVM with Bastion using credentials: username = `serveruser@<domain-name-specified-in-deployment.json-file>` and password = `<password-used-in-deployment.json>`
+
+
 ## Next steps
 
 For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
