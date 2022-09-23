@@ -20,9 +20,9 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 
 - Higher quality results than what you can get just from prompt design
 - The ability to train on more examples than can fit into a prompt
-- Lower latency requests. 
+- Lower-latency requests
  
-A customized model improves on the few-shot learning approach by training the model's weights on your specific prompts and structure. The customized model lets you achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens processed on every API call, saving cost and enabling lower-latency requests.
+A customized model improves on the few-shot learning approach by training the model's weights on your specific prompts and structure. The customized model lets you achieve better results on a wider number of tasks without needing to provide examples in your prompt. The result is less text sent and fewer tokens processed on every API call, saving cost and improving request latency.
 
 ::: zone pivot="programming-language-studio"
 
