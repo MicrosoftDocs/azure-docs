@@ -26,7 +26,7 @@ You can export a list of users with different Mobile and otherMobile values betw
 
 ### Using _‘Compare-ADSyncToolsDirSyncOverrides’_
 
-As a prerequisite you need to be running Azure AD Connect version 1.6 or later and install the latest ADSyncTools module from PowerShell Gallery with the following command:
+As a prerequisite you need to be running Azure AD Connect version 2.0.3.0 or later and install the latest ADSyncTools module from PowerShell Gallery with the following command:
 
     ``` powershell
     Install-Module ADSyncTools 
