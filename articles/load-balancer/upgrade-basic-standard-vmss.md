@@ -134,7 +134,7 @@ The script migrates the following from the Basic load balancer to the Standard l
 - Inbound NAT Rules:
   - All NAT rules will be migrated to the new Standard load balancer
 - Outbound Rules:
-  - Basic load balancers don't support configured outbound rules. The script will create an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about Outbound connectivity, see [Outbound-only load balancer configuration](/azure/load-balancer/egress-only).
+  - Basic load balancers don't support configured outbound rules. The script will create an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about outbound rules, see [Outbound rules](/azure/load-balancer/outbound-rules).
 - Network security group
   - Basic load balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the virtual machine scale set, a new network security group will be created to preserve the same functionality. This new network security group will be associated to the virtual machine scale set backend pool member network interfaces. It will allow the same load balancing rules ports and protocols and preserve the outbound connectivity.
 - Backend pools:
