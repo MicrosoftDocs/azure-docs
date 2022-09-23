@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 This article walks you through the process of using the Azure REST API to trigger an assessment and an update deployment on your Azure virtual machine with update management center (preview) in Azure. If you are new to update management center (preview) and you want to learn more, see [overview of update management center (preview)](overview.md). To use the Azure REST API to manage Arc-enabled servers, see [How to programmatically work with Arc-enabled servers](manage-arc-enabled-servers-programmatically.md).
 
-Update management center (private preview) in Azure enables you to use the [Azure REST API](/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](/powershell/azure/) and [Azure CLI](/cli/azure/).
+Update management center (preview) in Azure enables you to use the [Azure REST API](/rest/api/azure/) for access programmatically. Additionally, you can use the appropriate REST commands from [Azure PowerShell](/powershell/azure/) and [Azure CLI](/cli/azure/).
 
 Support for Azure REST API to manage Azure VMs is available through the update management center (preview) virtual machine extension.
 
