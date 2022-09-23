@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 09/22/2022
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -15,7 +15,7 @@ This article provides the properties and schema for blob storage events. For an
 
 ## Available event types
 
-### List of events for Blob REST APIs
+## Blob Storage events
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
 
@@ -29,7 +29,174 @@ These events are triggered when a client creates, replaces, or deletes a blob by
  |**Microsoft.Storage.BlobTierChanged** |Triggered when the blob access tier is changed. Specifically, when clients call the `Set Blob Tier` operation that is available in the Blob REST API, this event is triggered after the tier change completes. |
 |**Microsoft.Storage.AsyncOperationInitiated** |Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.|
 
-### List of the events for Azure Data Lake Storage Gen 2 REST APIs
+### Example events
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+### Microsoft.Storage.BlobCreated event
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/test-container/blobs/new-file.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "contentType": "text/plain",
+    "contentLength": 524288,
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.BlobDeleted event
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/file-to-delete.txt",
+  "eventType": "Microsoft.Storage.BlobDeleted",
+  "eventTime": "2017-11-07T20:09:22.5674003Z",
+  "id": "4c2359fe-001e-00ba-0e04-58586806d298",
+  "data": {
+    "api": "DeleteBlob",
+    "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
+    "contentType": "text/plain",
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
+    "sequencer": "0000000000000281000000000002F5CA",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.BlobTierChanged event
+
+```json
+{
+	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
+	"eventType": "Microsoft.Storage.BlobTierChanged",
+	"id": "0fdefc06-b01e-0034-39f6-4016610696f6",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
+		"requestId": "0fdefc06-b01e-0034-39f6-401661000000",
+		"contentType": "image/jpeg",
+		"contentLength": 105891,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
+		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
+		"storageDiagnostics": {
+			"batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
+		}
+	},
+	"dataVersion": "",
+	"metadataVersion": "1",
+	"eventTime": "2021-05-04T15:00:00.8350154Z"
+}
+```
+
+### Microsoft.Storage.AsyncOperationInitiated event
+
+```json
+{
+	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+	"subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
+	"eventType": "Microsoft.Storage.AsyncOperationInitiated",
+	"id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
+	"data": {
+		"api": "SetBlobTier",
+		"clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
+		"requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
+		"contentType": "application/octet-stream",
+		"contentLength": 3660,
+		"blobType": "BlockBlob",
+		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
+		"sequencer": "000000000000000000000000000089A4000000000018c6d7",
+		"storageDiagnostics": {
+			"batchId": "34128c8a-7006-0014-00f4-406dc6000000"
+		}
+	},
+	"dataVersion": "",
+	"metadataVersion": "1",
+	"eventTime": "2021-05-04T14:44:59.3204652Z"
+}
+```
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+### Microsoft.Storage.BlobCreated event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/test-container/blobs/new-file.txt",
+  "type": "Microsoft.Storage.BlobCreated",
+  "time": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "contentType": "text/plain",
+    "contentLength": 524288,
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### Microsoft.Storage.BlobDeleted event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/file-to-delete.txt",
+  "type": "Microsoft.Storage.BlobDeleted",
+  "time": "2017-11-07T20:09:22.5674003Z",
+  "id": "4c2359fe-001e-00ba-0e04-58586806d298",
+  "data": {
+    "api": "DeleteBlob",
+    "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
+    "contentType": "text/plain",
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
+    "sequencer": "0000000000000281000000000002F5CA",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+---
+
+## Azure Data Lake Storage Gen 2 events
 
 These events are triggered if you enable a hierarchical namespace on the storage account, and clients use Azure Data Lake Storage Gen2 REST APIs. For more information bout Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
@@ -71,34 +238,6 @@ These events are triggered when the actions defined by a policy are performed.
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
-
-### Microsoft.Storage.BlobCreated event
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-  "subject": "/blobServices/default/containers/test-container/blobs/new-file.txt",
-  "eventType": "Microsoft.Storage.BlobCreated",
-  "eventTime": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "api": "PutBlockList",
-    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
-    "contentType": "text/plain",
-    "contentLength": 524288,
-    "blobType": "BlockBlob",
-    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
-    "sequencer": "00000000000004420000000000028963",
-    "storageDiagnostics": {
-      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-    }
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
-}]
-```
 
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
@@ -186,30 +325,6 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 }]
 ```
 
-### Microsoft.Storage.BlobDeleted event
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-  "subject": "/blobServices/default/containers/testcontainer/blobs/file-to-delete.txt",
-  "eventType": "Microsoft.Storage.BlobDeleted",
-  "eventTime": "2017-11-07T20:09:22.5674003Z",
-  "id": "4c2359fe-001e-00ba-0e04-58586806d298",
-  "data": {
-    "api": "DeleteBlob",
-    "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
-    "contentType": "text/plain",
-    "blobType": "BlockBlob",
-    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
-    "sequencer": "0000000000000281000000000002F5CA",
-    "storageDiagnostics": {
-      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-    }
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
-}]
-```
 
 ### Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
@@ -285,61 +400,6 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
   "metadataVersion": "1"
 }]
 ```
-
-### Microsoft.Storage.BlobTierChanged event
-
-```json
-{
-	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-	"subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
-	"eventType": "Microsoft.Storage.BlobTierChanged",
-	"id": "0fdefc06-b01e-0034-39f6-4016610696f6",
-	"data": {
-		"api": "SetBlobTier",
-		"clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
-		"requestId": "0fdefc06-b01e-0034-39f6-401661000000",
-		"contentType": "image/jpeg",
-		"contentLength": 105891,
-		"blobType": "BlockBlob",
-		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
-		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
-		"storageDiagnostics": {
-			"batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
-		}
-	},
-	"dataVersion": "",
-	"metadataVersion": "1",
-	"eventTime": "2021-05-04T15:00:00.8350154Z"
-}
-```
-
-### Microsoft.Storage.AsyncOperationInitiated event
-
-```json
-{
-	"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-	"subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
-	"eventType": "Microsoft.Storage.AsyncOperationInitiated",
-	"id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
-	"data": {
-		"api": "SetBlobTier",
-		"clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
-		"requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
-		"contentType": "application/octet-stream",
-		"contentLength": 3660,
-		"blobType": "BlockBlob",
-		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
-		"sequencer": "000000000000000000000000000089A4000000000018c6d7",
-		"storageDiagnostics": {
-			"batchId": "34128c8a-7006-0014-00f4-406dc6000000"
-		}
-	},
-	"dataVersion": "",
-	"metadataVersion": "1",
-	"eventTime": "2021-05-04T14:44:59.3204652Z"
-}
-```
-
 
 ### Microsoft.Storage.BlobRenamed event
 
@@ -630,33 +690,6 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-### Microsoft.Storage.BlobCreated event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-  "subject": "/blobServices/default/containers/test-container/blobs/new-file.txt",
-  "type": "Microsoft.Storage.BlobCreated",
-  "time": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "api": "PutBlockList",
-    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
-    "contentType": "text/plain",
-    "contentLength": 524288,
-    "blobType": "BlockBlob",
-    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
-    "sequencer": "00000000000004420000000000028963",
-    "storageDiagnostics": {
-      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
 If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with an exception of these changes:
@@ -693,29 +726,6 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
-### Microsoft.Storage.BlobDeleted event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-  "subject": "/blobServices/default/containers/testcontainer/blobs/file-to-delete.txt",
-  "type": "Microsoft.Storage.BlobDeleted",
-  "time": "2017-11-07T20:09:22.5674003Z",
-  "id": "4c2359fe-001e-00ba-0e04-58586806d298",
-  "data": {
-    "api": "DeleteBlob",
-    "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
-    "contentType": "text/plain",
-    "blobType": "BlockBlob",
-    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
-    "sequencer": "0000000000000281000000000002F5CA",
-    "storageDiagnostics": {
-      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
 
 ### Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
