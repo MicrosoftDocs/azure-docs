@@ -83,7 +83,7 @@ To enable guest management (install the Arc connected machine agent), ensure
 
 ### Supported operating systems
 
-The officially supported versions of the Windows and Linux operating system for the Azure Connected Machine agent are listed [here](../servers/prerequisites#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
+The officially supported versions of the Windows and Linux operating system for the Azure Connected Machine agent are listed [here](../servers/prerequisites.md#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
 
 ### Software requirements
 
