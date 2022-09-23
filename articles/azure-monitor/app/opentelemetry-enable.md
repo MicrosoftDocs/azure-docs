@@ -523,7 +523,7 @@ Dependencies
 ---
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#Add-Custom-Metrics). You can find them in the Application Insights Metrics Blade under the "CUSTOM" Metric Namespace.
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#Add-Custom-Metrics) in Metrics Explorer. Whatever you set as the meter name becomes the metrics namespace.
 
 ## Modify telemetry
 
