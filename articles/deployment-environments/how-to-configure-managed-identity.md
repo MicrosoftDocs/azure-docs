@@ -5,19 +5,21 @@ description: Learn how to configure a managed identity that'll be used to deploy
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/20/2022
+ms.date: 09/23/2022
 ms.topic: how-to
 ---
 
 # Configure a managed identity
 
-A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service will use the managed identity attached to the dev center to deploy an environment. This managed identity will need to have appropriate access to the subscriptions in which the Azure resources are created. You won't need to grant access to the development teams to the target subscriptions.
+ A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service uses identities to provide self-serve capabilities to your development teams without granting them access to the target subscriptions in which the Azure resources are created.
+
+Either the managed identity attached to the dev center or the deployment identity configured for a [project environment type](how-to-configure-project-environment-types.md) needs to be granted 'Owner' access to the deployment subscriptions, and Azure Deployment Environments service will use this identity to perform the deployment on behalf of the developer.
 
 In this article, you'll learn about:
 
 * Types of managed identities
-* Assigning a role assignment to the managed identity
-* Assigning the identity with access to the Key Vault secret
+* Assigning a subscription role assignment to the managed identity
+* Assigning the identity access to the Key Vault secret
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -26,37 +28,50 @@ In this article, you'll learn about:
 
 In Azure Deployment Environments, you can use two types of managed identities:
 
-* A **system-assigned identity** is tied to your dev center and is deleted when your dev center is deleted. A dev center can only have one system-assigned identity.
-* A **user-assigned identity** is a standalone Azure resource that can be assigned to your dev center.
+* A **system-assigned identity** is tied to either your dev center or the project environment type and is deleted when the attached resource is deleted. A dev center or a project environment type can have only one system-assigned identity.
+* A **user-assigned identity** is a standalone Azure resource that can be assigned to your dev center or to a project environment type. For Azure Deployment Environments Preview, a dev center or a project environment type can have only one user-assigned identity.
 
 > [!NOTE]
 > If you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity will be used by the service.
 
-### Configure a system-assigned managed identity
+### Configure a system-assigned managed identity for a dev center
 
-1. Go to your dev center home page.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Access Azure Deployment Environments.
+1. Select your dev center from the list.
 1. Select **Identity** from the left pane.
-1. On the **System assigned** tab, set the **Status** to **On**, select **Save** and confirm enabling a System assigned managed identity
+1. On the **System assigned** tab, set the **Status** to **On**, select **Save** and then confirm enabling a System assigned managed identity.
 
-### Configure a user-assigned managed identity  
+:::image type="content" source="./media/configure-managed-identity/configure-system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity.":::
 
-1. Go to your dev center home page.
+
+### Configure a user-assigned managed identity for a dev center
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Access Azure Deployment Environments.
+1. Select your dev center from the list.
 1. Select **Identity** from the left pane.
-1. Switch to **User assigned** tab and select **+ Add** to attach an existing identity.
+1. Switch to the **User assigned** tab and select **+ Add** to attach an existing identity.
+
+:::image type="content" source="./media/configure-managed-identity/configure-user-assigned-managed-identity.png" alt-text="Screenshot showing the user assigned managed identity.":::
+
 1. On the **Add user assigned managed identity** page, add the following details:
     1. Select the **Subscription** in which the identity exists.
-    1. Select an existing identity for **User assigned managed identities**.
+    1. Select an existing **User assigned managed identities** from the dropdown.
     3. Select **Add**.
 
-## Assign a role assignment to the managed identity
+## Assign a subscription role assignment to the managed identity
 
-An identity attached to a dev center will be used to deploy environments. You'll need to grant this identity 'Owner' access to all the target subscriptions in which the resources are created, as well as 'Reader' access to all subscriptions that a project lives in.
+An identity attached to a project environment type will be used to deploy environments.The identity attached to the dev center or the identity configured for the project environment type will need 'Owner' access to all the deployment subscriptions, as well as 'Reader' access to all subscriptions that a project lives in.
 
 1. To add a role assignment to the managed identity:
     1. For a system-assigned identity, select **Azure role assignments**.
+    
+    :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot showing the Azure role assignment for system assigned identity.":::
+
     1. For the user-assigned identity, select the specific identity, and then select the **Azure role assignments** from the left pane.
 
-2. On the Azure role assignments page, select **Add role assignment** and provide the following details:
+2. On the **Azure role assignments** page, select **Add role assignment** and provide the following details:
     1. Select **SubScription** from the dropdown for **Scope**. 
     2. Select the target **Subscription** to use from the dropdown.
     3. Select **Owner** from the dropdown for **Role**.
@@ -65,7 +80,7 @@ An identity attached to a dev center will be used to deploy environments. You'll
 ## Assign the managed identity access to the Key Vault secret
 
 >[!NOTE] 
-> Providing the identity with access to the Key Vault secret, which contains the repo's personal access token (PAT), is a pre-requisite to adding the repo as a catalog.
+> Providing the identity with access to the Key Vault secret, which contains the repo's personal access token (PAT), is a prerequisite to adding the repo as a catalog.
 
 To grant the identity access to the secret:
 
@@ -76,11 +91,11 @@ A Key Vault can be configured to use either the [Vault access policy'](../key-va
     1. Select **Access policies** from the left pane.
     1. Select **+ Create**.
     1. On the **Create an access policy** page, provide the following details:
-        1.  Enable **Get** for **Secret permissions** on the **Permissions** page.
-        1.  Select the identity that is attached to the dev center as **Principal**.
+        1. Enable **Get** for **Secret permissions** on the **Permissions** page.
+        1. Select the identity that is attached to the dev center as **Principal**.
         1. Select **Create** on the **Review + create** page.
 
-2. If the Key Vault is configured to use **Azure role-based access control** permission model,
+1. If the Key Vault is configured to use **Azure role-based access control** permission model,
     1. Select the specific identity and select the **Azure role assignments** from the left pane.
     1. Select **Add Role Assignment** and provide the following details:
         1. Select Key Vault from the **Scope** dropdown.
@@ -91,4 +106,5 @@ A Key Vault can be configured to use either the [Vault access policy'](../key-va
 
 ## Next steps
 
-* [Configure a Catalog](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md)
+* [Configure a Catalog](how-to-configure-catalog.md)
+* [Configure a project environment type](how-to-configure-project-environment-types.md)
