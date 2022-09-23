@@ -58,7 +58,7 @@ From an elevated command prompt rerun *w32tm /query /source* and compare the out
 >[!TIP]
 >Follow the steps below if you want to speed-up the process of changing the NTP source on your PDC. You can create a scheduled task to run at **System Start-up** with the **Delay** task for up to (random delay) set to **2 minutes**.
 
-## Scheduled Task to Set NTP Source on your PDC
+## Scheduled task to set NTP source on your PDC
 
 1. From *Start* run *Task Scheduler*.
 2. Browse to *Task Scheduler* Library -> *Microsoft* -> *Windows* -> *Time Synchronization* -> Right-click in the right hand side pane and select *Create New Task*.
