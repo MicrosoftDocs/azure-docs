@@ -51,8 +51,6 @@ landingContent:
             url: scale-app.md
           - text: Manage secrets
             url: manage-secrets.md
-          - text: Monitor an app
-            url: monitor.md
           - text: Manage revisions
             url: revisions-manage.md
           - text: Set up HTTP ingress
