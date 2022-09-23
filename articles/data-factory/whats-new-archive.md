@@ -36,6 +36,9 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr> 
 <tr><td><b>Orchestration</b></td><td>‘turnOffAsync' property is available in Web activity</td><td>Web activity supports an async request-reply pattern that invokes HTTP GET on the Location field in the response header of an HTTP 202 Response. It helps web activity automatically poll the monitoring end-point till the job runs. ‘turnOffAsync' property is supported to disable this behavior in cases where polling isn't needed<br><a href="control-flow-web-activity.md#type-properties">Learn more</a></td></tr>
 </table>
+
+
+### Video summary
  
 > [!VIDEO https://www.youtube.com/embed?v=Ay3tsJe_vMM&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=3]
 
@@ -83,6 +86,8 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td>Web activity timeout improvement</td><td>You can configure response timeout in a Web activity to prevent it from timing out if the response period is more than one minute, especially in the case of synchronous APIs.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307">Learn more</a></td></tr>
 
 </table>
+
+### Video summary
 
 > [!VIDEO https://www.youtube.com/embed?v=MkgBxFyYwhQ&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=2]
 
