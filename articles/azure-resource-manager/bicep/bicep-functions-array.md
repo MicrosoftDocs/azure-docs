@@ -5,8 +5,8 @@ author: mumian
 ms.topic: conceptual
 ms.author: jgao
 ms.date: 04/12/2022
-
 ---
+
 # Array functions for Bicep
 
 This article describes the Bicep functions for working with arrays. The lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
@@ -53,36 +53,6 @@ The output from the preceding example with the default values is:
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
-
-### Quickstart examples
-
-The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage):
-
-```bicep
-@description('Amount of data disks (1TB each) for SQL Data files')
-@minValue(1)
-@maxValue(8)
-param sqlDataDisksCount int = 1
-
-@description('Amount of data disks (1TB each) for SQL Log files')
-@minValue(1)
-@maxValue(8)
-param sqlLogDisksCount int = 1
-
-var dataDisksLuns = array(range(0, sqlDataDisksCount))
-var logDisksLuns = array(range(sqlDataDisksCount, sqlLogDisksCount))
-
-output array1 array = dataDisksLuns
-output array2 array = logDisksLuns
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| array1 | Array | [0] |
-| array2 | Array | [1] |
 
 ## concat
 
@@ -185,34 +155,6 @@ The output from the preceding example with the default values is:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-### Quickstart examples
-
-The following sample is extracted from a quickstart template, [Application Gateway with WAF and firewall policy](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-waf-firewall-policy):
-
-```bicep
-backendHttpSettingsCollection: [for backendHttpSetting in backendHttpSettings: {
-  name: backendHttpSetting.name
-  properties: {
-    port: backendHttpSetting.port
-    protocol: backendHttpSetting.protocol
-    cookieBasedAffinity: backendHttpSetting.cookieBasedAffinity
-    affinityCookieName: contains(backendHttpSetting, 'affinityCookieName') ? backendHttpSetting.affinityCookieName : null
-    requestTimeout: backendHttpSetting.requestTimeout
-    connectionDraining: backendHttpSetting.connectionDraining
-    probe: contains(backendHttpSetting, 'probeName') ? json('{"id": "${resourceId('Microsoft.Network/applicationGateways/probes', applicationGatewayName, backendHttpSetting.probeName)}"}') : null
-    trustedRootCertificates: contains(backendHttpSetting, 'trustedRootCertificate') ? json('[{"id": "${resourceId('Microsoft.Network/applicationGateways/trustedRootCertificates', applicationGatewayName, backendHttpSetting.trustedRootCertificate)}"}]') : null
-    hostName: contains(backendHttpSetting, 'hostName') ? backendHttpSetting.hostName : null
-    pickHostNameFromBackendAddress: contains(backendHttpSetting, 'pickHostNameFromBackendAddress') ? backendHttpSetting.pickHostNameFromBackendAddress : false
-  }
-}]
-```
-
-More examples can be found in these quickstart Bicep files:
-
-- [Route table with routes](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/route-table-create)
-- [Virtual Network with diagnostic logs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs)
-- [App Service Quickstart - Linux App](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-docs-linux)
-
 ## empty
 
 `empty(itemToTest)`
@@ -252,6 +194,34 @@ The output from the preceding example with the default values is:
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+
+### Quickstart examples
+
+The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.attestation/attestation-provider-create\main.bicep):
+
+```bicep
+@description('Array containing DNS Servers')
+param dnsServers array = []
+
+...
+
+resource vnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+  name: vnetName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: vnetAddressSpace
+    }
+    dhcpOptions: empty(dnsServers) ? null : {
+      dnsServers: dnsServers
+    }
+    ...
+  }
+}
+```
+
+**dnsServers** is assigned if the array is not empty.
 
 ## first
 
@@ -666,6 +636,54 @@ The output from the preceding example with the default values is:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
+
+### Quickstart examples
+
+The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts//microsoft.apimanagement/api-management-create-with-external-vnet-publicip):
+
+```bicep
+@description('Numbers for availability zones, for example, 1,2,3.')
+param availabilityZones array = [
+  '1'
+  '2'
+]
+
+resource exampleApim 'Microsoft.ApiManagement/service@2021-08-01' = {
+  name: apiManagementName
+  location: location
+  sku: {
+    name: sku
+    capacity: skuCount
+  }
+  zones: ((length(availabilityZones) == 0) ? null : availabilityZones)
+  ...
+}
+```
+
+Assign **availabilityZones** to the **zones** property if **availabilityZones** contains 1 or more elements.
+
+The following example is extracted from a quickstart template, [Backup Resource Manager VMs using Recovery Services vault
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-vms/):
+
+```bicep
+param numberOfInstances int
+
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' = [for i in range(0, length(range(0, numberOfInstances))): {
+  name: '${virtualMachineName}${range(0, numberOfInstances)[i]}'
+  location: location
+  properties: {
+    ...
+  }
+  ...
+}
+```
+
+More examples can be found in these quickstart Bicep files:
+
+- [Deploy API Management into Availability Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones)
+- [Create a Firewall and FirewallPolicy with Rules and Ipgroups](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups)
+- [Create a sandbox setup of Azure Firewall with Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox)
 
 ## max
 
