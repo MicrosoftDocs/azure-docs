@@ -3,7 +3,7 @@ title: Modernize your Azure Kubernetes Service (AKS) application with a workload
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 09/23/2022
 ---
 
 # Modernize application authentication with workload identity sidecar
@@ -81,10 +81,10 @@ Serviceaccount/workload-identity-sa created
 
 ## Establish federated identity credential
 
-Use the [az rest][az-rest] command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `subscriptionID`, `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamspace`, and `serviceAccountName`.
+Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
 
 ```azurecli
-az rest --method put --url "/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userAssignedIdentityName}/federatedIdentityCredentials/$federatedIdentityName?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:serviceAccountNamespace:serviceAccountName','audiences':['api://AzureADTokenExchange'] }}"
+az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject serviceAccountNamspace:serviceAccountName
 ```
 
 ## Deploy the workload
@@ -146,8 +146,8 @@ This article showed you how to set up your pod to authenticate using a workload 
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-account-set]: /cli/azure/account#az-account-set
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-rest]: /cli/azure/reference-index#az-rest
 [workload-identity-overview]: workload-identity-overview.md
+[az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
