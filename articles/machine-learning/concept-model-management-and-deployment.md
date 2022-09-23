@@ -150,13 +150,11 @@ Machine Learning gives you the capability to track the end-to-end audit trail of
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
 - Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
-- The Machine Learning Model Registry captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
+- The [Machine Learning Model Registry](how-to-manage-models?tabs=use-local#create-a-model-in-the-model-registry) captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
 - [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (job) events.
 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add more information by using _tags_. When you look for registered models and datasets in your workspace, you can use tags as a filter.
->
-> Associating a dataset with a registered model is an optional step. For information on how to reference a dataset when you register a model, see the [Model](/python/api/azureml-core/azureml.core.model%28class%29) class reference.
 
 ## Notify, automate, and alert on events in the machine learning lifecycle
 
@@ -168,11 +166,11 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data might also be useful in training future versions of the model.
 
-For more information, see [Enable model data collection](v1/how-to-enable-data-collection.md).
+For more information, see [Enable model data collection](v1/how-to-enable-data-collection.md) (Note this feature is only availabie in v1).
 
 ## Retrain your model on new data
 
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](v1/how-to-monitor-datasets.md), model performance can degrade because of:
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](v1/how-to-monitor-datasets.md) (Note this feature is only availabie in v1), model performance can degrade because of:
 
 - Changes to a particular sensor.
 - Natural data changes such as seasonal effects.
@@ -199,10 +197,8 @@ The [Machine Learning extension](https://marketplace.visualstudio.com/items?item
 For more information on using Azure Pipelines with Machine Learning, see:
 
 * [Continuous integration and deployment of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
-* [Machine Learning MLOps](https://aka.ms/mlops) repository
-* [Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository
+* [Machine Learning MLOps](https://github.com/Azure/mlops-v2) repository
 
-You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](v1/how-to-cicd-data-ingestion.md).
 
 ## Next steps
 
