@@ -139,7 +139,7 @@ Select the source settings and enable VM replication.
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 
-    ![Selection to enable replication for Azure VMs](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
+    ![Screenshot showing selection to enable replication for Azure VMs.](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
 
 2. In the **Enable replication** page, under **Source** tab, do the following:
     - **Region**: Select the source Azure region in which VMs are currently running.
@@ -158,7 +158,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Virtual machines**, select the VMs you want to enable for disaster recovery. You can select up to 10 VMs.
 
-     ![Page to select VMs for replication](./media/azure-to-azure-tutorial-enable-replication/virtual-machine-selection.png)
+     ![Screenshot to select VMs for replication.](./media/azure-to-azure-tutorial-enable-replication/virtual-machine-selection.png)
 
 2. Select **Next**.
 
@@ -168,7 +168,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 2. Select **Next**.
   
-    :::image type="enable replication" source="./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png" alt-text="Page to customize settings and enable replication.":::
+    :::image type="enable replication" source="./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png" alt-text="Screenshot to customize settings and enable replication.":::
 
 ### Manage
 
@@ -191,7 +191,7 @@ In **Review**, review the VM settings and select **Enable replication**.
 
 The VMs you enable appear on the vault > **Replicated items** page.
 
-![VM on the Replicated Items page](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
+![Screenshot of VM on the Replicated Items page](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
 
 
 ## Next steps
