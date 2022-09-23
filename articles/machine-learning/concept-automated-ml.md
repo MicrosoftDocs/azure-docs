@@ -52,8 +52,6 @@ You can also inspect the logged job information, which [contains metrics](how-to
 
 While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md#explain) to the generated models.
 
-[!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
-
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
