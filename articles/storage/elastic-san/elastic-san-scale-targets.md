@@ -13,7 +13,7 @@ ms.subservice: elastic-san
 
 There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
 
-## The elastic SAN
+## The Elastic SAN
 
 An elastic SAN (preview) has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
@@ -61,4 +61,3 @@ The performance of an individual volume is determined by its capacity. The maxim
 | Minimum volume capacity | 1 GiB |
 | Maximum total IOPS | 64,000 |
 | Maximum total MB/s | 1,024 |
-| Maximum number of connected clients | 20 |

@@ -23,7 +23,7 @@ Answering those three questions can help you to successfully provision a SAN tha
 
 ## Storage and performance
 
-There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput. The maximum total capacity an elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
+There are two ways to provision storage for an elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput(MBps) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput(MBps). The maximum total capacity an elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
 
 When you provision this storage into an individual volume, that volume's potential maximum performance is determined.
 

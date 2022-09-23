@@ -172,7 +172,7 @@ az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroup
 
 ## Configure networking
 
-Now that your SAN has been deployed, configure the network security settings on your volume groups, and add an Azure virtual network.
+Now that your SAN has been deployed, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
 By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you to establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group.
 
