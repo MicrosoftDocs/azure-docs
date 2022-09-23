@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Speech-to-text REST API for short audio
 
-Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md), you should always use [Speech to Text API v3.0](rest-speech-to-text.md).
+Use cases for the speech-to-text REST API for short audio are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md), you should always use [Speech to Text REST API](rest-speech-to-text.md).
 
 Before you use the speech-to-text REST API for short audio, consider the following limitations:
 
