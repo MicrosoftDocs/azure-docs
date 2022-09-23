@@ -12,7 +12,7 @@ ms.date: 09/23/2022
 
 This article summarizes prerequisites and support requirements for using the [Arc enabled VMware vSphere](overview.md) to manage your VMware vSphere VMs through Azure Arc.
 
-To use Arc enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected you VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
+To use Arc enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
 
 ## VMware vSphere Requirements
@@ -35,7 +35,7 @@ For Arc enabled VMware vSphere, Resource bridge has the following minimum virtua
 
 - 16 GB of memory
 - 4 vCPUs
-- An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](../support-matrix-for-arc-enabled-vmware-vsphere.md#resource-bridge-networking-requirements) are allow listed.
+- An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](#resource-bridge-networking-requirements) are allow-listed.
 
 ### Resource bridge networking requirements
 
@@ -79,11 +79,11 @@ To enable guest management (install the Arc connected machine agent), ensure
 - VM has VMware tools installed and running
 - Resource bridge has access to the host on which the VM is running
 - VM is running a supported operating system
-- VM has internet connectivity directly or through proxy. If the connection is through a proxy ensure [these URLs](../support-matrix-for-arc-enabled-vmware-vsphere.md#networking-requirements) are allow listed.
+- VM has internet connectivity directly or through proxy. If the connection is through a proxy ensure [these URLs](#networking-requirements) are allow-listed.
 
 ### Supported operating systems
 
-The officially supported versions of the Windows and Linux operating system for the Azure Connected Machine agent are listed [here](../servers/prerequisites#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
+The officially supported versions of the Windows and Linux operating system for the Azure Connected Machine agent are listed [here](../servers/prerequisites#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
 
 ### Software requirements
 
