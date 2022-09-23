@@ -701,6 +701,15 @@ groups:
     title: CLI
   - id: rest-api
     title: REST
+- id: speech-cli-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-cli
+    title: CLI
+  - id: rest-api
+    title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
