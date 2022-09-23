@@ -150,7 +150,7 @@ You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-tr
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 [aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
 
 <!-- LINKS - external -->
