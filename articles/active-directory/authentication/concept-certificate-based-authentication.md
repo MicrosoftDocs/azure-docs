@@ -47,7 +47,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 
 ## Feature highlights
 
-- Helps onboard to Azure quickly without being delayed by additional on-premises infrastructure to support certificate-based authentication in public and United States Government clouds. 
+- Helps onboard to Azure quickly without being delayed by additional on-premises infrastructure to support certificate-based authentication in public and United States Government clouds.
 - Provides support for unphishable multifactor authentication.
 - Supports user sign-in against cloud Azure AD using X.509 certificates into all web browser-based applications and into Microsoft Office client applications that use modern authentication.
 - The feature works seamlessly with Conditional Access features such as MFA to help secure your users.
@@ -61,7 +61,6 @@ The following images show how Azure AD CBA simplifies the customer environment b
 - [How to configure CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-

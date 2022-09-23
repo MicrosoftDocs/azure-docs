@@ -24,7 +24,7 @@ This article explains how to migrate from a federated servers such as Active Dir
 
 ## Staged Rollout to transition from AD FS to Azure AD
 
-Staged Rollout helps customers transition from AD FS to Azure AD by testing cloud authentication with selected groups of users before switching the entire tenant. 
+[Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) helps customers transition from AD FS to Azure AD by testing cloud authentication with selected groups of users before switching the entire tenant. 
 
 ## Enable a Staged Rollout for Certificate-based authentication on your tenant
 
@@ -34,10 +34,10 @@ To configure Staged Rollout, follow these steps:
 1. Search for and select **Azure Active Directory**.
 1. From the left menu, select **Azure AD Connect**.
 1. On the Azure AD Connect page, under the Staged Rollout of cloud authentication, click **Enable Staged Rollout for managed user sign-in**.
-1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based Authentication](active-directory-certificate-based-authentication-get-started.md)
+1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based authentication](active-directory-certificate-based-authentication-get-started.md)
 1. Click **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
-More information can be found at [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
 ## Azure AD connect to sync values for federated users from AD FS to Azure AD
 
@@ -103,5 +103,5 @@ as AzureAD UPN and subsequently the certificate used then must match this user v
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
 - [FAQ](certificate-based-authentication-faq.yml)

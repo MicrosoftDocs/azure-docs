@@ -265,6 +265,6 @@ Click **Other ways to sign in** to try other methods available to the user to si
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
+- [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
 - [FAQ](certificate-based-authentication-faq.yml)
