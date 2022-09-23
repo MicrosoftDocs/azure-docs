@@ -66,7 +66,9 @@ Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-
 
 A detailed view of all Auto-instrumentation supported environments, languages, and resource providers are available [here](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
-For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required, or a preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also available.
+For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
+
+A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
 ### [Java](#tab/java)
 
