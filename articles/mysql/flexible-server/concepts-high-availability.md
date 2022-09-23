@@ -163,7 +163,7 @@ You can disable HA on a server after you create it. Billing stops immediately.  
 You need to be able to mitigate downtime for your application even when you're not using HA. Service downtime, like scheduled patches, minor version upgrades, or customer-initiated operations like scaling of compute can be performed during scheduled maintenance windows. To mitigate application impact for Azure-initiated maintenance tasks, you can schedule them on a day of the week and time that minimizes the impact on the application.</br>
 
 - **Can I use a read replica for an HA-enabled server?**</br>
-Read replicas aren't supported for HA servers. This feature is on our roadmap, and we're working to make it available soon.</br>
+Yes, read replicas are supported for HA servers.</br>
 
 - **Can I use Data-in Replication for HA servers?**</br>
 Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is on our roadmap and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:
