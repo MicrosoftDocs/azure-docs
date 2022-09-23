@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 09/23/2022
 ms.author: normesta
 
 ---
@@ -26,7 +26,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 2. Ensure that the segments of each blob path are named
 
-   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name, so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then you must copy those blobs to a new path that is compatible with these naming requirements. Then, you can proceed with the migration.
+   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements. 
 
 ## Perform the upgrade
 
