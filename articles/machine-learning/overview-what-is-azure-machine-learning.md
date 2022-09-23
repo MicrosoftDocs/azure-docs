@@ -38,17 +38,17 @@ Machine learning projects often require a team with varied skill set to build an
 
 * Develop models for fairness and explainability, tracking and auditability to fulfill lineage and audit compliance requirements
 
-*Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps
+* Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps
 
-*Run machine learning workloads anywhere with built-in governance, security, and compliance
+* Run machine learning workloads anywhere with built-in governance, security, and compliance
 
 ### Cross-compatible platform tools that meet your needs
 
 Anyone on an ML team can use their preferred tools to get the job done. Whether you're running rapid experiments, hyperparameter-tuning, building pipelines, or managing inferences, you can use familiar interfaces including:
 
 * [Azure Machine Learning studio](https://ml.azure.com)
-* [Python SDK](/python/api/overview/azure/ml/)
-* [CLI v2 ](/cli/azure/ml)
+* [Python SDK](https://aka.ms/sdk-v2-install)
+* [CLI v2 ](how-to-configure-cli.md))
 * [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
 
 As you're refining the model and collaborating with others throughout the rest of Machine Learning development cycle, you can share and find assets, resources, and metrics for your projects on the Azure Machine Learning studio UI.
