@@ -2394,7 +2394,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/serial-console-nmi-sysrq.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/serial-console.md",
