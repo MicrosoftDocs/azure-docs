@@ -1,6 +1,6 @@
 ---
 title: Azure VM Disaster Recovery - High Churn Support (Public Preview) 
-description: Describes how to configure the failover of secondary IP configs for Azure VMs
+description: Describes how to protect your Azure VMs having high churning workloads using Azure Site Recovery 
 services: site-recovery
 author: v-pgaddala
 manager: gaggupta
