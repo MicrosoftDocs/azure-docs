@@ -43,7 +43,7 @@ Now we'll walk through each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Use a certificate or smart card.":::
 
-   If you have enabled other authentication methods like **Phone sign-in** or **FIDO2**, users may see a different sign-in screen.
+   If you enabled other authentication methods like **Phone sign-in** or **FIDO2**, users may see a different sign-in screen.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
@@ -245,7 +245,7 @@ Certificate-based authentication can fail for reasons such as the certificate be
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/validation-error.png" alt-text="Screenshot of a certificate validation error." :::  
 
-If CBA fails on a browser, even if the failure is because you cancel the certificate picker, you have to close the browser session and open a new session to try CBA again. A new session is required because browsers cache the certificate. When CBA is re-tried, the browser will send the cached certificate during the TLS challenge, which causes sign-in failure and the validation error.
+If CBA fails on a browser, even if the failure is because you cancel the certificate picker, you need to close the browser session and open a new session to try CBA again. A new session is required because browsers cache the certificate. When CBA is re-tried, the browser will send the cached certificate during the TLS challenge, which causes sign-in failure and the validation error.
  
 Click **More details** to get logging information that can be sent to an administrator, who in turn can get more information from the Sign-in logs.
 

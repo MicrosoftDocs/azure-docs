@@ -1,5 +1,5 @@
 ---
-title:  Migrate from Federated server to Azure AD
+title:  Migrate from federation to Azure AD CBA
 description: Learn how to migrate from Federated server to Azure AD
 
 services: active-directory
@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-#  Migrate from Federated server like ADFS to Azure AD CBA
+#  Migrate from federation to Azure AD certificate-based authentication (CBA)
 
-This article explains how to migrate from a federated server like ADFS to cloud authentication on Azure Active Directory (Azure AD) certificate-based authentication (CBA).
+This article explains how to migrate from a federated servers such as Active Directory Federation Services (AD FS) to cloud authentication using Azure Active Directory (Azure AD) certificate-based authentication (CBA).
 
-## Staged rollout to transition from Active Directory Federated Server(ADFS) to Azure AD
+## Staged Rollout to transition from AD FS to Azure AD
 
-Staged rollout approach helps customers to transition from ADFS to Azure AD by testing with selected groups of users with cloud authentication before switching the entire tenant to cloud authentication. 
+Staged Rollout helps customers transition from AD FS to Azure AD by testing cloud authentication with selected groups of users before switching the entire tenant. 
 
 ## Enable a Staged Rollout for Certificate-based authentication on your tenant
 
@@ -33,34 +33,34 @@ To configure Staged Rollout, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 1. Search for and select **Azure Active Directory**.
 1. From the left menu, select **Azure AD Connect**.
-1. On the Azure AD Connect page, under the Staged rollout of cloud authentication, select the **Enable staged rollout for managed user sign-in** link.
-1. On the Enable staged rollout feature page, Select **On** for the option [Certificate-based Authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)
-1. Click on **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
+1. On the Azure AD Connect page, under the Staged Rollout of cloud authentication, click **Enable Staged Rollout for managed user sign-in**.
+1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based Authentication](active-directory-certificate-based-authentication-get-started.md)
+1. Click **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
-More information can be found at [Staged rollout](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-staged-rollout)
+More information can be found at [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
-## Azure AD connect to sync values for federated users from ADFS to Azure AD
+## Azure AD connect to sync values for federated users from AD FS to Azure AD
 
-ADFS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from ADFS to Azure AD user objects. 
+An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. 
 
-Please follow the steps described at [Sync rules for certificateUserIds](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-certificate-based-authentication-certificateuserids#update-certificateuserids-using-azure-ad-connect-for-federated-users)
+Follow the steps in [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-azure-ad-connect-for-federated-users).
 
-The AWS service (which is the service AADConnect uses to access AAD) uses a special role **Hybrid Identity Administrator** that grants the necessary permissions.This role needs to get the right permissions to write to the new cloud attribute.
+The AWS service (which is the service AADConnect uses to access AAD) uses a special role **Hybrid Identity Administrator** that grants the necessary permissions. This role needs to get the right permissions to write to the new cloud attribute.
 
  >[!NOTE] 
- >To be secure the ADFS admin must make sure that for synced users, no other party can write to the attribute.
+ >For security, the AD FS admin must make sure that no other party can write to the attributes for synced users.
 
 >[!NOTE] 
->If a user is using sync'd attributes, say onPremisesUserPrincipalName attribute in the user object for username binding, be aware that any user that has administrative access to the AADConnect server can change the sync attribute mapping and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. ADFS admin should make sure the administrative access to the AADConnect server should be limited and privileged accounts be cloud-only accounts.
+>If a user is using sync'd attributes, such as the onPremisesUserPrincipalName attribute in the user object for username binding, be aware that any user that has administrative access to the Azure AD Connect server can change the sync attribute mapping and in turn change the value of the synced attribute. The user does not need to be a cloud admin. The AD FS admin should make sure the administrative access to the Azure AD Connect server should be limited, and privileged accounts should be cloud-only accounts.
 
-## Frequently asked questions for ADFS to Azure AD
+## Frequently asked questions about migrating from AD FS to Azure AD
 
-## Can we have privileged accounts with a federated ADFS server?
+### Can we have privileged accounts with a federated AD FS server?
         
 While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-
 premise environment.
 
-## ADFS + Azure AD CBA - If an organization is a hybrid running both ADFS and Azure CBA, are they still vulnerable to the ADFS compromise?
+### AD FS + Azure AD CBA - If an organization is a hybrid running both AD FS and Azure CBA, are they still vulnerable to the AD FS compromise?
 
 Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-premise environment. 
 Maintaining privileged accounts a cloud-only is foundational to this goal.
@@ -68,23 +68,23 @@ Maintaining privileged accounts a cloud-only is foundational to this goal.
 For Sync’d account:
 
 If they are in a managed domain (not federated) there is no risk from the federated IdP.
-If they are in a federated domain, but a subset are being moved to Azure AD CBA via staged-rollout they are still subject to risks related to the federated 
+If they are in a federated domain, but a subset are being moved to Azure AD CBA via Staged Rollout they are still subject to risks related to the federated 
 Idp, until the federated domain is fully switched to cloud authentication.
 
-## Should a customer eliminate Federated server like ADFS to prevent the capability to pivot from ADFS to Azure? 
+### Should a customer eliminate Federated server like AD FS to prevent the capability to pivot from AD FS to Azure? 
  
-Even with cloud-only GA (any role) account with ADFS an attacker could impersonate anyone, like the CIO, even if they cannot obtain a GA or similar role
+Even with cloud-only GA (any role) account with AD FS an attacker could impersonate anyone, like the CIO, even if they cannot obtain a GA or similar role
 
-When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP (ADFS in this example but holds true for ANY federated 
-IdP). There are many customers that deploy federated IdP such as ADFS exclusively to accomplish certificate based authentication. Azure AD CBA completely 
-removes the ADFS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure 
+When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP (AD FS in this example but holds true for ANY federated 
+IdP). There are many customers that deploy federated IdP such as AD FS exclusively to accomplish certificate based authentication. Azure AD CBA completely 
+removes the AD FS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure 
 and reduce costs with increased security.
 
 From a security perspective, there is no change to the credential (X.509 certificate, CACs, PIVs etc.) or PKI being used. The PKI owners retain complete 
 control of certificate lifecyle and policy (Issuance & Revocation). The revocation check and the authentication will happen at Azure AD instead of 
 federated Idp. This will enable passwordless, phishing resistant authentication method to Azure AD to directly for all customers.
 
-## How does authentication work with Federated ADFS and Azure AD cloud authentication with windows?
+### How does authentication work with Federated AD FS and Azure AD cloud authentication with windows?
 
 Azure AD CBA requires the user or application to supply the AzureAD UPN of the user intending to be signed in. 
 
