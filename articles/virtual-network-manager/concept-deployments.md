@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 07/06/2022
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 09/22/2022
+ms.custom: template-concept, ignite-fall-2022
 ---
 
 # Configuration deployments in Azure Virtual Network Manager (Preview)
