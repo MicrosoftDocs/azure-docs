@@ -116,7 +116,7 @@ We recommend that you host your own copy of templates in an Azure Container Regi
 3. [Enable Azure Managed Identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
 4. [Provide ACR access to the FHIR service managed identity](#step-4-provide-acr- access-to-the-fhir-service-managed-identity)
 5. [Register the ACR server in the FHIR service](#step-5-register-the-acr-server-in-the-fhir-service)
-6. [(Optional) Configure an ACR firewall for secure access](#step-6-optional- configure-an-acr-firewall-for-secure-access)
+6. [(Optional) Configure the ACR firewall for secure access](#step-6-optional-configure-the-acr-firewall-for-secure-access)
 
 ### Step 1: Create an ACR instance
 
@@ -194,7 +194,7 @@ You can register up to 20 ACR servers in the FHIR service.
         ```azurecli
         az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
         ```
-### Step 6: (Optional) Configure an ACR firewall for secure access
+### Step 6: (Optional) Configure the ACR firewall for secure access
 
 1. In the Azure portal, on the left pane, select **Networking** for the ACR instance.
 
