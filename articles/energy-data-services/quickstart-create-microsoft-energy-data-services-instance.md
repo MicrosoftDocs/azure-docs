@@ -13,11 +13,11 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Get started by creating a Microsoft Energy Data Services instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
+Get started by creating a Microsoft Energy Data Services Preview instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Microsoft Energy Data Services instance in your chosen Azure Subscription and region. 
 
-The setup of Microsoft Energy Data Services instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
+The setup of Microsoft Energy Data Services Preview instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
 
-Microsoft Energy Data Services is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Microsoft Energy Data Services Preview is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Microsoft Energy Data Services Preview lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Application ID | You'll need an [application ID](../active-directory/develop/app
 Client Secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting *Certificates & secrets* > *Client secrets* > *New client secret*. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
 
-## Create a Microsoft Energy Data Services instance
+## Create a Microsoft Energy Data Services Preview instance
 
 
 1. Save your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
@@ -92,7 +92,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
     [![Screenshot of the overview of Microsoft Energy Data Services instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png#lightbox)
 
  
-## Delete a Microsoft Energy Data Services instance
+## Delete a Microsoft Energy Data Services Preview instance
 
 Deleting a Microsoft Energy Data instance also deletes any data that you've ingested. This action is permanent and the ingested data can't be recovered. To delete a Microsoft Energy Data Services instance, complete the following steps:
 

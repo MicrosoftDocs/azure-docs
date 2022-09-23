@@ -76,5 +76,5 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 * [Quickstart: Deploy Bastion using default settings](quickstart-host-portal.md).
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md).
-* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion/).
+* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
