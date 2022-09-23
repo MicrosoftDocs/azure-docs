@@ -11,7 +11,7 @@ ms.author: v-pgaddala
 
 ---
 
-# Azure VM Disaster Recovery - High Churn Support (Public Preview) 
+# Azure VM Disaster Recovery - High Churn Support (Public Preview)
 
 Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. This is currently in Public Preview. With this, you should be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may also be able to achieve better RPO performance as well for your high churning workloads. 
 
@@ -22,7 +22,7 @@ Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM.
 - Source disks should be Managed Disks.
 - This feature will only be available for source VMs in regions where Premium Blob storage accounts are available. Review supported regions for Premium Blob storage [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
-The following table summarizes Site Recovery limits. 
+The following table summarizes Site Recovery limits:
 
 - These limits are based on our tests, but obviously don't cover all possible application I/O combinations. 
 - Actual results can vary based on your app I/O mix. 
@@ -50,27 +50,25 @@ The following table summarizes Site Recovery limits.
 
 ### From Recovery Service Vault 
 
-1. Select source VMs on which you want to enable replication. You can follow Enable Replication documentation to review the steps. 
+1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication).
 
-2. Under **Replication Settings**, go to **Storage**, click on **View/edit storage configuration**. 
+2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. **Customize target settings** page opens.
 
-3. You will land up on **Customize target settings**.
+3. Under **Churn for the VM**, you will find two options:  
 
-4. Review **Churn for the VM** option. There are 2 options:  
+   - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. If you select Normal churn, you will be able to use Standard storage accounts only for Cache Storage.  Hence, Cache storage dropdown will only list down Standard storage accounts. 
 
-**Normal Churn** (default option) - You can get up to 54 MB/s per VM. If you select Normal churn, you will be able to use Standard storage accounts only for Cache Storage.  Hence, Cache storage dropdown will only list down Standard storage accounts. 
+   - **High Churn** - You can get up to 100 MB/s per VM. If you select this option, you will be able to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will only list-down Premium Block blob storage accounts. 
 
-**High Churn** - You can get up to 100 MB/s per VM. If you select this option, you will be able to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will only list-down Premium Block blob storage accounts. 
+4. Select **High Churn**.
+   
+   If you have selected multiple source VMs for configuring Site Recovery and want to enable High Churn for all these VMs in one step, you can select High Churn at the top level. This will select High Churn for all the VMs. 
 
-5. Select **High Churn** option.
+5. Once you select **High Churn** for the VM, you will see Premium Block Blob options only available for cache storage account.  Select the cache storage account 
 
-6. If you have selected multiple source VMs for configuring Site Recovery and want to enable High Churn for all these VMs in one step, you can select High Churn at the top level. This will select High Churn for all the VMs. 
+6. After selecting required target settings, click on **Confirm Selection**. 
 
-7. Once you select **High Churn** for the VM, you will see Premium Block Blob options only available for cache storage account.  Select the cache storage account 
-
-8. After selecting required target settings, click on **Confirm Selection**. 
-
-9. Configure other settings and enable the replication. 
+7. Configure other settings and enable the replication. 
 
 ### From Azure VM screen 
 
