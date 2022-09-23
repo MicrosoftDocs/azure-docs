@@ -50,57 +50,56 @@ Technically, a playbook template is an [ARM template](../azure-resource-manager/
 
 ### Azure Logic Apps basic concepts
 
-Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' built-in templates.
+Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and capabilities of the built-in templates in Azure Logic Apps.
 
 > [!NOTE]
-> Because Azure Logic Apps are a separate resource, additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
+> Azure Logic Apps creates separate resources, so additional charges might apply. For more information, visit the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of connectors and some of their important attributes:
 
-- **Managed Connector:** A set of actions and triggers that wrap around API calls to a particular product or service. Azure Logic Apps offers hundreds of connectors to communicate with both Microsoft and non-Microsoft services.
-  - [List of all Logic Apps connectors and their documentation](/connectors/connector-reference/)
+- **Managed connector:** A set of actions and triggers that wrap around API calls to a particular product or service. Azure Logic Apps offers hundreds of connectors to communicate with both Microsoft and non-Microsoft services. For more information, see [List of all Logic Apps connectors and their documentation](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
-- **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector and define its own triggers and actions.
-  - [Create your own custom Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector)
+- **Custom connector:** You might want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector and define its own triggers and actions. For more information, see [Create your own custom Azure Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector).
 
-- **Microsoft Sentinel Connector:** To create playbooks that interact with Microsoft Sentinel, use the Microsoft Sentinel connector.
-  - [Microsoft Sentinel connector documentation](/connectors/azuresentinel/)
+- **Microsoft Sentinel connector:** To create playbooks that interact with Microsoft Sentinel, use the Microsoft Sentinel connector. For more information, see the [Microsoft Sentinel connector documentation](/connectors/azuresentinel/).
 
-- **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Microsoft Sentinel connector currently has two triggers:
-  - [Alert trigger](/connectors/azuresentinel/#triggers): the playbook receives the alert as its input.
-  - [Incident trigger](/connectors/azuresentinel/#triggers): the playbook receives the incident as its input, along with all its included alerts and entities.
+- **Trigger:** A connector component that starts a workflow, in this case, a playbook. The Microsoft Sentinel trigger defines the schema that the playbook expects to receive when triggered. The Microsoft Sentinel connector currently has two triggers:
+  - [Alert trigger](/connectors/azuresentinel/#triggers): The playbook receives the alert as input.
+  - [Incident trigger](/connectors/azuresentinel/#triggers): The playbook receives the incident as input, along with all the included alerts and entities.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
 - **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
 
-#### Two types of Logic Apps
+#### Logic app types
 
-Microsoft Sentinel now supports two Logic Apps resource types:
+Microsoft Sentinel now supports the following logic app resource types:
 
-- **Logic App (Consumption)**, based on the classic, original Logic Apps engine, and
-- **Logic App (Standard)**, based on the new Logic Apps engine.
+- **Consumption**, which runs in multi-tenant Azure Logic Apps and uses classic, original Azure Logic Apps engine
 
-**Logic Apps Standard** features a single-tenant, containerized environment that provides higher performance, fixed pricing, single apps containing multiple workflows, easier API connections management, native network capabilities such as virtual networking (VNet) and private endpoints support, built-in CI/CD features, better Visual Studio integration, a new version of the Logic Apps Designer, and more.
+- **Standard**, which runs in single-tenant Azure Logic Apps and uses a redesigned Azure Logic Apps engine
 
-You can leverage this powerful new version of Logic Apps by creating new Standard playbooks in Microsoft Sentinel, and you can use them the same ways you use the classic Logic App Consumption playbooks:
-- Attach them to automation rules and/or analytics rules.
-- Run them on demand, from both incidents and alerts.
-- Manage them in the Active Playbooks tab.
+  This logic app type offers higher performance, fixed pricing, multiple workflow capability, easier API connections management, native network capabilities such as support for virtual networks and private endpoints, built-in CI/CD features, better Visual Studio Code integration, an updated workflow designer, and more.
 
-There are many differences between these two resource types, some of which affect some of the ways they can be used in playbooks in Microsoft Sentinel. In such cases, the documentation will point out what you need to know.
+  To use this logic app version, create new Standard logic app playbooks in Microsoft Sentinel. You can use these playbooks in the same ways that you use Consumption logic app playbooks:
 
-See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
+  - Attach them to automation rules and/or analytics rules.
+  - Run them on demand, from both incidents and alerts.
+  - Manage them in the Active Playbooks tab.
 
-> [!NOTE]
-> - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
-> - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.
+  > [!NOTE]
+  >
+  > - Standard workflows currently don't support Playbook templates, which means you can't create a Standard workflow from within Microsoft Sentinel. Instead, you must create the workflow in Azure Logic Apps. After creation, the workflow appears in Microsoft Sentinel.
+  >
+  > - An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
+
+There are many differences between these two resource types, some of which affect some of the ways they can be used in playbooks in Microsoft Sentinel. In such cases, the documentation will point out what you need to know. For more information, see [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences) in the Azure Logic Apps documentation.
 
 ### Permissions required
 
  To give your SecOps team the ability to use Logic Apps to create and run playbooks in Microsoft Sentinel, assign Azure roles to your security operations team or to specific users on the team. The following describes the different available roles, and the tasks for which they should be assigned:
 
-#### Azure roles for Logic Apps
+#### Roles for Azure Logic Apps
 
 - **Logic App Contributor** lets you manage logic apps and run playbooks, but you can't change access to them (for that you need the **Owner** role).
 - **Logic App Operator**  lets you read, enable, and disable logic apps, but you can't edit or update them.
@@ -120,9 +119,9 @@ See [Resource type and host environment differences](../logic-apps/logic-apps-ov
 
 - [Define the automation scenario](#use-cases-for-playbooks).
 
-- [Build the Azure Logic App](tutorial-respond-threats-playbook.md).
+- [Build your logic app](tutorial-respond-threats-playbook.md).
 
-- [Test your Logic App](#run-a-playbook-manually).
+- [Test your logic app](#run-a-playbook-manually).
 
 - Attach the playbook to an [automation rule](#incident-creation-automated-response) or an [analytics rule](#alert-creation-automated-response), or [run manually when required](#run-a-playbook-manually).
 
