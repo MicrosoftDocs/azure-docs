@@ -29,19 +29,6 @@ To prevent low-level hardware access that can result in security vulnerabilities
 On Ubuntu-18.04 based marketplace VM images with kernels version `5.4.0-1039-azure #42` and newer, some older Mellanox OFED are incompatible causing an increase in VM boot time up to 30 minutes in some cases. This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0. The issue is resolved with Mellanox OFED 5.3-1.0.0.1.
 If it is necessary to use the incompatible OFED, a solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace VM image, or older and not to update the kernel.
 
-## MPI QP creation errors
-If in the midst of running any MPI workloads, InfiniBand QP creation errors such as shown below, are thrown, we suggest rebooting the VM and retrying the workload. This issue will be fixed in the future.
-
-```bash
-ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
-```
-
-You may verify the values of the maximum number of queue-pairs when the issue is observed as follows.
-```bash
-[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
-max_qp: 4096
-```
-
 ## Accelerated Networking on HB, HC, HBv2, HBv3 and NDv2
 
 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md), [HBv3](../../hbv3-series.md) and [NDv2](../../ndv2-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X). The simplest solution currently may be to use the latest HPC-X on the CentOS-HPC VM images or disable Accelerated Networking if not required.
