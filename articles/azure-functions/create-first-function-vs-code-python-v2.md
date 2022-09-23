@@ -65,7 +65,7 @@ Note that by default, the file `function_app.py` will contain the functions. To 
 
 Once opening the Command Palette, select the function trigger you'd like to use and fill in the requested details.
 
-![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options.png)
+![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options)
 
 * Select "Preview Template" to learn more about the trigger and see sample code directly in the IDE.
 * Select "Append to 'function_app.py'" if you are ready to use the template to create the function
