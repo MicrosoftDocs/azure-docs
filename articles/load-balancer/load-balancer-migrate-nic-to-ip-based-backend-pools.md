@@ -15,11 +15,16 @@ ms.custom: template-how-to
 
 In this article, you'll learn how to migrate a load balancer with NIC-based backend pools to use IP-based backend pools with virtual machines and virtual machine scale sets
 
+## Prerequisites
+
+- <!-- prerequisite 1 -->
+- <!-- prerequisite 2 -->
+- <!-- prerequisite n -->
 ## What is IP-based Load Balancer 
 
 IP-based load balancers reference the private IP address of the resource in the backend pool rather than the resource’s NIC. IP-based load balancers enable the pre-allocation of private IP addresses in a backend pool, without having to create the backend resources themselves in advance.
 
-## Migrating NIC-based virtual machine backend pools to IP-based
+## Migrating NIC-based virtual machine backend pools too IP-based
 
 To migrate a load balancer with NIC-based backend pools to IP-based with VMs (not virtual machine scale sets instances) in the backend pool, you can utilize the following migration REST API.
 
@@ -51,8 +56,8 @@ az rest –m post –u “https://management.azure.com/subscriptions/MySubscript
 ## Upgrading LB with virtual machine scale sets attached
 
 To upgrade a NIC-based load balancer to IP based load balancer with virtual machine scale sets in the backend pool, follow the following steps:
-1. Configure the upgrade policy of the virtual machine scale sets to be automatic. Note that if the upgrade policy is not set to automatic, all virtual machine scale sets instances must be upgraded after calling the migration API.
-1. Using the Azure’s migration REST API, upgrade the NIC based LB to an IP based LB. a. Note, if a manual upgrade policy is in place, upgrade all VMs in the virtual machine scale sets before step 3.
+1. Configure the upgrade policy of the virtual machine scale sets to be automatic. If the upgrade policy isn't set to automatic, all virtual machine scale sets instances must be upgraded after calling the migration API.
+1. Using the Azure’s migration REST API, upgrade the NIC based LB to an IP based LB. If a manual upgrade policy is in place, upgrade all VMs in the virtual machine scale sets before step 3.
 1. Remove the reference of the load balancer from the network profile of the virtual machine scale sets, and update the VM instances to reflect the changes.
 
 A full example using the CLI is shown here: 
@@ -64,3 +69,5 @@ Az rest –m post –u “https://management.azure.com/subscriptions/MySubscript
 az virtual machine scale sets update --resource-group MyResourceGroup --name MyVMSS --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
 
 ```
+
+## Next Steps
