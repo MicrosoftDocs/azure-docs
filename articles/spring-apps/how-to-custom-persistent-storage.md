@@ -44,13 +44,13 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 Use the following steps to bind an Azure Storage account as a storage resource in your Azure Spring Apps and create an app with your own persistent storage.
 
-1. Go to the service **Overview** page, then select **Storage** in the left-hand navigation pane.
+1. Go to the service **Overview** page, and then select **Storage** in the left-hand navigation pane.
 
 1. On the **Storage** page, select **Add storage**.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage.png" alt-text="Screenshot of Azure portal showing the Storage page and Add storage button." lightbox="media/how-to-custom-persistent-storage/add-storage.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage.png" alt-text="Screenshot of Azure portal showing the Storage page." lightbox="media/how-to-custom-persistent-storage/add-storage.png":::
 
-1. Add the values in the following table, and then select **Apply**.
+1. Enter the following information on the **Add storage** page, and then select **Apply**.
 
    | Setting      | Value                                                                                      |
    |--------------|--------------------------------------------------------------------------------------------|
@@ -58,7 +58,7 @@ Use the following steps to bind an Azure Storage account as a storage resource i
    | Account name | The name of the storage account.                                                           |
    | Account key  | The storage account key.                                                                   |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Screenshot of Azure portal showing the Storage page and the 'Add storage' pane." lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Screenshot of Azure portal showing the Add storage page." lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
 
 1. Go to the **Apps** page, then select an application to mount the persistent storage.
 
