@@ -19,7 +19,7 @@ ms.topic: how-to
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-log-view-metrics.md)
-> * [v2 (preview)](../how-to-log-view-metrics.md)
+> * [v2](../how-to-log-view-metrics.md)
 
 Log real-time information using both the default Python logging package and Azure Machine Learning Python SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 

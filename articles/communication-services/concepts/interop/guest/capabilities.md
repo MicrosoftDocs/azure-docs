@@ -36,7 +36,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Use typing indicators                                                                                               | ✔️ |
 |                   | Read receipt                                                                                                        | ❌ |
 |                   | File sharing                                                                                                        | ❌ |
-|                   | Reply to chat message                                                                                               | ❌ |
+|                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
@@ -164,6 +164,28 @@ In this article, you will learn which capabilities are supported for Teams exter
 
 When Teams external users leave the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting. 
 
+## Server capabilities
+
+The following table shows supported server-side capabilities available in Azure Communication Services:
+
+|Capability | Supported |
+| --- | --- |
+| [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
+| [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
+| [Azure Monitor](../../logging-and-diagnostics.md)                                                                                  | ✔️ |
+| [Azure Communication Services Insights](../../analytics/insights.md)                                                            | ✔️ |
+| [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
+
+
+## Teams capabilities
+
+The following table shows supported Teams capabilities:
+
+|Capability | Supported |
+| --- | --- |
+| [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)              | ✔️ |
+| [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality) | ❌ |
+| [Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ✔️ |
 
 ## Next steps
 

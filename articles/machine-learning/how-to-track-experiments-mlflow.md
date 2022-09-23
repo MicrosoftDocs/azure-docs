@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python
 Experiments and runs in Azure Machine Learning can be queried using MLflow. This removes the need of any Azure Machine Learning specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
 
 > [!NOTE]
-> The Azure Machine Learning Python SDK v2 (preview) does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
+> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
 
 MLflow allows you to:
 
@@ -239,10 +239,10 @@ child_runs = mlflow.search_runs(
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/master/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
-  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
-  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
+  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
+  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/notebooks/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
 
 
 ## Support matrix for querying runs and experiments

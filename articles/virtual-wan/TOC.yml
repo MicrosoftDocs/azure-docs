@@ -27,6 +27,8 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -228,7 +230,11 @@
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
     - name: Configure BGP peering to an NVA
-      href: create-bgp-peering-hub-portal.md
+      items:
+      - name: Azure portal
+        href: create-bgp-peering-hub-portal.md
+      - name: Azure PowerShell
+        href: create-bgp-peering-hub-powershell.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub

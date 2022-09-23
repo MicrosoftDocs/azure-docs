@@ -355,8 +355,8 @@
   items:
   - name: FAQ
     href: service-bus-faq.yml
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-service-bus
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog

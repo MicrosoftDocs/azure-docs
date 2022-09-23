@@ -80,6 +80,7 @@ Different from classification where predicted output values are categorical, reg
 
 See an example of regression and automated machine learning for predictions in these Python notebooks: [Hardware Performance](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-regression-task-hardware-performance/automl-regression-task-hardware-performance.ipynb).
 
+
 ### Time-series forecasting
 
 Building forecasts is an integral part of any business, whether it's revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. You can find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
@@ -93,7 +94,6 @@ Advanced forecasting configuration includes:
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
-
 
 See an example of forecasting and automated machine learning in this Python notebook: [Energy Demand](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced.ipynb).
 
@@ -193,6 +193,8 @@ See the [AutoML package](/python/api/azure-ai-ml/azure.ai.ml.automl) for changin
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
 
+See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-algorithms).
+
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://onnxruntime.ai/docs/api/csharp-api.html). 
 
 ## Next steps
@@ -219,6 +221,7 @@ How-to articles provide additional detail into what functionality automated ML o
 ### Jupyter notebook samples 
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs).
+
 
 ### Python SDK reference
 
