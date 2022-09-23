@@ -252,6 +252,6 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 ## Next steps
 
 - [Overview of Azure Custom Resource Providers](overview.md)
-- [Tutorial: Create an Azure custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Reference: Custom resource cache reference](proxy-cache-resource-endpoint-reference.md)

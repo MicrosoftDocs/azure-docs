@@ -8,7 +8,7 @@ author: MSEvanhi
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Quickstart: Create a custom resource provider and deploy custom resources
+# Quickstart: Create Azure Custom Resource Provider and deploy custom resources
 
 In this quickstart, you create a custom resource provider and deploy custom resources for that resource provider. For more information about custom resource providers, see [Azure Custom Resource Providers Overview](overview.md).
 

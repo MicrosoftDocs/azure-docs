@@ -39,6 +39,6 @@ In this tutorial, you learned about custom resource providers and how to build o
 
 If you're looking for references or a quickstart, here are some useful links:
 
-- [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

@@ -43,6 +43,6 @@ In this article, you learnt about using built-in policy to deploy associations. 
 - [Concepts: Azure Custom Resource Providers resource onboarding](./concepts-resource-onboarding.md)
 - [Tutorial: Resource onboarding with custom resource providers](./tutorial-resource-onboarding.md)
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
-- [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)

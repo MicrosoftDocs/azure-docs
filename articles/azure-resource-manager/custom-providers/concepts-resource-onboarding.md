@@ -153,6 +153,6 @@ In this article, you learned about custom resource providers. See these articles
 
 - [Tutorial: Resource onboarding with custom resource providers](./tutorial-resource-onboarding.md)
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
-- [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)
