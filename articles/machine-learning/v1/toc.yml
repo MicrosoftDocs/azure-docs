@@ -31,7 +31,7 @@
         items:
       - name: "Run a script"
         displayName: migration, v1, v2
-        href: ../-to-v2-command-job.md
+        href: ../migrate-to-v2-command-job.md
       - name: "Local runs"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-local-runs.md
@@ -365,6 +365,13 @@
           href: how-to-debug-parallel-run-step.md
 - name: Reference (v1)
   items: 
+  - name: Machine learning CLI pipeline YAML reference
+    href: reference-pipeline-yaml.md
+  - name: Hyperparameters for AutoML computer vision tasks (v1)
+    displayName: automl, yolo-5, image, image model
+    href: reference-automl-images-hyperparameters-v1.md
+  - name: Image data schemas for AutoML (v1)
+    href: reference-automl-images-schema-v1.md
   - name: Migrate from ML Studio (classic)
     items: 
     - name: Migration overview
@@ -379,11 +386,3 @@
       href: ../migrate-rebuild-integrate-with-client-app.md
     - name: Rebuild Execute R Script components
       href: ../migrate-execute-r-script.md
-  items:
-  - name: Machine learning CLI pipeline YAML reference
-    href: reference-pipeline-yaml.md
-  - name: Hyperparameters for AutoML computer vision tasks (v1)
-    displayName: automl, yolo-5, image, image model
-    href: reference-automl-images-hyperparameters-v1.md
-  - name: Image data schemas for AutoML (v1)
-    href: reference-automl-images-schema-v1.md
