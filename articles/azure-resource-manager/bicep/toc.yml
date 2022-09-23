@@ -402,7 +402,7 @@
         href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
         href: linter-rule-no-hardcoded-environment-urls.md
-      - name: No hard-coded locations
+      - name: No hardcoded locations
         href: linter-rule-no-hardcoded-location.md
       - name: No location expressions outside of parameter default values
         href: linter-rule-no-loc-expr-outside-params.md
@@ -424,6 +424,8 @@
         href: linter-rule-protect-commandtoexecute-secrets.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure parameters in nested deployments
+        href: linter-rule-secure-params-in-nested-deploy.md
       - name: Secure secrets in parameters
         href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
