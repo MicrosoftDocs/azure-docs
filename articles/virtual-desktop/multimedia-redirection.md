@@ -178,7 +178,7 @@ To enable Insider features:
 
 You can check the extension status by visiting a website with media content, such as one from the list at [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
 
-:::image type="content" source="./media/status-popup.png" alt-text="A screenshot of a Microsoft Edge extension bar. As the user hovers their cursor over the redirection extension icon, a message appears that says Multimedia Redirection Extension loaded. A video is being redirected.":::
+:::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of a Microsoft Edge extension bar. As the user hovers their cursor over the redirection extension icon, a message appears that says Multimedia Redirection Extension loaded. A video is being redirected.":::
 
 Another way you can check the extension status is by selecting the extension icon, then selecting **Features supported on this website** from the drop-down menu to see whether the website supports the redirection extension.
 
