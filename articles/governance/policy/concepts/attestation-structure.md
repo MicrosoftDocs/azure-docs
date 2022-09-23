@@ -19,7 +19,7 @@ Below is an example of creating a new attestation resource:
 PUT http://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{name}?api-version=2019-10-01
 ```
 
-#### Request body
+## Request body
 
 Below is a sample attestation resource JSON object:
 
