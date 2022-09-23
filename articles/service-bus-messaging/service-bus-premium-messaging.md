@@ -55,7 +55,7 @@ The CPU and memory usage are tracked and displayed to you for the following reas
 
 ## Messaging unit - How many are needed?
 
-When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace.
+When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace. When partitioning has been enabled on the namespace, each partition will get an equal share of the assigned number of messaging units.
 
 The number of messaging units allocated to the Service Bus Premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 

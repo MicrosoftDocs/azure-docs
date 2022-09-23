@@ -1,5 +1,5 @@
 ---
-title: Enable partitioning in Azure Service Bus Premium namespaces
+title: Enable partitioning in Azure Service Bus Premium namespaces (Preview)
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 08/30/2022 
@@ -7,15 +7,13 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Enable partitioning for an Azure Service Bus Premium namespace
+# Enable partitioning for an Azure Service Bus Premium namespace (Preview)
 Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable duplicate partitioning for a Service Bus Premium namespace. All entities in this namespace will be partitioned.
 
 > [!IMPORTANT]
 > - Partitioning is available at entity creation for namespaces in the Premium SKU. Any previously existing partitioned entities in Premium namespaces continue to work as expected.
-> - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace. 
-> - In a **Standard** tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. 
-> - In a **Premium** tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB.
-
+> - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace.
+> - Partitions equally share the total amount of assigned messaging units. For example, in a namespace with 16MU and 4 partitions, each partition will have 4MU assigned.
 
 ## Using Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** as shown in the following image. 
@@ -24,7 +22,7 @@ When creating a **namespace** in the Azure portal, set the **Partitioning** to *
 
 
 ## Using Azure Resource Manager template
-To **create a namespace with partitioning enabled**, set `partitions` to a number over 1 in the namespace properties section. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
+To **create a namespace with partitioning enabled**, set `partitions` to a number larger than 1 in the namespace properties section. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
 
 ```json
 {
