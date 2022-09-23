@@ -87,7 +87,7 @@ After you download the data file, you can register it as a data asset in Azure M
 1. Give your data asset a name and optional description. Then, select the **Tabular** option under **Type**, in the **Dataset types** section of the dropdown.
     > [!NOTE]
     > You can also upload ZIP files as data assets. To upload a ZIP file, select **File** for **Type**, in the **Dataset types** section of the dropdown.
-:::image type="content" source="./media/migrate-register-data/create-data-asset.png" alt-text="Screenshot shows data asset source choices.":::
+:::image type="content" source="./media/migrate-register-dataset/create-data-asset.png" alt-text="Screenshot shows data asset source choices.":::
 
 1. For data source, select the "From local files" option to upload your dataset.
 
