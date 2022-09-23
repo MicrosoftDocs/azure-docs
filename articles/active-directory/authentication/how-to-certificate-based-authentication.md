@@ -46,14 +46,14 @@ Optionally, you can also configure authentication bindings to map certificates t
 
 ## Step 1: Configure the certification authorities
 
-You can configure certification authorities (CAs) by using the Azure portal or PowerShell.
+You can configure CAs by using the Azure portal or PowerShell.
 
 ### Configure certification authorities using the Azure portal
 
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
 1. Sign in to the Azure portal as a Global Administrator.
-1. Select Azure Active Directory, then choose Security from the menu on the left-hand side.
+1. Click **Azure Active Directory** > **Security**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate-authorities.png" alt-text="Screenshot of certification authorities.":::
 
