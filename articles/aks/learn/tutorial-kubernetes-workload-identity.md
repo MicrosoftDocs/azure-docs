@@ -10,11 +10,11 @@ ms.date: 09/23/2022
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, you will:
 
-* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and workload identity (preview).
+* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and managed identity.
 * Create an Azure Key Vault and secret.
 * Create an Azure Active Directory (Azure AD) application and Kubernetes service account
-* Configure the Azure AD app for token federation
-* Deploy the workload and verify authentication with the workload identity
+* Configure the managed identity for token federation
+* Deploy the workload and verify authentication with the workload identity.
 
 This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -138,7 +138,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set][az-keyvault-secret-set] command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello\!** in it.
 
 ```azurecli
-az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value "Hello\!" 
+az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
 ```
 
 ## Create a Managed Identity and grant permissions to access the secret
@@ -249,7 +249,7 @@ kubectl logs quick-start
 
 The following output resembles successful access of the token:
 
-```outout
+```output
 I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hello\!"
 ```
 

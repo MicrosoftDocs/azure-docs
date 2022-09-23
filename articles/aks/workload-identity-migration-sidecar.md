@@ -8,25 +8,16 @@ ms.date: 09/23/2022
 
 # Modernize application authentication with workload identity sidecar
 
-If your kubernetes application running on Azure Kubernetes Service (AKS) is using pod-managed identity or other authentication method to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API version 1.6 and minimize downtime, you can set up a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to run pod-identity, other credential method, and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the Azure AD workload identity.
+If your kubernetes application running on Azure Kubernetes Service (AKS) is using an authentication method other than a pod-managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity API version 1.6 and minimize downtime, you can set up a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to run pod-identity, other credential method, and the Azure AD workload identity (preview) in parallel on the cluster until you have your migration plan ready to completely move to using the Azure AD workload identity.
 
 This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution.
 
-## Create a Managed Identity and grant permissions to access Azure Key Vault
-
-This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
-
-Before proceeding, you need the following information:
-
-* Name of the Key Vault
-* Resource group holding the Key Vault
-
-You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'`.
+## Create a Managed Identity
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
     ```azurecli
-    az account set --subscription "subscriptionID
+    az account set --subscription "subscriptionID"
     ```
 
     ```azurecli
@@ -96,44 +87,32 @@ To update or deploy the workload, you add the following [annotation][pod-annotat
 
 Update the pod with the annotation by performing the following steps.
 
-1. Run the following to deploy a pod that references the service account created in the previous step.
+1. Copy the following manifest snippet of an init container in your Pod specification to specify the proxy port for the workload identity sidecar.
 
-    ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: quick-start
-      namespace: ${SERVICE_ACCOUNT_NAMESPACE}
-      annotations:
-        azure.workload.identity/inject-proxy-sidecar: true
-        azure.workload.identity/proxy-sidecar-port: 8080
-    spec:
-      serviceAccountName: ${SERVICE_ACCOUNT_NAME}
-        containers:
-          - image: ghcr.io/azure/azure-workload-identity/msal-go
-            name: oidc
-            env:
-          - name: KEYVAULT_NAME
-            value: ${KEYVAULT_NAME}
-          - name: SECRET_NAME
-            value: ${KEYVAULT_SECRET_NAME}
-      nodeSelector:
-        kubernetes.io/os: linux
-    EOF
+    ```yml
+    initContainers:
+    - name: init-networking
+      image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
+          drop:
+          - ALL
+        privileged: true
+        runAsUser: 0
+      env:
+      - name: PROXY_PORT
+        value: "8000"
     ```
 
-    The following output resembles successful creation of the pod:
+2. Copy the following manifest snippet to specify the injected proxy sidecar for the containers object.
 
-    ```output
-    Pod/quick-start created
-    ```
-
-2. To check whether all properties are injected properly by the webhook, use
-the [kubectl describe][kubectl-describe] command:
-
-    ```bash
-    kubectl describe pod quick-start
+    ```yml
+    - name: proxy
+      image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
+      ports:
+      - containerPort: 8000
     ```
 
 ## Next steps

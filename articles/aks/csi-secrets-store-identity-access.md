@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 09/23****/2022
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,10 +22,7 @@ An Azure AD workload identity (preview) is an identity used by an application ru
 
 ### Prerequsites
 
-- Verify the [Azure AD workload identity][workload-identity-overview] (preview) has been enabled on your cluster.
 - You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
-- Verify you have installed version 1.1.0 or higher of the Secrets Store CSI driver.
-- Verify you have installed version 1.1.0 or higher of the Azure Key Vault Provider.
 
 Azure AD workload identity (preview) is supported on both Windows and Linux clusters.
 
@@ -34,7 +31,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription.
 
     ```azurecli
-    az account set --subscription "subscriptionID
+    az account set --subscription "subscriptionID"
     ```
 
 2. Create an Azure AD application by running the following commands. The `az ad sp create-for-rbac` command creates a new application with a secret. However, the secret is not required for workload identity federation.
@@ -92,11 +89,11 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     EOF
     ```
 
-    Next, Use the [az rest][az-rest] command to invoke a custom request to establish the federated identity credential.
+    Next, use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, and `federatedIdentityName`.
 
-    ```rest
-    az rest --method POST --uri "https://graph.microsoft.com/beta/applications/${APPLICATION_OBJECT_ID}/federatedIdentityCredentials" --body @body.json
-    ```
+```azurecli
+az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject ${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}"
+```
 
 6. Deploy your secretproviderclass and application by setting the `clientID` in the `SecretProviderClass` to the client ID of the Azure AD application.
 
@@ -406,5 +403,6 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [how-to-install-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-rest]: /cli/azure/reference-index#az-rest
+[az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 
 <!-- LINKS EXTERNAL -->

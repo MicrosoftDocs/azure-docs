@@ -13,7 +13,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity (preview)
 * Grant access to your Azure Key Vault
 * Create an Azure Active Directory (Azure AD) application and Kubernetes service account
-* Configure the Azure AD app for token federation.
+* Configure the managed identity for token federation.
 
 This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you are not familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
 
@@ -75,7 +75,7 @@ You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
     ```azurecli
-    az account set --subscription "subscriptionID
+    az account set --subscription "subscriptionID"
     ```
 
     ```azurecli
