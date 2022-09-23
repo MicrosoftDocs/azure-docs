@@ -1,24 +1,24 @@
 ---
 title: Export API from Azure API Management to Postman | Microsoft Docs
-description: Learn how to export an API from API Management as a Postman collection.
+description: Learn how to export an API definition from API Management to Postman and automatically generate a Postman collection and API documentation.
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/23/2022
 ms.author: danlep
 
 ---
-# Export API from Azure API Management as a Postman collection
+# Export API definition from Azure API Management to Postman
 
-To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, and collaborate on APIs. 
+To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, and collaborate on APIs. 
 
 ## Prerequisites
 
-+ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md) a
-+ Make sure your instance manages an API that you'd like to export as a Postman collection. The API must have a [valid API schema](#supported-api-schemas).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Make sure that your instance manages an API that you'd like to export to Postman. The API must have a [valid API schema](#supported-api-schemas).
 
-    For testing authorization in Postman, the API must require a subscription.
+    For testing authorization in Postman later in this article, the API should require a subscription.
 
 + A [Postman](https://www.postman.com) account, which you can use to access Postman for Web.
     * Optionally, [download](https://www.postman.com/downloads/) and install the Postman desktop app locally.
@@ -33,7 +33,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
     :::image type="content" source="media/export-api-postman/export-to-postman.png" alt-text="Screenshot of exporting an API to Postman in the Azure portal.":::
 
-1. In the **Run in** dialog, select the Postman location to export to. You'll see an option for the desktop app if you've installed it locally.
+1. In the **Run in** dialog, select the Postman location to export to. You can select the option for the desktop app if you've installed it locally.
 1. In Postman, select a Postman workspace to import the API to. The default is *My Workspace*.
 1. In Postman, select **Generate collection from this API** to automatically generate a collection from the API definition. Accept default values for the remaining settings. Select **Import**.
 
@@ -43,19 +43,21 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 ## Authorize requests in Postman  
 
-If the API you exported requires a subscription, you'll need to add a valid subscription key from your API Management instance to send requests from Postman. You can configure a subscription key for the collection using these steps.
+If the API you exported requires a subscription, you'll need to configure a valid subscription key from your API Management instance to send requests from Postman. 
+
+Use the following steps to configure a subscription key as a secret variable for the collection.
 
 1. In your Postman workspace, select **Environments** > **Create environment**.
 1. Enter a name for the environment such as *Azure API Management*.
 1. Add a variable with the following values:
     1. Name -  *apiKey*
     1. Type - **secret**
-    1. Initial value - a valid API Management subscription key
+    1. Initial value - a valid API Management subscription key for the API
 1. Select **Save**.
 1. Select **Collections** and the name of the collection that you imported.
 1. Select the **Authorization** tab.
 1. In the upper right, select the name of the environment you created, such as *Azure API Management*.
-1. For the key **Ocp-Apim-Subscription-Key**, enter the value `{{apiKey}}`. Select **Save**.
+1. For the key **Ocp-Apim-Subscription-Key**, enter the variable name `{{apiKey}}`. Select **Save**.
 
     :::image type="content" source="media/export-api-postman/postman-api-authorization.png" alt-text="Screenshot of configuring secret API key in Postman.":::
 1. Test your configuration by selecting an operation in your API such as a `GET` operation, and select **Send**.
