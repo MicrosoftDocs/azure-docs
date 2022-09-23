@@ -461,7 +461,7 @@ The following libraries are validated to work with the preview release.
 > [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
-### Traces
+### Distributed Tracing
 
 #### [.NET](#tab/net)
 
