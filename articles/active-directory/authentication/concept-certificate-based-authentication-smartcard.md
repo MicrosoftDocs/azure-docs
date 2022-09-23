@@ -6,37 +6,37 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/23/2022
 
 ms.author: justinha
 author: vimrang
-manager: daveba
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Windows SmartCard logon using Azure Active Directory certificate-based authentication (Preview)
+# Windows SmartCard sign-in using Azure Active Directory certificate-based authentication
 
-Azure AD users can authenticate using X.509 certificates on their SmartCards directly against Azure AD at Windows logon. There is no special configuration needed on the Windows client to accept the SmartCard authentication. 
+Azure Active Directory (Azure AD) users can authenticate using X.509 certificates on their SmartCards directly against Azure AD at Windows logon. There's no special configuration needed on the Windows client to accept the SmartCard authentication. 
  
 ## User experience 
 
-Follow these steps to set up Windows SmartCard logon:
+Follow these steps to set up Windows SmartCard sign-in:
 
 1. Join the machine to either Azure AD or a hybrid environment (hybrid join). 
 1. Configure Azure AD CBA in your tenant as described in [Configure Azure AD CBA](how-to-certificate-based-authentication.md).
-1. Make sure the user is either on managed authentication or using staged rollout. 
+1. Make sure the user is either on managed authentication or using [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). 
 1. Present the physical or virtual SmartCard to the test machine.
-1. Select SmartCard icon, enter the PIN and authenticate the user.  
+1. Select the SmartCard icon, enter the PIN, and authenticate the user.  
 
    :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of SmartCard sign in.":::
 
-Users will get a primary refresh token (PRT) from Azure Active Directory after the successful login and depending on the Certificate-based authentication configuration, the PRT will contain the multifactor claim. 
+Users will get a primary refresh token (PRT) from Azure AD after the successful sign-in, and depending on the certificate-based authentication configuration, the PRT will contain the multifactor claim. 
 
 ## Supported platforms
 
-The Windows sign-in works with the latest preview build of Windows 11 and the functionality is backported to Windows 10 and Windows Server.
+The Windows SmartCard sign-in works with the latest preview build of Windows 11 and the functionality is available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
 
 - Windows 11 22H2 (preview)
 - Windows 11 21H2 and later
@@ -45,8 +45,8 @@ The Windows sign-in works with the latest preview build of Windows 11 and the fu
 
 ## Restrictions and caveats  
 
-- Only Windows machines that are joined to either or a hybrid environment can test SmartCard logon.  
-- Like in the other Azure AD CBA scenarios, the user must be in a managed domain or using Staged Rollout and cannot use a federated authentication model.
+- Only Windows machines that are joined to either Azure AD or a hybrid environment can test SmartCard logon.  
+- As in the other Azure AD CBA scenarios, the user must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
 
 ## Next steps
 
