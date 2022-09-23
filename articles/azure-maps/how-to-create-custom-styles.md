@@ -21,7 +21,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 ## Create custom styles using Creators visual editor
 
-While it's possible to modify your indoor maps styles using [Creators Rest API][creator api], Creator also offers a visual editor to create custom styles that don't require any coding. This article will focus exclusively on creating custom styles using this visual style editor.
+While it's possible to modify your indoor maps styles using [Creators Rest API][creator api], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article will focus exclusively on creating custom styles using this style editor.
 
 ### Open style
 
@@ -29,23 +29,17 @@ When an indoor map is created in your Azure Maps Creator service, default styles
 
 Open the [Creator Style Editor][style editor] and select the **Open** toolbar button.
 
-![](./media/creator-indoor-maps/style-editor/open-menu.png)
-<!--
 :::image type="content" source="./media/creator-indoor-maps/style-editor/open-menu.png" alt-text="A screenshot of the open dialog box in the visual style editor.":::
--->
+
 The **Open Style** dialog box opens.
 
 Enter your [subscription key][subscription key] in the **Enter your Azure Maps subscription key** field.
 
 Next, select the geography associated with your subscription key in the drop-down list.
 
-<!---![](./media/creator-indoor-maps/style-editor/open-style.png)-->
-
 :::image type="content" source="./media/creator-indoor-maps/style-editor/open-style.png" alt-text="A screenshot of the open dialog box in the visual style editor.":::
 
 Select the **Get map configuration list** button to get a list of every map configuration associated with the active Creator resource.
-
-<!--![Get map configuration list](./media/creator-indoor-maps/style-editor/select-the-map-configuration.png)-->
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
@@ -67,8 +61,6 @@ Once the map configuration drop-down list is populated with the IDs of all the m
 Once you've selected the desired style, select the **Load selected style** button.
 
 #### About the open style dialog
-
-<!--![](./media/creator-indoor-maps/style-editor/about-open-style.png)-->
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/about-open-style.png" alt-text="A screenshot of the Open Style dialog box in the visual style editor, with each edit field numbered, each number correlates to the numbers in the following table.":::
 
@@ -128,14 +120,14 @@ Some important things to know about aliases:
 1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since neither the style or map configuration can be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing map configuration is used, the map configuration that alias points to will be overwritten, the existing map configuration will be deleted and references to that `mapConfigurationId` will result in errors. See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
+> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. See [map configuration](creator-indoor-maps.md#map-configuration) in the concepts article for more information.
 
-Once you have entered values into each required field, select the **Upload map configuration** button to save your style and map configuration data to your Creator resource.
+Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
 > [!TIP]
 > Make a note of the map configuration ID or alias values, they are needed when you [Instantiate the Indoor Manager](instantiate-indoor-manager.md) of a Map object when developing applications in Azure Maps.
 
-### Custom category names
+## Custom categories
 
 Azure Maps Creator has defined a [list of categories][categories]. When you create your [manifest][manifest], you associate each unit in your facility to one of these categories in the [unitProperties][unitProperties] object.
 
@@ -143,19 +135,13 @@ There may be times when you want to create a new category. For example, you may 
 
 To do this, enter the desired value in the `categoryName` for the desired `unitName` in the manifest JSON before uploading your drawing package.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/category-name.png) -->
-
 :::image type="content" source="./media/creator-indoor-maps/style-editor/category-name.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
 Once opened in the visual editor, you'll notice that this category name isn't associated with any layer and has no default styling. In order to apply styling to it, you'll need to create a new layer and add the new category to it.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/category-name-changed.png) -->
-
 :::image type="content" source="./media/creator-indoor-maps/style-editor/category-name-changed.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
 To create a new layer, select the duplicate button on an existing layer. This creates a copy of the selected layer that you can modify as needed. Next, rename the layer by typing a new name into the **ID** field. For this example, we entered *indoor_unit_room_accessible*.
-
-<!-- ![](./media/creator-indoor-maps/style-editor/duplicate.png) -->
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/duplicate.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
@@ -244,25 +230,18 @@ For example, the filter JSON might look something like this:
 
 Now when you select that unit in the map, the pop-up menu will have the new layer ID, which if following this example would be `indoor_unit_room_accessible`. Once selected you can make style edits.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/custom-category-name-complete.png) -->
-
 :::image type="content" source="./media/creator-indoor-maps/style-editor/custom-category-name-complete.png" alt-text="A screenshot of the pop-up menu showing the new layer appearing when the phone 11 unit is selected.":::
 
-### Base map
+## Base map
 
 The base map drop-down list on the visual editor toolbar presents a list of base map styles that affect the style attributes of the base map that your indoor map is part of. It will not affect the style elements of your indoor map but will enable you to see how your indoor map will look with the various base maps.
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/base-map-menu.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
-<!-- ![](./media/creator-indoor-maps/style-editor/base-map-menu.png) -->
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [TBD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [tileset get]: /rest/api/maps/v20220901preview/tileset/get
