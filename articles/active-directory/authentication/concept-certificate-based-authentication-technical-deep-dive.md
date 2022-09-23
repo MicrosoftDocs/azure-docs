@@ -24,7 +24,7 @@ This article explains how Azure Active Directory (Azure AD) certificate-based au
 
 ## How does Azure Active Directory certificate-based authentication work?
 
-This diagram shows what happens when a user tries to sign into an application secured by Azure AD CBA is enabled on the tenant:
+Let's begin by looking at what happens when a user tries to sign in to an application in a tenant where Azure AD CBA is enabled.
 
 :::image type="content" border="false" source="./media/concept-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how Azure AD certificate-based authentication works." :::
 
