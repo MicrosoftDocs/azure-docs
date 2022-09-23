@@ -1,6 +1,6 @@
 ---
-title: Visualizations
-description: Use Azure Synapse notebooks to visualize your data
+title: Python Visualizations
+description: Use Python and Azure Synapse notebooks to visualize your data
 author: midesa
 ms.author: midesa
 ms.reviewer: euang
@@ -19,7 +19,7 @@ When using Apache Spark in Azure Synapse Analytics, there are various built-in o
 When using an Azure Synapse notebook, you can turn your tabular results view into a customized chart using chart options. Here, you can visualize your data without having to write any code. 
 
 ### display(df) function
-The ```display``` function allows you to turn SQL queries and Apache Spark dataframes and RDDs into rich data visualizations.The ```display``` function can be used on dataframes or RDDs created in PySpark, Scala, Java, and .NET.
+The ```display``` function allows you to turn SQL queries and Apache Spark dataframes and RDDs into rich data visualizations.The ```display``` function can be used on dataframes or RDDs created in PySpark, Scala, Java, R, and .NET.
 
 To access the chart options:
 1. The output of ```%%sql``` magic commands appear in the rendered table view by default. You can also call ```display(df)``` on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view. 
@@ -140,7 +140,7 @@ svg
 
 ```
 
-## Popular Libraries
+## Python Libraries
 When it comes to data visualization, Python offers multiple graphing libraries that come packed with many different features. By default, every Apache Spark Pool in Azure Synapse Analytics contains a set of curated and popular open-source libraries. You can also add or manage additional libraries & versions by using the Azure Synapse Analytics library management capabilities. 
 
 ### Matplotlib
@@ -275,7 +275,103 @@ Beyond these libraries, the Azure Synapse Analytics Runtime also includes the fo
 
 You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apache-spark-version-support.md) for the most up to date information about the available libraries and versions.
 
+## R Libraries (Preview)
+
+The R ecosystem offers multiple graphing libraries that come packed with many different features. By default, every Apache Spark Pool in Azure Synapse Analytics contains a set of curated and popular open-source libraries. You can also add or manage additional libraries & versions by using the Azure Synapse Analytics library management capabilities.
+
+### ggplot2
+
+The [ggplot2](https://ggplot2.tidyverse.org/) library is popular for data visualization and exploratory data analysis. 
+
+   ![ggplot2 graph example.](./media/apache-spark-data-viz/ggplot2.png#lightbox)
+
+```r
+library(ggplot2)
+data(mpg, package="ggplot2") 
+theme_set(theme_bw()) 
+
+g <- ggplot(mpg, aes(cty, hwy))
+
+# Scatterplot
+g + geom_point() + 
+  geom_smooth(method="lm", se=F) +
+  labs(subtitle="mpg: city vs highway mileage", 
+       y="hwy", 
+       x="cty", 
+       title="Scatterplot with overlapping points", 
+       caption="Source: midwest")
+```
+
+### rBokeh
+
+[rBokeh](https://hafen.github.io/rbokeh/) is a native R plotting library for creating interactive graphics which are backed by the Bokeh visualization library.
+
+To install rBokeh, you can use the following command:
+
+```r
+install.packages("rbokeh")
+```
+
+Once installed, you can leverage rBokeh to create interactive visualizations.
+
+   ![rBokeh graph example.](./media/apache-spark-data-viz/bokeh_plot.png#lightbox)
+
+```r
+library(rbokeh)
+p <- figure() %>%
+  ly_points(Sepal.Length, Sepal.Width, data = iris,
+    color = Species, glyph = Species,
+    hover = list(Sepal.Length, Sepal.Width))
+```
+
+### R Plotly
+
+[Plotly's](https://plotly.com/r/) R graphing library makes interactive, publication-quality graphs.
+
+To install Plotly, you can use the following command:
+
+```r
+install.packages("plotly")
+```
+
+Once installed, you can leverage Plotly to create interactive visualizations.
+
+   ![Plotly graph example.](./media/apache-spark-data-viz/plotly-r.png#lightbox)
+
+```r
+library(plotly) 
+
+fig <- plot_ly() %>% 
+  add_lines(x = c("a","b","c"), y = c(1,3,2))%>% 
+  layout(title="sample figure", xaxis = list(title = 'x'), yaxis = list(title = 'y'), plot_bgcolor = "#c7daec") 
+
+fig
+```
+
+### Highcharter
+
+[Highcharter](https://jkunst.com/highcharter/) is a R wrapper for Highcharts javascript library and its modules.
+
+To install Highcharter, you can use the following command:
+
+```r
+install.packages("highcharter")
+```
+
+Once installed, you can leverage Highcharter to create interactive visualizations.
+
+   ![Highcharter graph example.](./media/apache-spark-data-viz/highcharter.png#lightbox)
+
+```r
+library(magrittr)
+library(highcharter)
+hchart(mtcars, "scatter", hcaes(wt, mpg, z = drat, color = hp)) %>%
+  hc_title(text = "Scatter chart with size and color")
+
+```
+
 ## Connect to Power BI using Apache Spark & SQL On-Demand
+
 Azure Synapse Analytics integrates deeply with Power BI allowing data engineers to build analytics solutions.
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools and serverless SQL pool. Using the [shared metadata model](../metadata/overview.md),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to Power BI to easily query your synced Spark tables.
