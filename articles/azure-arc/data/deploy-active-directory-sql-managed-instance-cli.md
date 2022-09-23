@@ -56,8 +56,10 @@ az sql mi-arc create
 --ad-connector-name < your AD connector name > 
 --keytab-secret < SQL MI keytab secret name >  
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number > 
 --use-k8s
 ```
 
@@ -72,6 +74,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --use-k8s
 ```
 
@@ -82,9 +86,11 @@ az sql mi-arc create
 --name < SQL MI name >  
 --ad-connector-name < your AD connector name > 
 --keytab-secret < SQL MI keytab secret name >  
---ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--ad-account-name < SQL MI AD user account > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --custom-location < your custom location > 
 --resource-group < resource-group >
 ```
@@ -99,6 +105,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --custom-location private-location
 --resource-group arc-rg
 ```
@@ -170,8 +178,10 @@ az sql mi-arc create
 --k8s-namespace < namespace > 
 --ad-connector-name < your AD connector name > 
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --use-k8s
 ```
 
@@ -185,6 +195,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --use-k8s
 ```
 
@@ -195,8 +207,10 @@ az sql mi-arc create
 --name < SQL MI name >  
 --ad-connector-name < your AD connector name >  
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --custom-location < your custom location > 
 --resource-group <resource-group>
 ```
@@ -210,6 +224,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --custom-location private-location
 --resource-group arc-rg
 ```
