@@ -13,7 +13,7 @@ ms.reviewer: tamram
 
 # Use Health Monitor to gain insights into BlobFuse2 mount points (preview)
 
-This article guides you on how to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage.
+This article provides references to assist in deploying and using BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage.
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -27,7 +27,13 @@ This article guides you on how to use BlobFuse2 Health Monitor to gain insights 
 
 ## The BlobFuse2 health monitor readme
 
-During the preview of BlobFuse2, refer to [BlobFuse2 Health Monitor README on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/tools/health-monitor/README.md) for full details on how to deploy and use it.
+You can use BlobFuse2 Health Monitor to:
+
+- Get statistics about internal activities related to BlobFuse2 mounts
+- Monitor CPU and memory usage by BlobFuse2 mount processes
+- Track file cache usage file caching events
+
+During the preview of BlobFuse2, refer to [BlobFuse2 Health Monitor README on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/tools/health-monitor/README.md) for full details on how to deploy and use Health Monitor.
 
 ## See also
 

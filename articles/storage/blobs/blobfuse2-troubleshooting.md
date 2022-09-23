@@ -13,11 +13,11 @@ ms.reviewer: tamram
 
 # Troubleshooting BlobFuse2 (preview)
 
-This articles provides references to assist in troubleshooting BlobFuse2 issues during the public preview.
+This article provides references to assist in troubleshooting BlobFuse2 issues during the preview.
 
-## The troubleshooting guide
+## The troubleshooting guide (TSG)
 
-During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshoot Guide (TSG) on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md)
+During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshooting Guide (TSG) on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
