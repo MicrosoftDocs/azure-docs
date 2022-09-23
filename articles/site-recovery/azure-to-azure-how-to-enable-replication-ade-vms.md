@@ -5,7 +5,7 @@ author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 09/05/2022
 ms.author: v-pgaddala
 
 ---
@@ -15,7 +15,7 @@ ms.author: v-pgaddala
 This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
-> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without AAD. Moreover, for machines running ADE 1.1 (without AAD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
+> Site Recovery currently supports ADE, with and without Azure Active Directory (Azure AD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without Azure AD. Moreover, for machines running ADE 1.1 (without Azure AD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with Azure AD) to 1.1, you need to disable replication and enable replication for a VM after enabling 1.1.
 
 
 ## <a id="required-user-permissions"></a> Required user permissions
@@ -72,50 +72,69 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 
 ## Enable replication
 
-For this example, the primary Azure region is East Asia, and the secondary region is South East Asia.
+Use the following procedure to replicate Azure Disk Encryption-enabled VMs to another Azure region. As an example, primary Azure region is East Asia, and the secondary is Southeast Asia.
 
-1. In the vault, select **+Replicate**.
-2. Note the following fields.
-    - **Source**: The point of origin of the VMs, which in this case is **Azure**.
-    - **Source location**: The Azure region where you want to protect your virtual machines. For this example, the source location is "East Asia."
-    - **Deployment model**: The Azure deployment model of the source machines.
-    - **Source subscription**: The subscription to which your source virtual machines belong. It can be any subscription that's in the same Azure Active Directory tenant as your recovery services vault.
-    - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
+1. In the vault, > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
+1. In the **Enable replication** page, under **Source**, do the following:
+    - **Region**: Select the Azure region where you want to protect your virtual machines.
+    For example, the source location is *East Asia*.
+    - **Subscription**: Select the subscription to which your source virtual machines belong. This can be any subscription that's in the same Azure Active Directory tenant as your recovery services vault.
+    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
+    - **Virtual machine deployment model**: Select the Azure deployment model of the source machines.
+    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.
+    
+    :::image type="fields needed to configure replication" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/source.png" alt-text="Screenshot that highlights the fields needed to configure replication.":::
 
-3. In **Virtual Machines** > **Select virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. Then, select **OK**.
+1. Select **Next**.   
+1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then, select **Next**.
 
-4. In **Settings**, you can configure the following target-site settings.
+   ![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication-ade-vms/virtual-machine-selection.png)
 
-    - **Target location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
-    - **Target subscription**: The target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
-    - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the "asr" suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
-    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the "asr" suffix. It's mapped to your source network and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
-    - **Target storage accounts (if your source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused.
-    - **Replica managed disks (if your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (standard or premium) as the source VM's managed disks.
-    - **Cache storage accounts**: Site Recovery needs an extra storage account called *cache storage* in the source region. All the changes on the source VMs are tracked and sent to the cache storage account. They're then replicated to the target location.
-    - **Availability set**: By default, Site Recovery creates a new availability set in the target region. The name has the "asr" suffix. If an availability set that was created by Site Recovery already exists, it's reused.
-    - **Disk encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. It has an "asr" suffix that's based on the source VM disk encryption keys. If a key vault that was created by Azure Site Recovery already exists, it's reused.
-    - **Key encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. The name has an "asr" suffix that's based on the source VM key encryption keys. If a key vault created by Azure Site Recovery already exists, it's reused.
-    - **Replication policy**: Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of *24 hours* for recovery point retention and *60 minutes* for app-consistent snapshot frequency.
+1. In **Replication settings**, you can configure the following settings.
+    1. Under **Location and Resource group**,
+        - **Target location**: Select the location where your source virtual machine data must be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
+        - **Target subscription**: Select the target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
+        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name. If the resource group created by Site Recovery already exists, it's reused. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
+        >[!Note]
+        > You can also create a new target resource group by selecting **Create New**.
+    1. Under **Network**,
+        - **Failover virtual Network**: Select the Failover  virtual network.
+          >[!Note]
+          > You can also create a new failover virtual network by selecting **Create new**.
+        - **Failover subnet**: Select the failover subnet.
+    1. **Storage**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused. Select **View/edit storage configuration** to view or edit the storage account.
+    1. **Availability options**: By default, Site Recovery creates a new availability option in the target region. The name has the *asr* suffix. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
+    1. **Capacity Reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
+    
+       :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
+    
+1. Select **Next**.
+1. In **Manage**, do the following:
+    1. Under **Replication policy**,
+       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention and 60 minutes for app-consistent snapshot frequency.
+       - **Replication group**: Create replication group.
+    1. Under **Extension settings**, 
+       - Select **Update settings** and **Automation account**.
+   
+   :::image type="manage" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/manage.png" alt-text="Screenshot that displays the manage tab.":::
+
+
+1. Select **Next**.
+1. In **Review**, review the VM settings and select **Enable replication**.
+
+   :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/review.png" alt-text="Screenshot that displays the review tab.":::
+
 
 ## Customize target resources
 
 Follow these steps to modify the Site Recovery default target settings.
 
-1. Select **Customize** next to "Target subscription" to modify the default target subscription. Select the subscription from the list of subscriptions that are available in the Azure AD tenant.
-
-2. Select **Customize** next to "Resource group, Network, Storage, and Availability sets" to modify the following default settings:
-	- For **Target resource group**, select the resource group from the list of resource groups in the target location of the subscription.
-	- For **Target virtual network**, select the network from a list of virtual networks in the target location.
-	- For **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
-	- For **Target Storage accounts**, select the account to use.
-
-2. Select **Customize** next to "Encryption settings" to modify the following default settings:
+1. Select **Customize** next to *Encryption settings* to modify the following default settings:
    - For **Target disk encryption key vault**, select the target disk encryption key vault from the list of key vaults in the target location of the subscription.
    - For **Target key encryption key vault**, select the target key encryption key vault from the list of key vaults in the target location of the subscription.
 
-3. Select **Create target resource** > **Enable Replication**.
-4. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
+1. Select **Create target resource** > **Enable Replication**.
+1. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
 
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
