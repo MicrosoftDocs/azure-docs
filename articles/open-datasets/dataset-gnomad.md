@@ -15,7 +15,7 @@ The [Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org/) i
 
 Available versions:
 
-1. The **gnomAD v3.1.2** data set contains 76,156 whole genomes (and no exomes), all mapped to the GRCh38 reference sequence. Available in Hail and VCF formats. [Explore the data](https://msit.powerbi.com/reportEmbed?reportId=876ec2da-e6e4-42c9-9a28-c3d313c6e3eb&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
+1. The **gnomAD v3.1.2** data set contains 76,156 whole genomes (and no exomes), all mapped to the GRCh38 reference sequence. Available in Hail and VCF formats. 
 2. The **gnomAD v2.1.1** data set contains data from 125,748 exomes and 15,708 whole genomes, all mapped to the GRCh37/hg19 reference sequence. The data is available in Hail, VCF and Parquet formats.
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
