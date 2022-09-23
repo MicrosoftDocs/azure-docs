@@ -1,6 +1,6 @@
 ---
 title: Create a Python function with the V2 programming model using Visual Studio Code - Azure Functions
-description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
+description: Learn how to create a Python function using the V2 programming model, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 09/02/2022
 ms.devlang: python

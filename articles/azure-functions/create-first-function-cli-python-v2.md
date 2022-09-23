@@ -1,6 +1,6 @@
 ---
 title: Create a Python function with the V2 programming model from the command line - Azure Functions
-description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
+description: Learn how to create a Python function using the V2 programming model from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 09/23/2022
 ms.topic: quickstart
 ms.devlang: python

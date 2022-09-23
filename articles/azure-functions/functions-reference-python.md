@@ -21,7 +21,7 @@ As a Python developer, you may also be interested in one of the following articl
 > While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
 
 > [!TIP]
-> The V2 programming model for Azure Functions in Python is in Preview! Switch to the 'V2' tab to learn about the new model's features which include a decorator based approach and a simpler file structure. To create a function app with the new model, see the [quickstart](./functions-python-preview-quickstart). To learn more about the new programming models across Azure Functions, see [New Programming Models](./functions-new-programming-models.md).
+> The V2 programming model for Azure Functions in Python is in Preview! Switch to the 'V2' tab to learn about the new model's features which include a decorator based approach and a simpler file structure. To create a function app with the new model, see the [quickstart](./create-first-function-vs-code-python-v2). To learn more about the new programming models across Azure Functions, see [New Programming Models](./functions-new-programming-models.md).
 
 ## Programming model
 
@@ -236,8 +236,6 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 Blueprints within the programming model support logical grouping of functions within the function application, and enable customers to leverage multiple Python files to store functions. The following is an example of a blueprint, stored in the file `timer_functions.py`.
 
-check-pystein
-
 ---
 
 ## Triggers and Inputs
@@ -327,8 +325,6 @@ def main(req: func.HttpRequest,
          obj: func.InputStream):
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
-
-check-pystein
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the storage account specified is the connection string found in the AzureWebJobsStorage app setting, which is the same storage account used by the function app.
 
@@ -670,8 +666,6 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
 First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
-
-check-pystein
 
 ### ASGI
 
@@ -1400,7 +1394,7 @@ Following is a list of troubleshooting guides for common issues:
 Following is a list of troubleshooting guides for known issues with the V2 programming model:
 
 * [Could not load file or assembly](recover-python-functions.md#troubleshoot-could-not-load-file-or-assembly)
-* [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-Azure-Storage-connection-named-Storage)
+* [Unable to resolve the Azure Storage connection named Storage](recover-python-functions.md#troubleshoot-unable-to-resolve-the-azure-storage-connection-named-storage)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
