@@ -291,6 +291,8 @@ To upload a blob with an encryption scope via the Azure portal, first create the
 1. To specify a different scope for the blob that you are uploading, select **Choose an existing scope**, then select the desired scope from the drop-down.
 
     :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot showing how to upload a blob with an encryption scope":::
+    
+    ++![image](https://user-images.githubusercontent.com/83351422/191932550-22d964a7-b7ef-490b-80a3-19e9137753c2.png)
 
 # [PowerShell](#tab/powershell)
 
