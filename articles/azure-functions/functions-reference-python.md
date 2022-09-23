@@ -199,7 +199,64 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 ---
 ## Blueprints
-<TO DO>
+
+The V2 programming model is introducing blueprints for breaking up the function app into modular components which allows you to define functions in multiple Python files and divide them into different components per file. 
+
+In addition, extensible public function app interfaces are introduced to you to build and reuse your own pystein API's. 
+ 
+
+**Concepts** 
+
+- **Blueprint**: A new class instantiated to register user functions besides function app. The functions registered in blueprint instances are not indexed directly by function runtime. To get the functions indexed, function app needs to register the functions from blueprint instances. 
+
+Blueprint example usage: 
+
+`http_blueprint.py` – an http function is first defined and added to a blueprint object 
+
+```python
+import logging 
+ 
+import azure.functions as func 
+ 
+bp = func.Blueprint() 
+
+@bp.route(route="default_template") 
+def default_template(req: func.HttpRequest) -> func.HttpResponse: 
+    logging.info('Python HTTP trigger function processed a request.') 
+ 
+    name = req.params.get('name') 
+    if not name: 
+        try: 
+            req_body = req.get_json() 
+        except ValueError: 
+            pass 
+        else: 
+            name = req_body.get('name') 
+ 
+    if name: 
+        return func.HttpResponse( 
+            f"Hello, {name}. This HTTP triggered function " 
+            f"executed successfully.") 
+    else: 
+        return func.HttpResponse( 
+            "This HTTP triggered function executed successfully. " 
+            "Pass a name in the query string or in the request body for a" 
+            " personalized response.", 
+            status_code=200 
+        ) 
+```
+ 
+`function_app.py` – the blueprint object is imported and its functions are registered to function app.  
+
+```python
+import azure.functions as func 
+from blueprint import bp 
+ 
+app = func.FunctionApp() 
+ 
+app.register_functions(bp) 
+```
+ 
 
 ## Import behavior
 
@@ -665,9 +722,24 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
-First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
+`AsgiFunctionApp`: Top level function app class for constructing ASGI http functions. 
 
-### ASGI
+```python
+# function_app.py
+
+import azure.functions as func 
+from fastapi import FastAPI, Request, Response 
+ 
+fast_app = FastAPI() 
+ 
+@fast_app.get("/return_http_no_body") 
+async def return_http_no_body(): 
+    return Response(content='', media_type="text/plain") 
+ 
+app = func.AsgiFunctionApp(app=fast_app, 
+                           http_auth_level=func.AuthLevel.ANONYMOUS) 
+```
+Following is an additional example:
 
 ```python
 import fastapi
@@ -726,7 +798,26 @@ async def read_item(user_id: int, locale: Optional[str] = None):
 app = func.FunctionApp(asgi_app=fast_app, auth_level=func.AuthLevel.ANONYMOUS)
 ```
 
-### WSGI
+`WsgiFunctionApp`: Top level function app class for constructing WSGI http functions.  
+
+```python
+# function_app.py
+
+import azure.functions as func 
+from flask import Flask, request, Response, redirect, url_for 
+ 
+flask_app = Flask(__name__) 
+logger = logging.getLogger("my-function") 
+
+@flask_app.get("/return_http") 
+def return_http(): 
+    return Response('<h1>Hello World™</h1>', mimetype='text/html') 
+
+app = func.WsgiFunctionApp(app=flask_app.wsgi_app, 
+                           http_auth_level=func.AuthLevel.ANONYMOUS) 
+```
+
+Following is an additonal example:
 
 ```python
 from flask import Flask, make_response, request
