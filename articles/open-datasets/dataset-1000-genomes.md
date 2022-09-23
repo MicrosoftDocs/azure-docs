@@ -63,6 +63,8 @@ Following the final publications, data from the 1000 Genomes Project is publicly
 Sample notebook to access 1000 Genomes data on Azure [Notebook](https://github.com/microsoft/genomicsnotebook/blob/main/sample-notebooks/1000-genomes_Azure_Genomics_Data_Lake.ipynb)
 
 ### Use cases 
+
+* The examples here are for educational purposes only*
 [Applications of the 1000 Genomes Project resources](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5439288/)
 
 1.  Genotype imputations: The only freely downloadable data from diverse population can be used as reference for haplotype phasing, genotyping imputation or as a training set for ancestry inference.
