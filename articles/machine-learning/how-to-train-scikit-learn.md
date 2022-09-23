@@ -1,15 +1,15 @@
 ---
-title: Train scikit-learn machine learning models 
+title: Train scikit-learn machine learning models (v2)
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources.
+description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources (v2).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: blackmist
-ms.date: 03/21/2022
+ms.date: 09/22/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
@@ -27,6 +27,7 @@ The example scripts in this article are used to classify iris flower images to b
 Whether you're training a machine learning scikit-learn model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
 ## Prerequisites
+<!-- M.A: update the prerequisites (path to the notebook) before sign-off -->
 
 You can run this code in either an Azure Machine Learning compute instance, or your own Jupyter Notebook:
 
@@ -37,8 +38,8 @@ You can run this code in either an Azure Machine Learning compute instance, or y
 
  - Create a Jupyter Notebook server and run the code in the following sections.
 
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
+
 
 ## Set up the experiment
 
@@ -46,9 +47,17 @@ This section sets up the training experiment by loading the required Python pack
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create.
 
-Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
+First, you'll need to connect to your Azure ML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+
+We are using DefaultAzureCredential to get access to workspace. DefaultAzureCredential should be capable of handling most Azure SDK authentication scenarios.
+
+Reference for more available credentials if it does not work for you: configure credential example, azure-identity reference doc.
+
+ <!-- In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object. -->
+
+<!-- Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites). -->
 
 [!notebook-python[](~/azureml-examples-main/sdk/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential)]
 
