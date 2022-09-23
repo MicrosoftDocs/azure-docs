@@ -29140,6 +29140,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-dps/how-to-use-custom-allocation-policies.md",
+            "redirect_url": "/azure/iot-dps/tutorial-custom-allocation-policies",
+            "redirect_document_id": false
+          },          
+        {
             "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md",
             "redirect_url": "/azure/app-service/environment/integrate-with-application-gateway",
             "redirect_document_id": false

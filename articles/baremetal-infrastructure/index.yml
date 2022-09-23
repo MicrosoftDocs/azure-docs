@@ -150,11 +150,11 @@ landingContent:
             url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 
 # card 4
-  - title: BareMetal Infrastructure for NC2 on Azure
+  - title: BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
     linkLists: 
       - linkListType: overview
         links:
-         - text: What is BareMetal Infrastructure for NC2 on Azure?
+         - text: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
            url: workloads/nc2-public-preview/nc2-baremetal-overview.md
          - text: About the Public Preview
            url: workloads/nc2-public-preview/about-the-public-preview.md
