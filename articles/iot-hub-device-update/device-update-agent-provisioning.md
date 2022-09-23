@@ -14,7 +14,7 @@ The Device Update Module agent can run alongside other system processes and [IoT
 
 ## Changes to Device Update agent at GA release
 
-If you are using the Device Update agent versions, please migrate to the latest agent version 1.0.0 which is the GA version. See [GA agent for changes and how to upgrade](migration-ppr-to-ga.md)
+If you are using the Device Update agent versions, please migrate to the latest agent version 1.0.0 which is the GA version. See [GA agent for changes and how to upgrade](migration-public-preview-refresh-to-ga.md)
 
 You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
