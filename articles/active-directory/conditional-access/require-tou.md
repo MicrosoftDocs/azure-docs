@@ -44,11 +44,11 @@ This section provides you with the steps to create a sample ToU. When you create
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 
 
-   :::image type="content" source="media/require-tou/terms-of-use-azure-ad-conditional-access.png" alt-text="Terms of use shown in the Azure portal highlighting the new terms button." lightbox="media/require-tou/terms-of-use-azure-ad-conditional-access.png":::
+   :::image type="content" source="media/require-tou/terms-of-use-azure-ad-conditional-access.png" alt-text="Screenshot of terms of use shown in the Azure portal highlighting the new terms button." lightbox="media/require-tou/terms-of-use-azure-ad-conditional-access.png":::
 
 1. In the menu on the top, select **New terms**.
 
-   :::image type="content" source="media/require-tou/new-terms-of-use-creation.png" alt-text="Creating a new terms of use policy in the Azure portal." lightbox="media/require-tou/new-terms-of-use-creation.png":::
+   :::image type="content" source="media/require-tou/new-terms-of-use-creation.png" alt-text="Screenshot that shows creating a new terms of use policy in the Azure portal." lightbox="media/require-tou/new-terms-of-use-creation.png":::
 
 1. In the **Name** textbox, type **My TOU**.
 1. Upload your terms of use PDF file.
