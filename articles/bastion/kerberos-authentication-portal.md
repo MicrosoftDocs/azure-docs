@@ -423,7 +423,7 @@ This template does the following:
   - Domain-join the `bastionkrb.test` domain.
 
 Now, login to ClientVM using Bastion with Kerberos authentication:
-- Login to ClientVM with Bastion using credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
+- credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
 
 
 ## Next steps
