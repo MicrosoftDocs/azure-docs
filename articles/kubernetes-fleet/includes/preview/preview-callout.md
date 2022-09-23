@@ -1,7 +1,9 @@
 ---
 ms.service: kubernetes-fleet
 ms.topic: include
-ms.date: 08/07/2020
+ms.date: 09/22/2022
+author: shashankbarsin
+ms.author: shasb
 ---
 
 > [!IMPORTANT]
