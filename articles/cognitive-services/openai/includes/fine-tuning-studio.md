@@ -20,7 +20,7 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a model deployed
+- An Azure OpenAI resource with a deployed model
     
     For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
 
@@ -30,7 +30,7 @@ The fine-tuning workflow in Azure OpenAI Studio requires the following steps:
 
 1. Prepare your training and validation data
 1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your customized model
-    1. [Choose a base model](#select-a-base-model)
+    1. [Select a base model](#select-a-base-model)
     1. [Choose your training data](#choose-your-training-data)
     1. Optionally, [choose your validation data](#choose-your-validation-data)
     1. Optionally, [choose advanced options](#choose-advanced-options) for your fine-tune job
@@ -206,7 +206,7 @@ The following hyperparameters are available:
 | --- | --- |
 | **Number of epochs** | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. |
 | **Batch size** | The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass. |
-| **Learning rate multiplier** | The learning rate multiplier to use for training. The fine tuning learning rate is the original learning rate used for pre-training, multiplied by this value. |
+| **Learning rate multiplier** | The learning rate multiplier to use for training. The fine-tuning learning rate is the original learning rate used for pre-training, multiplied by this value. |
 | **Prompt loss weight** | The weight to use for loss on the prompt tokens. This value controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0.) Increasing this value can add a stabilizing effect to training when completions are short. |
 
 For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
@@ -263,7 +263,7 @@ Once your customized model has been deployed, you can use it like any other depl
 
 ## Analyze your customized model
 
-Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model in the **Result file id** column of the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
+Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model in the **Result file Id** column of the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
 
 The result file is a CSV file containing a header row and a row for each training step performed by the fine-tune job.  The result file contains the following columns:
 
