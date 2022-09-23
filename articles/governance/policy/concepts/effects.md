@@ -756,6 +756,23 @@ you'll need to create an attestation for that compliance state.
 > During Public Preview, support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
+Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:
+
+- FedRAMP High
+- FedRAMP Medium
+- HIPAA
+- HITRUST
+- ISO 27001
+- Microsoft CIS 1.3.0
+- Microsoft CIS 1.4.0
+- NIST SP 800-171 Rev. 2
+- NIST SP 800-53 Rev. 4
+- NIST SP 800-53 Rev. 5
+- PCI DSS 3.2.1
+- PCI DSS 4.0
+- SOC TSP
+- SWIFT CSP CSCF v2022
+
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
 ```json
