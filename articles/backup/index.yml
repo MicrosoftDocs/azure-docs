@@ -133,8 +133,6 @@ landingContent:
             url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
-          - text: Back up and manage SAP HANA database snapshots
-            url: sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview
           - text: FAQ - Back up SAP HANA databases on Azure VMs
             url: sap-hana-faq-backup-azure-vm.yml
           - text: Support matrix for backup of SAP HANA databases on Azure VMs
