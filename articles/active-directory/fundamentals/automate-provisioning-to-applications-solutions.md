@@ -43,7 +43,7 @@ MIM offers [rule extension](/previous-versions/windows/desktop/forefront-2010/ms
 
 ## Synchronize identities between Active Directory and Azure AD
 
-As customers move more of their applications to the cloud and integrate with Azure AD, users often need accounts in Azure AD and AD to access the applications they need to get their work done. Here are five common scenarios in which objects need to be synchronized between AD and Azure AD.
+As customers move applications to the cloud, and integrate with Azure AD, users often need accounts in Azure AD, and AD to access the applications for their work. Here are five common scenarios in which objects need to be synchronized between AD and Azure AD.
 
 The scenarios are divided by the direction of synchronization needed, and are listed, one through five. Use the table following the scenarios to determine what technical solution provides the synchronization.
 
@@ -81,7 +81,7 @@ After identities are in Azure AD through HR-provisioning or Azure AD Connect Cou
 
 ### Automate provisioning to apps and clouds that support the SCIM standard
 
-Azure AD supports the System for Cross-Domain Identity Management ([SCIM 2.0](https://aka.ms/scimoverview)) standard and integrates with 100 s of popular SaaS applications such as [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) and [Atlassian](../saas-apps/atlassian-cloud-provisioning-tutorial.md) or other clouds such as [Amazon Web Services](../saas-apps/aws-single-sign-on-provisioning-tutorial.md), [Google Cloud](../saas-apps/g-suite-provisioning-tutorial.md)). Application developers can use the System for Cross-Domain Identity Management (SCIM) user management API to automate provisioning users and groups between Azure AD and your application.
+Azure AD supports the System for Cross-Domain Identity Management ([SCIM 2.0](https://aka.ms/scimoverview)) standard and integrates with hundreds of popular SaaS applications such as [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) and [Atlassian](../saas-apps/atlassian-cloud-provisioning-tutorial.md) or other clouds such as [Amazon Web Services (AWS)](../saas-apps/aws-single-sign-on-provisioning-tutorial.md), [Google Cloud](../saas-apps/g-suite-provisioning-tutorial.md). Application developers can use the System for Cross-Domain Identity Management (SCIM) user management API to automate provisioning users and groups between Azure AD and your application.
 
 ![SCIM standard](media/automate-user-provisioning-to-applications-solutions/automate-provisioning-scim-standard.png)
 
@@ -119,7 +119,7 @@ MIM enables you to import organizational data such as job codes and locations. T
 
 ### Automate common business workflows
 
-Once your users have been provisioned into Azure AD, Lifecycle Workflows (LCW) allow you to automate appropriate actions at key moments in a user’s lifecycle such as joiner, mover, and leaver. These custom workflows can be triggered by Azure AD LCW automatically, or on demand to perform common tasks such as enabling/disabling accounts, generating Temporary Access Passes, updating Teams and/or group membership, sending automated emails, and triggering a Logic App. This can help organizations ensure:
+After users are provisioned into Azure AD, use Lifecycle Workflows (LCW) to automate appropriate actions at key moments in a user’s lifecycle such as joiner, mover, and leaver. These custom workflows can be triggered by Azure AD LCW automatically, or on demand to enable or disable accounts, generate Temporary Access Passes, update Teams and/or group membership, send automated emails, and trigger a Logic App. This can help organizations ensure:
 
 * **Joiner**: When a user joins the organization, they're ready to go on day one. They have the correct access to the information and applications they need. They have the required hardware necessary to do their job.
 
