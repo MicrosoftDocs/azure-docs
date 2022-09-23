@@ -111,6 +111,8 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
+### Video summary
+
 > [!VIDEO https://www.youtube.com/embed?v=r22nthp-f4g&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=1]
 
 ## January 2022
