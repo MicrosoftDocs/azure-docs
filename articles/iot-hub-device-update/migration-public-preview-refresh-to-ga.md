@@ -96,7 +96,7 @@ For the GA release, the Device Update agent can be updated manually or using the
 		}
 	    ]
 	}
-	 ```
+	```
 
 	> [!NOTE] 
 	> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
