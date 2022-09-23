@@ -39,7 +39,7 @@ Co-locate your compute, storage, networking, and data resources across an availa
 
 ## Azure regions with availability zones
 
-For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones.md).
+For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 ## Next steps
 
