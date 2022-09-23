@@ -198,6 +198,8 @@
         href: concept-certificate-based-authentication-smartcard.md
       - name: Mobile devices
         href: concept-certificate-based-authentication-mobile.md
+      - name: Migration
+        href: concept-certificate-based-authentication-migration.md
       - name: CertificateUserIds
         href: concept-certificate-based-authentication-certificateuserids.md
       - name: FAQ
