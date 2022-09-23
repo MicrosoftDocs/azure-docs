@@ -7,20 +7,50 @@
   - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
-  - name: Migrate from ML Studio (classic)
-    items: 
+
+- name: Migration from v1 to v2
+  items:
     - name: Migration overview
-      href: ../migrate-overview.md
-    - name: Migrate datasets
-      href: ../migrate-register-dataset.md
-    - name: Rebuild experiments
-      href: ../migrate-rebuild-experiment.md
-    - name: Rebuild web services
-      href: ../migrate-rebuild-web-service.md
-    - name: Migrate client applications
-      href: ../migrate-rebuild-integrate-with-client-app.md
-    - name: Rebuild Execute R Script components
-      href: ../migrate-execute-r-script.md
+      displayName: migration
+      href: ../how-to-migrate-from-v1.md
+    - name: Manage resources and assets
+      items:
+      - name: "Workspace"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-workspace.md
+      - name: "Datastore"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-datastore.md
+      - name: "Data assets"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-assets-data.md
+      - name: "Model assets"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-assets-model.md
+      - name: Train a model
+        items:
+      - name: "Run a script"
+        displayName: migration, v1, v2
+        href: ../-to-v2-command-job.md
+      - name: "Local runs"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-local-runs.md
+      - name: "AutoML"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-automl.md
+      - name: "Hyperparameter tuning"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-hyperdrive.md
+      - name: "Parallel run step"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-parallel-run-step.md  
+      - name: "Pipelines"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-pipeline.md  
+    - name: "Deploy endpoints"
+      displayName: migration, v1, v2
+      href: ../migrate-to-v2-deploy-endpoints.md  
+
 - name: Concepts (v1)
   items:
   - name: Model training
@@ -327,6 +357,20 @@
           href: how-to-debug-parallel-run-step.md
 - name: Reference (v1)
   items: 
+  - name: Migrate from ML Studio (classic)
+    items: 
+    - name: Migration overview
+      href: ../migrate-overview.md
+    - name: Migrate datasets
+      href: ../migrate-register-dataset.md
+    - name: Rebuild experiments
+      href: ../migrate-rebuild-experiment.md
+    - name: Rebuild web services
+      href: ../migrate-rebuild-web-service.md
+    - name: Migrate client applications
+      href: ../migrate-rebuild-integrate-with-client-app.md
+    - name: Rebuild Execute R Script components
+      href: ../migrate-execute-r-script.md
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
   - name: Hyperparameters for AutoML computer vision tasks (v1)
