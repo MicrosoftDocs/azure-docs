@@ -49,8 +49,8 @@ The supported subcommands for `blobfuse2 health-monitor` are:
 
 | Command | Description |
 |--|--|
-| [???](blobfuse2-commands-health-monitor-???.md)   | ??? |
-| [???](blobfuse2-commands-health-monitor-???.md)   | ??? |
+| [???](blobfuse2-commands-health-monitor.md)   | ??? |
+| [???](blobfuse2-commands-health-monitor.md)   | ??? |
 
 Select one of the command links in the table above to view the documentation for the individual subcommands, including the arguments and flags they support.
 
@@ -94,6 +94,6 @@ The following flags apply only to command `blobfuse2 health-monitor`:
 
 ## See also
 
-- [How to use Blobfuse2 health monitor (preview)](blobfuse2-health-monitor.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount point activities (preview)](blobfuse2-health-monitor.md)
 - What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [The Blobfuse2 command set (preview)](blobfuse2-commands.md)

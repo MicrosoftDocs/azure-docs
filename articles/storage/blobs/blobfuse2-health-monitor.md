@@ -11,7 +11,7 @@ ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# Use Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage (preview)
+# Use Health Monitor to gain insights into BlobFuse2 mount points (preview)
 
 This article guides you on how to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage.
 
@@ -31,7 +31,7 @@ During the preview of BlobFuse2, refer to [BlobFuse2 Health Monitor README on Gi
 
 ## See also
 
-- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [BlobFuse2 health-monitor command reference (preview)](blobfuse2-commands-health-monitor.md)
+- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
