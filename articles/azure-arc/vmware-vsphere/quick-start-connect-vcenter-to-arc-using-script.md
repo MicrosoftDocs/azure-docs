@@ -20,7 +20,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 - An Azure subscription.
 
-- A resource group in the subscription where you're a member of the *Azure Arc VMware Private Clouds Onboarding* role for onboarding and a member of the *Azure Arc VMware Administrator role* role for administering.
+- A resource group in the subscription where you're a member of the *Azure Arc VMware Private Clouds Onboarding* role for onboarding.
 
 ### Azure Arc Resource Bridge
 
