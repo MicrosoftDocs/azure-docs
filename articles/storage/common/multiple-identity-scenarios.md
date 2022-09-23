@@ -421,10 +421,11 @@ spring:
           client-id: <Managed_Identity_Client_ID_Databases>
           managed-identity-enabled: true
       storage:
-       blob:
-         credential:
-           client-id: <Managed_Identity_Client_ID_Storage>
-           managed-identity-enabled: true
+        blob:
+          endpoint: https://<contract-storage-account>.blob.core.windows.net
+          credential:
+            client-id: <Managed_Identity_Client_ID_Storage>
+            managed-identity-enabled: true
   datasource:
     url: jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
@@ -445,7 +446,7 @@ public class AzureStorageConfiguration {
 
     @Bean("firstBlobServiceClient")
     public BlobServiceClient firstBlobServiceClient(BlobServiceClientBuilder builder) {
-        return builder.endpoint("https://<contract-storage-account>.blob.core.windows.net").buildClient();
+        return builder.buildClient();
     }
 }
 ```
