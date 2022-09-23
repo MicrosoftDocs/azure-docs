@@ -23,19 +23,19 @@ Azure Active Directory is available as an identity provider option for B2B colla
 
 Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the invitation flow or a self-service sign-up user flow.
 
-![Azure AD account in the identity providers list](media/azure-ad-account/azure-ad-account-identity-provider-new.png)
+![Azure AD account in the identity providers list](media/azure-ad-account/azure-ad-account-identity-provider.png)
 
 ### Azure AD account in the invitation flow
 
 When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the email address they'll use to sign in.
 
-![Invite using a Azure AD account](media/azure-ad-account/azure-ad-account-invite-new.png)
+![Invite using a Azure AD account](media/azure-ad-account/azure-ad-account-invite.png)
 
 ### Azure AD account in self-service sign-up user flows
 
 Azure AD account is an identity provider option for your self-service sign-up user flows. Users can sign up for your applications using their own Azure AD accounts. First, you'll need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. Then you can set up a user flow for the application and select Azure Active Directory as one of the sign-in options.
 
-![Azure AD account in a self-service sign-up user flow](media/azure-ad-account/azure-ad-account-user-flow-new.png)
+![Azure AD account in a self-service sign-up user flow](media/azure-ad-account/azure-ad-account-user-flow.png)
 
 ## Verifying the application's publisher domain
 As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) For Azure AD user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, follow these steps:
