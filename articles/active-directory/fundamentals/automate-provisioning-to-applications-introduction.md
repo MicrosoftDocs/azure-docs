@@ -27,13 +27,13 @@ These articles are for:
 
 * IT professionals
 
-The article provides information for those who make decisions about how to address identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
+The article provides information for decision makers addressing identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
 
 Employees in an organization rely on many applications to perform their work. These applications often require IT admins or application owners to provision accounts before an employee can start accessing them. Organizations also need to manage the lifecycle of these accounts and keep them up to date with the latest information and remove accounts when users don't require them anymore.
 
-The Azure AD provisioning service automates your identity lifecycle and keeps identities in sync across trusted source systems (like HR systems) and applications that users need access to. It enables you to bring users into Azure AD and provision them into the various applications that they require. The provisioning capabilities are foundational building blocks that enable rich governance and lifecycle workflows. For [hybrid](../hybrid/whatis-hybrid-identity.md) scenarios, Azure AD employs an agent model to connect to on-premises or IaaS systems, and includes components such as the Azure AD provisioning agent, Microsoft Identity Manager (MIM), and Azure AD Connect.
+The Azure AD provisioning service automates your identity lifecycle and keeps identities in sync across trusted source systems (like HR systems) and applications that users need access to. It enables you to bring users into Azure AD and provision them into the various applications that they require. The provisioning capabilities are foundational building blocks that enable rich governance and lifecycle workflows. For [hybrid](../hybrid/whatis-hybrid-identity.md) scenarios, the Azure AD agent model connects to on-premises or IaaS systems, and includes components such as the Azure AD provisioning agent, Microsoft Identity Manager (MIM), and Azure AD Connect.
 
-Thousands of organizations are running Azure AD cloud-hosted services, alongside its hybrid components delivered on-premises, for their provisioning scenarios. Microsoft supports and invest in its cloud-hosted and on-premises delivered functionality, including MIM and Azure AD Connect sync, to help organizations provision users in their connected systems and applications. This article focuses on how organizations can use Azure AD to address their provisioning needs and make clear which technology is most right for each scenario.
+Thousands of organizations are running Azure AD cloud-hosted services, with its hybrid components delivered on-premises, for provisioning scenarios. Microsoft invests in cloud-hosted and on-premises functionality, including MIM and Azure AD Connect sync, to help organizations provision users in their connected systems and applications. This article focuses on how organizations can use Azure AD to address their provisioning needs and make clear which technology is most right for each scenario.
 
 ![Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
 
@@ -55,7 +55,7 @@ Organizations vary greatly in the applications and infrastructure that they rely
 
 ### Cloud only
 
-In this example the organization has a cloud HR system such as Workday or SuccessFactors, uses Microsoft 365 for collaboration, and SaaS apps such as ServiceNow and Zoom.
+In this example, the organization has a cloud HR system such as Workday or SuccessFactors, uses Microsoft 365 for collaboration, and SaaS apps such as ServiceNow and Zoom.
 
 ![Cloud only deployment](media/automate-user-provisioning-to-applications-introduction/cloud-only-identity-management.png)
 
