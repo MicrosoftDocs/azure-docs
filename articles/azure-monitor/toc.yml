@@ -1264,6 +1264,14 @@ items:
         href: containers/container-insights-prometheus-monitoring-addon.md
       - name: Metrics addon
         href: containers/container-insights-prometheus-metrics-addon.md
+      - name: Default configuration
+        href: containers/container-insights-prometheus-scrape-default.md
+      - name: Custom configuration
+        href: containers/container-insights-prometheus-scrape-configuration.md
+      - name: Configuration tips
+        href: containers/container-insights-prometheus-scrape-tips.md
+      - name: Minimal configuration
+        href: containers/container-insights-prometheus-scrape-minimal.md
     - name: Configure
       items:
       - name: Agent management
