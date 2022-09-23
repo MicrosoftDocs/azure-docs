@@ -1,12 +1,12 @@
 ---
 title: How to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
+description: Learn how to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 09/23/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -23,11 +23,11 @@ In Azure Spring Apps, the existing Standard tier already supports compiling user
 
 ## Build Agent Pool
 
-Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during creating a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
+Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool when you create a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
 
-The Build Agent Pool scale set sizes available are:
+The following Build Agent Pool scale set sizes are available:
 
 | Scale Set | CPU/Gi        |
 |-----------|---------------|
@@ -37,7 +37,7 @@ The Build Agent Pool scale set sizes available are:
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
 
-The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size here after service instance created.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size on the **Build Service** page after you've created the service instance.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png":::
 
