@@ -29,20 +29,18 @@ Follow these instructions to configure and use Azure AD CBA for tenants in Offic
 
 Make sure that the following prerequisites are in place:
 
-- Configure at least one certification authority (CA) and any intermediate certification authorities in Azure Active Directory.
+- Configure at least one certification authority (CA) and any intermediate CAs in Azure AD.
 - The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Azure AD. 
+- Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA doesn't have a CRL configured, Azure AD won't perform any CRL checking, revocation of user certificates won't work, and authentication won't be blocked.
 
 >[!IMPORTANT]
->Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA does not have a CRL configured, Azure AD will not perform any CRL checking, revocation of user certificates will not work, and authentication will not be blocked.
-
->[!IMPORTANT]
->Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
+>Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
 ## Steps to configure and test Azure AD CBA
 
-There are some configuration steps to complete before enabling Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certification authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
+Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role can configure the CA.
 
-Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable Azure AD CBA on the tenant. 
+Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor authentication, and configure username bindings to map the certificate field to an attribute of the user object. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can configure user-related settings. Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Azure Active Directory certificate-based authentication.":::
 
