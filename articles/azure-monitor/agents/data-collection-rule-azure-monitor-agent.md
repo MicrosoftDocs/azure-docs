@@ -1,6 +1,6 @@
 ---
-title: Monitor data from virtual machines with the Azure Monitor agent
-description: Describes how to collect events and performance data from virtual machines by using the Azure Monitor agent.
+title: Monitor data from virtual machines with Azure Monitor Agent
+description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 06/23/2022
 author: guywild
@@ -9,13 +9,13 @@ ms.reviewer: shseth
 
 ---
 
-# Collect data from virtual machines with the Azure Monitor agent
+# Collect data from virtual machines with Azure Monitor Agent
 
-This article describes how to collect events and performance counters from virtual machines by using the Azure Monitor agent.
+This article describes how to collect events and performance counters from virtual machines by using Azure Monitor Agent.
 
-To collect data from virtual machines by using the Azure Monitor agent, you'll:
+To collect data from virtual machines by using Azure Monitor Agent, you'll:
 
-1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data the Azure Monitor agent sends to which destinations.
+1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
 1. Associate the data collection rule to specific virtual machines.
 
     You can associate virtual machines to multiple data collection rules. For this reason, you can define each data collection rule to address a particular requirement. You can associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
@@ -39,7 +39,7 @@ To send data to Log Analytics, create the data collection rule in the *same regi
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
-1. On the **Resources** tab, add the resources to which to associate the data collection rule. Resources can be virtual machines, virtual machine scale sets, and Azure Arc for servers. The Azure portal installs the Azure Monitor agent on resources that don't already have it installed. The portal also enables Azure Managed Identity.
+1. On the **Resources** tab, add the resources to which to associate the data collection rule. Resources can be virtual machines, virtual machine scale sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. The portal also enables Azure Managed Identity.
 
     > [!IMPORTANT]
     > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
@@ -147,6 +147,6 @@ Examples of filtering events that use a custom XPath:
 
 ## Next steps
 
-- [Collect text logs by using the Azure Monitor agent](data-collection-text-log.md).
-- Learn more about the [Azure Monitor agent](azure-monitor-agent-overview.md).
+- [Collect text logs by using Azure Monitor Agent](data-collection-text-log.md).
+- Learn more about [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - Learn more about [data collection rules](../essentials/data-collection-rule-overview.md).
