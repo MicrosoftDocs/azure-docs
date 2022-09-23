@@ -54,8 +54,8 @@ The following table illustrates the relation between input data and partition se
 
 | Data format | AML input type | AML input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
-| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)* |
-| Tabular data | `mltable` | direct | By size (estimated physical size) <br>  |
+| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) |
+| Tabular data | `mltable` | direct | By size (estimated physical size) |
 
 You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input.
 
@@ -80,7 +80,7 @@ Once you have the partition setting defined, you can configure parallel setting 
 | Attribute name | Type | Description | Default value |
 |:-|--|:-|--|
 | `instance_count` | integer | The number of nodes to use for the job. | 1 |
-| `max_concurrency_per_instance` | integer | The number of processors on each node. | For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores. |
+| `max_concurrency_per_instance` | integer | The number of processors on each node. | For a GPU compute, the default value is 1.<br> For a CPU compute, the default value is the number of cores. |
 
 These two attributes work together with your specified compute cluster.
 
@@ -114,6 +114,7 @@ Entry script is a single python file where user needs to implement three predefi
 | Shutdown() | N | Optional function to do custom cleans up before returning the compute back to pool. | -- | -- |
 
 Check the following entry script examples to get more details:
+
 - [Image identification for a list of image files](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/digit_identification.py)
 - [Iris classification for a tabular iris data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py)
 
