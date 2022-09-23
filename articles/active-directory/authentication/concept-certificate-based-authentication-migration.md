@@ -55,50 +55,52 @@ The AWS service (which is the service AADConnect uses to access AAD) uses a spec
 
 ## Frequently asked questions for ADFS to Azure AD
 
-sections:
-  - name: General
-    questions:
-      - question: |
-      Can we have privileged accounts with a federated ADFS server?
-    answer: |
-      While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-premise environment.
+## Can we have privileged accounts with a federated ADFS server?
+        
+While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-
+premise environment.
 
-      - question: |
-        ADFS + Azure AD CBA - If an organization is a hybrid running both ADFS and Azure CBA, are they still vulnerable to the ADFS compromise?  For ex: if an  
-        organization still wishes to auth Global Administrators (GAs) with a federated ADFS identity, but configures the GA accounts exclusively with Azure CBA, are   
-        they still vulnerable to the escalation of privilege from ADFS to Azure AD?
-      answer: |
-        Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-premise environment. Maintaining 
-        privileged accounts a cloud-only is foundational to this goal.
+## ADFS + Azure AD CBA - If an organization is a hybrid running both ADFS and Azure CBA, are they still vulnerable to the ADFS compromise?
 
-        For Sync’d account:
+Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-premise environment. 
+Maintaining privileged accounts a cloud-only is foundational to this goal.
 
-        If they are in a managed domain (not federated) there is no risk from the federated IdP.
-        If they are in a federated domain, but a subset are being moved to Azure AD CBA via staged-rollout they are still subject to risks related to the federated 
-        Idp, until the federated domain is fully switched to cloud authentication.
+For Sync’d account:
 
-      - question: |
-        Should a customer eliminate Federated server like ADFS to prevent the capability to pivot from ADFS to Azure? Even with cloud-only GA (any role) account with  
-        ADFS an attacker could impersonate anyone, like the CIO, even if they cannot obtain a GA or similar role
-        answer: |
-          When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP (ADFS in this example but holds true for ANY federated 
-          IdP). There are many customers that deploy federated IdP such as ADFS exclusively to accomplish certificate based authentication. Azure AD CBA completely 
-          removes the ADFS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure 
-          and reduce costs with increased security.
+If they are in a managed domain (not federated) there is no risk from the federated IdP.
+If they are in a federated domain, but a subset are being moved to Azure AD CBA via staged-rollout they are still subject to risks related to the federated 
+Idp, until the federated domain is fully switched to cloud authentication.
 
-          From a security perspective, there is no change to the credential (X.509 certificate, CACs, PIVs etc.) or PKI being used. The PKI owners retain complete 
-          control of certificate lifecyle and policy (Issuance & Revocation). The revocation check and the authentication will happen at Azure AD instead of 
-          federated Idp. This will enable passwordless, phishing resistant authentication method to Azure AD to directly for all customers.
+## Should a customer eliminate Federated server like ADFS to prevent the capability to pivot from ADFS to Azure? 
+ 
+Even with cloud-only GA (any role) account with ADFS an attacker could impersonate anyone, like the CIO, even if they cannot obtain a GA or similar role
 
-       - question: |
-           How does authentication work with Federated ADFS and Azure AD cloud authentication with windows?
-         answer: |
-           Azure AD CBA requires the user or application to supply the AzureAD UPN of the user intending to be signed in. 
+When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP (ADFS in this example but holds true for ANY federated 
+IdP). There are many customers that deploy federated IdP such as ADFS exclusively to accomplish certificate based authentication. Azure AD CBA completely 
+removes the ADFS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure 
+and reduce costs with increased security.
 
-          In the browser example this is essentially the user typing in their AAD UPN. This is used for realm and user discovery. The certificate used then must match 
-          this user via one of the configured username bindings in the policy. 
+From a security perspective, there is no change to the credential (X.509 certificate, CACs, PIVs etc.) or PKI being used. The PKI owners retain complete 
+control of certificate lifecyle and policy (Issuance & Revocation). The revocation check and the authentication will happen at Azure AD instead of 
+federated Idp. This will enable passwordless, phishing resistant authentication method to Azure AD to directly for all customers.
 
-          In Windows sign-in this depends on if the device is Azure/Hybrid Azure AD joined. But in both cases if username hint is provided, Windows will send the hint 
-          as AzureAD UPN and subsequently the certificate used then must match this user via one of the configured username bindings in the policy.
+## How does authentication work with Federated ADFS and Azure AD cloud authentication with windows?
+
+Azure AD CBA requires the user or application to supply the AzureAD UPN of the user intending to be signed in. 
+
+In the browser example this is essentially the user typing in their AAD UPN. This is used for realm and user discovery. The certificate used then must match 
+this user via one of the configured username bindings in the policy. 
+
+In Windows sign-in this depends on if the device is Azure/Hybrid Azure AD joined. But in both cases if username hint is provided, Windows will send the hint 
+as AzureAD UPN and subsequently the certificate used then must match this user via one of the configured username bindings in the policy.
 
 
+## Next steps
+
+- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [FAQ](certificate-based-authentication-faq.yml)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
