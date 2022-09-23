@@ -23,11 +23,11 @@
       displayName: Resource Manager
       href: manage-ddos-protection-template.md
       expanded: true
-    - name: DDoS IP Protection
-      items:
-      - name: Portal
-        href: manage-ddos-protection-ip.md
-        expanded: true
+  - name: DDoS IP Protection
+    items:
+    - name: Portal
+      href: manage-ddos-protection-ip.md
+      expanded: true
 - name: Tutorials
   items:
   - name: View and configure Azure DDoS Protection telemetry
