@@ -1,5 +1,5 @@
 ---
-title: What is guest attestation for confidential VMs? (preview)
+title: What is guest attestation for confidential VMs?
 description: Learn how you can use guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform. 
 author: prasadmsft
 ms.author: reprasa
@@ -10,11 +10,7 @@ ms.date: 09/01/2022
 ms.custom: template-concept 
 ---
 
-# What is guest attestation for confidential VMs? (preview)
-
-> [!IMPORTANT]
-> Guest attestation for confidential virtual machines is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# What is guest attestation for confidential VMs?
 
 [Confidential virtual machines (confidential VMs)](confidential-vm-overview.md) are an offering within Azure Confidential Computing. You can use this offering when you have stringent security and confidentiality requirements for your VMs. 
 

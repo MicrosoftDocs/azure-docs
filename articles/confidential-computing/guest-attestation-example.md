@@ -10,11 +10,7 @@ ms.date: 09/01/2022
 ms.custom: template-concept 
 ---
  
-# Use sample application for guest attestation (preview)
-
-> [!IMPORTANT]
-> guest attestation for confidential virtual machines is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Use sample application for guest attestation
 
 The [*guest attestation*](guest-attestation-confidential-vms.md) feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
 
