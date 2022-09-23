@@ -20,7 +20,7 @@ This article covers building a solution where you encrypt managed disks with cus
 
 A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault). In this case, the source Azure resource is the service provider's disk encryption set.
 
-If you have any questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
+If you have questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
 
 ## Prerequisites
 - Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
