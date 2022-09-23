@@ -25,7 +25,7 @@ This article shows terraform samples for Core (SQL) API accounts.
 > * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 > * To provision throughput at the database level and share across all containers, apply the throughput values to the database options property.
 
-To create any of the Azure Cosmos DB resources below, copy the example into a new terraform file (main.tf) or alternatively, have 2 separate files for resources and variables. Be sure to include the azurerm provider either in the main terraform file or split out to a separate providers file. All examples can be found on the [terraform samples repository](https://github.com/Azure/terraform).
+To create any of the Azure Cosmos DB resources below, copy the example into a new terraform file (main.tf) or alternatively, have 2 separate files for resources (main.tf) and variables (variables.tf). Be sure to include the azurerm provider either in the main terraform file or split out to a separate providers file. All examples can be found on the [terraform samples repository](https://github.com/Azure/terraform).
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-cosmos-db-autoscale/providers.tf":::
 
@@ -75,7 +75,7 @@ Create an Azure Cosmos account in two regions with options for consistency and f
 
 ## Azure Cosmos DB container with server-side functionality
 
-Create an Azure Cosmos account, database and container with with a stored procedure, trigger, and user-defined function.
+Create an Azure Cosmos account, database and container with a stored procedure, trigger, and user-defined function.
 
 ### main.tf
 
@@ -89,7 +89,7 @@ Create an Azure Cosmos account, database and container with with a stored proced
 
 ## Azure Cosmos DB account with Azure AD and RBAC
 
-Create an Azure Cosmos account, a natively maintained Role Definition, and a natively maintained Role Assignment for an AAD identity.
+Create an Azure Cosmos account, a natively maintained Role Definition, and a natively maintained Role Assignment for an Azure Active Directory identity.
 
 ### main.tf
 
