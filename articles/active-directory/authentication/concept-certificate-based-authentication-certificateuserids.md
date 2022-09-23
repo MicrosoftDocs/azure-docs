@@ -135,6 +135,7 @@ If the tenant Admin wishes for that certificate to ONLY be used for Bob producti
 In this example to lock Bobs certificate to only Bob's productivity account as certificateUserIds attribute has unique constraint and no other user account can have the same values.
  
 **Bobs Productivity Account**
+ 
 AAD User Principal Name = Bob.Smith@Contoso.com
  
 certificateUserIDs = x509:<PN>Bob.Smith@Contoso.com; x509:<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p
