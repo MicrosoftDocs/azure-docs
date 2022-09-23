@@ -39,7 +39,7 @@ When performing data integration and ETL processes, your jobs can often perform 
 | [Azure SQL Server](connector-sql-server.md) | &nbsp; | ✓ | [✓](tutorial-incremental-copy-multiple-tables-portal.md) |
 | [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 
-The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key.
+The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key. Connectors in ADF that support "full CDC" also provide automatic tagging of rows as update, insert, delete.
 
 ## Next steps
 
