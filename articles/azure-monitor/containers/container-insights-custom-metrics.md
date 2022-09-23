@@ -1,6 +1,6 @@
 ---
-title: Update Container insights for metrics 
-description: This article describes how you update Container insights to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
+title: Custom metrics collected by Container insights
+description: Describes the custom metrics collected for a Kubernetes cluster by Container insights in Azure Monitor.
 ms.topic: conceptual
 ms.date: 08/29/2022 
 ms.custom: devx-track-azurecli
@@ -100,7 +100,7 @@ Before you update your cluster, confirm the following:
 
 ### [CLI](#tab/cli)
 
-#### Assign the Monitoring Metrics Publisher role to the cluster's service principal
+#### Update a single cluster
 In the command below, edit the values for `subscriptionId`, `resourceGroupName`, and `clusterName` by using the values on the **AKS Overview** page for the AKS cluster. The value of `clientIdOfSPN` is returned when you run the command `az aks show`.
 
 ```azurecli
@@ -110,7 +110,6 @@ az aks show -g <resourceGroupName> -n <clusterName> --query "servicePrincipalPro
 az aks show -g <resourceGroupName> -n <clusterName> --query "addonProfiles.omsagent.identity"
 az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
 ```
-
 
 To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show` as shown in the following example. If the `servicePrincipalProfile` object has a valid `objectid` value, you can use that. Otherwise, if it's set to `msi`, you need to pass in the Object ID from `addonProfiles.omsagent.identity.objectId`.
 
@@ -125,7 +124,25 @@ az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResour
 >[!NOTE]
 >If you want to perform the role assignment with your user account, use the `--assignee` parameter as shown in the example. If you want to perform the role assignment with a service principal name (SPN), use the `--assignee-object-id` and `--assignee-principal-type` parameters instead of the `--assignee` parameter.
 
+#### Update all clusters
+Run the following command to update all clusters in your subscription by using Azure CLI. Edit the value for `subscriptionId` by using the value from the **AKS Overview** page for the AKS cluster.
+
+```azurecli
+az login
+az account set --subscription "Subscription Name"
+curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
+```
+The configuration change can take a few seconds to finish. When it's finished, a message like the following one appears and includes the result:
+
+```azurecli
+completed role assignments for all AKS clusters in subscription: <subscriptionId>
+```
+
+
+
 ### [PowerShell](#tab/powershell)
+
+#### Update a single cluster
 
 To update a specific cluster by using Azure PowerShell:
 
@@ -144,24 +161,9 @@ To update a specific cluster by using Azure PowerShell:
     ```
 
 ---
-### Update all clusters 
-
-#### [CLI](#tab/cli)
-Run the following command to update all clusters in your subscription by using Azure CLI. Edit the value for `subscriptionId` by using the value from the **AKS Overview** page for the AKS cluster.
-
-```azurecli
-az login
-az account set --subscription "Subscription Name"
-curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
-```
-The configuration change can take a few seconds to finish. When it's finished, a message like the following one appears and includes the result:
-
-```azurecli
-completed role assignments for all AKS clusters in subscription: <subscriptionId>
-```
 
 
-#### [PowerShell](#tab/powershell)
+#### Update all clusters
 
 To update all clusters in your subscription by using Azure PowerShell:
 
@@ -181,3 +183,4 @@ To update all clusters in your subscription by using Azure PowerShell:
 
 ## Verify the update
 You can verify that custom metric are enabled by opening [metrics explorer](../essentials/m) and verify from **Metric namespace** that **insights** is listed. 
+
