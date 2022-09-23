@@ -25,6 +25,7 @@ To set the environment variable for your Form Recognizer resource key, open a co
 * Environment variables in Windows are ***not*** case-sensitive. They are typically named in uppercase, with words joined by an underscore.
 
 * **Set, change, delete or display an environment variable**
+
   | Command | Action | Example |
   |---------|--------|---------|
   | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** KEY=`<your-key>`|
