@@ -45,7 +45,7 @@ For the GA release, the Device Update agent can be updated manually or using the
 2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
 
 **Example Import Manifest**
-	```JSON
+	```json
 	{
 	  "manifestVersion": "4",
 	  "updateId": {
@@ -83,10 +83,10 @@ For the GA release, the Device Update agent can be updated manually or using the
 	  },
 	  "createdDateTime": "2022-08-20T18:32:01.8404544Z"
 	}
-	```
+       ```
 
-	**Example APT manifest**
-	  ```JSON
+**Example APT manifest**
+	  ```json
 	  {
 	    "name": "Sample DU agent upgrade update",
 	    "version": "1.0.0",
@@ -96,7 +96,7 @@ For the GA release, the Device Update agent can be updated manually or using the
 		}
 	    ]
 	}
-	  ```
+	 ```
 
 	> [!NOTE] 
 	> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
