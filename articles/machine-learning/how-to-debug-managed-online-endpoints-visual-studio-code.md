@@ -115,7 +115,7 @@ from azure.ai.ml.entities import (
     CodeConfiguration,
     Environment,
 )
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 ``` 
 
 Set up variables for the workspace and endpoint: 
@@ -170,7 +170,7 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 Get a handle to the workspace: 
 
 ```python 
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 ml_client = MLClient(
     credential,
     subscription_id=subscription_id,
