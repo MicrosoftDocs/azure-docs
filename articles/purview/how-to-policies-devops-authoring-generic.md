@@ -46,7 +46,7 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 ![Screenshot shows to select a data source for policy](./media/how-to-policies-devops-authoring-generic/select-a-data-source.png)
 
 1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
-![Screenshot shows to select roe and subject for policy](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
+![Screenshot shows to select role and subject for policy](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
 
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.
 
@@ -66,7 +66,7 @@ Ensure you have the the Microsoft Purview permissions as described [here](./how-
 ## Update a DevOps policy
 This section describes the steps to update a DevOPs policies in Microsoft Purview.
 
-Ensure you have the Microsoft Purview Policy Author permission as described [here](https://docs.microsoft.com/en-us/azure/purview/how-to-policies-data-owner-authoring-generic#permissions-for-policy-authoring-and-publishing)
+Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
