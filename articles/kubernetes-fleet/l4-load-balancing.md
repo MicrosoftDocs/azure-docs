@@ -123,8 +123,6 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 	The `ServiceExport` specification above allows you to export a service from one member cluster to the Fleet resource. Once successfully exported, Fleet will sync this service and all endpoints behind it to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
 
-	<!-- same as in overview, this statement needs clarification on what "the hub" is -->
-
 1. Apply the deployment and service objects to the cluster:
 	
 	```bash

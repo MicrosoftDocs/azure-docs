@@ -115,7 +115,7 @@ An example of targeting a specific cluster by name is given below :
   kubectl apply -f crp.yaml
   ```
 
-1. On each of the member clusters, run the following command to see if the `ClusterRole` has been propagated:
+1. On each of the member clusters, run the following command to see if the namespace has been propagated:
 
     ```bash
     kubectl get ns hello-world
