@@ -1109,6 +1109,8 @@ items:
         href: pricing-examples-transform-mapping-data-flows.md
       - name: Data integration with Managed VNET
         href: pricing-examples-data-integration-managed-vnet.md
+      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
+        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
