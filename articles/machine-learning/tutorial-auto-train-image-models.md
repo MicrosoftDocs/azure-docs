@@ -351,13 +351,30 @@ sweep:
 
 ```yaml
 search_space:
-  - model_name: "yolov5"
-    learning_rate: "uniform(0.0001, 0.01)"
-    model_size: "choice('small', 'medium')"
-  - model_name: "fasterrcnn_resnet50_fpn"
-    learning_rate: "uniform(0.0001, 0.001)"
-    optimizer: "choice('sgd', 'adam', 'adamw')"
-    min_size: "choice(600, 800)"
+  - model_name:
+      type: choice
+      values: [yolov5]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.01
+    model_size:
+      type: choice
+      values: [small, medium]
+
+  - model_name:
+      type: choice
+      values: [fasterrcnn_resnet50_fpn]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.001
+    optimizer:
+      type: choice
+      values: [sgd, adam, adamw]
+    min_size:
+      type: choice
+      values: [600, 800]
 ```
 
 # [Python SDK](#tab/python)
