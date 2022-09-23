@@ -57,7 +57,7 @@ The following alert-based metrics have unique behavior characteristics:
 
 
 ## Custom metric alert rules
-This section describes creating [metric alert rules](../../alerts/alerts-types.md#metric-alerts) that use [custom metrics](container-insights-update-metrics.md) collected from your Kubernetes cluster.
+This section describes creating [metric alert rules](../alerts/alerts-types.md#metric-alerts) that use [custom metrics](container-insights-update-metrics.md) collected from your Kubernetes cluster.
 
 ### Prerequisites
 
