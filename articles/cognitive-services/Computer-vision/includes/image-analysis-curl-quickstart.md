@@ -55,7 +55,7 @@ To analyze an image for various visual features, do the following steps:
     #### [Version 4.0](#tab/4-0)
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: 9628575870314fdc909295d965e4ec40" -H "Content-Type: application/json" "https://pafarley-computer-vision.cognitiveservices.azure.com/vision/v4.0-preview.1/operations/imageanalysis:analyze?visualFeatures=Description,Tags,Read" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: 9628575870314fdc909295d965e4ec40" -H "Content-Type: application/json" "https://pafarley-computer-vision.cognitiveservices.azure.com/vision/v2022-10-12-preview/operations/imageanalysis:analyze?Features=Description,Tags,Read" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     ```
     ---
 
@@ -109,15 +109,14 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ```json
 {
-    "kind": "imageAnalysisResult",
     "metadata":
     {
-        "height": 945,
-        "width": 1000
+        "width": 1000,
+        "height": 945
     },
-    "tagResult":
+    "tagsResult":
     {
-        "tags":
+        "values":
         [
             {
                 "name": "text",
@@ -125,11 +124,11 @@ A successful response is returned in JSON. The sample application parses and dis
             },
             {
                 "name": "post-it note",
-                "confidence": 0.9879658818244934
+                "confidence": 0.9879657626152039
             },
             {
                 "name": "handwriting",
-                "confidence": 0.9730166792869568
+                "confidence": 0.9730165004730225
             },
             {
                 "name": "rectangle",
@@ -137,11 +136,11 @@ A successful response is returned in JSON. The sample application parses and dis
             },
             {
                 "name": "paper product",
-                "confidence": 0.8561886548995972
+                "confidence": 0.8561884760856628
             },
             {
                 "name": "purple",
-                "confidence": 0.596200168132782
+                "confidence": 0.5961999297142029
             }
         ]
     },
@@ -152,7 +151,6 @@ A successful response is returned in JSON. The sample application parses and dis
         "pages":
         [
             {
-                "unit": "pixel",
                 "height": 945,
                 "width": 1000,
                 "angle": -1.099,

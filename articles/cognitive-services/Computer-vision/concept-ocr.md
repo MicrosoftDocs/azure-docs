@@ -28,11 +28,10 @@ The following JSON response illustrates what the Analyze API returns when readin
 
 ```json
 {
-    "kind": "imageAnalysisResult",
     "metadata":
     {
-        "height": 945,
-        "width": 1000
+        "width": 1000,
+        "height": 945
     },
     "readResult":
     {
@@ -41,7 +40,6 @@ The following JSON response illustrates what the Analyze API returns when readin
         "pages":
         [
             {
-                "unit": "pixel",
                 "height": 945,
                 "width": 1000,
                 "angle": -1.099,
