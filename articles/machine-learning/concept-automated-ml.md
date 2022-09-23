@@ -23,7 +23,7 @@ Traditional machine learning model development is resource-intensive, requiring 
 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand feature availability in each experience.
 
-* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
+* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)
 
 * For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
     * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
@@ -37,7 +37,7 @@ The following settings allow you to configure your automated ML experiment.
 |----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
-|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
+|**Supports computer vision tasks: image classification, object detection & instance segmentation**| ✓| 
 |**NLP-Text**| ✓| ✓
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
@@ -117,10 +117,7 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Forecasting GitHub's Daily Active Users](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb).
 
-### Computer vision (preview)
-
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Computer vision
 
 Support for computer vision tasks allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
 
@@ -306,11 +303,11 @@ There are multiple resources to get you up and running with AutoML.
 ### Tutorials/ how-tos
 Tutorials are end-to-end introductory examples of AutoML scenarios.
 
-+ **For a code first experience**, follow the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
++ **For a code first experience**, follow the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
-+ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
    
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 

@@ -20,8 +20,6 @@ ms.date: 09/09/2022
 > * [v1](v1/reference-automl-images-schema-v1.md)
 > * [v2 (current version)](reference-automl-images-schema.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
 
@@ -408,4 +406,4 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 * Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
 * [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

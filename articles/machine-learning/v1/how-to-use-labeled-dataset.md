@@ -49,7 +49,7 @@ You can access the exported Azure Machine Learning dataset in the **Datasets** s
 ![Exported dataset](../media/how-to-create-labeling-projects/exported-dataset.png)
 
 > [!TIP]
-> Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](../how-to-auto-train-image-models.md)
+> Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python](../how-to-auto-train-image-models.md)
 
 ## Explore labeled datasets via pandas dataframe
 
@@ -91,4 +91,4 @@ imgplot = plt.imshow(img)
 ## Next steps
 
 * Learn to [train image classification models in Azure](../tutorial-train-deploy-notebook.md)
-* [Set up AutoML to train computer vision models with Python (preview)](../how-to-auto-train-image-models.md)
+* [Set up AutoML to train computer vision models with Python](../how-to-auto-train-image-models.md)
