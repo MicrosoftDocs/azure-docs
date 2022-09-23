@@ -412,7 +412,7 @@ You can delete the Azure Arc-enabled Kubernetes resource, any associated configu
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-If the deletion process hangs, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
+If the deletion process fails, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
 
 ```azurecli
 az connectedk8s delete -g AzureArcTest1 -n AzureArcTest --force
