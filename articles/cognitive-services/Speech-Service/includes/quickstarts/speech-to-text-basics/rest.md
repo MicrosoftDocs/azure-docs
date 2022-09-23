@@ -14,6 +14,8 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+You will also need a `.wav` audio file on your local machine. You can use your own `.wav` file (up to 30 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
+
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]

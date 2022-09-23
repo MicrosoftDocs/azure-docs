@@ -101,7 +101,7 @@
   - name: Oracle
     items:
     href: ./workloads/oracle/toc.yml
-  - name: NC2 on Azure Public Preview
+  - name: Nutanix Cloud Clusters on Azure Public Preview
     items: 
     href: ./workloads/nc2-public-preview/toc.yml
   
