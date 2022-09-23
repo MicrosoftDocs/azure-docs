@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Customize scraping of Prometheus metrics in Container insights
 
-This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](container-insights-prometheus-metrics-addon.md) in Container insights. The Azure Monitor Prometheus agent does not understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
+This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](container-insights-prometheus-metrics-addon.md) in Container insights. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 ## Custom scrape configuration
 
@@ -65,15 +65,15 @@ scrape_configs:
 
 ### Validate the scrape config file
 
-Once you have a custom Prometheus scrape configuration, you can use the **promconfigvalidator** tool to validate your config before creating it as a configmap that the agent addon can consume. This same tool is used by the agent to validate the config given to it thru the configmap. If the config is not valid then the custom configuration given will not be used by the agent.
+Once you have a custom Prometheus scrape configuration, you can use the **promconfigvalidator** tool to validate your config before creating it as a configmap that the agent addon can consume. This same tool is used by the agent to validate the config given to it through the configmap. If the config isn't valid then the custom configuration given won't be used by the agent.
 
-The promconfigvalidator tool is inside the Container insights addon container. You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` for to download the tool and its configuration as shown below.
+The promconfigvalidator tool is inside the Container insights addon container. You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration as shown below.
 
 ```
 for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator/promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./promconfigvalidator/collector-config-template.yml; done
 ```
 
-This generates the merged configuration file *merged-otel-config.yaml* if no parameter is provided using the optional *--output* parameter. Do not use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
+This generates the merged configuration file *merged-otel-config.yaml* if no parameter is provided using the optional *--output* parameter. Don't use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
 
 ### Apply config file
 Apply the config file as a config map *ama-metrics-prometheus-config* to the cluster in `kube-system` namespace. Ensure the config file is named *prometheus-metrics* before running the following command since it uses file name as config map setting name.
@@ -82,7 +82,7 @@ Apply the config file as a config map *ama-metrics-prometheus-config* to the clu
 kubectl create configmap ama-metrics-prometheus-config --from-file="full-path-to-prometheus-config-file" -n kube-system
 ```
 
-This will create a config map `ama-metrics-prometheus-config` in `kube-system` namespace. The azure monitor metrics pod will then restart to apply the new config. You can look at any errors in config processing/merging by looking at logs of the pod.
+This will create a config map `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics pod will then restart to apply the new config. You can look at any errors in config processing/merging by looking at logs of the pod.
 
 ## Configuration File
 The configuration format is the same as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Currently supported are the following sections:
@@ -98,10 +98,10 @@ scrape_configs:
   - <scrape_config2>
 ```
 
-Note that any other unsupported sections need to be removed from the config before applying as a configmap; otherwise the custom configuration will fail validation and will not be applied.
+Any other unsupported sections need to be removed from the config before applying as a configmap; otherwise the custom configuration will fail validation and won't be applied.
 
 ## Scrape Configs
-The currently supported methods of target discovery for a [scrape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) are either [`static_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config) or [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) for specifing or discovering targets.
+The currently supported methods of target discovery for a [scrape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) are either [`static_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config) or [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) for specifying or discovering targets.
 
 ### Static Config
 
@@ -201,7 +201,7 @@ metric_relabel_configs:
 ```
 
 ### Rename Metrics
-*Note that metric renaming is not supported.*
+Metric renaming isn't supported.
 
 ### Filter Metrics by Labels
 
@@ -240,14 +240,14 @@ metric_relabel_configs:
 
 ## Pod Annotation Based Scraping
 
-If you are currently using Azure Monitor Container Insights Prometheus scraping with the setting `monitor_kubernetes_pods = true`, adding this job to your custom config will allow you to scrape the same pods and metrics.
+If you're currently using Azure Monitor Container Insights Prometheus scraping with the setting `monitor_kubernetes_pods = true`, adding this job to your custom config will allow you to scrape the same pods and metrics.
 
 The scrape config below uses the `__meta_*` labels added from the `kubernetes_sd_configs` for the `pod` role to filter for pods with certain annotations.
 
 To scrape certain pods, specify the port, path, and scheme through annotations for the pod and the below job will scrape only the address specified by the annotation:
 - `prometheus.io/scrape`: Enable scraping for this pod
-- `prometheus.io/scheme`: If the metrics endpoint is secured then you will need to set this to `https` & most likely set the tls config.
-- `prometheus.io/path`: If the metrics path is not /metrics, define it with this annotation.
+- `prometheus.io/scheme`: If the metrics endpoint is secured, then you will need to set this to `https` & most likely set the tls config.
+- `prometheus.io/path`: If the metrics path isn't /metrics, define it with this annotation.
 - `prometheus.io/port`: Specify a single, desired port to scrape
 
 ```yaml
@@ -299,7 +299,7 @@ scrape_configs:
 
 ## Send Metrics to Multiple Azure Monitor Workspaces
 
-Routing metrics to additional Azure Monitor Workspaces can be done through the creation of additional DCRs. All metrics can be sent to all workspaces or different metrics can be specified to be sent to different workspaces.
+Routing metrics to more Azure Monitor Workspaces can be done through the creation of additional data collection rules. All metrics can be sent to all workspaces or different metrics can be sent to different workspaces.
 
 ### Sending the Same Metrics to Multiple Workspaces
 
@@ -399,7 +399,7 @@ The source label is `__address__` because this label will always exist so this r
 
 #### Example
 
-If you want to configure three different jobs to send the metrics to three different workspaces, then in each DCR include:
+If you want to configure three different jobs to send the metrics to three different workspaces, then include the following in each data collection rule:
 
 ```json
 "labelIncludeFilter": {
