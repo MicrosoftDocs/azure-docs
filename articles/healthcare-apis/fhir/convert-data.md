@@ -111,10 +111,10 @@ You can use the [FHIR Converter Visual Studio Code extension](https://marketplac
 
 We recommend that you host your own copy of templates in an Azure Container Registry (ACR) instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
 
-1. [Create an ACR instance](#step-1-Create an ACR instance)
-2. [Push the templates to your ACR instance](#step-2-Push the templates to your ACR instance)
+1. [Create an ACR instance](#step-1-create-an-acr-instance)
+2. [Push the templates to your ACR instance](#step-2-push-the-templates-to-your-acr-instance)
 3. [Enable Azure Managed Identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
-4. [Provide ACR access to the FHIR service managed identity](#step-4-provide-acr- access-to-the-fhir-service-managed-identity)
+4. [Provide ACR access to the FHIR service managed identity](#step-4-provide-acr-access-to-the-fhir-service-managed-identity)
 5. [Register the ACR server in the FHIR service](#step-5-register-the-acr-server-in-the-fhir-service)
 6. [(Optional) Configure the ACR firewall for secure access](#step-6-optional-configure-the-acr-firewall-for-secure-access)
 
