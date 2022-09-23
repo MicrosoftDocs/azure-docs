@@ -122,13 +122,13 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
       "type": "string",
       "defaultValue": "clientuser",
       "metadata": {
-        "description": "Admin username on all VMs."
+        "description": "username on ClientVM."
       }
     },
     "ClientVMPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "Admin password on all VMs."
+        "description": "password on ClientVM."
       }
     },
     "ServerVmImage": {
@@ -417,14 +417,14 @@ This template does the following:
   - Bastion, Bastion-ip
   - ClientVM, ServerVM
 - Have the DNS Server of the VNET point to the private IP address of the Server-vm (domain controller). This is required for the target ClientVM to successfully domain-join to the Domain Controller (ServerVM).
-- Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`
+- Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
 - Runs a Custom Script Extension on the ClientVM to have it: 
-  - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication)
-  - Domain-join the `bastionkrb.test` domain
+  - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication).
+  - Domain-join the `bastionkrb.test` domain.
 
 Login to ClientVM using Bastion with Kerberos authentication:
-- Make sure to have the `Kerberos` feature enabled on the bastion
-- Login to ClientVM with Bastion using credentials: username = `serveruser@bastionkrb.test` and password = `<password-used-in-deployment.json>`
+- Make sure to have the `Kerberos` feature enabled on the bastion.
+- Login to ClientVM with Bastion using credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
 
 
 ## Next steps
