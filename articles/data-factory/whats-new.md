@@ -26,8 +26,6 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ## August 2022
 
-> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
-
 ### Data flow
 - Appfigures connector added as Source (Preview) [Doc](connector-appfigures.md)
 - Cast transformation added – visually convert data types [Doc](data-flow-cast.md)
@@ -44,10 +42,11 @@ Service principal authentication type added for Azure Blob storage [Doc](connect
 ### Continuous integration and continuous delivery (CI/CD)
 When CI/CD integrating ARM template, instead of turning off all triggers, it can exclude triggers that did not change in deployment [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064)
 
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
 
 ## July 2022
-
-> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
 
 ### Data flow
 
@@ -66,6 +65,10 @@ Include Global parameters supported in ARM template. [Blog](https://techcommunit
 ### Developer productivity
 
 Be a part of Azure Data Factory studio preview features - Experience the latest Azure Data Factory capabilities and be the first to share your feedback. [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880)
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
 
 ## More information
 
