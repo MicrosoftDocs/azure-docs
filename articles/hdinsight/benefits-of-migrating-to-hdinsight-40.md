@@ -24,7 +24,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
 
 ## Workloads and Features
 
-**Hive** 
+**Hive**
 - Advanced features
   - LLAP workload management
   - LLAP Support JDBC, Druid and Kafka connectors
@@ -91,7 +91,7 @@ Assuming you have an external table created using a version of Hive that doesn't
 
 Set synchronization of partitions to occur every 10 minutes expressed in seconds: In Ambari > Hive > Configs, `set metastore.partition.management.task.frequency` to 3600 or more.
 
-:::image type="content" source="./media/hdinsight-migrate-to-40/ambari-hive-config.png" alt-text="Ambari Hive config file showing the frequency value.":::
+:::image type="content" source="./media/hdinsight-migrate-to-40/ambari-hive-config.png" alt-text=" Screenshot showing Ambari Hive config file with frequency value.":::
 
 
 > [!WARNING]
@@ -99,7 +99,7 @@ Set synchronization of partitions to occur every 10 minutes expressed in seconds
 >
 You can verify the output from Microsoft Azure portal.
 
-:::image type="content" source="./media/hdinsight-migrate-to-40/hive-verify-output.png" alt-text="Verify output from Microsoft Azure portal.":::
+:::image type="content" source="./media/hdinsight-migrate-to-40/hive-verify-output.png" alt-text="Screenshot showing compute utilization graph.":::
 
 Hive drops the metadata and corresponding data in any partition created after the retention period. You express the retention time using a numeral and the following character or characters.
 Hive drops the metadata and corresponding data in any partition created after the retention period. You express the retention time using a numeral and the following  character(s).
@@ -185,7 +185,7 @@ The initial implementation introduced in Apache Hive 3.0.0 focuses on introducin
 
 More information, see [Hive - Materialized Views - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hive-materialized-views/ba-p/2502785)
 
-### Surrogate Keys
+## Surrogate Keys
 
 Use the built-in `SURROGATE_KEY` user-defined function (UDF) to automatically generate numerical Ids for rows as you enter data into a table. The generated surrogate keys can replace wide, multiple composite keys.
 
@@ -233,7 +233,7 @@ Hive metastore operation takes much time and thus slow down Hive compilation. In
 
 `hive.metastore.rawstore.impl=org.apache.hadoop.hive.metastore.cache.CachedStore`
 
-:::image type="content" source="./media/hdinsight-migrate-to-40/hive-metastore-properties.png" alt-text="Hive metastore properties file showing value.":::
+:::image type="content" source="./media/hdinsight-migrate-to-40/hive-metastore-properties.png" alt-text=" Screenshot showing Hive metastore property file value against 'hive.metastore.rawstore.impl field.":::
 
 ## Troubleshooting guide
 
