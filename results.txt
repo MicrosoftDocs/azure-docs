@@ -1,0 +1,392 @@
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="set_variables" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="configure_storage_names" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="set_user_identity_name" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_user_identity" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_storage_account_id" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_storage_container" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="upload_file_to_storage" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_user_identity_client_id" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_user_identity_id" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_container_registry_id" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_workspace_storage_id" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="give_permission_to_user_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="give_permission_to_container_registry" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="give_permission_to_workspace_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score_managedidentity.py":::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_deployment_log" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_deployment_log" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md::::code language="json" source="~/azureml-examples-main/cli/endpoints/online/model-1/sample-request.json" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="test_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="delete_endpoint" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="delete_storage_account" :::
+articles/machine-learning/how-to-access-resources-from-endpoints-managed-identities.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="delete_user_identity" :::
+articles/machine-learning/how-to-authenticate-online-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+articles/machine-learning/how-to-authenticate-online-endpoint.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::    
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_endpoint_deployment_name" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_other_env_variables" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
+articles/machine-learning/how-to-autoscale-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_verify":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
+articles/machine-learning/how-to-configure-cli.md::::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
+articles/machine-learning/how-to-configure-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
+articles/machine-learning/how-to-configure-private-link.md::::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md:    :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-user-identity.yml":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md:    :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-system-identity.yml":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-user-identity.sh":::
+articles/machine-learning/how-to-create-attach-compute-cluster.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-system-identity.sh":::
+articles/machine-learning/how-to-create-component-pipelines-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+articles/machine-learning/how-to-create-component-pipelines-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml":::
+articles/machine-learning/how-to-create-component-pipelines-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="24-36" highlight="4":::
+articles/machine-learning/how-to-create-manage-compute-instance.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-basic.yml":::
+articles/machine-learning/how-to-create-manage-compute-instance.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-schedule.yml":::
+articles/machine-learning/how-to-customize-compute-instance.md::::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
+articles/machine-learning/how-to-deploy-automl-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
+articles/machine-learning/how-to-deploy-automl-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
+articles/machine-learning/how-to-deploy-automl-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
+articles/machine-learning/how-to-deploy-automl-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
+articles/machine-learning/how-to-deploy-automl-endpoint.md:::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml" :::
+articles/machine-learning/how-to-deploy-automl-endpoint.md:::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="set_endpoint_name":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="10":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="8":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_compute":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_storage_details":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_code":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_code":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_model":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_model":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="read_condafile":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_environment":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_endpoint":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_deployment":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="set_endpoint_defaults":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_endpoint":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_access_token":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="check_job":::
+articles/machine-learning/how-to-deploy-batch-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="delete_endpoint":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
+articles/machine-learning/how-to-deploy-custom-container.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_deployment":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+articles/machine-learning/how-to-deploy-managed-online-endpoints.md:::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md:    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md:    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md::::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+articles/machine-learning/how-to-deploy-mlflow-models-online-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+articles/machine-learning/how-to-deploy-mlflow-models.md:   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+articles/machine-learning/how-to-deploy-mlflow-models.md:   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+articles/machine-learning/how-to-deploy-mlflow-models.md:   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="set_endpoint_name":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_code":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_code":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_model":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_model":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_environment":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_endpoint":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_deployment":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_endpoint":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="score_endpoint":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_deployment_logs":::
+articles/machine-learning/how-to-deploy-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="delete_endpoint":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
+articles/machine-learning/how-to-deploy-with-triton.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
+articles/machine-learning/how-to-deploy-with-triton.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
+articles/machine-learning/how-to-manage-environments-v2.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+articles/machine-learning/how-to-manage-environments-v2.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
+articles/machine-learning/how-to-manage-environments-v2.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
+articles/machine-learning/how-to-manage-environments-v2.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+articles/machine-learning/how-to-manage-workspace-cli.md::::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
+articles/machine-learning/how-to-manage-workspace-cli.md::::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
+articles/machine-learning/how-to-manage-workspace-cli.md::::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
+articles/machine-learning/how-to-migrate-from-v1.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+articles/machine-learning/how-to-read-write-data-v2.md::::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md:   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+articles/machine-learning/how-to-safely-rollout-managed-endpoints.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="yaml"source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-with-settings-job-schedule.yml":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="create_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule":::
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
+articles/machine-learning/how-to-schedule-pipeline-job.md::::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="delete_schedule":::  
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/vmsetup.sh" id="setup_docker_az_cli":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="set_env_vars":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet-mlflow.sh" id="set_env_vars":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/vmsetup.sh" id="configure_defaults":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/build_image.sh" id="build_image":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/create_moe.sh" id="create_vnet_deployment":::
+articles/machine-learning/how-to-secure-online-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/score_endpoint.sh" id="check_deployment":::
+articles/machine-learning/how-to-secure-online-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
+articles/machine-learning/how-to-secure-online-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_vm":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_set":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_name":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_show":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org_set":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_env_var":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-mlflow.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-mlflow.py":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_mlflow":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="mlflow_uri":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input_set":::
+articles/machine-learning/how-to-train-cli.md::::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-sweep.py":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_sweep":::
+articles/machine-learning/how-to-train-cli.md::::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-iris.py":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_file":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_folder":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output_download":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_io":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_settings":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_abc":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/hello-automl-job-basic.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/training-mltable-folder/MLTable":::
+articles/machine-learning/how-to-train-cli.md::::code language="python" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_iris":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_sweep":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
+articles/machine-learning/how-to-train-cli.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
+articles/machine-learning/how-to-train-cli.md::::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pipeline_cifar"::: -->
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
+articles/machine-learning/how-to-train-with-rest.md::::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="set_variables" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_compute" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
+articles/machine-learning/how-to-use-batch-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
+articles/machine-learning/how-to-use-batch-endpoint.md:    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="show_job_in_studio" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="test_new_deployment" :::
+articles/machine-learning/how-to-use-batch-endpoint.md::::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
+articles/machine-learning/how-to-use-batch-endpoint.md:::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_deployment" :::
+articles/machine-learning/how-to-use-batch-endpoint.md:::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_endpoint" :::
+articles/machine-learning/how-to-use-mlflow-cli-runs.md::::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-mlflow.py":::
+articles/machine-learning/how-to-use-mlflow-cli-runs.md::::code language="azurecli" source="~/azureml-examples-main/cli/jobs/basics/hello-mlflow.yml":::
+articles/machine-learning/how-to-use-sweep-in-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml" highlight="7-48":::
+articles/machine-learning/how-to-use-sweep-in-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/train.yml" highlight="11-16,23-25,60":::
+articles/machine-learning/how-to-use-sweep-in-pipeline.md::::code language="python" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/train-src/train.py" highlight="15":::
+articles/machine-learning/reference-yaml-component-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
+articles/machine-learning/reference-yaml-component-command.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+articles/machine-learning/reference-yaml-compute-aml.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-minimal.yml":::
+articles/machine-learning/reference-yaml-compute-aml.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-basic.yml":::
+articles/machine-learning/reference-yaml-compute-aml.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
+articles/machine-learning/reference-yaml-compute-aml.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
+articles/machine-learning/reference-yaml-compute-aml.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-ssh-password.yml":::
+articles/machine-learning/reference-yaml-compute-instance.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-minimal.yml":::
+articles/machine-learning/reference-yaml-compute-instance.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-basic.yml":::
+articles/machine-learning/reference-yaml-compute-vm.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/vm-attach.yml":::
+articles/machine-learning/reference-yaml-core-syntax.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file-https.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder-https.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-file-wasbs.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/cloud-folder-wasbs.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/local-file.yml":::
+articles/machine-learning/reference-yaml-data.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/data/local-folder.yml":::
+articles/machine-learning/reference-yaml-datastore-blob.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-credless.yml":::
+articles/machine-learning/reference-yaml-datastore-blob.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob.yml":::
+articles/machine-learning/reference-yaml-datastore-blob.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-protocol.yml":::
+articles/machine-learning/reference-yaml-datastore-blob.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/blob-sas.yml":::
+articles/machine-learning/reference-yaml-datastore-data-lake-gen1.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1-credless.yml":::
+articles/machine-learning/reference-yaml-datastore-data-lake-gen1.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen1.yml":::
+articles/machine-learning/reference-yaml-datastore-data-lake-gen2.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2-credless.yml":::
+articles/machine-learning/reference-yaml-datastore-data-lake-gen2.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2.yml":::
+articles/machine-learning/reference-yaml-datastore-files.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file.yml":::
+articles/machine-learning/reference-yaml-datastore-files.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/file-sas.yml":::
+articles/machine-learning/reference-yaml-deployment-batch.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
+articles/machine-learning/reference-yaml-deployment-batch.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
+articles/machine-learning/reference-yaml-deployment-managed-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+articles/machine-learning/reference-yaml-deployment-managed-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/green-deployment.yml":::
+articles/machine-learning/reference-yaml-deployment-managed-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
+articles/machine-learning/reference-yaml-deployment-managed-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+articles/machine-learning/reference-yaml-endpoint-batch.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+articles/machine-learning/reference-yaml-endpoint-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
+articles/machine-learning/reference-yaml-endpoint-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
+articles/machine-learning/reference-yaml-endpoint-online.md::::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
+articles/machine-learning/reference-yaml-environment.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
+articles/machine-learning/reference-yaml-environment.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
+articles/machine-learning/reference-yaml-environment.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-code.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-notebook.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/r/iris/job.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+articles/machine-learning/reference-yaml-job-command.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
+articles/machine-learning/reference-yaml-job-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
+articles/machine-learning/reference-yaml-job-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
+articles/machine-learning/reference-yaml-job-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
+articles/machine-learning/reference-yaml-job-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
+articles/machine-learning/reference-yaml-job-pipeline.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml"::: -->
+articles/machine-learning/reference-yaml-job-sweep.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
+articles/machine-learning/reference-yaml-job-sweep.md::::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
+articles/machine-learning/reference-yaml-model.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-file.yml":::
+articles/machine-learning/reference-yaml-model.md::::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-mlflow.yml":::
+articles/machine-learning/reference-yaml-schedule.md::::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
+articles/machine-learning/reference-yaml-schedule.md::::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
+articles/machine-learning/reference-yaml-workspace.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/basic.yml":::
+articles/machine-learning/reference-yaml-workspace.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
+articles/machine-learning/reference-yaml-workspace.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
+articles/machine-learning/reference-yaml-workspace.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
+articles/machine-learning/reference-yaml-workspace.md::::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/hbi.yml":::
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=import-mlclient)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=credit_data)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-credit_data)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=cpu_cluster)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=dependencies_dir)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=conda.yml)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=custom_env_name)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_src_dir)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=def-main)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_component)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_src_dir)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.yml)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_component)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-train_component)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=pipeline)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=registered_model_name)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=returned_job)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=online_endpoint_name)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=endpoint)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-endpoint)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=latest_model_version)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=model)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=write-sample-request)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.invoke)]
+articles/machine-learning/tutorial-pipeline-python-sdk.md:[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.begin_delete)]
+includes/machine-learning-connect-ws-v2.md:[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=subscription_id)]
+includes/machine-learning-connect-ws-v2.md:[!notebook-python[](~/azureml-examples-main/sdk/resources/compute/compute.ipynb?name=ml_client)]
+includes/machine-learning-service-local-deploy-config.md::::code language="json" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/deploymentconfig.json":::
