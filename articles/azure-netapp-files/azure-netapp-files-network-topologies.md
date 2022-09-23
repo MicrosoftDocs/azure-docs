@@ -139,6 +139,10 @@ If the subnet has a combination of volumes with the Standard and Basic network f
 
 Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
+> [!Note]
+> For accessing an ANF mount from on-premsis/branch network via a VNet gateway (ExpressRoute or VPN) and Firewall, the route table assigned to the VNet gateway should  have the /32 ip address of the ANF mount listed and point to the Firewall as the next step. Using an aggregate address space that include the ANF ip address is not sufficient for the gateway to forward the ANF traffic to Firewall. 
+> 
+
 ## Azure native environments
 
 The following diagram illustrates an Azure-native environment:
