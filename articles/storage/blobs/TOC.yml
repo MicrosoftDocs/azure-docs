@@ -558,6 +558,8 @@ items:
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
+        - name: Health Monitor
+          href: blobfuse2-health-monitor.md
         - name: Troubleshooting
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
@@ -760,6 +762,8 @@ items:
           items:
           - name: BlobFuse2 unmount all
             href: blobfuse2-commands-unmount-all.md?toc=/azure/storage/blobs/toc.json
+        - name: BlobFuse2 health-monitor
+          href: blobfuse2-commands-health-monitor.md?toc=/azure/storage/blobs/toc.json
         - name: BlobFuse2 completion
           href: blobfuse2-commands-completion.md?toc=/azure/storage/blobs/toc.json
           items:
