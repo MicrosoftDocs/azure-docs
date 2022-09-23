@@ -15,10 +15,10 @@ Container insights collects [custom metrics](../essentials/metrics-custom-overvi
 > This article describes collection of custom metrics from Kubernetes clusters. You can also collect Prometheus metrics as described in [Collect Prometheus metrics with Container insights](container-insights-prometheus.md).
 
 ## Using custom metrics
-Custom metrics collected by Container insights can be accessed with the same methods as custom metrics collected from other data sources. 
+Custom metrics collected by Container insights can be accessed with the same methods as custom metrics collected from other data sources. This includes [metrics explorer](../essentials/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-types.md#metric-alerts).
 
 ## Metrics collected
-The following sections describe the different metric values collected.
+The following sections describe the metric values collected for your cluster.
 
 ### Node metrics
 
@@ -75,7 +75,7 @@ Dimensions: `kubernetesNamespace`, `node`, `podName`, `volumeName`
 |**(New)pvUsageThresholdViolated** |Metric triggered when PV utilization percentage for persistent volumes exceeding user configurable threshold (default is 60.0) by claim name, Kubernetes namespace, volume name, pod name, and node name.|
 
 ## Enable custom metrics
-If your cluster uses [managed identity authentication](container-insights-onboard.md#authentication), then custom metrics will be enabled for you. If not, then you need to enable custom metrics using one of the methods described below. 
+If your cluster uses [managed identity authentication](container-insights-onboard.md#authentication) for Container insights, then custom metrics will be enabled for you. If not, then you need to enable custom metrics using one of the methods described below. 
 
 This process assigns the *Monitoring Metrics Publisher* role to the cluster's service principal. Monitoring Metrics Publisher has permission only to push metrics to the resource. It can't alter any state, update the resource, or read any data. For more information, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
 
@@ -98,8 +98,10 @@ Before you update your cluster, confirm the following:
 
    The process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
-### [CLI](tab/#cli)
-Edit the values for `subscriptionId`, `resourceGroupName`, and `clusterName` by using the values on the **AKS Overview** page for the AKS cluster. The value of `clientIdOfSPN` is returned when you run the command `az aks show`.
+### [CLI](#tab/cli)
+
+#### Assign the Monitoring Metrics Publisher role to the cluster's service principal
+In the command below, edit the values for `subscriptionId`, `resourceGroupName`, and `clusterName` by using the values on the **AKS Overview** page for the AKS cluster. The value of `clientIdOfSPN` is returned when you run the command `az aks show`.
 
 ```azurecli
 az login
