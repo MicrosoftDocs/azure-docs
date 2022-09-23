@@ -118,7 +118,7 @@ certificateUserIDs = Empty
 
 AAD UserPrincipalName = Bob.Smith-dev@contoso.com
 
-certificateUserIds = x509:<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p
+certificateUserIds = x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p
 
 **Tenant User Binding Policy**
  
@@ -138,7 +138,7 @@ In this example to lock Bobs certificate to only Bob's productivity account as c
  
 AAD User Principal Name = Bob.Smith@Contoso.com
  
-certificateUserIDs = [ x509:<PN>Bob.Smith@Contoso.com , x509:<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
+certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
 ## Next steps
 
