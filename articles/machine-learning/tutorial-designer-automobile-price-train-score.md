@@ -51,6 +51,16 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 ### Create the pipeline
 
+>[!Note]
+> Designer support two type of components, classic prebuilt components and custom components. This two types of components  are not compatible. 
+>
+>Classic prebuilt components provides prebuilt component majorly for data processing and tradition machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>
+>Custom component provides the ability to provide your own code as a custom component. It support sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
 1. Select **Designer**.
