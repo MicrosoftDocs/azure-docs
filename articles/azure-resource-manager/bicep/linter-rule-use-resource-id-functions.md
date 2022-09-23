@@ -7,7 +7,7 @@ ms.date: 09/23/2022
 
 # Linter rule - use resourceId function
 
-Ensures that the ID of a symbolic resource name or a suitable function is used rather than a manually-created ID, such as a concatenating string, for all properties representing a resource ID. Use resource symbolic names whenever it is possible.
+Ensures that the ID of a symbolic resource name or a suitable function is used rather than a manually created ID, such as a concatenating string, for all properties representing a resource ID. Use resource symbolic names whenever it's possible.
 
 The allowed functions include:
 
@@ -28,7 +28,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-The following example fails this test because the resource's `api/id` property uses a manually-created string:
+The following example fails this test because the resource's `api/id` property uses a manually created string:
 
 ```bicep
 @description('description')
