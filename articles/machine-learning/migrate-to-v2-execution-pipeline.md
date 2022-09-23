@@ -234,7 +234,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`kusto_step`| None|None|
 |`module_step`|None|command component|
 |`mpi_step`| command job|command component|
-|`parallel_run_step`|Parallel job| Parallel component|
+|`parallel_run_step`|`Parallel` job| `Parallel` component|
 |`python_script_step`| `command` job|command component|
 |`r_script_step`| `command` job|command component|
 |`synapse_spark_step`| coming soon|coming soon|
