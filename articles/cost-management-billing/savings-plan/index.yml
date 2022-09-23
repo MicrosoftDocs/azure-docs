@@ -24,7 +24,7 @@ landingContent:
     - linkListType: concept
       links:
       - text: What are Azure savings-plans?
-        url: savings-plan-overview.md
+        url: savings-plan-compute-overview.md
       - text: Savings plan purchase recommendations
         url: purchase-recommendations.md
       - text: Windows and SQL software cost charged separately
@@ -63,7 +63,7 @@ landingContent:
       - text: View savings plan utilization
         url: view-utilization.md
       - text: view amortized savings plan costs
-        url: view-amortized costs.md
+        url: view-amortized-costs.md
       - text: Charge back Azure savings plan costs
         url: charge-back-costs.md
 

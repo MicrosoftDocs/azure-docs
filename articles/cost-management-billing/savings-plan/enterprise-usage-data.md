@@ -1,7 +1,7 @@
 ---
-title: Usage data for enterprise subscriptionstitleSuffix: Microsoft Cost Management
+title: Usage data for enterprise subscriptions
+titleSuffix: Microsoft Cost Management
 description:  Learn how to read your usage information to understand how an Azure savings plan applies to Enterprise Agreement and Microsoft Customer Agreement usage.
-author: bandersmsft
 author: bandersmsft
 ms.author: banders
 ms.reviewer: onwokolo
