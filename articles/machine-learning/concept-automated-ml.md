@@ -29,13 +29,13 @@ Traditional machine learning model development is resource-intensive, requiring 
 
 ## How does AutoML work?
 
-During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
+During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The better the score for the metric you want to optimize for, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, regression, computer vision (preview) or NLP (preview).
+1. **Identify the ML problem** to be solved: classification, forecasting, regression, computer vision or NLP.
 
-1. **Choose whether you want to a code-first experience or a no-code studio web experience**: Users who prefer a code-first experience can use the [AzureML SDKv2](how-to-configure-auto-train.md) or the [AzureML CLIv2](how-to-train-cli.md). Get started with [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md). Users who prefer a limited/no-code experience can use the [web interface](how-to-use-automated-ml-for-ml-models.md) in Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+1. **Choose whether you want to a code-first experience or a no-code studio web experience**: Users who prefer a code-first experience can use the [AzureML SDKv2](how-to-configure-auto-train.md) or the [AzureML CLIv2](how-to-train-cli.md). Get started with [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md). Users who prefer a limited/no-code experience can use the [web interface](how-to-use-automated-ml-for-ml-models.md) in Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
     
 1. **Specify the source of the labeled training data**: You can bring your data to AzureML in [many different ways](concept-data.md).
 
@@ -97,10 +97,7 @@ Advanced forecasting configuration includes:
 
 See an example of forecasting and automated machine learning in this Python notebook: [Energy Demand](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced.ipynb).
 
-### Computer vision (preview)
-
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Computer vision
 
 Support for computer vision tasks allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
 
@@ -130,10 +127,7 @@ Instance segmentation | Tasks to identify objects in an image at the pixel level
 
 <a name="nlp"></a>
 
-### Natural language processing: NLP (preview)
-
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Natural language processing: NLP
 
 Support for natural language processing (NLP) tasks in automated ML allows you to easily generate models trained on text data for text classification and named entity recognition scenarios. Authoring automated ML trained NLP models is supported via the Azure Machine Learning Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
@@ -208,7 +202,7 @@ There are multiple resources to get you up and running with AutoML.
 ### Tutorials/ how-tos
 Tutorials are end-to-end introductory examples of AutoML scenarios.
 
-+ **For a code first experience**, follow the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
++ **For a code first experience**, follow the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
    
