@@ -53,20 +53,22 @@ You may also need your tenant ID. To find it, use the Azure CLI [az ad user show
  az account show --query "tenantId"
  ```
 
-Select the following image to sign in to Azure and open a template. The template creates a Managed HSM.
+You can now deploy the ARM template:
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
+1. Select the following image to sign in to Azure and open a template. The template creates a Managed HSM.
 
-Select or enter the following values.  Unless specified, use the default value to create the Managed HSM.
+  :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
 
-- **Subscription**: Select an Azure subscription.
-- **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
-- **Location**: Select a location. For example, **West US 3**.
-- **managedHSMName**: Enter a name for your Managed HSM.
-- **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
-- **initialAdminObjectIds**: Enter the Object ID that you retrieved above.
+1. Select or enter the following values.  Unless specified, use the default value to create the Managed HSM.
 
-3. Select **Purchase**. After the Managed HSM has been deployed successfully, you get a notification:
+    - **Subscription**: Select an Azure subscription.
+    - **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
+    - **Location**: Select a location. For example, **West US 3**.
+    - **managedHSMName**: Enter a name for your Managed HSM.
+    - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
+    - **initialAdminObjectIds**: Enter the Object ID that you retrieved above.
+
+1. Select **Purchase**. After the Managed HSM has been deployed successfully, you get a notification:
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
