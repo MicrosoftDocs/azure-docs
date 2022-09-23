@@ -75,13 +75,13 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 Follow this link for the steps to [create a new DevOps policy in Microsoft Purview](how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy).
 
 ## List DevOps policies
-Follow this link for the steps to [list DevOPs policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#list-devops-policies).
+Follow this link for the steps to [list DevOps policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#list-devops-policies).
 
 ## Update a DevOps policy
-Follow this link for the steps to [update a DevOPs policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#update-a-devops-policy).
+Follow this link for the steps to [update a DevOps policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#update-a-devops-policy).
 
 ## Delete a DevOps policy
-Follow this link for the steps to [delete a DevOPs policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#delete-a-devops-policy).
+Follow this link for the steps to [delete a DevOps policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#delete-a-devops-policy).
 
 >[!Important]
 > DevOps policies are auto-published and changes can take up to **5 minutes** to be enforced by the data source.
@@ -148,6 +148,6 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check the blog and related docs
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
 * Document: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Video: [Pre-requisite for policies: The Data use management feature](https://youtu.be/v_lOzevLW-Q)
+* Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
 * Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
-* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8))
+* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
