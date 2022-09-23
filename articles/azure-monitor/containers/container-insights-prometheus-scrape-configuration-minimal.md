@@ -1,20 +1,25 @@
 ---
-title: Minimal Prometheus ingestion profile
-description: 
+title: Minimal Prometheus ingestion profile in Container insights
+description: Describes how the setting for minimal ingestion profile for Prometheus metrics in Container insights is configured and how you can modify it to collect additional data.
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.reviewer: aul
 ---
 
-# Minimal Prometheus ingestion profile
-To ingest only minimal data (series/metrics used by our default dashboards, default recording rules & default alerts) from default scrape targets, this setting (default-targets-metrics-keep-list.minimalIngestionProfile="true") is enabled by default on the metrics addon. This will help reduce/control ingestion volume for default targets. You can specify this setting in [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under default-targets-metrics-keep-list section. 
+# Minimal Prometheus ingestion profile in Container insights
+When Prometheus metric scraping is enabled for a cluster in Container insights, it collects a minimal amount of data by default. This helps reduce ingestion volume of series/metrics used by default dashboards, default recording rules & default alerts. This article describes how this setting is configured and how you can modify it to collect additional data.
+
+## Configuration setting
+The setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"` is enabled by default on the metrics addon. You can specify this setting in [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under default-targets-metrics-keep-list section. 
+
+## Scenarios
 
 There are four scenarios where you may want to customize this behavior:
 
-**Ingest only minimal metrics per default target.**
+**Ingest only minimal metrics per default target.**<br>
 This is the default behavior  with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only series and metrics listed below will be ingested for each of the default targets.
 
-**Ingest a few additional metrics for one or more default targets in addition to minimal metrics.**
+**Ingest a few additional metrics for one or more default targets in addition to minimal metrics.**<br>
 Keep ` minimalIngestionProfile="true"` and specify the appropriate `keeplistRegexes.*` specific to the target, for example `keeplistRegexes.coreDns="X|Y"`. X,Y will be merged with default metric list for the target and then ingested. |
 
 
@@ -51,4 +56,4 @@ The following metrics that are allow-listed with `minimalingestionprofile=true` 
 
 ## Next steps
 
-
+- [Learn more about customizing Prometheus metric scraping in Container insights](container-insights-prometheus-scrape-configuration.md).

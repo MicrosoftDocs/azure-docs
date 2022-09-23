@@ -1,6 +1,6 @@
 ---
 title: Default Prometheus metrics configuration in Container insights
-description: 
+description: Lists the default targets, dashboards, and recording rules for Prometheus metrics in Container insights.
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.reviewer: aul
@@ -8,20 +8,20 @@ ms.reviewer: aul
 
 # Default Prometheus metrics configuration in Container insights
 
-This article describes the default targets, dashboards, and recording rules for Prometheus metrics in Container insights.
+This article lists the default targets, dashboards, and recording rules when you [configure Container insights to collect Prometheus metrics](container-insights-prometheus-metrics-addon.md) for an AKS cluster.
 
- # Default scrape frequency
+ ## Scrape frequency
 
  The default scrape frequency for all default targets and scrapes is **30 seconds**.
 
-# Default targets scraped 
+## Targets scraped 
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
    
-# Default metrics collected from default targets
+## Metrics collected from default targets
 
 The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules. Please see []() on how to add more metrics to `keeplist` per target.
 
@@ -134,7 +134,7 @@ The following metrics are collected by default from each default target. All oth
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
 
-# Default dashboards
+## Dashboards
 
 Following are the default dashboards that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](). Source code for these mixin dashboards can be found in [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
 
@@ -148,7 +148,7 @@ Following are the default dashboards that are automatically configured by Azure 
 - Node Exporter / USE Method / Node
 - Node Exporter / Nodes
 
-# Default recording rules
+## Recording rules
 
 Following are the default recording rules that are auto-configured by Azure monitor Managed Prometheus during the time of monitoring enablement (thru Ux and CLI) on the chosen Azure Monitor Workspace. Source code for these mixin recording rules can be found on [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
 
