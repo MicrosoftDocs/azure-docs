@@ -29,15 +29,16 @@ keywords:
 The fine-tuning workflow in Azure OpenAI Studio requires the following steps:
 
 1. Prepare your training and validation data
-1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your fine-tuned model
-    1. Choose a base model
-    1. Choose your training data
-    1. Optionally choose your validation data
-    1. Optionally choose advanced options
-    1. Review your choices and train your new fine-tuned model
-1. Check the status of your fine-tuned model
-1. Deploy your fine-tuned model
-1. Use your fine-tuned model
+1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your customized model
+    1. [Choose a base model](#select-a-base-model)
+    1. [Choose your training data](#choose-your-training-data)
+    1. Optionally, [choose your validation data](#choose-your-validation-data)
+    1. Optionally, [choose advanced options](#choose-advanced-options) for your fine-tune job
+    1. [Review your choices and train your new customized model](#review-your-choices-and-train-your-model)
+1. Check the status of your customized model
+1. Deploy your customized model for use
+1. Use your customized model
+1. Optionally, analyze your customized model for performance and fit
 
 ## Prepare your training and validation data
 
@@ -268,7 +269,7 @@ The result file is a CSV file containing a header row and a row for each trainin
 
 | Column name | Description |
 | --- | --- |
-| `step` | The number of the training step. A training step represents a single forward and backward pass on a batch of training data. |
+| `step` | The number of the training step. A training step represents a single pass, forward and backward, on a batch of training data. |
 | `elapsed_tokens` | The number of tokens the customized model has seen so far, including repeats. |
 | `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the **Batch size** parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
 | `training_loss` | The loss for the training batch. |
