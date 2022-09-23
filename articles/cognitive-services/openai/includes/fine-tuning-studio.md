@@ -119,8 +119,9 @@ The first step in creating a customized model is to choose a base model. The **B
 - `ada`
 - `babbage`
 - `curie`
-- `davinci`
-- `code-cushman-001`
+- `code-cushman-001`*
+- `davinci`*
+    * available by request
 
 For more information about our base models, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
 
@@ -194,7 +195,11 @@ You can either use default values for the hyperparameters of the fine-tune job t
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options-default.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with default options selected." lightbox="../media/fine-tuning/studio-advanced-options-default.png":::
 
-Either select **Default** to use the default values for the fine-tune job, or select **Advanced** to display and edit the hyperparameter values, as shown in the following picture. The following hyperparameters are available:
+Either select **Default** to use the default values for the fine-tune job, or select **Advanced** to display and edit the hyperparameter values, as shown in the following picture. 
+
+:::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
+
+The following hyperparameters are available:
 
 | Parameter name | Description |
 | --- | --- |
@@ -205,9 +210,7 @@ Either select **Default** to use the default values for the fine-tune job, or se
 
 For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
 
-:::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
-
-After you've chosen use either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
+After you've chosen either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 
 #### Review your choices and train your model
 
@@ -217,9 +220,9 @@ The **Review and train** pane of the wizard displays information about the choic
 
 If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the [**Models** page](#start-the-wizard-from-the-models-page). 
 
-## Check the status of your fine-tuned model
+## Check the status of your customized model
 
-The **Models** page displays information about your fine-tuned model in the **Customized models** tab, as shown in the following picture. The tab includes information about the status and ID of the fine-tune job for your model. When the training job is completed, the ID of the results file is also displayed.
+The **Models** page displays information about your customized model in the **Customized models** tab, as shown in the following picture. The tab includes information about the status and job ID of the fine-tune job for your customized model. When the job is completed, the file ID of the result file is also displayed.
 
 :::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
@@ -233,12 +236,12 @@ From the model page, you can also select **Download training file** to download 
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, you can deploy the model from the **Models** pane. You must deploy your customized model to make it available for use with completions calls.
-
-To deploy your customized model, select the customized model to be deployed and then select **Deploy model**, as shown in the following picture.
+When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completions calls.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
+
+To deploy your customized model, select the customized model to be deployed and then select **Deploy model**, as shown in the following picture.
 
 :::image type="content" source="../media/fine-tuning/studio-models-deploy.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with the Deploy model button highlighted." lightbox="../media/fine-tuning/studio-models-deploy.png":::
 
@@ -250,12 +253,12 @@ You can monitor the progress of your deployment from the **Deployments** pane of
 
 ## Use a deployed customized model
 
-Once your customized model has been deployed, you can use it like any other model. For example, you can use the **Playground** pane of Azure OpenAI Studio to experiment with your new deployment, as shown in the following picture. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
+Once your customized model has been deployed, you can use it like any other deployed model. For example, you can use the **Playground** pane of Azure OpenAI Studio to experiment with your new deployment, as shown in the following picture. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
+
+:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
-
-:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
 ## Analyze your customized model
 
