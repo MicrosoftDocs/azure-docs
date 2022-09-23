@@ -13,7 +13,7 @@
     - name: Migration overview
       displayName: migration
       href: ../how-to-migrate-from-v1.md
-    - name: Manage resources and assets
+    - name: Migrate resources and assets
       items:
       - name: "Workspace"
         displayName: migration, v1, v2
@@ -27,7 +27,7 @@
       - name: "Model assets"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-assets-model.md
-      - name: Train a model
+      - name: Migrate training
         items:
       - name: "Run a script"
         displayName: migration, v1, v2
@@ -47,7 +47,7 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-execution-pipeline.md  
-    - name: "Deploy endpoints"
+    - name: "Migrate endpoints"
       displayName: migration, v1, v2
       href: ../migrate-to-v2-deploy-endpoints.md  
 
