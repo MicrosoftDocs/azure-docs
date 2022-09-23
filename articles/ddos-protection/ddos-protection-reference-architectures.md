@@ -52,7 +52,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
 [Windows N-tier application on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 #### DDoS IP Protection Windows N-tier architecture
 
-:::image type="content" source="./media/reference-architectures/ddos-ip-protection-n-tier.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on Windows N-tier." lightbox="./media/reference-architectures/ddos-i-protection-n-tier.png":::
+:::image type="content" source="./media/reference-architectures/ddos-ip-protection-n-tier.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on Windows N-tier." lightbox="./media/reference-architectures/ddos-ip-protection-n-tier.png":::
 
  In this architecture diagram DDoS IP Protection is enabled on the public IP address.
 
@@ -74,7 +74,7 @@ For more information about this reference architecture, see [Highly available mu
 
 #### DDoS Network Protection with PaaS web application architecture
 
-:::image type="content" source="./media/reference-architectures/ddos-network-protection-paas-web-app.png" alt-text="Diagram of DDoS Network Protection reference architecture for a PaaS web application." lightbox="./media/reference-architectures/ddos-network-protection-paas-web_app.png":::
+:::image type="content" source="./media/reference-architectures/ddos-network-protection-paas-web-app.png" alt-text="Diagram of DDoS Network Protection reference architecture for a PaaS web application." lightbox="./media/reference-architectures/ddos-network-protection-paas-web-app.png":::
 
  In this architecture diagram DDoS Network Protection is enabled on the web app gateway virtual network.
 
