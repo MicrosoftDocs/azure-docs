@@ -15,8 +15,12 @@ ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cli
 
 # Set up authentication between Azure ML and other services
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
-	
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
+> * [v1](./v1/how-to-use-managed-identities.md)
+> * [v2 (current version)](how-to-use-identity-based-service-authentication.md)
+
 Azure Machine Learning is composed of multiple Azure services. There are multiple ways that authentication can happen between Azure Machine Learning and the services it relies on.
 
 

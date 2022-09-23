@@ -197,8 +197,6 @@ In the studio, choose **Low Priority** when you create a VM.
 
 ## Set up managed identity
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
-
 For information on how to configure a managed identity with your compute cluster, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md#compute-cluster).
 
 ## Troubleshooting
