@@ -38,11 +38,7 @@ Cost optimization can be achieved with Elastic SAN since you can increase your S
 
 ## Elastic SAN resources
 
-Elastic SAN has three resources:
-
-- The Elastic SAN itself
-- Volume groups
-- Volumes
+Each Azure Elastic SAN has two internal resources: Volume groups and volumes.
 
 The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to the resources of an on-premises SAN:
 
@@ -52,13 +48,13 @@ The following diagram illustrates the relationship and mapping of an Azure Elast
 
 When you configure an Elastic SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
-Your Elastic SAN's name has some limitations. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must be between 3 and 24 characters long.
+Your Elastic SAN's name has some requirements. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must be between 3 and 24 characters long.
 
 ### Volume groups 
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
-Your volume group's name has some limitations. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The name must be between 3 and 63 characters long.
+Your volume group's name has some requirements. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The name must be between 3 and 63 characters long.
 
 ### Volumes
 

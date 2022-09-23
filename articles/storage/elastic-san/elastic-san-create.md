@@ -33,11 +33,26 @@ Currently, Elastic SAN (preview) is only available in the following regions:
 
 Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your Elastic SAN.
 
+# [Portal](#tab/azure-portal)
+
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
 1. Select any policies you like, as well as the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+```powershell
+Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+```
+---
 
 ## Register for the preview
 
@@ -188,7 +203,6 @@ By default, no network access is allowed to any volumes in a volume group. Addin
 $rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <resourceIDHere> -Action Allow
 
 Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
-
 ```
 # [Azure CLI](#tab/azure-cli)
 

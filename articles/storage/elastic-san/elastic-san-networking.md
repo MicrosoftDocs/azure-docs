@@ -135,21 +135,22 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 
 - List virtual network rules.
 
-    ```powershell
-    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    ```azurepowershell
+    (Get-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRules
     ```
 
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
-    ```powershell
+    ```azurepowershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 - Add a network rule for a virtual network and subnet.
 
-    ```powershell
-    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
-    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    ```azurepowershell
+    $rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <resourceIDHere> -Action Allow
+    
+    Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
     ```
 
     > [!TIP]
@@ -169,7 +170,7 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 - List virtual network rules.
 
     ```azurecli
-    az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
+    az elastic-san volume-group list -e $sanName -g $resourceGroupName -n $volumeGroupName --network-acls
     ```
 
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
@@ -181,8 +182,7 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 - Add a network rule for a virtual network and subnet.
 
     ```azurecli
-    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
-    az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
+    az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
     ```
 
     > [!TIP]
