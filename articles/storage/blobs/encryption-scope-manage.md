@@ -192,6 +192,9 @@ To view details for a customer-managed key, including the key URI and version an
 
 :::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Screenshot showing details for a key used with an encryption scope":::
 
+++![image](https://user-images.githubusercontent.com/83351422/191929796-f5c6ab2e-0f99-4c43-8caa-827443763f53.png)
+
+
 # [PowerShell](#tab/powershell)
 
 To list the encryption scopes available for a storage account with PowerShell, call the **Get-AzStorageEncryptionScope** command. Remember to replace the placeholder values in the example with your own values:
