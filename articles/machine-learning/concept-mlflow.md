@@ -27,13 +27,6 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 > * You can use Azure Machine Learning workspaces as your tracking server for any experiment you're running with MLflow, whether it runs on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
 > * You can run any training routine that uses MLflow in Azure Machine Learning without changes. MLflow also supports model management and model deployment capabilities.
 
-MLflow can manage the complete machine learning lifecycle by using four core capabilities:
-
-* [Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training job metrics, parameters, and model artifacts. It doesn't matter where your experiment's environment is--locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.
-* [Model Registry](https://mlflow.org/docs/latest/model-registry.html) is a component of MLflow that manages a model's versions in a centralized repository.
-* [Model deployment](https://mlflow.org/docs/latest/models.html#deploy-a-python-function-model-on-microsoft-azure-ml) is a capability of MLflow that deploys models registered through the MLflow format to compute targets. Because of how MLflow models are stored, there's no need to provide scoring scripts for models in such a format.
-* [Project](https://mlflow.org/docs/latest/projects.html) is a format for packaging data science code in a reusable and reproducible way, based primarily on conventions. It's supported in preview on Azure Machine Learning.
-
 
 ## Tracking with MLflow
 
@@ -42,17 +35,20 @@ Azure Machine Learning uses MLflow Tracking for metric logging and artifact stor
 > [!NOTE]
 > Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 (preview). We recommend that you use MLflow for logging.
 
-With MLflow Tracking, you can connect Azure Machine Learning as the back end of your MLflow experiments. The workspace provides a centralized, secure, and scalable location to store training metrics and models. Capabilities include:
+With MLflow Tracking, you can connect Azure Machine Learning as the back end of your MLflow experiments. The workspace provides a centralized, secure, and scalable location to store training metrics and models.
+
+Capabilities include:
 
 * [Track machine learning experiments and models running locally or in the cloud](how-to-use-mlflow-cli-runs.md) with MLflow in Azure Machine Learning.
 * [Track Azure Databricks machine learning experiments](how-to-use-mlflow-azure-databricks.md) with MLflow in Azure Machine Learning.
 * [Track Azure Synapse Analytics machine learning experiments](how-to-use-mlflow-azure-synapse.md) with MLflow in Azure Machine Learning.
 
-> [!IMPORTANT]
-> - MLflow in R support is limited to tracking an experiment's metrics, parameters, and models on Azure Machine Learning jobs. RStudio or Jupyter Notebooks with R kernels are not supported. Model registries are not supported if you're using the MLflow R SDK. As an alternative, use the Azure Machine Learning CLI or Azure Machine Learning studio for model registration and management. View an [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
-> - MLflow in Java support is limited to tracking an experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked via the MLflow Java SDK. View a [Java example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/java/iris).
+You can also use MLflow to [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
-To learn how to use MLflow to query experiments and runs in Azure Machine Learning, see [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
+
+> [!IMPORTANT]
+> - MLflow in R support is limited to tracking experiment's metrics, parameters and models on Azure Machine Learning jobs. Interactive training on RStudio or Jupyter Notebooks with R kernels is not supported. Model management and registration is not supported using the MLflow R SDK. As an alternative, use Azure ML CLI or Azure ML studio for model registration and management. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
+> - MLflow in Java support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow Java SDK. As an alternative, use the `Outputs` folder in jobs along with the method `mlflow.save_model` to save models (or artifacts) you want to capture. View the following [Java example about using the MLflow tracking client with the Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/java/iris).
 
 ## Model registries with MLflow
 
@@ -81,21 +77,21 @@ The following table shows which operations are supported by each of the tools av
 | Feature | MLflow SDK | Azure Machine Learning v2 (CLI/SDK) | Azure Machine Learning studio |
 | :- | :-: | :-: | :-: |
 | Track and log metrics, parameters, and models | **&check;** | | |
-| Retrieve metrics, parameters, and models | **&check;**<sup>1</sup> | <sup>2</sup> | **&check;** |
-| Submit training jobs with MLflow projects | **&check;** |  |  |
+| Retrieve metrics, parameters, and models | **&check;** | <sup>1</sup> | **&check;** |
+| Submit training jobs with MLflow projects | **&check;** <sup>2</sup> |  |  |
 | Submit training jobs with inputs and outputs |  | **&check;** | **&check;** |
-| Submit training jobs by using machine learning pipelines | | **&check;** | |
-| Manage experiments and runs | **&check;**<sup>1</sup> | **&check;** | **&check;** |
+| Submit training jobs by using machine learning pipelines | | **&check;** | **&check;** |
+| Manage experiments and runs | **&check;** | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |
 | Manage non-MLflow models | | **&check;** | **&check;** |
-| Deploy MLflow models to Azure Machine Learning | **&check;**<sup>4</sup> | **&check;** | **&check;** |
+| Deploy MLflow models to Azure Machine Learning (Online & Batch) | **&check;**<sup>4</sup> | **&check;** | **&check;** |
 | Deploy non-MLflow models to Azure Machine Learning | | **&check;** | **&check;** |
 
 > [!NOTE]
-> - <sup>1</sup> View [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) for details.
-> - <sup>2</sup> Only artifacts and models can be downloaded.
-> - <sup>3</sup> View [Manage model registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md) for details.
-> - <sup>4</sup> View [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) for details. Deployment of MLflow models to batch inference by using the MLflow SDK is not possible at the moment.
+> - <sup>1</sup> Only artifacts and models can be downloaded.
+> - <sup>2</sup> On preview.
+> - <sup>3</sup> Some operations may not be supported. View [Manage model registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md) for details.
+> - <sup>4</sup> Deployment of MLflow models to batch inference by using the MLflow SDK is not possible at the moment. View [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) for details.
 
 ## Example notebooks
 
@@ -111,3 +107,7 @@ If you're getting started with MLflow in Azure Machine Learning, we recommend th
 * [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb): Demonstrates how to train models in Azure Databricks and deploy them in Azure Machine Learning. It also includes how to handle cases where you also want to track the experiments with the MLflow instance in Azure Databricks.
 * [Migrating models with a scoring script to MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/migrating-scoring-to-mlflow/scoring_to_mlmodel.ipynb): Demonstrates how to migrate models with scoring scripts to no-code deployment with MLflow.
 * [Using MLflow REST with Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/using-rest-api/using_mlflow_rest_api.ipynb): Demonstrates how to work with the MLflow REST API when you're connected to Azure Machine Learning.
+
+## Next steps
+
+* [Track machine learning experiments and models running locally or in the cloud](how-to-use-mlflow-cli-runs.md) with MLflow in Azure Machine Learning.
