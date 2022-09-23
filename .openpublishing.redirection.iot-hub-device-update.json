@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "/articles/iot-hub-device-update/migration-pp-to-ppr.md",
+            "redirect_url": "/articles/iot-hub-device-update/migration-ppr-to-ga.md",
+            "redirect_document_id": true
+        }
+      ]
+}
