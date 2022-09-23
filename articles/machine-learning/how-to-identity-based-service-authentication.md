@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/21/2022
+ms.date: 09/23/2022
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -46,30 +46,49 @@ To use a user-assigned managed identity with your workspace, compute instance, o
 ### Workspace
 
 > [!IMPORTANT]
-> When creating workspace with user-assigned managed identity, you must perform the following steps first:
+> When using a user-assigned managed identity, you must perform the following steps first:
 > 1. Create a managed identity.
 > 1. Create the Azure Storage Account, Azure Container Registry, and Azure Key Vault resources that will be used by Azure Machine Learning.
 > 1. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to grant the managed identity the required role assignments to the services.
 
-Use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
+Use Azure CLI, Python SDK, or Azure portal to create the workspace. After creating the workspace, use the following examples to configure the workspace to use the identity.
 
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+To associate a managed identity with the workspace, use the `az ml connection` command. This command accepts a YAML file that provides information on the connection. The following example demonstrates the format for specifying a managed identity. Replace the `client_id` and `resource_id` values with the ones for your managed identity:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/connections/container-registry-managed-identity.yml":::
+
+The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
+
 ```azurecli-interactive
-az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
+az ml connection --file <yml file> -w <workspace name> -g <resource group>
 ```
 
 # [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[TBD v2]
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities._workspace.connections.credentials import ManagedIdentityCredentials
+
+# Use ml_client to get connections from current workspace
+ws_connections=ml_client.connections
+# Create a new managed identity
+identity=ManagedIdentityCredentials(client_id="<client id of your identity>",
+                                    resource_id="/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed identity>", 
+                                    type="managed_identity",)
+
+new_connection=WorkspaceConnection(target="https://test.com",name = "managed identity", type="container_registry", credentials=identity)
+ws_connections.create_or_update(new_connection)
+```
 
 # [Studio](#tab/azure-studio)
 
-Currently there is no option to create a workspace from Azure Machine Learning studio. However, you can create using the [Azure portal](https://portal.azure.com). Use the following steps while creating the cluster:
+Currently there is no option to add an identity to a workspace from Azure Machine Learning studio. However, you can add one when creating a workspace from the [Azure portal](https://portal.azure.com). Use the following steps while creating the cluster:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
@@ -110,8 +129,6 @@ During a run there are two applications of an identity:
     ```
 
 To configure a compute cluster with managed identity, use one of the following methods:
-
-
 
 # [Azure CLI](#tab/cli)
 
@@ -231,7 +248,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interaction
-az ml compute create --name cpucluster --type <cluster name>  --identity-type systemassigned
+az ml compute create --name cpu-cluster --type <cluster name>  --identity-type systemassigned
 ```
 
 # [Python](#tab/python)
@@ -315,14 +332,17 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training job, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
+Finally, create an environment and specify the base image location in the [environment YAML file](reference-yaml-environment.md).
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-[TBD]
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
-> [!IMPORTANT]
-> To ensure that the base image is pulled directly to the compute resource, set `user_managed_dependencies = True` and do not specify a Dockerfile. Otherwise Azure Machine Learning service will attempt to build a new Docker image and fail, because only the compute cluster has access to pull the base image from ACR.
+```azurecli
+az ml environment create --file <yaml file>
+```
+
+You can now use the environment in a [training job](how-to-train-cli.md).
 
 ### Build Azure Machine Learning managed environment into base image from private ACR for training or inference
 
@@ -349,23 +369,28 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
         The user-assigned managed identity resource ID is Azure resource ID of the user assigned identity, in the format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned managed identity name>`.
 
-1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using :
+1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using the `az ml connection` command. This command accepts a YAML file that provides information on the connection. The following example demonstrates the format for specifying a managed identity. Replace the `client_id` and `resource_id` values with the ones for your managed identity:
+
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+    :::code language="yaml" source="~/azureml-examples-main/cli/resources/connections/container-registry-managed-identity.yml":::
+
+    The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
+
+    ```azurecli-interactive
+    az ml connection --file <yml file> -w <workspace name> -g <resource group>
+    ```
+
+1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
 
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-    [TBD]
-
-Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-[tbd]
-
-Optionally, you can specify the managed identity resource URL and client ID in the environment definition itself by using [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). If you use registry identity explicitly, it overrides any workspace connections specified earlier:
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-[tbd]
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+    name: private-acr-example
+    image: <acr url>/pytorch/pytorch:latest
+    description: Environment created from private ACR.
+    ```
 
 ## Next steps
 
