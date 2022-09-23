@@ -15,7 +15,7 @@ author: kalyaninamuduri
 
 In this how-to guide, you'll learn how to view the running cost of your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions (ACSS)*. 
 
-After you deploy or register an SAP system as a VIS resource, you can [view the cost of running that SAP system on the VIS resource's page](#view-cost-analysis). This feature provides the ability to view the post-deployment running cost in the context of your SAP system. When you have Azure resources of multiple SAP systems in a single resource group, you no longer need to analyze the cost for each system. Instead, you can easily view the system-level cost from the VIS resource. 
+After you deploy or register an SAP system as a VIS resource, you can [view the cost of running that SAP system on the VIS resource's page](#view-cost-analysis). This feature shows the post-deployment running costs in the context of your SAP system. When you have Azure resources of multiple SAP systems in a single resource group, you no longer need to analyze the cost for each system. Instead, you can easily view the system-level cost from the VIS resource. 
 
 ## How does cost analysis work?
 
@@ -25,7 +25,7 @@ Whenever there are changes to the SAP system, such as the addition or removal of
 > [!NOTE]
 > If you register an existing SAP system as a VIS, the cost analysis only shows data after the time of registration. Even if some infrastructure resources might have been deployed before the registration, the cost analysis tags aren't applied to historical data.
 
-The following Azure resource aren't included in the SAP system-level cost analysis. This list includes some resources that might be shared across multiple SAP systems.
+The following Azure resources aren't included in the SAP system-level cost analysis. This list includes some resources that might be shared across multiple SAP systems.
 
 - Virtual networks
 - Storage accounts
