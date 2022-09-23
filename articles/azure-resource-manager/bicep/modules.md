@@ -20,9 +20,9 @@ To share modules with other people in your organization, create a [template spec
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/training/modules/create-composable-bicep-files-using-modules/).
 
 ## Definition syntax
 
@@ -59,6 +59,7 @@ The following example concatenates the deployment name to the module name. If yo
 module stgModule 'storageAccount.bicep' = {
   name: '${deployment().name}-storageDeploy'
   scope: resourceGroup('demoRG')
+}
 ```
 
 If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).
@@ -227,5 +228,5 @@ When used as module, you can get that output value.
 
 ## Next steps
 
-- For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Deploy Azure resources by using Bicep templates](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [getSecret](bicep-functions-resource.md#getsecret) function.

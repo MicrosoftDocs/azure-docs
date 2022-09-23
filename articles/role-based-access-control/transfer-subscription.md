@@ -3,7 +3,7 @@ title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
@@ -240,7 +240,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 - Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](/azure/azure-sql/database/authentication-aad-configure).
 
     ```azurecli
-    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" --query data[].[id] -o tsv)
+    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" --query data[*].[id] -o tsv)
     ```
 
 ### List ACLs

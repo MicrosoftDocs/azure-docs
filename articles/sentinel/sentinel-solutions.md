@@ -119,16 +119,16 @@ Both Microsoft and other organizations author Microsoft Sentinel out-of-the-box 
 |**Partner-supported** | Applies to content/solutions authored by parties other than Microsoft.  <br><br>   The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for the selected content/solutions.<br><br>    For any issues with a partner-supported solution, contact the specified support contact.|
 |**Community-supported** |Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Microsoft Sentinel.<br><br>    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters). |
 
-## Content sources for Microsoft Sentinel out-of-the-box content and solutions
+## Content sources for Microsoft Sentinel content and solutions
 
-Each piece of out-of-the-box content or solution has one of the following content sources:
+Each piece of content or solution has one of the following content sources:
 
 |Content source  |Description  |
 |---------|---------|
 |**Content hub**   |Content or solutions deployed by the content hub that support lifecycle management         |
 |**Custom**  | Content or solutions you've customized in your workspace         |
 |**Gallery content**     | Content or solutions from the gallery that don't support lifecycle management       |
-|**Repository**   | Content or solutions from a repository connected to your workspace      |
+|**Repositories**   | Content or solutions from a repository connected to your workspace      |
 
 ## Next steps
 

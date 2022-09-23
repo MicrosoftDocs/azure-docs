@@ -36,15 +36,18 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 ### Regional availability
 
 Conversational language understanding is only available in some Azure regions. To use conversational language understanding, you must choose a Language resource in one of following regions:
-* West US 2
+* Australia East
+* Central India
 * East US 
 * East US 2
-* West US 3
-* South Central US
-* West Europe
 * North Europe
-* UK south
-* Australia East
+* South Central US
+* Switzerland North
+* UK South
+* West Europe
+* West US 2
+* West US 3
+
 
 
 ## API limits

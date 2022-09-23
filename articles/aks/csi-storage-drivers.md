@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AK
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 09/18/2022
 author: palma21
 
 ---
@@ -16,7 +16,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 - [**Azure Disks**](azure-disk-csi.md) can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure Disks are mounted as *ReadWriteOnce* and are only available to one node in AKS. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
 - [**Azure Files**](azure-files-csi.md) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard storage backed by regular HDDs or Azure Premium storage backed by high-performance SSDs.
-- [**Azure Blob storage](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
+- [**Azure Blob storage**](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
 
 > [!IMPORTANT]
 > Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. Existing in-tree persistent volumes will continue to function. However, internally Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
@@ -26,24 +26,9 @@ The CSI storage driver support on AKS allows you to natively use:
 > [!NOTE]
 > Azure Disks CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> AKS provides the option to enable and disable the CSI drivers (preview) on new and existing clusters. CSI drivers are enabled by default on new clusters. You should verify that there are no existing Persistent Volumes created by Azure Disks and Azure Files CSI drivers and that there is not any existing VolumeSnapshot, VolumeSnapshotClass or VolumeSnapshotContent resources before running this command on existing cluster. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* You also need the Azure CLI installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.78 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+You need the Azure CLI version 2.40 installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Disable CSI storage drivers on a new cluster
 
@@ -65,7 +50,7 @@ az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable
 
 ## Enable CSI storage drivers on an existing cluster
 
-`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller]. 
+`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
 
 To enable CSI storage drivers on an existing cluster with CSI storage drivers disabled, use `--enable-disk-driver`, `--enable-file-driver`, and `--enable-snapshot-controller`.
 

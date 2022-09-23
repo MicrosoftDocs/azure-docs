@@ -39,7 +39,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
 ```bash
-git clone --depth 1 https://github.com/Azure/azureml-examples --branch 
+git clone --depth 1 https://github.com/Azure/azureml-examples
 cd azureml-examples/sdk
 ```
 
@@ -48,7 +48,7 @@ cd azureml-examples/sdk
 
 ## Start on your local machine
 
-Start by running a script, which trains a model using `lightgbm`. The script file is available [here](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py). The script needs three inputs
+Start by running a script, which trains a model using `lightgbm`. The script file is available [here](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/src/main.py). The script needs three inputs
 
 * _input data_: You'll use data from a web location for your run - [web location](https://azuremlexamples.blob.core.windows.net/datasets/iris.csv). In this example, we're using a file in a remote location for brevity, but you can use a local file as well.
 * _learning-rate_: You'll use a learning rate of _0.9_
@@ -88,7 +88,7 @@ Let us tackle these steps below
 
 ### 1. Connect to the workspace
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries
@@ -109,7 +109,7 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 You'll create a compute called `cpu-cluster` for your job, with this code:
 
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
 
 ### 3. Environment to run the script
@@ -122,7 +122,7 @@ To run your script on `cpu-cluster`, you need an environment, which has the requ
    * A base docker image with a conda YAML to customize further
    * A docker build context
 
-   Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/assets/environment/environment.ipynb) on how to create custom environments.
+   Check this [example](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/assets/environment/environment.ipynb) on how to create custom environments.
 
 You'll use a curated environment provided by Azure ML for `lightgm` called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`
 
@@ -130,9 +130,9 @@ You'll use a curated environment provided by Azure ML for `lightgm` called `Azur
 
 To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
 
 
 In the above, you configured:
@@ -150,14 +150,14 @@ To perform a sweep, there needs to be input(s) against which the sweep needs to 
 
 Let us improve our model by sweeping on `learning_rate` and `boosting` inputs to the script. In the previous step, you used a specific value for these parameters, but now you'll use a range or  choice of values.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=search-space)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=search-space)]
 
 
 Now that you've defined the parameters, run the sweep
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=configure-sweep)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=configure-sweep)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-sweep)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-sweep)]
 
 
 As seen above, the `sweep` function allows user to configure the following key aspects:

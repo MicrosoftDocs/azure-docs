@@ -101,7 +101,7 @@ The following are the parameters you can use to control the tiling feature.
 
 ## Example notebooks
 
-See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) for detailed code examples of setting up and training an object detection model.
+See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) for detailed code examples of setting up and training an object detection model.
 
 >[!NOTE]
 > All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).  
@@ -109,8 +109,8 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
-* For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md). 
+* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md). 
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 *[Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md) 

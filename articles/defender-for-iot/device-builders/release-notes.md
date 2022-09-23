@@ -25,11 +25,11 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 - **AMQP support**: Now you can add AMQP support after installing your micro-agent. For more information, see [Add AMQP protocol support](tutorial-standalone-agent-binary-installation.md#add-amqp-protocol-support).
 
-- **Baseline collector updates**: The baseline collector now sends *pass* and *skip* checks to the cloud in addition to *failed* results. For more information, see [Micro agent event collection](concept-event-aggregation.md#baseline-trigger-based).
+- **Baseline collector updates**: The baseline collector now sends *pass* and *skip* checks to the cloud in addition to *failed* results. For more information, see [Baseline (trigger-based collector)](concept-event-aggregation.md#baseline-trigger-based-collector).
 
 - **Login collector via UTMP**: The login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
-- **SBoM collector known issue**: The SBoM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
+- **SBoM collector known issue**: The SBoM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger-based collector)](concept-event-aggregation.md#sbom-trigger-based-collector).
 
 ## February 2022
 
@@ -53,7 +53,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 - **DNS hit count**: network collector now includes DNS hit count field that can be visible through Log Analytics, which can help indicate if a DNS request was part of an automatic query.
 
-    For more information, see [Network Connection events (event-based collector)](concept-event-aggregation.md#network-connection-events-event-based-collector).
+    For more information, see [Network Activity events (event-based collector)](concept-event-aggregation.md#network-activity-events-event-based-collector).
 
 - **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
@@ -81,7 +81,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 - **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gathers information related to the device’s operating system and hardware details.
 
-- **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
+- **[Event aggregation](concept-event-aggregation.md#event-aggregation-for-process-and-network-collectors)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
 - **[Twin configuration](concept-micro-agent-configuration.md)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
 

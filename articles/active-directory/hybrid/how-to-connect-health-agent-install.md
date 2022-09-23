@@ -4,7 +4,7 @@ description: This Azure AD Connect Health article describes agent installation f
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
@@ -47,6 +47,8 @@ The following table lists requirements for using Azure AD Connect Health.
 > [!NOTE]
 > If you have a highly locked-down and restricted environment, you need to add more URLs than the ones the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
 
+### New versions of the agent and Auto upgrade
+If a new version of the Health agent is released, any existing installed agents are automatically updated.
 
 ### Outbound connectivity to the Azure service endpoints
 

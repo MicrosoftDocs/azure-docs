@@ -4,7 +4,7 @@ description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -27,7 +27,7 @@ While developers can securely store the secrets in [Azure Key Vault](../../key-v
 
 The following video shows how you can use managed identities:</br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
 
 Here are some of the benefits of using managed identities:
 

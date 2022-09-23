@@ -5,14 +5,14 @@ description: Learn how to download activity logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/25/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler 
 

@@ -39,6 +39,8 @@ Multiple Azure Data Factories can connect to a single Microsoft Purview to push 
 >**Collection admins** role on the root collection.
 >
 > Also, it requires the users to be the data factory's "Owner" or "Contributor".
+>
+> Your data factory needs to have system assigned managed identity enabled.
 
 Follow the steps below to connect an existing data factory to your Microsoft Purview account. You can also [connect Data Factory to Microsoft Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -55,7 +57,7 @@ Follow the steps below to connect an existing data factory to your Microsoft Pur
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
->We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
+>We support adding 10 Data Factory at once. If you want to add more than 10 Data Factory, please do so in multiple batches of 10 Data Factory.
 
 ### How authentication works
 

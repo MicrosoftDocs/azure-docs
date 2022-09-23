@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 04/27/2022
+ms.date: 07/29/2022
 ms.topic: how-to
 ms.author: timwarner
 author: timwarner-msft
@@ -67,7 +67,7 @@ az role definition list --name "Contributor"
 
 ## Configure the managed identity
 
-Each Azure Policy assignment can be associated with only one managed identity. However, the managed identity can be assigned multiple roles. Configuration occurs in two steps: first create either a system-assigned or user-assigned managed identity, then grant it the necessary roles. 
+Each Azure Policy assignment can be associated with only one managed identity. However, the managed identity can be assigned multiple roles. Configuration occurs in two steps: first create either a system-assigned or user-assigned managed identity, then grant it the necessary roles.
 
    > [!NOTE]
    > When creating a managed identity through the portal, roles will be granted automatically to the managed identity. If **roleDefinitionIds** are later edited in the policy definition, the new permissions must be manually granted, even in the portal.
@@ -80,25 +80,25 @@ When creating an assignment using the portal, Azure Policy can generate a system
 
 :::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system-assigned managed identity in East US with Log Analytics Contributor permissions.":::
 
-To set a system-assigned managed identity in the portal: 
+To set a system-assigned managed identity in the portal:
 
-1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **System assigned managed identity** 
-is selected. 
+1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **System assigned managed identity**
+is selected.
 
-1. Specify the location at which the managed identity is to be located. 
+1. Specify the location at which the managed identity is to be located.
 
-To set a user-assigned managed identity in the portal: 
+To set a user-assigned managed identity in the portal:
 
-1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity** 
-is selected. 
+1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity**
+is selected.
 
-1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but it must be in the same tenant. 
+1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but it must be in the same tenant.
 
-1. Under **Existing user assigned identities**, select the managed identity. 
+1. Under **Existing user assigned identities**, select the managed identity.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used. 
+To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used.
 
 The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
 
@@ -129,7 +129,7 @@ $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/poli
 $resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Get the existing user assigned managed identity ID
-$userassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $userassignedidentityname 
+$userassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $userassignedidentityname
 $userassignedidentityid = $userassignedidentity.Id
 
 # Create the assignment using the -Location and -Identity properties
@@ -137,7 +137,7 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 ```
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the standard values returned when creating a policy assignment. It can be accessed through
-`$assignment.Identity.PrincipalId` for system-assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user-assigned managed identities.  
+`$assignment.Identity.PrincipalId` for system-assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user-assigned managed identities.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -150,13 +150,13 @@ To add a system-assigned identity or a user-assigned identity to a policy assign
 ### Grant permissions to the managed identity through defined roles
 
 > [!IMPORTANT]
-> 
+>
 > If the managed identity does not have the permissions needed to execute the required remediation task, it will be granted permissions *automatically* only through the portal. You may skip this step if creating a managed identity through the portal.
 >
 > For all other methods, the assignment's managed identity must be manually granted access through the addition of roles, or else the remediation deployment will fail.
-> 
+>
 > Example scenarios that require manual permissions:
-> - If the assignment is created through SDK
+> - If the assignment is created through an Azure software development kit (SDK)
 > - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
 >   assignment
 > - If the template accesses properties on resources outside the scope of the policy assignment
@@ -200,12 +200,19 @@ To add a role to the assignment's managed identity, follow these steps:
 # [PowerShell](#tab/azure-powershell)
 
 The new managed identity must complete replication through Azure Active Directory before it can be
-granted the needed roles. Once replication is complete, the following example iterates the policy
+granted the needed roles. Once replication is complete, the following examples iterate the policy
 definition in `$policyDef` for the **roleDefinitionIds** and uses
 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to
 grant the new managed identity the roles.
 
+Specifically, the first example shows you how to grant roles at the policy scope. The second
+example demonstrates how to grant roles at the initiative (policy set) scope.
+
 ```azurepowershell-interactive
+###################################################
+# Grant roles to managed identity at policy scope #
+###################################################
+
 # Use the $policyDef to get to the roleDefinitionIds array
 $roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
 
@@ -213,8 +220,36 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId
+        -RoleDefinitionId $roleDefId
     }
+}
+
+#######################################################
+# Grant roles to managed identity at initiative scope #
+#######################################################
+
+#If the policy had no managed identity in its logic, then no impact. If there is a managed identity
+used for enforcement, replicate it on the new assignment.
+$getNewInitiativeAssignment = Get-AzPolicyAssignment -Name $newInitiativeDefinition.Name
+
+#Create an array to store role definition's IDs used by policies inside the initiative.
+$InitiativeRoleDefinitionIds = @();
+
+#Loop through the policy definitions inside the initiative and gather their role definition IDs
+foreach ($policyDefinitionIdInsideInitiative in $InitiativeDefinition.Properties.PolicyDefinitions.policyDefinitionId) {
+  $policyDef = Get-AzPolicyDefinition -Id $policyDefinitionIdInsideInitiative
+  $roleDefinitionIds = $policyDef.Properties.PolicyRule.then.details.roleDefinitionIds
+  $InitiativeRoleDefinitionIds += $roleDefinitionIds
+}
+
+#Create the role assignments used by the initiative assignment at the subscription scope.
+if ($InitiativeRoleDefinitionIds.Count -gt 0) {
+  $InitiativeRoleDefinitionIds | Sort-Object -Unique | ForEach-Object {
+    $roleDefId = $_.Split("/") | Select-Object -Last 1
+    New-AzRoleAssignment -Scope "/subscriptions/$($subscription)" -ObjectId $getNewInitiativeAssignment.Identity.PrincipalId
+    -RoleDefinitionId $roleDefId
+  }
 }
 ```
 
@@ -246,7 +281,7 @@ There are three ways to create a remediation task through the portal.
 1. All **deployIfNotExists** and **modify** policy assignments are
    shown on the **Policies to remediate** tab. Select one with resources
    that are non-compliant to open the **New remediation task** page.
-   
+
 1. Follow steps to [specify remediation task details](#step-2-specify-remediation-task-details).
 
 #### Option 2: Create a remediation task from a non-compliant policy assignment
@@ -267,7 +302,7 @@ the **Remediation** tab of the wizard offers a _Create a remediation task_ optio
    > [!NOTE]
    > This is the most streamlined approach for creating a remediation task and is supported for policies assigned on a _subscription_. For policies assigned on a _management group_, remediation tasks should be created using [Option 1](#option-1-create-a-remediation-task-from-the-remediation-page) or [Option 2](#option-2-create-a-remediation-task-from-a-non-compliant-policy-assignment) after evaluation has determined resource compliance.
 
-1. From the assignment wizard in the portal, navigate to the **Remediation** tab. Select the check box for **Create a remediation task**. 
+1. From the assignment wizard in the portal, navigate to the **Remediation** tab. Select the check box for **Create a remediation task**.
 
 1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down.
 
@@ -277,21 +312,21 @@ the **Remediation** tab of the wizard offers a _Create a remediation task_ optio
 
 This step is only applicable when using [Option 1](#option-1-create-a-remediation-task-from-the-remediation-page) or [Option 2](#option-2-create-a-remediation-task-from-a-non-compliant-policy-assignment) to initiate remediation task creation.
 
-1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down. One **deployIfNotExists** or **modify** policy can be remediated through a single Remediation task at a time. 
+1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down. One **deployIfNotExists** or **modify** policy can be remediated through a single Remediation task at a time.
 
-1. Optionally modify remediation settings on the **New remediation task** page: 
+1. Optionally modify remediation settings on the **New remediation task** page:
 
-    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%.
     - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
     - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 
    > [!NOTE]
    > These settings cannot be changed once the remediation task has started.
- 
+
 1. On the same page, filter the resources to remediate by using the **Scope**
    ellipses to pick child resources from where the policy is assigned (including down to the
    individual resource objects). Additionally, use the **Locations** dropdown list to further filter
-   the resources. 
+   the resources.
 
    :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot of the Remediate node and the grid of resources to remediate." border="false":::
 
@@ -327,7 +362,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 You may also choose to adjust remediation settings through these optional parameters:
-- `-FailureThreshold` - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+- `-FailureThreshold` - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%.
 - `-ParallelDeploymentCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
 - `-ResourceCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 

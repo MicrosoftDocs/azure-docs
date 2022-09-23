@@ -2,7 +2,7 @@
 title: Overview of Event Hubs Premium
 description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.
 ms.topic: article
-ms.date: 02/02/2022
+ms.date: 09/20/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -14,7 +14,7 @@ It replicates events to three replicas, distributed across Azure availability zo
 In addition to these storage-related features and all capabilities and protocol support of the standard tier, the isolation model of the premium tier enables features like [dynamic partition scale-up](dynamically-add-partitions.md). You also get far more generous [quota allocations](event-hubs-quotas.md). Event Hubs Capture is included at no extra cost.
 
 > [!NOTE]
-> Event Hubs Premium supports TLS 1.2 or greater . 
+> Event Hubs Premium supports TLS 1.2 or greater. 
 
 ## Why premium?
 The premium tier offers three compelling benefits for customers who require better isolation in a multitenant environment with low latency and high throughput data ingestion needs.
@@ -39,9 +39,10 @@ In comparison to the dedicated offering, the premium tier provides the following
 
 Therefore, the premium tier is often a more cost effective option for event streaming workloads up to 160 MB/sec (per namespace), especially with changing loads throughout the day or week, when compared to the dedicated tier. 
 
-For the extra robustness gained by availability-zone support, the minimal deployment scale for the dedicated tier is 8 capacity units (CU), but you'll have availability zone support in the premium tier from the first PU in all availability zone regions. 
+> [!NOTE]
+> For the extra robustness gained by **availability-zone** support, the minimal deployment scale for the dedicated tier is **8 capacity units (CU)**, but you'll have availability zone support in the premium tier from the first PU in all availability zone regions. 
 
-You can purchase 1, 2, 4, 8 and 16 processing units for each namespace. As the premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle as it's' in the standard tier, but depends on the work you ask Event Hubs to do, similar to the dedicated tier. The effective ingest and stream throughput per PU will depend on various factors, including:
+You can purchase 1, 2, 4, 8 and 16 processing units for each namespace. As the premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle as it is in the standard tier, but depends on the work you ask Event Hubs to do, similar to the dedicated tier. The effective ingest and stream throughput per PU will depend on various factors, including:
 
 * Number of producers and consumers
 * Payload size 
