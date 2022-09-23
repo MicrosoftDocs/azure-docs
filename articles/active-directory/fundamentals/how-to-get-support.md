@@ -21,17 +21,16 @@ Microsoft documentation and learning content provide quality support and trouble
 
 ## Ask the Microsoft community
 
-Start with the Microsoft community members who may have an answer to your question. These communities provide support, feedback, and general discussions on Microsoft products and services. Before creating a support request, check out the following resources for answers and information. 
+Start with our Microsoft community members who may have an answer to your question. These communities provide support, feedback, and general discussions on Microsoft products and services. Before creating a support request, check out the following resources for answers and information. 
 
-* For how-to information, quickstarts, or code samples for IT professionals and developers, see the [technical documentation at docs.microsoft.com](../index.yml).
+* For how-to information, quickstarts, or code samples for IT professionals and developers, see the [technical documentation at learn.microsoft.com](../index.yml).
 * Post a question to [Microsoft Q&A](/answers/products/) to get answers to your identity and access questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs) and members of our expert community. 
 * The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. Join the community to post questions and submit your ideas.
 * The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more.
-* For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation for Azure Active Directory](../index.yml).
 
 ### Microsoft Q&A best practices
 
-Microsoft Q&A is Azure's recommended source of community support. We recommend using one of the following tags when posting a question. Check out our [tips for writing quality questions](/answers/articles/24951/how-to-write-a-quality-question.html).
+Microsoft Q&A is Azure's recommended source for community support. We recommend using one of the following tags when posting a question. Check out our [tips for writing quality questions](/answers/support/quality-question).
 
 | Component/area| Tags  |
 |------------|---------------------------|
@@ -46,9 +45,9 @@ Microsoft Q&A is Azure's recommended source of community support. We recommend u
 
 If you're unable to find answers by using self-help resources, you can open an online support request. You should open a support request for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Azure AD engineering teams prioritize their work based on incidents that are generated from support, so you're often contributing to service improvements.
 
-Microsoft provides global technical, pre-sales, billing, and subscription support for Azure AD. Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages.
+Support is available online and by phone for Microsoft Azure paid and trial subscriptions on global technical, pre-sales, billing, and subscription issues. Phone support and online billing support are available in additional languages.
 
-Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're an IT admin managing your organization's tenant, a developer just starting your cloud journey, or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
+Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits your scenario, whether you're an IT admin managing your organization's tenant, a developer just starting your cloud journey, or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -112,9 +111,14 @@ A support engineer will contact you using the method you indicated. For informat
 
 Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](https://docs.microsoft.com/microsoft-365/admin).
 
-## Get phone support
+## Stay informed
+Things can change quickly. The following resources provide updates and information on the latest releases.
 
-See the [Contact Microsoft for support](https://portal.office.com/Support/ContactUs.aspx) page to obtain support phone numbers.
+- [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
+
+- [What's new in Azure AD](whats-new.md): Get to know what's new in Azure AD including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+
+- [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
 
 ##  Next steps
 
@@ -123,13 +127,3 @@ See the [Contact Microsoft for support](https://portal.office.com/Support/Contac
 * [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)]
 
 * [Learn about the diagnostic data Azure identity support can access](active-directory-troubleshooting-diagnostic-data-access.md)
-
-### Stay informed of updates and new releases
-
-- [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
-
-- [What's new in Azure AD](whats-new.md): Get to know what's new in Azure AD including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-
-- [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
-
--[Technical documentation for Azure Active Directory](../index.yml)
