@@ -92,7 +92,6 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
-    | **graph.windows.net** | Used by Azure Machine Learning compute instance/cluster. |
     | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
     | **\*.anaconda.org** | Used to get repo data. |
     | **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
@@ -117,20 +116,26 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 ### Kubernetes Compute
 
-[Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra network configuration. Configure the [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. The following outbound URLs are also required for Azure Machine Learning,
+[Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
+
+* For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/limit-egress-traffic.md#cluster-extensions). 
+
+Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
 | Outbound Endpoint| Port | Description|Training |Inference |
 |--|--|--|--|--|
 | __\*.kusto.windows.net__<br>__\*.table.core.windows.net__<br>__\*.queue.core.windows.net__ | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
-| __\*.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
-| __\*.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
-| __\*.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure Machine Learning service API.|**&check;**|**&check;**|
+| __\<your ACR name\>.azurecr.io__<br>__\<your ACR name>\.\<region name>\.data.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
+| __\<your storage account name\>.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
+| __\<your AzureML workspace ID>.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure Machine Learning service API.|**&check;**|**&check;**|
 | __pypi.org__ | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
 | __archive.ubuntu.com__<br>__security.ubuntu.com__<br>__ppa.launchpad.net__ | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
 
 > [!NOTE]
 > `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
-
+>
+> `<your AML workspace ID>` can be found in Azure portal - your Machine Learning resource page - Properties - Workspace ID.
 
 
 
