@@ -55,7 +55,7 @@ The AWS service (which is the service AADConnect uses to access AAD) uses a spec
 
 ## Frequently asked questions for ADFS to Azure AD
 
-## Can we have privileged accounts with a federated ADFS server?
+**Can we have privileged accounts with a federated ADFS server?**
         
 While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromise on-
 premise environment.
