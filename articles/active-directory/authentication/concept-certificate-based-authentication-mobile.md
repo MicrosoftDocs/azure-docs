@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 09/23/2022
 
 ms.author: justinha
 author: vimrang
@@ -16,7 +16,7 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on mobile devices (Android and iOS) (Preview)
+# Azure Active Directory certificate-based authentication on mobile devices (Android and iOS)
 
 Android and iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory using a client certificate on their device when connecting to:
 

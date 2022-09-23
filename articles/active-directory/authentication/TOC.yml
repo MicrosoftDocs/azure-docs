@@ -184,7 +184,7 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
-    - name: Azure AD CBA (Preview)
+    - name: Azure AD CBA
       items:
       - name: Overview
         href: concept-certificate-based-authentication.md

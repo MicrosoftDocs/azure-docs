@@ -1,5 +1,5 @@
 ---
-title: CertificateUserIds for Azure AD certificate-based authentication (Preview) - Azure Active Directory 
+title: CertificateUserIds for Azure AD certificate-based authentication - Azure Active Directory 
 description: Learn about CertificateUserIds for Azure AD certificate-based authentication without federation
 
 services: active-directory
