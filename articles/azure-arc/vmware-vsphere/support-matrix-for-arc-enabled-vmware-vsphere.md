@@ -3,7 +3,7 @@ title: Support matrix for Arc enabled VMware vSphere
 description: In this article, you'll learn about the support matrix for Arc enabled VMware vSphere including vCenter Server versions supported, network requirements etc.
 ms.topic: reference 
 ms.custom: references_regions
-ms.date: 09/21/2022
+ms.date: 09/23/2022
 
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc enabled VMware vSphere.
 ---
@@ -17,19 +17,11 @@ To use Arc enabled VMware vSphere, you must deploy an Azure Arc resource bridge 
 
 ## VMware vSphere Requirements
 
-### vCenter Server
+### Supported vCenter Server versions
 
 - vCenter Server version 6.7 or 7.
 
-- A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
-
-- At least one free IP address on the above network that isn't in the DHCP range. At least three free IP addresses if there's no DHCP server on the network.
-
-- A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
-
-- A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
-
-### vSphere account
+### Required vSphere account privileges
 
 You need a vSphere account that can:
 - Read all inventory. 
@@ -39,21 +31,15 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 ### Resource bridge resource requirements 
 
-- Resource Bridge IP needs internet access. If you are using Static IP, then Start Range IP and End Range IP need internet access. If you are using DHCP, then it is the IP assigned to Azure Arc Resource Bridge (Appliance VM IP).
+For Arc enabled VMware vSphere, Resource bridge has the following minimum virtual hardware requirements
 
-- Control Plane IP needs internet access.
-
-- If you are using DHCP, the IP assigned to Azure Arc Resource Bridge must be reserved. 
-
-- The Host (vCenter server in this case, I think) must be able to reach the Control Plane IP and Azure Arc Resource Bridge VM (Appliance VM IP, Start Range IP, End Range IP).
-
-- Azure Arc Resource Bridge VM requires DNS resolution when configuring with Static IP. The IP Address(es) of the DNS servers are needed in the DNS Server input of the deployment script.
-
-- Ensure that your user account has all of these [privileges](../resource-bridge/troubleshoot-resource-bridge.md#insufficient-permissions) in VMware vCenter.
+- 16 GB of memory
+- 4 vCPUs
+- An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](../support-matrix-for-arc-enabled-vmware-vsphere.md#resource-bridge-networking-requirements) are allow listed.
 
 ### Resource bridge networking requirements
 
-The following firewall URL exceptions are needed for the appliance VM in the Azure Arc Resource Bridge:
+The following firewall URL exceptions are needed for the Azure Arc Resource Bridge VM:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
@@ -72,38 +58,34 @@ The following firewall URL exceptions are needed for the appliance VM in the Azu
 
 ## Azure permissions required
 
-A resource group in an Azure subscription where you are:
+Following Azure roles are required for various operations:
 
-- A member of the *Azure Arc VMware Private Clouds Onboarding* role for onboarding.
-
-- A member of the *Azure Arc VMware Administrator role* role for administering.
+| **Operation** | **Role required** | **Scope** |
+| --- | --- | --- |
+| Onboarding your vCenter Server to Arc| Azure Arc VMware Private Clouds Onboarding | Subscription or resource group where you want to perform onboarding into |
+| Administering Arc enabled VMware vSphere | Azure Arc VMware Administrator | On the subscription or resource group where vCenter server resource is created |
+| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription, resource group where resource pool/cluster/host, datastore, virtual network resources are created or on the resources themselves |
+| VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs|
+| VM Operations | Azure Arc VMware VM Contributor | On the subscription, resource group where the VM is or on the VM itself |
 
 
 ## Guest management (Arc agent) requirements
 
-The VMware VM should have guest management enabled and the target machine is powered on with VMware tools installed and running and the resource bridge has network connectivity to the host running the VM.  
+With Arc enabled VMware vSphere, you can install the Arc connected machine agent on your VMs at scale and use Azure management services on the VMs. There are additional requirements for this capability:
+
+To enable guest management (install the Arc connected machine agent), ensure
+
+- VM is powered on
+- VM has VMware tools installed and running
+- Resource bridge has access to the host on which the VM is running
+- VM is running a supported operating system
+- VM has internet connectivity directly or through proxy. If the connection is through a proxy ensure [these URLs](../support-matrix-for-arc-enabled-vmware-vsphere.md#networking-requirements) are allow listed.
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent. Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
+The officially supported versions of the Windows and Linux operating system for the Azure Connected Machine agent are listed [here](../servers/prerequisites#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
 
-* Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
-  * Both Desktop and Server Core experiences are supported
-  * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
-* Windows IoT Enterprise
-* Azure Stack HCI
-* Ubuntu 16.04, 18.04, and 20.04 LTS
-* Debian 10
-* CentOS Linux 7 and 8
-* SUSE Linux Enterprise Server (SLES) 12 and 15
-* Red Hat Enterprise Linux (RHEL) 7 and 8
-* Amazon Linux 2
-* Oracle Linux 7 and 8
-
-> [!NOTE] 
-> On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
-
-## Software requirements
+### Software requirements
 
 Windows operating systems:
 
@@ -114,14 +96,6 @@ Linux operating systems:
 
 * systemd
 * wget (to download the installation script)
-
-## Required permissions
-
-The following Azure built-in roles are required for different aspects of managing connected machines:
-
-* To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group in which the machines will be managed.
-* To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
-* To select a resource group from the drop-down list when using the **Generate script** method, you must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
 
 ### Networking requirements
 
