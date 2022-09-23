@@ -20,9 +20,8 @@ When creating a **namespace** in the Azure portal, set the **Partitioning** to *
 
 :::image type="content" source="./media/enable-partitions/create-queue.png" alt-text="Enable partitioning at the time of the namespace creation":::
 
-
 ## Using Azure Resource Manager template
-To **create a namespace with partitioning enabled**, set `partitions` to a number larger than 1 in the namespace properties section. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
+To **create a namespace with partitioning enabled**, set `partitions` to a number larger than 1 in the namespace properties section. In the example below a partitioned namespace is created with 4 partitions, and 1 messaging unit assigned to each partition. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
 
 ```json
 {
@@ -60,7 +59,6 @@ To **create a namespace with partitioning enabled**, set `partitions` to a numbe
   ]
 }
 ```
-
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
