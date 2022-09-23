@@ -405,7 +405,7 @@
           - name: Train with custom Docker image
             href: how-to-train-with-custom-image.md
           - name: Use Key Vault when training
-            displayName: secrets keyvault
+            displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
         - name: Track & monitor training
           items:

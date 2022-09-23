@@ -137,7 +137,7 @@ An AzureML compute cluster is a fully managed compute resource that can be used 
 
 # [Python SDK](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
 # [Azure CLI](#tab/azurecli)
 
@@ -180,9 +180,9 @@ curl -X PUT \
 
 To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
+[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
 
 In the above examples, you configured:
 - `code` - path where the code to run the command is located
