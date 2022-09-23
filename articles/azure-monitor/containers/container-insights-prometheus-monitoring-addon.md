@@ -7,7 +7,7 @@ ms.reviewer: aul
 ---
 
 # Send Prometheus metrics to Azure Monitor Logs with Container insights
-This article describes how to send Prometheus metrics to a Log Analytics workspace with the Container insights monitoring addon. You can also send metrics to Azure Monitor managed service for Prometheus with the metrics addon which that supports standard Prometheus features such as PromQL and Prometheus alert rules. See [Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights](container-insights-prometheus-metrics-addon).
+This article describes how to send Prometheus metrics to a Log Analytics workspace with the Container insights monitoring addon. You can also send metrics to Azure Monitor managed service for Prometheus with the metrics addon which that supports standard Prometheus features such as PromQL and Prometheus alert rules. See [Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights](container-insights-prometheus-metrics-addon.md).
 
 
 ## Prometheus scraping settings

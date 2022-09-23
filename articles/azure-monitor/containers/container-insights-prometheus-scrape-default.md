@@ -23,7 +23,7 @@ This article lists the default targets, dashboards, and recording rules when you
    
 ## Metrics collected from default targets
 
-The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules. Please see []() on how to add more metrics to `keeplist` per target.
+The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules. 
 
    **cadvisor (job=cadvisor)**<br>
    - `container_memory_rss`
