@@ -1,5 +1,6 @@
 ---
 title: Use AutoML to detect small objects in images
+titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train small object detection models.
 author: PhaniShekhar
 ms.author: phmantri
@@ -32,7 +33,7 @@ To help with this problem, automated ML supports tiling as part of the public pr
 
 When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap with each other in width and height dimensions. The tiles are cropped from the original as shown in the following image.
 
-![Tiles generation](../media/how-to-use-automl-small-object-detect/tiles-generation.png)
+:::image type="content" source="../media/how-to-use-automl-small-object-detect/tiles-generation.png" alt-text="Diagram that shows an image being divided into a grid of overlapping tiles.":::
 
 ## Prerequisites
 
@@ -77,7 +78,7 @@ parameter_space = {
 
 When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
 
-![Object proposals merge](../media/how-to-use-automl-small-object-detect/tiles-merge.png)
+:::image type="content" source="../media/how-to-use-automl-small-object-detect/tiles-merge.png" alt-text="Diagram that shows object proposals from image and tiles being merged to form the final predictions.":::
 
 > [!NOTE]
 > It's possible that the same object is detected from multiple tiles, duplication detection is done to remove such duplicates.
