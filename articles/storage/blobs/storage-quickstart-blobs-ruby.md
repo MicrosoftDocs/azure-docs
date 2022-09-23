@@ -22,7 +22,7 @@ Learn how to use Ruby to create, download, and list blobs in a container in Micr
 Make sure you have the following additional prerequisites installed:
 
 - [Ruby](https://www.ruby-lang.org/en/downloads/)
-- [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the [RubyGem package](https://rubygems.org/gems/azure-storage-blob):
+- [Azure Storage client library for Ruby](https://github.com/azure/azure-storage-ruby), using the [RubyGem package](https://rubygems.org/gems/azure-storage-blob):
 
     ```console
     gem install azure-storage-blob
