@@ -164,7 +164,7 @@ Example SRV record names (service name 'sip', protocol 'tcp'):
 
 **Scenario**:
 
-If you are using Azure provided DNS server on VNET then Point to Site clients will not be able to resolve records Private DNS Zones(including private endpoints).
+If you are using Azure provided(168.63.129.16) DNS server on VNET then Point to Site clients will not be able to resolve records Private DNS Zones(including private endpoints) because 168.63.129.16 is not resolvable from on-prem.
 
 ![image](https://user-images.githubusercontent.com/101088482/189837694-7343d311-355b-4780-a1ad-407a761e61fc.png)
 
