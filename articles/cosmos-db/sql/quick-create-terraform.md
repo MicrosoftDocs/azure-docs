@@ -86,13 +86,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name "your resource group name"
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name "your resource group name"
 ```
 
 ---
