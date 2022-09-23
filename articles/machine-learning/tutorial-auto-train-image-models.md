@@ -338,7 +338,8 @@ limits:
 
 # [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+
 ---
 
 
@@ -658,8 +659,8 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Deployed your model
 > * Visualized detections
 
-* [Learn more about computer vision in automated ML (preview)](concept-automated-ml.md#computer-vision-preview).
-* [Learn how to set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* [Learn more about computer vision in automated ML](concept-automated-ml.md#computer-vision).
+* [Learn how to set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 * [Learn how to configure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * Code examples:
