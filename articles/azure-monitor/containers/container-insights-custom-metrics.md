@@ -182,5 +182,5 @@ To update all clusters in your subscription by using Azure PowerShell:
 ---
 
 ## Verify the update
-You can verify that custom metric are enabled by opening [metrics explorer](../essentials/m) and verify from **Metric namespace** that **insights** is listed. 
+You can verify that custom metric are enabled by opening [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed. 
 
