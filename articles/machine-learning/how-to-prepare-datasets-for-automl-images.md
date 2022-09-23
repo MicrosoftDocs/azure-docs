@@ -50,7 +50,7 @@ If you already have a data labeling project and you want to use that data, you c
 ### Using pre-labeled training data
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 
 
-Below script uploads the image data at path "./data/odFridgeObjects" on your local machine to Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. Datastore property of this newly created data asset is made to point to location in Azure Blob Storage where the image data was uploaded. 
+Below scripts uploads the image data on your local machine at path "./data/odFridgeObjects" to Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. Datastore property of this newly created data asset is made to point to location in Azure Blob Storage where the image data was uploaded. 
 
 If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it'll update its version number and update its datastore property to point to new location in Azure Blob Storage where we uploaded the image data.
 
@@ -91,17 +91,16 @@ Create a .yml file with the following configuration.
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: fridge-items-images-object-detection
 description: Fridge-items images Object detection
-path: azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image>
+path: azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image_data_folder>
 type: uri_folder
 ```
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
  
 ```Python
 my_data = Data(
-    path="azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image>",
+    path="azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image_data_folder>",
     type=AssetTypes.URI_FOLDER,
     description="Fridge-items images Object detection",
     name="fridge-items-images-object-detection",
