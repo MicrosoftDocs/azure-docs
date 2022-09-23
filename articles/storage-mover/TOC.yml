@@ -32,6 +32,8 @@ items:
         href: agent-register.md
       - name: Manage projects
         href: project-manage.md
+      - name: Create job definitions
+        href: job-definition-create.md
   - name: Decommission
     items:
       - name: Unregister an agent

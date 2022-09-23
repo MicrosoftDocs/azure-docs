@@ -18,6 +18,12 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## September 2022
+
+Clients’ devices using SSL to connect to Azure Database for MySQL – Single Server instances must have their CA certificates updated. To address compliance requirements, starting October 2022 the CA certificates were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2.
+To avoid interruption of your application's availability as a result of certificates being unexpectedly revoked, or to update a certificate that has been revoked, use the steps explained in the [article](./concepts-certificate-rotation.md#create-a-combined-ca-certificate), to maintain connectivity.  
+Use the steps mentioned to [create a combined certificate](./concepts-certificate-rotation.md#create-a-combined-ca-certificate) and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it.
+
 ## May 2022
 
 Enabled the ability to change the server parameter innodb_ft_server_stopword_table from Portal/CLI.

@@ -107,13 +107,9 @@ For more information about security, authorization, and encryption for inbound c
 
      1. On your logic app's menu, select **Overview**.
 
-     1. In the **Summary** section, select **See trigger history**.
+     1. On the **Overview** pane, select **Trigger history**. Under **Callback url [POST]**, copy the URL:
 
-        ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
-
-     1. Under **Callback url [POST]**, copy the URL:
-
-        ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
+        ![Screenshot showing logic app 'Overview' pane with 'Trigger history' selected.](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
 <a name="select-method"></a>
 

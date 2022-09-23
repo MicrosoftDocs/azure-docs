@@ -19,11 +19,11 @@ Customers must update client code before the TLS 1.0/1.1 retirement.
 
 - Customers using native WinHTTP for client code can follow this [guide](https://support.microsoft.com/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392). 
 
-- Customers using .NET framework for their client code should upgrade to .NET > 4.7, that which enforces TLS 1.2 by default. 
+- Customers using .NET Framework for their client code should upgrade to .NET > 4.7, that which enforces TLS 1.2 by default. 
 
-- For customers on .NET framework who are unable to upgrade to > 4.7, please follow this [guide](https://docs.microsoft.com/dotnet/framework/network-programming/tls) to enforce TLS 1.2.
+- For customers using .NET Framework who are unable to upgrade to > 4.7, please follow this [guide](/dotnet/framework/network-programming/tls) to enforce TLS 1.2.
 
-For TLS best practices, refer to [TLS best practices for .NET framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+For TLS best practices, refer to [TLS best practices for .NET Framework](/dotnet/framework/network-programming/tls).
 
 ## FAQ
 
@@ -41,4 +41,4 @@ For TLS best practices, refer to [TLS best practices for .NET framework](https:/
 
 ## Next steps
 
-For more information, see [How to enable TLS 1.2 on clients](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).
+For more information, see [How to enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).
