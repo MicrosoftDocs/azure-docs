@@ -36,7 +36,7 @@ The load balancer distributes incoming internet requests to the VM instances. Vi
 
 #### DDoS IP Protection virtual machine architecture
 
-:::image type="content" source="./media/reference-architectures/ddos-ip-protection-vm.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on load-balanced virtual machines.":::
+:::image type="content" source="./media/reference-architectures/ddos-ip-protection-virtual-machine.png" alt-text="Diagram of the DDoS IP Protection reference architecture for an application running on load-balanced virtual machines.":::
 
 DDoS IP Protection is enabled on the frontend public IP address of a public load balancer.
 
