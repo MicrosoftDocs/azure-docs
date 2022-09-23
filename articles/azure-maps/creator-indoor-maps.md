@@ -142,7 +142,7 @@ Example layer in the style.json file:
 
 | Layer Properties | Description                                                       |
 |------------------|-------------------------------------------------------------------|
-| ID               | The name of the layer                                             |
+| id               | The name of the layer                                             |
 | type | The rendering type for this layer.<br/>Some of the more common types include:<br/>**fill**: A filled polygon with an optional stroked border.<br/>**Line**: A stroked line.<br/>**Symbol**: An icon or a text label.<br/>**fill-extrusion**: An extruded (3D) polygon. |
 | filter          | Only features that match the filter criteria are displayed.       |
 | layout          | Layout properties for the layer.                                  |
@@ -286,7 +286,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [basemap]: supported-map-styles.md
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
-[style-picker-control]: choose-map-style#add-the-style-picker-control
+[style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager

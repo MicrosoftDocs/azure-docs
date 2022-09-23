@@ -29,7 +29,7 @@ When an indoor map is created in your Azure Maps Creator service, default styles
 
 Open the [Creator Style Editor][style editor] and select the **Open** toolbar button.
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/open-menu.png" alt-text="A screenshot of the open dialog box in the visual style editor.":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/open-menu.png" alt-text="A screenshot of the open menu in the visual style editor.":::
 
 The **Open Style** dialog box opens.
 
@@ -79,15 +79,17 @@ Once your style is open in the visual editor, you can begin to modify the variou
 
 To change the background color for all units in the specified layer, put your mouse pointer over the desired unit and select it using the left mouse button. You’ll be presented with a popup menu showing the layers that are associated with the categories the unit is associated with. Once you select the layer that you wish to update the style properties on, you’ll see that layer ready to be updated in the left pane.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png) -->
-
-:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png" alt-text="A screenshot of the open dialog box in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png" alt-text="A screenshot of the unit layer pop-up dialog box in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-layer.png":::
 
 Open the color palette and select the color you wish to change the selected unit to.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png) -->
+:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png" alt-text="A screenshot of the color pallet in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png":::
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png" alt-text="A screenshot of the open dialog box in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png":::
+#### Base map
+
+The base map drop-down list on the visual editor toolbar presents a list of base map styles that affect the style attributes of the base map that your indoor map is part of. It will not affect the style elements of your indoor map but will enable you to see how your indoor map will look with the various base maps.
+
+:::image type="content" source="./media/creator-indoor-maps/style-editor/base-map-menu.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
 
 #### Save custom styles
 
@@ -95,15 +97,11 @@ Once you have made all of the desired changes to your styles, save the changes t
 
 To save your changes, select the **Save** button on the toolbar.
 
-<!-- ![](./media/creator-indoor-maps/style-editor/save-menu.png) -->
-
 :::image type="content" source="./media/creator-indoor-maps/style-editor/save-menu.png" alt-text="A screenshot of the save menu in the visual style editor.":::
 
 The will bring up the **Upload style & map configuration** dialog box:
 
-<!-- ![](./media/creator-indoor-maps/style-editor/upload-style-map-config.png) -->
-
-:::image type="content" source="./media/creator-indoor-maps/style-editor/upload-style-map-config.png" alt-text="A screenshot of the open dialog box in the visual style editor.":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/upload-style-map-config.png" alt-text="A screenshot of the upload style and map configuration dialog box in the visual style editor.":::
 
 The following table describes the four fields you're presented with.
 
@@ -125,7 +123,7 @@ Some important things to know about aliases:
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
 > [!TIP]
-> Make a note of the map configuration ID or alias values, they are needed when you [Instantiate the Indoor Manager](instantiate-indoor-manager.md) of a Map object when developing applications in Azure Maps.
+> Make a note of the map configuration ID or alias values, they are needed when you [Instantiate the Indoor Manager][Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
 
 ## Custom categories
 
@@ -135,15 +133,15 @@ There may be times when you want to create a new category. For example, you may 
 
 To do this, enter the desired value in the `categoryName` for the desired `unitName` in the manifest JSON before uploading your drawing package.
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/category-name.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/category-name.png" alt-text="A screenshot showing the custom category name in the manifest.":::
 
 Once opened in the visual editor, you'll notice that this category name isn't associated with any layer and has no default styling. In order to apply styling to it, you'll need to create a new layer and add the new category to it.
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/category-name-changed.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/category-name-changed.png" alt-text="A screenshot showing the difference in the layers that appear after changing the category name in the manifest.":::
 
 To create a new layer, select the duplicate button on an existing layer. This creates a copy of the selected layer that you can modify as needed. Next, rename the layer by typing a new name into the **ID** field. For this example, we entered *indoor_unit_room_accessible*.
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/duplicate.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/duplicate.png" alt-text="A screenshot the duplicate button in the layers pane in the visual editor toolbar, along with the layer ID showing the name of the new layer that is the same as the original layer with a dash copy added to the end.":::
 
 Once you've created a new layer, you need to associate your new category name with it. This is done by editing the copied layer to remove the existing categories and add the new one.
 
@@ -232,12 +230,6 @@ Now when you select that unit in the map, the pop-up menu will have the new laye
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/custom-category-name-complete.png" alt-text="A screenshot of the pop-up menu showing the new layer appearing when the phone 11 unit is selected.":::
 
-## Base map
-
-The base map drop-down list on the visual editor toolbar presents a list of base map styles that affect the style attributes of the base map that your indoor map is part of. It will not affect the style elements of your indoor map but will enable you to see how your indoor map will look with the various base maps.
-
-:::image type="content" source="./media/creator-indoor-maps/style-editor/base-map-menu.png" alt-text="A screenshot of the base maps drop-down list in the visual editor toolbar.":::
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -248,7 +240,8 @@ The base map drop-down list on the visual editor toolbar presents a list of base
 [tutorial]: tutorial-creator-indoor-maps.md
 [creator api]: /rest/api/maps-creator/
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[subscription key]: quick-demo-map-app#get-the-primary-key-for-your-account
-[manifest]: drawing-requirements#manifest-file-requirements
-[unitProperties]: drawing-requirements#unitproperties
+[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[manifest]: drawing-requirements.md#manifest-file-requirements
+[unitProperties]: drawing-requirements.md#unitproperties
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
+[Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
