@@ -14,7 +14,7 @@ ms.custom: automl, event-tier1-build-2022
 
 # What is automated machine learning (AutoML)?
 
-[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 
