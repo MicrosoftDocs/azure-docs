@@ -63,9 +63,9 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 1. End the VM session.
 1. Connect to the target VM again using Bastion. Sign-in should succeed, indicating that Bastion used Kerberos (and not NTLM) for authentication.
 
-## Setup
+## Quickstart: Setup Bastion with Kerberos - Resource Manager template
 
-### Sample KerberosDeployment.json 
+### Review the template
 
 ```
 {
@@ -406,22 +406,23 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
   ]
 }
 ```
-
-To setup Kerberos, deploy the `KerberosDeployment.json` ARM template by running the following PS cmd: 
-```
-New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
-```
-This template does the following:
+The following resources have been defined in the template:
 - Deploys the following Azure resources: 
-  - Virtual Network
-  - A Standard SKU Bastion with a public IP and Kerberos feature enabled
-  - A Windows 10 ClientVM and a Windows Server 2019 ServerVM
+  - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
+  - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled
+  - Create a Windows 10 ClientVM and a Windows Server 2019 ServerVM
 - Have the DNS Server of the VNET point to the private IP address of the ServerVM (domain controller).
 - Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
 - Runs a Custom Script Extension on the ClientVM to have it: 
   - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication).
   - Domain-join the `bastionkrb.test` domain.
 
+## Deploy the template
+To setup Kerberos, deploy the ARM template above by running the following PS cmd: 
+```
+New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
+```
+## Review deployed resources
 Now, login to ClientVM using Bastion with Kerberos authentication:
 - credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
 
