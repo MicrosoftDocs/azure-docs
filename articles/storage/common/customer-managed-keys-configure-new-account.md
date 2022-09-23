@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 09/22/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -28,11 +28,11 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 ## Use a user-assigned managed identity to authorize access to the key vault
 
-When you enable customer-managed keys for a new storage account, you must specify a user-assigned managed identity. The user-assigned managed identity will be used to authorize access to the key vault that contains the key. The user-assigned managed identity must have permissions to access the key in the key vault.
+When you enable customer-managed keys for a new storage account, you must specify a user-assigned managed identity. The user-assigned managed identity will be used to authorize access to the key vault that contains the key. You must create the user-assigned identity before you configure customer-managed keys.
 
 A user-assigned is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
-Both new and existing storage accounts can use a user-assigned identity to authorize access to the key vault. You must create the user-assigned identity before you configure customer-managed keys.
+The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity to grant these permissions.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -40,10 +40,14 @@ When you configure customer-managed keys with the Azure portal, you can select a
 
 ### [PowerShell](#tab/azure-powershell)
 
-To authorize access to the key vault with a user-assigned managed identity, you'll need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity and assign it to a variable that you'll reference in subsequent steps:
+The following example shows how to retrieve the user-assigned managed identity and assign to it the required RBAC role:
 
 ```azurepowershell
 $userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
+
+New-AzRoleAssignment -ObjectId $userIdentity.PrincipalId `
+-RoleDefinitionName "Key Vault Crypto Service Encryption User" `
+-Scope $keyVault.ResourceId
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -54,43 +58,6 @@ To authorize access to the key vault with a user-assigned managed identity, you'
 userIdentityId=$(az identity show --name sample-user-assigned-identity --resource-group storagesamples-rg --query id)
 principalId=$(az identity show --name sample-user-assigned-identity --resource-group storagesamples-rg --query principalId)
 ```
-
----
-
-## Configure the key vault access policy
-
-The next step is to configure the key vault access policy. The key vault access policy grants permissions to the user-assigned managed identity that will be used to authorize access to the key vault. To learn more about key vault access policies, see [Azure Key Vault Overview](../../key-vault/general/overview.md#securely-store-secrets-and-keys) and [Azure Key Vault security overview](../../key-vault/general/security-features.md#key-vault-authentication-options).
-
-### [Azure portal](#tab/azure-portal)
-
-To learn how to configure the key vault access policy with the Azure portal, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
-
-### [PowerShell](#tab/azure-powershell)
-
-To configure the key vault access policy with PowerShell, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), providing the variable for the principal ID that you previously retrieved for the user-assigned managed identity.
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVault.VaultName `
-    -ObjectId $userIdentity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get
-```
-
-To learn more about assigning the key vault access policy with PowerShell, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
-
-### [Azure CLI](#tab/azure-cli)
-
-To configure the key vault access policy with PowerShell, call [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy), providing the variable for the principal ID that you previously retrieved for the user-assigned managed identity.
-
-```azurecli
-az keyvault set-policy \
-    --name <key-vault> \
-    --resource-group <resource_group>
-    --object-id $principalId \
-    --key-permissions get unwrapKey wrapKey
-```
-
-To learn more about assigning the key vault access policy with Azure CLI, see [Assign an Azure Key Vault access policy](../../key-vault/general/assign-access-policy.md).
 
 ---
 
@@ -208,7 +175,6 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
     -KeyVersion $key.Version `
     -KeyVaultUserAssignedIdentityId $userIdentity.Id
 ```
-
 
 When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
 
