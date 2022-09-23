@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Migrate devices and groups from Public Preview Refresh to GA
+# Migrate devices and groups to latest Device Update for IoT Hub release
 
 As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview Refresh(PPR) release] to the current, [GA release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview Refresh release, you can ignore this page.
 
