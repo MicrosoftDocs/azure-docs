@@ -156,12 +156,33 @@ The following authentication methods can't be registered as part of combined reg
 
 If a user is not registered for these methods, they can register a required method by using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode). They can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
 
-## External users 
-<!-- Namrata to include admin section-->
+## External users
+
+The authentication method policy control is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as phishing-resistant methods, for external users.
+
+When you apply an authentication strength policy to external Azure AD users, the policy works together with MFA trust settings in your cross-tenant access settings to determine where and how the external user must perform MFA. An Azure AD user authenticates in their home Azure AD tenant. Then when they access your resource, Azure AD applies the authentication strength Conditional Access policy and checks to see if you've enabled MFA trust. Note that enabling MFA trust is optional for B2B collaboration but is *required* for B2B direct connect ([learn more](../external-identities/b2b-direct-connect-overview#multi-factor-authentication-mfa)).
+
+In external user scenarios, the authentication methods that are acceptable for fulfilling authentication strength vary, depending on whether the user is completing MFA in their home tenant or the resource tenant. The following table indicates the acceptable methods in each tenant. If a resource tenant has opted to trust claims from external Azure AD organizations, only those claims listed in the “Home tenant” column below will be accepted by the resource tenant for MFA fulfillment. If the resource tenant has disabled MFA trust, the external user must complete MFA in the resource tenant using one of the methods listed in the “Resource tenant” column.
+
+|Authentication method  |Home tenant  | Resource tenant  |
+|---------|---------|---------|
+|SMS as second factor                         | &#x2705;        | &#x2705; |
+|Voice call                                   | &#x2705;        | &#x2705; |
+|Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
+|Microsoft Authenticator phone sign-in        | &#x2705;        | &#x2705; |
+|OATH software token                          | &#x2705;        | &#x2705; |
+|OATH hardware token                          | &#x2705;        |          |
+|FIDO2 security key                           | &#x2705;        |          |
+|Windows Hello for Business                   | &#x2705;        |          |
+
+To configure a Conditional Access policy that applies authentication strength requirements to external users or guests, see [Conditional Access: Require an authentication strength for external users](../conditional-access/howto-conditional-access-policy-authentication-strength-external.md).
 
 ### User experience for external users
-<!-- Namrata to add -->
 
+Authentication strength policies work together with [MFA trust settings](cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims) in your cross-tenant access settings. First, an Azure AD user authenticates with their own account in their home tenant. Then when this user tries to access your resource, Azure AD applies the authentication strength Conditional Access policy and checks to see if you've enabled MFA trust.
+
+- **If MFA trust is enabled**, Azure AD checks the user's authentication session for a claim indicating that MFA has been fulfilled in the user's home tenant. (See the table above for authentication methods that are acceptable for MFA when completed in an external user's home tenant.) If the session contains a claim indicating that MFA policies have already been met in the user's home tenant and the methods satisfy the authentication strength requirements, the user is allowed access. Otherwise, Azure AD presents the user with a challenge to complete MFA in the home tenant using an acceptable authentication method.
+- **If MFA trust is disabled**, Azure AD presents the user with a challenge to complete MFA in the resource tenant using an acceptable authentication method. (See the table above for authentication methods that are acceptable for MFA by an external user.)
 
 ## Known issues
 - **Registration experience when the user is already registered for at least one strong authentication method** - If the user is not registered for any of the methods required by the authentication strength policy, the user will be redirected to register a required method. However, if the user is already registered for another strong authentication method, they must complete MFA before registering a new method. At the end of authentication process, the user is redirected to **My Sign-ins page** without indication about which methods they should register. This issue doesn't effect users who haven't registered _any_ strong authentication methods. For optimal user experience, we recommend you ensure your users are registered for the methods enforced by the authentication strengths policy.
