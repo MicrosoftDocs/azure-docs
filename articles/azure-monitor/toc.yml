@@ -1270,8 +1270,6 @@ items:
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Enable metrics
-        href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)
         href: containers/container-insights-logging-v2.md
     - name: Monitor
@@ -1288,6 +1286,8 @@ items:
         href: containers/container-insights-persistent-volumes.md
       - name: Reports tab
         href: containers/container-insights-reports.md
+      - name: Custom metrics
+        href: containers/container-insights-custom-metrics.md
     - name: Log queries
       href: containers/container-insights-log-query.md
     - name: View live data

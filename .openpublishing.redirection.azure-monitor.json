@@ -5455,6 +5455,11 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-new-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-aks",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-update-metrics.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-custom-metrics",
+            "redirect_document_id": false
         }
     ]
 }
