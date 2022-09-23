@@ -17,7 +17,7 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
 > [!NOTE] 
 > All PPR device groups created will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the the updated GA groups. 
 
-## Update the device update agent
+## Update the Device Update agent
 
 For the GA release, the Device Update agent can be updated manually or using the Device Update Service using apt manifest or image updates. If you are using image updates, you can include the GA Device Update agent in the your update.
 
@@ -44,7 +44,7 @@ For the GA release, the Device Update agent can be updated manually or using the
 
 2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
 
-**Example Import Manifest**
+	**Example Import Manifest**
 	```json
 	{
 	  "manifestVersion": "4",
@@ -83,9 +83,10 @@ For the GA release, the Device Update agent can be updated manually or using the
 	  },
 	  "createdDateTime": "2022-08-20T18:32:01.8404544Z"
 	}
-       ```
+      ```
 
-**Example APT manifest**
+	**Example APT manifest**
+
 	  ```json
 	  {
 	    "name": "Sample DU agent upgrade update",
@@ -96,10 +97,10 @@ For the GA release, the Device Update agent can be updated manually or using the
 		}
 	    ]
 	}
-	```
+	 ```
 
-	> [!NOTE] 
-	> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
+> [!NOTE] 
+> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
 
 
 3. Deploy the update
