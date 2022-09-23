@@ -8,24 +8,26 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
-ms.date: 09/08/2022
+ms.date: 09/23/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
 # How to use parallel job in pipeline (V2) (preview)
 
-Parallel job targets to empower users to accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, run object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on specific compute cluster. Parallelization could significantly reduce the time cost, and Azure ML parallel job make your whole process with simplification, automation and efficiency。
+[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+
+Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you are running a object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
 
 ## Prerequisite
 
-With the latest release, Azure ML parallel job could only be used as one of steps in pipeline job. Thus, the following pipeline documentations are required to understand before use parallel job.
+Azure ML parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure ML pipelines, see the following articles.
 
 1. Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
 2. Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Why are parallel jobs needed?
 
-In the real world, ML engineers always have scale requirements on their training or inferencing tasks. For example, when data scientist provides a single script to a train sales prediction model, ML engineers need to apply this training task to each individual store. During this scale out process, some challenges are:
+In the real world, ML engineers always have scale requirements on their training or inferencing tasks. For example, when a data scientist provides a single script to train a sales prediction model, ML engineers need to apply this training task to each individual store. During this scale out process, some challenges are:
 
 - Delay pressure caused by long execution time.
 - Manual intervention to handle unexpected issues to keep the task proceeding.
@@ -33,7 +35,7 @@ In the real world, ML engineers always have scale requirements on their training
 The core value of Azure ML parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs we can:
 
  - Significantly reduce end-to-end execution time.
- - Use Azure ML parallel job's  automatic error handling settings.
+ - Use Azure ML parallel job's automatic error handling settings.
 
 You should consider using Azure ML Parallel job if:
 
@@ -42,21 +44,25 @@ You should consider using Azure ML Parallel job if:
 
 ## Prepare for parallel job
 
-Unlike other types of job, a parallel job requires preparation. Follow the next sections to prepare for creating your parallel job.
+Unlike other types of jobs, a parallel job requires preparation. Follow the next sections to prepare for creating your parallel job.
 
 ### Declare the inputs to be distributed and partition setting
 
-Parallel job requires only one **major input data** to be split and processed with parallel. The major input data could be either tabular data or a set of files. Different input type could have a different partition method.
+Parallel job requires only one **major input data** to be split and processed with parallel. The major input data can be either tabular data or a set of files. Different input types can have a different partition method.
 
 The following table illustrates the relation between input data and partition setting:
 
 | Data format | AML input type | AML input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
-| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)*
-| Tabular data | `mltable` | direct | By size (estimated physical size) <br> 
+| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)* |
+| Tabular data | `mltable` | direct | By size (estimated physical size) <br>  |
 
-You can declare your major input data with `input_data` attribute in parallel job yaml or python sdk. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input, you could:
- - Set numbers to `mini_batch_size` to partition your data **by size**. For file list input, this value defines the number of files for each mini-batch. For tabular input, this value defines the estimated physical size for each mini-batch.
+You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input.
+
+For example, you could set numbers to `mini_batch_size` to partition your data **by size**.
+
+- When using file list input, this value defines the number of files for each mini-batch.
+- When using tabular input, this value defines the estimated physical size for each mini-batch.
 
 # [Azure CLI](#tab/cliv2)
 
@@ -69,14 +75,14 @@ Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
 
 ---
 
-Once you have partition setting defined, you can configure parallel setting by using two attributes below:
+Once you have the partition setting defined, you can configure parallel setting by using two attributes below:
 
 | Attribute name | Type | Description | Default value |
 |:-|--|:-|--|
 | `instance_count` | integer | The number of nodes to use for the job. | 1 |
 | `max_concurrency_per_instance` | integer | The number of processors on each node. | For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores. |
 
-These two attributes work together with your specified compute cluster as diagram below:
+These two attributes work together with your specified compute cluster.
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png" alt-text="Diagram showing how distributed data works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png":::
 
@@ -93,7 +99,7 @@ Sample code to set two attributes:
 ---
 
 > [!NOTE]
-> If you use tabular `mltable` as your major input data, you need have MLTABLE specification file with `transformations - read_delimited` section filled under your specific path. For more examples, see [Create a mltable data asset](how-to-create-register-data-assets.md#create-a-mltable-data-asset)
+> If you use tabular `mltable` as your major input data, you need to have the MLTABLE specification file with `transformations - read_delimited` section filled under your specific path. For more examples, see [Create a mltable data asset](how-to-create-register-data-assets.md#create-a-mltable-data-asset)
 
 ### Implement predefined functions in entry script
 
