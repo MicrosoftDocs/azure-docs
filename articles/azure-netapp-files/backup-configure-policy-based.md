@@ -101,7 +101,7 @@ To enable a policy-based (scheduled) backup:
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
     * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
 
-        ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
+    ![Screenshot that shows the Backup Policy window with Snapshot Policy selected.](../media/azure-netapp-files/backup-policy-snapshot-policy-option.png)
  
 ### Example of a valid configuration
 
