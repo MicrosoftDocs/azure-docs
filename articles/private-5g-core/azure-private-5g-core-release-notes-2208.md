@@ -12,7 +12,7 @@ ms.date: 09/23/2022
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2208 release for the Azure Private 5G Core. The release notes are continuously updated, and critical issues requiring a workaround are added here as they're discovered. Before deploying this new version, carefully review the information contained in these release notes.
 
-This article applies to the Azure Private 5G Core 2208 version (SKU 4.16). This release is compatible with the Azure Stack Edge Pro GPU running the 2207 release and is supported by the 2022-04-01-preview [Microsoft.MobileNetwork API version](/rest/api/mobilenetwork).
+This article applies to the Azure Private 5G Core 2208 version (PMN-4-16). This release is compatible with the Azure Stack Edge Pro GPU running the 2207 release and is supported by the 2022-04-01-preview [Microsoft.MobileNetwork API version](/rest/api/mobilenetwork).
 
 ## What's new
 
