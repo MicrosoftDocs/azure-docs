@@ -53,7 +53,7 @@ Next, you'll need to install the browser extension. This is installed on session
 
    :::image type="content" source="./media/mmr-extension-enable.png" alt-text="A screenshot of the prompt to enable the extension.":::
 
-   If the user selects **Remove extension**, it will be removed from the browser and they will need to add it from Microsoft Edge Add-ons or the Chrome Web Store. To install it again, see [Installing the browser extension manually](#installing-the-browser-extension-manually).
+   If the user selects **Remove extension**, it will be removed from the browser and they will need to add it from Microsoft Edge Add-ons or the Chrome Web Store. To install it again, see [Installing the browser extension manually](#install-the-browser-extension-manually).
 
 You can also automate installing the browser extension from Microsoft Edge Add-ons or the Chrome Web Store for all users using Group Policy.
 

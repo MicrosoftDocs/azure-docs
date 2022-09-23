@@ -35,7 +35,7 @@ The following issues are ones we're already aware of, so you won't need to repor
     - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
     - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#install-the-browser-extension-using-group-policy).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
@@ -48,7 +48,7 @@ The following issues are ones we're already aware of, so you won't need to repor
   - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
   - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#managing-group-policies-for-the-multimedia-redirection-browser-extension).
+- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#install-the-browser-extension-using-group-policy).
 
 - Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
 
@@ -58,7 +58,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Video playback redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- During public preview, video playback redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable video playback redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- During public preview, video playback redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable video playback redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 

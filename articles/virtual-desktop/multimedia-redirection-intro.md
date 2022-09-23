@@ -34,10 +34,8 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - Big Think
       - Brightcove
       - CNBC
-      - CNN
       - Coursera
       - Daily Mail
-      - ESPN
       - Facebook
       - Fidelity
    :::column-end:::
@@ -45,7 +43,6 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - Flashtalking
       - Fox Sports
       - Fox Weather
-      - iHeartRadio
       - IMDB
       - Infosec Institute
       - LinkedIn Learning
@@ -58,7 +55,6 @@ The following list shows websites that are known to work with MMR. MMR works wit
    :::column span="":::
       - Skillshare
       - The Guardian
-      - TikTok
       - Twitch
       - Udemy
       - UMU
