@@ -21,13 +21,10 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This archive page retains updates from older months.  
 
-Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
+Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
 
 ## June 2022
 
-> [!VIDEO https://www.youtube.com/embed?v=Ay3tsJe_vMM&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=3]
-
-<br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 <tr><td rowspan=3><b>Data flow</b></td><td>Fuzzy join supported for data flows</td><td>Fuzzy join is now supported in Join transformation of data flows with configurable similarity score on join conditions.<br><a href="data-flow-join.md#fuzzy-join">Learn more</a></td></tr>
@@ -40,9 +37,10 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Orchestration</b></td><td>‘turnOffAsync' property is available in Web activity</td><td>Web activity supports an async request-reply pattern that invokes HTTP GET on the Location field in the response header of an HTTP 202 Response. It helps web activity automatically poll the monitoring end-point till the job runs. ‘turnOffAsync' property is supported to disable this behavior in cases where polling isn't needed<br><a href="control-flow-web-activity.md#type-properties">Learn more</a></td></tr>
 </table>
  
+> [!VIDEO https://www.youtube.com/embed?v=Ay3tsJe_vMM&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=3]
+
 ## May 2022
 
-<br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -51,7 +49,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 </table>
 
 ## April 2022
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -67,9 +65,6 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ## March 2022
 
-> [!VIDEO https://www.youtube.com/embed?v=MkgBxFyYwhQ&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=2]
-
-<br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -89,11 +84,10 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 </table>
 
+> [!VIDEO https://www.youtube.com/embed?v=MkgBxFyYwhQ&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=2]
+
 ## February 2022
 
-> [!VIDEO https://www.youtube.com/embed?v=r22nthp-f4g&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=1]
-
-<br>
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -112,8 +106,10 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
+> [!VIDEO https://www.youtube.com/embed?v=r22nthp-f4g&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=1]
+
 ## January 2022
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -129,7 +125,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 </table>
 
 ## December 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -146,7 +142,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 </table>
 
 ## November 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -172,8 +168,9 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
  </tr>
 </table>
 
+
 ## October 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -197,7 +194,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 </table>
 
 ## September 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -217,8 +214,9 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td>Fail activity (public preview)</td><td>The new Fail activity allows you to throw an error in a pipeline intentionally for any reason. For example, you might use the Fail activity if a Lookup activity returns no matching data or a custom activity finishes with an internal error.<br><a href="control-flow-fail-activity.md">Learn more</a></td></tr>
 </table>
 
+
 ## August 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -234,8 +232,9 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Orchestration</b></td><td>Custom event trigger with advanced filtering option GA</td><td>You can now create a trigger that responds to a custom topic posted to Azure Event Grid. You can also use advanced filtering to get fine-grain control over what events to respond to.<br><a href="how-to-create-custom-event-trigger.md">Learn more</a></td></tr>
 </table>
 
+
 ## July 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
@@ -250,7 +249,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 </table>
 
 ## June 2021
-<br>
+
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 

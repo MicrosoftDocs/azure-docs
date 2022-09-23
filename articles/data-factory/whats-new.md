@@ -51,18 +51,21 @@ When CI/CD integrating ARM template, instead of turning off all triggers, it can
 
 ### Data flow
 
-- Asana connector added as source [Doc](connector-asana.md)
-- 3 new data transformation functions now supported [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/3-new-data-transformation-functions-in-adf/ba-p/3582738)
-- Refetch from source available in Refresh for data source change scenarios [Doc](concepts-data-flow-debug-mode.md#data-preview)
-- User defined functions (GA) [Doc](concepts-data-flow-udf.md)
-- Easier configuration on data flow runtime - choose compute size among Small, Medium and Large to pre-configure all integration runtime settings [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-makes-it-easy-to-select-azure-ir-size-for-data-flows/ba-p/3578033)
--  
+- Asana connector added as source. [Doc](connector-asana.md)
+- 3 new data transformation functions now supported. [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/3-new-data-transformation-functions-in-adf/ba-p/3582738)
+   - collectUnique() - Create a new collection of unique values in an array.
+   - substringIndex() - Extract the substring before n occurrences of a delimiter.
+   - topN() - Return the top n results after sorting your data.
+- Refetch from source available in Refresh for data source change scenarios. [Doc](concepts-data-flow-debug-mode.md#data-preview)
+- User defined functions (GA) - Create reusable and customized expressions to avoid building complex logic over and over. [Doc](concepts-data-flow-udf.md) [Video](https://www.youtube.com/watch?v=ZFTVoe8eeOc&t=170s)
+- Easier configuration on data flow runtime - choose compute size among Small, Medium and Large to pre-configure all integration runtime settings. [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-makes-it-easy-to-select-azure-ir-size-for-data-flows/ba-p/3578033)
+
 ### Continuous integration and continuous delivery (CI/CD)
 
-Include Global parameters supported in ARM template [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvement-using-global-parameters-in-azure-data-factory/ba-p/3557265#M665)
+Include Global parameters supported in ARM template. [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvement-using-global-parameters-in-azure-data-factory/ba-p/3557265#M665)
 ### Developer productivity
 
-Azure Data Factory studio preview experience [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880)
+Be a part of Azure Data Factory studio preview features - Experience the latest Azure Data Factory capabilities and be the first to share your feedback. [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880)
 
 ## More information
 
