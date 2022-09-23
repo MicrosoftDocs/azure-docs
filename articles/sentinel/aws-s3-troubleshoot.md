@@ -48,11 +48,11 @@ The relevant logs don't exist in the S3 bucket.
 
 ### Solution: Search for logs and export logs if needed
 
-1. In AWS, open the S3 bucket, search for the relevant folder according to the required logs, and check if there are any logs inside the folder:
+1. In AWS, open the S3 bucket, search for the relevant folder according to the required logs, and check if there are any log files inside the folder.
 
     :::image type="content" source="media/aws-s3-troubleshoot/aws-s3-bucket-check-logs.png" alt-text="Screenshot of searching for logs in the A W S S 3 bucket."::: 
 
-2. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
+1. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
 
 ### Cause 3: The S3 data didn't arrive at the SQS 
 
@@ -61,11 +61,7 @@ The data wasn't successfully transferred from S3 to the SQS.
 ### Solution: Verify that the data arrived and configure event notifications
 
 1. In AWS, open the relevant SQS. 
-1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Sent** widget. 
-
-    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-sent.png" alt-text="Screenshot of widget showing number of messages in the A W S S Q S Monitoring tab."::: 
-
-    If there's no traffic in the SQS, there's an AWS configuration problem. 
+1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Sent** widget. If there's no traffic in the SQS, there's an AWS configuration problem. 
 1. Make sure that the event notifications definition for the SQS includes the correct data filters (prefix and suffix). 
     1. To see the event notifications, in the S3 bucket, select the **Properties** tab, and locate the **Event notifications** section. 
     1. If you can’t see this section, create it. 
@@ -79,10 +75,7 @@ The SQS didn't successfully read the S3 data.
 
 1. In AWS, open the relevant SQS. 
 1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Deleted** and **Number Of Messages Received** widgets. 
-
-    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
-
-1. One spike of data isn't enough. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
+1. One spike of data isn't enough. Wait until there's enough data (several spikes), and then check for issues.
 1. If at least one of the widgets is empty, check the health logs by running this query:
 
     ```kusto
