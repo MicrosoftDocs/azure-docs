@@ -44,6 +44,7 @@ Follow these steps to create a new console application.
 1. Copy the following code into `speech_synthesis.py`: 
 
     ```Python
+    import os
     import azure.cognitiveservices.speech as speechsdk
 
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))

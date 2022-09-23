@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Microsoft Learn
-            url: /learn/modules/classify-images-custom-vision/
+            url: /training/modules/classify-images-custom-vision/
       - linkListType: video
         links:
           - text: Train and identify unique images

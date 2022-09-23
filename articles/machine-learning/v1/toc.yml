@@ -190,6 +190,9 @@
         href: how-to-train-pytorch.md
       - name: Migrate from Estimators to ScriptRunConfig
         href: how-to-migrate-from-estimators-to-scriptrunconfig.md
+      - name: Use Key Vault when training
+        displayName: secrets keyvault
+        href: how-to-use-secrets-in-runs.md
     - name: Automated machine learning
       displayName: automl, auto ml
       items:
