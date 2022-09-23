@@ -21,7 +21,7 @@ This how-to guide shows how to provision access from Microsoft Purview to Azure 
 - Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-microsoft-purview-portal.md).
 - Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
-- Create a new Azure SQL Database or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](https://docs.microsoft.com/azure/azure-sql/database/single-database-create-quickstart).
+- Create a new Azure SQL Database or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart.md).
 
 **Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
 - East US
