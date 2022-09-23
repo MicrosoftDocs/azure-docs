@@ -20,7 +20,8 @@ API Management also supports multiple cipher suites used by the API gateway.
 
 By default, API Management enables TLS 1.2 for client and backend connectivity and several supported cipher suites. This guide shows you how to manage protocols and ciphers configuration for an Azure API Management instance.
 
-![Manage protocols and ciphers in APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
+:::image type="content" source="media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png" alt-text="Screenshot of managing protocols and ciphers in the Azure portal.":::
+
 
 > [!NOTE]
 > * If you're using the self-hosted gateway, see [self-hosted gateway security](self-hosted-gateway-overview.md#security) to manage TLS protocols and cipher suites.
@@ -32,7 +33,7 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## How to manage TLS protocols and 3DES cipher suites
+## How to manage TLS protocols cipher suites
 
 1. In the left navigation of your API Management instance, under **Security**, select **Protocols + ciphers**.  
 1. Enable or disable desired protocols or ciphers.
@@ -43,6 +44,6 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 ## Next steps
 
-* For recommendations on securing your API Management instance, see [Azure security baseline for API Management](api-management-security-baseline.md).
+* For recommendations on securing your API Management instance, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 * Learn about security considerations in the API Management [landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/security).
 * Learn more about [TLS](/dotnet/framework/network-programming/tls).
