@@ -18,17 +18,17 @@ ms.custom: has-adal-ref
 ---
 # Azure Active Directory certificate-based authentication on mobile devices (Android and iOS)
 
-Android and iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory using a client certificate on their device when connecting to:
+Android and iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD certificate-based authentication (CBA) is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on both iOS and Android devices. 
+Azure AD CBA is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on both iOS and Android devices. 
 
 ## Prerequisites
 
-- For Android device, OS version must be Android 5.0 (Lollipop) and above.
-- For iOS device, OS version must be iOS 9 or above.
+- Android version must be Android 5.0 (Lollipop) or later.
+- iOS version must be iOS 9 or later.
 - Microsoft Authenticator is required for Office applications on iOS.
 
 ## Microsoft mobile applications support
@@ -53,11 +53,11 @@ On iOS 9 or later, the native iOS mail client is supported.
 
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. 
 
-To determine if your email application supports this feature, contact your application developer.
+To determine if your email application supports Azure AD CBA, contact your application developer.
 
 ## Known issue
 
-On iOS, users will see a double prompt, where they must click the option to use certificate-based authentication twice. We are working on making the user experience better.
+On iOS, users will see a "double prompt", where they must click the option to use certificate-based authentication twice. We're working to create a seamless user experience.
 
 ## Next steps
 
