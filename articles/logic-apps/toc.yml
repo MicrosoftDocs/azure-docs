@@ -473,8 +473,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-logic-apps
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap

@@ -4,13 +4,13 @@ description: An introduction to HDInsight, and the Apache Hadoop and Apache Spar
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.date: 07/28/2022
+ms.date: 09/20/2022
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
 # What is Azure HDInsight?
 
-Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, and more, in your Azure environment.
+Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as, Apache Spark, Apache Hive, LLAP, Apache Kafka, Hadoop and more, in your Azure environment.
 
 ## What is HDInsight and the Hadoop technology stack?
 
@@ -109,13 +109,11 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Connect Excel to Apache Hadoop with the Microsoft Hive ODBC Driver](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requires Windows)
 
-
 ## In-region data residency 
 
-Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
-Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
-
+Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
 
 Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 

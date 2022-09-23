@@ -54,6 +54,11 @@
       "source_path": "availability-zone-resiliency.md",
       "redirect_url": "/azure/event-grid/availability-zones-disaster-recovery",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "deliver-events-to-partner-destinations.md",
+      "redirect_url": "/azure/event-grid/partner-events-overview-for-partners",
+      "redirect_document_id": false
+    }    
   ]
 }

@@ -100,6 +100,8 @@ items:
           href: update-service-principal-credentials.md
     - name: Upgrade
       items:
+        - name: Overview
+          href: upgrade-overview.md
         - name: Indirect connectivity mode
           items:
             - name: Data controller indirect - CLI
@@ -276,9 +278,11 @@ items:
     href: about-arcdata-extension.md
 - name: Resources
   items:
-    - name: Azure Arc jumpstart
+    - name: Azure Arc Jumpstart
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md
-    - name: Automated integration testing
+    - name: Support policy
+      href: support-policy.md
+    - name: Automated validation testing
       href: automated-integration-testing.md
