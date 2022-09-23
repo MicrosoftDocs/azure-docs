@@ -27,10 +27,10 @@ Every user must have a user account before they can sign in and access an applic
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of manage users page in IoT Central.":::
 
-1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add an Azure Active Directory group on the **Users** page, choose **+Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
+1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add an Azure Active Directory group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
 
     > [!NOTE]
-    > A service principal and Active Directory group must belong to the same Azure Active Directory tenant as the Azure subscription associated with the IoT Central application.
+    > Service principals and Active Directory groups must belong to the same Azure Active Directory tenant as the Azure subscription associated with the IoT Central application.
 
 1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
@@ -48,11 +48,11 @@ Every user must have a user account before they can sign in and access an applic
     > [!NOTE]
     > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 
-#### Limitations
-The following limitations apply to Azure Active Directory groups and Service Principals:
-- Total number of AAD Groups per IoT Central application cannot be more than 20.
-- Total number of unique Azure Active Directory groups from the same AAD tenant cannot be more than 200 across all IoT Central applications.
-- Service Principals that are part of Azure Active Directory group won't be granted access to the application. They have to be added explicitly.
+The following limitations apply to Azure Active Directory groups and service principals:
+
+- Total number of Azure Active Directory groups for each IoT Central application can't be more than 20.
+- Total number of unique Azure Active Directory groups from the same Azure Active Directory tenant can't be more than 200 across all IoT Central applications.
+- Service principals that are part of an Azure Active Directory group aren't automatically granted access to the application. The service principals must be added explicitly.
 
 ### Edit the roles and organizations that are assigned to users
 
