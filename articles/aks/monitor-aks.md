@@ -48,7 +48,7 @@ When you enable Container insights for your AKS cluster, it deploys a containeri
 
 
 ### Configure collection from Prometheus
-Container insights allows you to collect certain Prometheus metrics in your Log Analytics workspace without requiring a Prometheus server. You can analyze this data using Azure Monitor features along with other data collected by Container insights. See [Configure scraping of Prometheus metrics with Container insights](../azure-monitor/containers/container-insights-prometheus-integration.md) for details on this configuration.
+Container insights allows you to send Prometheus metrics to [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) or to your Log Analytics workspace without requiring a local Prometheus server. You can analyze this data using Azure Monitor features along with other data collected by Container insights. See [Collect Prometheus metrics with Container insights](../azure-monitor/containers/container-insights-prometheus.md) for details on this configuration.
 
 
 ### Collect resource logs
@@ -56,7 +56,7 @@ The logs for AKS control plane components are implemented in Azure as [resource 
 
 You need to create a diagnostic setting to collect resource logs. Create multiple diagnostic settings to send different sets of logs to different locations. See [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) to create diagnostic settings for your AKS cluster. 
 
-There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Send logs to an Azure storage account to reduce costs if you need to retain the information but don't require it to be readily available for analysis.  See [Resource logs](monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and See [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md) for details for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
+There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Send logs to an Azure storage account to reduce costs if you need to retain the information but don't require it to be readily available for analysis.  See [Resource logs](monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and See [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
 
 If you're unsure about which resource logs to initially enable, use the recommendations in the following table which are based on the most common customer requirements. Enable the other categories if you later find that you require this information.
 
@@ -132,7 +132,7 @@ Azure Monitor and container insights don't yet provide full monitoring for the A
 
 :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
-Use the **Kubelet** workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md).
+Use the **Kubelet** workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](../azure-monitor/containers/container-insights-reports.md#resource-monitoring-workbooks) for details on this workbook. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md).
 
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
