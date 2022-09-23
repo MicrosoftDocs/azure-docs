@@ -1,11 +1,11 @@
 ---
-title: Linter rule - use resourceId functions
-description: Linter rule - use resourceId functions
+title: Linter rule - use resource ID functions
+description: Linter rule - use resource ID functions
 ms.topic: conceptual
 ms.date: 09/23/2022
 ---
 
-# Linter rule - use resourceId function
+# Linter rule - use resource ID functions
 
 Ensures that the ID of a symbolic resource name or a suitable function is used rather than a manually created ID, such as a concatenating string, for all properties representing a resource ID. Use resource symbolic names whenever it's possible.
 
@@ -15,7 +15,6 @@ The allowed functions include:
 - [`resourceId`](./bicep-functions-resource.md#resourceid)
 - [`subscriptionResourceId`](./bicep-functions-resource.md#subscriptionresourceid)
 - [`tenantResourceId`](./bicep-functions-resource.md#tenantresourceid)
-- [`if`](./conditional-resource-deployment.md)
 - [`reference`](./bicep-functions-resource.md#reference)
 - [`subscription`](./bicep-functions-scope.md#subscription)
 - [`guid`](./bicep-functions-string.md#guid)
