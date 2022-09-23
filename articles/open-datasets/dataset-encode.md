@@ -15,10 +15,6 @@ The [Encyclopedia of DNA Elements (ENCODE) Consortium](https://www.encodeproject
 
 ENCODE investigators employ various assays and methods to identify functional elements. The discovery and annotation of gene elements is accomplished primarily by sequencing a diverse range of RNA sources, comparative genomics, integrative bioinformatic methods, and human curation. Regulatory elements are typically investigated through DNA hypersensitivity assays, assays of DNA methylation, and immunoprecipitation (IP) of proteins that interact with DNA and RNA, that is, modified histones, transcription factors, chromatin regulators, and RNA-binding proteins, followed by sequencing.
 
-Explore the [Experiment data](https://msit.powerbi.com/reportEmbed?reportId=314fbdbe-2359-4e4d-8760-0ae12ac52c52&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
-
-Explore the [Data files](https://msit.powerbi.com/reportEmbed?reportId=314fbdbe-2359-4e4d-8760-0ae12ac52c52&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
-
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
 ## Data source
