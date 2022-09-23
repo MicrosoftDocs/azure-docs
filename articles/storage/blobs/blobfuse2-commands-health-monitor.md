@@ -94,6 +94,6 @@ The following flags apply only to command `blobfuse2 health-monitor`:
 
 ## See also
 
-- [Use Health Monitor to gain insights into BlobFuse2 mount point activities (preview)](blobfuse2-health-monitor.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [The Blobfuse2 command set (preview)](blobfuse2-commands.md)

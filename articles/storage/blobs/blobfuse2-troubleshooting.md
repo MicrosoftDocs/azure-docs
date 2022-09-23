@@ -31,7 +31,7 @@ During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshooting Guide (
 
 ## See also
 
-- [Use Health Monitor to gain insights into BlobFuse2 mount point activities (preview)](blobfuse2-health-monitor.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)

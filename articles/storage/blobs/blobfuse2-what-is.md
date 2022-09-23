@@ -151,5 +151,5 @@ This table shows how this feature is supported in your account and the impact on
 
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
-- [Use Health Monitor to get insights about BlobFuse2 mount point activities (preview)](blobfuse2-health-monitor.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)

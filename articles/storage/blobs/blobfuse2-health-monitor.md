@@ -25,20 +25,21 @@ This article provides references to assist in deploying and using BlobFuse2 Heal
 > - [The BlobFuse v1 setup documentation](storage-how-to-mount-container-linux.md)
 > - [The BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 
-## The BlobFuse2 Health Monitor
-
 You can use BlobFuse2 Health Monitor to:
 
 - Get statistics about internal activities related to BlobFuse2 mounts
 - Monitor CPU and memory usage by BlobFuse2 mount processes
-- Track file cache usage and file caching events
+- Track file cache usage and events
 
-During the preview of BlobFuse2, refer to [BlobFuse2 Health Monitor README on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/tools/health-monitor/README.md) for full details on how to deploy and use Health Monitor.
+## BlobFuse2 Health Monitor Resources
 
-Use the [BlobFuse2 health-monitor command reference (preview)](blobfuse2-commands-health-monitor.md) for details on how to configure and start a Health Monitor session
+During the preview of BlobFuse2, refer to [the BlobFuse2 Health Monitor README on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/tools/health-monitor/README.md) for full details on how to deploy and use Health Monitor.
+
+Use the [BlobFuse2 health-monitor command reference (preview)](blobfuse2-commands-health-monitor.md) for details on how to configure and start a Health Monitor session.
 
 ## See also
 
+- [BlobFuse2 health-monitor command reference (preview)](blobfuse2-commands-health-monitor.md)
 - [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
