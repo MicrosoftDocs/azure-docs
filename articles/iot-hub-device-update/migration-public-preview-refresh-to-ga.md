@@ -1,6 +1,6 @@
 ---
-title: Migrating to the latest Device Update for Azure IoT Hub release | Microsoft Docs
-description: Understand how to migrate to latest Device Update for Azure IoT Hub release
+title: Migrating to the latest Device Update for IoT Hub release | Microsoft Docs
+description: Understand how to migrate to latest Device Update for IoT Hub release
 author: EshaShah
 ms.author: eshashah
 ms.date: 9/15/2022
@@ -45,71 +45,71 @@ For the GA release, the Device Update agent can be updated manually or using the
 2. Add device update agent upgrade as the last step in your update. The import manifest version must be **"4.0"** to ensure it is targeted to the correct devices. See below a sample import manifest and APT manifest:
 
 **Example Import Manifest**
-```JSON
-{
-  "manifestVersion": "4",
-  "updateId": {
-    "provider": "Contoso",
-    "name": "Sensor",
-    "version": "1.0"
-  },
-  "compatibility": [
-    {
-      "manufacturer": "Contoso",
-      "model": "Sensor"
-    }
-  ],
-  "instructions": {
-    "steps": [
-      {
-        "handler": "microsoft/apt:1",
-        "handlerProperties": {
-          "installedCriteria": "1.0"
-        },
-        "files": [
-          "fileId0"
-        ]
-      }
-    ]
-  },
-  "files": {
-    "fileId0": {
-      "filename": "sample-upgrade-apt-manifest.json",
-      "sizeInBytes": 210,
-      "hashes": {
-        "sha256": "mcB5SexMU4JOOzqmlJqKbue9qMskWY3EI/iVjJxCtAs="
-      }
-    }
-  },
-  "createdDateTime": "2022-08-20T18:32:01.8404544Z"
-}
-```
-
-**Example APT manifest**
-  ```JSON
-  {
-    "name": "Sample DU agent upgrade update",
-    "version": "1.0.0",
-    "packages": [
+	```JSON
 	{
-            "name": "deviceupdate-agent"
-        }
-    ]
-}
-  ```
+	  "manifestVersion": "4",
+	  "updateId": {
+	    "provider": "Contoso",
+	    "name": "Sensor",
+	    "version": "1.0"
+	  },
+	  "compatibility": [
+	    {
+	      "manufacturer": "Contoso",
+	      "model": "Sensor"
+	    }
+	  ],
+	  "instructions": {
+	    "steps": [
+	      {
+		"handler": "microsoft/apt:1",
+		"handlerProperties": {
+		  "installedCriteria": "1.0"
+		},
+		"files": [
+		  "fileId0"
+		]
+	      }
+	    ]
+	  },
+	  "files": {
+	    "fileId0": {
+	      "filename": "sample-upgrade-apt-manifest.json",
+	      "sizeInBytes": 210,
+	      "hashes": {
+		"sha256": "mcB5SexMU4JOOzqmlJqKbue9qMskWY3EI/iVjJxCtAs="
+	      }
+	    }
+	  },
+	  "createdDateTime": "2022-08-20T18:32:01.8404544Z"
+	}
+	```
 
-> [!NOTE] 
-> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
+	**Example APT manifest**
+	  ```JSON
+	  {
+	    "name": "Sample DU agent upgrade update",
+	    "version": "1.0.0",
+	    "packages": [
+		{
+		    "name": "deviceupdate-agent"
+		}
+	    ]
+	}
+	  ```
+
+	> [!NOTE] 
+	> It is required for the agent upgrade to be the last step. You may have other steps before the agent upgrade. Any steps added after the agent upgrade will not be executed and reported correctly as the device reconnects with the DU service.
 
 
-2. Deploy the update
+3. Deploy the update
 
-3. Once the update is successfully deployed, the device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**. 
+4. Once the update is successfully deployed, the device attributes will now show the updated PnP model details.The **Contract Model Name** will show **Device Update Model V2** and **Contract Model ID** will show **dtmi:azure:iot:deviceUpdateContractModel;2**. 
  
 ## Group and deployment behavior across releases
 
 - Device with the Public Preview Refresh DU agent ( 0.8.x) and GA DU agent (1.0.x) can be managed through the Device Update portal. 
-- 
+
 - Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
 
 
