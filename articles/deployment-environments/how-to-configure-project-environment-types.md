@@ -1,7 +1,7 @@
 ---
-title: Configure Project environment types
+title: Configure project environment types
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure environment types to define deployment settings and permissions available to developers when deploying environments in a Project.
+description: Learn how to configure environment types to define deployment settings and permissions available to developers when deploying environments in a project.
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
@@ -9,9 +9,9 @@ ms.date: 09/22/2022
 ms.topic: how-to
 ---
 
-# Configure Project Environment Types
+# Configure project environment types
 
-Project Environment Types are a subset of the [environment types configured per dev center](how-to-configure-devcenter-environment-types.md). In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#environment-types) added to the project will be available to developers when they deploy environments, and they determine the subscription and identity used for those deployments.
+Project environment types are a subset of the [environment types configured per dev center](how-to-configure-devcenter-environment-types.md). In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#environment-types) added to the project will be available to developers when they deploy environments, and they determine the subscription and identity used for those deployments.
 
 Project environment types enable the Dev Infra teams to:
 - Configure the target subscription in which Azure resources will be created per environment type per project. 
@@ -54,7 +54,7 @@ Add a new project environment type as follows:
     |**Deployment Subscription**| Select the target subscription in which the environments will be created.|
     |**Deployment Identity** | Select either a system assigned identity or a user assigned managed identity that'll be used to perform deployments on behalf of the user.|
     |**Permissions on environment resources** > **Environment Creator Role(s)**|  Select the role(s) that'll get access to the environment resources.|
-    |**Permissions on environment resources** > **Additional access** | Select the user(s) or AAD group(s) that'll be granted specific role(s) on the environment resources.|
+    |**Permissions on environment resources** > **Additional access** | Select the user(s) or Azure Active Directory (Azure AD) group(s) that'll be granted specific role(s) on the environment resources.|
     |**Tags** | Provide a **Name** and **Value**. These tags will be applied on all resources created as part of the environments.|
 
    :::image type="content" source="./media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot showing adding details on the add project environment type page.":::
