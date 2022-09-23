@@ -49,14 +49,14 @@ Now we'll walk through each step:
 
 1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
 
-   The endpoint performs mutual authentication, and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs.
+   The endpoint performs mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-in logs.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
    >[!NOTE]
    >The network administrator should allow access to the User sign-in page and certauth endpoint for the customer’s cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
-   Click the log entry to bring up **Activity Details** and click **Authentication Details**. You will see an entry for the X.509 certificate.
+   Click the log entry to bring up **Activity Details** and click **Authentication Details**. You'll see an entry for the X.509 certificate.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry.png" alt-text="Screenshot of the entry for X.509 certificate.":::
 
@@ -121,10 +121,14 @@ An admin can configure the CRL distribution point during the setup process of th
 >[!IMPORTANT]
 >The maximum size of a CRL for Azure AD to successfully download on an interactive sign-in and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure AD can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. As a best practice to keep CRL files within size limits, keep certificate lifetimes within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
 
-When a user performs an  interactive sign-in with a certificate, and the CRL exceeds the interactive limit for a cloud (20MB in Azure Global and 45MB in Azure US Government clouds) this initial sign-in will fail showing the user an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators". Once this happens, Azure AD will attempt to download the CRL subject to the service side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
+When a user performs an interactive sign-in with a certificate, and the CRL exceeds the interactive limit for a cloud, their initial sign-in will fail with the following error:
+
+The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators.
+
+After the error, Azure AD will attempt to download the CRL subject to the service-side limits (45MB in Azure Global and 150MB in Azure US Government clouds).
 
 >[!IMPORTANT]
->If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
+>If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting, but shouldn't be considered for production use.
 
 As of now, we don't support Online Certificate Status Protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign-in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is much faster every time. Customers must publish CRLs for certificate revocation.
 
@@ -205,7 +209,7 @@ For the next test scenario, configure the authentication policy where the **poli
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign-in logs**, including and entry with **Interrupted** status.
 
-   You will see several entries in the Sign-in logs. 
+   You'll see several entries in the Sign-in logs. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
