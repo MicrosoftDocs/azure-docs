@@ -46,7 +46,7 @@ The following table summarizes Site Recovery limits:
 |P30 and above|16 KB|35 MB/s|
 |P30 and above|24 KB and above|50 MB/s|
 
-## How to enable High Churn support 
+## How to enable High Churn support
 
 ### From Recovery Service Vault 
 
@@ -93,10 +93,10 @@ The following table summarizes Site Recovery limits:
 10. Click on **Review + Start Replication**.
 
 >[!Note]
->High Churn can only be enabled during enable replication while configuring Azure Site Recovery on a VM. So, if you want to enable High Churn support for VMs already protected by Azure Site Recovery, you will need to disable replication for them and select **High Churn** while enabling replication again. Similarly, for switching back to **Normal Churn**, you will have to disable and enable replication again. 
+>- You can enable High Churn only when you enable replication while configuring Azure Site Recovery on a VM.
+>- If you want to enable High Churn support for VMs already protected by Azure Site Recovery, disable replication for those VMs and select **High Churn** while enabling replication again. Similarly, disable and enable replication again to switch back to **Normal Churn**.
 
-## Cost Implications 
+## Cost Implications  
 
-- When customers select **High Churn**, they may have cost implications because High Churn uses Premium Block Blob storage accounts as compared to Normal Churn option which uses Standard Page Blob storage accounts. Please review pricing [here](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- For High churning VMs, customers may see more data changes getting replicated to target with **High Churn** option as compared when they were using **Normal Churn** option. This may lead to more network egress cost.  
-
+- Normal Churn uses Standard page Blob storange accounts whereas **High Churn** uses Premium Block Blob storage accounts which may have cost implications. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- More data changes may get replicated to target for High churn VMs compared to Normal churn. This may lead to more network cost.
