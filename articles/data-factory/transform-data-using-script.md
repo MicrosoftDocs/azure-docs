@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 04/20/2022
+ms.date: 09/22/2022
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
