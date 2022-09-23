@@ -127,22 +127,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 #### [Portal](#tab/azure-portal)
 
-1. Go to the volume group you want to configure.
-
-1. Select on the settings menu called **Networking**.
-
-1. Check that you've selected to allow access from **Selected networks**.
-
-1. To grant access to a virtual network with a new network rule, under **Virtual networks**, select **Add existing virtual network**, select **Virtual networks** and **Subnets** options, and then select **Add**. To create a new virtual network and grant it access, select **Add new virtual network**. Provide the information necessary to create the new virtual network, and then select **Create**.
-
-    > [!NOTE]
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
-    > 
-    > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
-
-1. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
-
-1. Select **Save** to apply your changes.
+Currently, you must use either the Azure PowerShell module or Azure CLI to manage virtual network rules for a volume group.
 
 #### [PowerShell](#tab/azure-powershell)
 

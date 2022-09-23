@@ -1,5 +1,5 @@
 ---
-title: Increase the size of an Azure Elastic SAN (preview)
+title: Increase the size of an Azure Elastic SAN and its volumes (preview)
 description: Learn how to increase the size of an Azure Elastic SAN (preview) and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: storage
@@ -11,11 +11,11 @@ ms.subservice: elastic-san
 
 # Increase the size of an Elastic SAN (preview)
 
-This article covers increasing the size of an Elastic storage area network (SAN) and an individual volume, if you need additional storage or performance. Be sure you need the storage or performance before you increase the size because decreasing the size isn't supported, to prevent data loss.
+This article covers increasing the size of an Elastic storage area network (preview) and an individual volume, if you need additional storage or performance. Be sure you need the storage or performance before you increase the size because decreasing the size isn't supported, to prevent data loss.
 
 ## Expand SAN size
 
-First, increase the size of your elastic SAN (preview).
+First, increase the size of your Elastic storage area network (SAN).
 
 # [PowerShell](#tab/azure-powershell)
 

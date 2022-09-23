@@ -16,9 +16,10 @@ This article explains how to deploy and configure an elastic storage area networ
 ## Prerequisites
 
 - Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
-- An Azure Virtual Network.
-- If you're using Azure Powershell, install the `Az.Elastic-SAN` module version `.10-preview`.
-- If you're using Azure CLI, install version `2.41.0`.
+    You'll receive an email when your subscription has been enrolled in the preview.
+- An Azure Virtual Network in the same region as your compute clients.
+- If you're using Azure Powershell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
+- If you're using Azure CLI, install version `2.41.0`. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Limitations
 
@@ -59,7 +60,7 @@ Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace 
 1. Sign in to the Azure portal and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
 1. On the basics page, fill out the values.
-    1. Select the same region as your Azure virtual network.
+    1. Select the same region as your Azure virtual network and compute client.
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
@@ -69,6 +70,8 @@ Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace 
     :::image type="content" source="media/elastic-san-create/elastic-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-create-flow.png":::
 
 # [PowerShell](#tab/azure-powershell)
+
+The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurepowershell
 ## Variables
@@ -84,6 +87,8 @@ $volGroupName = "desiredVolumeGroupName"
 New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTb 100 -ExtendedSizeTb 20 -SkuName Premium_LRS
 ```
 # [Azure CLI](#tab/azure-cli)
+
+The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurecli
 ## Variables
@@ -142,12 +147,22 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
 
 In this article, we provide you the command to create a single volume. To create a batch of volumes, see [Create multiple elastic SAN volumes](elastic-san-batch-create-sample.md).
 
+> [!IMPORTANT]
+> The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
+
+Replace `volumeName` with the name you'd like the volume to use, then run the following script:
+
 ```azurepowershell
 ## Create the volume, this command only creates one.
 New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 2000
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+> [!IMPORTANT]
+> The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
+
+Replace `$volumeName` with the name you'd like the volume to use, then run the following script:
 
 ```azurecli
 az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName –size-gib 2000
@@ -188,7 +203,7 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 
 ### Windows
 
-You'll need to construct a command to connect to your volume from a client.
+You'll need to construct a command to connect to your volume from a client. 
 
 ```powershell
 # Get the target name and iSCSI portal name to connect a volume to a client 
@@ -222,9 +237,8 @@ You should see a list of output that looks like the following:
 
 
 
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands.
+Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands inside your compute client.
+Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume..
 
 ```bash
 iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
