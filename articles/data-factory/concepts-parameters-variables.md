@@ -13,6 +13,8 @@ ms.date: 09/13/2022
 
 # Pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article helps you understand the difference between pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics and how to use them to control your pipeline.
 
 ## Pipeline parameters

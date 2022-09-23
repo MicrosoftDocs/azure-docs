@@ -562,7 +562,7 @@ Once the run completes, you can register the model that was created from the bes
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-      
+CLI example not available, please use Python SDK.
 ```
 
 # [Python SDK](#tab/python)
@@ -737,7 +737,8 @@ For a detailed description on task specific hyperparameters, please refer to [Hy
     
 If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](./how-to-use-automl-small-object-detect.md).
 
-
+###  Test the deployment
+Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
 
 ## Example notebooks

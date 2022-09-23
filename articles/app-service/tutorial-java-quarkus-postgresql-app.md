@@ -243,7 +243,7 @@ mvn clean package
 
 The final result will be a JAR file in the `target/` subfolder.
 
-To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
+To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/training/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
 
 ```azurecli
 az webapp deploy \
@@ -301,5 +301,5 @@ and
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
