@@ -40,7 +40,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Please follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe, SouthEast Asia, and SouthCentral US.
+**A:** Follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe, SouthEast Asia, and SouthCentral US.
 
 **Q:** What version of Vitis should I use? 
 
@@ -48,7 +48,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premises and deploy to the cloud. Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
+**A:** No, you can develop on-premises and deploy to the cloud. Make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** What shell version is supported and how can I get the development files?
 
@@ -56,11 +56,11 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
-**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Please use **design.azure.xclbin**.
+**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Use **design.azure.xclbin**.
 
 **Q:** Where should I get all the XRT / Platform files?
 
-**A:** Please visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
+**A:** Visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 
@@ -131,7 +131,7 @@ VM Generation Support: Generation 1<br>
  >     
  >- xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
 
-**Q:** What are the differences between OnPrem and NP VMs?
+**Q:** What are the differences between on-premise FPGAs and NP VMs?
 
 **A:** 
 <br>
@@ -139,14 +139,14 @@ VM Generation Support: Generation 1<br>
 <br>
 On Azure NP VMs, only the role endpoint (Device ID 5005), which uses the XOCL driver, is present.
 
-OnPrem FPGA, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
+In on-premise FPGAs, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
 
 <br>
 <b>- Regarding XRT: </b>
 <br>
 On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB). 
 <br>
-To enable Host_Mem(SB) (up to 1 Gb RAM):  sudo xbutil host_mem --enable --size 1g 
+To enable Host_Mem(SB) (up to 1-Gb RAM):  sudo xbutil host_mem --enable --size 1g 
 <br>
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
 <br>
@@ -154,10 +154,10 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 <br>
 Starting on XRT2021.1:
 
-OnPrem FPGA in Linux exposes
+On-premise FPGA in Linux exposes
 [M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
 <br>
-This feature is not supported in Azure NP VMs.
+This feature isn't supported in Azure NP VMs.
  
 **Q:** Can I run xbmgmt commands? 
 
