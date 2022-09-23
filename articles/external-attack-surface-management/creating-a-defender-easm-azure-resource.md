@@ -1,6 +1,6 @@
 ---
-title: Deploying the Defender EASM Azure resource
-description: This article explains how to deploy the Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
+title: Creating a Defender EASM Azure resource
+description: This article explains how to set up a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
 author: danielledennis
 ms.author: dandennis
 ms.service: security
@@ -8,14 +8,14 @@ ms.date: 07/14/2022
 ms.topic: quickstart
 ---
 
-# Deploying the Defender EASM Azure resource
+# Creating a Defender EASM Azure resource
 
-This article explains how to deploy the Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
+This article explains how to set up a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
 
-Deploying the EASM Azure resource involves two steps:
+This process involves two steps:
 
 - Create a resource group
-- Deploy the EASM resource to the resource group
+- Create the EASM resource to the resource group
 
 ## Prerequisites
 
@@ -49,11 +49,11 @@ Before you create a Defender EASM resource group, we recommend that you are fami
 
 6. Select **Refresh** to view the new resource group in the list.
 
-## Deploy resources to a resource group
+## Create EASM resource in a resource group
 
-After you create a resource group, you can deploy resources to the group from the Marketplace. The Marketplace provides all services and pre-defined solutions available in Azure.
+After you create a resource group, you can create resources from the Marketplace. The Marketplace provides all services and pre-defined solutions available in Azure.
 
-1. To start a deployment, select “Create a resource” in the Azure portal.
+1. Select “Create a resource” in the Azure portal.
 
     ![Screenshot of “create resource” option highlighted from Azure home page](media/QuickStart-4.png)
 
@@ -76,7 +76,7 @@ After you create a resource group, you can deploy resources to the group from th
 
 6. Review the values, and then select **Create**.
 
-7. Select **Refresh** to see the status of the deployment and once finished you can go to the Resource to get started.
+7. Select **Refresh** to see the status of the resource creeation and once finished you can go to the Resource to get started.
 
 ## Next steps
 
