@@ -64,8 +64,10 @@ On iOS, users will see a double prompt, where they must click the option to use 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [FAQ](certificate-based-authentication-faq.yml)
 - [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [How to migrate federated users](concept-certificate-based-authentication-migration.md)
+- [FAQ](certificate-based-authentication-faq.yml)
 
 

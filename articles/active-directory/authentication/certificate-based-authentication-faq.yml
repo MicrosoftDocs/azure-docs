@@ -115,4 +115,5 @@ additionalContent: |
     * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
     * [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
     * [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+    * [How to migrate federated users](concept-certificate-based-authentication-migration.md)
     * [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)

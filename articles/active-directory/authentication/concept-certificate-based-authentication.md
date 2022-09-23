@@ -61,6 +61,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 - [How to configure CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot CBA](troubleshoot-certificate-based-authentication.md)
 
