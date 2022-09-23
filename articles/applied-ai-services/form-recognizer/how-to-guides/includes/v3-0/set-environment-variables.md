@@ -25,7 +25,7 @@ To set the environment variable for your Form Recognizer resource key, open a co
 
 #### [Windows](#tab/windows)
 
-Environment variables in Windows are ***not*** case-sensitive. They are typically named in uppercase, with words joined by an underscore. Start a CMD window and execute the following:
+ Environment variables in Windows are ***not*** case-sensitive. They're typically named in uppercase, with words joined by an underscore. Start a CMD window and execute the commands:
 
 ##### **Set your key variable**
 
@@ -39,7 +39,7 @@ Environment variables in Windows are ***not*** case-sensitive. They are typicall
 set ENDPOINT=<yourEndpoint>
 ```
 
-* After you `set` your environment variables, you restart any running programs that will read the environment variable, including the console window. For example, if you are using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
+* After you `set` your environment variables, you restart any running programs that will read the environment variable, including the console window. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
     > [!NOTE]
     > If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
@@ -61,7 +61,7 @@ set ENDPOINT=<yourEndpoint>
 
 Environment variables in macOS are case-sensitive. Conventionally, the variable name is declared in uppercase letters.
 
-* The `export` command sets the variable and exports it to the global environment (available to other processes). However, it is temporary and lasts only until you close the terminal session. Open your terminal and enter the following:
+* The `export` command sets the variable and exports it to the global environment (available to other processes). However, it's temporary and lasts only until you close the terminal session. Open your terminal and enter the following commands:
 
 ##### **Set your key variable**
 
@@ -77,7 +77,7 @@ export endpoint=<yourEndpoint>
 
 * You can set an environment variable permanently by placing an export command in your Bash  `~/.bash_profile` startup script:
 
-  1. Use your favorite text editor to open the `~/.bash_profile` and add following command to create a permanent environment variable:
+  1. Use your favorite text editor to open the `~/.bash_profile` and add the following command to create a permanent environment variable:
 
       ```bash
       export KEY=<yourKey> ENDPOINT=<yourEndpoint>
@@ -93,7 +93,7 @@ export endpoint=<yourEndpoint>
       source ~/.bash-profile
       ```
 
-Here are a few helpful commands to use with environment variables::
+Here are a few helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
@@ -106,7 +106,7 @@ Here are a few helpful commands to use with environment variables::
 
 Environment variables in Linux are case-sensitive. Conventionally, the variable name is declared in uppercase letters.
 
-The `export` command sets the variable and exports it to the global environment (available to other processes). However, it is temporary and lasts only until you close the terminal session:
+The `export` command sets the variable and exports it to the global environment (available to other processes). However, it's temporary and lasts only until you close the terminal session:
 
 ##### **Set your key variable**
 
