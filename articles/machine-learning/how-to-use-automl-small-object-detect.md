@@ -126,7 +126,7 @@ The following are the parameters you can use to control the tiling feature.
 
 ## Example notebooks
 
-See the [object detection sample notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) for detailed code examples of setting up and training an object detection model.
+See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) for detailed code examples of setting up and training an object detection model.
 
 >[!NOTE]
 > All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).

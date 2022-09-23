@@ -1,17 +1,17 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/22/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy
+# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication methods policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
