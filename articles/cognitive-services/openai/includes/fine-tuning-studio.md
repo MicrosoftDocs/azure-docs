@@ -57,7 +57,7 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Creating your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
@@ -268,7 +268,7 @@ The result file is a CSV file containing a header row and a row for each trainin
 
 | Column name | Description |
 | --- | --- |
-| `step` | The number of the training step. A training step represents one forward and backward pass on a batch of training data. |
+| `step` | The number of the training step. A training step represents a single forward and backward pass on a batch of training data. |
 | `elapsed_tokens` | The number of tokens the customized model has seen so far, including repeats. |
 | `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the **Batch size** parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
 | `training_loss` | The loss for the training batch. |
@@ -295,7 +295,7 @@ You can delete a customized model from the **Models** page for Azure OpenAI Stud
 
 ### Delete your training files
 
-You can optionally delete training and validation files you've uploaded for training, as well as result files generated during training, from the **File Management** page for Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
+You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from the **File Management** page for Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
 
 ## Next steps
 
