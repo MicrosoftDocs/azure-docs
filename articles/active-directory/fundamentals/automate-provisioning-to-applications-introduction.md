@@ -49,7 +49,7 @@ Thousands of organizations are running Azure AD cloud-hosted services, with its 
 | Non-employee users (with approval)| Other cloud directories| SaaS and on-prem apps| [Connected organizations](../governance/entitlement-management-organization.md) |
 | Users, groups| Azure AD| Managed AD domain| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
-## Example Topologies
+## Example topologies
 
 Organizations vary greatly in the applications and infrastructure that they rely on to run their business. Some organizations have all their infrastructure in the cloud, relying solely on SaaS applications, while others have invested deeply in on-premises infrastructure over several years. The three topologies below depict how Microsoft can meet the needs of a cloud only customer, hybrid customer with basic provisioning requirements, and a hybrid customer with advanced provisioning requirements.
 
