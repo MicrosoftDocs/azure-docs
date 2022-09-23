@@ -46,9 +46,6 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > To use your own template, upload your template file to the Cloud Shell, and then use the `-TemplateFile` switch to specify the file name.  For example, see [Deploy the template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
-## Update an IoT hub
-
-
 
 ## Next steps
 
