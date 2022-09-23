@@ -213,7 +213,7 @@ az network private-endpoint dns-zone-group add \
 
 # [Portal](#tab/azure-portal)
 
-From the Azure Machine Learning workspace in the portal, select __Private endpoint connections__ and then select __+ Private endpoint__. Use the fields to create a new private endpoint.
+Select the Azure Machine Learning resource in the portal, under __Settings__ select __Networking__, then select __Private endpoint connections__ and finally select __+ Private endpoint__. Use the fields to create a new private endpoint.
 
 * When selecting the __Region__, select the same region as your virtual network. 
 * When selecting __Resource type__, use __Microsoft.MachineLearningServices/workspaces__. 
