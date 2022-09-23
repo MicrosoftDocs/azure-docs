@@ -40,7 +40,7 @@ landingContent:
           url: quickstart-create-resources.md
         - text: "Train with the v2 CLI"
           url: how-to-train-cli.md   
-        - text: "Train with the v2 SDK (preview)"
+        - text: "Train with the v2 SDK"
           url: how-to-train-sdk.md   
         - text: "Day 1: Get started with Python"
           url: tutorial-1st-experiment-hello-world.md
@@ -105,7 +105,7 @@ landingContent:
           url: /python/api/overview/azure/ml/
         - text: REST API 
           url: /rest/api/azureml/
-        - text: V2 CLI (preview)
+        - text: V2 CLI
           url: /cli/azure/ml/
         - text: Algorithm & component reference 
           url: ./algorithm-module-reference/module-reference.md
@@ -116,7 +116,7 @@ landingContent:
         links:
         - text: Python SDK code examples
           url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-        - text: v2 CLI code examples (preview)
+        - text: v2 CLI code examples
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation
           url: ./classic/index.yml
