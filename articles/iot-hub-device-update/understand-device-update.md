@@ -8,7 +8,7 @@ ms.topic: overview
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for IoT Hub (Preview) Overview
+# Device Update for IoT Hub Overview
 
 Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
 
