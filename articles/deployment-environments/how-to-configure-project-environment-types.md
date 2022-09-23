@@ -47,7 +47,8 @@ Add a new project environment type as follows:
    :::image type="content" source="./media/configure-project-environment-types/add-new-project-environment-type.png" alt-text="Screenshot showing adding a project environment type.":::
 
 1. On the **Add environment type to Project** page, provide the following details:
-   |Name     |Value     |
+
+    |Name     |Value     |
     |---------|----------|
     |**Type**| Select a dev center level environment type to enable for the specific project.|
     |**Deployment Subscription**| Select the target subscription in which the environments will be created.|
