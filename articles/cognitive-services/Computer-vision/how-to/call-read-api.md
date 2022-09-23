@@ -13,11 +13,20 @@ ms.date: 06/13/2022
 ms.author: pafarley
 ---
 
-# Call the Read API
+# Call the Computer Vision 3.2 GA Read API
 
-In this guide, you'll learn how to call the Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs.
+[!INCLUDE [read-editions](../includes/read-editions.md)]
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+
+## Input requirements
+
+The **Read** call takes images and documents as its input. They have the following requirements:
+
+* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
+* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Determine how to process the data (optional)
 
