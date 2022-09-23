@@ -13,7 +13,7 @@ ms.subservice: elastic-san
 
 Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-Elastic SAN is designed for large scale IO-intensive workloads and top tier databases, such as:
+Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service.
 - SQL
 - MariaDB
 - Containers, such as Azure Kubernetes Service
@@ -22,11 +22,11 @@ Elastic SAN is designed for large scale IO-intensive workloads and top tier data
 
 ### Compatibility
 
-Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Because of this, rather than having to configure storage for each of your compute options, you can configure an elastic SAN to serve as the storage solution for multiple compute options, and manage it separately from each option.
+Azure Elastic SAN volumes can connect to a wide variety of compute resources using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Because of this, rather than having to configure storage for each of your compute options, you can configure an Elastic SAN to serve as the storage solution for multiple compute options, and manage it separately from each option.
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large number of volumes from a single resource and with virtual network rules you can selectively grant access to your volumes.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large number of volumes from a single resource. For instance, you can create virtual network rules on the volume group and grant access to all your volumes.
 
 ### Performance
 
@@ -48,19 +48,19 @@ The following diagram illustrates the relationship and mapping of an Azure Elast
 
 :::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic SAN is like an on-premises SAN appliance and is where billing and provisioning are handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises SAN.":::
 
-### The Elastic SAN resource
+### Elastic SAN
 
 When you configure an elastic SAN, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
 Your elastic SAN's name has some limitations. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must be between 3 and 24 characters long.
 
-### Volume groups resources
+### Volume groups 
 
 Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
 Your volume group's name has some limitations. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The name must be between 3 and 63 characters long.
 
-### Volumes resources
+### Volumes
 
 You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
 
@@ -80,7 +80,6 @@ The status of items in this table may change over time.
 | Private endpoints | ⛔  |
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Soft delete | ⛔  |
-| Backups| ⛔ |
 | Snapshots | ⛔ |
 
 ### iSCSI support
