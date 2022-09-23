@@ -65,7 +65,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
     - *ResourceGroupName [string] Required* - This parameter is the name of the resource group containing the Basic load balancer
     - *RecoveryBackupPath [string] Optional* - This parameter allows you to specify an alternative path in which to store the Basic load balancer ARM template backup file (defaults to the current working directory)
     - *FailedMigrationRetryFilePathLB [string] Optional* - This parameter allows you to specify a path to a Basic load balancer backup state file when retrying a failed upgrade (defaults to current working directory)
-    - *FailedMigrationRetryFilePathVMSS [string] Optional* - This parameter allows you to specify a path to a virtual machine scale set (virtual machine scale set) backup state file when retrying a failed upgrade (defaults to current working directory)
+    - *FailedMigrationRetryFilePathVMSS [string] Optional* - This parameter allows you to specify a path to a virtual machine scale set backup state file when retrying a failed upgrade (defaults to current working directory)
 
 4. Run the Upgrade command.
 
