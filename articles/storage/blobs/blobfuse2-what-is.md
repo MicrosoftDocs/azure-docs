@@ -59,7 +59,7 @@ Blobfuse2 has more feature support and improved performance in multiple user sce
 - Improved caching
 - More management support through new Azure CLI commands
 - Additional logging support
-- Gain insights into mount point activities and resource usage using BlobFuse2 Health Monitor
+- Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Compatibility and upgrade options for existing BlobFuse v1 users
 - Version checking and upgrade prompting
 - Support for configuration file encryption

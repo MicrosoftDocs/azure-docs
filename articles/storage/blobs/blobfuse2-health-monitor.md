@@ -1,7 +1,7 @@
 ---
-title: How to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage (preview) | Microsoft Docs
+title: How to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: How to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage (preview).
+description: How to use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview).
 author: jammart
 ms.service: storage
 ms.subservice: blobs
@@ -11,9 +11,9 @@ ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# Use Health Monitor to gain insights into BlobFuse2 mount points (preview)
+# Use Health Monitor to gain insights into BlobFuse2 mounts (preview)
 
-This article provides references to assist in deploying and using BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount point activities and resource usage.
+This article provides references to assist in deploying and using BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount activities and resource usage.
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
