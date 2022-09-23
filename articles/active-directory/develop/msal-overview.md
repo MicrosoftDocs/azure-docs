@@ -24,7 +24,7 @@ MSAL gives you many ways to get tokens, with a consistent API for many platforms
 * No need to directly use the OAuth libraries or code against the protocol in your application.
 * Acquires tokens on behalf of a user or application (when applicable to the platform).
 * Maintains a token cache and refreshes tokens for you when they're close to expiring. You don't need to handle token expiration on your own.
-* Helps you specify which audience you want your application to sign in (your org, several orgs, work, and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign, and national clouds).
+* Helps you specify which audience you want your application to sign in. The sign in audience can include personal Microsoft accounts, social identities with Azure AD B2C organizations, work, school, or users in sovereign and national clouds.
 * Helps you set up your application from configuration files.
 * Helps you troubleshoot your app by exposing actionable exceptions, logging, and telemetry.
 
