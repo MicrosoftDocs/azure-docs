@@ -37,29 +37,9 @@ The following diagram summarizes availability zone volume placement for Azure Ne
 
 Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
-## Supported regions
+## Azure regions with availability zones
 
-Availability zones are available in the following regions for Azure NetApp Files:
-
-* Australia East
-* Brazil South
-* Canada Central
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* Germany West Central
-* Japan East
-* Korea Central
-* North Europe
-* Norway East
-* South Central US
-* Southeast Asia
-* UK South
-* West Europe
-* West US 2
-* West US 3
+For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview#azure-regions-with-availability-zones.md).
 
 ## Next steps
 
