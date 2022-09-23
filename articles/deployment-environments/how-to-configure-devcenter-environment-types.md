@@ -61,4 +61,4 @@ When you delete an environment type, it'll no longer be available when deploying
 
 ## Next steps
 
-* Create and configure project environment type to enable environment types for specific projects.
+* [Create and configure project environment type](how-to-configure-project-environment-types.md) to enable environment types for specific projects.

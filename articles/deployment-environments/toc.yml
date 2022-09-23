@@ -35,3 +35,5 @@ items:
       href: how-to-configure-managed-identity.md
     - name: Configure Dev center environment types
       href: how-to-configure-devcenter-environment-types.md
+    - name: Configure Project environment types
+      href: how-to-configure-project-environment-types.md
