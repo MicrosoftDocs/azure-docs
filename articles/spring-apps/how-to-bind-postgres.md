@@ -46,7 +46,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
-#### [Using admin credentials](#tab/Secrets)
+### [Using admin credentials](#tab/Secrets)
 
 1. Note the admin username and password of your Azure Database for PostgreSQL account.
 
@@ -54,19 +54,19 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 1. Run the following command to connect to the database with admin username and password.
 
-```azurecli
-az spring connection create postgres \
-    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-    --app $APP_NAME \
-    --deployment $DEPLOYMENT_NAME \
-    --target-resource-group $POSTGRES_RESOURCE_GROUP \
-    --server $POSTGRES_SERVER_NAME \
-    --database testdb \
-    --secret name=$USERNAME secret=$PASSWORD
-```
+   ```azurecli
+   az spring connection create postgres \
+       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $POSTGRES_RESOURCE_GROUP \
+       --server $POSTGRES_SERVER_NAME \
+       --database testdb \
+       --secret name=$USERNAME secret=$PASSWORD
+   ```
 
-#### [Using a passwordless connection with a managed identity](#tab/Passwordless)
+### [Using a passwordless connection with a managed identity](#tab/Passwordless)
 
 Configure Azure Spring Apps to connect to the PostgreSQL Database Single Server with a system-assigned managed identity using the `az spring connection create` command.
 

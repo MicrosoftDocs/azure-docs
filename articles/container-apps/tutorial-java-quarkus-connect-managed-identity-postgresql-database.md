@@ -39,13 +39,13 @@ What you will learn:
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the East US Azure region.
+The following example creates a resource group named `myResourceGroup` in the East US Azure region.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container Registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
+Create an Azure Container Registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, `myContainerRegistry007` is used. Update this to a unique value.
 
 ```azurecli
 az acr create \
@@ -79,7 +79,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Configure the Quarkus app properties.
 
-   The Quarkus configuration is located in the `src/main/resources/application.properties` file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored.  Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
+   The Quarkus configuration is located in the *src/main/resources/application.properties* file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored.  Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
 
    Delete the existing content in *application.properties* and replace with the following to configure the database for dev, test, and production modes:
 
