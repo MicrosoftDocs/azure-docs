@@ -925,16 +925,27 @@ This section explains how to collect custom telemetry from your application.
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
 The OpenTelemetry API offers six metric "intruments" to cover a varity of metric scenarios.
+On the other hand, Azure Monitor offers [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types).
+
+Here's how the OpenTelemetry instruments map to Azure Monitor's aggregation types:
+
+| OpenTelemetry Instrument   | Azure Monitor Aggregation Type |
+|----------------------------|--------------------------------|
+| Counter                    | Sum                            |
+| Asynchronous Counter       | Sum                            |
+| Histogram                  | Average, Count, Max, Min, Sum  |
+| Asynchronous Gauge         | Average                        |
+| UpDownCounter              | Sum                            |
+| Asynchronous UpDownCounter | Sum                            |
+
+> [!CAUTION]
+> Although you can select other aggregation types in the UX besides what's shown in the mapping, it is not meaningful to your observability scenarios.
+
 The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#instrument)
 describes the instruments and provides examples of when you might use each one.
 
-> [!NOTE]
-> While histograms are supported in OpenTelemetry, they are not supported in Azure Monitor at this time.
-Additionally, UpDownCounters and Asynchronous UpDownCounters are not supported in .NET at this time.
-
-For example, you can use a counter to report the number of times an important business event such as "add to shopping cart" has occurred
-and view it in [Metrics Explorer](essentials/metrics-getting-started.md)
-for easy and accurate alerting.
+> [!TIP]
+> If you're not sure which instrument to select, the histogram is the most versatile and most closely equivilient to the prior Applicaiton Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. 
 
 #### [.NET](#tab/net)
 
