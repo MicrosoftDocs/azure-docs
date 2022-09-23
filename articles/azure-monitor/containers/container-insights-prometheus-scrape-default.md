@@ -136,7 +136,7 @@ The following metrics are collected by default from each default target. All oth
 
 ## Dashboards
 
-Following are the default dashboards that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-overview#link-a-grafana-workspace). Source code for these dashboards can be found in [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
+Following are the default dashboards that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace). Source code for these dashboards can be found in [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
 
 - Kubernetes / Compute Resources / Cluster
 - Kubernetes / Compute Resources / Namespace (Pods)
@@ -150,7 +150,7 @@ Following are the default dashboards that are automatically configured by Azure 
 
 ## Recording rules
 
-Following are the default dashboards that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-overview#link-a-grafana-workspace). Source code for these recording rules can be found on [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
+Following are the default dashboards that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace). Source code for these recording rules can be found on [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins)
 
 
 - `cluster:node_cpu:ratio_rate5m`
