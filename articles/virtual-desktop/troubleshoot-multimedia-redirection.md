@@ -26,7 +26,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client.
 
-- Multimedia redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
+- Multimedia redirection doesn't currently support protected content, so videos from Netflix, for example, won't work.
 
 - During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
@@ -61,6 +61,18 @@ The following issues are ones we're already aware of, so you won't need to repor
 - During public preview, video playback redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable video playback redirection for all websites. We added the extension so organizations can test the feature on their company websites.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+
+## Log collection
+
+If you encounter any issues, you can collect logs from the extension and provide them to your IT admin or support.
+
+To enable log collection:
+
+1. Select the multimedia redirection extension icon in your browser.
+
+1. Select **Show Advanced Settings**.
+
+1. For **Collect logs**, select **Start**.
 
 ## Support during public preview
 
