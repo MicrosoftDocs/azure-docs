@@ -53,11 +53,11 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Creating your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completions calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completions examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
@@ -65,7 +65,7 @@ For more information about preparing training data for various tasks, see [Learn
 
 ### OpenAI CLI data preparation tool
 
-We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool which validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
 To install the CLI, run the following Python command:
 
@@ -129,7 +129,7 @@ For more information about our base models, see [Models](../concepts/models.md).
 
 #### Choose your training data
 
-The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane, shown in the following picture, displays any existing, previously-uploaded datasets and provides options by which you can upload new training data. 
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane, shown in the following picture, displays any existing, previously uploaded datasets and provides options by which you can upload new training data. 
 
 :::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-training-data.png":::
 
@@ -138,7 +138,7 @@ If your training data has already been uploaded to the service, select **Choose 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
 
 ##### To upload training data from a local file
 
@@ -152,7 +152,7 @@ After you've selected and uploaded the training dataset, select **Next** to opti
 
 ##### To import training data from an Azure Blob store
 
-You can import a training dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location, which contains that file in **File location**, then select **Upload file** to import the training dataset to the service. 
+You can import a training dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location that contains the file in **File location**, then select **Upload file** to import the training dataset to the service. 
 
 After you've selected and uploaded the training dataset, select **Next** to optionally [choose your validation data](#choose-your-validation-data).
 
@@ -160,7 +160,7 @@ After you've selected and uploaded the training dataset, select **Next** to opti
 
 #### Choose your validation data
 
-You can now choose to optionally use validation data in the training process of your fine-tuned model. If you don't want to use validation data, you can choose **Next** to choose advanced options for yourmodel. Otherwise, if you have a validation dataset, you can either choose existing prepared validation data or upload new prepared validation data to use when customizing your model. The **Validation data** pane, shown in the following picture, displays any existing, previously-uploaded training and validation datasets and provides options by which you can upload new validation data. 
+You can now choose to optionally use validation data in the training process of your fine-tuned model. If you don't want to use validation data, you can choose **Next** to choose advanced options for your model. Otherwise, if you have a validation dataset, you can either choose existing prepared validation data or upload new prepared validation data to use when customizing your model. The **Validation data** pane, shown in the following picture, displays any existing, previously uploaded training and validation datasets and provides options by which you can upload new validation data. 
 
 :::image type="content" source="../media/fine-tuning/studio-validation-data.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-validation-data.png":::
 
@@ -169,7 +169,7 @@ If your validation data has already been uploaded to the service, select **Choos
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Like training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size. 
+> Like training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size. 
 
 ##### To upload validation data from a local file
 
@@ -183,7 +183,7 @@ After you've uploaded the validation dataset, select **Next** to optionally [cho
 
 ##### To import validation data from an Azure Blob store
 
-You can import a validation dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location which contains that file in **File location**, then select **Upload file** to import the validation dataset to the service. 
+You can import a validation dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location that contains the file in **File location**, then select **Upload file** to import the validation dataset to the service. 
 
 After you've imported the validation dataset, select **Next** to optionally [choose advanced options](#choose-advanced-options).
 
@@ -206,7 +206,7 @@ The following hyperparameters are available:
 | **Number of epochs** | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. |
 | **Batch size** | The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass. |
 | **Learning rate multiplier** | The learning rate multiplier to use for training. The fine tuning learning rate is the original learning rate used for pre-training, multiplied by this value. |
-| **Prompt loss weight** | The weight to use for loss on the prompt tokens. This controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0), and can add a stabilizing effect to training when completions are short. |
+| **Prompt loss weight** | The weight to use for loss on the prompt tokens. This value controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0.) Increasing this value can add a stabilizing effect to training when completions are short. |
 
 For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
 
@@ -236,7 +236,7 @@ From the model page, you can also select **Download training file** to download 
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completions calls.
+When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completion calls.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
@@ -272,11 +272,11 @@ The result file is a CSV file containing a header row and a row for each trainin
 | `elapsed_tokens` | The number of tokens the customized model has seen so far, including repeats. |
 | `elapsed_examples` | The number of examples the model has seen so far, including repeats.<br>Each example represents one element in that step's batch of training data. For example, if the **Batch size** parameter is set to 32 in the [**Advanced options** pane](#choose-advanced-options), this value increments by 32 in each training step. |
 | `training_loss` | The loss for the training batch. |
-| `training_sequence_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
-| `training_token_accuracy` | The percentage of tokens in the training batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `training_sequence_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `training_token_accuracy` | The percentage of tokens in the training batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_loss` | The loss for the validation batch. |
-| `validation_sequence_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
-| `validation_token_accuracy` | The percentage of tokens in the validation batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains the the completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `validation_sequence_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `validation_token_accuracy` | The percentage of tokens in the validation batch that were correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 
 ## Clean up your deployments, customized models, and training files
 

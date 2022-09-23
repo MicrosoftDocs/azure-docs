@@ -16,10 +16,13 @@ keywords:
 ---
 # Learn how to customize a model for your application
 
-The Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as fine-tuning. This customization step will let you get more out of the service by providing:
+The Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as *fine-tuning*. This customization step will let you get more out of the service by providing:
 
-1. Higher quality results than just prompt design.
-1. Lower latency requests. a customized model improves on the few-shot learning approach by training the model weights on your specific prompts and structure. This lets you achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens processed on every API call.
+- Higher quality results than what you can get just from prompt design
+- The ability to train on more examples than can fit into a prompt
+- Lower latency requests. 
+ 
+A customized model improves on the few-shot learning approach by training the model's weights on your specific prompts and structure. The customized model lets you achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens processed on every API call, saving cost and enabling lower-latency requests.
 
 ::: zone pivot="programming-language-studio"
 
