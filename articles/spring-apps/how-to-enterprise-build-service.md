@@ -136,7 +136,7 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-Not all Tanzu Buildpacks support all kinds of Service Bindings. The following table shows the binding types supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
+Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
 
 |Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
 |---------|-------------------|--------|-----------|---------|----------|
@@ -146,9 +146,9 @@ Not all Tanzu Buildpacks support all kinds of Service Bindings. The following ta
 |Python|❌|❌|❌|❌|❌|
 |NodeJS|❌|✅|✅|✅|✅|
 
-These Service Bindings can work with proper configuration.
+These service bindings can work with proper configuration.
 
-Click **Edit** to edit service bindings for the builder. After bound the Service Bindings, if the app deploy with a specific builder, then the Service Bindings work for the app.
+To edit service bindings for the builder, select **Edit**. After bound the Service Bindings, if the app deploy with a specific builder, then the Service Bindings work for the app.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of 'Edit Binding' for the builder pane." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
 
@@ -175,7 +175,7 @@ Follow these steps to view the current buildpack bindings:
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
-   
+  
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of 'Edit Binding' for the builder pane." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/show-service-binding.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
