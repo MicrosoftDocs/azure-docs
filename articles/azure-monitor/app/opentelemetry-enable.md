@@ -24,7 +24,6 @@ Carefully consider whether this preview is right for you. It *enables distribute
  - Logging API (like console logs and logging libraries)
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
- - [Offline disk storage and retry logic](telemetry-channels.md#built-in-telemetry-channels)
  - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -63,7 +62,6 @@ Carefully consider whether this preview is right for you. It *enables distribute
 
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
- - Offline disk storage and retry logic
  - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -405,7 +403,7 @@ Placeholder
 ---
 
 > [!TIP]
-> If you're not sure where to set the sampling rate, start at 5% and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
+> If you're not sure where to set the sampling rate, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
 
 ## Instrumentation libraries
 
@@ -459,6 +457,9 @@ Dependencies
 
 ---
 
+*Supports automatic exception capture
+
+
 ### Metrics
 
 #### [.NET](#tab/net)
@@ -476,7 +477,7 @@ Dependencies
 ---
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#Add-Custom-Metrics) in Metrics Explorer. Whatever you set as the meter name becomes the metrics namespace.
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) in Metrics Explorer. Whatever you set as the meter name becomes the metrics namespace.
 
 ## Modify telemetry
 
@@ -916,9 +917,10 @@ Placeholder
 
 ### Add Custom Exceptions
 
-You may want to send exceptions to Application Insights that ordinarily would not be sent
-because you catch them in your code. In this way, Application Insights will draw attention
-to them in relevant experiences including the failures blade and end-to-end transaction view.
+Select instrumentation libraries automatically support exceptions to Application Insights.
+However, you may want to manually report exceptions beyond what instrumention libraries report.
+For instance, exceptions caught by your code are *not* ordinarily not reported, and you may wish to report them
+and thus draw attention to them in relevant experiences including the failures blade and end-to-end transaction view.
 
 #### [.NET](#tab/net)
 
@@ -1012,6 +1014,26 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
     with tracer.start_as_current_span("test"):
         print("Hello world!")
     ```
+
+---
+
+## Configuration
+
+### Local Storage and Automatic Retries
+
+To improve reliability and resiliancy, Azure Monitor OpenTelemetry-based offerings write local storage by default when an application loses its connection with Application Insights. It will save the application telemetry for up to XX hours, and continue to retry every XX minutes until XYZ. In some cases, you may wish to disable this feature to optimize application performance.
+
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
 
 ---
 
