@@ -1,12 +1,12 @@
 ---
 title: Connection pooling – Azure Cosmos DB for PostgreSQL
-description: Scaling client database connections
+description: Use PgBouncer to scale client database connections.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 09/20/2022
 ---
 
 # Azure Cosmos DB for PostgreSQL connection pooling
@@ -40,8 +40,8 @@ To connect through PgBouncer, follow these steps:
 
 1. Go to the **Connection strings** page for your cluster in the Azure
    portal.
-2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
-   strings will change.)
+2. Select the checkbox next to **PgBouncer connection strings**. The listed connection
+   strings change.
 3. Update client applications to connect with the new string.
 
 ## Next steps
