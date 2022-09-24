@@ -138,7 +138,14 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     Output:
 
     NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
-    kuard   kuard            a.b.c.d         True       40s
+    kuard   kuard            <a.b.c.d>         True       40s
 
 	The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
 
+1. Run the following command multiple times using the External IP address from above:
+
+    ```bash
+	curl <a.b.c.d>:8080 | grep hostname 
+	```
+
+    Notice that the hostname, which corresponds to the pod serving the request, is changing across these requests and that these pods are from different member clusters of the fleet.
