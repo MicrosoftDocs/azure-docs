@@ -2155,6 +2155,9 @@ Release notes for `v2.5.0`:
    * `id-id-gadisneural`
    * `ka-ge-ekaneural`
    * `ka-ge-giorgineural`
+   * `th-th-acharaneural`
+   * `th-th-niwatneural`
+   * `th-th-premwadeeneural`
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -2223,6 +2226,9 @@ Release notes for `v2.5.0`:
 | `sv-se-hillevineural`| Container image with the `sv-SE` locale and `sv-SE-hillevineural` voice.|
 | `sv-se-mattiasneural`| Container image with the `sv-SE` locale and `sv-SE-mattiasneural` voice.|
 | `sv-se-sofieneural`| Container image with the `sv-SE` locale and `sv-SE-sofieneural` voice.|
+| `th-th-acharaneural`| Container image with the `th-TH` locale and `th-TH-acharaneural` voice.|
+| `th-th-niwatneural`| Container image with the `th-TH` locale and `th-TH-niwatneural` voice.|
+| `th-th-premwadeeneural`| Container image with the `th-TH` locale and `th-TH-premwadeeneural` voice.|
 | `tr-tr-ahmetneural`| Container image with the `tr-TR` locale and `tr-TR-ahmetneural` voice.|
 | `tr-tr-emelneural`| Container image with the `tr-TR` locale and `tr-TR-emelneural` voice.|
 | `zh-cn-xiaochenneural-preview`| Container image with the `zh-CN` locale and `zh-CN-xiaochenneural` voice.|

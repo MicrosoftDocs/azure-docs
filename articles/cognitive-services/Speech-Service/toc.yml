@@ -60,9 +60,17 @@ items:
       href: get-speech-recognition-results.md
     - name: Display text formatting
       href: display-text-format.md
-    - name: How to use batch transcription
-      href: batch-transcription.md
-    - name: Improve recognition with Custom Speech
+    - name: Batch transcription
+      items:
+      - name: What is batch transcription?
+        href: batch-transcription.md
+      - name: Locate audio files in storage
+        href: batch-transcription-audio-data.md
+      - name: Create a batch transcription
+        href: batch-transcription-create.md
+      - name: Get batch transcription results
+        href: batch-transcription-get.md
+    - name: Custom Speech
       items:
         - name: What is Custom Speech?
           href: custom-speech-overview.md
@@ -192,6 +200,8 @@ items:
       - name: Overview
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
         href: call-center-overview.md
+      - name: Post-call transcription and analytics quickstart
+        href: call-center-quickstart.md
       - name: Ingestion Client
         href: ingestion-client.md
       - name: Telephony Integration
@@ -369,14 +379,20 @@ items:
       items:
         - name: Neural voice migration
           items:
-            - name: Migration to neural voice
+            - name: Migration overview
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
               href: how-to-migrate-to-custom-neural-voice.md  
             - name: Migrate to prebuilt neural voice
               href: how-to-migrate-to-prebuilt-neural-voice.md 
-        - name: From Speech-to-text v2.0
-          href: migrate-v2-to-v3.md
+        - name: Speech-to-text REST API migration
+          items:
+          - name: From Speech-to-text v3.0 to v3.1
+            href: migrate-v3-0-to-v3-1.md
+            displayName: migrate,migration,deprecate,retire,sunset
+          - name: From Speech-to-text v2.0 to v3.0
+            href: migrate-v2-to-v3.md
+            displayName: migrate,migration,deprecate,retire,sunset
 - name: Devices
   items:
     - name: Devices overview
@@ -418,15 +434,9 @@ items:
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
           href: /python/api/azure-cognitiveservices-speech/
     - name: REST API reference
-      items:
-        - name: Conversation transcription REST APIs
-          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
-          displayName: reference 
-        - name: Speech-to-text REST API v3.0
+      items: 
+        - name: Speech-to-text REST API
           href: rest-speech-to-text.md
-          displayName: reference 
-        - name: Speech-to-text REST API v3.1 (preview) 
-          href: rest-speech-to-text-v3-1.md
           displayName: reference 
         - name: Speech-to-text REST API for short audio
           href: rest-speech-to-text-short.md    
@@ -437,6 +447,9 @@ items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
+        - name: Conversation transcription REST APIs
+          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
+          displayName: reference
 - name: Responsible use of AI
   items:
     - name: Speech-to-text
