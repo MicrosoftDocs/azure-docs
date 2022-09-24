@@ -57,19 +57,6 @@ az elastic-san update -e $sanName -g $resourceGroupName -v $volumeGroupName -n $
 
 ---
 
-## Create a new volume
+## Next steps
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-## Create the volume, this command only creates one.
-New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 2000
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName –size-gib 2000
-```
-
----
+To create a new volume with the extra capacity you added to your SAN, see [Create volumes](elastic-san-create.md#create-volumes).
