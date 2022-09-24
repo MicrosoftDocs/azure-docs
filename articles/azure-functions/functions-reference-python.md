@@ -200,14 +200,14 @@ When you deploy your project to a function app in Azure, the entire contents of 
 ---
 ## Blueprints
 
-The V2 programming model is introducing blueprints for breaking up the function app into modular components which allows you to define functions in multiple Python files and divide them into different components per file. 
+The V2 programming model is introducing blueprints which will allow for
+* Breaking up the function app into modular components enabling you to define functions in multiple Python files and divide them into different components per file
+* Extensible public function app interfaces to build and reuse your own API’s
 
-In addition, extensible public function app interfaces are introduced to you to build and reuse your own pystein API's. 
- 
+A blueprint is a new class instantiated to register user functions besides the function application. The functions registered in blueprint instances are not indexed directly by function runtime. To get the functions indexed, function app needs to register the functions from blueprint instances.
 
-**Concepts** 
+Blueprints enable functions to be written in any Python file and promote logical grouping across of functions across function applications.
 
-- **Blueprint**: A new class instantiated to register user functions besides function app. The functions registered in blueprint instances are not indexed directly by function runtime. To get the functions indexed, function app needs to register the functions from blueprint instances. 
 
 Blueprint example usage: 
 
@@ -722,7 +722,7 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
-`AsgiFunctionApp`: Top level function app class for constructing ASGI http functions. 
+`AsgiFunctionApp`: Top level function app class for constructing ASGI HTTP functions. 
 
 ```python
 # function_app.py
@@ -739,66 +739,9 @@ async def return_http_no_body():
 app = func.AsgiFunctionApp(app=fast_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
 ```
-Following is an additional example:
-
-```python
-import fastapi
-import json
-import mimesis
-from pydantic import BaseModel
-
-fast_app = fastapi.FastAPI()
-@fast_app.get("/hello")
-async def get_food(
-    name: str
-):
-    return f"hello {name}"
-
-class FoodItem(BaseModel):
-    id: int
-    vegetable: str
-    dish: str
-    drink: str
 
 
-@fast_app.get("/hello")
-async def get_food(
-    name: str
-):
-    return f"hello {name}"
-
-@fast_app.get("/food/{food_id}")
-async def get_food(
-    food_id: int,
-):
-    food = mimesis.Food()
-    return {
-        "food_id": food_id,
-        "vegetable": food.vegetable(),
-        "dish": food.dish(),
-        "drink": food.drink(),
-    }
-
-@fast_app.post("/food/")
-async def create_food(food: FoodItem):
-    # Write the food item to the database here.
-    return food
-
-@fast_app.get("/users/{user_id}")
-async def read_item(user_id: int, locale: Optional[str] = None):
-    fake_user = mimesis.Person(locale=locale)
-    return {
-        "user_id": user_id,
-        "username": fake_user.username(),
-        "fullname": fake_user.full_name(),
-        "age": fake_user.age(),
-        "firstname": fake_user.first_name(),
-        "lastname": fake_user.last_name(),
-    }
-app = func.FunctionApp(asgi_app=fast_app, auth_level=func.AuthLevel.ANONYMOUS)
-```
-
-`WsgiFunctionApp`: Top level function app class for constructing WSGI http functions.  
+`WsgiFunctionApp`: Top level function app class for constructing WSGI HTTP functions.  
 
 ```python
 # function_app.py
@@ -815,27 +758,6 @@ def return_http():
 
 app = func.WsgiFunctionApp(app=flask_app.wsgi_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
-```
-
-Following is an additonal example:
-
-```python
-from flask import Flask, make_response, request
-
-flask_app = Flask(__name__)
-@flask_app.route("/")
-def index():
-    return (
-        "Try /hello/<name> for parameterized Flask route.\n"
-        "Try /module for module import guidance"
-    )
-
-@flask_app.route("/hello/<name>", methods=['GET','POST','DELETE'])
-
-def hello(name: str):
-    return f"hello {name}"
-
-app = func.FunctionApp(wsgi_app=flask_app.wsgi_app, auth_level=func.AuthLevel.ANONYMOUS)
 ```
 
 ---

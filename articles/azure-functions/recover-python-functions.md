@@ -32,7 +32,37 @@ The reason this error may be occuring is because of an issue with how the extens
 
 > `func host start --verbose`
 
-Upon running the command, if you notice that `Loading startup extension <>` is not followed by `Loaded extension <>` for each extension, it is likely that you are facing a caching issue. To resolve this issue, the recommendation is to uninstall and reinstall Core Tools.
+Upon running the command, if you notice that `Loading startup extension <>` is not followed by `Loaded extension <>` for each extension, it is likely that you are facing a caching issue. 
+
+To resolve this issue, 
+
+1. Find the path of `.azure-functions-core-tools` by running 
+```console 
+func GetExtensionBundlePath
+```
+
+2. Delete the directory `.azure-functions-core-tools`
+
+# [bash](#tab/bash)
+
+```bash
+rm -r <insert path>/.azure-functions-core-tools
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Remove-Item <insert path>/.azure-functions-core-tools
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+rmdir <insert path>/.azure-functions-core-tools
+```
+
+---
+
 
 ## Troubleshoot unable to resolve the Azure Storage connection named Storage
 

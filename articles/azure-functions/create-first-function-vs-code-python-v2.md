@@ -37,7 +37,7 @@ Before you begin, make sure that you have the following requirements in place:
 
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. (check-pystein for version)
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) version 1.8.1 or later for Visual Studio Code.
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -115,8 +115,3 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to 
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
-
-///
-|**Select a template for your project's first function**| Choose `HTTP trigger`.|
-    |**Provide a function name**| Enter `HttpExample`.|
-    |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
