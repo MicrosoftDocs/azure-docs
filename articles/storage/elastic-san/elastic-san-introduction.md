@@ -52,7 +52,7 @@ Your Elastic SAN's name has some requirements. The name may only contain lowerca
 
 ### Volume groups 
 
-Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
+Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group.
 
 Your volume group's name has some requirements. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The name must be between 3 and 63 characters long.
 
