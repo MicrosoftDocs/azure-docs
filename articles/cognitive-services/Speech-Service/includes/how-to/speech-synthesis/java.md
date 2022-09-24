@@ -194,3 +194,19 @@ public static void main(String[] args) {
 > [!NOTE]
 > To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");`.
 
+## Subscribe to synthesizer events
+
+While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+
+[!INCLUDE [Event types](events.md)]
+
+Here's an example that shows how to subscribe to the `BookmarkReached` event for speech synthesis. 
+
+```java
+speechSynthesizer.BookmarkReached.addEventListener((o, e) -> {
+    System.out.print("Bookmark reached. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
+    System.out.println("bookmark text: " + e.getText() + ".");
+});
+```
+
+You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

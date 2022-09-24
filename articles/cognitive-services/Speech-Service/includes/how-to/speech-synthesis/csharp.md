@@ -181,24 +181,120 @@ public static async Task SynthesizeAudioAsync()
 > [!NOTE]
 > To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";`.
 
+## Subscribe to synthesizer events
 
-## Get facial pose events
+While using the [SpeechSynthesizer](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
 
-Speech can be a good way to drive the animation of facial expressions.
-[Visemes](../../../how-to-speech-synthesis-viseme.md) are often used to represent the key poses in observed speech. Key poses include the position of the lips, jaw, and tongue in producing a particular phoneme.
+[!INCLUDE [Event types](events.md)]
 
-You can subscribe to viseme events in the Speech SDK. Then, you can apply viseme events to animate the face of a character as speech audio plays. Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](quickstart.md?pivots=csharp) and replace contents of `Program.cs` with the following C# code.
 
-## Get position information
+```csharp
+using Microsoft.CognitiveServices.Speech;
 
-Your project might need to know when a word is spoken by text-to-speech so that it can take specific action based on that timing. For example, if you want to highlight words as they're spoken, you need to know what to highlight, when to highlight it, and for how long to highlight it.
+class Program 
+{
+    static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
+    static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
 
-You can accomplish this by using the `WordBoundary` event via [SpeechSynthesizer](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer). This event is raised at the beginning of each new spoken word. It provides a time offset within the spoken stream and a text offset within the input prompt:
+    async static Task Main(string[] args)
+    {
+        var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);
+         
+        var speechSynthesisVoiceName  = "en-US-JennyNeural";  
+        var ssml = @$"<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
+            <voice name='{speechSynthesisVoiceName}'>
+                <mstts:viseme type='redlips_front'/>
+                The rainbow has seven colors: <bookmark mark='colors_list_begin'/>Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark='colors_list_end'/>.
+            </voice>
+        </speak>";
 
-* `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the start of the next word. This is measured in hundred-nanosecond units (HNS), with 10,000 HNS equivalent to 1 millisecond.
-* `WordOffset` reports the character position in the input string (original text or [SSML](../../../speech-synthesis-markup.md)) immediately before the word that's about to be spoken.
+        // Required for WordBoundary event sentences.
+        speechConfig.SetProperty("SpeechServiceResponse_RequestSentenceBoundary", "true");
 
-> [!NOTE]
-> `WordBoundary` events are raised as the output audio data becomes available, which will be faster than playback to an output device. The caller must appropriately synchronize streaming and real time.
+        using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
+        {
+            // Subscribe to events
 
-You can find examples of using `WordBoundary` in the [text-to-speech samples](https://aka.ms/csspeech/samples) on GitHub.
+            speechSynthesizer.BookmarkReached += (s, e) =>
+            {
+                Console.WriteLine($"BookmarkReached event:" +
+                    $"\r\n\tAudioOffset: {(e.AudioOffset + 5000) / 10000}ms" +
+                    $"\r\n\tText: \"{e.Text}\".");
+            };
+
+            speechSynthesizer.SynthesisCanceled += (s, e) =>
+            {
+                Console.WriteLine("SynthesisCanceled event");
+            };
+
+            speechSynthesizer.SynthesisCompleted += (s, e) =>
+            {                
+                Console.WriteLine($"SynthesisCompleted event:" +
+                    $"\r\n\tAudioData: {e.Result.AudioData.Length} bytes" +
+                    $"\r\n\tAudioDuration: {e.Result.AudioDuration}.");
+            };
+
+            speechSynthesizer.SynthesisStarted += (s, e) =>
+            {
+                Console.WriteLine("SynthesisStarted event");
+            };
+
+            speechSynthesizer.Synthesizing += (s, e) =>
+            {
+                Console.WriteLine($"Synthesizing event:" +
+                    $"\r\n\tAudioData: {e.Result.AudioData.Length} bytes");
+            };
+
+            speechSynthesizer.VisemeReceived += (s, e) =>
+            {
+                Console.WriteLine($"VisemeReceived event:" +
+                    $"\r\n\tAudioOffset: {(e.AudioOffset + 5000) / 10000}ms" +
+                    $"\r\n\tVisemeId: {e.VisemeId}.");
+            };
+
+            speechSynthesizer.WordBoundary += (s, e) =>
+            {
+                Console.WriteLine($"WordBoundary event:" +
+                    // Word, Punctuation, or Sentence
+                    $"\r\n\tBoundaryType: {e.BoundaryType}" +
+                    $"\r\n\tAudioOffset: {(e.AudioOffset + 5000) / 10000}ms" +
+                    $"\r\n\tDuration: {e.Duration}" +
+                    $"\r\n\tText: \"{e.Text}\"" +
+                    $"\r\n\tTextOffset: {e.TextOffset}" +
+                    $"\r\n\tWordLength: {e.WordLength}.");
+            };
+
+            // Synthesize the SSML
+            Console.WriteLine($"SSML to synthesize: \r\n{ssml}");
+            var speechSynthesisResult = await speechSynthesizer.SpeakSsmlAsync(ssml);
+
+            // Output the results
+            switch (speechSynthesisResult.Reason)
+            {
+                case ResultReason.SynthesizingAudioCompleted:
+                    Console.WriteLine("SynthesizingAudioCompleted result");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = SpeechSynthesisCancellationDetails.FromResult(speechSynthesisResult);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails=[{cancellation.ErrorDetails}]");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+}
+```
+
+You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

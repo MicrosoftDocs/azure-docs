@@ -148,3 +148,18 @@ stream.save_to_wav_file("path/to/write/file.wav")
 
 > [!NOTE]
 > To change the voice without using SSML, you can set the property on `SpeechConfig` by using `speech_config.speech_synthesis_voice_name = "en-US-JennyNeural"`.
+
+## Subscribe to synthesizer events
+
+While using the [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+
+[!INCLUDE [Event types](events.md)]
+
+Here's an example that shows how to subscribe to the `BookmarkReached` event for speech synthesis. 
+
+```python
+speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+    "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+```
+
+You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

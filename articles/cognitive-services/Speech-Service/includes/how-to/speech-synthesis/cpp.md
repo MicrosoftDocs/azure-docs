@@ -183,3 +183,21 @@ void synthesizeSpeech()
 > [!NOTE]
 > To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`.
 
+## Subscribe to synthesizer events
+
+While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+
+[!INCLUDE [Event types](events.md)]
+
+Here's an example that shows how to subscribe to the `BookmarkReached` event for speech synthesis. 
+
+```cpp
+speechSynthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+{
+    cout << "Bookmark reached. "
+        << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
+        << "bookmark text: " << e.Text << "." << endl;
+};
+```
+
+You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

@@ -332,3 +332,19 @@ function synthesizeSpeech() {
 
 > [!NOTE]
 > To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";`.
+
+## Subscribe to synthesizer events
+
+While using the [SpeechSynthesizer](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+
+[!INCLUDE [Event types](events.md)]
+
+Here's an example that shows how to subscribe to the `bookmarkReached` event for speech synthesis. 
+
+```javascript
+synthesizer.bookmarkReached = function (s, e) {
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms, bookmark text: " + e.text);
+}
+```
+
+You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

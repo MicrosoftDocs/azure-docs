@@ -15,3 +15,4 @@ See the text-to-speech [overview](../../../text-to-speech.md) for more informati
 * Customizing output sample rate and bit rate.
 * Submitting synthesis requests by using Speech Synthesis Markup Language (SSML).
 * Using neural voices.
+* Subscribing to events and acting on results.
