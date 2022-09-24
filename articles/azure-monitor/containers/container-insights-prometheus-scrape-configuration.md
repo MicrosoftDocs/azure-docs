@@ -460,7 +460,6 @@ scrape_configs:
 
 ## Next steps
 
-- 
 - [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
 
 

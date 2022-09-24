@@ -1,6 +1,7 @@
 ---
 title: Send Prometheus metrics to Azure Monitor managed service for Prometheus with Container insights
 description: Configure the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster and send to Azure Monitor managed service for Prometheus.
+ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 09/15/2022
 ms.reviewer: aul
@@ -301,5 +302,4 @@ When you allow a default Azure Monitor workspace to be created when you install 
 ## Next steps
 
 - [Customize Prometheus metric scraping for the cluster](container-insights-prometheus-scrape-configuration.md).
-- []
 - [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
