@@ -67,14 +67,15 @@ The following output example resembles successful creation of the resource group
 
 ```json
 {
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<guid>/resourceGroups/fleet-demo",
   "location": "eastus",
   "managedBy": null,
-  "name": "myResourceGroup",
+  "name": "fleet-demo",
   "properties": {
     "provisioningState": "Succeeded"
   },
-  "tags": null
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
 }
 ```
 
@@ -88,6 +89,37 @@ Create a Fleet resource using the [az fleet create](/cli/azure/fleet#az-fleet-cr
 az fleet create -n ${FLEET} -g ${GROUP}
 ```
 
+Output:
+
+```json
+{
+  "etag": "\"<guid>\"",
+  "hubProfile": {
+    "dnsPrefix": "fleet-demo-fleet-demo-3959ec",
+    "fqdn": "<unique>.hcp.eastus.azmk8s.io",
+    "kubernetesVersion": "1.23.8"
+  },
+  "id": "/subscriptions/<guid>/resourceGroups/fleet-demo/providers/Microsoft.ContainerService/fleets/fleet-demo",
+  "location": "eastus",
+  "name": "fleet-demo",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "fleet-demo",
+  "systemData": {
+    "createdAt": "2022-09-24T02:23:31.924353+00:00",
+    "createdBy": "<user>",
+    "createdByType": "User",
+    "lastModifiedAt": "2022-09-24T02:23:31.924353+00:00",
+    "lastModifiedBy": "<user>",
+    "lastModifiedByType": "User"
+  },
+  "tags": {
+    "resourceTag": "addedByPolicy"
+  },
+  "type": "Microsoft.ContainerService/fleets"
+}
+```
+
+
 ## Join member clusters
 
 Fleet currently supports joining existing AKS clusters as member clusters.
@@ -95,11 +127,11 @@ Fleet currently supports joining existing AKS clusters as member clusters.
 1. If you already have existing AKS clusters that you want to join to the fleet resource, you can skip to Step 2. If not, you can create two AKS clusters using the following commands:
 
     ```azurecli-interactive
-    az aks create -g ${GROUP} -n memberaks1 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+    az aks create -g ${GROUP} -n member-aks-1 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
     ```
 
     ```azurecli-interactive
-    az aks create -g ${GROUP} -n memberaks2 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+    az aks create -g ${GROUP} -n member-aks-2 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
     ```
 
 1. Obtain the `id` for a cluster you want to join as a member cluster to the Fleet resource:
@@ -108,16 +140,53 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     export MEMBER_RESOURCE_ID=$(az aks show -g ${GROUP} -n ${MEMBER} --query id --output tsv)
     ```
 
+1. Choose a unique name for this member cluster within the fleet:
+
+    ```azurecli-interactive
+    export MEMBER_NAME=<member_name>
+    ```
+
 1. Join the above target cluster to the Fleet resource using the following command:
 
     ```azurecli-interactive
-    az fleet member join -g ${GROUP} -n ${FLEET} --member-cluster-id=${MEMBER_RESOURCE_ID}
+    az fleet member create -g ${GROUP} --fleet-name ${FLEET} -n ${MEMBER_NAME} --member-cluster-id ${MEMBER_RESOURCE_ID}
+    ```
+
+    Output:
+
+    ```json
+    {
+      "clusterResourceId": "/subscriptions/<guid>/resourcegroups/fleet-demo/providers/Microsoft.ContainerService/managedClusters/member-aks-1",
+      "etag": "\"<guid>\"",
+      "id": "/subscriptions/<guid>/resourceGroups/fleet-demo/providers/Microsoft.ContainerService/fleets/fleet-demo/members/member-aks-1",
+      "name": "member-aks-1",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "fleet-demo",
+      "systemData": {
+        "createdAt": "2022-09-24T03:23:51.688418+00:00",
+        "createdBy": "<user>",
+        "createdByType": "User",
+        "lastModifiedAt": "2022-09-24T03:23:51.688418+00:00",
+        "lastModifiedBy": "<user>",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.ContainerService/fleets/members"
+    }
     ```
 
 1. Verify that the member cluster has successfully joined by running the following command:
 
     ```azurecli-interactive
-    az fleet member list -g ${GROUP} -n ${FLEET} -o table
+    az fleet member list -g ${GROUP} --fleet-name ${FLEET} -o table
+    ```
+
+    Output:
+    
+    ```json
+    ClusterResourceId                                                                                                                                Name          ClusterResourceId                                                                                                                                Name          ProvisioningState    ResourceGroup
+    -----------------------------------------------------------------------------------------------------------------------------------------------  ------------  -------------------  ---------------
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/fleet-demo/providers/Microsoft.ContainerService/managedClusters/member-aks-1  member-aks-1  Succeeded            fleet-demo
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/fleet-demo/providers/Microsoft.ContainerService/managedClusters/member-aks-2  member-aks-2  Succeeded            fleet-demo
     ```
 
 ## (Optional) Access the Kubernetes API of the Fleet resource cluster
@@ -128,6 +197,12 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
 
     ```azurecli-interactive
     az fleet get-credentials -n ${FLEET} -g ${GROUP}
+    ```
+
+    Output:
+
+    ```bash
+    Merged "hub" as current context in /home/shasb/.kube/config
     ```
 
 1. Get the `id` of the Fleet resource:
@@ -149,10 +224,38 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     * Azure Kubernetes Fleet Manager RBAC Admin
     * Azure Kubernetes Fleet Manager RBAC Cluster Admin
 
+
+    Output:
+
+    ```bash
+    {
+      "canDelegate": null,
+      "condition": null,
+      "conditionVersion": null,
+      "description": null,
+      "id": "/subscriptions/<guid>/resourceGroups/fleet-demo/providers/Microsoft.ContainerService/fleets/fleet-demo/providers/Microsoft.Authorization/roleAssignments/<guid>",
+      "name": "<guid>",
+      "principalId": "<guid>",
+      "principalType": "User",
+      "resourceGroup": "fleet-demo",
+      "roleDefinitionId": "/subscriptions/<guid>/providers/Microsoft.Authorization/roleDefinitions/<guid>",
+      "scope": "/subscriptions/<guid>/resourceGroups/fleet-demo/providers/Microsoft.ContainerService/fleets/fleet-demo",
+      "type": "Microsoft.Authorization/roleAssignments"
+    }
+    ```
+
 1. Verify the status of the member clusters:
 
     ```bash
     kubectl get memberclusters
+    ```
+
+    Output:
+
+    ```bash
+    NAME            JOINED   AGE
+    member-aks-1    True     15m
+    member-aks-2    True     10m
     ```
 
 ## Next steps
