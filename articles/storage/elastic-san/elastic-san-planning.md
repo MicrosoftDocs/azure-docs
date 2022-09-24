@@ -23,21 +23,15 @@ Answering those three questions can help you to successfully provision a SAN tha
 
 ## Storage and performance
 
-There are two ways to provision storage for an Elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput(MBps) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput(MBps). The maximum total capacity an Elastic SAN can have is one pebibyte (PiB) and the minimum total capacity an Elastic SAN can have is 64 tebibyte (TiB). Both base and additional capacity can be increased in 1-TiB increments.
+There are two layers when it comes to performance and storage, the total storage and performance that an Elastic SAN has, and the performance and storage of individual volumes.
 
-When you provision this storage into an individual volume, that volume's potential maximum performance is determined.
+### Elastic SAN
 
-### IOPS
+There are two ways to provision storage for an Elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput (MB/s) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput (MB/s). When provisioning storage for an Elastic SAN, consider how much storage you require and how much performance you require. Using a combination of base capacity and additional capacity too meet these requirements allows you to optimize your costs. For example, if you needed 100 TiB of storage but only needed 250,000 IOPS and 4,000 MB/s, you could provision 50 TiB in your base capacity and 50 Tib in your additional capacity.
 
-Your Elastic SAN's IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you have an Elastic SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity.
+### Volumes
 
-The IOPS of an Elastic SAN are distributed among all its volumes. The maximum IOPS of an individual volume increases by 750 per gibibyte (GiB), up to a maximum of 64,000 IOPS. A volume needs at least 86 GiB to be capable of using its maximum IOPS. The combined IOPS of all your volumes can't exceed the IOPS and throughput of your Elastic SAN.
-
-### Throughput
-
-Your Elastic SAN's throughput increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you have an Elastic SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
-
-The throughput of an Elastic SAN is distributed among all its volumes. The maximum throughput of an individual volume increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. To use the maximum throughput, a volume needs at least 18 GiB of capacity. The combined throughput of all your volumes can't exceed the IOPS and throughput of your Elastic SAN.
+You create volumes from the storage that you provisioned to your Elastic SAN. When you create a volume, think of it like partitioning a section of the storage of your Elastic SAN. The maximum performance of an individual volume is determined by the amount of storage allocated to it. Individual volumes can have fairly high IOPS and throughput, but the total IOPS and throughput of all your volumes can't exceed the total IOPS and throughput your SAN has. Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have three of these volumes operating at their maximum performance (64,000 IOPS, 1,024 MB/s) since this would be below the SAN's limits. But if four or five volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
 
 ## Networking
 
