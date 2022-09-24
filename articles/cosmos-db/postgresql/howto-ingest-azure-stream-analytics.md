@@ -90,7 +90,7 @@ Blob Storage into Azure Cosmos DB for PostgreSQL.
 
    1. Fill out the **Azure PostgreSQL** page with the following values:
       * **Output alias** - Enter a name to identify the job's output.
-      * Select **Provide PostgreSQL database settings manually** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**. From the example dataset, use the table name *device_data*.
+      * Select **Provide PostgreSQL database settings manually** and enter the **Server fully qualified domain name**, **Database**, **Table**, **Username**, and **Password**. From the example dataset, use the table *device_data*.
    1. Select **Save**.
 
    :::image type="content" source="media/howto-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::

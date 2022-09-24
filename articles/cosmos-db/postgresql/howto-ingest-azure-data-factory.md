@@ -98,10 +98,9 @@ new to Data Factory, here's a quick guide on how to get started:
    5. Select **Create** to save the configuration.
    6. On the **Set properties** screen, select **OK**.
    5. In the **Sink** tab on the **Activities** page, select the table name where you want to ingest the data.
+   6. Under **Write method**, select **Copy command**.
 
       :::image type="content" source="media/howto-ingestion/azure-data-factory-copy-command.png" alt-text="Screenshot that shows selecting the table and Copy command.":::
-
-   6. Under **Write method**, select **Copy command**.
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline
    settings. Fix any errors, revalidate, and ensure that the pipeline has
