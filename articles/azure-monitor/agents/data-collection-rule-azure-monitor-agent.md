@@ -31,7 +31,7 @@ To send data to Log Analytics, create the data collection rule in the *same regi
 
     [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 
-1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**.
+1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
 
