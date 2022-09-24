@@ -128,7 +128,7 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName
 
 ## Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux/login-using-aad.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
 
 ## Set up the console app
 
