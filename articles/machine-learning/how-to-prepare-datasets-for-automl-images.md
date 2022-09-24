@@ -50,9 +50,9 @@ If you already have a data labeling project and you want to use that data, you c
 ### Using pre-labeled training data
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 
 
-Below scripts uploads the image data on your local machine at path "./data/odFridgeObjects" to Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. Datastore property of this newly created data asset is made to point to location in Azure Blob Storage where the image data was uploaded. 
+Below scripts uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. 
 
-If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it'll update its version number and update its datastore property to point to new location in Azure Blob Storage where we uploaded the image data.
+If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it'll update its version number of data asset and make it point to new datastore in Azure Blob Storage where we uploaded the image data.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
