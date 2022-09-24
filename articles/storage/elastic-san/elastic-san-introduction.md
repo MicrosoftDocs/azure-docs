@@ -58,7 +58,7 @@ Your volume group's name has some requirements. The name may only contain lowerc
 
 ### Volumes
 
-You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI. A volume can connect to up to 20 different clients simultaneously. 
+You partition the SAN's storage capacity into individual volumes. These individual volumes can be mounted to your clients with iSCSI.
 
 The name of your volume is part of their iSCSI IQN. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character. The name must also be between 3 and 63 characters long.
 
