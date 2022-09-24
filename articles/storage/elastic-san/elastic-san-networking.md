@@ -24,7 +24,7 @@ Each volume group supports up to 200 virtual network rules.
 
 ### Required permissions
 
-To enable service point for Azure Storage, the user must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftnetwork) via a custom Azure role.
+To enable service point for Azure Storage, the user must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 

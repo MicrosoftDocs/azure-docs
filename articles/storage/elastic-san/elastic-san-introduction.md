@@ -26,7 +26,7 @@ Azure Elastic SAN volumes can connect to a wide variety of compute resources usi
 
 ### Simplified provisioning and management
 
-Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups-resources) you can manage a large number of volumes from a single resource. For instance, you can create virtual network rules on the volume group and grant access to all your volumes.
+Elastic SAN simplifies deploying and managing storage at scale through grouping and policy enforcement. With [volume groups](#volume-groups) you can manage a large number of volumes from a single resource. For instance, you can create virtual network rules on the volume group and grant access to all your volumes.
 
 ### Performance
 
