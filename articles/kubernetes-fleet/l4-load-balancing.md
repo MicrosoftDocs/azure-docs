@@ -38,7 +38,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 >
 > * These steps deploy the sample workload from the Fleet cluster to member clusters using Kubernetes configuration propagation. Alternatively, you can choose to deploy these Kubernetes configurations to each member cluster separately, one at a time.
 
-1. Obtain `kubeconfig` for the fleet cluster
+1. Obtain `kubeconfig` for the fleet cluster:
 
 	```bash
 	export GROUP=<your_resource_group_name>
@@ -46,130 +46,99 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 	az fleet get-credentials -n $FLEET -g $GROUP
 	```
 
-1. Create the deployment and service objects in a file called `demo-app.yaml`:
+1. Create a namespace on the fleet cluster:
 
-	```yml
-	apiVersion: apps/v1
-	kind: Deployment
-	metadata:
-		name: app
-		namespace: demo
-	spec:
-		replicas: 2
-		selector:
-			matchLabels:
-				app: hello-world
-		template:
-			metadata:
-				labels:
-					app: hello-world
-			spec:
-				containers:
-					- name: python
-						image: fleetnetbugbash.azurecr.io/app
-						imagePullPolicy: Always
-						ports:
-						- containerPort: 8080
-						env:
-						- name: MEMBER_CLUSTER_ID
-							valueFrom:
-								configMapKeyRef:
-									name: member-cluster-id
-									key: id
-						resources:
-							requests:
-								cpu: "0.2"
-								memory: "400M"
-							limits:
-								cpu: "0.2"
-								memory: "400M"
-						volumeMounts:
-							- mountPath: /etc/podinfo
-								name: podinfo
-				volumes:
-					- name: podinfo
-						downwardAPI:
-							items:
-								- path: "name"
-									fieldRef:
-										fieldPath: metadata.name
-								- path: "namespace"
-									fieldRef:
-										fieldPath: metadata.namespace
-    
-    ---
-    
-    apiVersion: v1
-    kind: Service
-    metadata:
-    	name: app
-    	namespace: demo
-    spec:
-    	type: LoadBalancer
-    	selector:
-    		app: hello-world
-    	ports:
-    	- port: 80
-    		targetPort: 8080
-    	
-    ---
-    
-    apiVersion: networking.fleet.azure.com/v1alpha1
-    kind: ServiceExport
-    metadata:
-    	name: app
-    	namespace: demo
+    ```bash
+	kubectl create ns kuard-demo
 	```
 
-	The `ServiceExport` specification above allows you to export a service from one member cluster to the Fleet resource. Once successfully exported, Fleet will sync this service and all endpoints behind it to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
+    Output:
 
-1. Apply the deployment and service objects to the cluster:
-	
+    ```bash
+	namespace/kuard-demo created
+	```
+
+1. Apply a `ClusterResourcePlacement` to propagate this namespace from the fleet cluster to all member clusters:
+
+    ```bash
+	kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
+	```
+ 
+    Output:
+
+    ```bash
+	clusterresourceplacement.fleet.azure.com/kuard created
+	```
+
+1. Apply the Deployment, Service, ServiceExport objects:
+
 	```bash
-	kubectl apply -f ./artifacts/demo-app.yaml
+	kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
 	```
 
+	The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
+
+
+    Output:
+
+    ```bash
+	deployment.apps/kuard created
+    service/kuard created
+    serviceexport.networking.fleet.azure.com/kuard created
+	```
+
+## Create MultiClusterService to load balance across the service endpoints in multiple member clusters
+
+
+1. Change kubeconfig context to one of the member clusters:
+
+    ```bash
+    export GROUP=<your_resource_group_name>
+	export MEMBER_AKS=<your_member_aks_cluster_name>
+	az aks get-credentials -n $MEMBER_AKS -g $GROUP
+	```
 
 1. Verify that the service is successfully exported by running the following command:
 
 	```bash
-	kubectl get serviceexport app --namespace demo
+	kubectl get serviceexport kuard --namespace kuard-demo
 	```
+
+    Output:
+
+    ```bash
+	NAME    IS-VALID   IS-CONFLICTED   AGE
+    kuard   True       False           81s
+	```    
 
 	You should see that the service is valid for export (`IS-VALID` field is `true`) and has no conflicts with other exports (`IS-CONFLICT` is `false`). 
 
 	> [!NOTE]
 	> It may take a minute or two for the ServiceExport to be propagated.
 
-## Create MultiClusterService
 
-1. Create a MultiClusterService object in a file called `mcs.yaml`:
-
-	```yml
-	apiVersion: networking.fleet.azure.com/v1alpha1
-	kind: MultiClusterService
-	metadata:
-		name: app
-		namespace: work
-	spec:
-		serviceImport:
-			name: app
-	```
-
-	and apply it to the cluster:
-
-	```yml
-	kubectl apply -f ./artifacts/mcs.yaml --namespace demo
-	```
-
-1. Verify that the import is successful by running the following command:
+1. Apply the MultiClusterService to load balance across the service endpoints in multiple member clusters:
 
 	```bash
-	kubectl get mcs app --namespace demo
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
+    ```
+
+    Output:
+
+    ```bash
+	multiclusterservice.networking.fleet.azure.com/kuard created
 	```
+
+1. Verify the MultiClusterService is valid by running the following command:
+
+	```bash
+	kubectl get mcs kuard --namespace kuard-demo
+	```
+
+    Output:
+
+    NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
+    kuard   kuard            a.b.c.d         True       40s
 
 	The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
 
-1. Open a browser window and visit the IP address. You should see a "Hello World!" message returned by the application. The message should also include the namespace and name of the endpoint (a pod), and the cluster where the pod comes from.
-
-1. Refresh the page multiple times and you will see that pods from both member clusters are exposed by the MultiClusterService, showcasing how load balancing for incoming traffic is happening across all these pods.
