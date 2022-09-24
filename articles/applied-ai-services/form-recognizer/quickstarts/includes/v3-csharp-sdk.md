@@ -263,7 +263,6 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 //sample document
-// sample form document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
