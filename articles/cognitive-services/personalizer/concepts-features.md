@@ -330,7 +330,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 
 ## Inference Explainability
 Personalizer can help you to understand which features of a chosen action are the most and least influential to then model during inference. When enabled, inference explainability includes feature scores from the underlying model into the Rank API response, so your application receives this information at the time of inference.
-Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to analyze whether your model is exhibiting bias toward or against certain contextual settings, users, and actions.
+Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to further analyze how the data is being used by the underlying model.
 
 Setting the service configuration flag IsInferenceExplainabilityEnabled in your service configuration enables Personalizer to include feature values and weights in the Rank API response. To update your current service configuration, use the [Service Configuration – Update API](/rest/api/personalizer/1.1preview1/service-configuration/update?tabs=HTTP). In the JSON request body, include your current service configuration and add the additional entry: “IsInferenceExplainabilityEnabled”: true. If you don’t know your current service configuration, you can obtain it from the [Service Configuration – Get API](/rest/api/personalizer/1.1preview1/service-configuration/get?tabs=HTTP)
 
@@ -366,11 +366,11 @@ Enabling inference explainability will add a collection to the JSON response fro
     },
     {
       "id": "SportsArticle",
-      "probability": 0.15
+      "probability": 0.10
     },
     {
       "id": "NewsArticle",
-      "probability": 0.05
+      "probability": 0.10
     }
   ],
  "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
@@ -406,9 +406,9 @@ For the best actions returned by Personalizer, the feature scores can provide ge
 * Scores close to zero have a small effect on the decision to choose this action.
 
 ### Important considerations for Inference Explainability
-* **Increased latency.** Enabling _Inference Explainability_ will significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. Future versions of Inference Explainability will mitigate this issue.
+* **Increased latency.** Currently, enabling _Inference Explainability_ may significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. 
 * **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when using _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
-* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm. Future releases will enable the use of this capability with additional exploration algorithms.
+* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm at this time.
 
 ## Next steps
 
