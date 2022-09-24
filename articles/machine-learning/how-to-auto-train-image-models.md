@@ -242,6 +242,9 @@ image_object_detection_job = automl.image_object_detection(
 
 Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
+> [!NOTE]
+> If you are using a [compute instance](concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_trials` is set to 1 in your [job limits](#job-limits).
+
 The compute target is passed in using the `compute` parameter. For example:
 
 # [Azure CLI](#tab/cli)
@@ -400,7 +403,7 @@ search_space:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
 
 ---
 
@@ -423,7 +426,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 |[Bayesian Sampling](how-to-tune-hyperparameters.md#bayesian-sampling)| `bayesian` |
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling support conditional hyperparameter spaces.
 
 ### Early termination policies
 
