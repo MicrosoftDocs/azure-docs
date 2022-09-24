@@ -879,9 +879,7 @@ This section explains how to collect custom telemetry from your application.
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
 The OpenTelemetry API offers six metric "intruments" to cover a varity of metric scenarios.
-On the other hand, Azure Monitor offers [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types).
-
-Here's how the OpenTelemetry instruments map to Azure Monitor's aggregation types:
+The following table shows how OpenTelemetry's instruments map to Azure Monitor's [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types):
 
 | OpenTelemetry Instrument   | Azure Monitor Aggregation Type |
 |----------------------------|--------------------------------|
@@ -899,7 +897,7 @@ The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetr
 describes the instruments and provides examples of when you might use each one.
 
 > [!TIP]
-> If you're not sure which instrument to select, the histogram is the most versatile and most closely equivilient to the prior Applicaiton Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. 
+> The histogram is the most versatile and most closely equivilient to the prior Applicaiton Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
 #### [.NET](#tab/net)
 
