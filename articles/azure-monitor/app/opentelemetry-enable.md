@@ -899,6 +899,40 @@ describes the instruments and provides examples of when you might use each one.
 > [!TIP]
 > The histogram is the most versatile and most closely equivilient to the prior Applicaiton Insights Track Metric API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
+#### Histogram Example
+
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
+
+---
+
+#### Counter Example
+
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
+
+---
+
+#### Gauge Example
+
 #### [.NET](#tab/net)
 
 Placeholder
