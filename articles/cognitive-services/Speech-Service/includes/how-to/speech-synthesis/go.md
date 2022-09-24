@@ -141,7 +141,7 @@ For detailed information about the classes, see the [`SpeechConfig`](https://pkg
 
 ## Text-to-speech to in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
 * Abstract the resulting byte array as a seekable stream for custom downstream services.
 * Integrate the result with other APIs or services.

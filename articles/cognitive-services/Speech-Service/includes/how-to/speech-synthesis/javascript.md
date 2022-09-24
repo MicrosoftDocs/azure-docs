@@ -43,7 +43,7 @@ The voice that speaks is determined in order of priority as follows:
 
 # [browserjs](#tab/browserjs)
 
-In some cases, you might want to output synthesized speech directly to a speaker. To do this, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. This action outputs to the current active output device.
+To output synthesized speech to the current active output device such as a speaker, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. Here's an example:
 
 ```javascript
 function synthesizeSpeech() {
@@ -116,7 +116,7 @@ Run the program. Synthesized speech is written to a .wav file in the location th
 
 # [browserjs](#tab/browserjs)
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
 * Abstract the resulting byte array as a seekable stream for custom downstream services.
 * Integrate the result with other APIs or services.
@@ -347,4 +347,4 @@ synthesizer.bookmarkReached = function (s, e) {
 }
 ```
 
-You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

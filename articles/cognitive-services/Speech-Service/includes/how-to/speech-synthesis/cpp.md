@@ -70,7 +70,7 @@ Run the program. A synthesized .wav file is written to the location that you spe
 
 ## Synthesize to speaker output
 
-In some cases, you might want to output synthesized speech directly to a speaker. To do this, omit the `AudioConfig` parameter when you're creating the `SpeechSynthesizer` instance in the previous example. This change synthesizes to the current active output device.
+To output synthesized speech to the current active output device such as a speaker, omit the `AudioConfig` parameter when you're creating the `SpeechSynthesizer` instance. Here's an example:
 
 ```cpp
 void synthesizeSpeech()
@@ -83,7 +83,7 @@ void synthesizeSpeech()
 
 ## Get a result as an in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
 * Abstract the resulting byte array as a seekable stream for custom downstream services.
 * Integrate the result with other APIs or services.
@@ -200,4 +200,4 @@ speechSynthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs&
 };
 ```
 
-You can find additional text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
