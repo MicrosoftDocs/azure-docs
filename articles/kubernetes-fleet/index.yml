@@ -28,11 +28,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create fleet and join member clusters
+          - text: Create a Fleet resource and join member clusters
             url: quickstart-create-fleet-and-members.md
       - linkListType: how-to-guide
         links:
-          - text: Propagate Kubernetes configurations from fleet to member clusters
+          - text: Propagate Kubernetes configurations from a Fleet resource to member clusters
             url: configuration-propagation.md
       - linkListType: how-to-guide
         links:
