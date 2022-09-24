@@ -81,7 +81,7 @@ Points to consider when you're using Azure-provided name resolution:
 
 ### Reverse DNS Considerations
 
-Reverse DNS for VMs is supported in all ARM based virtual networks. Azure-managed reverse DNS (PTR) records of form \[vmname\].internal.cloudapp.net are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
+Reverse DNS for VMs is supported in all ARM based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.11.0.4
@@ -91,9 +91,9 @@ Address:  168.63.129.16
 Non-authoritative answer:
 4.0.11.10.in-addr.arpa  name = myeastspokevm1.internal.cloudapp.net
 ```
-This reverse DNS zone is Azure-managed and can't be directly viewed or edited. Forward lookup on the FQDN of form \[vmname\].internal.cloudapp.net will also resolve to the IP address assigned to the virtual machine.
+The **internal.cloudapp.net** reverse DNS zone is Azure-managed and can't be directly viewed or edited. Forward lookup on the FQDN of form **\[vmname\].internal.cloudapp.net** will also resolve to the IP address assigned to the virtual machine.
 
-If the vnet is linked to an [Azure DNS private zone](../dns/private-dns-overview.md) and auto-registration is enabled, then reverse DNS queries will return two records. One record is of the form \[vmname\].[privatednszonename] and the other is of the form \[vmname\].internal.cloudapp.net. See the following example:
+If an [Azure DNS private zone](../dns/private-dns-overview.md) is linked to the vnet with a [virtual network link](../dns/private-dns-virtual-network-links.md) and [auto-registration](../dns/private-dns-autoregistration.md) is enabled on that link, then reverse DNS queries will return two records. One record is of the form **\[vmname\].[privatednszonename]** and the other is of the form **\[vmname\].internal.cloudapp.net**. See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.20.2.4
@@ -105,17 +105,19 @@ Non-authoritative answer:
 4.2.20.10.in-addr.arpa  name = mywestvm1.azure.contoso.com
 ```
 
-When two auto-registered PTR records are returned as shown above, then forward lookup of either FQDN will return the IP address of the VM.
+When two PTR records are returned as shown above, then forward lookup of either FQDN will return the IP address of the VM.
 
-Reverse DNS lookups are scoped to a given virtual network even if it's peered to other virtual networks. Reverse DNS queries for IP addresses of virtual machines located in peered virtual networks will return **NXDOMAIN**.
+Reverse DNS lookups are scoped to a given virtual network, even if it's peered to other virtual networks. Reverse DNS queries for IP addresses of virtual machines located in peered virtual networks will return **NXDOMAIN**.
 
 > [!NOTE]
 > Reverse DNS (PTR) records are not stored in a forward private DNS zone. Reverse DNS records are stored in a reverse DNS (in-addr.arpa) zone. The default reverse DNS zone associated with a vnet isn't viewable or editable.
 
-You can disable the reverse DNS function in a virtual network by creating your own reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md), and then linking this zone to your virtual network. For example, if the IP address space of your virtual network is 10.20.0.0/16, then you can create an empty private DNS zone **20.10.in-addr.arpa** and link it to the virtual network. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you'll get **NXDOMAIN** for your reverse DNS queries, unless you manually create these entries. Auto-registration of PTR records isn't supported, so if you wish to create entries, these must be entered manually. You must also disable auto-registration in the vnet if it's enabled for other zones due to [restrictions](../dns/private-dns-autoregistration.md#restrictions) that permit only one private zone to be linked if autoregistration is enabled. See the [Quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
+You can disable the reverse DNS function in a virtual network by creating your own reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md), and then linking this zone to your virtual network. For example, if the IP address space of your virtual network is 10.20.0.0/16, then you can create an empty private DNS zone **20.10.in-addr.arpa** and link it to the virtual network. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you'll get **NXDOMAIN** for your reverse DNS queries, unless you manually create these entries. 
+
+Auto-registration of PTR records isn't supported, so if you wish to create entries, these must be entered manually. You must also disable auto-registration in the vnet if it's enabled for other zones due to [restrictions](../dns/private-dns-autoregistration.md#restrictions) that permit only one private zone to be linked if autoregistration is enabled. See the [private DNS quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
 
 > [!NOTE]
-> If you want reverse DNS lookup to span across virtual networks you can create a reverse lookup zone (in-addr.arpa) [Azure DNS private zones](../dns/private-dns-overview.md) and link it to multiple virtual networks. You'll have to manually manage the reverse DNS records for the VMs.
+> Since Azure DNS private zones are global, you can create a reverse DNS lookup to span across multiple virtual networks. To do this, create an [Azure DNS private zone](../dns/private-dns-overview.md) for reverse lookups (an **in-addr.arpa** zone), and link it to the virtual networks. You'll have to manually manage the reverse DNS records for the VMs.
 
 ## DNS client configuration
 
