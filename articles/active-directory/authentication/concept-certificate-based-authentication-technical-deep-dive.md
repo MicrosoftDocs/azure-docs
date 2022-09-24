@@ -165,7 +165,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
+1. Sign in to the Azure portal as the test user by using CBA. The sign-in is considered as single-factor authentication as the authentication policy is set where Issuer subject rule satisfies single-factor authentication. If the user has MFA required by the conditional access policy, the sign-in fails with AADSTS54008 error.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
