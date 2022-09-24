@@ -1270,8 +1270,8 @@ items:
           href: containers/container-insights-prometheus-scrape-default.md
         - name: Custom configuration
           href: containers/container-insights-prometheus-scrape-configuration.md
-        - name: Minimal ingestion profile
-          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+        - name: Targets
+          href: containers/container-insights-prometheus-scrape-targets.md
     - name: Configure
       items:
       - name: Agent management

@@ -14,7 +14,7 @@ The CPU and memory usage is correlated with the number of bytes of each sample a
 
 The upper volume limit per pod is currently about 3-3.5 million samples per minute, depending on the number of bytes per sample. This limitation will be eliminated when sharding is added to the feature.
 
-The agent consists of a deployment with one replica and daemonset for scraping metrics. The daemonset scrapes any node-level targets such as cAdvisor, kubelet, and node exporter. You can also configure it to scrape any custom targets at the node level with static configs. The replicaset scrapes everything else such as kube-state-metrics or custom scrape jobs that utilize service discovery.
+The Container insights agent consists of a deployment with one replica and daemonset for scraping metrics. The daemonset scrapes any node-level targets such as cAdvisor, kubelet, and node exporter. You can also configure it to scrape any custom targets at the node level with static configs. The replicaset scrapes everything else such as kube-state-metrics or custom scrape jobs that utilize service discovery.
 
 ### Replicaset in Small vs Large Cluster
 
@@ -36,11 +36,11 @@ The agent consists of a deployment with one replica and daemonset for scraping m
 
 ### Schedule ama-metrics replicaset pod on a nodepool with more resources 
 
-Note that a very large volume of metrics per pod will require a large enough node to be able to handle the CPU and memory usage required. 
-If the ama-metrics replicaset pod doesn't get scheduled on a node that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff.
-In order to overcome this, if you have a node on your cluster that has higher resources(preferably in the system nodepool) and want to get the replicaset scheduled on that node, you can add the label 'azuremonitor/metrics.replica.preferred=true' on the node and the replicaset pod will get scheduled on this node.  
+A very large volume of metrics per pod will require a large enough node to be able to handle the CPU and memory usage required. 
+If the *ama-metrics* replicaset pod doesn't get scheduled on a node that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff.
+In order to overcome this, if you have a node on your cluster that has higher resources (preferably in the system nodepool) and want to get the replicaset scheduled on that node, you can add the label `azuremonitor/metrics.replica.preferred=true` on the node and the replicaset pod will get scheduled on this node.  
+
   ```
   kubectl label nodes <node-name> azuremonitor/metrics.replica.preferred="true"
   ```
 
-## Next steps
