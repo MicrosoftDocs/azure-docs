@@ -89,7 +89,7 @@ Choose a name for the secret and specify the expiration duration. The default is
 ###Add client secret with expiration. The default is one year.
 clientsecretname=mycert2
 clientsecretduration=2
-clientsecret=$(az ad app credential reset --id $clientid --append --credential-description $clientsecretname --years $clientsecretduration --query password --output tsv)
+clientsecret=$(az ad app credential reset --id $clientid --append --display-name $clientsecretname --years $clientsecretduration --query password --output tsv)
 echo $clientsecret
 ```
 
