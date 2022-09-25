@@ -38,3 +38,7 @@ Use the following steps to set the required roles for your Language resource and
 4. Within **Assign access to**, select **Managed identity**. 
 5. Select **Select members**
 6. Select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. 
+
+> ![NOTE]
+> Make sure to check "Allow Azure services on the trusted services list to access this storage account" option in Azure portal, in case of having a virtual network or private endpoint. 
+
