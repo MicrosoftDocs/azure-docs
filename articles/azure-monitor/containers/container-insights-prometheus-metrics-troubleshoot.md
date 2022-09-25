@@ -37,7 +37,7 @@ Run the command `kubectl logs <ama-metrics pod> -n kube-system -c prometheus-col
 
 
 - At startup, any initial errors will be printed in red. Warnings will be printed in yellow. To view colors, you require at least PowerShell version 7 or a linux distribution.
-- If there is an issue getting the auth token.
+- If there's an issue getting the auth token.
     - The message *No configuration present for the AKS resource* will be logged every 5 minutes. 
     * The pod will restart every 15 minutes to try again with the error: *No configuration present for the AKS resource*.
 
@@ -73,8 +73,8 @@ Check that all custom configs are correct, the targets have been discovered for 
 For example, if you're missing metrics from a certain pod:
 - Go to /config to check if scrape job is present with correct settings.
 - Go to /service-discovery to find the url of the discovered pod.
-- Go to /targets to see if there is an issue scraping that url.
-- If there is no issue, follow debug-mode instructions, and see if metrics expected are there.
+- Go to /targets to see if there's an issue scraping that url.
+- If there's no issue, follow debug-mode instructions, and see if metrics expected are there.
 - If metrics are not there, it could be an issue with the name length or number of labels. See service limits for Prometheus metrics.
 
 ## Debug mode
@@ -94,7 +94,7 @@ Agent based scraping currently has the limitations in the following table:
 
 | Property | Limit |
 |:---|:---|
-| Label name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
-| Label value length | Less than or equal to 1023 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
-| Number of labels per timeseries | Less than or equal to 63. When this limit is exceeded for any time-series in a job, the entire scrape job will fail and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
+| Label name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
+| Label value length | Less than or equal to 1023 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
+| Number of labels per timeseries | Less than or equal to 63. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Metric name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, only that particular series will be dropped. MetricextensionConsoleDebugLog will have traces for the dropped metric. |
