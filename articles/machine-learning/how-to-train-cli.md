@@ -42,7 +42,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/create-compute.sh" id="create_computes":::
 
 You are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at zero nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
@@ -392,15 +392,15 @@ As an example, you can train a convolutional neural network (CNN) on the CIFAR-1
 
 The CIFAR-10 dataset in `torchvision` expects as input a directory that contains the `cifar-10-batches-py` directory. You can download the zipped source and extract into a local directory:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="download_untar_cifar":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/create-datasets.sh" id="download_untar_cifar":::
 
 Then create an Azure Machine Learning data asset from the local directory, which will be uploaded to the default datastore:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="create_cifar":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/create-datasets.sh" id="create_cifar":::
 
 Optionally, remove the local file and directory:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
 Registered data assets can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
 
