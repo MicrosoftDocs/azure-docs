@@ -548,12 +548,14 @@ Next, you'll now copy the model from the workspace to the registry. Construct th
 
 
 ```python
-model_path_from_workspace="azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/<model-name>/versions/<model-version>
-print(model_path_from_workspace)
-mlflow_model = Model(
-    path=model_path_from_workspace
-)
-ml_client_registry.model.create_or_update(mlflow_model)
+# fetch the model from workspace
+model_in_workspace = ml_client_workspace.models.get(name="nyc-taxi-model", version=version)
+print(model_in_workspace )
+# change the format such that the registry understands the model (when you print the model_ready_to_copy object, notice the asset id 
+model_ready_to_copy = ml_client_workspace.models._prepare_to_copy(model_in_workspace)
+print(model_ready_to_copy)
+# copy the model from registry to workspace
+ml_client_registry.models.create_or_update(model_ready_to_copy)
 ```
 
 > [!TIP]
