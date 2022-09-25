@@ -69,7 +69,7 @@ The promconfigvalidator tool is inside the Container insights addon container. Y
 for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator/promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./promconfigvalidator/collector-config-template.yml; done
 ```
 
-This generates the merged configuration file *merged-otel-config.yaml* if no parameter is provided using the optional *--output* parameter. Don't use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
+This generates the merged configuration file *merged-otel-config.yaml* if no parameter is provided using the optional *output* parameter. Don't use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
 
 ### Apply config file
 Apply the config file as a config map *ama-metrics-prometheus-config* to the cluster in `kube-system` namespace. Ensure the config file is named *prometheus-metrics* before running the following command since it uses file name as config map setting name.

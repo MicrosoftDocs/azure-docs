@@ -1276,6 +1276,8 @@ items:
           href: containers/container-insights-prometheus-scrape-configuration-minimal.md
         - name: Send to multiple workspaces
           href: containers/container-insights-prometheus-multiple-workspaces.md
+    - name: Troubleshoot collection
+      href: containers/container-insights-prometheus-metrics-troubleshoot.md
     - name: Configure
       items:
       - name: Agent management

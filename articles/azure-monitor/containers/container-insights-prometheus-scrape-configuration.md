@@ -15,13 +15,13 @@ The following table has a list of all the default targets that the Container ins
 
 | Key | Type | Enabled | Description |
 |-----|------|----------|-------------|
-| kubelet | bool | `true` | Scrape kubelet in every node in the k8s cluster without any additional scrape config. |
-| cadvisor | bool | `true` | Scrape cAdvisor in every node in the k8s cluster without any additional scrape config.<br>Linux only. |
-| kubestate | bool | `true` | Scrape kube-state-metrics in the k8s cluster (installed as a part of the addon) without any additional scrape config. |
-| nodeexporter | bool | `true` | Scrape node metrics without any additional scrape config.<br>Linux only. |
-| coredns | bool | `false` | Scrape coredns service in the k8s cluster without any additional scrape config. |
-| kubeproxy | bool | `false` | Scrape kube-proxy in every linux node discovered in the k8s cluster without any additional scrape config.<br>Linux only. |
-| apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any additional scrape config. |
+| kubelet | bool | `true` | Scrape kubelet in every node in the k8s cluster without any extra scrape config. |
+| cadvisor | bool | `true` | Scrape cAdvisor in every node in the k8s cluster without any extra scrape config.<br>Linux only. |
+| kubestate | bool | `true` | Scrape kube-state-metrics in the k8s cluster (installed as a part of the addon) without any extra scrape config. |
+| nodeexporter | bool | `true` | Scrape node metrics without any extra scrape config.<br>Linux only. |
+| coredns | bool | `false` | Scrape coredns service in the k8s cluster without any extra scrape config. |
+| kubeproxy | bool | `false` | Scrape kube-proxy in every linux node discovered in the k8s cluster without any extra scrape config.<br>Linux only. |
+| apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any extra scrape config. |
 | prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of timeseries scraped. |
 
 If you want to turn on the scraping of the default targets that aren't enabled by default, create this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one, and update the targets listed under `default-scrape-settings-enabled` to `true`.
@@ -71,11 +71,11 @@ scrape_configs:
   ...
 ```
 
-Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-validate.md), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config is not valid, then the custom configuration given will not be used by the agent.
+Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-validate.md), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config isn't valid, then the custom configuration given will not be used by the agent.
 
 Any other unsupported sections need to be removed from the config before applying as a configmap. If not, the promconfigvalidator tool validation will fail, and the custom scrape configuration will not be applied
 
-The `scrape_config` setting `honor_labels` is `false` by default. It should be `true` for scrape configs where labels that are normally added by Prometheus, such as `job` and `instance`, are already labels of the scraped metrics and should not be overridden. This is only applicable for cases like [federation](https://prometheus.io/docs/prometheus/latest/federation/) or scraping the [Pushgateway](https://github.com/prometheus/pushgateway), where the scraped metrics already have `job` and `instance` labels. See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) for more details.
+The `scrape_config` setting `honor_labels` is `false` by default. It should be `true` for scrape configs where labels that are normally added by Prometheus, such as `job` and `instance`, are already labels of the scraped metrics and should not be overridden. This setting is only applicable for cases like [federation](https://prometheus.io/docs/prometheus/latest/federation/) or scraping the [Pushgateway](https://github.com/prometheus/pushgateway), where the scraped metrics already have `job` and `instance` labels. For more information, see the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 
 
@@ -131,7 +131,7 @@ The currently supported methods of target discovery for a [scrape config](https:
 
 ### Static Config
 
-A static config has a list of static targets and any additional labels to add to them.
+A static config has a list of static targets and any extra labels to add to them.
 
 ```yaml
 scrape_configs:
