@@ -17,6 +17,9 @@ ms.custom: references_regions
 
 The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you'll learn about authorization options, query options, how to structure a request, and how to interpret a response.
 
+> [!TIP]
+> Use cases for the text-to-speech REST API are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For example, with the Speech SDK you can [subscribe to events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) for more insights about the text-to-speech processing and results.
+
 The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
 
 - For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
@@ -26,9 +29,7 @@ The text-to-speech REST API supports neural text-to-speech voices, which support
 > [!IMPORTANT]
 > Costs vary for prebuilt neural voices (called *Neural* on the pricing page) and custom neural voices (called *Custom Neural* on the pricing page). For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Before you use the text-to-speech REST API, understand that you need to complete a token exchange as part of authentication to access the service.
-
-[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
+Before you use the text-to-speech REST API, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
 
 ## Get a list of voices
 
@@ -317,6 +318,10 @@ riff-48khz-16bit-mono-pcm
 
 > [!NOTE]
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the `ogg-24khz-16bit-mono-opus` format by using the [Opus codec](https://opus-codec.org/downloads/).
+
+## Authentication
+
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Next steps
 

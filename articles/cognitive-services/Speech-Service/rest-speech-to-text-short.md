@@ -27,7 +27,7 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 > [!TIP]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
-[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
+Before you use the speech-to-text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
 
 ### Regions and endpoints
 
@@ -303,6 +303,10 @@ Here's a typical response for recognition with pronunciation assessment:
   ]
 }
 ```
+
+## Authentication
+
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Next steps
 
