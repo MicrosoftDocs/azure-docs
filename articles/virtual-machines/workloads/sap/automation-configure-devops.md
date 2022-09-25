@@ -52,8 +52,6 @@ You can finalize the Azure DevOps configuration by running the following scripts
    $Env:DevSubscriptionID="<YourDevSubscriptionID>"
    $Env:DevSubscriptionName="<YourDevSubscriptionName>"
 
-
-
 ```
 > [!NOTE]
 > The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID. 
@@ -69,6 +67,8 @@ Once the variables are defined run the following script to create the service pr
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/update_devops_credentials.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
 
 ```
+> [!NOTE]
+> In PowerShell navigate to a folder where you have write permissions before running the Invoke-WebRequest command.
 
 ### Create a sample Control Plane configuration
 
@@ -233,18 +233,6 @@ Create the SAP configuration and software installation pipeline by choosing _New
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-## Configuration Web App pipeline
-
-Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
-
-| Setting | Value                                              |
-| ------- | -------------------------------------------------- |
-| Branch  | main                                               |
-| Path    | `deploy/pipelines/21-deploy-web-app.yaml` |
-| Name    | Configuration Web App                              |
-
-Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
-
 ## Deployment removal pipeline
 
 Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
@@ -378,8 +366,13 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | FENCING_SPN_TENANT              | 'Service principal tenant ID' for the fencing agent.               | Required for highly available deployments using a service principal for fencing agent.               |
 | PAT                             | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous step      |
 | POOL                            | `<Agent Pool name>`                                                | The Agent pool to use for this environment               |
+|                                 |                                                                    |                                                          |
 | APP_REGISTRATION_APP_ID         | 'App registration application ID'                                  | Required if deploying the web app                        |
 | WEB_APP_CLIENT_SECRET           | 'App registration password'                                        | Required if deploying the web app                        |
+|                                 |                                                                    |                                                          |
+| SDAF_GENERAL_GROUP_ID           | The group ID for the SDAF-General group                            | The ID can be retrieved from the URL parameter 'variableGroupId' when accessing the variable group using a browser. For example: 'variableGroupId=8 |
+| WORKLOADZONE_PIPELINE_ID        | The ID for the 'SAP workload zone deployment' pipeline             | The ID can be retrieved from the URL parameter 'definitionId' from the pipeline page in Azure DevOps. For example: 'definitionId=31. |
+| SYSTEM_PIPELINE_ID              | The ID for the 'SAP system deployment (infrastructure)' pipeline   | The ID can be retrieved from the URL parameter 'definitionId' from the pipeline page in Azure DevOps. For example: 'definitionId=32. |
 
 Save the variables.
 
@@ -388,7 +381,8 @@ Save the variables.
 >
 > When using the web app, ensure that the Build Service has at least Contribute permissions.
 >
-> You can use the clone functionality to create the next environment variable group.
+> You can use the clone functionality to create the next environment variable group. APP_REGISTRATION_APP_ID, WEB_APP_CLIENT_SECRET, SDAF_GENERAL_GROUP_ID, WORKLOADZONE_PIPELINE_ID and SYSTEM_PIPELINE_ID are only needed for the SDAF-MGMT group.
+
 
 
 ## Create a service connection
