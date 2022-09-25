@@ -66,12 +66,14 @@ For example, you could set numbers to `mini_batch_size` to partition your data *
 
 # [Azure CLI](#tab/cliv2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-41" highlight="5-8,18-19":::
 
 # [Python](#tab/python)
 
 Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 
 ---
 
@@ -90,12 +92,16 @@ Sample code to set two attributes:
 
 # [Azure CLI](#tab/cliv2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-41" highlight="20-22":::
 
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 ---
 
 > [!NOTE]
@@ -129,11 +135,15 @@ Sample code to set two attributes:
 
 # [Azure CLI](#tab/cliv2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-61" highlight="32-33":::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 ---
 
 > [!IMPORTANT]
@@ -165,43 +175,53 @@ Sample code to update these settings:
 
 # [Azure CLI](#tab/cliv2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-61" highlight="24-28,41-48":::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
 ---
 
 ## Create parallel job in pipeline
 
 # [Azure CLI](#tab/cliv2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 You can create your parallel job inline with your pipeline job:
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" highlight="14-61":::
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 First, you need to import the required libraries, initiate your ml_client with proper credential, and create/retrieve your computes:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=required-library)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=required-library)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=credential)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=credential)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=workspace)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=workspace)]
 
 Then implement your parallel job by filling `parallel_run_function`:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
 
 
 Finally use your parallel job as a step in your pipeline and bind its inputs/outputs with other steps:
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=build-pipeline)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=build-pipeline)]
 
 ---
 
 ## Submit pipeline job and check parallel step in Studio UI
 
 # [Azure CLI](#tab/cliv2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 You can submit your pipeline job with parallel step by using the CLI command:
 
@@ -211,9 +231,11 @@ az ml job create --file pipeline.yml
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 You can submit your pipeline job with parallel step by using `jobs.create_or_update` function of ml_client:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline)]
+[!notebook-python[] (/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline)]
 
 ---
 
