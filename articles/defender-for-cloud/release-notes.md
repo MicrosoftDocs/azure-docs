@@ -171,10 +171,10 @@ Updates in September include:
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
 - [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
+- [Extra recommendations added to identity](#extra-recommendations-added-to-identity)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
-- Container Image
 - Kubernetes Namespace
 - Kubernetes Pod
 - Kubernetes Secret
@@ -205,6 +205,37 @@ The following APIs are deprecated:
 
 These three APIs exposed old formats of assessments and are replaced by the [Assessments APIs](/rest/api/defenderforcloud/assessments) and [SubAssessments APIs](/rest/api/defenderforcloud/sub-assessments). All data that is exposed by these legacy APIs are also available in the new APIs.
 
+### Extra recommendations added to identity
+
+Defender for Cloud's  recommendations for improving the management of users and accounts.
+
+#### New recommendations
+
+The new release contains the following capabilities:
+
+
+- **Improved freshness interval** - The identity recommendations now have a freshness interval of 12 hours.
+
+- **Account exemption capability** - Defender for Cloud has many features you can use to customize your experience and ensure that your secure score reflects your organization's security priorities. For example, you can [exempt resources and recommendations from your secure score](exempt-resource.md).
+
+    This update allows you to exempt specific accounts from evaluation with the six recommendations listed in the following table.
+
+    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to, that don't have MFA enabled.
+
+    > [!TIP]
+    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
+
+    |Recommendation| Assessment key|
+    |-|-|
+    |MFA should be enabled on accounts with owner permissions on your subscription|94290b00-4d0c-d7b4-7cea-064a9554e681|
+    |MFA should be enabled on accounts with read permissions on your subscription|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
+    |MFA should be enabled on accounts with write permissions on your subscription|57e98606-6b1e-6193-0e3d-fe621387c16b|
+    |External accounts with owner permissions should be removed from your subscription|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
+    |External accounts with read permissions should be removed from your subscription|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+
+The recommendations although in preview, will appear next to the recommendations that are currently in GA.
+
 ## August 2022
 
 Updates in August include:
@@ -212,8 +243,6 @@ Updates in August include:
 - [Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-containers-on-your-windows-containers)
 - [Azure Monitor Agent integration now in preview](#azure-monitor-agent-integration-now-in-preview)
 - [Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster](#deprecated-vm-alerts-regarding-suspicious-activity-related-to-a-kubernetes-cluster)
-- [Container vulnerabilities now include detailed package information](#container-vulnerabilities-now-include-detailed-package-information)
-
 ### Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers 
 
 Defender for Containers now shows vulnerabilities for running Windows containers.
@@ -224,9 +253,9 @@ Learn more about [viewing vulnerabilities for running images](defender-for-conta
 
 ### Azure Monitor Agent integration now in preview
  
-Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides a number of benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
- 
-In Defender for Cloud, when you [deploy AMA with Defender for Cloud](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defender for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. Note that the AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
+Defender for Cloud now includes preview support for the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA). AMA is intended to replace the legacy Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)), which is on a path to deprecation. AMA [provides many benefits](../azure-monitor/agents/azure-monitor-agent-migration.md#benefits) over legacy agents.
+
+In Defender for Cloud, when you [enable auto provisioning for AMA](auto-deploy-azure-monitoring-agent.md), the agent is deployed on **existing and new** VMs and Azure Arc-enabled machines that are detected in your subscriptions. If Defenders for Cloud plans are enabled, AMA collects configuration information and event logs from Azure VMs and Azure Arc machines. The AMA integration is in preview, so we recommend using it in test environments, rather than in production environments.
 
 ### Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster
 
