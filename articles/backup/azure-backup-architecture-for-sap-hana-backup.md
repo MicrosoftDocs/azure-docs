@@ -106,7 +106,7 @@ The backup service resides in both the physical nodes of the HSR setup. Once you
 After configuration, Azure Backup accepts backup requests from the primary node. On failover,  when the new primary node starts generating log backup requests, Azure Backup compares the new log backups with the existing chain from the older primary. 
 If the backups are sequential, Azure Backup accepts them  and protects the new primary note. If there's any inconsistency/break in the log chain, Azure Backup triggers a remedial full backup, and log backups will be successful only after the remedial full backup completes.
 
-:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/hana-database-with-system-replication-architecture-diagram.png" alt-text="Diagram showing the backup architecture of SAP HANA database with HANA system replication enabled.":::
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/hana-database-with-system-replication-architecture-diagram-inline.png" alt-text="Diagram showing the backup architecture of SAP HANA database with HANA system replication enabled." lightbox="./media/azure-backup-architecture-for-sap-hana-backup/hana-database-with-system-replication-architecture-diagram-expanded.png":::
 
 >[!Note]
 >The Azure backup service connects to HANA using hdbuserstore keys. As the keys are not replicated, we recommend you create the same keys in all nodes, so that Azure Backup can connect automatically to any new primary node, without a manual intervention after failover/failback.

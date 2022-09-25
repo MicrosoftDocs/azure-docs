@@ -28,9 +28,9 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-1. Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HSR.
-1. Allow connectivity from each of the VMs/nodes to the internet for communication with Azure< link to the set up network connectivity section>. 
-1. Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs and 77 characters for classic VMs. This is because some characters are reserved by the service.
+- Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HSR.
+- Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
+- Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs and 77 characters for classic VMs. This is because some characters are reserved by the service.
 
 
 ## Run the pre-registration script
@@ -106,12 +106,12 @@ To enable the backup, follow these steps:
 
 1. In **Select items to back up**, select all the databases you want to protect and select **OK**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/select-virtual-machines-for-pretection.png" alt-text="Screenshot showing how to select virtual machines for protection.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/select-virtual-machines-for-protection.png" alt-text="Screenshot showing how to select virtual machines for protection.":::
 
 1. Select  **Backup Policy** > **+Add**.
 1. Choose and configure a backup policy type and select **Add** to create a new backup policy for the databases. 
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-backup-policy.png" alt-text="Screenshot showing how to {alt-text}":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-backup-policy.png" alt-text="Screenshot showing how to select and add a backup policy.":::
 
 1. After creating the policy, on the **Backup** menu, select **Enable backup**.
 
@@ -160,7 +160,7 @@ To configure the policy settings, follow these steps:
    - You can trigger a maximum of one differential backup per day.
    - You can retain differential backups for a maximum of 180 days. If you need a longer retention, you must use full backups.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-differencial-backup-policy.png" alt-text="Screenshot showing how to configure differential backup policy for database.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-differential-backup-policy.png" alt-text="Screenshot showing how to configure differential backup policy for database.":::
 
    >[!Note]
    >You can choose either a differential or an incremental backup as a daily backup at a time.
