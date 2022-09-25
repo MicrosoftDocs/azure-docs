@@ -80,7 +80,6 @@ For example, if you're missing metrics from a certain pod:
 ## Debug mode
 The metrics addon can be configured to run in debug mode by changing the setting `enabled` to true following from [here](https://github.com/Azure/prometheus-collector/blob/temp/documentation/otelcollector/docs/publicpreviewdocs/rashmi/ama-metrics-settings-readme.md#debug-mode). This mode can affect performance and should only be enabled for a short time for debugging purposes
 
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/configmapAma.png)" lightbox="media/container-insights-prometheus-metrics-troubleshoot/configmapAma.png)" alt-text="Screenshot showing config map.":::
 
 An extra server is created that hosts all the metrics scraped. Run `kubectl port-forward <ama-metrics pod> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for both the replicaset and daemonset pods if advanced mode is enabled 
 
