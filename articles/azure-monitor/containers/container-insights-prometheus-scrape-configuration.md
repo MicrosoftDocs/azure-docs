@@ -27,7 +27,7 @@ The following table has a list of all the default targets that the Container ins
 If you want to turn on the scraping of the default targets that aren't enabled by default, create this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one, and update the targets listed under `default-scrape-settings-enabled` to `true`.
 
 ## Customizing default targets
-By default, only minimal metrics are ingested as described in [Minimal ingestion profile]([minimal-ingestion-profile](container-insights-prometheus-scrape-configuration-minimal.md)). To filter out metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job. 
+By default, only minimal metrics are ingested as described in [Minimal ingestion profile]([minimal-ingestion-profile](container-insights-prometheus-scrape-configuration-minimal.md). To filter out metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job. 
 
 For example, `kubelet` is the metric filtering setting for the default target kubelet. Use the following to filter IN metrics collected for the default targets using regex based filtering. 
 
