@@ -1,6 +1,6 @@
 ---
 title: Send Prometetheus metrics to multiple Azure Monitor workspaces in Container insights
-description: Details on how to configure Container insights to send Prometheus metrics for a Kubernetes cluster to multiple Azure Monitor workspaces.
+description: Describes data collection rules required to send Prometheus metrics from a cluster in Container insights to multiple Azure Monitor workspaces.
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.reviewer: aul
@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 Routing metrics to more Azure Monitor Workspaces can be done through the creation of additional data collection rules. All metrics can be sent to all workspaces or different metrics can be sent to different workspaces.
 
-### Send same metrics to multiple Azure Monitor workspaces
+## Send same metrics to multiple Azure Monitor workspaces
 
 You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through ARM template deployments [link to Kaveesh's doc]. In your ARM template, add additional DCRs for your additional Azure Monitor Workspaces. Replace `<dcr-name-1>`, `<azure-monitor-workspace-location-1>`, `<dcr-name-2>`, `<azure-monitor-workspace-location-2>`, `<dce-resource-id>` in the sample below:
 

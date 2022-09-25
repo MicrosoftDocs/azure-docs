@@ -1,6 +1,6 @@
 ---
 title: Create and validate custom configuration file for Prometheus metrics in Container insights
-description: Customize metrics scraping for a Kubernetes cluster with the metrics addon in Container insights.
+description: Describes how to create custom configuration file Prometheus metrics in Container insights and use validation tool before applying to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.reviewer: aul

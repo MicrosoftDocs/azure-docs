@@ -27,7 +27,7 @@ The following table has a list of all the default targets that the Container ins
 If you want to turn on the scraping of the default targets that aren't enabled by default, create this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one, and update the targets listed under `default-scrape-settings-enabled` to `true`.
 
 ## Customizing default targets
-By default, only minimal metrics are ingested as described in [Minimal ingestion profile](#minimal-ingestion-profile). To filter out metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job. 
+By default, only minimal metrics are ingested as described in [Minimal ingestion profile]([minimal-ingestion-profile](container-insights-prometheus-scrape-configuration-minimal.md)). To filter out metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job. 
 
 For example, `kubelet` is the metric filtering setting for the default target kubelet. Use the following to filter IN metrics collected for the default targets using regex based filtering. 
 
@@ -71,7 +71,7 @@ scrape_configs:
   ...
 ```
 
-Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-configuration.md#custom-scrape-configuration), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config is not valid, then the custom configuration given will not be used by the agent.
+Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-validate.md), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config is not valid, then the custom configuration given will not be used by the agent.
 
 Any other unsupported sections need to be removed from the config before applying as a configmap. If not, the promconfigvalidator tool validation will fail, and the custom scrape configuration will not be applied
 
@@ -321,91 +321,6 @@ scrape_configs:
     # [Optional] Include all pod labels as labels for each metric
     - action: labelmap
       regex: __meta_kubernetes_pod_label_(.+)
-```
-
-## Send Metrics to Multiple Azure Monitor Workspaces
-
-Routing metrics to more Azure Monitor Workspaces can be done through the creation of additional data collection rules. All metrics can be sent to all workspaces or different metrics can be sent to different workspaces.
-
-### Sending the Same Metrics to Multiple Workspaces
-
-You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through ARM template deployments [link to Kaveesh's doc]. In your ARM template, add additional DCRs for your additional Azure Monitor Workspaces. Replace `<dcr-name-1>`, `<azure-monitor-workspace-location-1>`, `<dcr-name-2>`, `<azure-monitor-workspace-location-2>`, `<dce-resource-id>` in the sample below:
-
-```json
-{
-  "type": "Microsoft.Insights/dataCollectionRules",
-  "apiVersion": "2021-09-01-preview",
-  "name": "<dcr-name-1>",
-  "location": "<azure-monitor-workspace-location-1>",
-  "kind": "Linux",
-  "properties": {
-    "dataCollectionEndpointId": "<dce-resource-id>",
-    "dataFlows": [
-      {
-        "destinations": ["MonitoringAccount1"],
-        "streams": ["Microsoft-PrometheusMetrics"]
-      }
-    ],
-    "dataSources": {
-      "prometheusForwarder": [
-        {
-          "name": "PrometheusDataSource",
-          "streams": ["Microsoft-PrometheusMetrics"],
-          "labelIncludeFilter": {}
-        }
-      ]
-    },
-    "description": "DCR for Azure Monitor Metrics Profile (Managed Prometheus)",
-    "destinations": {
-      "monitoringAccounts": [
-        {
-          "accountResourceId": "<azure-monitor-workspace-resource-id-1>",
-          "name": "MonitoringAccount1"
-        }
-      ]
-    }
-  },
-  "dependsOn": [
-    "<dce-resource-id>"
-  ]
-},
-{
-  "type": "Microsoft.Insights/dataCollectionRules",
-  "apiVersion": "2021-09-01-preview",
-  "name": "<dcr-name-2>",
-  "location": "<azure-monitor-workspace-location-2>",
-  "kind": "Linux",
-  "properties": {
-    "dataCollectionEndpointId": "<dce-resource-id>",
-    "dataFlows": [
-      {
-        "destinations": ["MonitoringAccount2"],
-        "streams": ["Microsoft-PrometheusMetrics"]
-      }
-    ],
-    "dataSources": {
-      "prometheusForwarder": [
-        {
-          "name": "PrometheusDataSource",
-          "streams": ["Microsoft-PrometheusMetrics"],
-          "labelIncludeFilter": {}
-        }
-      ]
-    },
-    "description": "DCR for Azure Monitor Metrics Profile (Managed Prometheus)",
-    "destinations": {
-      "monitoringAccounts": [
-        {
-          "accountResourceId": "<azure-monitor-workspace-resource-id-2>",
-          "name": "MonitoringAccount2"
-        }
-      ]
-    }
-  },
-  "dependsOn": [
-    "<dce-resource-id>"
-  ]
-}
 ```
 
 
