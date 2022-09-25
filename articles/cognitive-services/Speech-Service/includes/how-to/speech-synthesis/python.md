@@ -151,6 +151,8 @@ stream.save_to_wav_file("path/to/write/file.wav")
 
 ## Subscribe to synthesizer events
 
+You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+
 While using the [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]

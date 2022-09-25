@@ -70,6 +70,8 @@ Run the program. A synthesized .wav file is written to the location that you spe
 
 ## Synthesize to speaker output
 
+You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+
 To output synthesized speech to the current active output device such as a speaker, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. Here's an example:
 
 ```java

@@ -32,44 +32,10 @@ Before you use the text-to-speech REST API, understand that you need to complete
 
 ## Get a list of voices
 
-You can use the `voices/list` endpoint to get a full list of voices for a specific region or endpoint:
+You can use the `tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint to get a full list of voices for a specific region or endpoint. Prefix the voices list endpoint with a region to get a list of voices for that region. For example, to get a list of voices for the `westus` region, use the `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint. For a list of all supported regions, see the [regions](regions.md) documentation.
 
-| Region | Endpoint |
-|--------|----------|
-| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
-| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list` |
-| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Germany West Central | `https://germanywestcentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Jio India West | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list` |
-| US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list` |
-| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-
-> [!TIP]
-> [Voices in preview](language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [!NOTE]
+> [Voices and styles in preview](language-support.md?tabs=stt-tts) are only available in three service regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
@@ -95,104 +61,129 @@ Host: westus.tts.speech.microsoft.com
 Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY
 ```
 
+Here's an example curl command:
+
+```curl
+curl --location --request GET 'https://YOUR_RESOURCE_REGION.tts.speech.microsoft.com/cognitiveservices/voices/list' \
+--header 'Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY'
+```
+
 ### Sample response
 
-This response has been truncated to illustrate the structure of a response.
-
-> [!NOTE]
-> Voice availability varies by region or endpoint.
+You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. This JSON example shows partial results to illustrate the structure of a response:
 
 ```json
-[
-
+[  
+    // Redacted for brevity
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    "DisplayName": "Jenny",
-    "LocalName": "Jenny",
-    "ShortName": "en-US-JennyNeural",
-    "Gender": "Female",
-    "Locale": "en-US",
-    "StyleList": [
-      "chat",
-      "customerservice",
-      "newscast-casual",
-      "assistant",
-    ],
-    "SampleRateHertz": "24000",
-    "VoiceType": "Neural",
-    "Status": "GA"
-  },
-
-    ...
-
-     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
-    "ShortName": "en-US-JennyMultilingualNeural",
-    "DisplayName": "Jenny Multilingual",
-    "LocalName": "Jenny Multilingual",
-    "Gender": "Female",
-    "Locale": "en-US",
-    "SampleRateHertz": "24000",
-    "VoiceType": "Neural",
-    "SecondaryLocaleList": [
-        "de-DE",
-        "en-AU",
-        "en-CA",
-        "en-GB",
-        "es-ES",
-        "es-MX",
-        "fr-CA",
-        "fr-FR",
-        "it-IT",
-        "ja-JP",
-        "ko-KR",
-        "pt-BR",
-        "zh-CN"
-      ],
-    "Status": "Preview"
+        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+        "DisplayName": "Jenny",
+        "LocalName": "Jenny",
+        "ShortName": "en-US-JennyNeural",
+        "Gender": "Female",
+        "Locale": "en-US",
+        "LocaleName": "English (United States)",
+        "StyleList": [
+          "assistant",
+          "chat",
+          "customerservice",
+          "newscast",
+          "angry",
+          "cheerful",
+          "sad",
+          "excited",
+          "friendly",
+          "terrified",
+          "shouting",
+          "unfriendly",
+          "whispering",
+          "hopeful"
+        ],
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA",
+        "ExtendedPropertyMap": {
+          "IsHighQuality48K": "True"
+        },
+        "WordsPerMinute": "152"
     },
-
-  ...
-
+    // Redacted for brevity
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
-    "DisplayName": "Orla",
-    "LocalName": "Orla",
-    "ShortName": "ga-IE-OrlaNeural",
-    "Gender": "Female",
-    "Locale": "ga-IE",
-    "SampleRateHertz": "24000",
-    "VoiceType": "Neural",
-    "Status": "GA"
-  },
-
-  ...
-
-   {
-    "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
-    "DisplayName": "Yunxi",
-    "LocalName": "云希",
-    "ShortName": "zh-CN-YunxiNeural",
-    "Gender": "Male",
-    "Locale": "zh-CN",
-    "StyleList": [
-      "Calm",
-      "Fearful",
-      "Cheerful",
-      "Disgruntled",
-      "Serious",
-      "Angry",
-      "Sad",
-      "Depressed",
-      "Embarrassed"
-    ],
-    "SampleRateHertz": "24000",
-    "VoiceType": "Neural",
-    "Status": "GA"
-  },
-
-    ...
-
+        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
+        "DisplayName": "Jenny Multilingual",
+        "LocalName": "Jenny Multilingual",
+        "ShortName": "en-US-JennyMultilingualNeural",
+        "Gender": "Female",
+        "Locale": "en-US",
+        "LocaleName": "English (United States)",
+        "SecondaryLocaleList": [
+          "de-DE",
+          "en-AU",
+          "en-CA",
+          "en-GB",
+          "es-ES",
+          "es-MX",
+          "fr-CA",
+          "fr-FR",
+          "it-IT",
+          "ja-JP",
+          "ko-KR",
+          "pt-BR",
+          "zh-CN"
+        ],
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA",
+        "WordsPerMinute": "190"
+    },
+    // Redacted for brevity
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
+        "DisplayName": "Orla",
+        "LocalName": "Orla",
+        "ShortName": "ga-IE-OrlaNeural",
+        "Gender": "Female",
+        "Locale": "ga-IE",
+        "LocaleName": "Irish (Ireland)",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA",
+        "WordsPerMinute": "139"
+    },
+    // Redacted for brevity
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
+        "DisplayName": "Yunxi",
+        "LocalName": "云希",
+        "ShortName": "zh-CN-YunxiNeural",
+        "Gender": "Male",
+        "Locale": "zh-CN",
+        "LocaleName": "Chinese (Mandarin, Simplified)",
+        "StyleList": [
+          "narration-relaxed",
+          "embarrassed",
+          "fearful",
+          "cheerful",
+          "disgruntled",
+          "serious",
+          "angry",
+          "sad",
+          "depressed",
+          "chat",
+          "assistant",
+          "newscast"
+        ],
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA",
+        "RolePlayList": [
+          "Narrator",
+          "YoungAdultMale",
+          "Boy"
+        ],
+        "WordsPerMinute": "293"
+    },
+    // Redacted for brevity
 ]
 ```
 
@@ -211,7 +202,7 @@ The HTTP status code for each response indicates success or common errors.
 
 ## Convert text to speech
 
-The `v1` endpoint allows you to convert text to speech by using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
+The `cognitiveservices/v1` endpoint allows you to convert text to speech by using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
 
 ### Regions and endpoints
 

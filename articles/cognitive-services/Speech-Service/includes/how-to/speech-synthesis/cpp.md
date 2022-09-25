@@ -185,6 +185,8 @@ void synthesizeSpeech()
 
 ## Subscribe to synthesizer events
 
+You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+
 While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
