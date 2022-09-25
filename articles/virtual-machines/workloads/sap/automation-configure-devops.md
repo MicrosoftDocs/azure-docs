@@ -4,7 +4,7 @@ description: Configure your Azure DevOps Services for the SAP Deployment Automat
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 08/30/2022
+ms.date: 09/25/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -25,7 +25,7 @@ You can use the following script to do a basic installation of Azure Devops Serv
 Log in to Azure Cloud Shell
 ```bash
    export ADO_ORGANIZATION=https://dev.azure.com/<yourorganization>
-   export ADO_PROJECT=SAP-Deployment-Automation
+   export ADO_PROJECT='SAP Deployment Automation'
    wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/create_devops_artifacts.sh -O devops.sh
    chmod +x ./devops.sh
    ./devops.sh
@@ -38,23 +38,28 @@ Validate that the project has been created by navigating to the Azure DevOps por
 You can finalize the Azure DevOps configuration by running the following scripts on your local workstation. Open a PowerShell Console and define the environment variables. Replace the bracketed values with the actual values.
 
 > [!IMPORTANT]
-> Run the following steps on your local workstation, also make sure that you have logged on to Azure using az login first.
+> Run the following steps on your local workstation, also make sure that you have logged on to Azure using az login first. Please also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
 
 
 ```powershell
    $Env:ADO_ORGANIZATION="https://dev.azure.com/<yourorganization>"
 
-   $Env:ADO_PROJECT="<yourProject>"
-   $Env:YourPrefix="<yourPrefix>"
+   $Env:ADO_PROJECT="SAP Deployment Automation"
 
    $Env:ControlPlaneSubscriptionID="<YourControlPlaneSubscriptionID>"
    $Env:ControlPlaneSubscriptionName="<YourControlPlaneSubscriptionName>"
+
    $Env:DevSubscriptionID="<YourDevSubscriptionID>"
    $Env:DevSubscriptionName="<YourDevSubscriptionName>"
 
+
+
 ```
 > [!NOTE]
-> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID.
+> The ControlPlaneSubscriptionID and DevSubscriptionID can use the same subscriptionID. 
+> 
+> You can use the environment variable $Env:SDAF_APP_NAME for an existing Application registration, $Env:SDAF_MGMT_SPN_NAME for an existing service principal for the control plane and $Env:SDAF_DEV_SPN_NAME for an existing service principal for the workload zone plane. For the names use the Display Name of the existing resources.
+
 
 
 Once the variables are defined run the following script to create the service principals and the application registration.
@@ -274,7 +279,7 @@ Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the P
 | Path    | `deploy/pipelines/11-remover-arm-fallback.yaml` |
 | Name    | Deployment removal using ARM                    |
 
-Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM' by choosing 'Rename/Move' from the three-dot menu on the right.
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM processor' by choosing 'Rename/Move' from the three-dot menu on the right.
 
 > [!NOTE]
 > Only use this pipeline as last resort, removing just the resource groups will leave remnants that may complicate re-deployments.
@@ -319,7 +324,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
 ## Variable definitions
 
-The deployment pipelines are configured to use a set of predefined parameter values. In Azure DevOps the variables are defined using variable groups.
+The deployment pipelines are configured to use a set of predefined parameter values defined using variable groups.
 
 
 ### Common variables
