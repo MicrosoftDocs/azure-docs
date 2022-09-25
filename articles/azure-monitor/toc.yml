@@ -1263,15 +1263,19 @@ items:
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
       - name: Send to managed Prometheus
+        href: containers/container-insights-prometheus-metrics-addon.md
+      - name: Customize collection
         items:
-        - name: Enable metrics addon
-          href: containers/container-insights-prometheus-metrics-addon.md
         - name: Default configuration
           href: containers/container-insights-prometheus-scrape-default.md
         - name: Custom configuration
           href: containers/container-insights-prometheus-scrape-configuration.md
+        - name: Create and validate config filters
+          href: containers/container-insights-prometheus-scrape-validate.md
         - name: Minimal ingestion profile
           href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+        - name: Send to multiple workspaces
+          href: containers/container-insights-prometheus-multiple-workspaces.md
     - name: Configure
       items:
       - name: Agent management
