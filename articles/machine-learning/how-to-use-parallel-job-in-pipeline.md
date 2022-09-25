@@ -8,13 +8,13 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
-ms.date: 09/23/2022
+ms.date: 09/24/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
 # How to use parallel job in pipeline (V2) (preview)
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you are running a object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
 
