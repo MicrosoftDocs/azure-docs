@@ -992,6 +992,7 @@
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
     ".openpublishing.redirection.azure-australia.json",
+    "openpublishing.redirection.iot-hub-device-update.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -1032,7 +1033,6 @@
     ".openpublishing.redirection.virtual-desktop.json",
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
     "articles/applied-ai-services/.openpublishing.archived.json",
-    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
-    "articles/.openpublishing.redirection.iot-hub-device-update.json"
+    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json"
   ]
 }
