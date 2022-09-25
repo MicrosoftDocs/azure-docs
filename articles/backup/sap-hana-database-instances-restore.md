@@ -78,9 +78,9 @@ Follow these steps:
 
 1. In **Restore Point**, choose **Select**.
 
-1. In the **Select restore point** pane, select a recovery point and select **OK**.
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/select-hana-snapshot-recovery-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
+1. In the **Select restore point** pane, select a recovery point and select **OK**.
 
 1. Select the corresponding resource group and the *managed identity* to which all permissions are assigned for restore.
 
@@ -135,9 +135,9 @@ To select and restore the required point-in-time for System DB, follow these ste
 
 1. On **Restore Point**, choose **Select**.
 
-1. On the **Select restore point** pane, select the restore point and select **OK**.
-
    :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select restore points of system database instance for restore.":::
+
+1. On the **Select restore point** pane, select the restore point and select **OK**.
 
    >[!Note]
    >The logs appears after the snapshot point that you previously restored.
@@ -174,9 +174,9 @@ Follow these steps:
 
 1. In **Restore Point**, choose **Select**.
 
-1. In the **Select restore point** pane, select a recovery point, and then select **OK**.
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA tenant database recovery point.":::
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/select-hana-snapshot-recovery-point.png" alt-text="Screenshot showing to select HANA tenant database recovery point.":::
+1. In the **Select restore point** pane, select a recovery point, and then select **OK**.
 
 1. Select **Attach and mount snapshot** to attach the disks to the VM.
 
