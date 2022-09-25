@@ -50,20 +50,6 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 > [!NOTE]
 > The preceding formats are supported through the REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
 
-## Query parameters
-
-These parameters might be included in the query string of the REST request.
-
-> [!NOTE]
-> You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
-
-| Parameter | Description | Required or optional |
-|-----------|-------------|---------------------|
-| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt-tts). | Required |
-| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
-| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
-| `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
-
 ## Request headers
 
 This table lists required and optional headers for speech-to-text requests:
@@ -78,7 +64,21 @@ This table lists required and optional headers for speech-to-text requests:
 | `Expect` | If you're using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if you're sending chunked audio data. |
 | `Accept` | If provided, it must be `application/json`. The Speech service provides results in JSON. Some request frameworks provide an incompatible default value. It's good practice to always include `Accept`. | Optional, but recommended. |
 
-## Pronunciation assessment parameters
+## Query parameters
+
+These parameters might be included in the query string of the REST request.
+
+> [!NOTE]
+> You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+
+| Parameter | Description | Required or optional |
+|-----------|-------------|---------------------|
+| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt-tts). | Required |
+| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
+| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
+| `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
+
+### Pronunciation assessment parameters
 
 This table lists required and optional parameters for pronunciation assessment:
 
