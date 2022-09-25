@@ -160,8 +160,6 @@ To update a specific cluster by using Azure PowerShell:
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
----
-
 
 #### Update all clusters
 
