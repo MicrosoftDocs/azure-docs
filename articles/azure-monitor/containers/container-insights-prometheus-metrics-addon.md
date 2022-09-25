@@ -1,13 +1,14 @@
 ---
 title: Send Prometheus metrics to Azure Monitor managed service for Prometheus with Container insights
 description: Configure the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster and send to Azure Monitor managed service for Prometheus.
+ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 09/15/2022
 ms.reviewer: aul
 ---
 
 # Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights
-This article describes how to configure Container insights to send Prometheus metrics to Azure Monitor managed service for Prometheus.
+This article describes how to configure Container insights to send Prometheus metrics from an Azure Kubernetes cluster to Azure Monitor managed service for Prometheus. This includes installing the metrics addon for Container insights.
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ Use any of the following methods to install the metrics addon on your cluster an
 
 ### [Azure portal](#tab/azure-portal)
 
-
+#### Enable from Container insights
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
 2. Click **Insights**.
@@ -38,8 +39,8 @@ Use any of the following methods to install the metrics addon on your cluster an
 
 6. Click **Configure** to complete the configuration.
 
-#### Enable only metrics addon
-Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics.
+#### Enable from Azure Monitor workspace
+Use the following procedure to install the Azure Monitor agent and the metrics addon to collect Prometheus metrics. This method does not enable other Container insights features.
 
 1. Create an Azure Monitor workspace using the guidance at [Create an Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
 2. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
@@ -53,16 +54,16 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 
 #### Prerequisites
 
-- The `az extension add --name aks-preview` extension needs to be installed for access to this feature. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
+- Azure CLI version 2.41.0 or higher is required for this feature.
 
-#### Enable Prometheus metrics
+#### Install metrics addon
 
-Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics addon. There are multiple options depending on the Azure Monitor workspace and Grafana workspace you want to use.
+Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics addon. Following are multiple options depending on the Azure Monitor workspace and Grafana workspace you want to use.
 
-> [!NOTE]
-> Azure CLI version 2.41.0 or higher is required for this feature.
 
 **Create a new default Azure Monitor workspace.**
+The workspace will be in the region specific in [Region mappings](#region-mappings).
 
 ```azurecli
 az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
@@ -71,19 +72,16 @@ az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resourc
 **Use an existing Azure Monitor workspace.**
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
---azure-monitor-workspace-resource-id <workspace-name-resource-id>
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
 ```
 
 **Use an existing Azure Monitor workspace and integrate with an existing Grafana workspace.**
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
---azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> /
---grafana-resource-id  <grafana-workspace-name-resource-id>`
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>`
 ```
 
-The output will look similar to the following:
+The output for each command will look similar to the following:
 
 ```json
 "azureMonitorProfile": {
@@ -98,18 +96,15 @@ The output will look similar to the following:
 ```
 
 #### Optional parameters
+Following are optional parameters that you can use with the previous commands.
 
 - `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional annotations provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them. A single `*` can be provided per resource instead to allow any annotations, but that has severe performance implications.
-- `--ksm-metric-labels-allow-list` is a comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional labels provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them.A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications.
+- `--ksm-metric-labels-allow-list` is a comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include additional labels provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them. A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications.
 
 **Use annotations and labels.**
 
-Replace the values for `--ksm-metric-labels-allow-list` and `--ksm-metric-annotations-allow-list`.
- 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> /
---ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" /
---ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
 The output will be similar to the following:
@@ -128,12 +123,10 @@ The output will be similar to the following:
 
 ## [Resource Manager](#tab/resource-manager)
 
->[!NOTE]
->The template needs to be deployed in the same resource group as the cluster.
-
 ### Prerequisites
 
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
+- The template needs to be deployed in the same resource group as the cluster.
 
 ### Retrieve list of Grafana integrations
 If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it does not exist then the instance has not been linked with any Azure Monitor workspace.
@@ -202,13 +195,17 @@ If you're using an existing Azure Managed Grafana instance that already has been
 
 ---
 
+5. Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples.
+
 
 
 ## Verify Deployment
 
 Run the following command to which verify that the daemon set was deployed properly:
 
-`kubectl get ds ama-metrics-node --namespace=kube-system`
+```
+kubectl get ds ama-metrics-node --namespace=kube-system
+```
 
 The output should resemble the following:
 
@@ -220,7 +217,9 @@ ama-metrics-node   1         1         1       1            1           <none>  
 
 Run the following command to which verify that the replica set was deployed properly:
 
-`kubectl get rs --namespace=kube-system`
+```
+kubectl get rs --namespace=kube-system
+```
 
 The output should resemble the following:
 
@@ -239,7 +238,7 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 - You must get the existing Azure Monitor workspace integrations for a grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 
 
-## Stop collection
+## Uninstall metrics addon
 Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it does not remove the DCE, DCR or the data already collected and stored in your Azure Monitor Workspace resource.
 
 ```azurecli
@@ -302,5 +301,5 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [Learn more about scraping Prometheus metrics](container-insights-prometheus.md).
-- [Configure your cluster to send data to Azure Monitor Logs](container-insights-prometheus-metrics-addon.md).
+- [Customize Prometheus metric scraping for the cluster](container-insights-prometheus-scrape-configuration.md).
+- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
