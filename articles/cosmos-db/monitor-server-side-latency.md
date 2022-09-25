@@ -62,6 +62,8 @@ You can also group the metrics by using the **Apply splitting** option.
 
 > [!NOTE]
 > Requests coming into Azure Cosmos DB don’t always target a container. For example, you could create a database inside a globally distributed account and the request will still be recorded for the server-side latency metric. The request is recorded because it does take time to create a database resource, but it does not target a container. If you see that the value of the `CollectionName` metric is `<empty>`, this means that the target is not a container, but another resource in Azure Cosmos DB.
+>
+> As a workaround, you can proactively filter your metrics to a specific container (CollectionName) to exclude requests that aren't specific to the container that's the subject of your query.
 
 ## Next steps
 
