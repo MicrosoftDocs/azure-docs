@@ -1032,6 +1032,7 @@
     ".openpublishing.redirection.virtual-desktop.json",
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
     "articles/applied-ai-services/.openpublishing.archived.json",
-    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json"
+    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
+    "articles/cognitive-services/.openpublishing.redirection.iot-hub-device-update.json"
   ]
 }
