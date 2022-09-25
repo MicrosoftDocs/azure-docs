@@ -38,9 +38,6 @@ Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regi
 > [!NOTE]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
-> [!NOTE]
-> You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
-
 ## Audio formats
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
@@ -55,7 +52,10 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 ## Query parameters
 
-These parameters might be included in the query string of the REST request:
+These parameters might be included in the query string of the REST request.
+
+> [!NOTE]
+> You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 | Parameter | Description | Required or optional |
 |-----------|-------------|---------------------|
@@ -87,7 +87,7 @@ This table lists required and optional parameters for pronunciation assessment:
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | Required |
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | `Granularity` | The evaluation granularity. Accepted values are:<br><br> `Phoneme`, which shows the score on the full-text, word, and phoneme levels.<br>`Word`, which shows the score on the full-text and word levels. <br>`FullText`, which shows the score on the full-text level only.<br><br> The default setting is `Phoneme`. | Optional |
-| `Dimension` | Defines the output criteria. Accepted values are:<br><br> `Basic`, which shows the accuracy score only. <br>`Comprehensive`, which shows scores on more dimensions (for example, fluency score and completeness score on the full-text level, and error type on the word level).<br><br> To see definitions of different score dimensions and word error types, see [Response parameters](#response-parameters). The default setting is `Basic`. | Optional |
+| `Dimension` | Defines the output criteria. Accepted values are:<br><br> `Basic`, which shows the accuracy score only. <br>`Comprehensive`, which shows scores on more dimensions (for example, fluency score and completeness score on the full-text level, and error type on the word level).<br><br> To see definitions of different score dimensions and word error types, see [Response properties](#response-properties). The default setting is `Basic`. | Optional |
 | `EnableMiscue` | Enables miscue calculation. With this parameter enabled, the pronounced words will be compared to the reference text. They'll be marked with omission or insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
 | `ScenarioId` | A GUID that indicates a customized point system. | Optional |
 
