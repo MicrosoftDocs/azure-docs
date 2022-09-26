@@ -41,11 +41,11 @@ An authentication strength can include a combination of authentication methods. 
 
 - Windows Hello for Business
 
-  OR
+  Or
 
 - FIDO2 security key
 
-  OR
+  Or
 
 - Azure AD Certificate-Based Authentication (Multi-Factor)
 
@@ -89,7 +89,7 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationSt
 
 ### Custom authentication strengths
 
-In addition to the three built-in authentication strengths, administrators can create up to 15 of their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. A custom authentication strength can be edited. But if a custom strength is referenced by a Conditional Access policy, an administrator needs to confirm the edit. A custom authentication strength can't be deleted if it's is referenced by a Conditional Access policy. 
+In addition to the three built-in authentication strengths, administrators can create up to 15 of their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. 
 
 1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
 1. Select **New authentication strength**.
@@ -100,19 +100,19 @@ In addition to the three built-in authentication strengths, administrators can c
 
    :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
 
+#### Update and delete custom authentication strength policies
+
+You can edit a custom authentication strength. If it's referenced by a Conditional Access policy, it can't be deleted and you need to confirm any edit. 
+To check if an authentication strength is referenced by a Conditional Access policy,click **Conditional Access policies** column.
+ 
+
 #### FIDO2 security key advanced options
 Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource.
 
 <!-- Steps to configure FIDO2 AA GUID -- Justin can you help with this? -->
 
-#### Update and delete custom authentication strengths policies
-
-Deletion of a custom authentication strengths policy is not allowed if it is being referenced by a Conditional Access policy. Click on the Conditional Access policies column to find which policies are referencing the authentication strengths policy you would like to delete.
- 
-Editing of a custom authentication strength policy is allowed. If the policy is referenced by a Conditional Access policy, the administrator is required to confirm this step. 
-
-## Using authentication strength policies in Conditional Access
-After you review and choose built-in authentication strength policies, or create your own custom strengths, you can use them in Conditional Access policies. By referencing an authentication strength in a Conditional Access policy, you can restrict which authentication methods are allowed when the Conditional Access policy applies to sign-in.
+## Using authentication strength in Conditional Access
+After you determine the authentication strength you need, you can refer to that authentication strength in a Conditional Access policy. When the Conditional Access policy applies to sign-in, the authentication strength restricts which authentication methods are allowed.
 <!-- ### Place holder:How to create conditional access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
@@ -185,8 +185,6 @@ Authentication strength policies work together with [MFA trust settings](cross-t
 - **If MFA trust is disabled**, Azure AD presents the user with a challenge to complete MFA in the resource tenant using an acceptable authentication method. (See the table above for authentication methods that are acceptable for MFA by an external user.)
 
 ## Known issues
-- **Registration experience when the user is already registered for at least one strong authentication method** - If the user is not registered for any of the methods required by the authentication strength policy, the user will be redirected to register a required method. However, if the user is already registered for another strong authentication method, they must complete MFA before registering a new method. At the end of authentication process, the user is redirected to **My Sign-ins page** without indication about which methods they should register. This issue doesn't effect users who haven't registered _any_ strong authentication methods. For optimal user experience, we recommend you ensure your users are registered for the methods enforced by the authentication strengths policy.
-
 
 - **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
 
@@ -216,7 +214,7 @@ Authentication strength policies work together with [MFA trust settings](cross-t
 ## FAQ
 
 ### Should I use authentication strengths or the unified authentication method policy?
-Authentication strength is based on the unified Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an  additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
+Authentication strength is based on the unified Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
 
 For example, the administrator of Contoso would like to allow their users to use the Microsoft Authenticator app in either push notifications or Microsoft Authenticator (phone sign-in) -  passwordless authentication. The administrator goes to the Microsoft Authenticator settings in the Unified authentication method policy, scopes the policy for the relevant users and set the “Authentication mode” to “Any”. 
 
