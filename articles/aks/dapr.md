@@ -294,7 +294,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Troubleshooting extension errors
 
-If the extension fails to create or update, try suggestions and solutions in the [Dapr extension troubleshooting guide](./dapr-ext-troubleshooting.md).
+If the extension fails to create or update, try suggestions and solutions in the [Dapr extension troubleshooting guide](./dapr-troubleshooting.md).
 
 ### Troubleshooting Dapr
 
