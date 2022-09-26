@@ -296,7 +296,7 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.20</version>
+            <version>8.0.30</version>
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
@@ -329,7 +329,7 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.20</version>
+            <version>8.0.30</version>
         </dependency>
     </dependencies>
 </project>
