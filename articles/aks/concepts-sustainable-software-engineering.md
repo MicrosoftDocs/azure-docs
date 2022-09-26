@@ -66,7 +66,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 
 ## Next steps
 
-Learn more about sustainable design considerations:
+Learn more about Sustainable Design Recommendations:
 
 * [for a sustainable AKS cluster][concepts-sustainable-aks-cluster.md]
 
