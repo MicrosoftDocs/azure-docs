@@ -291,7 +291,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 # [V2](#tab/V2)
 
-Blueprints within the programming model support logical grouping of functions within the function application, and enable customers to leverage multiple Python files to store functions. The following is an example of a blueprint, stored in the file `timer_functions.py`.
+Blueprints in the programming model support the import experience. Addditionally, usage of blueprints promotes logical grouping of functions within the function application, and enable customers to leverage multiple Python files to store functions.
 
 ---
 
