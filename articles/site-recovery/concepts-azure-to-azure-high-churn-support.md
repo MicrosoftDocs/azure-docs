@@ -71,7 +71,7 @@ The following table summarizes Site Recovery limits:
 
    :::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/high-churn.png" alt-text="Screenshot of high-churn.":::
    
-   If you select multiple source VMs to configure Site Recovery and want to enable High Churn for all these VMs, select High Churn at the top level.
+   If you select multiple source VMs to configure Site Recovery and want to enable High Churn for all these VMs, select **High Churn** at the top level.
 
    :::image type="Churn top level" source="media/concepts-azure-to-azure-high-churn-support/churn-top-level.png" alt-text="Screenshot of churn top level.":::
 
@@ -97,7 +97,7 @@ The following table summarizes Site Recovery limits:
 
    :::image type="Storage" source="media/concepts-azure-to-azure-high-churn-support/storage-show-details.png" alt-text="Screenshot of Storage show details.":::
 
-   - **Churn for the VM**: Select **High Churn(Public Preview)**. You will be able to use Premium Block Blob type of storage accounts only for cache storage. 
+   - **Churn for the VM**: Select **High Churn (Public Preview)**. You will be able to use Premium Block Blob type of storage accounts only for cache storage. 
    - 
      :::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/churn-for-vm.png" alt-text="Screenshot of Churn for VM.":::
 
