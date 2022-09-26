@@ -32,9 +32,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build your network infrastructure in Azure
-            url: /learn/paths/architect-network-infrastructure/
+            url: /training/paths/architect-network-infrastructure/
           - text: Explore Azure networking services
-            url: /learn/modules/azure-networking-fundamentals/
+            url: /training/modules/azure-networking-fundamentals/
   
   # Card (optional)
   - title: Get started
@@ -66,7 +66,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Design an IP addressing schema for your Azure deployment
-            url: /learn/modules/design-ip-addressing-for-azure/
+            url: /training/modules/design-ip-addressing-for-azure/
 
  
  # Card
@@ -139,7 +139,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Secure network connectivity on Azure
-            url: /learn/modules/secure-network-connectivity-azure/
+            url: /training/modules/secure-network-connectivity-azure/
     
   # Card
   

@@ -230,10 +230,11 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 -   **Group entitlements and Usage reports:** Provides guidance on cleaning up directly assigned permissions
 -   **Access Key Entitlements and Usage reports**: Identifies high risk service principals with old secrets that haven’t been rotated every 90 days (best practice) or decommissioned due to lack of use (as recommended by the Cloud Security Alliance).
 
-## Next Steps
-For more information about Permissions Management, see:                     
-                     
-**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management/index.yml).
+## Next steps
+
+For more information about Permissions Management, see:
+
+**Microsoft Learn**: [Permissions management](../cloud-infrastructure-entitlement-management/index.yml).
 
 **Datasheet:** <https://aka.ms/PermissionsManagementDataSheet>
 

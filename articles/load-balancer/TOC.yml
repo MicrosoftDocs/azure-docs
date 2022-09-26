@@ -283,8 +283,8 @@
     displayName: ARM
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-load-balancer
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
