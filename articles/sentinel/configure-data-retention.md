@@ -1,59 +1,46 @@
 ---
-title: Configure data retention for a table in Microsoft Sentinel and Azure Monitor
-description: Set a retention policy for a table in a Log Analytics workspace. 
+title: Configure data retention for logs in Microsoft Sentinel or Azure Monitor
+description: In this tutorial, you'll configure an archive policy for a table in a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 09/02/2-22
+ms.date: 09/23/2022
 ms.custom: template-tutorial
+#Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
 ---
 
 # Tutorial: Configure a data retention policy for a table in a Log Analytics workspace
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
+In this tutorial, you'll set a retention policy for a table in your Log Analytics workspace that you use for Microsoft Sentinel or Azure Monitor. These steps allow you to keep older, less used data in your workspace at a reduced cost.
 
-[Add your introductory paragraph]
-
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
+Retention policies in a Log Analytics workspace define when to remove or archive data in the workspace. By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set the retention policy for a table
-
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
+> * Review data retention and archive policy
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 To complete the steps in this tutorial, you must have the following resources and roles.
 
+- Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Azure account with the following roles:
+
+  |Built-in Role  |Scope  |Reason  |
+  |---------|---------|---------|
+  |[Log Analytics Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- Table        | To set retention policy on tables in Log Analytics       |
 - Log Analytics workspace.
 
 ## Set the retention policy for a table
 <!-- Introduction paragraph -->
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the Azure portal, search for and open **Log Analytics workspaces".
+1. In the Azure portal, search for and open **Log Analytics workspaces**.
 1. Select the appropriate workspace.
 1. Under **Settings**, select **Tables**.
 1. On a table like **Syslog**, open the context menu (...).
@@ -88,4 +75,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+> [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2)
