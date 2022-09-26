@@ -257,6 +257,7 @@ The tagging feature is part of the [Analyze Image](https://westcentralus.dev.cog
 #### [Version 4.0](#tab/4-0)
 
 The tagging feature is part of the [Analyze Image](TBD) API. You can call this API using REST. Include `Tags` in the **Features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"tags"` section.
+
 ---
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

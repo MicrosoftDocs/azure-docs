@@ -60,6 +60,7 @@ The generate thumbnail feature is available through the [Get Thumbnail](https://
 #### [Version 4.0](#tab/4-0)
 
 The smart cropping feature is available through the [Analyze](TBD) API. You can call this API using REST. Include `SmartCrops` in the **visualFeatures** query parameter. Also include a **smartcrops-aspect-ratios** query parameter, and set it to a decimal value for the aspect ratio you want (defined as width / height). Multiple aspect ratio values should be comma-separated.
+
 ---
 
 * [Generate a thumbnail (how-to)](./how-to/generate-thumbnail.md)
