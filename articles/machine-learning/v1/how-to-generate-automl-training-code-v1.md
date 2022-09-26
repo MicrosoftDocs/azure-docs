@@ -90,7 +90,7 @@ There are two main files with the generated code,
 
 * **script.py** This is the model's training code that you likely want to analyze with the featurization steps, specific algorithm used, and hyperparameters.
 
-* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureML compute through Azure ML SDK classes such as `ScriptRunConfig`. 
+* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureML compute through an Azure ML [command job](https://github.com/MicrosoftDocs/azure-docs-pr/pull/212428/link-to-command-job-doc).
 
 
 ## Get generated code and model artifacts
