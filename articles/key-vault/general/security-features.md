@@ -2,13 +2,13 @@
 title: Azure Key Vault security overview
 description: An overview of security features and best practices for Azure Key Vault.
 services: key-vault
-author: msmbaldwinKey Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key v
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 09/25/2022
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
