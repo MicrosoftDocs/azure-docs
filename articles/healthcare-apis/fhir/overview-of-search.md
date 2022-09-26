@@ -1,12 +1,12 @@
 ---
 title:  Overview of FHIR search in Azure Health Data Services
 description: This article describes an overview of FHIR search that is implemented in Azure Health Data Services
-author: EXPEkesheth
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/18/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # Overview of FHIR search
 
