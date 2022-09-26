@@ -24,8 +24,6 @@ items:
     href: elastic-san-networking.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
-  - name: Troubleshooting
-    href: elastic-san-troubleshooting.md
 - name: Samples
   items:
   - name: Create more than one volume

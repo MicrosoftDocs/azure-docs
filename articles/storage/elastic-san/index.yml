@@ -38,11 +38,3 @@ landingContent:
         links:
           - text: Deploy an Elastic SAN
             url: elastic-san-create.md
-
-  # Card
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure Elastic SAN troubleshooting
-            url: elastic-san-troubleshooting.md

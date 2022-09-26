@@ -58,7 +58,7 @@ ZRS is only available in West US 2 and France Central.
 |Maximum total capacity (TiB)     |200         |200         |
 |Maximum base capacity (TiB)    |100         |100         |
 |Minimum total capacity (TiB)    |64          |64         |
-|Maximum total IOPS     | 500,000         |LRS/ZRS - 500,000         |L
+|Maximum total IOPS     | 500,000         |LRS/ZRS - 500,000         |
 |Maximum total throughput (MB/s)    | 8,000         |8,000         |
 
 

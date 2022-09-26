@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Elastic SAN (preview)
-description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Connect to an Azure Elastic SAN (preview) volume
+description: Learn how to connect to an Azure Elastic SAN (preview) volume.
 author: roygara
 ms.service: storage
 ms.topic: how-to
