@@ -118,7 +118,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button higlighted.":::
+   :::image type="content" source="media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button highlighted.":::
 
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
