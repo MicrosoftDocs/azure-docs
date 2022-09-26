@@ -42,7 +42,7 @@ The following diagram shows the key resources you'll use to manage your private 
     For detailed information on policy control, see [Policy control](policy-control.md).
 
 - The *mobile network site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
-- Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the data network. 
+- Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the corresponding data network.
 
 ## Next steps
 
