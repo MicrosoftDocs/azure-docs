@@ -10,7 +10,7 @@ ms.date: 09/23/2021
 
 # CloudEvents AMQP extension for Azure Web PubSub
 
-Service delivers client events to Event Hub event listeners using [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md).
+Service delivers client events to Event Hubs event listeners using [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md).
 
 The data sending from service to server is always in CloudEvents `binary` format.
 
@@ -18,7 +18,7 @@ The data sending from service to server is always in CloudEvents `binary` format
 
 <a name="extension"></a>
 
-This extension defines attributes used by Web PubSub for every event it produces. Please note that each attribute name is prefixed with `cloudEvents:` according to CloudEvents specification.
+This extension defines attributes used by Web PubSub for every event it produces. Each attribute name is prefixed with `cloudEvents:` according to CloudEvents specification.
 
 | Name  | Description  | Example  |
 | -- | -- | -- |
@@ -36,12 +36,12 @@ This extension defines attributes used by Web PubSub for every event it produces
 | `type`  | The event type  | azure.webpubsub.sys.connect  |
 | `datacontenttype`  | Content type of message body  | application/json  |
 
-The "\*" following the attribute name indicates the attribute is present only when the value is not null or empty.
+The "\*" following the attribute name indicates the attribute is present only when the value isn't null or empty.
 
 ## Events
 <a name="events"></a>
 
-This chapter shows the AMQP message body and the attribute values which depends on the client event type. Attributes whose values don't depend on client event type are omitted here.
+This chapter shows the AMQP message body and the attribute values that depend on the client event type. Attributes whose values don't depend on client event type are omitted here.
 
 - System `connect` event: Not supported by event listeners.
 - [System `connected` event](#connected)
@@ -126,8 +126,3 @@ The following cases show how to send events with different data content types.
     "data": "aGVsbG8gd29ybGQ=" // base64 encoded binary
 }
 ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How to configure event listeners](./howto-develop-eventlistener.md)

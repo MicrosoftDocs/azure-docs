@@ -33,14 +33,14 @@ Workflow as shown in the above graph:
 
 ## Client protocol
 
-A client connection connects to the `/client` endpoint of the service using [WebSocket protocol](https://tools.ietf.org/html/rfc6455). The WebSocket protocol provides full-duplex communication channels over a single TCP connection and was standardized by the IETF as RFC 6455 in 2011. Most languages have native support to start WebSocket connections. 
+A client connection connects to the `/client` endpoint of the service using [WebSocket protocol](https://tools.ietf.org/html/rfc6455). The WebSocket protocol provides full-duplex communication channels over a single TCP connection and was standardized by the IETF as RFC 6455 in 2011. Most languages have native support to start WebSocket connections.
 
 Our service supports two kinds of clients:
 - One is called [the simple WebSocket client](#the-simple-websocket-client)
 - The other is called [the PubSub WebSocket client](#the-pubsub-websocket-client)
 
 ### The simple WebSocket client
-A simple WebSocket client, as the naming indicates, is a simple WebSocket connection. It can also have its custom subprotocol. 
+A simple WebSocket client, as the naming indicates, is a simple WebSocket connection. It can also have its custom subprotocol.
 
 For example, in JS, a simple WebSocket client can be created using the following code.
 ```js
@@ -65,12 +65,12 @@ The events fall into two categories:
 * Synchronous events (blocking)
     Synchronous events block the client workflow. When such an event trigger fails, the service drops the client connection.
     * `connect`
-    * `message`
+    * `message`: When the service receives a message event that no event handler nor event listener care about, it also drops the client connection.
 * Asynchronous events (non-blocking)
     Asynchronous events don't block the client workflow, it acts as some notification to the upstream event handler. When such an event trigger fails, the service logs the error detail.
     * `connected`
     * `disconnected`
-    
+
 #### Scenarios
 These connections can be used in a typical client-server architecture where the client sends messages to the server and the server handles incoming messages using [Event Handlers](#event-handler). It can also be used when customers apply existing [subprotocols](https://www.iana.org/assignments/websocket/websocket.xml) in their application logic.
 
@@ -118,7 +118,7 @@ A PubSub WebSocket client can:
 
 [PubSub WebSocket Subprotocol](./reference-json-webpubsub-subprotocol.md) contains the details of the `json.webpubsub.azure.v1` subprotocol.
 
-You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* is a **must have** role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs. 
+You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* is a **must have** role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs.
 
 #### Scenarios:
 Such clients can be used when clients want to talk to each other. Messages are sent from `client2` to the service and the service delivers the message directly to `client1` if the clients are authorized to do so.
@@ -130,7 +130,7 @@ var client1 = new WebSocket("wss://xxx.webpubsub.azure.com/client/hubs/hub1", "j
 client1.onmessage = e => {
     if (e.data) {
         var message = JSON.parse(e.data);
-        if (message.type === "message" 
+        if (message.type === "message"
         && message.group === "Group1"){
             // Only print messages from Group1
             console.log(message.data);
@@ -195,11 +195,11 @@ In general, server protocol contains two roles:
 1. [Connection manager](#connection-manager)
 
 ### Event handler
-The event handler handles the incoming client events. Event handlers are registered and configured in the service through the portal or Azure CLI. When a client event is triggered, the service can identify if the event is to be handled or not. Now we use `PUSH` mode to invoke the event handler. The event handler on the server side exposes a publicly accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**. 
+The event handler handles the incoming client events. Event handlers are registered and configured in the service through the portal or Azure CLI. When a client event is triggered, the service can identify if the event is to be handled or not. Now we use `PUSH` mode to invoke the event handler. The event handler on the server side exposes a publicly accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**.
 
 Web PubSub service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
-For every event, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response. 
+For every event, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response.
 
 The data sent from the service to the server is always in CloudEvents `binary` format.
 
@@ -207,7 +207,7 @@ The data sent from the service to the server is always in CloudEvents `binary` f
 
 #### Upstream and Validation
 
-Event handlers need to be registered and configured in the service through the portal or Azure CLI before first use. When a client event is triggered, the service can identify if the event must be handled or not. For public preview, we use `PUSH` mode to invoke the event handler. The event handler on the server side exposes publicly accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook** **upstream**. 
+Event handlers need to be registered and configured in the service through the portal or Azure CLI before first use. When a client event is triggered, the service can identify if the event must be handled or not. For public preview, we use `PUSH` mode to invoke the event handler. The event handler on the server side exposes publicly accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook** **upstream**.
 
 The URL can use `{event}` parameter to define a URL template for the webhook handler. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. This behavior can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream. The `{event}` parameter isn't allowed in the URL domain name.
 
@@ -241,7 +241,7 @@ It can also grant or revoke publish/join permissions for a PubSub client:
    - Grant publish/join permissions to some specific group or to all groups
    - Revoke publish/join permissions for some specific group or for all groups
    - Check if the client has permission to join or publish to some specific group or to all groups
-   
+
 The service provides REST APIs for the server to do connection management.
 
 ![Diagram showing the Web PubSub service connection manager workflow.](./media/concept-service-internals/manager-rest.png)
