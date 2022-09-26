@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL - Flexible Server - Major Version Upgrade
+title: Azure Database for MySQL - flexible server - major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
@@ -9,7 +9,7 @@ ms.author: sisawant
 ms.date: 9/26/2022
 ---
 
-# Major Version Upgrade in Azure Database for MySQL Flexible Server Preview
+# Major version upgrade in Azure Database for MySQL flexible server preview
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -133,3 +133,8 @@ Confirm with the show slave status command on the replica server to view the rep
   
   All backups (automated/on-demand) taken before major version upgrade, when used for restoration will always restore to a server with older version (5.7). 
   All the backups (automated/on-demand) taken after major version upgrade will restore to server with upgraded version (8.0). It's highly recommended to take on-demand backup before you perform the major version upgrade for an easy rollback.
+
+
+  ## Next steps
+  - Learn more on [how to configure scheduled maintenance](./how-to-maintenance-portal.md) for your Azure Database for MySQL flexible server.
+  - Learn about what's new in [MySQL version 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html).
