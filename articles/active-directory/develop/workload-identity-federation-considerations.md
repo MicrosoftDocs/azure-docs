@@ -160,7 +160,7 @@ The following example creates three new federated identity credentials on a user
 
 The following considerations apply to federated identity credentials on user-assigned managed identities.
 
-Currently federated identity credential properties are not supported by [Azure Policy](/azure/governance/policy/overview). However, it is still possible to use a deny policy as in the following ARM template example:
+It is possible to use a deny [Azure Policy](/azure/governance/policy/overview) as in the following ARM template example:
 
 ```json
 { 
