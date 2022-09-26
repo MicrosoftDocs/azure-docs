@@ -176,7 +176,7 @@ Configuring custom DNS servers on VNET with Private resolver inbound IP address 
 
 **More information**:
 
-Private resolver inbound IP address will be pushed to point to site clients as DNS server when VNET is configured with custom DNS.
+By default, DNS servers which are configured on VNET will be pushed to point to site clients which are connected via VPN gateway. Hence configuring Private resolver inbound IP address as custom DNS servers on VNET will automatically push these IP address to clients as VPN DNS server and you can seamlessly resolve records from private DNS zones(including private endpoints).
 
 ## Next steps
 
