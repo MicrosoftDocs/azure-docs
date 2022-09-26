@@ -48,7 +48,7 @@ Use the **Sign-ins** log to find additional information about the sign-in:
 
   :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
 
-- Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look under **Grant control** for the authentication strength that was enforced. 
+- Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look for **Grant controls** to see the authentication strength that was enforced. 
 
   :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-control.png" alt-text="Screenshot showing the authentication strength under "Conditional Access Policy details" in the Sign-ins log.":::
 
