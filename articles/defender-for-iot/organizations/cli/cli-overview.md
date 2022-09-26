@@ -31,8 +31,8 @@ Privileged users have access to specific functionality within the appliance, the
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
 |**support**     |   The sensor or on-premises management console's `configuration shell`        | Powerful administrative account that can perform all of the tasks that would need to be undertaken using the command line<br>- Manage Log Files<br>- Start and stop services<br><br>Has no filesystem access   |
-|**cyberx**     |    The sensor or on-premises management console's `shell (root)`       | Serves as a root user and has unlimited privileges on the appliance and should be used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>-filesystem access      |
-|**cyberx_host**     | OT Sensor host OS `shell (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS<br><br>Used for network configuration, control of application containers and filesystem access |
+|**cyberx**     |    The sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance and should be used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>-filesystem access      |
+|**cyberx_host**     | OT Sensor host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS<br><br>Used for network configuration, control of application containers and filesystem access |
 
 > [!NOTE]
 > Additional users are not supported and will not have the correct permissions to perform CLI commands.
