@@ -1,17 +1,17 @@
 ---
-title: Active Directory authentication - Azure Database for PostgreSQL - Single Server
-description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Single Server
+title: Active Directory authentication - Azure Database for PostgreSQL - Flexible Server
+description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: Flexible-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
-ms.date: 06/24/2022
+ms.author: kabharati
+author: Kanchan Bharati
+ms.date: 09/26/2022
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
@@ -49,7 +49,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 ![admin structure][2]
 
  >[!NOTE]
- > Service Principal or Managed Identity cannot act as fully functional Azure AD Administrator in Single Server and this limitation is fixed in our Flexible Server 
+ > Service Principal or Managed Identity now act as fully functional Azure AD Administrator in FLexible Server and this was a limitation in our Single Server 
 
 ## Permissions
 
@@ -90,7 +90,7 @@ Please note that management operations, such as adding new users, are only suppo
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-- For an overview of logins, users, and database roles Azure Database for PostgreSQL, see [Create users in Azure Database for PostgreSQL - Single Server](how-to-create-users.md).
+- For an overview of logins, users, and database roles Azure Database for PostgreSQL, see [Create users in Azure Database for PostgreSQL - Flexible Server](how-to-create-users.md).
 
 <!--Image references-->
 
