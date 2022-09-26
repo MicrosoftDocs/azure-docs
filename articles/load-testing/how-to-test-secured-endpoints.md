@@ -38,7 +38,7 @@ The following diagram shows how to use shared secrets or credentials to authenti
 
 1. Add a secret to the load test configuration:
 
-# [Azure portal](#tab/portal)
+    # [Azure portal](#tab/portal)
 
     To add a secret to your load test in the Azure portal:
 
@@ -58,8 +58,8 @@ The following diagram shows how to use shared secrets or credentials to authenti
         :::image type="content" source="media/how-to-test-secured-endpoints/load-test-secrets.png" alt-text="Screenshot that shows how to add secrets to a load test in the Azure portal.":::
 
     1. Select **Apply**, to save the load test configuration changes.
-
-# [GitHub Actions](#tab/github)
+    
+    # [GitHub Actions](#tab/github)
 
     To add a secret to your load test in GitHub Actions, update the GitHub Actions workflow YAML file. In the workflow, add a `secrets` parameter to the `azure/load-testing` action. 
 
@@ -86,7 +86,7 @@ The following diagram shows how to use shared secrets or credentials to authenti
         ]
     ```
 
-# [Azure Pipelines](#tab/pipelines)
+    # [Azure Pipelines](#tab/pipelines)
         
     To add a secret to your load test in Azure Pipelines, update the Azure Pipelines definition file. In the pipeline, add a `secrets` parameter to the `AzureLoadTest` task. 
 
@@ -112,7 +112,7 @@ The following diagram shows how to use shared secrets or credentials to authenti
                 }
             ]
     ```
----
+    ---
 
 1. Configure your JMeter script to receive the secret value from Azure Load Testing:
 
