@@ -14,8 +14,6 @@ The clapperboard insight is used to detect clapper board instances and informati
 
 When the movie is being edited, the slate is removed from the scene but a metadata with what's on the clapper board is important. Azure Video Indexer extracts the data from clapperboards, preserves and presents the metadata as described in this article.
 
-This insight is most useful to customers involved in the movie post-production process.
-
 ## View the insight
 
 ### View post-production insights
