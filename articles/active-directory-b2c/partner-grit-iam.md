@@ -93,7 +93,8 @@ To learn how to assign admin roles, check the [tutorial.](https://app.archbee.co
 
 ### Step 3 - Onboard organizations
 
-Use the Onboarding portal for one or more of your customers and their identity provider (IdP) supporting OpenID Connect (OIDC) and SAML. Onboard customers without an IdP, for local account authentication. For B2C applications, enable social authentications.
+Use the Onboarding portal for one or more of your customers and their identity provider (IdP) that supports OpenID Connect (OIDC) and SAML. Onboard customers without an IdP, for local account authentication. For B2C applications, enable social authentications.
+
 
 Make sure you've Azure portal tenant access and the application is configured in the Azure portal.
 
