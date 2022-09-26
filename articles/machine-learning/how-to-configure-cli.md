@@ -47,7 +47,7 @@ Remove any existing installation of the of `ml` extension and also the CLI v1 `a
 
 Now, install the `ml` extension:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_install":::
 
 Run the help command to verify your installation and see available subcommands:
 

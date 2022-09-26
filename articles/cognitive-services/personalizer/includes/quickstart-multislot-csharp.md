@@ -60,7 +60,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.Personalizer --version 2.0.0-beta.1
+dotnet add package Azure.AI.Personalizer --version 2.0.0-beta.2
 ```
 
 From the project directory, open the `Program.cs` file in your preferred editor or IDE. Add the following using directives:
