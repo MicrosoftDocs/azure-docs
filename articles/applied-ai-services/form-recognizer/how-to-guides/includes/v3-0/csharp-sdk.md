@@ -188,7 +188,7 @@ foreach (DocumentLanguage language in result.Languages)
 
 ```
 
-### Read Model Output
+### Read model output
 
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-read-model-output.md).
 
@@ -503,22 +503,532 @@ for (int i = 0; i < result.Documents.Count; i++)
     }
 }
 ```
+
 ### W2 model output
 
 Visit the Azure samples repository on GitHub to view the [w2 model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-w2-model-output.md).
 
-
 ## Invoice model
 
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
-## Receipt-model
+// sample document document
+Uri invoiceUri = new Uri("https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf");
 
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
+AnalyzeResult result = operation.Value;
+
+for (int i = 0; i < result.Documents.Count; i++)
+{
+    Console.WriteLine($"Document {i}:");
+
+    AnalyzedDocument document = result.Documents[i];
+
+    if (document.Fields.TryGetValue("VendorName", out DocumentField vendorNameField))
+    {
+        if (vendorNameField.FieldType == DocumentFieldType.String)
+        {
+            string vendorName = vendorNameField.Value.AsString();
+            Console.WriteLine($"Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("CustomerName", out DocumentField customerNameField))
+    {
+        if (customerNameField.FieldType == DocumentFieldType.String)
+        {
+            string customerName = customerNameField.Value.AsString();
+            Console.WriteLine($"Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("Items", out DocumentField itemsField))
+    {
+        if (itemsField.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.FieldType == DocumentFieldType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.Value.AsDictionary();
+
+                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
+                    {
+                        if (itemDescriptionField.FieldType == DocumentFieldType.String)
+                        {
+                            string itemDescription = itemDescriptionField.Value.AsString();
+
+                            Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
+                        }
+                    }
+
+                    if (itemFields.TryGetValue("Amount", out DocumentField itemAmountField))
+                    {
+                        if (itemAmountField.FieldType == DocumentFieldType.Currency)
+                        {
+                            CurrencyValue itemAmount = itemAmountField.Value.AsCurrency();
+
+                            Console.WriteLine($"  Amount: '{itemAmount.Symbol}{itemAmount.Amount}', with confidence {itemAmountField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (document.Fields.TryGetValue("SubTotal", out DocumentField subTotalField))
+    {
+        if (subTotalField.FieldType == DocumentFieldType.Currency)
+        {
+            CurrencyValue subTotal = subTotalField.Value.AsCurrency();
+            Console.WriteLine($"Sub Total: '{subTotal.Symbol}{subTotal.Amount}', with confidence {subTotalField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("TotalTax", out DocumentField totalTaxField))
+    {
+        if (totalTaxField.FieldType == DocumentFieldType.Currency)
+        {
+            CurrencyValue totalTax = totalTaxField.Value.AsCurrency();
+            Console.WriteLine($"Total Tax: '{totalTax.Symbol}{totalTax.Amount}', with confidence {totalTaxField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField invoiceTotalField))
+    {
+        if (invoiceTotalField.FieldType == DocumentFieldType.Currency)
+        {
+            CurrencyValue invoiceTotal = invoiceTotalField.Value.AsCurrency();
+            Console.WriteLine($"Invoice Total: '{invoiceTotal.Symbol}{invoiceTotal.Amount}', with confidence {invoiceTotalField.Confidence}");
+        }
+    }
+}
+```
+
+### Invoice model output
+
+Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-general-document-model-output.md).
+
+## Receipt model
+
+```csharp
+
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+ receiptUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-receipt", receiptUri);
+
+AnalyzeResult receipts = operation.Value;
+
+foreach (AnalyzedDocument receipt in receipts.Documents)
+{
+    if (receipt.Fields.TryGetValue("MerchantName", out DocumentField merchantNameField))
+    {
+        if (merchantNameField.FieldType == DocumentFieldType.String)
+        {
+            string merchantName = merchantNameField.Value.AsString();
+
+            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
+        }
+    }
+
+    if (receipt.Fields.TryGetValue("TransactionDate", out DocumentField transactionDateField))
+    {
+        if (transactionDateField.FieldType == DocumentFieldType.Date)
+        {
+            DateTimeOffset transactionDate = transactionDateField.Value.AsDate();
+
+            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
+        }
+    }
+
+    if (receipt.Fields.TryGetValue("Items", out DocumentField itemsField))
+    {
+        if (itemsField.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.FieldType == DocumentFieldType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.Value.AsDictionary();
+
+                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
+                    {
+                        if (itemDescriptionField.FieldType == DocumentFieldType.String)
+                        {
+                            string itemDescription = itemDescriptionField.Value.AsString();
+
+                            Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
+                        }
+                    }
+
+                    if (itemFields.TryGetValue("TotalPrice", out DocumentField itemTotalPriceField))
+                    {
+                        if (itemTotalPriceField.FieldType == DocumentFieldType.Double)
+                        {
+                            double itemTotalPrice = itemTotalPriceField.Value.AsDouble();
+
+                            Console.WriteLine($"  Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (receipt.Fields.TryGetValue("Total", out DocumentField totalField))
+    {
+        if (totalField.FieldType == DocumentFieldType.Double)
+        {
+            double total = totalField.Value.AsDouble();
+
+            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
+        }
+    }
+}
+
+```
+
+### Receipt model output
+
+Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-receipt-model-output.md).
 
 ## ID document model
 
+```csharp
 
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+
+Uri idDocumentUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-idDocument", idDocumentUri);
+
+AnalyzeResult identityDocuments = operation.Value;
+
+AnalyzedDocument identityDocument = identityDocuments.Documents.Single();
+
+if (identityDocument.Fields.TryGetValue("Address", out DocumentField addressField))
+{
+    if (addressField.FieldType == DocumentFieldType.String)
+    {
+        string address = addressField.Value. AsString();
+        Console.WriteLine($"Address: '{address}', with confidence {addressField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("CountryRegion", out DocumentField countryRegionField))
+{
+    if (countryRegionField.FieldType == DocumentFieldType.CountryRegion)
+    {
+        string countryRegion = countryRegionField.Value.AsCountryRegion();
+        Console.WriteLine($"CountryRegion: '{countryRegion}', with confidence {countryRegionField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("DateOfBirth", out DocumentField dateOfBirthField))
+{
+    if (dateOfBirthField.FieldType == DocumentFieldType.Date)
+    {
+        DateTimeOffset dateOfBirth = dateOfBirthField.Value.AsDate();
+        Console.WriteLine($"Date Of Birth: '{dateOfBirth}', with confidence {dateOfBirthField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("DateOfExpiration", out DocumentField dateOfExpirationField))
+{
+    if (dateOfExpirationField.FieldType == DocumentFieldType.Date)
+    {
+        DateTimeOffset dateOfExpiration = dateOfExpirationField.Value.AsDate();
+        Console.WriteLine($"Date Of Expiration: '{dateOfExpiration}', with confidence {dateOfExpirationField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("DocumentNumber", out DocumentField documentNumberField))
+{
+    if (documentNumberField.FieldType == DocumentFieldType.String)
+    {
+        string documentNumber = documentNumberField.Value.AsString();
+        Console.WriteLine($"Document Number: '{documentNumber}', with confidence {documentNumberField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("FirstName", out DocumentField firstNameField))
+{
+    if (firstNameField.FieldType == DocumentFieldType.String)
+    {
+        string firstName = firstNameField.Value.AsString();
+        Console.WriteLine($"First Name: '{firstName}', with confidence {firstNameField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("LastName", out DocumentField lastNameField))
+{
+    if (lastNameField.FieldType == DocumentFieldType.String)
+    {
+        string lastName = lastNameField.Value.AsString();
+        Console.WriteLine($"Last Name: '{lastName}', with confidence {lastNameField.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("Region", out DocumentField regionfield))
+{
+    if (regionfield.FieldType == DocumentFieldType.String)
+    {
+        string region = regionfield.Value.AsString();
+        Console.WriteLine($"Region: '{region}', with confidence {regionfield.Confidence}");
+    }
+}
+
+if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
+{
+    if (sexfield.FieldType == DocumentFieldType.String)
+    {
+        string sex = sexfield.Value.AsString();
+        Console.WriteLine($"Sex: '{sex}', with confidence {sexfield.Confidence}");
+    }
+}
+
+```
+
+### ID document model output
+
+Visit the Azure samples repository on GitHub to view the [id document output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
 
 ## Business card model
 
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+ businessCardUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/business-card-english.jpg");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-businessCard", businessCardUri);
+
+AnalyzeResult businessCards = operation.Value;
+
+foreach (AnalyzedDocument businessCard in businessCards.Documents)
+{
+    if (businessCard.Fields.TryGetValue("ContactNames", out DocumentField ContactNamesField))
+    {
+        if (ContactNamesField.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField contactNameField in ContactNamesField.Value.AsList())
+            {
+                Console.WriteLine("Contact Name: ");
+
+                if (contactNameField.FieldType == DocumentFieldType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, DocumentField> contactNameFields = contactNameField.Value.AsDictionary();
+
+                    if (contactNameFields.TryGetValue("FirstName", out DocumentField firstNameField))
+                    {
+                        if (firstNameField.FieldType == DocumentFieldType.String)
+                        {
+                            string firstName = firstNameField.Value.AsString();
+
+                            Console.WriteLine($"  First Name: '{firstName}', with confidence {firstNameField.Confidence}");
+                        }
+                    }
+
+                    if (contactNameFields.TryGetValue("LastName", out DocumentField lastNameField))
+                    {
+                        if (lastNameField.FieldType == DocumentFieldType.String)
+                        {
+                            string lastName = lastNameField.Value.AsString();
+
+                            Console.WriteLine($"  Last Name: '{lastName}', with confidence {lastNameField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("JobTitles", out DocumentField jobTitlesFields))
+    {
+        if (jobTitlesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField jobTitleField in jobTitlesFields.Value.AsList())
+            {
+                if (jobTitleField.FieldType == DocumentFieldType.String)
+                {
+                    string jobTitle = jobTitleField.Value.AsString();
+
+                    Console.WriteLine($"Job Title: '{jobTitle}', with confidence {jobTitleField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("Departments", out DocumentField departmentFields))
+    {
+        if (departmentFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField departmentField in departmentFields.Value.AsList())
+            {
+                if (departmentField.FieldType == DocumentFieldType.String)
+                {
+                    string department = departmentField.Value.AsString();
+
+                    Console.WriteLine($"Department: '{department}', with confidence {departmentField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("Emails", out DocumentField emailFields))
+    {
+        if (emailFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField emailField in emailFields.Value.AsList())
+            {
+                if (emailField.FieldType == DocumentFieldType.String)
+                {
+                    string email = emailField.Value.AsString();
+
+                    Console.WriteLine($"Email: '{email}', with confidence {emailField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("Websites", out DocumentField websiteFields))
+    {
+        if (websiteFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField websiteField in websiteFields.Value.AsList())
+            {
+                if (websiteField.FieldType == DocumentFieldType.String)
+                {
+                    string website = websiteField.Value.AsString();
+
+                    Console.WriteLine($"Website: '{website}', with confidence {websiteField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("MobilePhones", out DocumentField mobilePhonesFields))
+    {
+        if (mobilePhonesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField mobilePhoneField in mobilePhonesFields.Value.AsList())
+            {
+                if (mobilePhoneField.FieldType == DocumentFieldType.PhoneNumber)
+                {
+                    string mobilePhone = mobilePhoneField.Value.AsPhoneNumber();
+
+                    Console.WriteLine($"Mobile phone number: '{mobilePhone}', with confidence {mobilePhoneField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("WorkPhones", out DocumentField workPhonesFields))
+    {
+        if (workPhonesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField workPhoneField in workPhonesFields.Value.AsList())
+            {
+                if (workPhoneField.FieldType == DocumentFieldType.PhoneNumber)
+                {
+                    string workPhone = workPhoneField.Value.AsPhoneNumber();
+
+                    Console.WriteLine($"Work phone number: '{workPhone}', with confidence {workPhoneField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("Faxes", out DocumentField faxesFields))
+    {
+        if (faxesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField faxField in faxesFields.Value.AsList())
+            {
+                if (faxField.FieldType == DocumentFieldType.PhoneNumber)
+                {
+                    string fax = faxField.Value.AsPhoneNumber();
+
+                    Console.WriteLine($"Fax phone number: '{fax}', with confidence {faxField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("Addresses", out DocumentField addressesFields))
+    {
+        if (addressesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField addressField in addressesFields.Value.AsList())
+            {
+                if (addressField.FieldType == DocumentFieldType.String)
+                {
+                    string address = addressField.Value.AsString();
+
+                    Console.WriteLine($"Address: '{address}', with confidence {addressField.Confidence}");
+                }
+            }
+        }
+    }
+
+    if (businessCard.Fields.TryGetValue("CompanyNames", out DocumentField companyNamesFields))
+    {
+        if (companyNamesFields.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField companyNameField in companyNamesFields.Value.AsList())
+            {
+                if (companyNameField.FieldType == DocumentFieldType.String)
+                {
+                    string companyName = companyNameField.Value.AsString();
+
+                    Console.WriteLine($"Company name: '{companyName}', with confidence {companyNameField.Confidence}");
+                }
+            }
+        }
+    }
+}
+
+```
+
+### Business card model output
+
+Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
