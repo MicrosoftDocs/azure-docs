@@ -40,17 +40,12 @@ The unsupported client list above is not exhaustive and may change over time.
 
 To transfer files to or from Azure storage via client applications, see the following recommended client settings.
 
-- WinSCP (version 5.19.5 or later) 
+- WinSCP
 
-  - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename for** option.
+  - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
   
   > [!CAUTION]
   > Leaving this option enabled can cause failures or degraded performance during large file uploads.
-  
-  - Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level:** is checked, select **Reduced** or **Normal**.
-
-  > [!CAUTION]
-  > Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
 
 ## Unsupported operations
 
