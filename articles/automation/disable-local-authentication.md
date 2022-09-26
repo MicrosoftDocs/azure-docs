@@ -10,6 +10,9 @@ ms.topic: how-to
 
 # Disable local authentication in Automation
 
+> [!IMPORTANT]
+> Update Management patching will not work when local authentication is disabled.
+
 Azure Automation provides Microsoft Azure Active Directory (Azure AD) authentication support for all Automation service public endpoints. This critical security enhancement removes certificate dependencies and gives organizations control to disable local authentication methods. This feature provides you with seamless integration when centralized control and management of identities and resource credentials through Azure AD is required.
 
 Azure Automation provides an optional feature to "Disable local authentication" at the Automation account level using the Azure policy [Configure Azure Automation account to disable local authentication](../automation/policy-reference.md#azure-automation). By default, this flag is set to false at the account, so you can use both local authentication and Azure AD authentication. If you choose to disable local authentication, then the Automation service only accepts Azure AD based authentication.
@@ -20,7 +23,6 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 >[!NOTE]
 > - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
-> - Update Management patching will not work when local authentication is disabled.
 
 ## Re-enable local authentication
 
