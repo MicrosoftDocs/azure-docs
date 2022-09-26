@@ -91,9 +91,9 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 
     Next, use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, and `federatedIdentityName`.
 
-```azurecli
-az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject ${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}"
-```
+    ```azurecli
+    az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject ${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}"
+    ```
 
 6. Deploy your secretproviderclass and application by setting the `clientID` in the `SecretProviderClass` to the client ID of the Azure AD application.
 

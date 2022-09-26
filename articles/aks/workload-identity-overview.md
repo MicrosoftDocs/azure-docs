@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 09/26/2022
 author: mgoedtel
 
 ---
@@ -103,7 +103,7 @@ The following table summarizes our migration or deployment recommendations for w
 |Scenario |Description |
 |---------|------------|
 | New or existing cluster deployment runs a supported version of Azure Identity SDK<sup>1</sup> | No migration steps are required.<br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
-| New or existing cluster deployment not running a supported version of Azure Identity SDK| Update container image and deploy with newer version, or use the [migration sidecar][workload-identity-migration-sidecar]. |
+| New or existing cluster deployment not running a supported version of Azure Identity SDK| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 <sup>1</sup> The version of the Azure Identity SDK is based on the SDK language used:
 - C# - 1.5.0-beta.4
@@ -113,7 +113,7 @@ The following table summarizes our migration or deployment recommendations for w
 
 ## Next steps
 
-* To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration].
+* To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration-sidecar].
 * See the tutorial [Use a workload identity with an application on Azure Kubernetes Service (AKS)][tutorial-use-workload-identity], which helps you deploy an Azure Kubernetes Service cluster and configure a sample application to use a workload identity.
 
 <!-- EXTERNAL LINKS -->

@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -200,6 +200,9 @@ Use the [az identity federated-credential create][az-identity-federated-credenti
 ```azurecli
 az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject ${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
+
+> [!NOTE]
+> It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
 
 ## Deploy the workload
 

@@ -3,7 +3,7 @@ title: Modernize your Azure Kubernetes Service (AKS) application with a workload
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 ---
 
 # Modernize application authentication with workload identity sidecar
@@ -13,6 +13,8 @@ If your kubernetes application running on Azure Kubernetes Service (AKS) is usin
 This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution.
 
 ## Create a Managed Identity
+
+If you don't have a managed identity already created and assigned to your pod, perform the following steps to create and assign it the necessary rights to storage, Key Vault, or whatever resources your application needs to authenticate with in Azure.
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
@@ -24,15 +26,7 @@ This article shows you how to set up your pod to authenticate using a workload i
     az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
     ```
 
-2. Set an access policy for the Managed Identity to access secrets in your Key Vault by running the following commands:
-
-    ```bash
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "resourceGroupName" --name "userAssignedIdentityName" --query 'clientId' -otsv)"
-    ```
-
-    ```azurecli
-    az keyvault set-policy --name "keyVaultName" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
-    ```
+2. Grant the managed identity the rights required to access the resources in Azure it requires.
 
 3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
@@ -42,7 +36,7 @@ This article shows you how to set up your pod to authenticate using a workload i
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+If you don't already have a dedicated Kubernetes service account created for this application(s), perform the following steps to create and then annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
@@ -78,44 +72,17 @@ Use the [az identity federated-credential create][az-identity-federated-credenti
 az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject serviceAccountNamespace:serviceAccountName
 ```
 
+> [!NOTE]
+> It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
+
 ## Deploy the workload
 
-To update or deploy the workload, you add the following [annotation][pod-annotations] in the pod that injects the init container and proxy sidecar:
+To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You add inject the following [annotation][pod-annotations] values in order to leverage the sidecar in your pod specification:
 
-* `azure.workload.identity/inject-proxy-sidecar`
-* `azure.workload.identity/proxy-sidecar-port`
+* `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
+* `azure.workload.identity/proxy-sidecar-port` - value is the desired port you want the sidecar to communicate with. The default value is `8080`. 
 
-Update the pod with the annotation by performing the following steps.
-
-1. Copy the following YAML snippet of an init container in your Pod specification to specify the proxy port for the workload identity sidecar.
-
-    ```yml
-    initContainers:
-    - name: init-networking
-      image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
-      securityContext:
-        capabilities:
-          add:
-          - NET_ADMIN
-          drop:
-          - ALL
-        privileged: true
-        runAsUser: 0
-      env:
-      - name: PROXY_PORT
-        value: "8000"
-    ```
-
-2. Add the following YAML snippet to specify the injected proxy sidecar for the containers object.
-
-    ```yml
-    - name: proxy
-      image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
-      ports:
-      - containerPort: 8000
-    ```
-
-The following is an example of the complete pod annotation that includes both snippets:
+The webhook that is already running adds the following YAML snippets to the pod deployment (Link to example reference in the overview article - table). The following example, is the complete pod annotation:
 
 ```yml
 apiVersion: v1
@@ -151,13 +118,33 @@ spec:
     - containerPort: 8000
 ```
 
+This configuration applies to any configuration where a pod is being created. After updating or deploying your application, you can verify the pod is in a running state using the [kubectl describe pod][kubectl-describe] command. Replace the value `podName` with the image name of your deployed pod.
+
+```bash
+kubectl describe pods podName
+```
+
+To verify that pod is passing IMDS transactions, use the [kubectl logs][kubelet-logs] command. Replace the value `podName` with the image name of your deployed pod:
+
+```bash
+kubectl logs podName
+```
+
+The following log output resembles successful communication through the proxy sidecar. Verify that the logs show a token is successfully acquired and the GET operation is successful.
+
+```output
+proxy "msg"="starting the proxy server" "port"=8080 "userAgent"="azure-workload-identity/proxy/v0.13.0-12-gc8527f3
+"method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01
+proxy "msg"="successfully acquired token"
+proxy "msg"="received token request"
+```
+
 ## Next steps
 
 This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
 
 <!-- INTERNAL LINKS -->
 [pod-annotations]: workload-identity-overview.md#service-account-labels-and-annotations
-[create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-account-set]: /cli/azure/account#az-account-set
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
