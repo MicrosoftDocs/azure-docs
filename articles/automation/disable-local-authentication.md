@@ -19,8 +19,8 @@ In the Azure portal, you may receive a warning message on the landing page for t
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests.
 
 >[!NOTE]
-> Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
-> Update Management patching will not work when local authentication is disabled.
+> - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
+> - Update Management patching will not work when local authentication is disabled.
 
 ## Re-enable local authentication
 
