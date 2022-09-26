@@ -19,7 +19,6 @@ Azure Communication Services are also support Government Cloud, but the Governme
 | GCC-H | USGov | ✔️ |
 | DoD | USNAT | ❌ |
 | AirGap Clouds | USSEC | ❌ |
-| DEOS | Edge | ❌ |
 
 ## Supported use cases
 
