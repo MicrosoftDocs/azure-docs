@@ -136,7 +136,7 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
+Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types that are supported by Tanzu Buildpacks and Tanzu Partner Buildpacks when they are configured correctly.
 
 |Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
 |---------|-------------------|--------|-----------|---------|----------|
@@ -146,9 +146,7 @@ Not all Tanzu Buildpacks support all service binding types. The following table 
 |Python|❌|❌|❌|❌|❌|
 |NodeJS|❌|✅|✅|✅|✅|
 
-These service bindings can work with proper configuration.
-
-To edit service bindings for the builder, select **Edit**. After bound the Service Bindings, if the app deploy with a specific builder, then the Service Bindings work for the app.
+To edit service bindings for the builder, select **Edit**. After a builder is bound to the service bindings, the service bindings will work for an app deployed with the builder.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of 'Edit Binding' for the builder pane." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
 
