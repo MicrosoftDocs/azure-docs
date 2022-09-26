@@ -14,7 +14,7 @@ It's common to use pipelines to build and deploy images on Azure Kubernetes Serv
 
 > [!NOTE]
 > ImageCleaner is a feature based on [Eraser](https://github.com/Azure/eraser). 
-> On AKS cluster, the feature name and property name is `ImageCleaner` while the relevant ImageCleaner pods' names contain `Eraser`.
+> On an AKS cluster, the feature name and property name is `ImageCleaner` while the relevant ImageCleaner pods' names contain `Eraser`.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
