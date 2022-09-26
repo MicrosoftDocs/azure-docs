@@ -7,7 +7,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 06/17/2022
+ms.date: 09/26/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -47,6 +47,8 @@ To learn about Firewall Premium features, see [Azure Firewall Premium features](
 
 Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud 
 environments. It provides the essential protection SMB customers need at an affordable price point.
+
+:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
 
 Azure Firewall Basic is similar to Firewall Standard, but has the following limitations:
 
