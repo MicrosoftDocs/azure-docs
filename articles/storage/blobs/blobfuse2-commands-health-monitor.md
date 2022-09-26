@@ -6,14 +6,18 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
 # How to use the BlobFuse2 health-monitor command (preview)
 
-Use the `blobfuse2 health-monitor` command to gain insights into BlobFuse2 mount activities and resource usage.
+Use the `blobfuse2 health-monitor` command to gain insights into BlobFuse2 mount activities and resource usage, including:
+
+- Statistics about internal activities related to BlobFuse2 mounts
+- CPU and memory usage by BlobFuse2 mount processes
+- File cache usage and events
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -27,32 +31,9 @@ Use the `blobfuse2 health-monitor` command to gain insights into BlobFuse2 mount
 
 ## Command Syntax
 
-The `blobfuse2 health-monitor` command has x formats:
+The `blobfuse2 health-monitor` command format is:
 
-`blobfuse2 health-monitor [???] --[flag-name]=[flag-value]`
-
-`blobfuse2 health-monitor [???] --[flag-name]=[flag-value]`
-
-## Arguments
-
-`[???]`
-
-Specify...
-
-```bash
-blobfuse2 health-monitor  ...
-```
-
-`[???]`
-
-The supported subcommands for `blobfuse2 health-monitor` are:
-
-| Command | Description |
-|--|--|
-| [???](blobfuse2-commands-health-monitor.md)   | ??? |
-| [???](blobfuse2-commands-health-monitor.md)   | ??? |
-
-Select one of the command links in the table above to view the documentation for the individual subcommands, including the arguments and flags they support.
+`blobfuse2 health-monitor --[flag-name]=[flag-value]`
 
 ## Flags (options)
 
@@ -62,18 +43,19 @@ Some flags are inherited from the parent command, [`blobfuse2`](blobfuse2-comman
 
 The following flags are inherited from parent command [`blobfuse2`](blobfuse2-commands.md)):
 
-| Flag | Short version | Value type | Default value | Description |
-|--|--|--|--|--|
-| disable-version-check |    | boolean | false | Enables or disables automatic version checking of the BlobFuse2 binaries |
-| help                  | -h | n/a     | n/a   | Help info for the blobfuse2 command and subcommands                      |
+| Flag                  | Short version | Value type | Default value | Description |
+|-----------------------|---------------|------------|---------------|-------------|
+| disable-version-check |               | boolean    | false         | Enables or disables automatic version checking of the BlobFuse2 binaries |
+| help                  | -h            | n/a        | n/a           | Help info for the blobfuse2 command and subcommands                      |
 
 ### Flags that apply only to the BlobFuse2 health-monitor command
 
 The following flags apply only to command `blobfuse2 health-monitor`:
 
-| Flag | Value type | Default value | Description |
-|--|--|--|--|
-| ???        | ??? | ???                          | ??? |
+| Flag        | Value type | Default value | Description                                                                   |
+|-------------|------------|---------------|-------------------------------------------------------------------------------|
+| config-file | string     | ./config.yaml | The path to the configuration file where the account credentials are provided |
+| pid         | string     | n/a           | Process ID (PID) of the BlobFuse2 process to monitor                          |
 
 ## Examples
 
@@ -83,17 +65,11 @@ The following flags apply only to command `blobfuse2 health-monitor`:
 1. Example 1:
 
     ```bash
-    ~$ blobfuse2 health-monitor ...
-    ```
-
-1. Example 1:
-
-    ```bash
-    ~$ blobfuse2 health-monitor ...
+    ~$ blobfuse2 health-monitor --config-file ./config.yaml --pid 1234
     ```
 
 ## See also
 
 - [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
-- What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [The Blobfuse2 command set (preview)](blobfuse2-commands.md)
+- What is BlobFuse2? (preview)](blobfuse2-what-is.md)

@@ -76,7 +76,7 @@ The following flags apply only to command `blobfuse2 mount`:
 | allow-other        | boolean | false                          | Allow other users to access this mount point |
 | attr-cache-timeout | uint32  | 120                            | Attribute cache timeout<br /><sub>(in seconds)</sub> |
 | attr-timeout       | uint32  |                                | Attribute timeout <br /><sub>(in seconds)</sub> |
-| config-file        | string  | ./config.yaml                  | The path for the file where the account credentials are provided Default is config.yaml in current directory. |
+| config-file        | string  | ./config.yaml                  | The path to the configuration file where the account credentials are provided. |
 | container-name     | string  |                                | The name of the container to be mounted |
 | entry-timeout      | uint32  |                                | Entry timeout <br /><sub>(in seconds)</sub> |
 | file-cache-timeout | uint32  | 120                            | File cache timeout <br /><sub>(in seconds)</sub>|
