@@ -17,7 +17,7 @@ Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM.
 
 ## Prerequisites 
 
-- Available for DR of Azure VMs. 
+- Available only for DR of Azure VMs. 
 - VM SKUs with RAM of min 32GB is recommended. 
 - Source disks must be Managed Disks.
 - Will be available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
@@ -91,5 +91,5 @@ The following table summarizes Site Recovery limits:
 
 ## Cost Implications  
 
-- Normal Churn uses Standard page Blob storange accounts whereas **High Churn** uses Premium Block Blob storage accounts which may have cost implications. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- Normal Churn uses Standard page Blob storage accounts whereas **High Churn** uses Premium Block Blob storage accounts which may have cost implications. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - More data changes may get replicated to target for High churn VMs compared to Normal churn. This may lead to more network cost.
