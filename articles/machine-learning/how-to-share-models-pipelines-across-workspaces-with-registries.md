@@ -196,7 +196,7 @@ You can also use `ml_client_registry.environments.list()` to list all environmen
 
 You can browse all environments in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
-:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" alt-text="Screenshot of environments in the registry.":::
+:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" alt-text="Screenshot of environments in the registry.":::
 
  
 ## Create a component in registry
@@ -300,7 +300,7 @@ You can also use `ml_client_registry.component.list()` to list all components in
 
 You can browse all components in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
-:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" alt-text="Screenshot of components in the registry.":::
+:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" alt-text="Screenshot of components in the registry.":::
 
 ## Run a pipeline job in a workspace using component from registry
 
@@ -411,7 +411,7 @@ Since the component used in the training job is shared through a registry, you c
 
 In AzureML studio, select the endpoint link in the job output to view the job. Here you can analyze training metrics, verify that the job is using the component and environment from registry, and review the trained model. Note down the `name` of the job from the output or find the same information from the job overview in AzureML studio. You'll need this information to download the trained model in the next section on creating models in registry.
 
-:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in AzureML studio.":::
+:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in AzureML studio.":::
 
 ## Create a model in registry
 
