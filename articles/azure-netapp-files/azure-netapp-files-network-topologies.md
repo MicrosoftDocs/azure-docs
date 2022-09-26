@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 09/26/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -138,6 +138,9 @@ User-defined routes (UDRs) and Network security groups (NSGs) are only supported
 If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
+
+> [!NOTE]
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
 
 ## Azure native environments
 
