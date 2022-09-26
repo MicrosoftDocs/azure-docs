@@ -205,9 +205,9 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 // sample document document
-Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
+ operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -221,11 +221,12 @@ foreach (DocumentPage page in result.Pages)
         DocumentLine line = page.Lines[i];
         Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
 
-        Console.WriteLine($"    Its bounding box is:");
-        Console.WriteLine($"      Upper left => X: {line.BoundingPolygon[0].X}, Y= {line.BoundingPolygon[0].Y}");
-        Console.WriteLine($"      Upper right => X: {line.BoundingPolygon[1].X}, Y= {line.BoundingPolygon[1].Y}");
-        Console.WriteLine($"      Lower right => X: {line.BoundingPolygon[2].X}, Y= {line.BoundingPolygon[2].Y}");
-        Console.WriteLine($"      Lower left => X: {line.BoundingPolygon[3].X}, Y= {line.BoundingPolygon[3].Y}");
+        Console.WriteLine($"    Its bounding polygon (points ordered clockwise):");
+
+        for (int j = 0; j < line.BoundingPolygon.Count; j++)
+        {
+            Console.WriteLine($"      Point {j} => X: {line.BoundingPolygon[j].X}, Y: {line.BoundingPolygon[j].Y}");
+        }
     }
 
     for (int i = 0; i < page.SelectionMarks.Count; i++)
@@ -283,17 +284,228 @@ for (int i = 0; i < result.Tables.Count; i++)
     {
         Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
     }
+}
 
 ```
+
+### Layout model output
 
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-layout-model-output.md).
 
 ## General document model
 
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
 
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+ fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-document", fileUri);
+
+AnalyzeResult result = operation.Value;
+
+Console.WriteLine("Detected key-value pairs:");
+
+foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
+{
+    if (kvp.Value == null)
+    {
+        Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
+    }
+    else
+    {
+        Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
+    }
+}
+
+foreach (DocumentPage page in result.Pages)
+{
+    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+    Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
+
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        DocumentLine line = page.Lines[i];
+        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+        Console.WriteLine($"    Its bounding polygon (points ordered clockwise):");
+
+        for (int j = 0; j < line.BoundingPolygon.Count; j++)
+        {
+            Console.WriteLine($"      Point {j} => X: {line.BoundingPolygon[j].X}, Y: {line.BoundingPolygon[j].Y}");
+        }
+    }
+
+    for (int i = 0; i < page.SelectionMarks.Count; i++)
+    {
+        DocumentSelectionMark selectionMark = page.SelectionMarks[i];
+
+        Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
+        Console.WriteLine($"    Its bounding polygon (points ordered clockwise):");
+
+        for (int j = 0; j < selectionMark.BoundingPolygon.Count; j++)
+        {
+            Console.WriteLine($"      Point {j} => X: {selectionMark.BoundingPolygon[j].X}, Y: {selectionMark.BoundingPolygon[j].Y}");
+        }
+    }
+}
+
+foreach (DocumentStyle style in result.Styles)
+{
+    // Check the style and style confidence to see if text is handwritten.
+    // Note that value '0.8' is used as an example.
+
+    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+    if (isHandwritten && style.Confidence > 0.8)
+    {
+        Console.WriteLine($"Handwritten content found:");
+
+        foreach (DocumentSpan span in style.Spans)
+        {
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
+        }
+    }
+}
+
+Console.WriteLine("The following tables were extracted:");
+
+for (int i = 0; i < result.Tables.Count; i++)
+{
+    DocumentTable table = result.Tables[i];
+    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+
+    foreach (DocumentTableCell cell in table.Cells)
+    {
+        Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
+    }
+}
+
+```
+
+### General document model output
+
+Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-general-document-model-output.md).
 
 ## W2 model
 
+```csharp
+
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+
+//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+string key = Environment.GetEnvironmentVariable("FR_KEY");
+string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+AzureKeyCredential credential = new AzureKeyCredential(key);
+DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+
+// sample document document
+Uri w2Uri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png");
+
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-tax.us.w2", w2Uri);
+
+AnalyzeResult result = operation.Value;
+
+for (int i = 0; i < result.Documents.Count; i++)
+{
+    Console.WriteLine($"Document {i}:");
+
+    AnalyzedDocument document = result.Documents[i];
+
+    if (document.Fields.TryGetValue("AdditionalInfo", out DocumentField? additionalInfoField))
+    {
+        if (additionalInfoField.FieldType == DocumentFieldType.List)
+        {
+            foreach (DocumentField infoField in additionalInfoField.Value.AsList())
+            {
+                Console.WriteLine("AdditionalInfo:");
+
+                if (infoField.FieldType == DocumentFieldType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, DocumentField> infoFields = infoField.Value.AsDictionary();
+
+                    if (infoFields.TryGetValue("Amount", out DocumentField? amountField))
+                    {
+                        if (amountField.FieldType == DocumentFieldType.Double)
+                        {
+                            double amount = amountField.Value.AsDouble();
+
+                            Console.WriteLine($"  Amount: '{amount}', with confidence {amountField.Confidence}");
+                        }
+                    }
+
+                    if (infoFields.TryGetValue("LetterCode", out DocumentField? letterCodeField))
+                    {
+                        if (letterCodeField.FieldType == DocumentFieldType.String)
+                        {
+                            string letterCode = letterCodeField.Value.AsString();
+
+                            Console.WriteLine($"  LetterCode: '{letterCode}', with confidence {letterCodeField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    if (document.Fields.TryGetValue("AllocatedTips", out DocumentField? allocatedTipsField))
+    {
+        if (allocatedTipsField.FieldType == DocumentFieldType.Double)
+        {
+            double allocatedTips = allocatedTipsField.Value.AsDouble();
+            Console.WriteLine($"Allocated Tips: '{allocatedTips}', with confidence {allocatedTipsField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("Employer", out DocumentField? employerField))
+    {
+        if (employerField.FieldType == DocumentFieldType.Dictionary)
+        {
+            IReadOnlyDictionary<string, DocumentField> employerFields = employerField.Value.AsDictionary();
+
+            if (employerFields.TryGetValue("Name", out DocumentField? employerNameField))
+            {
+                if (employerNameField.FieldType == DocumentFieldType.String)
+                {
+                    string name = employerNameField.Value.AsString();
+
+                    Console.WriteLine($"Employer Name: '{name}', with confidence {employerNameField.Confidence}");
+                }
+            }
+
+            if (employerFields.TryGetValue("IdNumber", out DocumentField? idNumberField))
+            {
+                if (idNumberField.FieldType == DocumentFieldType.String)
+                {
+                    string id = idNumberField.Value.AsString();
+
+                    Console.WriteLine($"Employer ID Number: '{id}', with confidence {idNumberField.Confidence}");
+                }
+            }
+
+            if (employerFields.TryGetValue("Address", out DocumentField? addressField))
+            {
+                if (addressField.FieldType == DocumentFieldType.Address)
+                {
+                    Console.WriteLine($"Employer Address: '{addressField.Content}', with confidence {addressField.Confidence}");
+                }
+            }
+        }
+    }
+}
+```
+### W2 model output
+
+Visit the Azure samples repository on GitHub to view the [w2 model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-w2-model-output.md).
 
 
 ## Invoice model
