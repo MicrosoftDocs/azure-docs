@@ -8,7 +8,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Restore SAP HANA database instances in Azure VMs (preview)
+# SAP HANA databases' instance snapshots in Azure VMs (preview)
 
 This article describes how to restore a backed-up SAP HANA database instance to another target VM via snapshots.
 
