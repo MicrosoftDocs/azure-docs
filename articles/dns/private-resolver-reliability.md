@@ -12,14 +12,16 @@ ms.date: 09/26/2022 #Required; mm/dd/yyyy format.
 
 # Resiliency in Azure DNS Private Resolver
 
-This article describes reliability support in Azure DNS Private Resolver, and covers both regional resiliency with [availability zones](#availability-zones) and cross-region resiliency with disaster recovery. For a more comprehensive overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure DNS Private Resolver, and covers both regional resiliency with [availability zones](#availability-zones) and cross-region resiliency with disaster recovery. 
+
+> [!NOTE]
+> Azure DNS Private Resolver supports availability zones without any further configuration! When the service is provisioned, it's deployed across the different Availability Zones, and will provide zonal resiliency out of the box.
+
+For a comprehensive overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Azure DNS Private Resolver
 
 [Azure DNS Private Resolver](dns-private-resolver-overview.md) enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud, and public DNS servers. 
-
-> [!NOTE]
-> Azure DNS Private Resolver supports availability zones without any further configuration! When the service is provisioned, it's deployed across the different Availability Zones, and will provide zonal resiliency out of the box.
 
 ## Availability zones
 
