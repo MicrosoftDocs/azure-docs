@@ -338,6 +338,8 @@ curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSC
 
 Now that you have a trained model, learn [how to deploy it using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
+For more examples, see the [AzureML examples](https://github.com/azure/azureml-examples) GitHub repository.
+
 For more information on the Azure CLI commands, Python SDK classes, or REST APIs used in this article, see the following reference documentation:
 
 * [Azure CLI `ml` extension](/cli/azure/ml)

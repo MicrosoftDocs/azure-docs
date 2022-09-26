@@ -200,6 +200,8 @@ items:
       - name: Overview
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
         href: call-center-overview.md
+      - name: Post-call transcription and analytics quickstart
+        href: call-center-quickstart.md
       - name: Ingestion Client
         href: ingestion-client.md
       - name: Telephony Integration
