@@ -25,7 +25,7 @@ keywords:
 - An Azure OpenAI resource with a deployed model
     
     For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
-- The following Python libraries: os, requests, json
+- The following Python libraries: os, json
 
 ## Fine-tuning workflow
 
@@ -133,7 +133,7 @@ openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" 
 openai.api_type = 'azure'
 # The API version may change in the future.
-openai.api_version = '2022-06-01'
+openai.api_version = '2022-06-01-preview'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'
@@ -208,7 +208,7 @@ You can either use default values for the hyperparameters of the fine-tune job, 
 
 ## Check the status of your customized model
 
-After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of your job by retrieving information about your Job using the ID returned from the prior call:
+After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. The following Python example checks the status of your fine-tune job by retrieving information about your job using the job ID returned from the previous example:
 
 ```python
     # Get the status of our fine-tune job.
@@ -347,6 +347,7 @@ When you're done with your customized model, you can delete the deployment and m
 You can use various methods to delete the deployment for your customized model:
 
 - <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment">Azure OpenAI Studio</a>
+- [Azure OpenAI Studio]()
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
 - Python SDK
