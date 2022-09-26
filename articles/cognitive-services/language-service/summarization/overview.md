@@ -3,13 +3,13 @@ title: What is document and conversation summarization (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/21/2022
-ms.author: aahi
+ms.date: 09/26/2022
+ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
@@ -26,15 +26,23 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive and abstractive text summarization to produce a summary of a document. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization can find the title of novel chapters, and condense them down to a summary. These features are designed to shorten content that could be considered too long to read.
+Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive and abstractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
 
 As an example, consider the following paragraph of text:
 
-*"We’re delighted to announce that Cognitive Service for Language service now supports extractive summarization! In general, there are two approaches for automatic document summarization: extractive and abstractive. This feature provides extractive summarization. Document summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
+*"Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, extractive and abstractive. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization generates a summary with concise, coherent sentences or words which is not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read."*
 
-The document extractive summarization feature would simplify the text into the following key sentences:
+The document summarization feature would simplify the text into the following key sentences:
 
-:::image type="content" source="media/document-summary-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/document-summary-example.png":::
+Extractive summarization:
+- "Document summarization uses natural language processing techniques to generate a summary for documents."
+- "There are two general approaches to auto summarization, extractive and abstractive."
+- "Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization generates a summary with concise, coherent sentences or words words which is not simply extract sentences from the original document."
+
+Abstractive summarization:
+- "Document summarization uses natural language processing techniques to generate a summary for documents."
+- "There are two general approaches to auto summarization, extractive and abstractive."
+- "These features are designed to shorten content that could be considered too long to read."
 
 ## Key features
 
@@ -45,14 +53,6 @@ Document extractive summarization supports the following features:
 * **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Document summarization will return the three highest scored sentences.
 * **Positional information**: The start position and length of extracted sentences.
 
-Document abstractive summarization supports the following features:
-
-> [!IMPORTANT]
-> Document abstractive summarization is only available in English.
-
-* **Chapter summarization**: Gives the titles of input novel chapters.
-* **Narrative summarization**: Gives summarizes and gives the titles of each input novel chapter.
-
 # [Conversation summarization](#tab/conversation-summarization)
 
 This documentation contains the following article types:
@@ -60,7 +60,15 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/conversation-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
+Conversation summarization supports the following features:
+
+> [!IMPORTANT]
+> Conversation summarization is only available in English.
+
+* **Chapter Title summarization**: Gives the titles of input novel chapters.
+* **Narrative summarization**: Gives summarizes and gives the titles of each input novel chapter.
+
+Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers.
 
 :::image type="content" source="media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
 

@@ -324,86 +324,43 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
 
 ```json
 {
-    "jobId": "752383f1-0a86-4a39-8c43-6bf5c673b5bd",
-    "lastUpdateDateTime": "2022-09-13T22:27:03Z",
-    "createdDateTime": "2022-09-13T22:26:31Z",
-    "expirationDateTime": "2022-09-14T22:26:31Z",
+    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
+    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
+    "createdDateTime": "2022-05-31T16:52:51Z",
+    "expirationDateTime": "2022-06-01T16:52:51Z",
     "status": "succeeded",
     "errors": [],
+    "displayName": "Analyze conversations from 123",
     "tasks": {
-        "completed": 2,
+        "completed": 1,
         "failed": 0,
         "inProgress": 0,
-        "total": 2,
+        "total": 1,
         "items": [
             {
-                "kind": "AbstractiveSummarizationLROResults",
-                "lastUpdateDateTime": "2022-09-13T22:27:03.7003166Z",
+                "kind": "conversationalSummarizationResults",
+                "taskName": "analyze 1",
+                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
                 "status": "succeeded",
                 "results": {
-                    "documents": [
+                    "conversations": [
                         {
+                            "id": "conversation1",
                             "summaries": [
                                 {
-                                    "text": "Microsoft has been on a quest to advance AI beyond existing techniques. As Chief Technology Officer of Azure AI Cognitive Services, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition. At the intersection of all three, there's magic—what we call XYZ-code—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
-                                    "contexts": [
-                                        {
-                                            "offset": 0,
-                                            "length": 247
-                                        }
-                                    ]
-                                }
-                            ],
-                            "id": "0"
-                        }
-                    ],
-                    "errors": [],
-                }
-            },
-            {
-                "kind": "ExtractiveSummarizationLROResults",
-                "lastUpdateDateTime": "2022-09-13T22:26:33.5711598Z",
-                "status": "succeeded",
-                "results": {
-                    "documents": [
-                        {
-                            "id": "0",
-                            "sentences": [
-                                {
-                                    "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
-                                    "rankScore": 0.69,
-                                    "offset": 0,
-                                    "length": 160
+                                    "aspect": "issue",
+                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
                                 },
                                 {
-                                    "text": "In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
-                                    "rankScore": 0.66,
-                                    "offset": 324,
-                                    "length": 192
-                                },
-                                {
-                                    "text": "At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
-                                    "rankScore": 0.63,
-                                    "offset": 517,
-                                    "length": 203
-                                },
-                                {
-                                    "text": "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages.",
-                                    "rankScore": 1.0,
-                                    "offset": 721,
-                                    "length": 134
-                                },
-                                {
-                                    "text": "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today.",
-                                    "rankScore": 0.74,
-                                    "offset": 856,
-                                    "length": 159
+                                    "aspect": "resolution",
+                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
                                 }
                             ],
                             "warnings": []
                         }
                     ],
                     "errors": [],
+                    "modelVersion": "2022-05-15-preview"
                 }
             }
         ]

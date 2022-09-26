@@ -3,13 +3,13 @@ title: Summarize text with the extractive summarization API
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to summarize text with the extractive summarization API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/26/2022
-ms.author: aahi
+ms.date: 09/26/2022
+ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
@@ -85,11 +85,13 @@ The extractive summarization API is performed upon receipt of the request by cre
 
 Using the above example, the API might return the following summarized sentences:
 
-*"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding."*
+Extractive summarization:
+- "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding."
+- "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages."
+- "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today."
 
-*"In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z)."*
-
-*"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better."*
+Abstractive summarization
+- "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
 ## Service and data limits
 
