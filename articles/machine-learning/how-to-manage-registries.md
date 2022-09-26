@@ -95,6 +95,8 @@ You can create registries in AzureML studio using the following steps:
 	
 1. Enter the registry name, select the subscription and resource group and then select __Next__.
 
+    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-basics.png" alt-text="Screenshot of the registry creation basics tab.":::
+
 1. Select the __Primary region__ and __Additional region__, then select __Next__.
 
     :::image type="content" source="./media/how-to-manage-registries/studio-registry-select-regions.png" alt-text="Screenshot of the registry region selection":::
@@ -107,8 +109,6 @@ You can create registries in AzureML studio using the following steps:
 1. From the [Azure portal](https://portal.azure.com), navigate to the Azure Machine Learning service. You can get there by searching for __Azure Machine Learning__ in the search bar at the top of the page or going to __All Services__ looking for __Azure Machine Learning__ under the __AI + machine learning__ category. 
 
 1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group and primary region, then select __Next__.
-
-    :::image type="content" source="./media/how-to-manage-registries/create-registry-basics.png" alt-text="Screenshot of the basics tab.":::
 	
 1. Select the additional regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
 
@@ -128,7 +128,7 @@ Azure storage offers several types of storage accounts with different features a
 Next, decide if you want to use an [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) account or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction). To create Azure Data Lake Storage Gen2, set `storage_account_hns` to `true`. To create Azure Blob Storage, set `storage_account_hns` to `false`. The `storage_account_hns` field is under each `location` in the `replication_locations` list.
 
 > [!NOTE]
-> The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts.
+>The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts.
 
 Below is an example YAML that demonstrates this advanced storage configuration:
 
