@@ -1,5 +1,5 @@
 ---
-title: Support for government clouds - Teams user
+title: Support for government clouds
 titleSuffix: An Azure Communication Services concept document
 description: Support for Teams user from Azure Communication Services connecting to Microsoft Teams in government clouds
 author: tinaharter
