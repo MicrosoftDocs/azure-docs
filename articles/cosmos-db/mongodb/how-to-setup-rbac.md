@@ -79,23 +79,19 @@ Has the following privileges: collStats, createCollection, createIndex, dbStats,
 We recommend using the cmd when using Windows.
 
 1. Make sure you have latest CLI version(not extension) installed locally. try `az upgrade` command.
-2. Check if you have dev extension version already installed: `az extension show -n cosmosdb-preview`. If it shows your local version, remove it using the following command: `az extension remove -n cosmosdb-preview`. It may ask you to remove it from python virtual env. If that's the case, launch your local CLI extension python env and run `azdev extension remove cosmosdb-preview` (no -n here).
-3. List the available extensions and make sure the list shows the preview version and corresponding "Compatible" flag is true.
-4. Install the latest preview version: `az extension add -n cosmosdb-preview`.
-5. Check if the preview version is installed using this: `az extension list`.
-6. Connect to your subscription.
+2. Connect to your subscription.
 ```powershell
 az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-7. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. 
+3. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. 
 If you prefer a new database account instead, create a new database account with the RBAC capability set to true.
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
-8. Create a database for users to connect to in the Azure portal.
-9. Create an RBAC user with built-in read role.
+4. Create a database for users to connect to in the Azure portal.
+5. Create an RBAC user with built-in read role.
 ```powershell
 az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
 ```
@@ -227,7 +223,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
-Azure portal support for role management is not available yet. However, RBAC can be enabled via the features tab in the Azure Portal.
+Azure portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure Portal.
 
 ### How do I change a user's password?
 
