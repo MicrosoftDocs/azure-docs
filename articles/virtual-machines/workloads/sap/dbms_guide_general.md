@@ -321,7 +321,7 @@ If there's a failover of the database node, there's no need for the SAP applicat
 
 Azure offers two different [load balancer SKUs](../../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic is not routed through the load balancer itself.
 
-An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md#create-an-azure-load-balancer)
+An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet#create-an-azure-load-balancer)
 
 > [!NOTE]
 > There are differences in behavior of the basic and standard SKU related to the access of public IP addresses. The way how to work around the restrictions of the Standard SKU to access public IP addresses is described in the document [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)

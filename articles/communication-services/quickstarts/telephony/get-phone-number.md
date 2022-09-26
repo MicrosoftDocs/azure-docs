@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: references_regions, mode-other
-zone_pivot_groups: acs-azp-java-net-python-csharp-js
+zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 ---
 
 # Quickstart: Get and manage phone numbers
@@ -18,6 +18,10 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
+::: zone-end
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
@@ -55,6 +59,7 @@ In this quickstart you learned how to:
 > * Purchase a phone number
 > * Manage your phone number
 > * Release a phone number
+> * Submit toll-free verification application [(see if required)](../../concepts/sms/sms-faq.md#toll-free-verification)
 
 > [!div class="nextstepaction"]
 > [Send an SMS](../sms/send.md)

@@ -10,7 +10,7 @@ ms.date: 01/12/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -271,6 +271,7 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.us   |
+    | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.us |
     | STS_URL            | https://login.microsoftonline.us/ |
 
 1. For Azure China 21Vianet customers, set the following key values:
@@ -278,6 +279,7 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | strongauthenticationservice.auth.microsoft.cn   |
+    | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.cn |
     | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repeat the previous two steps to set the registry key values for each NPS server.

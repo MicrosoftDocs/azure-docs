@@ -45,13 +45,13 @@ In this section, you'll map the Private Link service to a private endpoint creat
     
        :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-by-alias.png" alt-text="Screenshot of enabling private link to an internal load balancer using an ID or alias":::
 
-1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
+1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the internal load balancer you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this custom origin. |
     | Origin Type | Custom |
-    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Host name | HostName is used for SNI (SSL negotiation) and should match your server side certificate. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |
     | HTTPS port | 443 (default) |

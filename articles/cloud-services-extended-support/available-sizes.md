@@ -18,7 +18,7 @@ This article describes the available virtual machine sizes for Cloud Services (e
 |---|---|
 |[Av2](../virtual-machines/av2-series.md) | 100 | 
 |[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
-|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 - 190* |
+|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 210 - 250* |
 |[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 - 190* |
 |[Dav4](../virtual-machines/dav4-dasv4-series.md) | 230 - 260 |
 |[Eav4](../virtual-machines/eav4-easv4-series.md) | 230 - 260 |
@@ -26,8 +26,10 @@ This article describes the available virtual machine sizes for Cloud Services (e
 |[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240* |
 |[H](../virtual-machines/h-series.md) | 290 - 300* | 
 
+
 >[!NOTE]
 > ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost. The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+
 
 ## Configure sizes for Cloud Services (extended support)
 
@@ -39,6 +41,8 @@ For example, setting the web role instance size to `Standard_D2`:
 <WorkerRole name="Worker1" vmsize="Standard_D2"> 
 </WorkerRole> 
 ```
+>[!IMPORTANT]
+> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](../virtual-machines/hc-series.md), [HBv2](../virtual-machines/hbv2-series.md), [HBv3](../virtual-machines/hbv3-series.md), [Dv4](../virtual-machines/dv4-dsv4-series.md), [Dav4](../virtual-machines/dav4-dasv4-series.md), [Ev4](../virtual-machines/ev4-esv4-series.md), and [Eav4](../virtual-machines/eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
 
 ## Change the size of an existing role
 

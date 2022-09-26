@@ -89,7 +89,7 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue access tokens
 
-Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
+Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
@@ -157,3 +157,25 @@ From a console prompt, go to the directory that contains the *issue-access-token
 ```console
 python ./issue-access-tokens.py
 ```
+
+The app's output describes each completed action:
+
+<!---cSpell:disable --->
+```console
+Azure Communication Services - Access Tokens Quickstart
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+```
+<!---cSpell:enable --->

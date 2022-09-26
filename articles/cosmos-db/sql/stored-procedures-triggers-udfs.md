@@ -1,14 +1,13 @@
 ---
 title: Work with stored procedures, triggers, and UDFs in Azure Cosmos DB 
 description: This article introduces the concepts such as stored procedures, triggers, and user-defined functions in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.author: tisande
-ms.reviewer: sngun
-
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Stored procedures, triggers, and user-defined functions
@@ -87,7 +86,7 @@ Azure Cosmos DB provides triggers that can be invoked by performing an operation
 Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos item and they don't require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
 
 > [!NOTE]
-> Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
+> Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) article.
 
 ## <a id="udfs"></a>User-defined functions
 

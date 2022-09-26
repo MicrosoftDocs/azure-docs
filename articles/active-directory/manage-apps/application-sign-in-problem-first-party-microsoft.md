@@ -1,17 +1,15 @@
 ---
 title: Problems signing in to a Microsoft application
-titleSuffix: Azure AD
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
 services: active-directory
-author: davidmu1
+author: AlAmaral
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: alamaral
 ms.collection: M365-identity-device-management
 ---
 

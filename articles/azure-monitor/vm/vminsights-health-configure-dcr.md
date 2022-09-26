@@ -4,12 +4,14 @@ description: Describes how to modify default monitoring in VM insights guest hea
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2020
+ms.date: 05/03/2022
 
 ---
 
 # Configure monitoring in VM insights guest health using data collection rules (preview)
 [VM insights guest health](vminsights-health-overview.md) allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using data collection rules.
+
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 
 ## Monitors
@@ -52,7 +54,7 @@ The following table lists the default configuration for each monitor. This defau
 ## Overrides
 An *override* changes one ore more properties of a monitor. For example, an override could disable a monitor that's enabled by default, define warning criteria for the monitor, or modify the monitor's critical threshold. 
 
-Overrides are defined in a [Data Collection Rule (DCR)](../essentials/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
+Overrides are defined in a [Data Collection Rule (DCR)](../essentials/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
 
 
 ## Multiple overrides

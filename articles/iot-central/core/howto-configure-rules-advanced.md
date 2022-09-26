@@ -3,7 +3,7 @@ title: Use workflows to integrate your Azure IoT Central application with other 
 description: This how-to article shows you, as a builder, how to configure rules and actions that integrate your IoT Central application with other cloud services. To create an advanced rule, you use an IoT Central connector in either Power Automate or Azure Logic Apps. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,9 +26,6 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 To complete the steps in this how-to guide, you need:
 
 [!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
-
-> [!NOTE]
-> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
 
 ## Trigger a workflow from a rule
 

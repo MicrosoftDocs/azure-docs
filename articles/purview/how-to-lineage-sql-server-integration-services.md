@@ -6,11 +6,11 @@ ms.author: chugu
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 08/11/2022
 ---
-# How to get lineage from SQL Server Integration Services (SSIS) into Azure Purview
+# How to get lineage from SQL Server Integration Services (SSIS) into Microsoft Purview
 
-This article elaborates on the data lineage aspects of SQL Server Integration Services (SSIS) in Azure Purview.
+This article elaborates on the data lineage aspects of SQL Server Integration Services (SSIS) in Microsoft Purview.
 
 ## Prerequisites
 
@@ -21,6 +21,8 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 The current scope of support includes the lineage extraction from SSIS packages executed by Azure Data Factory SSIS integration runtime.
 
 On premises SSIS lineage extraction is not supported yet.
+
+Only source and destination are supported for Microsoft Purview SSIS lineage running from Data Factory’s SSIS Execute Package activity. Transformations under SSIS are not yet supported.
 
 ### Supported data stores
 
@@ -35,12 +37,12 @@ On premises SSIS lineage extraction is not supported yet.
 | Azure Synapse Analytics \* | Yes |
 | SQL Server \* | Yes |
 
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Microsoft Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 
-## How to bring SSIS lineage into Azure Purview
+## How to bring SSIS lineage into Microsoft Purview
 
-### Step 1. [Connect a Data Factory to Azure Purview](how-to-link-azure-data-factory.md)
+### Step 1. [Connect a Data Factory to Microsoft Purview](how-to-link-azure-data-factory.md)
 
 ### Step 2. Trigger SSIS activity execution in Azure Data Factory
 
@@ -49,7 +51,7 @@ You can [run SSIS package with Execute SSIS Package activity](../data-factory/ho
 Once Execute SSIS Package activity finishes the execution, you can check lineage report status from the activity output in [Data Factory activity monitor](../data-factory/monitor-visually.md#monitor-activity-runs).
 :::image type="content" source="media/how-to-lineage-sql-server-integration-services/activity-report-lineage-status.png" alt-text="ssis-status":::
 
-### Step 3. Browse lineage Information in your Azure Purview account
+### Step 3. Browse lineage Information in your Microsoft Purview account
 
 - You can browse the Data Catalog by choosing asset type “SQL Server Integration Services”.
 
@@ -72,5 +74,5 @@ Once Execute SSIS Package activity finishes the execution, you can check lineage
 ## Next steps
 
 - [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
-- [Learn about Data lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Learn about Data lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Link Azure Data Factory to push automated lineage](how-to-link-azure-data-factory.md)

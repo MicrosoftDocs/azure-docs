@@ -234,7 +234,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> To configure your database after the restore has completed, see [Configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> To configure your database after the restore has completed, see [Configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 

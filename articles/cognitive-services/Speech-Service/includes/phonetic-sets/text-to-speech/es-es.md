@@ -24,7 +24,7 @@
 | jj     | `j͡j` | 6,6      |              | vi**ll**a     |                |
 | k      | `k`   | 20       | **c**oche    | bo**c**a      | titáni**c**    |
 | l      | `l`   | 14       | **l**ápiz    | a**l**a       | corde**l**     |
-| ll     | `j`   | 6        | **ll**ave    | con**ll**evar |                |
+| ll     | `ʎ`   | 14       | **ll**ave    | con**ll**evar |                |
 | m      | `m`   | 21       | **m**order   | a**m**ar      | álbu**m**      |
 | n      | `n`   | 19       | **n**ada     | ce**n**a      | rató**n**      |
 | nj     | `ɲ`   | 19       | **ñ**aña     | ara**ñ**azo   |                |

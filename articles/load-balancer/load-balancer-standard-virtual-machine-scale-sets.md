@@ -4,14 +4,14 @@ titleSuffix: Add rules for Azure Standard Load Balancer and virtual machine scal
 description: With this learning path, get started with Azure Standard Load Balancer and virtual machine scale sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 # Add rules for Azure Load Balancer with virtual machine scale sets
 
@@ -33,7 +33,7 @@ When you use the virtual machine scale set in the back-end pool of the load bala
 
 ## Virtual Machine Scale Set Instance-level IPs
 
-When virtual machine scale sets with [public IPs per instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md) are created with a load balancer in front, the SKU of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).  Note that when using a Standard Load Balancer, the individual instance IPs are all of type Standard "no-zone" (though the Load Balancer frontend could be zonal or zone-redundant).
+When virtual machine scale sets with [public IPs per instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md) are created with a load balancer in front, the SKU of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).
 
 ## Outbound rules
 

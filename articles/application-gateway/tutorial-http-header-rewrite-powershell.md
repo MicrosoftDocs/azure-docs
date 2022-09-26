@@ -2,11 +2,11 @@
 title: Create an Azure Application Gateway & rewrite HTTP headers
 description: This article provides information on how to create an Azure Application Gateway and rewrite HTTP headers using Azure PowerShell
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 

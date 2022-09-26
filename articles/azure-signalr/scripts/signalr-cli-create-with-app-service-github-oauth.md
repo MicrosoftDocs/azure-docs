@@ -26,7 +26,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 :::code language="azurecli" source="~/azure_cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh" id="FullScript":::
 
-### Enable Github authentication and Git deployment for web app
+### Enable GitHub authentication and Git deployment for web app
 
 1. Update the values in the following script for the desired deployment username and its passwor
 

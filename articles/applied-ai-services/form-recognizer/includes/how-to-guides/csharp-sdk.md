@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
@@ -28,8 +28,10 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the project.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the project.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -76,7 +78,7 @@ In the application's **Program** class, create variables for your resource's key
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-In the application's **Main** method, add a call to the asynchronous tasks used in this project. You will implement them later:
+In the application's **Main** method, add a call to the asynchronous tasks used in this project. You'll implement them later:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
@@ -86,11 +88,11 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 ### FormRecognizerClient
 
-`FormRecognizerClient` provides operations for:
+`FormRecognizerClient` provides the following operations:
 
-* Recognizing form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
-* Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
-* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
+* Recognize form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -108,7 +110,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 ## Authenticate the client
 
-Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects.
+Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
 
 > [!IMPORTANT]
 > Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
@@ -289,7 +291,7 @@ The following code processes the ID document at the given URI and prints the maj
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
@@ -366,7 +368,7 @@ Submodel Form Type: form-0
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
@@ -503,7 +505,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ### Check the number of models in the FormRecognizer resource account
 
-The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
+The following code block checks how many models you've saved in your Form Recognizer account and compares it to the account limit.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
@@ -516,7 +518,7 @@ It can have at most 5000 models.
 
 ### List the models currently stored in the resource account
 
-The following code block lists the current models in your account and prints their details to the console.
+The following code blocklists the current models in your account and prints their details to the console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_list)]
 

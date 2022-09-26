@@ -2,9 +2,8 @@
 title: Append data to a blob with .NET - Azure Storage
 description: Learn how to append data to a blob in Azure Storage by using the.NET client library. 
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
@@ -86,4 +85,4 @@ public static async void AppendToBlob
 
 - [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 - [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.openwrite) / [OpenWriteAsync](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.openwriteasync)
-- [Append Block](/api/storageservices/append-block) (REST API)
+- [Append Block](/rest/api/storageservices/append-block) (REST API)

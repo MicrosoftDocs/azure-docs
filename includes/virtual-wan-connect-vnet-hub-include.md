@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 03/18/2022
+ms.date: 08/22/2022
 ms.service: virtual-wan
 ms.topic: include
 
@@ -13,10 +13,10 @@ ms.topic: include
 
 1. On the **Virtual network connections** page, click **+Add connection**.
 
-   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="Screenshot shows add.":::
+   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add-connection.png" alt-text="Screenshot shows add connection.":::
 
 1. On the **Add connection** page, configure the required settings. For more information about routing settings, see [About routing](../articles/virtual-wan/about-virtual-hub-routing.md).
- 
+
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Screenshot shows VNet connection page.":::
 
    * **Connection name**: Name your connection.

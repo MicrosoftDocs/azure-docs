@@ -76,7 +76,7 @@ Edit the browser machine's (your laptop's) hosts file, using a hypothetical Orch
 12.34.56.78 connectulum.maverics.com
 ```
 
-To confirm that DNS is configured as expected, you can make a request to the Orchestrator's status endpoint. From your browser, request http://sonar.maverics.com:7474/status.
+To confirm that DNS is configured as expected, you can make a request to the Orchestrator's status endpoint. From your browser, request `http://sonar.maverics.com:7474/status`.
 
 ### Configure TLS
 

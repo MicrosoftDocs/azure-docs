@@ -34,6 +34,12 @@ If the virtual machine is currently running, changing its size will cause it to 
 
 If your VM is still running and you don't see the size you want in the list, stopping the virtual machine may reveal more sizes.
 
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+  
+
 ### [CLI](#tab/cli)
 
 To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
@@ -79,6 +85,8 @@ To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) inst
    
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 ### [PowerShell](#tab/powershell)
 
@@ -115,10 +123,11 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
-> [!WARNING]
-> Deallocating the VM releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected. 
-> 
-> 
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
+
 
 **Use PowerShell to resize a VM in an availability set**
 

@@ -4,25 +4,25 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 05/25/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
 ---
 
 # NFS file shares in Azure Files
-Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol. Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
->  Before using NFS file shares for production, see the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+> NFS Azure file shares are not supported for Windows clients. Before using NFS Azure file shares for production, see the [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
 
 - Backing storage for Linux/UNIX-based applications, such as line-of-business applications written using Linux or POSIX file system APIs (even if they don't require POSIX-compliance).
-- Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
+- Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions (UID/GID).
 - New application and service development, particularly if that application or service has a requirement for random IO and hierarchical storage. 
 
 ## Features
@@ -35,14 +35,14 @@ NFS file shares are often used in the following scenarios:
 ## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do not offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must use either service endpoints or private endpoints. If you want to access shares from on-premises then, in addition to a private endpoint, you must setup a VPN or ExpressRoute. Requests that do not originate from the following sources will be rejected:
+For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters. Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do not offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must use either service endpoints or private endpoints. If you want to access shares from on-premises, then you must set up a VPN or ExpressRoute in addition to a private endpoint. Requests that do not originate from the following sources will be rejected:
 
 - [A private endpoint](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
     - [Site-to-Site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
-- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
+- [A restricted public endpoint](storage-files-networking-overview.md#public-endpoint-firewall-settings)
 
 For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -50,7 +50,7 @@ For more details on the available networking options, see [Azure Files networkin
 
 The following table shows the current level of support for Azure Storage features in accounts that have the NFS 4.1 feature enabled. 
 
-The status of items that appear in this tables may change over time as support continues to expand.
+The status of items that appear in this table may change over time as support continues to expand.
 
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
@@ -59,7 +59,7 @@ The status of items that appear in this tables may change over time as support c
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
-| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
+| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#limitations-for-changing-replication-types)|	⛔ |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
@@ -68,6 +68,7 @@ The status of items that appear in this tables may change over time as support c
 | [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
 | Root squash|  ✔️  |
+| Access same data from Windows and Linux client|  ⛔   |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
@@ -83,15 +84,15 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS Azure file shares are only offered on premium file shares, which stores data on solid-state drives (SSD). The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to high number of open and close operations.
+NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to the high number of open and close operations.
 
 ## Workloads
 > [!IMPORTANT]
-> Before using NFS file shares for production, see the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
+> Before using NFS Azure file shares for production, see [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 
-The following workloads have known issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
+The following workloads have known issues:
 - Oracle Database will experience incompatibility with its dNFS feature.
 
 

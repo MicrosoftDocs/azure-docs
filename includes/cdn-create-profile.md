@@ -17,14 +17,14 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 1. In the Azure portal, select **Create a resource** (on the upper left). The **Create a resource** portal appears.
    
 1. Search for and select **Front Door and CDN profiles**, then select **Create**:
-   
-    ![Create CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+    
+    :::image type="content" source="./media/cdn-create-profile/cdn-new-resource.png" alt-text="Create CDN resource.":::
 
     The **Compare offerings** pane appears.
 
 1. Select **Explore other offerings** then select **Azure CDN Standard from Microsoft (classic)**. Select **Continue**.
 
-    ![Select CDN resource](./media/cdn-create-profile/compare-offerings.png)
+    :::image type="content" source="./media/cdn-create-profile/compare-offerings.png" alt-text="Select CDN Resource. Select Explore Other Options and Azure CDN Standard from Microsoft(Classic.).":::
 
 1. In the **Basics** tab, enter the following values:
    
@@ -38,7 +38,9 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | **Pricing tier** | Select a **Standard Akamai** option from the drop-down list. (Deployment time for the Akamai tier is about one minute. The Microsoft tier takes about 10 minutes and the Verizon tiers take about 30 minutes.) |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
-    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+    :::image type="content" source="./media/cdn-create-profile/cdn-new-profile.png" alt-text="Input variables in Basics tab.":::
+
+
 
 1. Select **Review + Create** then **Create** to create the profile.
 

@@ -1089,6 +1089,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-operations-monitoring.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-migrate-to-diagnostics-settings.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-protocol-gateway.md",
       "redirect_url": "/azure/iot-edge/iot-edge-as-gateway",
       "redirect_document_id": false

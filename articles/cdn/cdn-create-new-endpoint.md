@@ -31,8 +31,8 @@ After you've created a CDN profile, you use it to create an endpoint.
 1. In the Azure portal, select in your dashboard the CDN profile that you created. If you can't find it, you can either open the resource group in which you created it, or use the search bar at the top of the portal, enter the profile name, and select the profile from the results.
    
 1. On the CDN profile page, select **+ Endpoint**.
-   
-    ![CDN profile](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
+    
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Create CDN endpoint.":::
    
     The **Add an endpoint** pane appears.
 
@@ -49,11 +49,12 @@ After you've created a CDN profile, you use it to create an endpoint.
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
 
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
+ 
 
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
-    
-   ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
+
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
     
    The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
 

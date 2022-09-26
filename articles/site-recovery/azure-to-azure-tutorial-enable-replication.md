@@ -2,7 +2,7 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.date: 07/25/2021
+ms.date: 04/29/2022
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
@@ -16,7 +16,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs using [Azu
 > * Create a Recovery Services vault
 > * Enable VM replication
 
-When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable [replication](azure-to-azure-quickstart.md) for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. [Learn more](azure-to-azure-architecture.md) about the architecture.
 
 > [!NOTE]
 > Tutorials provide instructions with the simplest default settings. If you want to set up Azure VM disaster recovery with customized settings, review [this article](azure-to-azure-how-to-enable-replication.md).
@@ -34,7 +34,7 @@ Before you start this tutorial:
 
 ## Check Azure settings
 
-Check permissions, and settings in the target region.
+Check permissions and settings in the target region.
 
 ### Check permissions
 
@@ -81,7 +81,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 #### Outbound connectivity for IP address ranges
 
-If you're using network security groups (NSGs) to control connectivity, create service-tag based NSG rules that allow HTTPS outbound to port 443 for these [service tags](../virtual-network/service-tags-overview.md#available-service-tags)(groups of IP addresses):
+If you're using network security groups (NSGs) to control connectivity, create a service-tag based NSG rules that allow HTTPS outbound to port 443 for these [service tags](../virtual-network/service-tags-overview.md#available-service-tags)(groups of IP addresses):
 
 **Tag** | **Allow**
 --- | ---

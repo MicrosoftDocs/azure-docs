@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 # Supported Spatial Analysis operations
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Spatial Analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations will generate an output stream of JSON messages sent to Azure Video Analyzer. 
 
 Video Analyzer implements the following Spatial Analysis operations: 

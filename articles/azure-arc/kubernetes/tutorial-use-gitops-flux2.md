@@ -1,24 +1,25 @@
 ---
 title: "Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
+keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 03/09/2022
+ms.date: 06/08/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters (public preview)
+# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters
 
 GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clusters or Azure Arc-enabled Kubernetes connected clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
-
 >[!IMPORTANT]
->GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could affect some users when it is released.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
+> The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
 
 ## Prerequisites
 
@@ -33,10 +34,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### For Azure Kubernetes Service clusters
 
-* An AKS cluster that's up and running.
+* An MSI-based AKS cluster that's up and running.
 
   >[!IMPORTANT]
-  >Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  >**Ensure that the AKS cluster is created with MSI** (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  >For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 * Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
@@ -46,6 +48,10 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   ```
 
 ### Common to both cluster types
+
+* Read and write permissions on these resource types:
+    * `Microsoft.KubernetesConfiguration/extensions`
+    * `Microsoft.KubernetesConfiguration/fluxConfigurations`
 
 * Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
@@ -74,11 +80,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### Supported regions
 
-GitOps is currently supported in the regions that Azure Arc-enabled Kubernetes supports. These regions are a subset of the regions that AKS supports. GitOps is currently not supported in all AKS regions.  [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
+GitOps is currently supported in all regions that Azure Arc-enabled Kubernetes supports. [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
 
 ### Network requirements
 
-The GitOps agents require TCP on port 443 (`https://:443`) to function. The agents also require the following outbound URLs:
+The GitOps agents require outbound (egress) TCP to the repo source on either port 22 (SSH) or port 443 (HTTPS) to function. The agents also require the following outbound URLs:
 
 | Endpoint (DNS) | Description |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +96,7 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 ## Enable CLI extensions
 
 >[!NOTE]
->The `k8s-configuration` CLI extension has been upgraded to manage either Flux v2 or Flux v1 configurations. Flux v2 is an important upgrade to Flux v1, and eventually Azure will stop supporting GitOps with Flux v1. Begin using Flux v2 as soon as possible.
+>The `k8s-configuration` CLI extension manages either Flux v2 or Flux v1 configurations. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
@@ -125,6 +131,9 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository. 
 
+>[!IMPORTANT]
+>The demonstration repo is designed to simplify your use of this tutorial and illustrate some key principles. To keep up to date, the repo can get breaking changes occasionally from version upgrades. These changes won't affect your new application of this tutorial, only previous tutorial applications that have not been deleted. To learn how to handle these changes please see the [breaking change disclaimer](https://github.com/Azure/gitops-flux2-kustomize-helm-mt#breaking-change-disclaimer-%EF%B8%8F).
+
 In the following example:
 
 * The resource group that contains the cluster is `flux-demo-rg`.
@@ -134,7 +143,7 @@ In the following example:
 * The namespace for configuration installation is `cluster-config`.
 * The URL for the public Git repository is `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
 * The Git repository branch is `main`.
-* The scope of the configuration is `cluster`. It gives the operators permissions to make changes throughout cluster.
+* The scope of the configuration is `cluster`. This gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
 * Set `prune=true` on both kustomizations. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
@@ -142,7 +151,16 @@ In the following example:
 If the `microsoft.flux` extension isn't already installed in the cluster, it'll be installed. When the flux configuration is installed, the initial compliance state may be "Pending" or "Non-compliant" because reconciliation is still on-going.  After a minute you can query the configuration again and see the final compliance state.
 
 ```console
-az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n cluster-config --namespace cluster-config -t connectedClusters --scope cluster -u https://github.com/Azure/gitops-flux2-kustomize-helm-mt --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
+az k8s-configuration flux create -g flux-demo-rg \
+-c flux-demo-arc \
+-n cluster-config \
+--namespace cluster-config \
+-t connectedClusters \
+--scope cluster \
+-u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
+--branch main  \
+--kustomization name=infra path=./infrastructure prune=true \
+--kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 
 'Microsoft.Flux' extension not found on the cluster, installing it now. This may take a few minutes...
 'Microsoft.Flux' extension was successfully installed on the cluster
@@ -609,6 +627,21 @@ Here's an example for including the [Flux image-reflector and image-automation c
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
 
+### Red Hat OpenShift onboarding guidance
+Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
+
+```console
+NS="flux-system"
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:kustomize-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:helm-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:source-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:notification-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-automation-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-reflector-controller
+```
+
+For more information on OpenShift guidance for onboarding Flux, refer to the [Flux documentation](https://fluxcd.io/docs/use-cases/openshift/#openshift-setup).
+
 ## Work with parameters
 
 For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
@@ -896,8 +929,6 @@ az k8s-configuration flux kustomization -h
 Group
     az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
     v2 Kubernetes configurations.
-        Command group 'k8s-configuration flux' is in preview and under development. Reference
-        and support levels: https://aka.ms/CLI_refstatus
 
 Commands:
     create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.
@@ -917,8 +948,7 @@ This command is from the following extension: k8s-configuration
 Command
     az k8s-configuration flux kustomization create : Create a Kustomization associated with a
     Kubernetes Flux v2 Configuration.
-        Command group 'k8s-configuration flux kustomization' is in preview and under
-        development. Reference and support levels: https://aka.ms/CLI_refstatus
+
 Arguments
     --cluster-name -c          [Required] : Name of the Kubernetes cluster.
     --cluster-type -t          [Required] : Specify Arc connected clusters or AKS managed clusters.
@@ -969,7 +999,7 @@ The Azure portal is useful for managing GitOps configurations and the Flux exten
 
 The portal provides the overall compliance state of the cluster. The Flux objects that have been deployed to the cluster are also shown, along with their installation parameters, compliance state, and any errors.
 
-You can also use the portal to create and delete GitOps configurations.
+You can also use the portal to create, update, and delete GitOps configurations.
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
@@ -994,6 +1024,11 @@ For usage details, see the following documents:
 * [Migrate to Flux v2 Helm from Flux v1 Helm](https://fluxcd.io/docs/migration/helm-operator-migration/)
 * [Flux Helm controller](https://fluxcd.io/docs/components/helm/)
 
+> [!TIP]
+> Because of how Helm handles index files, processing helm charts is an expensive operation and can have very high memory footprint. As a result, helm chart reconciliation, when occurring in parallel can cause memory spikes and OOMKilled if you are reconciling a large number of helm charts at a given time. By default, the source-controller sets its memory limit at 1Gi and its memory requests at 64Mi. If you need to increase this limit and requests due to a high number of large helm chart reconciliations, you can do so by running the following command after Microsoft.Flux extension installation.
+>
+> `az k8s-extension update -g <resource-group> -c <cluster-name> -n flux -t connectedClusters --config source-controller.resources.limits.memory=2Gi source-controller.resources.requests.memory=300Mi`
+
 ### Use the GitRepository source for Helm charts
 
 If your Helm charts are stored in the `GitRepository` source that you configure as part of the `fluxConfigurations` resource, you can add an annotation to your HelmRelease yaml to indicate that the configured source should be used as the source of the Helm charts.  The annotation is `clusterconfig.azure.com/use-managed-source: "true"`, and here is a usage example:
@@ -1015,10 +1050,10 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability has been integrated into Azure GitOps with Flux v2.
 
 >[!NOTE]
->You need to prepare for the multi-tenancy feature release if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
+>For the multi-tenancy feature you need to know if your manifests contain any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
 >
 > * Upgrade to Kubernetes version 1.20.6 or greater.
 > * In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
@@ -1111,7 +1146,7 @@ spec:
 
 ### Opt out of multi-tenancy
 
-Multi-tenancy will be enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
+When the `microsoft.flux` extension is installed, multi-tenancy is enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
 
 ```console
 az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
@@ -1123,7 +1158,7 @@ az k8s-extension update --configuration-settings multiTenancy.enforce=false -c C
 
 ## Migrate from Flux v1
 
-If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't be installed if there are `sourceControlConfigurations` resources installed in the cluster.
+If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources installed in the cluster.
 
 Use these az CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
 
@@ -1138,6 +1173,6 @@ General information about migration from Flux v1 to Flux v2 is available in the 
 
 ## Next steps
 
-Advance to the next tutorial to learn how to implement CI/CD with GitOps.
+Advance to the next tutorial to learn how to apply configuration at scale with Azure Policy.
 > [!div class="nextstepaction"]
-> [Implement CI/CD with GitOps](./tutorial-gitops-flux2-ci-cd.md)
+> [Use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).

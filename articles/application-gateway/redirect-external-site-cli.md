@@ -2,11 +2,11 @@
 title: External traffic redirection using CLI - Azure Application Gateway
 description: Learn how to create an application gateway that redirects external web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Create an application gateway with external redirection using the Azure CLI

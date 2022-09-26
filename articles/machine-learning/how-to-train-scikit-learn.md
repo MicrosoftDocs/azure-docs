@@ -5,16 +5,17 @@ description: Learn how Azure Machine Learning enables you to scale out a scikit-
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: larryfr
+author: blackmist
 ms.date: 03/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
 # Train scikit-learn models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -58,7 +59,7 @@ In this tutorial, the [training script **train_iris.py**](https://github.com/Azu
 
 Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
-- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](how-to-train-with-datasets.md) to make data available during training.
+- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
 
 ### Define your environment
 
@@ -136,7 +137,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
 
 ### What happens during run execution
 As the run is executed, it goes through the following stages:
@@ -177,7 +178,7 @@ model = run.register_model(model_name='sklearn-iris',
 ## Deployment
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure ML. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
 
@@ -196,7 +197,7 @@ NOTE: These dependencies are included in the pre-built scikit-learn inference co
     - numpy
 ```
 
-The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 
 ## Next steps

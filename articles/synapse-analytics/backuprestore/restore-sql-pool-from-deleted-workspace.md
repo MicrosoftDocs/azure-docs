@@ -5,8 +5,8 @@ author: realAngryAnalytics
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 03/29/2022
-ms.author: realAngryAnalytics
+ms.date: 04/11/2022
+ms.author: stevehow
 ms.reviewer: wiassaf
 ---
 
@@ -15,7 +15,7 @@ ms.reviewer: wiassaf
 In this article, you learn how to restore a dedicated SQL pool in Azure Synapse Analytics after an accidental drop of a workspace using PowerShell.
 
 > [!NOTE]
-> This guidance is for Synapse Workspace dedicated sql pools only. For standalone dedicated sql pool (formerly SQL DW) please follow guidance [Restore sql pool from deleted server](../sql-data-warehouse/sql-data-warehouse-restore-from-deleted-server.md).
+> This guidance is for dedicated SQL pools in Azure Synapse workspaces only. For standalone dedicated SQL pools (formerly SQL DW), follow guidance [Restore sql pool from deleted server](../sql-data-warehouse/sql-data-warehouse-restore-from-deleted-server.md).
 
 ## Before you begin
 
@@ -24,11 +24,17 @@ In this article, you learn how to restore a dedicated SQL pool in Azure Synapse 
 ## Restore the SQL pool from the dropped workspace
 
 1. Open PowerShell
+
 2. Connect to your Azure account.
+
 3. Set the context to the subscription that contains the workspace that was dropped.
+
 4. Specify the approximate datetime the workspace was dropped.
+
 5. Construct the resource ID for the database you wish to recover from the dropped workspace.
+
 6. Restore the database from the dropped workspace
+
 7. Verify the status of the recovered database as 'online'.
 
 
@@ -45,7 +51,7 @@ Connect-AzAccount
 Set-AzContext -SubscriptionID $SubscriptionID
 
 # Define the approximate point in time the workspace was dropped as DroppedDateTime "yyyy-MM-ddThh:mm:ssZ" (ex. 2022-01-01T16:15:00Z)
-$PointInTime=”<DroppedDateTime>” 
+$PointInTime="<DroppedDateTime>" 
 $DroppedDateTime = Get-Date -Date $PointInTime 
 
 

@@ -1,11 +1,14 @@
 ---
 title: Specifying Service Fabric service endpoints 
 description: How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints
-
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.custom: contperf-fy21q1
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Specify resources in a service manifest
 ## Overview
 Service Fabric applications and services are defined and versioned using manifest files. For a higher-level overview of ServiceManifest.xml and ApplicationManifest.xml, see [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md).

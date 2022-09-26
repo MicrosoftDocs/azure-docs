@@ -82,7 +82,7 @@ The output from generating the project will look something like this:
 
 Change your directory to the newly created `akv-secrets-java/` folder.
 
-```console
+```azurecli
 cd akv-secrets-java
 ```
 
@@ -109,7 +109,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants secret permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 

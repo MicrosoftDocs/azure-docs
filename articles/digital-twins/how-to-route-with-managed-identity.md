@@ -157,7 +157,7 @@ You can add the `--scopes` parameter onto the `az dt create` command to assign t
 Here's an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
 ```azurecli-interactive
-az dt create --dt-name <instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
 ```
 
 For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az-dt-create).

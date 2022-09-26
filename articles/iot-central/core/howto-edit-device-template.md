@@ -3,7 +3,7 @@ title: Edit a device template in your Azure IoT Central application | Microsoft 
 description: Iterate over your device templates without impacting your live connected devices
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -24,6 +24,8 @@ Changes to the model in a device template can affect your entire application, in
 To help you avoid any unintended consequences from editing a device template, this article includes recommendations based on your current development life-cycle stage. In general, the earlier you are in the development life cycle, the more tolerant you can be to device template changes.
 
 To learn more about device templates and how to create one, see [What are device templates?](concepts-device-templates.md) and [Set up a device template](howto-set-up-template.md).
+
+To learn how to manage device templates by using the IoT Central REST API, see [How to use the IoT Central REST API to manage device templates.](../core/howto-manage-device-templates-with-rest-api.md)
 
 ## Modify a device template
 
@@ -108,6 +110,9 @@ You can create multiple versions of the device template. Over time, you'll have 
     :::image type="content" source="media/howto-edit-device-template/migrate-device.png" alt-text="Choose the option to start migrating a device":::
 
 1. Select the device template with the version you want to migrate the device to and select **Migrate**.
+
+> [!TIP]
+> You can use a job to migrate all the devices in a device group to a new device template at the same time.
 
 ## Next steps
 

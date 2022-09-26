@@ -7,8 +7,6 @@ ms.author: pamistel
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
-## Create a Spatial Anchors resource
-
 ### [Portal](#tab/azure-portal)
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.

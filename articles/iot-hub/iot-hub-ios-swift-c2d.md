@@ -14,24 +14,22 @@ ms.custom: mqtt
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. 
 
-This tutorial shows you how to:
+This article shows you how to:
 
-* Receive cloud-to-device messages on a device.
-
-You can find more information on cloud-to-device messages in the [messaging section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+* Receive cloud-to-device messages on a device
 
 At the end of this article, you run the following Swift iOS project:
 
-* **sample-device**, the same app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **sample-device**: the same app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), which connects to your IoT hub and receives cloud-to-device messages.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://www.azure.com/develop/iot).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
+
+You can find more information on cloud-to-device messages in the [messaging section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
 
 ## Prerequisites
-
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * An active IoT hub in Azure.
 
@@ -70,7 +68,7 @@ Along with installing the pods required for your project, the installation comma
 1. Retrieve the connection string for your device. You can copy this string from the [Azure portal](https://portal.azure.com) in the device details blade, or retrieve it with the following CLI command:
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
     ```
 
 2. Open the sample workspace in XCode.
@@ -113,6 +111,6 @@ You are now ready to receive cloud-to-device messages. Use the Azure portal to s
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages.
+In this article, you learned how to send and receive cloud-to-device messages.
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

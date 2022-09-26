@@ -9,7 +9,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.devlang: csharp, java
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
 ---
 

@@ -100,8 +100,8 @@ The following example shows a warmup trigger that runs when each new instance is
 
 ```java
 @FunctionName("Warmup")
-public void run( ExecutionContext context) {
-       context.getLogger().info("Function App instance is warm 🌞🌞🌞");
+public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext context) {
+    context.getLogger().info("Function App instance is warm 🌞🌞🌞");
 }
 ```
 

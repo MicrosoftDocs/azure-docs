@@ -265,3 +265,4 @@ In this article, you moved a DevTest lab from one region to another and cleaned 
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move Microsoft.DevtestLab/schedules to another region](./how-to-move-schedule-to-new-region.md)

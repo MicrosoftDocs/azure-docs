@@ -26,7 +26,7 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos 
 * [Query the analytical store using Azure Synapse serverless SQL pool](#query-analytical-store-sql-on-demand)
 * [Use Azure Synapse serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
-You can also checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+You can also checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
@@ -292,11 +292,25 @@ The following links show how to update containers analytical TTL by using PowerS
 * [Azure Cosmos DB API for Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
 * [Azure Cosmos DB SQL API](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
-## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a container
+## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a SQL API container
 
-Analytical store can be disabled in SQL API containers using PowerShell, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled. 
+Analytical store can be disabled in SQL API containers using Azure CLI or PowerShell. 
 
-Currently you can't be disabled in MongoDB API collections.
+> [!NOTE]
+> Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
+
+> [!NOTE]
+> Please note that disabling analitical store is not available for MongoDB API collections.
+
+
+### Azure CLI
+
+Set `--analytical-storage-ttl` parameter to 0 using the `az cosmosdb sql container update` Azure CLI command.
+
+### PowerShell
+
+Set `-AnalyticalStorageTtl` paramenter to 0 using the `Update-AzCosmosDBSqlContainer` PowerShell command. 
+
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
@@ -334,7 +348,7 @@ You can find samples to get started with Azure Synapse Link on [GitHub](https://
 
 To learn more, see the following docs:
 
-* Checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+* Checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 * [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
 

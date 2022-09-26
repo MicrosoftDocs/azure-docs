@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 06/26/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -43,7 +43,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
-      <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
+      <SessionExpiryInSeconds>900</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ContentDefinitionParameters>
         <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -286,7 +286,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
+| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection with a **PartnerClaimType**. For example, `<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />`, or `<OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="signInName" />`. |
 | Format | No | Used for SAML Relying parties to set the **NameId format** returned in the SAML Assertion. |
 
 The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:

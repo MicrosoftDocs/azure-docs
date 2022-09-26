@@ -24,6 +24,8 @@ A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Discount applied to running SQL databases
 
 The SQL Database reserved capacity discount is applied to running SQL databases on an hourly basis. The reservation that you buy is matched to the compute usage emitted by the running SQL databases. For SQL databases that don't run the full hour, the reservation is automatically applied to other SQL databases matching the reservation attributes. The discount can apply to SQL databases that are running concurrently. If you don't have SQL databases that run for the full hour that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
@@ -51,7 +53,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

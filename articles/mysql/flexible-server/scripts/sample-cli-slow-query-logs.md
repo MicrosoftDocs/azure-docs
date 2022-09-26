@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to configure slow query logs
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli

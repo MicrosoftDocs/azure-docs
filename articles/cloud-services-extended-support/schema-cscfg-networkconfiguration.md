@@ -12,7 +12,7 @@ ms.custom:
 
 # Azure Cloud Services (extended support) config networkConfiguration schema
 
-The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for Cloud Services.
+The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for Cloud Services  (classic).
 
 You can use the following resource to learn more about Virtual Networks and the associated schemas:
 

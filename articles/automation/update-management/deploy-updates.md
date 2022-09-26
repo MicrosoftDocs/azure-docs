@@ -13,9 +13,8 @@ This article describes how to schedule an update deployment and review the proce
 
 Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Azure Arc-enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
 
-* The operating system is automatically pre-selected based on the OS of the machine
-* The target machine to update is set to target itself automatically
-* When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
+* The operating system is automatically pre-selected based on the OS of the machine.
+* The target machine to update is set to target itself automatically.
 
 > [!IMPORTANT]
 > By creating an update deployment, you accept the terms of the Software License Terms (EULA) provided by the company offering updates for their operating system.
@@ -98,9 +97,6 @@ To schedule a new update deployment, perform the following steps. Depending on t
    * If you want to install only security and critical updates, but skip one or more updates for Python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the Python packages to skip.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
-
-    > [!NOTE]
-    > This option is different if you selected an Azure Arc-enabled server. You can select **Update now** or a start time 20 minutes into the future.
 
 10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 

@@ -9,8 +9,6 @@ ms.date: 01/23/2022
 
 # Create rich, interactive reports of Defender for Cloud data
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
 Workbooks provide a rich set of capabilities for visualizing your Azure data. For detailed examples of each visualization type, see the [visualizations examples and documentation](../azure-monitor/visualize/workbooks-text-visualizations.md). 
@@ -94,7 +92,7 @@ Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
+- [Scan your registry images for vulnerabilities](defender-for-containers-usage.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:

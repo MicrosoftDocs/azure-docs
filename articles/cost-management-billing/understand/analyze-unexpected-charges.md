@@ -1,85 +1,131 @@
 ---
-title: Analyze unexpected Azure charges
-description: Learn how to analyze unexpected charges for your Azure subscription.
+title: Identify anomalies and unexpected changes in cost
+titleSuffix: Microsoft Cost Management
+description: Learn how to identify anomalies and unexpected changes in cost.
 author: bandersmsft
-ms.reviewer: adwise
+ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 05/31/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
 
-# Analyze unexpected charges
+# Identify anomalies and unexpected changes in cost
 
-The cloud resource infrastructure that you've built for your organization is likely complex. Many Azure resource types can have different types of charges. Azure resources might be owned by different teams in your organization and they might have different billing model types that apply to various resources. To gain a better understanding of the charges, begin your analysis using one or more of the strategies in the following sections.
+The article helps you identify anomalies and unexpected changes in your cloud costs using Cost Management and Billing. You'll start with anomaly detection for subscriptions in cost analysis to identify any atypical usage patterns based on your cost and usage trends. You'll then learn how to drill into cost information to find and investigate cost spikes and dips.
 
-## Review invoice for resource responsible for charge
+You can also create an anomaly alert to automatically get notified when an anomaly is detected.
 
-How you purchase your Azure services helps you determine the methodology and tools that are available to you as you identify the resource associated with a charge. To determine which methodology applies to you, first [determine your Azure offer type](../costs/understand-cost-mgt-data.md#determine-your-offer-type). Then, identify your customer category in the list of [supported Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+In general, there are three types of changes that you might want to investigate:
 
-The following articles provide detailed steps that explain how to review your bill based on your customer type. In each article there are instructions about how to download a CSV file containing usage and cost details for a given billing period.
+- New costs—For example, a resource that was started or added such as a virtual machine. New costs often appear as a cost starting from zero.
+- Removed costs—For example, a resource that was stopped or deleted. Removed costs often appear as costs ending in zero.
+- Changed costs (increased or decreased)—For example, a resource was changed in some way that caused a cost increase or decrease. Some changes, like resizing a virtual machine, might be surfaced as a new meter that replaces a removed meter, both under the same resource.
 
-- [Pay-As-You-Go bill review process](review-individual-bill.md#charges)
-- [Enterprise Agreement bill review process](review-enterprise-agreement-bill.md)
-- [Microsoft Customer Agreement review process](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
-- [Microsoft Partner Agreement review process](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
+## Identify cost anomalies
 
-Your Azure bill aggregates charges for the month on a per-_meter_ basis. Meters are used to track a resource's usage over time and are used to calculate your bill. When you create a single Azure resource, like a virtual machine, one or more-meter instances are created for the resource.
+The cloud comes with the promise of significant cost savings compared to on-premises costs. However, savings require diligence to proactively plan, govern, and monitor your cloud solutions. Even with proactive processes, cost surprises can still happen. For example, you might notice that something has changed, but you're not sure what. Using Cost Management anomaly detection for your subscriptions can help minimize surprises.
 
-Filter the usage CSV file based on the _MeterName_ as shown on the bill that you want to analyze to see all line items that apply to the meter. The _InstanceID_ for the line item corresponds to the actual Azure resource that generated the charge.
+Whether you know if you have any existing cost anomalies or not, Cost analysis will inform you if it finds anything unusual as part of Insights. If not, Cost analysis will show No anomalies detected.
 
-When you've identified the resource in question, you can use Cost analysis in Cost Management to further analyze the costs related to the resource. To learn more about using cost analysis, see [Start analyzing costs](../costs/quick-acm-cost-analysis.md).
+### View anomalies in Cost analysis
 
-## Review invoiced charges in Cost analysis
+Anomaly detection is available in Cost analysis (preview) when you select a subscription scope. You'll see your anomaly status as part of **Insights**. And as with [other insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights), the experience is simple.
 
-To view your invoice details in the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as seen on the invoice.
+In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Preview views**. In the following example, the **Resources** preview view is selected. If you have a cost anomaly, you'll see an insight.
 
-[![Example showing invoice details](./media/analyze-unexpected-charges/invoice-details.png)](./media/analyze-unexpected-charges/invoice-details.png#lightbox)
+:::image type="content" source="./media/analyze-unexpected-charges/insight-recommendation-01.png" alt-text="Example screenshot showing an insight." lightbox="./media/analyze-unexpected-charges/insight-recommendation-01.png" :::
 
-Viewing invoice details, you can identify the service that has unexpected costs and determine which resources are directly associated with the resource in Cost analysis. For example, if you want to analyze charges for the Virtual Machines service, navigate to the **Accumulated cost** view. Then, set the granularity to **Daily** and filter charges **Service name: Virtual machines** and group charges by **Resource**.
+If you don't have any anomalies, you'll see a **No anomalies detected** insight, confirming the dates that were evaluated.
 
-[![Example showing accumulated costs for virtual machines](./media/analyze-unexpected-charges/virtual-machines.png)](./media/analyze-unexpected-charges/virtual-machines.png#lightbox)
+:::image type="content" source="./media/analyze-unexpected-charges/insight-no-anomalies.png" alt-text="Example screenshot showing No anomalies detected message." lightbox="./media/analyze-unexpected-charges/insight-no-anomalies.png" :::
 
-## Identify spikes in cost over time
+### Drill into anomaly details
 
-Sometimes you might not know what recent costs resulted in changes to your billed charges. To understand what changed, you can use Cost analysis to [see a daily or monthly breakdown of costs over time](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month). After you create the view, group your charges by either **Service** or **Resource** to identify the changes. You can also change your view to a **Line** chart to better visualize the data.
+To drill into the underlying data for something that has changed, select the insight link to open a view in classic cost analysis and review your daily usage by resource group for the time range that was evaluated.
 
-![Example showing costs over time in cost analysis](./media/analyze-unexpected-charges/costs-over-time.png)
+Continuing from the previous example of the anomaly labeled **Daily run rate down 748% on Sep 28**, let's examine its details after the link is selected. The following example image shows details about the anomaly. Notice the large increase in costs, a cost spike, and eventual drop in from a temporary, short-lived resource.
 
-## Determine resource pricing and billing model
+:::image type="content" source="./media/analyze-unexpected-charges/anomaly-details-cost-analysis.png" alt-text="Example screenshot showing a cost increase from a short-lived resource." lightbox="./media/analyze-unexpected-charges/anomaly-details-cost-analysis.png" :::
 
-A single resource can accrue charges across multiple Azure products and services. View the [Azure pricing by product](https://azure.microsoft.com/pricing/#product-pricing) page to learn more about the pricing for each Azure service. For example, a single virtual machine (VM) created in Azure can have the following meters created to track its usage. Each might have different pricing.
+Cost anomalies are evaluated for subscriptions daily and compare the day's total cost to a forecasted total based on the last 60 days to account for common patterns in your recent usage. For example, spikes every Monday. Anomaly detection runs 36 hours after the end of the day (UTC) to ensure a complete data set is available.
 
-- Compute Hours
-- IP Address Hours
-- Data Transfer In
-- Data Transfer Out
-- Standard Managed Disk
-- Standard Managed Disk Operations
-- Standard IO-Disk
-- Standard IO-Block Blob Read
-- Standard IO-Block Blob Write
-- Standard IO-Block Blob Delete
+The anomaly detection model is a univariate time-series, unsupervised prediction and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://www.deepmind.com/blog/wavenet-a-generative-model-for-raw-audio). Note this is different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
 
-When the VM is created, each meter begins emitting usage records. The usage and the meter's price are tracked in the Azure metering system. You can see the meters that were used to calculate your bill in the usage CSV file.
+Anomaly detection is available to every subscription monitored using the cost analysis preview. To enable anomaly detection for your subscriptions, open the cost analysis preview and select your subscription from the scope selector at the top of the page. You'll see a notification informing you that your subscription is onboarded and you'll start to see your anomaly detection status within 24 hours.
 
-## Find people responsible for the resource and engage
+## Create an anomaly alert
 
-Often, the team responsible for a given resource will know about changes that were made for a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team may have recently created the resource, updated its SKU (thereby changing the resource rate) or increased the load on the resource due to code changes. Continue reading the following sections for more techniques to determine who owns a resource.
+You can create an anomaly alert to automatically get notified when an anomaly is detected. All email recipients get notified when a subscription cost anomaly is detected.
+
+An anomaly alert email includes a summary of changes in resource group count and cost. It also includes the top resource group changes for the day compared to the previous 60 days. And, it has a direct link to the Azure portal so that you can review the cost and investigate further.
+
+1. From Azure Home, select **Cost Management** under Tools.
+1. Verify you've selected the correct subscription in the scope at the top of the page.
+1. In the left menu, select **Cost alerts**.
+1. On the Cost alerts page, select **+ Add** > **Add anomaly alert**.
+1. On the Subscribe to emails page, enter required information and then select **Save**.  
+    :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Subscribe to emails page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
+
+Here's an example email generated for an anomaly alert.
+
+:::image type="content" source="./media/analyze-unexpected-charges/anomaly-alert-email.png" alt-text="Screenshot showing an example anomaly alert email." lightbox="./media/analyze-unexpected-charges/anomaly-alert-email.png" :::
+
+## Manually find unexpected cost changes
+
+Let's look at a more detailed example of finding a change in cost. When you navigate to Cost analysis and then select a subscription scope, you'll start with the **Accumulated costs** view. The following screenshot shows an example of what you might see.
+
+:::image type="content" source="./media/analyze-unexpected-charges/drill-in-default-view.png" alt-text="Example screenshot showing the accumulated costs view." lightbox="./media/analyze-unexpected-charges/drill-in-default-view.png" :::
+
+With the default view and current month (March 2022), the example image doesn't show any dips or spikes.
+
+Change the view to **Daily costs** and then expand the date range to Last year (2021). Then, set the granularity to **Monthly**. In the following image, notice that there's a significant increase in costs for the `arcticmustang` resource group starting in July.
+
+:::image type="content" source="./media/analyze-unexpected-charges/drill-in-articmustang.png" alt-text="Example screenshot showing an increase in monthly costs." lightbox="./media/analyze-unexpected-charges/drill-in-articmustang.png" :::
+
+Let's examine the increase in cost for the resource group more fully. To drill into the time frame of the change, change the date range. In the following example, we set a custom date range from June to July 2021 and then set the Granularity to **Daily**. In the example, the daily cost for the resource group was about $4.56. On June 30, the cost increased to $20.68. Later on July 1 and after, the daily cost went to $30.22.
+
+:::image type="content" source="./media/analyze-unexpected-charges/drill-in-articmustang-daily-cost.png" alt-text="Example screenshot showing an increase in daily costs." lightbox="./media/analyze-unexpected-charges/drill-in-articmustang-daily-cost.png" :::
+
+So far, we've found an increase in cost for the `articmustang` resource group at the end of June and the beginning of July. You might notice that the cost increase spanned over two days. The change took two days because a change in the middle of a day doesn't show the full effect of that change until the following full day.
+
+Let's continue drilling into the data to find out more about the cost increase. Select the item that increased in cost (`articmustang`) to automatically set a filter for the resource group name. Then, change the **Group by** list to **Resource**. Then set the date range to a smaller period. For example, June 28 to July 4. In the following example image, the increase in cost is clearly shown. The type of resource is shown as _microsoft.network/virtualnetworkgateways_.
+
+:::image type="content" source="./media/analyze-unexpected-charges/drill-in-resource-increase-cost.png" alt-text="Example screenshot showing increased cost for a resource type." lightbox="./media/analyze-unexpected-charges/drill-in-resource-increase-cost.png" :::
+
+Next, select the resource in the chart that increased in cost `articring` to set another filter for the resource. Now, costs are shown for just that resource. Then, set the **Group by** list to **Meter**.
+
+:::image type="content" source="./media/analyze-unexpected-charges/drill-in-resource-meter-change.png" alt-text="Example screenshot showing increased cost for a specific resource." lightbox="./media/analyze-unexpected-charges/drill-in-resource-meter-change.png" :::
+
+In the example above, you see that the virtual private network resource named VpnGw1 stopped getting used on June 30. On June 30, a more expensive virtual private network resource named VpnGw3 started getting used.
+
+At this point, you know what changed and the value that costs changed. However, you might not know _why_ the change happened. At this point, you should contact the people that created or used the resource. Continue to the next section to learn more.
+
+## Find people responsible for changed resource use
+
+Using Cost analysis, you might have found resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource will know about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team may have recently created the resource, updated its SKU (thereby changing the resource rate), or increased the load on the resource due to code changes.
+
+The [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md) article for Azure Resource Graph might help you to find additional information about configuration changes to resources.
+
+Continue reading the following sections for more techniques to determine who owns a resource.
 
 ### Analyze the audit logs for the resource
 
-If you have permissions to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log).
+If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 
-People that have write access to a subscription or resource group typically have information about the resources were created. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a Subscription scope, see [Check access for a user to Azure resources](../../role-based-access-control/check-access.md). You can use a similar process for resource groups.
+People that have write access to a subscription or resource group typically have information about the resources that were created or updated. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a subscription scope, see [Check access for a user to Azure resources](../../role-based-access-control/check-access.md). You can use a similar process for billing scopes, resource groups, and management groups.
+
+### Examine tagged resources
+
+If you have an existing policy of [tagging resources](../costs/cost-mgt-best-practices.md#tag-shared-resources), the resource might be tagged with identifying information. For example, resources might be tagged with owner, cost center, or development environment information. If you don't already have a resource tagging policy in place, consider adopting one to help identify resources in the future.
 
 ## Get help to identify charges
 
-If you've used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, please [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you've used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
