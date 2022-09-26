@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 04/12/2022
+ms.date: 09/26/2022
 ---
 
 # Array functions for Bicep
@@ -221,7 +221,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
 }
 ```
 
-**dnsServers** is assigned if the array is not empty.
+In the [conditional expression](./operators-logical.md#conditional-expression--), the empty function is used to check whether the **dnsServers** array is an empty array.
 
 ## first
 
@@ -267,7 +267,7 @@ The output from the preceding example with the default values is:
 
 `flatten(arrayToFlatten)`
 
-Takes an array of arrays, and returns an array of sub-array elements, in the original order. Sub-arrays are only flattened once, not recursively.
+Takes an array of arrays, and returns an array of subarray elements, in the original order. Subarrays are only flattened once, not recursively.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -275,7 +275,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arrayToFlattern |Yes |array |The array of sub-arrays to flatten.|
+| arrayToFlattern |Yes |array |The array of subarrays to flatten.|
 
 ### Return value
 
@@ -661,26 +661,11 @@ resource exampleApim 'Microsoft.ApiManagement/service@2021-08-01' = {
 }
 ```
 
-Assign **availabilityZones** to the **zones** property if **availabilityZones** contains 1 or more elements.
-
-The following example is extracted from a quickstart template, [Backup Resource Manager VMs using Recovery Services vault
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-vms/):
-
-```bicep
-param numberOfInstances int
-
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' = [for i in range(0, length(range(0, numberOfInstances))): {
-  name: '${virtualMachineName}${range(0, numberOfInstances)[i]}'
-  location: location
-  properties: {
-    ...
-  }
-  ...
-}
-```
+In the [conditional expression](./operators-logical.md#conditional-expression--), the `length` function check the length of the **availabilityZones** array.
 
 More examples can be found in these quickstart Bicep files:
-
+- [Backup Resource Manager VMs using Recovery Services vault
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-vms/)
 - [Deploy API Management into Availability Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones)
 - [Create a Firewall and FirewallPolicy with Rules and Ipgroups](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups)
 - [Create a sandbox setup of Azure Firewall with Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox)
@@ -807,7 +792,7 @@ The output from the preceding example with the default values is:
 
 ### Quickstart examples
 
-The following example is extracted from a quickstart template, [2 VMs in VNET - Internal Load Balancer and LB rules
+The following example is extracted from a quickstart template, [Two VMs in VNET - Internal Load Balancer and LB rules
 ](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer):
 
 ```bicep
