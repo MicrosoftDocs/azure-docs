@@ -111,3 +111,4 @@ The following table summarizes Site Recovery limits:
 
 - Normal Churn uses Standard page Blob storage accounts whereas **High Churn** uses Premium Block Blob storage accounts which may have cost implications. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - More data changes may get replicated to target for High churn VMs compared to Normal churn. This may lead to more network cost.
+
