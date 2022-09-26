@@ -346,7 +346,7 @@ When you're done with your customized model, you can delete the deployment and m
 
 You can use various methods to delete the deployment for your customized model:
 
-- <a href="https://review.learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment">Azure OpenAI Studio</a>
+- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment">Azure OpenAI Studio</a>
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
 - Python SDK
@@ -363,7 +363,7 @@ The following Python example uses the Python SDK to delete the deployment for yo
 
 Similarly, you can use various methods to delete your customized model:
 
-- <a href="https://review.learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-customized-model">Azure OpenAI Studio</a>
+- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-customized-model">Azure OpenAI Studio</a>
 - [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
 - Python SDK
 
@@ -382,7 +382,7 @@ The following Python example uses the Python SDK to delete the deployment for yo
 
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
-- <a href="https://review.learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files">Azure OpenAI Studio</a>
+- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files">Azure OpenAI Studio</a>
  [REST APIs](../reference.md#delete-a-file) 
 - Python SDK
 
