@@ -60,7 +60,7 @@ Enter the values from the following table. Then select **Create** to create your
 |---------|---------|---------|
 |**Name**     |  *demo-conference-api-v1*       |  Unique name in your API Management instance.<br/><br/>Because a version is in fact a new API based off an API's [revision](api-management-get-started-revise-api.md), this setting is the new API's name.   |
 |**Versioning scheme**     |  **Path**       |  The way callers specify the API version.     |
-|**Version identifer**     |  *v1*       |  Scheme-specific indicator of the version. For **Path**, the suffix for the API URL path. <br/><br/> If **Header** or **Query string** is selected, enter an additional value: the name of the header or query string parameter.<br/><br/> A usage example is displayed.        |
+|**Version identifier**     |  *v1*       |  Scheme-specific indicator of the version. For **Path**, the suffix for the API URL path. <br/><br/> If **Header** or **Query string** is selected, enter an additional value: the name of the header or query string parameter.<br/><br/> A usage example is displayed.        |
 |**Products**     |  **Unlimited**       |  Optionally, one or more products that the API version is associated with. To publish the API, you must associate it with a product. You can also [add the version to a product](#add-the-version-to-a-product) later.      |
 
 After creating the version, it now appears underneath **Demo Conference API** in the API List. You now see two APIs: **Original**, and **v1**.
