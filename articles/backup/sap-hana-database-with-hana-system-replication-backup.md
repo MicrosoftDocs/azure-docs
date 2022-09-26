@@ -19,7 +19,7 @@ In this article, you'll learn how to:
 >[!div class="checklist"]
 >- Create and configure a Recovery Services vault
 >- Create a policy
->- Discover databases instances
+>- Discover databases
 >- Run the pre-registration script
 >- Configure backups
 >- Run an on-demand backup

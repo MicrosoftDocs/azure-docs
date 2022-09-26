@@ -78,7 +78,7 @@ This section provides you an understanding about the backup process of an HANA d
 
 1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) about backup and restore throughput performance.
 
-1. Detailed logs are written to the _backup.log_ and _backint.log_ files on the SAP HANA instance.
+1. Detailed logs are written to the *backup.log* and *backint.log* files on the SAP HANA instance.
 
 1. Once the backup streaming is complete, the catalog is streamed to the Recovery Services vault. If both the backup (full/differential/incremental/log) and the catalog for this backup are successfully streamed and saved into the Recovery Services vault, Azure Backup considers the backup operation is successful.
 
@@ -101,19 +101,20 @@ In the following sections you'll learn about different SAP HANA setups and their
 
 ### Backup architecture for database with HANA System Replication (preview)
 
-The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the pre-registration script <link to run-the-pre-registration-script section below), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
+The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-pre-registration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
 
-After configuration, Azure Backup accepts backup requests from the primary node. On failover,  when the new primary node starts generating log backup requests, Azure Backup compares the new log backups with the existing chain from the older primary. 
-If the backups are sequential, Azure Backup accepts them  and protects the new primary note. If there's any inconsistency/break in the log chain, Azure Backup triggers a remedial full backup, and log backups will be successful only after the remedial full backup completes.
+After configuration, Azure Backup accepts backup requests from the primary node. On failover,  when the new primary node starts generating log backup requests, Azure Backup compares the new log backups with the existing chain from the older primary node.
+
+If the backups are sequential, Azure Backup accepts them and protects the new primary node. If there's any inconsistency/break in the log chain, Azure Backup triggers a remedial full backup, and log backups will be successful only after the remedial full backup completes.
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/hana-database-with-system-replication-architecture-diagram-inline.png" alt-text="Diagram showing the backup architecture of SAP HANA database with HANA system replication enabled." lightbox="./media/azure-backup-architecture-for-sap-hana-backup/hana-database-with-system-replication-architecture-diagram-expanded.png":::
 
 >[!Note]
->The Azure backup service connects to HANA using hdbuserstore keys. As the keys are not replicated, we recommend you create the same keys in all nodes, so that Azure Backup can connect automatically to any new primary node, without a manual intervention after failover/failback.
+>The Azure Backup service connects to HANA using `hdbuserstore` keys. As the keys aren't replicated, we recommend you create the same keys in all nodes, so that Azure Backup can connect automatically to any new primary node, without a manual intervention after failover/failback.
 
 #### Backup flows
 
-In the following section you'll learn about the backup flow for new/existing machines.
+In the following sections, you'll learn about the backup flow for new/existing machines.
 
 ##### New machines
 
@@ -143,4 +144,6 @@ This section provides you an understanding about the backup process of an HANA d
 ## Next steps
 
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
-- Learn about how to [back up SAP HANA databases in Azure VMs](./backup-azure-sap-hana-database.md).
+- Learn about how to [backup SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md).
+- Learn about how to [backup SAP HANA System Replication databases in Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
+- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs](sap-hana-database-instances-backup.md).

@@ -18,7 +18,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - October 2022
   - [SAP HANA instance snapshot backup support (preview)](#sap-hana-instance-snapshot-backup-support-preview)
-  - [SAP HANA System Replication support (preview)](#sap-hana-system-replication-support-preview)
+  - [SAP HANA System Replication database backup support (preview)](#sap-hana-system-replication-database-backup-support-preview)
 - September 2022
   - [Built-in Azure Monitor alerting for Azure Backup is now generally available](#built-in-azure-monitor-alerting-for-azure-backup-is-now-generally-available)
 - June 2022
@@ -55,11 +55,11 @@ You can now take an instant snapshot of the entire HANA instance and backup logs
 
 For more information, see [Back up database instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots-preview).
 
-## SAP HANA System Replication support (preview)
+## SAP HANA System Replication database backup support (preview)
 
-Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary are accepted immediately; thus provides continuous database automatic protection,
+Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
 
-This eliminates the need of manual intervention to continue backups on the new primary during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection
 
 For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
 
