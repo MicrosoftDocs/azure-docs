@@ -28,7 +28,7 @@ ms.author: spelluru
 1. Under **SAS Policy: RootManageSharedAccessKey**, select the **Copy** button next to **Primary Connection String**. This action copies the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 1. Repeat the preceding step to copy and paste the value of **Primary key** to a temporary location for later use.  
 
-    :::image type="content" source="./media/relay-create-namespace-portal/connection-info.png" alt-text="Screenshot showing the home page for Relay namespace.":::
+    :::image type="content" source="./media/relay-create-namespace-portal/connection-info.png" alt-text="Screenshot showing the connection info for Relay namespace.":::
 
 <!--Image references-->
 
