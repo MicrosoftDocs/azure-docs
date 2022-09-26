@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/22/2022
+ms.date: 09/26/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -29,9 +29,9 @@ This guide will cover:
 
 * Follow the Azure Digital Twins in [Connect an end-to-end solution](./tutorial-end-to-end.md).
     * You'll be extending this twin with another endpoint and route. You'll also be adding another function to your function app from that tutorial. 
-* Follow the Azure Maps in [Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
+* Follow the Azure Maps tutorials (beginning with [Use Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md)) to create an Azure Maps indoor map with a *feature stateset*.
     * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you'll be displaying on a map.
-    * You'll need your feature **stateset ID** and Azure Maps **subscription key**.
+    * You'll need your Azure Maps **subscription key**, feature **stateset ID**, and **mapConfiguration**.
 
 ### Topology
 
@@ -93,8 +93,8 @@ To see live-updating temperature, follow the steps below:
 
 1. Begin sending simulated IoT data by running the *DeviceSimulator* project from the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). The instructions for this process are in the [Configure and run the simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 2. Use [the Azure Maps Indoor module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
-    1. Copy the HTML from the [Example: Use the Indoor Maps Module](../azure-maps/how-to-use-indoor-module.md#example-custom-styling-consume-map-configuration-in-websdk-preview) section of the indoor maps in [Use the Azure Maps Indoor Maps module](../azure-maps/how-to-use-indoor-module.md) to a local file.
-    1. Replace the **subscription key**, **mapConfiguration**, and **statesetID**  in the local HTML file with your values.
+    1. Copy the example indoor map HTML file from [Example: Custom Styling: Consume map configuration in WebSDK (Preview)](../azure-maps/how-to-use-indoor-module.md#example-custom-styling-consume-map-configuration-in-websdk-preview).
+    1. Replace the **subscription key**, **mapConfiguration**, **statesetID**, and **region**  in the local HTML file with your values.
     1. Open that file in your browser.
 
 Both samples send temperature in a compatible range, so you should see the color of room 121 update on the map about every 30 seconds.
