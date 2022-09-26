@@ -10,9 +10,9 @@ metadata:
   ms.service: virtual-network
   ms.topic: hub-page
   ms.collection:
-  author: KumudD
-  ms.author: kumud
-  manager: mtillman
+  author: mbender-ms
+  ms.author: mbender
+  manager: kumudD
   ms.date: 09/08/2021
 
 highlightedContent:
@@ -255,6 +255,6 @@ additionalContent:
             - text: What is Azure Monitor?
               url: ../network-watcher/network-watcher-monitoring-overview.md
             - text: What is Azure Monitor Network Insights?
-              url: ../azure-monitor/insights/network-insights-overview.md
+              url: ../network-watcher/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml

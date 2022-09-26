@@ -26,7 +26,7 @@ Check this article regularly to learn about:
 - Deprecated functionality
 
 > [!TIP]
-> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
+> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
 ## December 2021
 
@@ -87,6 +87,9 @@ The change doesn't affect existing applications using unverified domains in thei
 If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+>[!NOTE]
+> While it is safe to remove the identifierUris for app registrations within the current tenant, removing the identifierUris may cause clients to fail for other app registrations. 
 
 ## August 2021
 

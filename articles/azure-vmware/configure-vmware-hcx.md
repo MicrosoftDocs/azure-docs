@@ -2,6 +2,7 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
+ms.service: azure-vmware
 ms.date: 09/07/2021
 ---
 
@@ -21,7 +22,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - [VMware HCX Connector](install-vmware-hcx.md) has been installed.
 
-- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). It's a free 12-month trial in Azure VMware Solution.
+- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise edition is available and supported on Azure VMware Solution, at no additional cost.
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
@@ -46,7 +47,7 @@ After you complete these steps, you'll have a production-ready environment for c
 In your data center, you can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector.
 
 > [!IMPORTANT]
-> Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
+> As per the VMware Configuration Maximum tool the maximum site pairs is 25 in a single HCX manager system, this includes inbound and outbound site pairings.
 
 1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 

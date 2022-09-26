@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/15/2022
+ms.date: 06/07/2022
 ms.author: cshoe
 ---
 
@@ -16,13 +16,21 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 - Every domain name must be associated with a domain certificate.
 - Certificates are applied to the container app environment and are bound to individual container apps. You must have role-based access to the environment to add certificates.
 - [SNI domain certificates](https://wikipedia.org/wiki/Server_Name_Indication) are required.
+- Ingress must be enabled for the container app
 
 ## Add a custom domain and certificate
 
-> [!NOTE]
-> If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.
+> [!IMPORTANT]
+> If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.  
 
 1. Navigate to your container app in the [Azure portal](https://portal.azure.com)
+
+1. Verify that your app has ingress enabled by selecting **Ingress** in the *Settings* section.  If ingress is not enabled, enable it with these steps:
+
+   1. Set *HTTP Ingress* to **Enabled**.
+   1. Select the desired *Ingress traffic* setting.
+   1. Enter the *Target port*.
+   1. Select **Save**.
 
 1. Under the *Settings* section, select **Custom domains**.
 

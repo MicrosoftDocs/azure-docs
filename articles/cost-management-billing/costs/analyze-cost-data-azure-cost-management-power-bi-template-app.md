@@ -83,7 +83,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
  
 The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 

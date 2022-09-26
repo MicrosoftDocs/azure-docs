@@ -69,7 +69,7 @@ Once the new service principal is created, you need to assign the data plane rol
 
 1. Select the **Role assignments** tab.
 
-1. Assign the following roles to the service principal created previously to access various data planes in Microsoft Purview. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following roles to the service principal created previously to access various data planes in Microsoft Purview. For detailed steps, see [Assign Azure roles using the Microsoft Purview portal](./how-to-create-and-manage-collections.md#add-role-assignments).
 
     * Data Curator role to access Catalog Data plane.
     * Data Source Administrator role to access Scanning Data plane.
@@ -103,6 +103,12 @@ Sample response token:
         "access_token": "<<access token>>"
     }
 ```
+
+> [!TIP]
+> If you get an error message that reads: *Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.*
+> * Check your request headers and confirm that your request **doesn't** contain the 'origin' header.
+> * Confirm that your redirect URI is set to **web** in your service principal.
+> * If you are using an application like Postman, make sure your software is up to date.
 
 Use the access token above to call the Data plane APIs.
 

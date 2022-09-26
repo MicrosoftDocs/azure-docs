@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 08/30/2022
 ---
 
 # Add trading partners to integration accounts for workflows in Azure Logic Apps

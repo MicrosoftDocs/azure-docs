@@ -4,6 +4,7 @@ description: "A detailed breakdown of autoscale settings and how they work. Appl
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Understand Autoscale settings
 Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure Autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an Autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how the Autoscale feature in Azure evaluates which profile to execute at any given time.
@@ -276,7 +277,9 @@ There are three types of Autoscale profiles:
 > The Autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the Autoscale setting's default profile in between recurrence profiles.
     
 ## Autoscale evaluation
-Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
+Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. The Autoscale job runs every 30 to 60 seconds, depending on the resource type. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
+
+
 
 ### Which profile will Autoscale pick?
 

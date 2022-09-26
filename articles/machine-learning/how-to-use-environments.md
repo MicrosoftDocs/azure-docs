@@ -7,17 +7,14 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1
-ms.devlang: azurecli
-
-## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
-
+ms.custom: devx-track-python, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
 # Create & use software environments in Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment). Use the environments to track and reproduce your projects' software dependencies as they evolve.
 
@@ -35,7 +32,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## Create an environment
 
@@ -331,7 +328,7 @@ build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=Tr
 
 ### Utilize adminless Azure Container Registry (ACR) with VNet
 
-It is no longer required for users to have admin mode enabled on their workspace attached ACR in VNet scenarios. Ensure that the derived image build time on the compute is less than 1 hour to enable successful build. Once the image is pushed to the workspace ACR, this image can now only be accessed with a compute identity. For more information on set up, see [How to use managed identities with Azure Machine Learning](./how-to-use-managed-identities.md).
+It is no longer required for users to have admin mode enabled on their workspace attached ACR in VNet scenarios. Ensure that the derived image build time on the compute is less than 1 hour to enable successful build. Once the image is pushed to the workspace ACR, this image can now only be accessed with a compute identity. For more information on set up, see [How to use managed identities with Azure Machine Learning](./how-to-identity-based-service-authentication.md).
 
 ## Use environments for training
 
@@ -371,7 +368,7 @@ You can use environments when you deploy your model as a web service. This capab
 
 If you are defining your own environment for web service deployment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
-To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [`deploy()`](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
+To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [`deploy()`](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). For more information, see [How and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 In this example, assume that you've completed a training run. Now you want to deploy that model to Azure Container Instances. When you build the web service, the model and scoring files are mounted on the image, and the Azure Machine Learning inference stack is added to the image.
 
@@ -409,35 +406,7 @@ This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/m
 
 ## Create and manage environments with the Azure CLI
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
-[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
-
-The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.
-
-The following command scaffolds the files for a default environment definition in the specified directory. These files are JSON files. They work like the corresponding class in the SDK. You can use the files to create new environments that have custom settings. 
-
-```azurecli-interactive
-az ml environment scaffold -n myenv -d myenvdir
-```
-
-Run the following command to register an environment from a specified directory.
-
-```azurecli-interactive
-az ml environment register -d myenvdir
-```
-
-Run the following command to list all registered environments.
-
-```azurecli-interactive
-az ml environment list
-```
-
-Download a registered environment by using the following command.
-
-```azurecli-interactive
-az ml environment download -n myenv -d downloaddir
-```
+For information on using the CLI v2, see [Manage environments with CLI v2](how-to-manage-environments-v2.md).
 
 ## Create and manage environments with Visual Studio Code
 
@@ -445,5 +414,5 @@ Using the Azure Machine Learning extension, you can create and manage environmen
 
 ## Next steps
 
-* After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* After you have a trained model, learn [how and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

@@ -7,9 +7,12 @@ ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc
-ms.date: 12/01/2021
+ms.date: 06/24/2022
 ---
+
 # Choose the right PostgreSQL server option in Azure
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 With Azure, your PostgreSQL Server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, each with multiple service tiers. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
 
@@ -24,7 +27,7 @@ The main differences between these options are listed in the following table:
 
 | **Attribute** | **Postgres on Azure VMs** | **PostgreSQL as PaaS** |
 | ----- | ----- | ----- |
-| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) | - [Single Server, Flexible Server, and Hyperscale (Citus) SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/)|
+| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) | - [Single Server, Flexible Server, and Hyperscale (Citus) SLA](https://azure.microsoft.com/support/legal/sla/postgresql)|
 | **OS and PostgreSQL patching** | - Customer managed | - Single Server – Automatic <br> - Flexible Server – Automatic with optional customer managed window <br> - Hyperscale (Citus) – Automatic |
 | **High availability** | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc. | - Single Server:  built-in <br> - Flexible Server: built-in <br> - Hyperscale (Citus): built with standby |
 | **Zone Redundancy** | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.	| - Single Server: No <br> - Flexible Server: Yes <br> - Hyperscale (Citus): No |

@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Call Microsoft Graph in a Node.js console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Call Microsoft Graph in a Node.js console app"
 description: In this tutorial, you build a console app for calling Microsoft Graph to a Node.js console app.
 services: active-directory
 author: mmacy
@@ -148,7 +147,7 @@ const msalConfig = {
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
  * The scope is always in the format '<resource>/.default'. For more, visit:
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
+ * https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '/.default'],

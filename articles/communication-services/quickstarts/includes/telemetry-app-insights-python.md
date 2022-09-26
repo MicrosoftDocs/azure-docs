@@ -69,7 +69,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-First, in order to create the span that will allow you to trace the requests in the Azure Monitor, you will have to create an instance of an `AzureMonitorTraceExporter` object. You will need to provide the connection string from your Application Insights Resource.
+First, in order to create the span that will allow you to trace the requests in the Azure Monitor, you will have to create an instance of an `AzureMonitorTraceExporter` object. You will need to provide the [connection string](../../../azure-monitor/app/sdk-connection-string.md) from your Application Insights Resource.
 
 ```python
 exporter = AzureMonitorTraceExporter.from_connection_string(

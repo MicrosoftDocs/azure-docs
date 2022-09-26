@@ -4,7 +4,7 @@ description: Establish high availability of IBM Db2 LUW on Azure virtual machine
 author: msjuergent
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 06/29/2022
 ms.author: juergent
 ms.reviewer: cynthn
 
@@ -103,6 +103,11 @@ Complete the planning process before you execute the deployment. Planning builds
     
 For more information about Linux Pacemaker in Azure, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md).
 
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. \
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker) \
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
+
 ## Deployment on SUSE Linux
 
 The resource agent for IBM Db2 LUW is included in SUSE Linux Enterprise Server for SAP Applications. For the setup that's described in this document, you must use SUSE Linux Server for SAP Applications. The Azure Marketplace contains an image for SUSE Enterprise Server for SAP Applications 12 that you can use to deploy new Azure virtual machines. Be aware of the various support or service models that are offered by SUSE through the Azure Marketplace when you choose a VM image in the Azure VM Marketplace. 
@@ -129,7 +134,7 @@ Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list
 
 ## Create the Pacemaker cluster
     
-To create a basic Pacemaker cluster for this IBM Db2 server, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
+To create a basic Pacemaker cluster for this IBM Db2 server, see [Set up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
 
 ## Install the IBM Db2 LUW and SAP environment
 
@@ -162,6 +167,7 @@ To set up the primary IBM Db2 LUW database instance:
 
 > [!IMPORTANT] 
 > Write down the "Database Communication port" that's set during installation. It must be the same port number for both database instances
+>![SAP SWPM Port Definition](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 To set up the Standby database server by using the SAP homogeneous system copy procedure, execute these steps:
 

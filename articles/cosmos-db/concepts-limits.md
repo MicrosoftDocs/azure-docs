@@ -1,11 +1,12 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 05/30/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -24,8 +25,8 @@ You can provision throughput at a container-level or a database-level in terms o
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>1</sup> |
-| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>1</sup> |
+| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 <sup>1</sup> |
+| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 <sup>1</sup> |
 | Maximum RUs per partition (logical & physical) | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB <sup>2</sup>|
 | Maximum number of distinct (logical) partition keys | Unlimited |
@@ -77,8 +78,8 @@ In summary, here are the minimum provisioned RU limits when using manual through
 
 | Resource | Limit |
 | --- | --- |
-| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
+| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 |
+| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
@@ -92,10 +93,11 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB  |
-| Maximum storage per container (Cassandra API)| 30 GB  |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB (default)<sup>1</sup>  |
+| Maximum storage per container (Cassandra API)| 30 GB (default)<sup>1</sup>  |
 
+
+<sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
 ## Control plane operations
 
@@ -104,7 +106,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 | Resource | Limit |
 | --- | --- |
 | Maximum number of accounts per subscription | 50 by default. <sup>1</sup> |
-| Maximum number of regional failovers | 1/hour by default. <sup>1</sup> <sup>2</sup> |
+| Maximum number of regional failovers | 10/hour by default. <sup>1</sup> <sup>2</sup> |
 
 <sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
@@ -127,6 +129,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 | Resource | Limit |
 | --- | --- |
+| Maximum number of databases per account  | 100 |
 | Maximum number of containers per account  | 100 |
 | Maximum number of regions | 1 (Any Azure region) |
 
@@ -139,7 +142,6 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum length of database or container name | 255 |
 | Maximum number of stored procedures per container | 100 <sup>1</sup> |
 | Maximum number of UDFs per container | 50 <sup>1</sup> |
-| Maximum number of paths in indexing policy| 100 <sup>1</sup> |
 | Maximum number of unique keys per container|10 <sup>1</sup> |
 | Maximum number of paths per unique key constraint|16 <sup>1</sup> |
 | Maximum TTL value |2147483647 |
@@ -162,8 +164,9 @@ An Azure Cosmos item can represent either a document in a collection, a row in a
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 | Maximum level of nesting for embedded objects / arrays | 128 |
 | Maximum TTL value |2147483647 |
+| Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
-<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
+<sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 
 There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
@@ -215,7 +218,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | Current RU/s the system is scaled to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
 | Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you're billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
 | Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` rounded to nearest 1000 RU/s |
-| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).
+| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per extra container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).
 
 ## SQL query limits
 
@@ -223,12 +226,12 @@ Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). T
 
 | Resource | Limit |
 | --- | --- |
-| Maximum length of SQL query| 256 KB |
+| Maximum length of SQL query| 512 KB |
 | Maximum JOINs per query| 10 <sup>1</sup> |
 | Maximum UDFs per query| 10 <sup>1</sup> |
 | Maximum points per polygon| 4096 |
-| Maximum included paths per container| 500 |
-| Maximum excluded paths per container| 500 |
+| Maximum explicitly included paths per container| 1500 <sup>1</sup> |
+| Maximum explicitly excluded paths per container| 1500 <sup>1</sup> |
 | Maximum properties in a composite index| 8 |
 
 <sup>1</sup> You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
@@ -291,7 +294,7 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]

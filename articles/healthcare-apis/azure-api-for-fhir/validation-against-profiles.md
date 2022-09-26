@@ -5,13 +5,13 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
 # Validate FHIR resources against profiles in Azure API for FHIR
 
-`$validate` is an operation in FHIR that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This is a valuable operation to ensure that the data in Azure API for FHIR  has the expected attributes and values.
+`$validate` is an operation in Fast Healthcare Interoperability Resources (FHIR&#174;) that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This is a valuable operation to ensure that the data in Azure API for FHIR  has the expected attributes and values.
 
 In the [store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article, you walked through the basics of FHIR profiles and storing them. This article will guide you through how to use `$validate` for validating resources against profiles. For more information about FHIR profiles outside of this article, visit 
 [HL7.org](https://www.hl7.org/fhir/profiling.html).
@@ -142,3 +142,5 @@ In this article, you learned how to validate resources against profiles using `$
 
 >[!div class="nextstepaction"]
 >[Azure API for FHIR supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

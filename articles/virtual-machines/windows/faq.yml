@@ -169,4 +169,4 @@ sections:
               </tr>
           </table>
           
-          For additional information and restrictions for password creation reference this [password guidance documentation](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+          For additional information and restrictions for password creation reference this [password guidance documentation](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).

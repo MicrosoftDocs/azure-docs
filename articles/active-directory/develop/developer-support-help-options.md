@@ -1,5 +1,5 @@
 ---
-title: Support and help options for Microsoft identity platform developers | Azure
+title: Support and help options for Microsoft identity platform developers
 description: Learn where to get help and find answers to your questions as you build identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD) and other components of the Microsoft identity platform.
 services: active-directory
 author: mmacy

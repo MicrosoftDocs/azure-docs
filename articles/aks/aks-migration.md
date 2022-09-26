@@ -132,7 +132,7 @@ Stateless application migration is the most straightforward case:
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
 * If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-a-persistent-volume).
-* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume).
+* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-a-volume).
 * If neither of those approaches work, you can use a backup and restore options. See [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### Azure Files

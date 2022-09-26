@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Query data by using Azure Cosmos DB's API for MongoDB

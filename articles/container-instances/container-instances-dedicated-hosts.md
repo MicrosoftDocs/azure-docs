@@ -1,7 +1,7 @@
 ---
 title: Deploy on dedicated host 
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: container-instances
 services: container-instances
 author: tomvcassidy

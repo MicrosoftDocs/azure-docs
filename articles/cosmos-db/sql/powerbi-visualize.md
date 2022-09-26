@@ -118,7 +118,7 @@ To build a Power BI report/dashboard:
 
 9. Click and expand on the database where the data for the report comes from. Now, select a collection that contains the data to retrieve.
     
-    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.    
+    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**. To view the the properties documents as columns, click on the grey button with 2 arrows in opposite directions that symbolize the expansion of the record. It's located on the right of the container's name, in the same preview pane.
 
 10. Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
@@ -126,4 +126,4 @@ To build a Power BI report/dashboard:
                            
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).
+* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](/azure/cosmos-db/).

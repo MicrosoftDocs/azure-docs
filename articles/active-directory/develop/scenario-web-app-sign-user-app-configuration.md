@@ -1,6 +1,5 @@
 ---
-title: Configure a web app that signs in users | Azure
-titleSuffix: Microsoft identity platform
+title: Configure a web app that signs in users
 description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
 author: jmprieur
@@ -180,31 +179,15 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 # [Node.js](#tab/nodejs)
 
-Here, the configuration parameters reside in `index.js`
+Here, the configuration parameters reside in *.env* as environment variables:
 
-```javascript
+:::code language="text" source="~/ms-identity-node/App/.env":::
 
-const REDIRECT_URI = "http://localhost:3000/redirect";
+These parameters are used to create a configuration object in *authConfig.js* file, which will eventually be used to initialize MSAL Node:
 
-const config = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
-        clientSecret: "Enter_the_Client_Secret_Here"
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
-};
-```
+:::code language="js" source="~/ms-identity-node/App/authConfig.js":::
 
-In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/redirect`).
+In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/auth/redirect`).
 
 > [!NOTE]
 > This quickstart proposes to store the client secret in the configuration file for simplicity. In your production app, you'd want to use other ways to store your secret, such as a key vault or an environment variable.
@@ -239,7 +222,7 @@ The initialization code is different depending on the platform. For ASP.NET Core
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. The code that's initializing the application is in the *Startup.cs* file.
+In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. Prior to the release of .NET 6, the code that's initializing the application is in the *Startup.cs* file.  New ASP.NET Core projects with .NET 6 no longer contain a *Startup.cs* file.  Taking its place is the *Program.cs* file.  The rest of this tutorial pertains to .NET 5 or lower.
 
 To add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
@@ -278,7 +261,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
      }).AddMicrosoftIdentityUI();
     ```
 
-3. In the `Configure` method in *Startup.cs*, enable authentication with a call to `app.UseAuthentication();`
+3. In the `Configure` method in *Startup.cs*, enable authentication with a call to `app.UseAuthentication();` and `app.MapControllers();`.
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -287,6 +270,9 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
     // more code here
     app.UseAuthentication();
     app.UseAuthorization();
+    
+    app.MapRazorPages();
+    app.MapControllers();
     // more code here
    }
    ```
@@ -305,7 +291,7 @@ In the code above:
 
 - The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides a default controller to handle sign-in and sign-out.
 
-You can find more details about how Microsoft.Identity.Web enables you to create web apps in <https://aka.ms/ms-id-web/webapp>
+For more information about how Microsoft.Identity.Web enables you to create web apps, see [Web Apps in microsoft-identity-web](https://aka.ms/ms-id-web/webapp).
 
 # [ASP.NET](#tab/aspnet)
 
@@ -350,12 +336,9 @@ For details about the authorization code flow that this method triggers, see the
 
 # [Node.js](#tab/nodejs)
 
-```javascript
-const msal = require('@azure/msal-node');
+Node sample the Express framework. MSAL is initialized in *auth* route handler:
 
-// Create msal application object
-const cca = new msal.ConfidentialClientApplication(config);
-```
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-16":::
 
 # [Python](#tab/python)
 

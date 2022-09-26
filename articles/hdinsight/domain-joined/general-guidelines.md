@@ -107,7 +107,7 @@ Use a new resource group for each cluster so that you can distinguish between cl
 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
 
 Azure AD DS is required for secure clusters to join a domain.
-HDInsight can't depend on on-premise domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.yml).
+HDInsight can't depend on on-premises domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.yml).
 
 ### Azure AD DS instance
 
@@ -119,7 +119,7 @@ HDInsight can't depend on on-premise domain controllers or custom domain control
 
 ### Properties synced from Azure AD to Azure AD DS
 
-* Azure AD connect syncs from on-premise to Azure AD.
+* Azure AD connect syncs from on-premises to Azure AD.
 * Azure AD DS syncs from Azure AD.
 
 Azure AD DS syncs objects from Azure AD periodically. The Azure AD DS blade on the Azure portal displays the sync status. During each stage of sync, unique properties may get into conflict and renamed. Pay attention to the property mapping from Azure AD to Azure AD DS.
@@ -129,7 +129,7 @@ For more information, see [Azure AD UserPrincipalName population](../../active-d
 ### Password hash sync
 
 * Passwords are synced differently from other object types. Only non-reversible password hashes are synced in Azure AD and Azure AD DS
-* On-premise to Azure AD has to be enabled through AD Connect
+* On-premises to Azure AD has to be enabled through AD Connect
 * Azure AD to Azure AD DS sync is automatic (latencies are under 20 minutes).
 * Password hashes are synced only when there's a changed password. When you enable password hash sync, all existing passwords don't get synced automatically as they're stored irreversibly. When you change the password, password hashes get synced.
 

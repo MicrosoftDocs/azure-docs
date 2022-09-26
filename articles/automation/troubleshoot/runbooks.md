@@ -43,6 +43,41 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
+
+## Scenario: Unable to create new Automation job in West Europe region
+
+### Issue
+When creating new Automation jobs, you might experience a delay or failure of job creation. Scheduled jobs will automatically be retired, and jobs executed through the portal can be retired if you see a failure. 
+
+### Cause
+This is because of the high load from customers' runbooks using the Automation service in the West Europe region.
+
+### Resolution
+Perform the following action if it is feasible as per your requirement and environment to reduce the chance of failure: 
+
+- If you’re using the top of the hour for the job creation (at 12:00, 1:00, 2:00, and so on.), typically on the hour, or half hour, we recommend that you move the job start time to five minutes before or after the hour/half hour. This is because a most of the customers use the beginning of the hour for job execution which drastically increases the load on the service, while the load is relatively low at the other time slots.
+
+## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
+
+### Issue
+
+Your runbook using a managed identity Connect-AzAccount -Identity which attempts to manage Azure objects, fails to work successfully and logs the following error - `this.Client.SubscriptionId cannot be null.`
+
+```error
+get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-azvm + ~~~~~~~~ + CategoryInfo : CloseError: (:) [Get-AzVM], ValidationException + FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.GetAzureVMCommand
+```
+
+### Cause
+
+This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+
+### Resolution
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
+
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
+
 ## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
 
 This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](/azure/azure-sql/database/firewall-configure).
@@ -409,7 +444,7 @@ $Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
 $PollingSeconds = 5
 $MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
 $WaitTime = 0
-while((-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+while(-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
    Start-Sleep -Seconds $PollingSeconds
    $WaitTime += $PollingSeconds
    $Job = $Job | Get-AzAutomationJob

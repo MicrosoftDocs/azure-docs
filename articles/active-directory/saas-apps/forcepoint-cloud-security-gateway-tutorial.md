@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 06/30/2022
 ms.author: jeedes
 
 ---
@@ -51,6 +51,8 @@ To configure the integration of Forcepoint Cloud Security Gateway - User Authent
 1. In the **Add from the gallery** section, type **Forcepoint Cloud Security Gateway - User Authentication** in the search box.
 1. Select **Forcepoint Cloud Security Gateway - User Authentication** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Forcepoint Cloud Security Gateway - User Authentication
 
 Configure and test Azure AD SSO with Forcepoint Cloud Security Gateway - User Authentication using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Forcepoint Cloud Security Gateway - User Authentication.
@@ -72,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -83,15 +85,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://proxy-login.blackspider.com/`
 
     c. In the **Sign-on URL** text box, type the URL:
-    `https://mailcontrol.com`
+    `https://forcepoint.com`
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-   ![The Certificate download link](common/certificatebase64.png)
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up Forcepoint Cloud Security Gateway - User Authentication** section, copy the appropriate URL(s) based on your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot shows to copy appropriate configuration U R L.](common/copy-configuration-urls.png "Authentication")
 
 ### Create an Azure AD test user
 
@@ -131,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Select **Identity provider** from the dropdown.
 
-    c. Open the downloaded **Certificate (Base64)** from the Azure portal and upload the file into the **File upload** textbox by clicking **Browse** option.
+    c. Upload the **Federation Metadata XML** file from the Azure portal into the **File upload** textbox by clicking **Browse** option.
 
     d. Click **Save**.
 
