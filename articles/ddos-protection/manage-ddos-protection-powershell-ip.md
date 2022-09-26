@@ -61,20 +61,9 @@ Check the details of your public IP address and verify that DDoS IP Protection i
 ```azurepowershell-interactive
 #Gets the public IP address
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
-
 $protectionMode = $publicIp.DdosSettings.ProtectionMode
-
 ```
-
-## Clean up resources
-
-You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name MyResourceGroup
-```
-
-### Disable DDoS IP Protection for an existing public IP address
+## Disable DDoS IP Protection for an existing public IP address
 
 ```azurepowershell-interactive
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
@@ -83,9 +72,23 @@ $publicIp.DdosSettings.ProtectionMode = Disable
 
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
+>![Note]
+>When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
 
+## Clean up resources
+
+You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name MyResourceGroup
+```
 ## Next steps
 
+In this quickstart, you created:
+* A resource group 
+* A public IP address
+
+You enabled DDoS IP Protection using Azure PowerShell.
 To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
 
 > [!div class="nextstepaction"]
