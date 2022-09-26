@@ -55,9 +55,9 @@ For example, after five days of soft deleting the artifact, if the user changes 
 
 ## Known issues
 
->* Enabling soft delete policy with AZ through ARM template leaves the registry stuck in the `creation` state.
+>* Enabling soft delete policy with AZ enabling through ARM template leaves the registry stuck in the `creation` state.
 >* Accessing the manage deleted artifacts blade after disabling the soft delete policy will throw an error message with 405 status.
->* The customers with restrictions on permissions to restore, will have an issue as File not found.
+>* The customers with restrictions on permissions to restore, will see an issue as File not found.
 ## Enable soft delete policy for registry - CLI
 
 1. Update soft delete policy for a given `MyRegistry` ACR with a retention period set between 1 to 90 days.
