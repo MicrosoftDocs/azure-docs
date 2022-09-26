@@ -21,8 +21,8 @@ network and subnet. For an example of setting up prerequisites, see the
 
 ## Create a cluster with a private endpoint
 
-1. In the Azure portal, search for and select **Azure Cosmos DB**.
-1. On the **Azure Cosmos DB** page, select **Create**.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. On the **Create a resource** page, select **Databases**, and then select **Azure Cosmos DB**.
 1. On the **Select API option** page, on the **PostgreSQL** tile, select **Create**.
 1. On the **Create an Azure Cosmos DB for PostgreSQL cluster** page, select or create a **Resource group**, enter a **Cluster name** and **Location**, and enter and confirm the administrator **Password**.
 1. Select **Next: Networking**.
