@@ -57,6 +57,9 @@ You can also checkout the training module on how to [configure Azure Synapse Lin
 > [!NOTE]
 > Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers to start using Synapse Link. 
 
+> [!NOTE]
+> You can also enable Synapse Link for your account using the **Power BI** and the **Synapse Link** pane, in the **Integrations** section of the left navigation menu.
+
 ### Command-Line Tools
 
 Enable Synapse Link in your Cosmos DB SQL API or MongoDB API account using Azure CLI or PowerShell.
