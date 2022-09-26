@@ -230,8 +230,8 @@ Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). T
 | Maximum JOINs per query| 10 <sup>1</sup> |
 | Maximum UDFs per query| 10 <sup>1</sup> |
 | Maximum points per polygon| 4096 |
-| Maximum included paths per container| 1500 <sup>1</sup> |
-| Maximum excluded paths per container| 1500 <sup>1</sup> |
+| Maximum explicitly included paths per container| 1500 <sup>1</sup> |
+| Maximum explicitly excluded paths per container| 1500 <sup>1</sup> |
 | Maximum properties in a composite index| 8 |
 
 <sup>1</sup> You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
