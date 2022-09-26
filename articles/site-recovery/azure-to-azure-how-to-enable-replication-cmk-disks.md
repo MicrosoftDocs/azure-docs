@@ -22,7 +22,7 @@ You must create the Disk Encryption set(s) in the target region for the target s
 Use the following procedure to replicate machines with Customer-Managed Keys (CMK) enabled disks. 
 As an example, the primary Azure region is East Asia, and the secondary region is South East Asia.
 
-1. In the vault, > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
+1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 1. In the **Enable replication** page, under **Source**, do the following:
    - **Region**: Select the Azure region from where you want to protect your VMs. 
    For example, the source location is *East Asia*.
